@@ -1,6 +1,6 @@
 # Examples-and-Counterexamples-in-Elementary-Algebraic-Geometry
 
-This project is based on a perliminary notes the author wrote a few years ago 
+This project is based on a preliminary notes the author wrote a few years ago 
 about concrete examples and counterexamples, constructions and computations in elementary algebraic geometry.
 
 The goal of the notes is to serve as some kind of complimentary materials for people who want
