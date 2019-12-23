@@ -1,0 +1,32 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Homological algebra}
+\begin{example}[$\mathrm{Hom}, \mathscr{H}om, Ext^{i}_{A}(-,-), \mathscr{E}xt^{i}_{-}(-,-), Tor^{i}_{-}(-,-)$ with Macaulay2]
+We learned these examples from \begin{itemize}
+    \item \href{http://swc.math.arizona.edu/aws/2006/06StillmanNotes.pdf}{Computing with sheaves and sheaf cohomology in algebraic geometry}
+\item \href{http://www.math.sci.osaka-u.ac.jp/~msj-si-2015/school_slides/stillman-day2.pdf}{Computing with sheaves and sheaf cohomology in algebraic geometry}
+\item \href{https://math.stackexchange.com/questions/1550511/mathcalexti-mathcalo-l-1-mathcalo-l-2-and-textexti-mathc?rq=1}{$\mathscr{E}xt^{i}(\mathcal{O}_{L_{1}},\mathcal{O}_{L_{2}})$ for two lines $L_{1}, L_{2}$ in $\mathbb{P}^{3}$}
+\end{itemize}
+\end{example}
+
+
+\begin{example}[$\Ext^{1}$ and extension of vector bundles]
+Consider the following example
+\begin{itemize}
+\item \href{https://math.stackexchange.com/questions/1529355/vector-bundles-in-textext1-mathcalo-mathbbp12-mathcalo-math?rq=1}{vector bundles in $Ext^{1}(\mathcal{O}_{\mathbb{P}^{1}}(-2), \mathcal{O}_{\mathbb{P}^{1}}(2))$}
+\item \href{https://math.stackexchange.com/questions/1601588/extension-of-vector-bundles-on-mathbbcp1?rq=1}{Extensions of vector bundles on $\mathbb{P}^{1}$}
+\end{itemize}
+\end{example}
+
+
+\begin{example}[Compute $\ext_{\Z}(\Q, \Z)$]
+\begin{remark}
+$\ext_{\Z}(A,B)=0$ for any $B$ if $A$ is a free abelian group. $\ext_{\Z}(A,B)=0$ for any $A$ if $B$ is divisible (i.e  $\forall b\in B, 0\neq n\in \Z, \exists b'\in B$ such that $nb'=b$ ). Thus we have 
+$$\ext(\Z,\Z)=0, \ext(\Z,\Q)=0$$
+$$\ext(\Z/n\Z, \Q)=0, \ext(\Q, \Q)=0.$$
+For $\Z/n\Z$, we have the free resolution $0\rightarrow \Z\rightarrow \Z\rightarrow \Z/n\Z\rightarrow 0$, apply $\hom(-, \Z)$ or $\hom(-,\Z/m\Z)$, we can get 
+$$\ext(\Z/m\Z, \Z)=\Z/m\Z, \ext(\Z/m\Z, \Z/m\Z)=\Z/(m,n)\Z.$$
+Sometimes, we can also use the torsion property of vector space structure for some abelian groups to compute the $\ext$ groups. For example, $\ext(\Q, \Z/m\Z)$ is $m$-torsion by taking a free resolution of $\Q$ and then apply $\hom(-,\Z/m\Z)$. It also has a $\Q$-vector space structure induced from the scalar multiplication of $\Q$. Thus we know
+$$\ext(\Q, \Z/m\Z)=0.$$
+\end{remark}
+\end{document}

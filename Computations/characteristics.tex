@@ -1,0 +1,41 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Characteristic classes and numbers}
+\begin{example}[Horrocks–Mumford bundle]
+We compute the Euler characteristic of the bundle $\mathscr{F}$. Since we know 
+$$c(\mathscr{F})=1+5h+10h^{2}.$$
+It's standard to apply the Hirzebruch–Riemann–Roch theorem whch says
+$$\chi(\mathscr{F}(n-5))=\{Ch(\mathscr{F}(n-5)Td(T_{X}))\}_{0}.$$
+The computation is done with the help of Macaulay2,
+$$Ch(\mathscr{F}(n-5))=\frac{1}{12}(n-5)^{4}h^{4}+\frac{5}{3}(n-5)^{3}h^{3}+\frac{125}{12}(n-5)^{2}h^{2}+\frac{125}{6}(n-5)h+2$$
+$$Td(X):=Td(T_{X})=h^{4}+\frac{25}{12} h^{3}+\frac{35}{12} h^{2}+\frac{5}{2} h+1.$$
+Hence 
+$$\chi(\mathscr{F}(n-5))=\frac{(n^{2}-1)(n^{2}-24)}{12}.$$
+However, we can also compute $\chi(\mathscr{F}(n-5))$ by the construction of the bundle directly, namely we have
+\begin{itemize}
+\item $\mathscr{F}:=ker(q)/im(p)$
+$$0\rightarrow \mathcal{O}(2)\otimes V_{1}\xrightarrow{p} \wedge^{2}T_{X}\otimes W\xrightarrow{q} \mathcal{O}(3)\otimes V_{3}\rightarrow 0$$
+\item Koszul complex of the tangent bundle
+$$0\rightarrow \mathcal{O}\rightarrow \mathcal{O}(1)\otimes V\rightarrow \mathcal{O}(2)\otimes \wedge^{2}V\rightarrow \wedge^{2}T_{X}\rightarrow 0.$$
+Then we have 
+$$\chi(\mathscr{F}(n-5))=\chi(\wedge^{2}T_{X}(n-5)\otimes W)-\chi(\mathcal{O}(n-3)\otimes V_{1})-\chi((\mathcal{O}(n-2)\otimes V_{3}))$$
+$$=2\chi(\wedge^{2}T_{X})-5\chi(\mathcal{O}(n-3))-5\chi(\mathcal{O}(n-2))$$
+$$=2(10\chi(\mathcal{O}(n-3))+\chi(\mathcal{O}(n-5))-5\chi(\mathcal{O}(n-4)))$$
+$$-5\chi(\mathcal{O}(n-3))-5\chi(\mathcal{O}(n-2)).$$
+Recall that 
+$$\chi(\mathcal{O}_{\mathbb{P}^{4}}(n))=\binom{n+4}{4}$$
+we get 
+$$\chi(\mathscr{F}(n-5))=15\binom{n+1}{4}-10\binom{n}{4}+2\binom{n-1}{4}-5\binom{n+2}{4}$$
+$$=\frac{(n^{2}-1)(n^{2}-24)}{12}.$$
+\end{itemize}
+\end{example}
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,257 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Curves}
+\begin{example}[Smooth curve of any genus]
+A smooth plane curve of degree $d$ has genus $\frac{1}{2}d(d-1)$. The quadratic relation doesn't give us all possibilities. One way is to consider complete intersections in other varieties. Like a smooth bidegree $(a,b)$ curve in $\P^1\times \P^1$ has genus  $(a-1)(b-1)+1$ by the adjunction formula $\omega_{C}=\omega_{\P^1\times\P^1}\otimes \wedge^{\text{top}}N_{C/\P^1\times \P^1}=\O_{\P^1\times\P^1}(-2+a,-2+b)|_{C}$. Let $b=2$, the linear relation gives us all possibilities. 
+\end{example}
+
+
+\begin{example}[Unirational curves are all rational, birational $\neq$ isomorphism]
+Consider the cuspidal curve $C:y^{2}z=x^{3}$ again, we have a birational morphism
+$$\mathbb{P}_{k}^{1}\rightarrow C; [u,v]\mapsto [u^{2}v,u^{3},v^{3}].$$
+Then it's bijective but not an isomorphism, of course it's birational.
+\end{example}
+\begin{remark}[Smooth rational curve$\Rightarrow \mathbb{P}_{k}^{1}$ ]
+This is because we have a dominant(birational) map $$\mathbb{P}_{k}^{1}\rightarrow C$$
+then by Riemann-Hurwitz formula we know $g(C)\leq 0$, thus $C$ is actually $\mathbb{P}_{k}^{1}$.
+\end{remark}
+\begin{remark}[Morphisms from $\mathbb{P}_{k}^{1}$ to a group scheme are constant]
+This is because if $f:\mathbb{P}_{k}^{1}\rightarrow X$ is not a constant, then the image is a unirational curve, but by Lüroth's theorem it's rational, so it's reduced to the case $$\mathbb{P}_{k}^{1}=\widetilde{C}\rightarrow C\subset X.$$
+Now for some $y\in \mathbb{P}_{k}^{1}$, we have 
+$$df: T_{y}\mathbb{P}_{k}^{1}\rightarrow T_{f(y)}X$$
+is not zero, but $\Omega_{X}^{1}$ is trivial, we can thus find an $\omega\in \Gamma(X,\Omega_{X}^{1})$, such that $w(y)\neq 0$, then $f^{*}\omega\in \Gamma(\mathbb{P}_{k}^{1},\Omega_{\mathbb{P}_{k}^{1}}^{1})$
+which is not zero at $y$, this is ipossible, since $\Omega_{\mathbb{P}_{k}^{1}}^{1}\cong \mathcal{O}_{\mathbb{P}^{1}}(-2)$, no nonzero global $1$-forms. You can use other ways to state this fact(math is the art of giving different names to the same thing),e.g 
+\begin{itemize}
+\item on abelian surfaces, you cannot find any lines.
+\item on abelian varieties, you cannot find any linear subspace of dimension at least $1$.
+\item cubic surfaces are not abelian surfaces, since you can always find lines on a cubic surface.
+\item sometimes, this fact is actually very useful, see the paper `on a rank 2 bundles on $\mathbb{P}^{4}$ with 15000 symmetries' by Horrocks and Mumford, in the final argument that every smooth abelian surface is the zero locus of a section of the Horrocks-Mumford bundle, they actually compute the base locus of the complete linear system  corresponding to the global sections of that bundle, which turns out to be $25$ lines, but no line can live on an abelian surface, so the base locus is supported at finitely many points, in other words $codim\geq 2$, this is crucial for the proof.
+\end{itemize} 
+\end{remark}
+
+\begin{example}[Every point is an inflection point]
+It's an exercise in Hartshorne's book, consider the curve over a field with characteristic $3$.
+$$C: x^{3}y+y^{3}z+z^{3}x=0.$$
+Then $C$ is a smooth curve but every point on this curve is an inflection point. The easiest way to see this is to compute the Hessian of $C$. But we can also use a naive way to see this, namely, compute the intersection number of the tangent line $L$ at $(a,b)\in C$ and $C$. Which means, we only need to compute the lenth 
+$$k[x,y]/(x+a^{3}y+b, x^{3}y+y^{3}+x).$$
+And since $char(k)=3$ and $a^{3}b+b^{3}+a=0$, we have 
+$$(-a^{3}y+b)^{3}y+y^{3}+(-a^{3}y-b)=(y-b)^{3}(-a^{9}y+1).$$
+So in the local ring at $p=(a,b)$, the scheme structure of the intersection is 
+$$\mathrm{Spec}(k[y]/((y-b)^{3})); if\hspace{0.5mm} -a^{9}b+1\neq 0;$$
+$$\mathrm{Spec}(k[y]/(y-b)^{4}); if \hspace{0.5mm} -a^{9}b+1=0.$$
+In the second situation, we must have 
+$$1+a^{28}+a^{21}=0$$
+The derivative is given by $a^{27}$, and since $a=0$ is not a solution, we know there're exactly $28$ second type of points if $k$ is algebraically closed. 
+\end{example}
+\begin{remark}
+It's well-known that if $char(k)=0$, for a smooth degree $d$ plane curve $C$, we can find $3d(d-1)$ inflection points, this examples show it fails badly if $char(k)\neq 0$.
+\end{remark}
+
+
+\begin{example}[Wikipedia, a curve, polar curve and dual curve]
+$$C: 4y^{2}z = x^{3} − xz^{2}.$$
+The polar curve corresponding to $C$ w.r.t the point $p=(0.9,0,1)$ is 
+$$C': 4y^{2}=2.7x^{2}-2xz-0.9z^{2}.$$
+The dual curve  is given by 
+$$C^{*}:4X^{4}Y^{2}+Y^{6}+64X^{5}Z+24XY^{4}Z+120X^{2}Y^{2}Z^{2}-64X^{3}Z^{3}-108Y^{2}Z^{4}\subset \mathbb{P}^{2}.$$
+Computing the equation of $C^{*}$ is by elimination
+$$\mathrm{eliminate}(\{p,q,r,\lambda\}, (X=\lambda \frac{\partial f(p,q,r)}{\partial x}, Y=\lambda \frac{\partial f(p,q,r)}{\partial y}, Z=\lambda \frac{\partial f(p,q,r)}{\partial z}, Xp+Yq+Zr)).$$
+\end{example}
+
+\begin{example}[Extension of a morphism]
+Compare the following two statements
+\begin{itemize}
+\item If $C$ is a regular curve over $k$ and $X$ a complete variety, $p\in C$ is a point on $C$, then any morphism  
+$$f:C-\{p\}\rightarrow X$$
+can be extended to $C$.
+\item Consider the natural projection from the total space of $\mathcal{O}_{\mathbb{P}_{k}^{1}}(1)$ to $\mathbb{P}_{k}^{1}$, that is
+$$\mathbb{P}^{2}_{k}-[0,0,1]\rightarrow \mathbb{P}_{k}^{1}$$
+$$[x,y,z]\mapsto [x,y].$$
+This cannot be extended simply because there's no non-constant morphism $\mathbb{P}_{k}^{N}\rightarrow \mathbb{P}_{k}^{n}$ if $N>n$(this is because such a morphism is given by some homogeneous polynomials, but $n$ homogeneous polynomials with $N$ variables must have have base point, that is common zeros). 
+\end{itemize}
+
+\end{example}
+
+
+\begin{example}[Cohomology of $d$ lines intersecting transitively in $\mathbb{P}_{k}^{2}$, degree-genus formula]
+Note that no matter a degree $d$ curve $C$ is degenerated or not, we always have 
+$$0\rightarrow \mathscr{I}=\mathcal{O}_{\mathbb{P}^{2}}(-d)\rightarrow \mathcal{O}_{\mathbb{P}^{2}}\rightarrow \mathcal{O}_{C}\rightarrow 0.$$
+Then you can get the arithmetic genus is always given by 
+$$\chi(C)= \frac{d^{2}-3d+4}{2}$$
+Then we get the arithmetic genus of $C$ is always $\frac{(d-1)(d-2)}{2}$. If you don't want do this easy computation, that's fine, what we're saying here is just that arithmetic genus(equivalently, Euler characteristic) is constant in a flat family. Then you can normalize the intersecting lines and get a disjoint union of $d$ lines, then its genus is $-d+1$, since we have to normalize $\frac{(d-1)d}{2}$ points, we have 
+$$g_{C}-\frac{(d-1)d}{2}=-d+1.$$
+This is also a proof of the degree-genus formula(another proof is to use the adjunction formula, or use cut-paste procedure). 
+\end{example}
+\begin{example}[Regular differentials and degree-genus formula for smooth curves]
+The geometric genus $g=\mathrm{dim}H^{0}(C,\omega_{C})$ of a curve $C$ can be computed explicitly by finding a basis of $H^{0}(C, \Omega_{C}).$ Let's first do some warm-ups, consider the affine curve $X$ defined by $y^{2}=x^{3}+x$,  the sheaf $\omega_{X}$ of regular differential(regular differential) is a $k[X]$-module. $2ydy=(3x^{2}+1)dx$, we also say that $$\omega=\frac{dy}{3x^{2}+1}=\frac{dx}{2y}$$
+is a regular differential on $X$. Shouldn't it be a $k[X]$-module, why we have fractions here? Let $\omega=fdx+gdy$, we need 
+$$2y\omega=dx, (3x^{2}+1)\omega=dy.$$
+This requires 
+$$(2y)f+(3x^{2}+1)g=1$$
+Well, $X$ is smooth, thus $X\cap V(\frac{\partial f}{\partial x}=3x^{2}+1,\frac{\partial f}{\partial y}=2y)=\emptyset$, Hilbert's Nullstellensatz tells us that this is equivalent of saying that we can always find $f,g \in k[X]$ such that $(2y)f+(3x^{2}+1)g=1$, in this example we have 
+$$(2y)(-\frac{9}{4}xy)+(3x^{2}+1)(\frac{3}{2}x^{2}+1)=1.$$
+What we really mean by $\omega=\frac{dy}{3x^{2}+1}=\frac{dx}{2y}$ is that 
+$$\omega=-\frac{9}{4}xydx+(\frac{3}{2}x^{2}+1)dy.$$
+Then we can glue regular differentials on every affine open subset to get a regular differential on a general curve. Then for a curve $C\subset \mathbb{P}^{2}=\mathrm{Proj}(k[X,Y,Z])$ defined by $F(x,y)=0$ in $D_{+}(z)$, let $f=\frac{\partial f}{\partial x}, g=\frac{\partial f}{\partial y}$ we can use the same argument and show that all the regular differentials are of the form 
+$$\omega=\frac{-hdx}{g}=\frac{hdy}{f} , \mathrm{deg}(h)\leq d-3.$$
+Why $\mathrm{deg}(h)\leq d-3$ ? This is because on $D_{+}(y)$ with coordinates $u=\frac{X}{Y}, v=\frac{Z}{Y}$, we have $x=\frac{u}{v}, y=\frac{1}{v}$, hence $$\frac{hdy}{f}=\frac{h(\frac{u}{v}, \frac{1}{v})(\frac{-1}{v^{2}}dv)}{f(\frac{u}{v}, \frac{1}{v})}.$$
+We only need both factors be polynomials in $u,v$. Thus $\mathrm{deg}(h)+2\leq d-1.$
+To get the degree-genus formula, a homogeneous polynomial of degree $d$ in $3$ variables has $\binom{d+2}{2}=\frac{(d+2)(d+1)}{2}$ coefficients, thus we know 
+$$g=\mathrm{dim}H^{0}(C,\omega_{C})=\frac{((d-3)+2)((d-3)+1)}{2}=\frac{(d-1)(d-2)}{2}.$$
+\end{example}
+
+
+
+
+
+
+
+\begin{example}[Hartshorne $IV.3.7$, not every plane curve with nodes a projection of a regular curve in $\mathbb{P}^{3}$]
+Consider the curve $C$ over an algebraically closed field $k$, $char(k)\neq 2$
+$$C: xyz^{2}+x^{4}+y^{4}$$
+is not a projection of any regular curve in $\mathbb{P}^{3}$.
+\end{example}
+\begin{example}[Singular "strange" curves]
+Here "strange" means there exists a point which lies on all the tangent lines at nonsingular points of the curve.
+\end{example}
+
+\begin{example}[Stacks Project Example $46.11.3$, genus changes under a purely inseparable morphism between smooth projective curves]
+
+\end{example}
+\begin{example}[Non-hyperelliptic curves]
+We know all genus $2$ smooth projective curves are hyperelliptic, to construct some non-hyperelliptic curves, just remember a curve $C$ is hyperelliptic if and only if the canonical divisor $K$ is $\mathbf{not}$ very ample. Then we know many curves have ample canonical divisors, for example
+\begin{itemize}
+\item degree $4$ plane curves, like $x^{4}+y^{4}+z^{4}=0$, $g=3$, then 
+$$\omega_{C}=\mathcal{O}_{\mathbb{P}^{2}}(4-3)|_{C}=\mathcal{O}_{\mathbb{P}^{2}}(1)|_{C}$$
+\item any curve of $g\geq 2$ which can be realized as a complete intersection in some $\mathbb{P}^{n}$. Then 
+$$\omega_{C}=\mathcal{O}_{\mathbb{P}^{n}}((\sum d_{i})-n-1)|_{C}$$
+since $deg(K)=2g-2\geq 2$, we know $(\sum d_{i})-n-1\geq 0$, thus $K$ is very ample. More concretly, consider complete intersection of surfaces in $\mathbb{P}^{3}$, then we have 
+$$g=p_{a}=\frac{1}{2}ab(a+b-4)+1$$
+so, if you want to get a genus $4$, non-hyperelliptic curve, just let $a=3,b=2$.
+\end{itemize}
+\end{example}
+\begin{example}[A family of elliptic curves over $\mathbb{Q}$ with on rational points]
+In poonen's paper, `an explicit family of genus $1$ curves violating Hasse principal', we can find several examples
+\begin{itemize}
+\item around 1940, Lind
+$$C: 2y^{2}=1-17x^{4}, g=1$$
+Based on this example, we can construct a family of elliptic curves violating the Hasse principal, however, with constant $j$-invariant.
+$$X_{t}:2y^{2}=1-[(t^{2}+t+3)^{4}+16(t^{2}+t+1)^{4}]x^{4}.$$
+\item Selmer, diagonal plane cubic curve
+$$C: 3x^{3}+4y^{3}+5z^{3}=0$$
+\item 1962, Swinnerton-Dyer wrote a 2-page long paper, in this paper he constructed a cubic surface vialating the Hasse principal
+$$t(t+x)(2t+x)=\Pi_{i}(x+\theta_{i}y+\theta_{i}^{2}z)^{3}, \theta^{3}-7\theta+14\theta^{2}-7=0.$$
+\item 1966, Cassel and  Guy discovered a smooth cubic surface which violating the Hasse principal
+$$X: 5x^{3}+9y^{3}+10z^{3}+12w^{3}=0.$$
+\item Based on Cassel and Guy's example, Poonen constructed a non-trivial(non-constant $j$-invariant) family of elliptic curves violating the Hasse Principal.
+$$X_{t}:5x^{3}+9y^{3}+10z^{3}+12(\frac{t^{2}+82}{t^{2}+22})^{3}(x+y+z)^{3}=0.$$
+\item Based on Swinnerton-Dyer's example and Poonen's method, I also constructed a family of elliptic curves violating the Hasse principal.
+$$X_{t}:(\frac{t^{2}+54}{t^{2}+1})((\frac{t^{2}+54}{t^{2}+1})+1)((\frac{t^{2}+54}{t^{2}+1})+2)x^{3}=\Pi_{i}(x+\theta_{i}y+\theta_{i}^{2}z)^{3}, \theta^{3}-7\theta+14\theta^{2}-7=0.$$
+\end{itemize}
+For details of these examples and Poonen's method, see his original paper. What I want to do here is to follow Swinnerton-Dyer's method and prove that the cubic surface
+$$t(t+x)(2t+x)=\Pi_{i}(x+\theta_{i}y+\theta_{i}^{2}z)^{3}, \theta^{3}-7\theta+14\theta^{2}-7=0.$$
+violating the Hasse principal.
+\begin{itemize}
+\item if $p\neq 2,3,7$, then the discriminant is not zero, thus by the Hasse bound, we have 
+$$|\# X(\mathbb{F}_{p})-q-1|\leq 2\sqrt{q}.$$
+That means, we can always find smooth $\mathbb{F}_{p}$-point, then use Hensel's lemma, we can always find smooth $\mathbb{Q}_{p}$-point.
+\item check directly that for $p=2,3$ or $7$, we can still find smooth point. 
+$$p=2, [0,0,0,1]; p=3, [0,1,0,-1]; p=7, [3,0,0,1].$$
+Then apply Hensel's lemma again, for any prime $p$, $X$ contains a smooth $\mathbb{Q}_{p}$-point.
+\item To prove that $X$ has no rational points, we need some very basic knowledge of class field theory. First consider the field extension $\mathbb{Q}\subset \mathbb{Q}(\theta)$ determined by
+$$f(\theta)=\theta^{3}-7\theta^{2}+14\theta-7=0.$$
+Then it's an abelian cubic extension over $\mathbb{Q}$ with discriminant $49$. The only prime number ramifies in $\mathbb{Q}(\theta)$ is $7$, denote it by 
+$$\mathfrak{p}_{7}^{3}=(7), \mathfrak{p}_{7}|(\theta).$$
+The second relation comes from $f(\theta)$. 
+\begin{itemize}
+\item both sides of the defining equation cannot be zero, since if the RHS is zero, we get $x=y=z=0$, and thus $t=0$.
+\item we may assume the LHS is an integer and $(x,t)=1$. If both sides are divisible by $7$, then we know $\mathfrak{p}_{7}|x\Rightarrow 7|x.$
+But $(t,x)=1$, the LHS cannot be divided by $7$, a contradiction.
+\item now assume neither side is divisible by $7$. Since the RHS is a norm, and three factors on the LHS are coprime. Each one of them must be a norm of some distinct ideals. And class field theory tells us, since $\mathbb{Q}\subset \mathbb{Q}(\theta)$ corresponding to $\{\pm 1\}\subset (\mathbb{Z}/7\mathbb{Z})^{\times}$, the only rational primes ramify in $\mathbb{Q}(\theta)$ are those congruent to $\pm 1(mod 7)$, on the other hand, we have
+$$t+(t+x)=2t+x$$
+so this is actually impossible.
+\end{itemize}
+\end{itemize}
+In conlusion, we know $X$ contains no rational points.
+\end{example}
+\begin{example}[Jacobian of a curve??]
+We know some basic examples of Jacobian varieties
+\begin{itemize}
+\item $J(\mathbb{P}^{n})=pt$, since $\mathrm{Pic}(\mathbb{P}^{n})\cong \mathbb{Z}$.
+\item $J(E)\cong E$. And we have $\mathrm{Pic}(E)\cong E\times \mathbb{Z}.$
+\item $J(C)$, where $C$ is the Fermat quartic $x^{4}+y^{4}+z^{4}=0$. By construction $\mathrm{dim}(J(C))=g=\frac{(4-1)(4-2)}{2}=3$, I just know $J(C)$ is a three dimensional algebraic torus, but what is it explicitly, I have no idea.
+\end{itemize}
+\end{example}
+\begin{remark}[When is the coordinate ring of an affine curve a UFD?]
+
+\end{remark}
+\begin{remark}[$\mathrm{Cl}^{0}(X)$ of the nodal curve]
+
+\end{remark}
+
+\begin{example}[Complex tori but not algebraic tori, intersection theory]
+We have two standard counterexamples
+\begin{itemize}
+\item Fix some $a\in \mathbb{R}, a>1$ and consider 
+$$\mathbb{C}^{2}-\{(0,0)\}/((x,y)\sim (a^{k}x,a^{k}y)).$$
+Then topologically, this is just $S^{3}\times S^{1}$, by  Künneth’s theorem, we know $H^{2}(X)=0$, however basic intersection theoretic construction, a complex algebraic variety always have divisors with nonzero homology class. We conclude that $S^{3}\times S^{1}$ has a complex structure but has no algebraic structure.
+\item The quotient $X:=\mathbb{C}^{2}/\Lambda$ of $\mathbb{C}^{2}$ by a generic lattice of rank $4$. Topologically, $X\cong (S^{1})^{4}.$ See \href{https://sbseminar.wordpress.com/2008/02/14/complex-manifolds-which-are-not-algebraic/}{Complex manifolds which are not algebraic}.
+\end{itemize}
+\end{example}
+
+\begin{example}[Degree genus formula for smooth complete intersection]
+This is quite straightforward, let $C \subset \mathbb{P}^{n}$ be a complete intersection of $n-1$ hypersurfaces $X_{i}=V(f_{i})$, $deg(f_{i})=a_{i}$, then consider the tangent sequence 
+$$0\rightarrow \oplus_{i=1}^{n-1}\mathcal{O}_{\mathbb{P}^{n}}(-a_{i})|_{C}\rightarrow \Omega_{\mathbb{P}^{n}}|_{C}\rightarrow \Omega_{C}\rightarrow 0$$
+$$(\phi_{1},\dots, \phi_{n-1})\mapsto d(\sum_{i}f_{i}\phi_{i}); dg\mapsto d(g|_{C})$$
+Then we know 
+$$N_{C/X}|_{C}=\mathcal{O}_{C}(\sum_{i}a_{i}-n-1)$$
+This tells us that 
+$$2g-2=deg(K_{C})=deg((\sum_{i}a_{i}-n-1)H|_{C})=(\sum_{i}a_{i}-n-1)\Pi a_{i}$$
+thus we get 
+$$g=\frac{1}{2}\Pi a_{i}(\sum a_{i}-n-1)$$
+as a special case. we know a complete intersection in $\mathbb{P}^{3}$ has genus 
+$$g=\frac{1}{2}ab(a+b-4)$$
+\end{example}
+\begin{remark}[Non-hyperelliptic curves]
+If a curve has genus $g\geq 2$, and $C$ can be realized as a complete intersection then $C$ is non-hyperelliptic, $\omega_{C}=\mathcal{O}_{\mathbb{P}^{n}}(\sum a_{i}-n-1)|_{C}$, thus $\omega_{C}$ is very ample. 
+\end{remark}
+
+\begin{example}[Faithful group action on a variety with zero derivative]
+Let $k$ be a field of characteristic $p>0$, and consider the $\mathbb{G}_{m}$ action on $\mathbb{A}^{1}$ given by 
+$$\mathbb{G}_{m}(R)\times \mathbb{A}^{1}(R)\rightarrow \mathbb{A}^{1}(R)$$
+$$(\alpha, r)\mapsto \alpha^{p}r.$$
+Note that $d(\alpha^{p})=p\alpha^{p-1}d\alpha=0$, $\alpha^{p}-1=(\alpha-1)^{p}=0\Leftrightarrow \alpha=1$.
+\end{example}
+\begin{example}[Hurwitz's bound for $\#\mathrm{Aut}(C)$ fails in positive characteristics]
+Let $k$ be a field of characteristic $p=2g+1$, consider the curve 
+$$y^{2}=x^{p}-x.$$
+\end{example}
+\begin{example}[Non-trivial automorphism that fixes every $\mathbb{F}_{p}$ point]
+Consider curves 
+$$C_{1}: y^{2}=x^{p}-x, C_{2}: y^{2}=x^{p}-x^{p-1}-x+1.$$
+The automorphism $\sigma\neq id$ is given by $(x,y)\mapsto (x,-y)$, note that in $\mathbb{F}_{p}$ we have $x^{p}-x\equiv 0$. Therefore
+\begin{itemize}
+\item $\sigma$ fix every $\mathbb{F}_{p}$ point of $C_{1}$,
+\item $\sigma$ fix every rational point on $C_{2}$ and switches $(0,1)$ and $(0,-1)$.
+\end{itemize}
+\end{example}
+\begin{example}[The automorphism group a curve over any field with $g\geq 2$ is finite, how to produce vector fields on a variety?]
+If $g>2$, we know $\omega_{C}$ is ample, we can linearize $\mathrm{Aut}(C)$ by `the canonical embedding'
+$$j:X\hookrightarrow \mathbb{P}H^{0}(C,\omega_{C}^{\otimes m})=:\mathbb{P}V.$$
+$j$ is an $\mathrm{Aut}(X)$-equivariant embedding, $\mathrm{Aut}(C)$ acts on the right by pulling back differential forms. Now we claim, if $\#\mathrm{Aut}(C)=\infty$, we can produce a nonzero global vector field on $X$, but this contradicts the fact the $c_{1}(T_{C})=2-2g<0$. How can we construct a vector field on $C$? Well, any element $v$ in $PGL(V)$ generates a vector field on $\mathbb{P}V$. But this need not to be a vector field on $C$, that's not a big problem, if $v$ comes from some $1$-parameter subgroup of $\mathrm{Aut}(C)\hookrightarrow PGL(V)$, it does give us a vector field on $C$. Now, we want to ask when I can find an '1'-parameter subgroup of $\mathrm{Aut}(C)$?  We know the Zariski closure of $\mathrm{Aut}(C)$ is also an algebraic group, let's call it $G$, $G$ acts on $C$(everything is defined by polynomials of coordinates in $\mathbb{P}V$). Since everything here is of finite type, if $\#\mathrm{Aut}(C)=+\infty$, we must have $\mathrm{dim}(G)\geq 1$, this means $\mathrm{dim}(T_{e}G)\geq 1$, we can find some non-zero $v\in T_{e}G$, by the discussion above, it would give me a nonzero global vector field on $C$, which is impossible. We conclude that, a curve of genus at least $2$ over arbitrary field has a finite automorphism group.
+\end{example}
+\begin{remark}
+I learned this proof from Daniel Litt's notes \href{https://static1.squarespace.com/static/57bf2a6de3df281593b7f57d/t/57bf698ff7e0abe0fdca085a/1472162191829/curve-automorphisms.pdf}{here}.
+\end{remark}
+\begin{remark}[Canonical embedding]
+We see from the proof above that the canonical embedding plays an important role, mainly because  
+\begin{itemize}
+\item the canonical embedding linearizes $\mathrm{Aut}(X)$, namely, $\mathrm{Aut}(X)$ is a subgroup of $PGL_{n}$.
+\item vector fields on $X$ form a subset of vector fields on $\mathbb{P}V$ generated by the linear action of $PGL_{n}$, that is a non-zero element $v\in T_{e}(G)$ must gives us a non-zero vector field on $X$.
+\end{itemize}
+To get more intuitions, just consider 
+$$C: x^{4}+y^{4}+z^{4}\hookrightarrow \mathbb{P}^{2}_{k}.$$
+Then $\omega_{C}\cong \mathcal{O}_{C}(1)$, $H^{0}(C,\omega_{C})$ is generated by $x,y$ and $z$(viewed as functions on $C$). Note that here we cannot give you any global vector field, just because $\mathrm{Aut}(X)\subset PGL_{3}$ is finite. An old point of view is that $deg(T_{C})=2-2g_{C}=-4$, thus no global section exsits.
+\end{remark}
+
+\end{document}

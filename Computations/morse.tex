@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Morse theory}
+\begin{example}[Morse theory on Grassmannian]
+We use two approaches to study the Morse theory on complex Grassmannians,
+\begin{itemize}
+\item Morse-Smale dynamics and the gradient flow.
+\item Localization.
+\end{itemize}
+Let's start with the localization method. We have a natural torus action on $Gr(k,n)$ defined as the right multiplication of $t\in T$
+$$\begin{pmatrix}a_{11} & a_{12} & \dots & a_{1n}\\
+a_{21} & a_{22} & \dots & a_{2n}\\
+\dots \\
+a_{k1} & a_{k2} & \dots & a_{kn}\end{pmatrix}\begin{pmatrix}t_{1} \\
+& t_{2}\\
+&& \dots\\
+&&&t_{n}\end{pmatrix}=\begin{pmatrix}t_{1}a_{11} & t_{2}a_{12} & \dots & t_{n}a_{1n}\\
+t_{1}a_{21} & t_{2}a_{22} & \dots & t_{n}a_{2n}\\
+\dots \\
+t_{1}a_{k1} & t_{2}a_{k2} & \dots & t_{n}a_{kn}\end{pmatrix}$$
+Consider the standard open covering of $Gr(k,n)$, we know fixed points are exactly unimodular matrices, for example
+$$
+\begin{pmatrix}1 & 0 & 0 & 0 & \dots & \dots & 0\\
+0 & 1 & 0 & 0 & \dots & \dots & 0\\
+0 & 0 & 1 & 0 & \dots & \dots & 0\\
+0 & 0 & 0 & 1 & \dots & \dots & 0\\\end{pmatrix}
+$$
+Hence we have $\binom{n}{k}$ fixed point of the torus action corresponding to the coordinates $\{x_{J}\}$ of the Plücker embedding. Let $[W]$ be a fixed point, $T_{[W]}(Gr(k,n))\cong Hom(W, V/W)$ which can be naturally identified with the rest $(n-k)$ columns in the echelon form. And as a representation of the torus, the weight decomposition is given by 
+$$T_{[W]}(Gr(k,n))\cong \oplus_{j\notin J,i}V(i,j), \mathrm{weight}(V(i,j))=t_{j}t_{i}^{-1}.$$
+where $V(i,j)$ is the the one-dimensional space at the position $(i,j)$. We only need to compute the index at each fixed point $x_{J}=x_{j_{1}, \dots, j_{k}}$, this is the same as 
+$$2\#\{j\notin J, j>i\}=2[(n-k-j_{1}+1)+(n-k-j_{2}+2)+\dots  +(n-k-j_{k}+k)]$$
+$$=2(n-k)k+2(\frac{(k+1)k}{2}-\sum_{\alpha} j_{\alpha})=:d_{J}.$$
+Thus we get 
+$$P_{t}(Gr(k,n))=\sum_{J}t^{2d_{J}}.$$
+Specially, for $\mathbb{P}_{\mathbb{C}}^{n}$, 
+$$P_{t}(\mathbb{P}_{\mathbb{C}}^{n})=1+t^{2}+t^{4}+\dots +t^{2n}.$$
+Note that $d_{J}$ has a natural combinatorial interpretation: $0\leq (j_{1}-1)\leq (j_{2}-2) \dots (j_{k}-k)\leq n-k$ gives us a partition inside a $k\times (n-k)$ rectangle, $d_{J}$ is the size of the complement, which is still the size of a partition inside this rectangle. So we can write it as 
+$$P_{t}(Gr(k,n))=\sum_{\lambda\subset \framebox(5,5)_{}}t^{2|\lambda|}.$$
+If we consider those partitions according to $j_{k}-k=n-k$ or $j-k\neq n-k$(which means the last row in the partition is the whole row or not), we get a recursive formula
+$$P_{t}(k,n)=P_{t}(k, n-1)+t^{2(n-k)}P_{t}(k-1,n-1)$$
+Hence we get a expression which is convenient for down-to-earth computations,
+$$P_{t}(k,n)=P_{t}(Gr(k,n))=\frac{\Pi_{i=1}^{n}(1-t^{2i})}{(\Pi_{1}^{k}(1-t^{2i}))(\Pi_{i=1}^{n-k}(1-t^{2i}))}.$$
+Let me create a notation 
+$$P_{t}(Gr(k,n))=\binom{n, 1-t^{2i}}{k}.$$
+Now we consider a more familiar version of the Morse theory on Grassmannians, which means, we construct a Morse function explicitly(in the localization method, the Morse function is given by the moment map of the torus action, but we don't need to write it down, since we know critical points are just those fixed points of the torus action, for more details, see Nakajima's book on Hilbert schemes,Chapter $5$).
+\end{example}
+%%\begin{remark}[`Nakajima's operators']
+%%I'm wondering, if we consider 
+%%$$\sum_{n\geq k\geq 0}q^{n}z^{k}P_{t}(Gr(k,n)),$$
+%%is it possible to view this as the trace for some irreducible %%representation of some infinite dimensional algebra? Hmm... %%likely, am I crazy?
+%%\end{remark}
+
+\begin{example}[Moment maps on $\mathrm{Hilb}^{n}(\mathbb{C}^{2})$]
+
+\end{example}
+
+\begin{example}[Moment maps on smooth nested Hilbert schemes]
+
+\end{example}
+\begin{remark}[Adjoint orbit, symplectic form, moment maps]
+\end{remark}
+
+
+\end{document}

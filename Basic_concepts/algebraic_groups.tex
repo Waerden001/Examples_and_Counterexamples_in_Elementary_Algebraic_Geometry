@@ -1,0 +1,58 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Algebraic groups and group schemes}
+\begin{example}[Zariski closure of an algebraic group, not even a group]
+Consider the nodal curve 
+$$C:y^{2}=x^{2}(x+1).$$
+Then $$C\setminus\{0\}\cong \mathrm{Spec}(k[t,t^{-1}])\cong \mathbb{G}_{m}.$$
+Its closure is just $C$ which is not an algebraic group(since it's not smooth). This silly counterexample is made for  \href{http://www.jmilne.org/math/CourseNotes/iAG200.pdf}{the following property of algebraic groups}
+$$\text{If $G$ is an algebraic group and $H$ an abstract subgroup, the Zariski closure of $H$ is a group}.$$
+For example, use this we can easily prove that $SL(2,\mathbb{Z})$ is Zariski-dense in $SL(2,\mathbb{C})$. For the following reasons
+\begin{itemize}
+
+\item $U_{+}=\begin{pmatrix}1 & a\\ 0 & 1\end{pmatrix}\subset \overline{SL(2,\mathbb{Z})}$ because all matrices of the form $\begin{pmatrix}1 & n\\ 0 & 1\end{pmatrix}$ do. Same for $U_{-}$.
+\item The maximal torus $T=\{\begin{pmatrix}t & 0\\0 & \frac{1}{t}\end{pmatrix}\}\cong \mathrm{Spec}(k[t,t^{-1}])$, $s=\begin{pmatrix}0 & -1\\ 1 & 0\end{pmatrix}\in SL(2,\mathbb{Z})$, now 
+$$\begin{pmatrix}1 & x\\ 0 & 1\end{pmatrix}\begin{pmatrix}1 & 0\\ -\frac{1}{x} & 1\end{pmatrix}\begin{pmatrix}0 & -1\\ 1 & 0\end{pmatrix}=\begin{pmatrix}x & 0\\ 0 & -\frac{1}{x}\end{pmatrix},$$
+use the property above we now know $T\subset \overline{SL(2,\mathbb{Z})},$
+
+\item Thus $B=TU_{+}\subset \overline{SL(2,\mathbb{C})}$ by the property above, Bruhat decomposition tells us 
+$$SL(2,\mathbb{C})=U_{-}B\bigsqcup U_{-}sB.$$
+Use the property again, we know
+$$\overline{SL(2,\mathbb{Z})}=SL(2,\mathbb{C}).$$
+\end{itemize}
+\end{example}
+\begin{example}[$SL(2,\mathbb{Z}$ is Zariski-dense in $SL(2,\mathbb{C})$, another proof, Sam]
+Sam told me another proof different from the one uses Bruhat decomposition. Fix an embedding $\mathbb{Q}_{5}\hookrightarrow \mathbb{C}$. The argument goes as follows
+\begin{itemize}
+\item $SL(2,\mathbb{Z})$ is dense in $SL(2,\mathbb{Z}_{5})$ in the $5$-adic topology, hence in the Zariski topology.
+\item $SL(2,\mathbb{Z}_{5})$ is an open dense subset of $SL(2,\mathbb{Q}_{5})$ in the $5$-adic topology, hence in the Zariski topology.
+\item Since $\mathbb{Q}_{5}$ contains a $4$th root of unit, the closure of $SL(2,\mathbb{Z})$ contains $SL(2,\mathbb{Q}(i))$.
+\item $SL(2)$ over any field contains an open $(\mathbb{A}^{1}\setminus\{0\})^{3}$ embedded as 
+$$(x,y,z)\mapsto \begin{pmatrix}x & y\\ \frac{xz-1}{y}  & z\end{pmatrix}.$$
+\item $\mathbb{Q}(i)$ points of $(\mathbb{A}^{1}\setminus\{0\})^{3}$ are dense in its $\mathbb{C}$-points in euclidean topology and hence in the Zariski topology, we're done.
+\end{itemize}
+\end{example}
+
+
+\begin{remark}[Non-reduced group schemes in characteristic $p$]
+We can equip $\mathrm{Spec}(k[x]/(x^{p}))$ with two different group scheme structures by the following two exact sequence 
+$$0\rightarrow \mu_{p}\rightarrow \mathbb{G}_{m}\xrightarrow{x\mapsto x^{p}}\mathbb{G}_{m}\rightarrow 0$$
+$$0\rightarrow \alpha_{p}\rightarrow \mathbb{G}_{a}\xrightarrow{x\mapsto x^{p}}\mathbb{G}_{a}\rightarrow 0$$
+To be more precise, the functor $\mu_{p}: S\mapsto \mu_{p}(S)=\{\text{$p$th roots of unity in $S$}\}$
+is represented by the scheme $\mathrm{Spec}(k[x]/(x^{p}-1))$, the functor $\alpha_{p}: S\mapsto \mu_{p}(S)=\{\text{$p$th nilpotent elements in $S$}\}$
+is represented by the scheme $\mathrm{Spec}(k[x]/(x^{p}))$, however in characteristic $p$, these two schemes are isomorphic, although the two functors(group schemes) are not isomorphic. And this doesn't mean the ring $k[x]/x^{p}$ has two different group structures, instead, we really have to think about the Hopf algebra structures. For $\mu_{p}$, we have 
+\begin{itemize}
+\item composition $c:A\rightarrow A\otimes A, x\mapsto U\otimes V$.
+\item unit $e:A\rightarrow k, x\mapsto 1$.
+\item inverse $i:A\rightarrow A, x\mapsto x^{n-1}=x^{-1}.$
+\end{itemize}
+\end{remark}
+
+\begin{example}[A group scheme that is not smooth over a nonperfect field of characteristic $p$]
+Let $k$ be a field of characteristic $p>0$, $\alpha\in k$ but not a $p$th power. The closed subgroup scheme 
+$$V(x^{p}+\alpha y^{p})\subset \mathbb{G}_{a,k}^{2}$$
+is reduced and irreducible but not smooth, not even normal.
+\end{example}
+
+
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Monad on Hirzebruch surfaces}
+Let $\pi: \Sigma_{n}=\P(\E^{\vee})=\P(\O\oplus \O(-n))\rightarrow \P^1$ be the $n$-th Hirzebruch surfaces.  Let $H=c_{1}(\O_{\Sigma_{n}}(1))$, $E$ be the class of $\P(\O(-n))$, its self-intersection equals to $-n$, $F$ be a fiber class of $\pi$. We have $E=H-nF$. The Chow ring of $\Sigma_{n}$ is given by $A(\Sigma_{n})=A[\P^1][H]/(H^{2}-nFH)=\Z[F, H]/(F^2, H^{2}-nFH)$, naturally one has $\Pic(\Sigma_{n})=\Z H\oplus \Z F$. From now on, we denote $\E(p,q)=\E\otimes\O_{\Sigma_{n}}(pH+qF)$ for any sheaf of $\O_{\Sigma_{n}}$-modules. Recall that the relative Euler sequence computes the relative canonical sheaf
+$$0\rightarrow \O_{\Sigma_{n}}(-1, 0)\rightarrow \pi^{*}(\E^{\vee})\rightarrow T_{\Sigma_{n}/\P^1}(-1,0)\rightarrow 0.$$
+\begin{align*}\Omega_{\Sigma_{n}/\P^1}&=\O_{\Sigma_{n}}(-2, 0)\otimes \pi^{*}(\det \E)=\O_{\Sigma_{n}}(-2,n)\\
+T_{\Sigma_{n}/\P^1}&=\O_{\Sigma_{n}}(2,-n)\\
+\omega_{\Sigma_{n}}&=\O_{\Sigma_{n}}(-2, n-2).\end{align*}
+For later computations, we need the following lemmata.
+\begin{lemma}\label{Cohomology on the surface}
+\begin{align*}
+\H^{0}(\O_{\Sigma_{n}}(p, q))&\neq 0 \text{ if and only if }\begin{cases}p\geq 0\\ np+q\geq 0\end{cases}\\
+\H^{1}(\O_{\Sigma_{n}}(p, q))&\neq 0  \text{ if and only if }  \begin{cases}p\geq 0\\ q\leq -2\end{cases} \text{ or }  \begin{cases}p\leq -2\\q\geq n\end{cases}\\
+\H^{2}(\O_{\Sigma_{n}}(p, q))&\neq 0 \text{ if and only if }\begin{cases}p\geq -2\\ np+q\leq -(n+2)\end{cases}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+See \cite[Lemma 3.1]{Monad15}
+\end{proof}
+The classical Beilinson spectral sequence is a way to describe torsion-free sheaves on $\P^2$ as the cohomology of certain three-term complexes---the so-called monad. With the isomorphism between the Hilbert scheme of points on $\C^2$ and the moduli space of rank $1$ torsion-free sheaves on $\P^2$ which are trivial over infinity, the Hilbert scheme can be realized as the quiver variety with one vertex and one loop, see \cite[Theorem 2.1]{Nakajima}. The essential part of the construction is a resolution of the diagonal in $\P^2\times \P^2$. For Hirzebruch surfaces, the diagonal can also be resolved(for references to the details of the construction , we refer to \cite{Buchdahl1987} or \cite{Aprodu09}). We first briefly recall the Beilinson-type spectral sequence on $\Sigma_{n}$, following the approach in \cite{Nakajima} we give a monad description of $\Hilb(T^*\P^1)$ as a Nakajima quiver variety of type $A_{1}^{(1)}$, and we show that the two tautological bundles corresponding to the two vertices are exactly $\O_{X}(1)^{[n]}$ and $\O_{X}^{[n]}$.  
+\shuai{Should we recall the elementary description of the construction as in \cite{Buchdahl1987}?}. 
+We denote $p_{i}:\Sigma_{n}\times \Sigma_{n}$ be the projections to the two factors, $p: X\times X\rightarrow \P^1\times \P^1$ be the product of the ruling $\pi$. Let $\Delta_{\P^1}\subset \P^1\times \P^1$ be the diagonal divisor on $\P^1\times \P^1$ and $\Delta$ be the diagonal divisor on $\Sigma_{n}\times \Sigma_{n}$, $L= \O_{\P^1\times \P^1}(\Delta_{\P^1})$. Consider the line bundle 
+$$\F = p_{1}^{*}(T_{\Sigma_{n}/\P^1}(-1, 0))\otimes p_{2}^{*}(\O_{\Sigma_{n}}(1, 0))=\O_{\Sigma_{n}}(1,-n)\boxtimes \O_{\Sigma_{n}}(1, 0).$$
+A rank $2$ locally free sheaf $\G$ is defined by an extension 
+$$0\rightarrow \F\rightarrow \G\rightarrow p^{*}(L)\rightarrow 0.$$
+Note that $p^{*}(L)=\O_{\Sigma_{n}}(0,1)\boxtimes \O_{\Sigma_{n}}(0,1)$.
+Buchdahl proved that\cite{Buchdahl1987} the diagonal $\Delta$ can be realized as the zero locus of a global section $s$ of $\G$, then the Koszul complex of $s$ gives us the resolution of the diagonal $C^{\bullet}\twoheadrightarrow\O_{\Delta}$: 
+$$0\rightarrow \wedge^{2}\G^{\vee}\rightarrow \G^{\vee}\xrightarrow{s} \O_{\Sigma_{n}\times \Sigma_{n}}\rightarrow \O_{\Delta}\rightarrow 0.$$
+Then the Beilinson spectral sequences comes from different ways of computing the image of $p_{1}^{*}\E$ under the composite functor $p_{2*}(\O_{\Delta}\otimes -)$ . On the one hand, we trivially have $p_{2*}(\O_{\Delta}\otimes p_{1}^{*}\E)=\E$. If we take the cohomology of $C^{\bullet}$ first in the double complex for the hyper direct image $\dR^{\bullet}p_{2*}(C^{\bullet}\otimes p_{1}^{*}\E)$, the trivial identity tells us exactly that the corresponding spectral sequence degenerate at the $E_{2}$ page, namely
+$$E_{2}^{p,q}=R^{q}p_{2*}(\H^{p}(C^{\bullet}\otimes p_{1}^{*}\E))=\begin{cases}\E &  (p,q)=(0,0)\\
+0 & \text{otherwise }\end{cases}.$$
+On the other hand, we can also take the direct image first, then we get the so-called Beilinson spectral sequence for $\Sigma_{n}$. 
+\begin{theorem}[\cite{Buchdahl1987}]\label{Limit}
+For any torsion free sheaf $\E$ on $\Sigma_{n}$, there exists a spectral sequence, depending on $\E$:
+$$E_{1}^{p,q}=R^{q}p_{2*}(\wedge^{-p}\G^{\vee}\otimes p_{1}^{*}\E)\Rightarrow \begin{cases}\E & p+q=0\\
+0 & \text{otherwise}\end{cases}.$$
+\end{theorem}
+\begin{remark}
+It's originally stated for locally free sheaves, the same argument works for torsion free sheaves with very little modification. Also notice that we can use either $p_{1*}(p_{2}^{*}\E\otimes \O_{\Delta})$ or $p_{2*}(p_{1}^{*}\E\otimes \O_{\Delta})$. In general the two spectral sequences are different. We chose the one above simply because we can get better vanishing control on the $E_{1}$-page.
+\end{remark}
+Take the exterior powers of the dual of the defining sequence of $\G$ and tensor with $p_{1}^{*}\E$, Since $\E$ is torsion-free, $-\otimes p_{1}^{*}\E$ is an exact functor. We have
+$$0\rightarrow \wedge^{-p-1}\F^{\vee}\otimes p^{*}(L^{\vee})\otimes p_{1}^{*}\E\rightarrow \wedge^{-p}\G^{\vee}\otimes p_{1}^{*}\E\rightarrow \wedge^{-p}\F^{\vee}\otimes p_{1}^{*}\E\rightarrow 0.$$
+If $p=0$, the first sheaf in the sequence above vanishes, $\wedge^{-p}\G^{\vee}\otimes p_{1}^{*}\E=p_{1}^{*}\E$, if $p=-2$, the last sheaf in the sequence above vanishes, $\wedge^{-2}\G^{\vee}\otimes p_{1}^{*}\E=\F^{\vee}\otimes p^{*}(L^{\vee})\otimes p_{1}^{*}\E=\E(-1, n-1)\boxtimes \O_{\Sigma_{n}}(-1, -1)$. Take the associated long exact sequence one has 
+\begin{align}
+&E_{1}^{0,q}= \H^{q}(\E)\otimes \O_{\Sigma_{n}}(0,0)\\\label{terms in the spectral sequence}
+\dots\rightarrow \H^{q}(\E(0, -1))\otimes \O_{\Sigma_{n}}(0, -1)\rightarrow &E_{1}^{-1, q}\rightarrow \H^{q}(\E(-1, n))\otimes \O_{\Sigma_{n}}(-1, 0)\rightarrow \dots \\
+&E_{1}^{-2, q}= \H^{q}(\E(-1, n-1))\otimes \O_{\Sigma_{n}}(-1,-1).
+\end{align}
+
+\begin{lemma}\label{Vanshing lemma}
+Let $\E$ be a torsion-free sheaf on $\Sigma_{n}$, trivial at infinity. We have
+\begin{align*}
+\H^{0}(\E(p,q))=0 & \text{ for } np+q\leq -1\\
+\H^{2}(\E(p,q))=0 & \text{ for } np+q\geq -(n+1).
+\end{align*}
+\end{lemma}
+
+
+\begin{proposition}
+For any torsion free sheaf $\E$ on $\Sigma_{n}$ can be realized as a monad:
+$$0\rightarrow \H^{1}(\E(-2,n-1))\otimes \O_{\Sigma_{n}}(0, -1)\rightarrow E_{1}^{-1, 1}\otimes\O_{\Sigma_{n}}(1, 0)\rightarrow  \H^{1}(\E(-1, 0))\otimes \O_{\Sigma_{n}}(1, 0)\rightarrow 0.$$
+where the $E_{1}^{-1, 1}\otimes \O_{\Sigma_{n}}(1, 0)$-term can be computed from 
+$$0 \rightarrow \H^{1}(\E(-1, -1))\otimes\O_{\Sigma}(1, -1)\rightarrow E_{1}^{-1, 1}\otimes \O_{\Sigma_{n}}(1, 0)\rightarrow \H^{1}(\E(-2, n))\otimes \O_{\Sigma_{n}}(0, 0)\rightarrow 0.$$
+Moreover, the second sequence splits.
+\end{proposition}
+\begin{proof}
+The trick here is that $\E$ can't be realized as a monad just from the spectral sequence. However, for $\E(-1, 0)$, the Beilinson spectral sequence becomes
+\begin{center}
+\begin{tabular}{|p{5.5cm}|p{1cm}|p{3.5cm}|p{0.5cm}| }
+ \hline
+ $\H^{2}(\E(-2,n-1))\otimes\O(-1, -1)$&$E_{1}^{-1,2}$& $\H^2(\E(-1, 0))\otimes \O_{\Sigma_{n}}$\\
+ \hline
+$\H^{1}(\E(-2,n-1))\otimes \O_{\Sigma_{n}}(-1,-1)$&$E_{1}^{-1,1}$&$\H^{1}(\E(-1, 0))\otimes \O_{\Sigma_{n}}$\\
+ \hline
+ $\H^{0}(\E(-2,n-1))\otimes \O_{\Sigma_{n}}(-1,-1)$&$E_{1}^{-1,0}$& $\H^{0}(\E(-1, 0))\otimes \O_{\Sigma_{n}}$\\
+ \hline
+\end{tabular}
+\end{center}
+By Lemma \ref{Vanshing lemma}, all the four corner terms vanish. Then Theorem \ref{Limit} forces $E_{1}^{-1,2}$ and $E_{1}^{-1, 0}$ to be zeros. Thus only the $q=1$ terms in the spectral sequence survive and the spectral sequence degenerates at the $E_{1}$-page. This proves that $\E(-1, 0)$ is the cohomology of 
+$$0\rightarrow \H^{1}(\E(-2,n-1))\otimes \O_{\Sigma_{n}}(-1, -1)\rightarrow E_{1}^{-1, 1}\rightarrow  \H^{1}(\E(-1, 0))\otimes \O_{\Sigma_{n}}\rightarrow 0.$$
+Tensoring it with $\O_{\Sigma_{n}}(1, 0)$ gives the first statement. To compute $E_{1}^{-1,1}\otimes\O_{\Sigma_{n}}(1, 0)$, Lemma \ref{Vanshing lemma} shows that $\H^{0}(\E(-1, -1))=0$ and $\H^{2}(\E(-1,-1))=0$ for any $\Sigma_{n}$. Sequence \ref{terms in the spectral sequence} degenerates to the second statement in the proposition. It splits because  $\Ext^{1}(\O_{\Sigma_{n}}(1, -1), \O_{\Sigma_{n}}) =\H^1(\O_{\Sigma_{n}}(-1, 1))=0$, the last equality comes from Lemma \ref{Cohomology on the surface}.
+\end{proof}
+\end{document}

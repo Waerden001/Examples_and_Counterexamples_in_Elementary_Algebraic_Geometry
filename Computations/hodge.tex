@@ -1,0 +1,27 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Hodge numbers}
+\begin{example}[Hodge numbers of a blow-up]
+We give several computations of the hodge number of $Bl_{C}(\mathbb{P}^{3})$(over $\mathbb{C}$), where $C$ is the twisted cubic parametrized by $[u^{3}, u^{2}v, uv^{2}, v^{3}]$.
+\begin{itemize}
+\item $\chi^{p,q}=(-1)^{p+q}h^{p,q}$ is additive. Then we know 
+$$\chi^{p,q}(Bl_{C}(\mathbb{P}^{3}))=\chi^{p,q}(\mathbb{P}^{1}\times \mathbb{P}^{1})+\chi^{p,q}(\mathbb{P}^{3})-\chi^{p,q}(C)$$
+Then we know the Hodge diamond is given by 
+$$\begin{pmatrix} & & & 1& & & \\
+ & & 0& &0 & &\\
+  & 0& & 2& &0 &\\
+   0& & 0 & &0 & &0\\
+    & 0& & 2& &0 &\\
+     & & 0& &0 & &\\
+      & & & 1& & &\end{pmatrix}$$
+For computations of each terms, see the reference below.
+\item Mixed Hodge structure.
+\item Decomposition theorem.
+\item Computer algebra. Macaulay2. See \href{http://www2.macaulay2.com/Macaulay2/doc/Macaulay2-1.10/share/doc/Macaulay2/Schubert2/html/_blowup.html}{here}.
+\end{itemize}
+\end{example}
+\begin{remark}[refenrence]
+\href{http://www.math.purdue.edu/~dvb/preprints/book-chap17.pdf}{Computations of some Hodge numbers}
+\end{remark}
+
+\end{document}

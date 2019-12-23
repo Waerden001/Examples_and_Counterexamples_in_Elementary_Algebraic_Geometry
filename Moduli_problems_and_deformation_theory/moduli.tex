@@ -1,0 +1,519 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\subsection{Moduli problems}
+\begin{example}[A stable sheaf but not geometrically stable]
+\end{example}
+
+\begin{example}[$\Omega_{\mathbb{P}^{n}}$ is stable]
+\end{example}
+
+\begin{example}[Harder-Narasimhan filtration, Gieseker nonstable but Mumford-Takemoto semistable]
+Check out \href{https://arxiv.org/pdf/1411.2884.pdf}{On the Gieseker Harder-Narasimhan filtration for principal bundles}
+\end{example}
+\begin{example}[$\mathbb{P}^{1}\times \mathbb{P}^{1}$ and change of polarization]
+See here \href{http://www.northeastern.edu/iloseu/Xiaolei_S16.pdf}{Notions of stability of sheaves}
+\end{example}
+\begin{example}[A rank $2$ moduli space, $\mathrm{K}3$ surface of degree $8$ in $\mathbb{P}^{5}$ ]
+\href{http://www.northeastern.edu/iloseu/Barbara_S16.pdf}{page 7}
+\end{example}
+
+\begin{example}[$S$-equivalence]
+\end{example}
+
+\begin{example}[Jordan-Holder filtration v.s. Harder-Narasimhan filtration]
+\href{https://mathoverflow.net/questions/180551/jordan-holder-vs-harder-narasimhan}{Jordan-Holder filtration v.s. Harder-Narasimhan filtration}
+\end{example}
+
+
+
+\begin{example}[Strong semistability is not an open property]
+\href{http://www.ams.org/books/pspum/080.1/2483939/pspum080.1-2483939.pdf}{Strong semistability is not an open property}
+\end{example}
+
+
+
+
+
+
+
+
+\begin{example}[Betti numbers and topological Euler characteristics of $\overline{\mathrm{M}}_{0,n}$]
+
+\end{example}
+\begin{example}[Canonical divisor of $\overline{\mathrm{M}}_{0,n}$]
+
+\end{example}
+\begin{example}[$\mathrm{rank}(H^{2}(\overline{\mathrm{M}}_{0,n}, \mathbb{Z}))$]
+
+\end{example}
+\begin{remark}[$\mathrm{rank}(\mathrm{Pic}(\mathscr{K}_{g}))$]
+
+\end{remark}
+
+\begin{example}[another computation of $\mathrm{Pic}(\mathscr{M}_{1,1})$]
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Algebraic stacks}
+\subsection{Schemes as functors, sheaves on categories}
+It's highly recommended to read David Mumford's book Lectures on curves on an algebraic surface. 
+\begin{example}[$\mathbb{A}_{\mathbb{Z}}^{1}$]
+
+\end{example}
+
+\begin{example}[$\mathbb{P}_{\mathbb{Z}}^{n}$]
+
+\end{example}
+
+\begin{example}[Fano scheme and its tangent space]
+
+\end{example}
+
+\begin{example}[Grassmannian]
+
+\end{example}
+\begin{remark}
+The graph of a morphism to a separated scheme is closed.
+\end{remark}
+
+\begin{example}[Quotient stack $[\mathbb{A}^{n}/GL_{n}\text{]}$]
+\href{https://mathoverflow.net/questions/184253/the-quotient-stack-mathbban-mathrmgl-n?rq=1}{The quotient stack}.
+Geometric picture
+$$-\bullet$$
+\end{example}
+
+\begin{example}[Examples of algebraic stacks without coarse moduli space]
+\href{https://mathoverflow.net/questions/3742/examples-of-algebraic-stacks-without-coarse-moduli-space?rq=1}{Here}.
+\end{example}
+
+\begin{example}[$x^{2}+y^{3}=z^{7}$]
+\href{http://math.mit.edu/~poonen/papers/pss.pdf}{Twists of $X(7)$ and primitive solutions to $x^{2}+y^3=z^7$}.
+\end{example}
+
+\begin{example}[$(p-1)/24$ supersingular elliptic curves in characteristic $p$]
+\href{https://mathoverflow.net/questions/24573/is-there-a-nice-proof-of-the-fact-that-there-are-p-1-24-supersingular-elliptic}{Here}
+\end{example}
+\begin{example}[Mumford, Picard groups of moduli problems]
+\href{http://www.mathcs.emory.edu/~brussel/Scans/mumfordpicard.pdf}{Picard groups of moduli problems} and
+\href{https://www.daniellitt.com/#/expository-notes/}{Daniel Litt's expository notes}.
+\end{example}
+
+\begin{example}[Tangent space of the Picard scheme]
+\end{example}
+
+
+
+
+
+\begin{example}[Isotrivial but non-trivial family of elliptic curves]
+Consider the family of elliptic curves over $k^{*}$
+$$X:=\mathrm{Spec}(k[x,y, t,t^{-1}]/(y^{2}-x^{3}+t))\rightarrow \mathrm{Spec}k[t,t^{-1}]=k^{*}.$$
+This is a family of elliptic curves with constant $j\equiv 0$. This is not a trivial bundle because the total space $E$ is affine, that is 
+$$\mathrm{Spec}(k[x,y, t,t^{-1}]/(y^{2}-x^{3}+t))=D_{+}(y^{2}-x^{3})\subset \mathbb{A}_{k}^{2}.$$
+If this family is trivial $X\cong E\times k^{*}$, then we get a dominant morphism 
+$$\mathbb{P}^{2}\dashrightarrow E\times k^{*}\rightarrow E,$$
+this implies that $E$ is unirational, by Luroth's theorem, this means $E$ is rational, contradicts the fact that $g(E)=1$.
+\end{example}
+\begin{remark}[Trivialization in \'{e}tale topology]
+Consider the étale open subset 
+$$\phi:\mathrm{Spec}(k[t^{\frac{1}{6}}, t^{\frac{-1}{6}}])\rightarrow \mattrm{Spec}(k[t,t^{-1}]),$$
+which means if we let $x=t^{\frac{1}{3}}x', y=t^{\frac{1}{2}}y'$, we get an isomorphism between $y^{2}=x^{3}-t$ and $(y')^{2}=(x')^{3}-1.$
+\end{remark}
+\begin{example}[$\pt\rightarrow B\mathbb{G}_{m}$ is an $\mathrm{fppf}$ (even smooth and surjective) cover]
+I read this from Daniel Litt's notes `Picard groups of moduli problems'. We try to parametrize all line bundles, that means we `remember'
+\begin{itemize}
+\item `isomorphism', namely, let $\{U_{i}\}$ be a cover of $X$. $\mathcal{L},\mathcal{L}'$ are two line bundles on $X$, and $f_{i}: \mathcal{L}|_{U_{i}}\rightarrow \mathcal{L}'|_{U_{i}}$ are isomorphisms, so that $f_{i}|_{U_{i}\cap U_{j}}=f_{j}|_{U_{i}\cap U_{j}}$, then $f$ descents to(i.e gives us ) an isomorphism $f:\mathcal{L}\rightarrow \mathcal{L}'$. In other words $\mathrm{Isom}(\mathcal{L},\mathcal{L}')$ is an $\mathrm{fpqc}$ sheaf: if $i: U\rightarrow X$ is a $\mathrm{fpqc}$ morphism, we have an exact sequence
+$$\mathrm{Isom}(\mathcal{L},\mathcal{L}')(X)\rightarrow \mathrm{Isom}(\mathcal{L},\mathcal{L}')(U)\rightrightarrows \mathrm{Isom}(\mathcal{L},\mathcal{L}')(U\times_{X}U).$$
+\item `automorphism', that's just the cocycle condition. Let $B\mathbb{G}_{m}(X)$ be the category of line bundles on $X$, with isomorphisms as morphisms, for any $\mathrm{fpqc}$ morphism $U\rightarrow X$, we have an exact sequence in the sense of $groupoids.$
+$$B\mathbb{G}_{m}(X)\rightarrow B\mathbb{G}_{m}(U)\rightrightarrows B\mathbb{G}_{m}(U\times_{X}U)\triplerightarrow B\mathbb{G}_{m}(U\times_{X}U\times_{X}U).$$ 
+\end{itemize}
+
+
+A morphism $f: T\rightarrow B\mathbb{G}_{m}$ is the same as a line bundle on $T$(but different morphisms may have isomorphisms between them). Let $\mathcal{L}, \mathcal{L}'$ be a bundle on $T$ and $T'$ respectively, corresponding to morphisms $f,f'$, consider   
+$$\begin{tikzcd}
+T\times_{B\mathbb{G}_{m}}T'\arrow{r}\arrow{d} & T'\arrow{d}{f'}\\
+T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}$$
+Then a morphism $X\rightarrow T\times_{B\mathbb{G}_{m}}T'$ is the same as 
+\begin{itemize}
+\item morphisms $g: X\rightarrow T, g': X\rightarrow T'$ and
+\item $f\circ g=f'\circ g'$, let the bundle corresponding to $f\circ g$ be $\mathcal{M}$, then we know the condition means `$\mathcal{M}(U\rightarrow X)\cong \mathcal{L}(U\rightarrow X\rightarrow T)$'(to be more precise, to really get a line bundle on $X$, we mean the inverse sheaf tensored with the structure sheaf of $X$), that is $\mathcal{M}\cong g^{*}\mathcal{L}$. In other words $f\circ g=f'\circ g'$ is the same as 
+$$g^{*}\mathcal{L}\cong g'^{*}\mathcal{L}'.$$
+\end{itemize}
+
+
+Then we can justify the fact $pt\rightarrow B\mathbb{G}_{m}$ is a $\mathrm{fppf}.$ cover.
+$$\begin{tikzcd}
+T\times_{B\mathbb{G}_{m}}pt\arrow{r}\arrow{d} & pt\arrow{d}{f'}\\
+T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}$$
+where $f'$ is given by $\mathcal{O}_{pt}$ and $f$ is given by a line bundle on $T$. By our discussion, a morphism $X\rightarrow T\times_{B\mathbb{G}_{m}}pt$(i.e a 'point' of this functor) is the same as 
+$$\begin{tikzcd}
+X\arrow{r}{g'}\arrow{d}{g} & pt\arrow{d}{f'}\\
+T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}$$
+$$\text{an isomorphism}: g^{*}\mathcal{L}\cong g'^{*}\mathcal{O}_{pt}=\mathcal{O}_{X}.$$
+Now what does $(T\times_{B\mathbb{G}_{m}}pt)(X)$ mean? It means all possible isomorphisms $g^{*}\mathcal{L}\cong g'^{*}\mathcal{O}_{pt}=\mathcal{O}_{X}$, so we get 
+\begin{itemize}
+\item if $g^{*}\mathcal{L}\cong \mathcal{O}_{X}$, then $$(T\times_{B\mathbb{G}_{m}}pt)(X)=\mathbb{G}_{m}(X)=\mathcal{O}_{X}^{*},$$
+\item if $g^{*}\mathcal{L}\not\simeq \mathcal{O}_{X}$, then $$(T\times_{B\mathbb{G}_{m}}pt)(X)=\emptyset.$$
+$T\times_{B\mathbb{G}_{m}}pt$ is actually a scheme. To see this, let $f_{i}:U_{i}\rightarrow X$ be morphisms such that $f_{i}^{*}\mathcal{L}\cong \mathcal{O}_{X}$,  we know this functor is `glued' together by its restrictions to $U_{i}\times pt$, that is 'gluing'(in the sence above, two descents) $\mathbb{G}_{m}(U_{i})$ by automorphisms of $\mathbb{G}_{m}(U_{i}\cap U_{j})$ which satisfies the cocycle conditions, that's the same as the ordinary gluing procedure of $\mathcal{L}$, namely $\mathcal{L}|_{U_{i}}\cong \mathcal{L}|_{U_{j}}$, in short
+$$\text{we're now gluing $\mathbb{G}_{m}(U_{i})$ by the same construction of $\mathcal{L}$}$$
+this tells us
+$$T\times_{B\mathbb{G}_{m}}pt\cong \mathrm{Tot}(\mathcal{L})\setminus\{0\}.$$
+That's just the $\mathbb{G}_{m}$-bundle associated to $\mathcal{L}$ and $\{0\}$ means the zero section. $\mathrm{L}\setminus \{0\}$ is indeed faithfully flat over $T$.
+\end{itemize}
+\end{example}
+
+\begin{remark}[$T'\rightarrow B\mathbb{G}_{m}$ representable?(i.e any pull-back along this morphism is a scheme)]
+The answer is YES. By the diagonal criterion in Daniel's Notes, we only need to check the following pull-back is representable
+$$\begin{tikzcd}
+B\mathbb{G}_{m}\times_{B\mathbb{G}_{m}\times B\mathbb{G}_{m}}T\arrow{r}\arrow{d} & T\arrow{d}{(\mathcal{L}_{1}, \mathcal{L}_{2})}\\
+B\mathbb{G}_{m}\arrow{r}{\Delta}& B\mathbb{G}_{m}\times B\mathbb{G}_{m}\end{tikzcd}.$$
+This is true, just repeat the discussion above, we should get 
+$$B\mathbb{G}_{m}\times_{B\mathbb{G}_{m}\times B\mathbb{G}_{m}}T\cong \mathrm{Isom}(\mathcal{L},\mathcal{L}')\cong \mathrm{Tot}(\mathcal{L}'\otimes \mathcal{L}^{\vee})\setminus\{0\}.$$
+\end{remark}
+\begin{remark}[`glue']
+When considering problems related to stacks, `glue' actually means something slightly different: we don't mean we want to identify things to get some equivalent classes, but to remember their relations, i.e 
+\begin{itemize}
+\item Descent for isomorphisms (between two `things')
+\item Descent for auotomorphisms (defining a `thing')
+\end{itemize}
+For quotient stack, specially, we need to connect `points' in an orbit by the `isomorphism' between them ($x=gy$) and we also want to remember the stablizer(automorphism, $gx=x$) at every point $x$.
+\end{remark}
+
+
+
+
+\begin{example}[quotient morphism $X\rightarrow X/G$ with no Zariski-local sections]
+We have the following examples
+\begin{itemize}
+\item finite Galois covers of a curve of genus $\geq 1$.
+\end{itemize}
+\end{example}
+
+\begin{example}[$\mathrm{Pic}(BG)$ over an algebraically closed field $k$]
+$BG$ is just the quotient stack $[pt/G]$. We can define line bundles on $BG$ directly, we can also define them by descending from $pt$. 
+\begin{itemize}
+\item a line bundle on $BG$ is defined by associating to each map $X\rightarrow BG$(i.e a $G$-torsor on $X$) a line bundle $\mathcal{L}_{\mathcal{G}}$, `glue' here means for every morphism $h:T'\rightarrow T$ over $BG$, we have to $\mathbf{specify}$ an isomorphism $h^{*}\mathcal{L}_{\mathcal{G}}\cong \mathcal{L}_{\mathcal{G}'}$. Specially, for an automorphism $f:T\rightarrow T$ over $BG$(this is much more than an automorphism of $T$ itself), it's the identity on $T$, so it's an automorphism of ${\mathcal{G}}$, it's $G$. In other words, for any $g\in G$ we have to specify an element in $\mathrm{Aut}(\mathcal{L}_{\mathcal{G}})\cong k^{*}.$ All constructions are compatible with compositions, so we actually have a character map for any $G$-torsor $\mathcal{G}$
+$$\chi_{\mathcal{G}}:G\rightarrow k^{*}.$$
+\item any other way to view line bundles on $BG$ is that every line bundle on $BG$ comes from a line bundle and descent data on $pt$(this is because $k=\bar{k}$, we don't have any non-trivial étale cover of $pt$). $\mathcal{O}_{pt}$ is the only line bundle on $pt$, the descent data here means for any $g\in G$, we have to specify an automorphism of $\mathcal{O}_{pt}$ which satisfies the cocycle condition, i.e a map(of set) $\alpha: G\rightarrow \mathbb{G}_{m}$ satisfies the cocycle condition, note that we only have one bundle, but we have $|G|$ automorphisms, think about it, it just means, the composition of $\alpha(g_{2})\circ \alpha(g_{1}): \mathcal{O}_{pt}\xrightarrow{\alpha(g_{1})}\righarrow \mathcal{O}_{pt}\xrightarrow{\alpha(g_{2})} \mathcal{O}_{pt}$ has to agree with $\alpha(g_{1}g_{2}):\mathcal{O}_{pt}\rightarrow \mathcal{O}_{pt}$, this exactly means $\alpha$ is a group homomorphism! This tells us
+$$\mathrm{Pic}(BG)\cong \mathrm{Hom}(G,k^{*})=H^{1}(G,k^{*}).$$
+\end{itemize}
+Combine these two, the homomorphism in the second point of view is the same as $\chi_{\mathcal{G}}:G\rightarrow \mathcal{G}_{m}$ associated to the trivial $G$-torsor $\mathcal{G}$ as in the first point of view. That is 
+$$\mathrm{Tot}(\mathcal{L}_{G\times pt})=\mathcal{G}\times_{G}\mathbb{A}_{k}^{1},$$
+where $G$ acts on $\mathbb{A}_{k}^{1}$ trivially. In general if we have $\chi: G\rightarrow k^{*}$, the corresponding $G$-torsor is given by
+$$\mathrm{Tot}(\mathcal{L}_{\mathcal{G}})\cong \mathcal{G}\times_{G}\mathbb{A}_{k}^{1},$$
+but here $G$ acts on $\mathbb{A}_{k}^{1}$ by the character $\chi$.
+If $G=\mathcal{G}_{m}$, we get the `classical' result
+$$\mathrm{Pic}(B\mathbb{G}_{m})=\mathrm{Hom}(\mathbb{G}_{m},\mathbb{G}_{m})\cong \mathbb{Z}=H^{2}(\mathbb{CP}^{\infty},\mathbb{Z}).$$
+\end{example}
+
+
+
+
+
+
+
+
+\begin{example}[$\mathrm{Pic}(\mathscr{M}_{1,1})$ over a field $k$, $char(k)\neq 2,3$, algebraic method]
+We follow Mumford's original paper `Picard groups of moduli problems', it's very readable and enlightening, thus we highly recommend interested readers of reading it. We want to find some numerical invariants of a line bundle on $\mathscr{M}_{1,1}$.  To be more clear, our goal is to define a homomorphism 
+$$\mathrm{Pic}(\mathscr{M}_{1,1})\rightarrow \mathbb{Z}/12\mathbb{Z}.$$
+Consider a line bundle $\mathscr{L}$ on the moduli problem $\mathscr{M}_{1,1}$ and a family of elliptic curves $\pi: \mathscr{X}\rightarrow S$, then the family has a natural involution(order $2$ automorphism), namely the inversion $\rho$:
+$$\begin{tikzcd}\mathscr{X}\arrow{r}{\rho}\arrow{d}{\pi} & \mathscr{X}\arrow{d}{\pi}\\
+S\arrow{r}{id} & S\end{tikzcd}.$$
+By the definition of a line bundle on a moduli problem, we get an automorphism $\mathscr{L}(\rho)$(that is the restriction map corresponding to the `inclusion of open sets' $\rho$) of $\mathscr{L}_{\pi}$(the line bundle on $S$ corresponding to $\mathscr{L}$ and the family $\pi$). For example if $S=\mathrm{Spec}(k), \mathscr{X}=C$, then $\mathscr{L}(\rho)$ is determined by an element $\alpha(C)\in H^{0}(C,\mathcal{O}_{C}^{*})\cong k^{*}$. $\alpha^{2}(C)=1$, thus $\alpha(C)=1$ or $\alpha(C)=-1$. Similarly, for a general family $\pi:\mathscr{X}\rightarrow S$, then $\mathscr{L}(\rho)$ is given by an element $\alpha\in H^{0}(S, \mathcal{O}_{S}^{*})$, the restriction to every fibre $\pi^{-1}(s)$ over a closed point $s\in S$ is just the ordinary inversion, this tells us $\alpha|_{s}=\alpha(\pi^{-1}(s))$, thus locally, this is a constant either $=1$ or $=-1$. Note that we can put all elliptic curves in a single family over a connected base. For example 
+$$E_{t}:y^{2}=x(x-1)(x-t), t\neq 0,1, \infty.$$
+We define $\alpha(\mathscr{L}):= \alpha(E_{t})$, We thus get a homomorphism(this doesn't depends on $E_{t}$, by the compatibility of $\mathscr{L}$ with pull-backs in this Grothendieck topology)
+$$\alpha:\mathrm{Pic}(\mathscr{M}_{1,1})\rightarrow \mathbb{Z}/2\mathbb{Z}.$$
+Note that the line bundle $\mathscr{L}$ gives us a line bundle for every family, and some family has more automorphisms, this actually helps us to construct more homomorphisms from $\mathrm{Pic}(\mathscr{M}_{1,1})$ to more concrete groups. To be more precise, let $$C_{1}=V(y^{2}-x(x+1)(x-1)), j=0,$$ 
+$$C_{2}=V(y^{2}-x(x-\omega)(x-\omega^{2})),\omega^{3}=1, j=12^{3}=1728.$$ 
+Consider two families 
+$$\pi_{1}: C_{1}\rightarrow \mathrm{Spec}(k), \pi_{2}: C_{2}\rightarrow \mathrm{Spec}(k).$$
+We know $\mathrm{Aut}(C_{1})\cong \mathbb{Z}/4\mathbb{Z}$ with a generator $\sigma$
+$$x\mapsto -x, y\mapsto iy.$$
+$\mathrm{Aut}(C_{2})\cong \mathbb{Z}/6\mathbb{Z}$ with a generator $\tau$
+$$x\mapsto \omega x, y\mapsto -y.$$
+But our discussion above, $\mathscr{L}(\sigma)$ acts on $\mathscr{L}_{\pi_{1}}$ by multiplication of a fourth root of unity, similarly $\mathscr{L}_{\pi_{2}}$ acts on $\mathscr{L}_{\pi_{1}}$ by multiplication of a sixth root of unity. Then we can define a homomorphism
+$$\beta:\mathrm{Pic}(\mathscr{M}_{1,1})\rightarrow \mathbb{Z}/4\mathbb{Z}\times_{\mathbb{Z}/2\mathbb{Z}}\mathbb{Z}/6\mathbb{Z}\cong \mathbb{Z}/12\mathbb{Z}.$$
+This is because we have relations $\mathscr{L}(\sigma)^{2}=\mathscr{L}(\tau)^{3}=\alpha(\mathscr{L})$, we can fix a $12^{th}$ primitive root $\zeta$, then there's a unique integer $\beta (\mathrm{mod} 12)$ such that
+$$\zeta^{6\beta}=\alpha(\mathscr{L}), \zeta^{3\beta}=\mathscr{L}(\sigma), \zeta^{2\beta}=\mathscr{L}(\tau).$$
+This $\beta$ gives us the homomorphism we want. We first prove that $\beta$ is surjective, to do this , recall that the Hodge bundle of a family $\pi:\mathscr{X}\rightarrow S$ is defined to be the direct image sheaf
+$$R^{1}\pi_{*}\mathcal{O}_{\mathscr{X}}\rightarrow S.$$
+For any elliptic curve $C$
+$$\mathrm{dim}H^{1}(C, \mathcal{O}_{C})=\mathrm{dim} H^{0}(C, \omega_{C})=g_{C}=1,$$
+then by the cohomology and base change theorem, we know $R^{1}\pi_{*}\mathcal{O}_{\mathscr{X}}$ is a line bundle over $S$. Note that the cohomology and base change theorem not just tells us the rank of $R^{1}\pi_{*}\mathcal{O}_{\mathscr{X}}$ is $1$ but also the compatibility w.r.t Cartesian diagrams we need. Therefore we do get a line bundle on $\mathscr{M}_{1,1}$ by defining 
+$$\Lambda(\mathscr{X}\rightarrow S)=R^{1}\pi_{*}\mathcal{O}_{\mathscr{X}}.$$
+Now we only need to compute the action of $\sigma$ on $H^{0}(C_{1}, \omega_{C_{1}})$ and of $\tau$ on $H^{0}(C_{2}, \omega_{C_{2}})$. By basic knowledge of regular differentials, we know $H^{0}(C_{1}, \omega_{C_{1}})$ is a one dimensional vector space generated by $w=\frac{dx}{2y}=\frac{dy}{3x^{2}-1}.$
+$$\sigma: \frac{dx}{2y}\mapsto \frac{-dx}{idy}=i\frac{dx}{2y}, \mathrm{ord}(\sigma)=4.$$
+Similarly, $H^{0}(C_{2}, \omega_{C_{2}})$ is a one dimensional vector space generated by $w=\frac{dx}{2y}=\frac{dy}{3x^{2}}.$ 
+$$\tau: \frac{dx}{2y}\mapsto \frac{\omega dx}{-dy}=-\omega\frac{dx}{2y}, \mathrm{ord}(\tau)=6.$$
+$\beta$ is thus surjective. We can make a one-and-for-all choice such that $\beta(\Lambda)=1$. 
+To prove $\beta$ is injective, we let $\beta(\mathscr{L})=0$, we have to prove that $\mathscr{L}\cong \mathcal{O}_{\mathscr{M}_{1,1}}$. What does this mean? This means we can find an étale cover $S$ of $\mathscr{M}_{1,1}$ which trivilizes $\mathscr{L}$, such that if we fix a trivilization $\phi:\mathscr{L}|_{S}\cong \mathcal{O}_{S}$, the descent data of $\mathscr{L}$ commutes with that of $\mathscr{O}_{\mathscr{M}_{1,1}}$ under this trivilization. We already know $S=\mathscr{E}_{t}\rightarrow \mathbb{A}_{t}^{1}\setminus\{0,1\}$ above is an étale cover of $\mathscr{M}_{1,1}$ of degree $12$, any line bundle on $S$ is trivial since it's an open subset of $\mathbb{A}_{t}^{1}$. Now we have to prove the compatibility on the fibre product 
+$$\begin{tikzcd}S\times_{\mathscr{M}_{1,1}}S\arrow{r}{\pi_{1}}\arrow{d}{\pi_{2}} & S\\
+S.\end{tikzcd}$$ 
+That is, the following diagram commutes 
+$$\begin{tikzcd}\pi_{1}^{*}\mathscr{L}\arrow{r}\arrow{d}{\pi_{1}^{*}\phi} & \pi_{2}^{*}\mathscr{L}\arrow{d}{\pi_{2}^{*}\phi}\\
+\pi_{1}^{*}\mathcal{O}_{S}\arrow{r} & \pi_{2}^{*}\mathcal{O}_{S}.\end{tikzcd},$$
+where $\phi$ is an isomorphism $\phi: \mathcal{O}_{S}\rightarrow \mathscr{L}|_{S}$ given by a global section $\theta\in H^{0}(S, \mathscr{L})$. This can be checked on stalks over closed points in $S\times_{\mathscr{M}_{1,1}}S$, a closed point $$s=\{\mathrm{Spec}(k)\rightarrow S\times_{\mathscr{M}_{1,1}}S\}$$ corresponding to two closed points $s_{1}, s_{2}$ in $S$ and an isomorphism $\psi_{s}:\pi^{-1}(s_{1})\cong\pi^{-1}(s_{2}).$ By the definition of a line bundle, we get $\mathscr{L}(\psi_{s}): \mathscr{L}_{s_{1}}\rightarrow \mathscr{L}_{s_{2}}$. Now consider a group action on $S$ generated by $g_{1}, g_{2}$:
+$$g_{1}: \lambda \mapsto \frac{1}{\lambda}, g_{2}:\lambda \mapsto 1-\lambda.$$
+The point is that $\mathscr{L}_{\psi_{s}}$ comes from an antomorphism(provided by the group action) of the family $\pi: \mathscr{X}\rightarrow S-\mathbb{A}_{j}^{1}\setminus\{0,1\}$. $H^{0}(S, \mathcal{O}_{S}^{*})=k^{*}$, so $\beta$ is defined on this family and restricted $\alpha(C)$ on every fibre $C$. Since $\beta(\mathscr{L})=0$, we know the induced action $H^{0}(S,\mathscr{L})\rightarrow H^{0}(S,\mathscr{L})$ is just the identity map. For the diagram to commute, we only need to check $\mathscr{L}(\psi_{s}):\pi^{*}\theta|_{s_{1}}\rightarrow \pi_{2}^{*}\theta|_{s_{2}}$,since this isomorphism comes from an antomorphism of $S$, we need to check $\theta(s_{1})=\theta(s_{2})$, this is true if $\theta\in H^{0}(S, \mathscr{L})^{G}$, $H^{0}(S, \mathscr{L})^{G}\neq \emptyset$ because the existence of the $j$-invariant. Thus it's always possible to choose such a global section $\theta$. Therefor $\beta$ is injective. 
+In conclusion, we get an isomorphism 
+$$\beta: \mathrm{Pic}(\mathscr{M}_{1,1})\cong \mathbb{Z}/12\mathbb{Z}.$$
+%%the point is that we have to prove this `induced isomorphism' is uniquely determined. For 
+%%$$s'=\{\mathrm{Spec}(k)\rightarrow S\times_{\mathscr{M}_{1,1}}S\}$$ 
+%%another closed point over $s_{1}, s_{2}\in S$, we get another isomorphism %%$\psi_{s'}:\pi^{-1}(s_{1})\sim\pi^{-1}(s_{2})$. This gives us another isomorphism %%$\mathscr{L}(\psi_{s'}): \mathscr{L}_{s_{1}}\rightarrow \mathscr{L}_{s_{2}}$, now consider %%$$\mathscr{L}(\psi_{s'}\circ \psi_{s}):\mathscr{L}_{s_{1}} \rightarrow \mathscr{L}_{s_{1}}.$$
+%%This is induced by the automorphsim $\psi_{s'}\circ \psi_{s}$, since $\beta(\mathscr{L})=0$, we know 
+%%$$\mathscr{L}(\psi_{s'}\circ \psi_{s})=id!$$
+%%This is exactly the descent data for $\mathcal{O}_{\mathscr{M}_{1,1}}$, by a theorem of %%Grothendieck(roughly speaking,it the slogan `a sheaf is determined its descent data', Theorem$90$ in %%Mumford's paper), we get
+%%$$\mathscr{L}\cong \mathcal{O}_{\mathscr{M}_{1,1}}.$$
+
+
+\end{example}
+\begin{remark}[Hodge bundle, $S\times_{\mathscr{M}_{1,1}}S$ and degree of the étale cover]
+
+\end{remark}
+
+
+
+
+
+
+
+\begin{example}[$\mathrm{Pic}(\mathscr{M}_{1,1})$ over a general scheme]
+Fulton.
+\end{example}
+
+\begin{example}[Non-reductive group action on affine varieties]
+Kirwan.
+\end{example}
+
+
+
+
+
+
+
+
+\begin{remark}[A finite subset of a variety need not be contained in an open affine subvariety]
+\end{remark}
+
+\begin{example}[Hironaka's example, a variety with no Hilbert scheme]
+
+\end{example}
+\begin{example}[Stacks project Tag O8KE, Descent data for schemes need not be effective, even for a projective morphism]
+This is still based on Hironaka's example. Let$k=\mathbb{C}$. We first introduce the players:
+\begin{itemize}
+\item $$\mathbb{P}^{3}=\mathrm{Proj}(k[x,y,z,w])$$
+\item two curves in $\mathbb{P}^{3}$ 
+$$C=\mathrm{Proj}(k[x,y,z,w]/(xy-z^{2},w))$$ $$D=\mathrm{Proj}(k[x,y,z,w]/(xy-w^{2},z)).$$ 
+\item they intersect at 
+$$P=[1,0,0,0], Q=[0,1,0,0].$$
+\item two lines in $\mathbb{P}^{3}$
+$$l_{1}:[x,x,z,z], l_{2}:[x,-x,z,-z].$$
+\item a group action of $G=\mathbb{Z}/2\mathbb{Z}=\{1,g\}$ on $\mathbb{P}^{3}$
+$$g\bullet [x,y,z,w]=[y,x,w,z].$$
+\item $l_{1}\cup l_{2}$ is the fixed locus of the $G$-action, thus $G$ acts freely on  $$Y=\mathbb{P}^{3}\setminus\{l_{1}\cup l_{2}\}.$$
+\item quotient $S=Y/G$ exists as a quasi-projective scheme, explicitly $S$ is the image of the open subscheme $Y$ under the morphism 
+$$\mathbb{P}^{3}\rightarrow \mathrm{Proj}(k[x,y,z,w]^{G})=\mathrm{Proj}(k[u_{0},u_{1}, v_{0}, v_{1},v_{2}]/(v_{0}v_{1}-v_{2}^{2})),$$
+where 
+$$u_{0}=x+y, u_{1}=z+w, v_{0}=(x-y)^{2}, v_{1}=(z-w)^{2}, v_{2}=(x-y)(z-w).$$
+Note that $\mathrm{Proj}(k[u_{0},u_{1}, v_{0}, v_{1},v_{2}])$ is the weighted projective pace $\mathbb{P}(1,1,2,2,2),$ not the ordinary one.
+\item Hironaka's construction on $Y$(previously, Hironaka's construction starts with $\mathbb{P}^{3}$, here we delete $l_{1}\cup l_{2}$ to make it easier to talk about quotient, nothing essential changes), denote the complete but not projective variety over $Y$ be to 
+$$\pi: V_{Y}\rightarrow Y.$$
+\item an open cover(in any sense you like) of $Y$.
+$$X=(Y-P)\sqcup (Y-Q).$$
+\end{itemize}
+Now the group action on $Y$ lifts to a group action on $V_{Y}$ by properly switching the preimage of $C, D$, this gives us a descent datum $(V_{Y}/Y, \phi_{Y})$ relative to the $G$-torsor $Y\rightarrow S$(what does mean?). Consider the diagram of natural pull-backs 
+$$\begin{tikzcd}V\arrow{r}{p}\arrow{d}{f'} & X\arrow{d}\arrow{d}{f}\\
+V_{Y}\arrow{r}{\pi}\arrow{d}{h'} & Y \arrow{d}{h}\\
+U\arrow{r}{\theta }& S.\end{tikzcd}$$
+Note that the composition(and the two arrows themselves) $X\rightarrow Y\rightarrow S$ are étale covers. $p$ is projective since when restricted to $Y-P$ or $Y-Q$, $\pi$ is given by blow-ups. And the descent datum $(V_{Y}/Y, \phi_{Y})$ pulls back to a descent datum $(V/X, \phi).$
+If the descent datum $(V/X, \phi)$ is effective in the category of schemes, then $U$ must exist as a scheme and its corresponding descent datum pulls back to $(V/X, \phi)$. Then $U$ is the quotient of $V_{Y}$ of the $G$-action. Let $E=\pi^{-1}(C\cup D)$, we use the notation and result in the first example, then we have 
+$$\pi^{-1}(P)=L_{1}\cup L_{2}, \pi^{-1}(Q)=\pi^{-1}(gP)=M_{1}\cup M_{2},$$
+$$g(L_{1})=M_{1}, g(L_{2})=M_{2},$$
+$$L_{1}+M_{1}=L_{1}+g(L_{1})\sim 0.$$
+By descent of closed subschemes(actually by descent of affine morphims), we can find a copy of $\mathbb{P}^{1}\cong L\subset U$ such that $h^{-1}(L)=L_{1}\cup g(L_{1})=L_{1}\cup M_{1}.$ Chose a complex point $R$ (thus not the generic point), thus we can find a function $f\in \mathcal{O}_{U, R}$
+in the local ring at $R$ such that $f(R)=0$, but $L\nsubseteq V(f)$. Fix an irreducible component of $V(f)$ containing $R$, denote it by $W$, it has codimension $1$ in $\mathrm{Spec}(\mathcal{O}_{U,R})$. Then we have 
+$$\emptyset \neq h'^{-1}(W)\cap (L_{1}\cup g(L_{1}))$$
+$$L_{1}\nsubseteq h'^{-1}(W), g(L_{1})\nsubseteq h'^{-1}(W).$$
+We give a name to effective divisor $h'^{-1}(W)$, call it $D$. We know $V_{Y}$ is smooth, thus $\mathcal{O}(D)$ is a line bundle on $V_{Y}$. We naturally get a line bundle on $E=\pi^{-1}(C\cup D)$((the `red and blue surface'). This line bundle on $E$ has a positive intersection number on the $1$-cycle $L_{1}\cup g(L_{1})$, however we have $L_{1}+g(L_{1})\sim 0$! This contradicts the fact that on any proper smooth schemes over a field, the degree of a line bundle is well defined. The only possibility is that $U$ doesn't live in the category of schemes.The descent datum $(V/X, \phi)$ is not effective. 
+\end{example}
+\begin{remark}[Descent datum]
+Some remarks on basic descent theory
+\begin{itemize}
+\item descent for affine morphisms
+\item relative descent datum and group actions.
+\item descent datum and quotients.
+\end{itemize}
+\end{remark}
+\begin{remark}[Where do we use the condition that $U$ is a scheme?]
+when do we know a point is not the generic point of a subvariety?
+\end{remark}
+\begin{remark}[Hironaka's example, the quotient of a scheme by a free action of a finite group need not be a scheme]
+It's clear from the discussion above.
+\end{remark}
+
+
+\begin{example}[Hironaka's example, a scheme of finite type over a field such that not every line bundle comes from a divisor]
+
+\end{example}
+\begin{remark}
+In practice, we only need to assume that $X$ is reduced or projective to avoid this pathological phenomenon.
+\end{remark}
+Relevant materials. 
+\begin{itemize}
+    \item \href{http://stacks.math.columbia.edu/tag/08KE}{Stacks project, Tag 08KE}
+    \item \href{http://stacks.math.columbia.edu/tag/08KF}{Stack project, Tag 08KF}
+    \item \href{https://perso.univ-rennes1.fr/matthieu.romagny/GT_Hilb/Nitsure_Construction_of_Hilbert_and_Quot_schemes.pdf}{Construction of Hilbert and Quo schemes}.
+    \item \href{https://ncatlab.org/ericforgy/published/Notes+on+Grothendieck+Topologies,+Fibered+Categories+and+Descent+Theory}{Notes on Grothendieck topologies, fibered categories and descent theory}.
+    \item \href{https://arxiv.org/pdf/math/0412512.pdf}{Notes on Grothendieck topologies, fibered categories and descent theory}
+    \item \href{http://download.springer.com/static/pdf/724/bok%253A978-3-540-36663-8.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Fbook%2F10.1007%2FBFb0059750&token2=exp=1494637950~acl=%2Fstatic%2Fpdf%2F724%2Fbok%25253A978-3-540-36663-8.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Fbook%252F10.1007%252FBFb0059750*~hmac=b2d2e65bef6eb0ae94508d0b9b15497edd3e416f277ae7df8bc665978c4f97a0}{????}
+\item Mumford, geometric invariant theory.
+\item \href{https://books.google.com/books?id=jAWVmIz80A4C&pg=PA11&lpg=PA11&dq=Kleiman+example+nonreduced++nonprojective&source=bl&ots=AJbeQACcC9&sig=bWwICxG1h_sMxZjwRGJ1BeKajus&hl=en&sa=X&ved=0ahUKEwjIy8vi1OvTAhVh9IMKHTGJAYYQ6AEIIjAA#v=onepage&q=Kleiman example nonreduced nonprojective&f=false}{Kleiman's example}.
+\item Mumford , the invariant ring finitely generated, appendix in GIT.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Hodge theory}
+\begin{remark}[singular (co)homology, sheaf (co)homology, de Rham cohomology an Hodge decomposition]
+\begin{itemize}
+We want to clarify the following concepts
+\item $H^{*}(X,\mathbb{Z})$ and $H^{*}(X, \underline{\mathbb{Z}})$.(Same question for $\mathbb{C}, \mathbb{R}$)
+\item what do we mean by $d\bar{z}$ when we're talking about an algebraic(or holomorphic) curve?
+\item $H^{n}(X,\mathbb{C})\cong \oplus_{p+q=n} H^{p,q}(X)$ and $H^{n}(X,\underline{\mathbb{C}})\cong \oplus_{p+q=n} H^{p}(X, \wedge^{q}\Omega_{X})$? 
+\item Do we have $H^{p}(X, \wedge^{q}\Omega_{X})=\overline{H^{q}(X, \wedge^{p}\Omega_{X})}$, in what sense?
+\item Any relations between $H^{*}(X, \wedge^{k}\Omega_{X})$, $H_{dR}^{*}(X, \mathbb{C})$ and $H^{*}(X,\mathbb{C})$?
+\item algebraic description of the Betti lattice $H^{*}(X,\mathbb{Z})\rightarrow H^{*}(X,\mathbb{C})$?
+\end{itemize}
+\end{remark}
+
+\begin{example}[William Lang, Hoge spectral sequence in characteristic $3$]
+Let $k=\mathbb{F}_{3}$. Consider 
+$$X: y^{2}z=x^{3}-tz^{2}\subset \mathbb{P}_{k}^{3}.$$
+Then $$b_{\mathrm{dR}}^{1}=\mathrm{dim}_{k}(H^{1}_{\mathrm{dR}}(X/k))=3.$$
+However 
+$$h^{0,1}=h^{1,0}=1,$$
+where $h^{p,q}=\mathrm{dim}_{k}(H^{q}(X,\wedge^{p}\Omega_{X/k}))$. That means in positive characteristics, the ordinary relation between the Hodge cohomology groups $H^{q}(X,\wege^{p}\Omega_{X})$ and the algebraic de Rham cohomology groups $H_{\mathrm{dR}}^{n}(X/k)$ fails. 
+
+\end{example}
+\begin{remark}
+This example is provided by William Lang in his thesis `Quasi-elliptic surfaces in characteristic three', I read this from Alex Youcis's blog post \href{https://ayoucis.wordpress.com/2015/07/22/algebraic-de-rham-cohomology-and-the-degeneration-of-the-hodge-spectral-sequencethe/#more-3561}{here}.
+\end{remark}
+\begin{remark}[$X$ irreucible, then $H_{\mathrm{dR}}^{i}(X/k)=0, \forall i>0$?(This cannot be true)]
+Recall our definition of the algebraic de Rham cohomology 
+$$0\rightarrow \underline{k}\rightarrow \mathcal{O}_{X}\rightarrow \Omega_{X/k}^{1}\rightarrow \dots \rightarrow \wedge^{n}\Omega_{X/k}\rightarrow 0$$
+$$H^{i}_{\mathrm{dR}}(X/k):=\mathbb{H}^{i}(\Omega_{X/k}^{\bullet})$$
+The de Rham complex above is a resolution of $\underline{k}$, then by abstract nonsense, we have 
+$$\mathbb{H}^{i}(\Omega_{X/k}^{\bullet})\cong H^{i}(X,\underline{k}).$$
+If $X$ is irreducible, then the constant sheaf $\underline{k}$ is flasque, therefore $H^{i}(X,\underline{k})=0\Rightarrow H^{i}_{\mathrm{dR}}(X/k)=0, \forall i>0$, this is ridiculous! What's wrong? Actually, we don't have any type of Poicare lemma in algebraic settings, to put it more directly
+$$\text{the de Rham complex is not a resolution of the constant sheaf $\underline{k}$ in Zariski topology}.$$
+In general 
+$$H^{i}(X,\unerline{k})\neq \mathbb{H}^{i}(\Omega_{X/k}^{\bullet}).$$
+\end{remark}
+
+
+\begin{example}[Kähler manifold but not algebraic]
+
+\end{example}
+
+\begin{example}[$\mathrm{rank}(H^{2k}(X_{t}, \mathbb{Z})\cap H^{k,k}(X_{t}))$ not constant]
+Dani, Litt
+\end{example}
+\begin{example}[Family of elliptic curves, Gauss-Manin connection and Picard-Fucus function]
+
+\end{example}
+
+\begin{example}[Polarized variation of Hodge structure over the punctured disk]
+
+\end{example}
+
+
+
+\begin{example}[variation of Hodge structures, Siegel upper half plane]
+Milne.
+\end{example}
+
+\begin{example}[Mixed Hodge structure, nodal curve]
+
+\end{example}
+
+\begin{example}[Mixed Hodge structure, split over $\mathbb{R}$]
+
+\end{example}
+
+\begin{example}[Unimodular lattices]
+tony Feng.
+\end{example}
+\begin{example}[Mixed Hodge structure on $\mathfrak{gl}(V_{\mathbb{C}})$]
+
+\end{example}
+
+\end{document}

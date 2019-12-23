@@ -1,0 +1,55 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Morphisms}
+\subsubsection{\Etale related}
+\begin{example}[An \'{e}tale morphism, Hartshorne $\mathrm{III}.10.6$]
+We can use two copies of $\mathbb{A}_{k}^{1}$ to construct a degree $2$ \'{e}tale cover of the nodal curve
+$$f:X=\mathrm{Spec}(k[s,t]/(t^{2}-(s^{2}-1)^{2}))\rightarrow \mathrm{Spec}(k[x,y]/(y^{2}-x^{2}(x+1)))=Y$$
+$$x\mapsto s^{2}-1, y\mapsto st.$$ then the fibre is given by 
+$$k[x,y]/(x,y)\otimes_{k[x,y]/(y^{2}-x^{2}(x+1))}k[s,t]/(t^{2}-(s^{2}-1)^{2})$$
+in other words $st=y\otimes 1=0, s^{2}-1=x\otimes 1=0$, we get 
+$$X_{0}=\mathrm{Spec}(k[s,t]/(t^{2}, s^{2}-1,st))$$
+Note that $x=xy^{2}-x(y^{2}-1)$, thus it's actually 
+$$\mathrm{Spec}(k[s,t]/(t,s^{2}-1))=\mathrm{Spec}(k[s]/(s^{2}-1))$$
+all other fibres are the same(scheme theoretically), thus we know it's a flat morphism. We can use the fibre criterion for smoothness(this map is naturally of finite presentation), or observe that $f^{*}\Omega_{Y/k}\rightarrow \Omega_{X/k}$ is an isomorphism. we know $f$ is smooth and of relative dimension $0$, and $f$ is unramified. So $f$ is a degree $2$ \etale morphism. 
+\end{example}
+\begin{remark}
+Are there any easier ways to  check the flatness of $f$ , for example  using localization?. Let $\mathfrak{p}=(x,y)$, $\frak{q}_{1}=(s-1,t), \mathfrak{q}_{2}=(s+1, t)$, then we have 
+$$\mathcal{O}_{X,\mathfrak{q}_{1}}......$$
+\end{remark}
+
+\subsubsection{Different Frobenius actions}
+For the most simple case, let $X$ be a scheme over $k=\mathbf{F}_{p}$, where $p$ is a prime, let $\overline{X}$ be be base change of $X$ to $\overline{k}$. The  we have 
+\begin{itemize}
+    \item The global Frobenius $F_{\overline{X}}$ is $f\mapsto f^{p}$, which means maps every function to its $p$-th power. Note that this is a $k$-linear morphism, which is not true for $\mathbf{F}_{q}$.
+    \item The relative Frobenius is given by $1_{\mathrm{Spec}(\overline{k})}\times_{k}F_{X}$. Note that this is a $\overline{k}$-linear map because $a^{p}=a$ on the right-hand side, which is not true for $\mathbf{F}_{q}$, thus the problem of $X^{(p)}$ always arises when the base field is not just merely $\mathbf{F}_{p}$.
+    \item The arithmetic Frobenius. $F_{\overline{k}}\times_{k} 1_{X}$.
+    \item The geometric Frobenius. $F_{\overline{k}}^{-1}\otimes 1_{X}$.
+\end{itemize}
+In the case of $X=\mathrm{F}_{p}[x_{1}, \dots, x_{n}]$. The global Frobenius raises everything to its $p$-th power, the relative Frobenius raises $x_{i}$ to its $p$-th power, the arithmetic Frobenius raises the a constant(coefficient) to its $p$-th power, the geometric Frobenius takes the $p$-th root of every constant. Geometrically, the global Frobenius is the identity, the relative and geometric Frobenius maps
+\begin{remark}
+\href{http://www.math.mcgill.ca/goren/SeminarOnCohomology/Frobenius.pdf}{Some remarks on Frobenius and Lefschetz
+in ´etale cohomology}.
+\end{remark}
+\subsection{Global L-functions of zero-dimensional schemes}
+Let $X\rightarrow \mathrm{Spec}(\mathbf{Z})$ be a $0$-dimensional scheme over $\mathbf{Z}$, since it doesn't have the problem of possible bad reductions, the global zeta function of $X$ ca be defined as $\mathbf{Z}eta(X, s):=\prod_{p} Z(X_{p}, p^{-s})$, where $X_{p}=X\otimes_{\mathrm{Spec}(\mathbf{Z})}\mathrm{Spec}(\mathbf{F}_{p})$ is the reduction of $X$ mod $p$.
+\begin{example}[Empty scheme]
+Let $X=\emptyset=\mathrm{Spec}(0)\rightarrow \mathrm{Spec}(\mathbf{Z})$. For any prime $p$, $X_{p}=\mathrm{Spec}(0\times \mathbf{F}_{p})=\emptyset$. Thus $\# X(\mathbf{F}_{p^{n}})=0$. $Z(X_{p}, t)=\exp(0)=1$. The global zeta function is $\zeta(\emptyset, s)=\prod_{p}1=1$.
+\end{example}
+\begin{example}
+Let $X=\mathrm{Spec}(\Z)\rightarrow \mathrm{Spec}(\Z)$. $X_{p}=\spec(\mathbf{F}_{p})$. $\# X_{p}(\mathbf{F}_{p^{n}})=1$, thus $Z(X_{p}, t)=\exp(\sum_{n=1}^{\infty}\frac{1}{n}t^{n})=\exp(-\ln(1-t))=\frac{1}{1-t}$. The global zeta function is given by $\zeta(X, s)=\prod_{p}\frac{1}{1-p^{-s}}=\sum_{n=1}^{\infty}\frac{1}{n^{s}}$, which is just the Riemann zeta function. 
+\end{example}
+\begin{example}[Two points]
+Let $X=\mathrm{Spec}(\Z[x]/x(x-1))\rightarrow \mathrm{Spec}(\Z)$. Then $X_{p}=\mathrm{Spec}(\mathbf{F}_{p}[x]/x(x-1))\cong \mathrm{Spec}(\mathbf{F}_{p})\sqcup \mathrm{Spec}(\mathbf{F}_{p})$. As the example above, we have $Z(X_{p}, t)=\frac{1}{(1-t)^{2}}$. The global zeta function is $\zeta(X,s)=\prod_{p}\frac{1}{(1-p^{-s})^{2}}=\zeta^{2}(s)$.
+\end{example}
+\begin{example}
+Let $X=\mathrm{Spec}(\Z[x]/(x^{2}-x-1))$. By the class field theory of the degree $2$ field extension $\mathbf{Q}[\sqrt{5}]/\mathbf{Q}$, whether $X_p$ has two different degree $1$ points if and only $p\equiv 1, 4\mod 5$, $X_{p}$ has one point of degree $2$ if and only if $p\equiv 2,3\mod 5$. $X_{5}$ is a fat point of degree $2$. Note that play around the geometric/arithmetic language, we can also say if $p\neq 5$, the number of points in $X_{p}$ is given by the Legendre symbol $(\frac{p}{5})+1$. Now, we can compute the local factors. For $p=5$, $x^2-x-1=(x-3)^{2}$. First note that $\mathrm{Spec}(\mathbf{F}_{5}/(x-3)^{2})$ and $\mathbf{F}_{5}/(x-3)$ have the same number of $k$-point for any field $k$. Thus $Z(X_{5}, t)=\frac{1}{1-t}$. If $p\equiv 1, 4\mod 5$, $X_{p}$ reduces to the two points case above, we have $Z(X_{p},t)=\frac{1}{(1-t^{2})}$. Lastly, if $p\equiv 2,3\mod 5$, $X_{p}\cong \mathrm{Spec}(\mathbf{F}_{p^{2}})$. $\# X_{p}(\mathbf{F}_{p^{n}})=\# \{\mathbf{F}_{p^{2}}\hookrightarrow \mathbf{F}_{p^{n}}\} = 0$ if $n$ is odd and $1$ if $n$ is even. Thus we have $
+Z(X_{p},t)=\exp(\sum_{n=1}^{\infty}\frac{t^{2n}}{n})=\frac{1}{1-t^{2}}$. The global zeta function is given by 
+$$\begin{aligned}\zeta(X, s)&=\frac{1}{1-5^{-2}}\prod_{p\equiv 1, 4\mod 5}\frac{1}{(1-p^{-s})^{2}}\prod_{p\equiv 2,3\mod 5}\frac{1}{1-p^{-2s}}\\
+&=\prod_{p}\frac{1}{1-p^{-s}}\prod_{p\neq 5}\frac{1}{1-(\frac{p}{5})p^{-s}}\\
+&=\zeta(s)L(\chi, s),
+\end{aligned}$$
+where $\zeta(s)$ is the Riemann zeta function, $L(\chi, s)$ is the Dirichlet $L$-series for the quadratic character $\Chi: (\Z/5\Z)^{\times}\rightarrow \C^{\times}$ given by $(\frac{}{p})$, namely $L(\chi, s):=\sum_{n=1}^{\infty}\frac{\chi(n)}{n^{s}}$.
+\end{example}
+
+\end{document}

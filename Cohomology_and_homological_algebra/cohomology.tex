@@ -1,0 +1,298 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\begin{example}[Serre's example]
+
+\end{example}
+
+
+
+
+
+\begin{example}[Why $H^{i}(X, \mathscr{F}(n))=0$?]
+$X$ projective scheme over a noetherian ring $A$, $\mathcal{O}_{X}(1)$ is a very ample invertible sheaf on $X$ over $\mathrm{Spec}(A)$, $\mathscr{F}$ is a coherent sheaf on $X$. Then it's common knowledge that 
+\begin{itemize}
+\item $\forall i\geq 0, H^{i}(X, \mathscr{F})$ is a finitely generated $A$-module.
+\item $\forall i\geq 1, H^{i}(X, \mathscr{F}(n))=0$ for sufficient large $n$.
+\end{itemize}
+Why we should expect a theorem like this? Think about $H^{n}(\mathbb{P}^{n}, \mathcal{O}(m))$, it means all degree $-n-1-m$ Laurent polynomials $x_{0}^{i_{0}}\dots x_{n}^{i_{n}}$ with $i_{n}\leq -1$. Then no matter what $m$ is, if $n$ is big enough, $H^{n}$ vanishes for the trivial reason, that is, no positive degree Laurent polynomial with $i_{k}\leq -1$. That's one of the reasons why we should expect such a vanishing theorem. One of the good consequences of the vanishing theorem is that in many general situations, we have to consider derived push-forward: 
+$$Rf_{*}^{\bullet}\mathscr{F}:=\sum_{i\geq 0}(-1)^{i}R^{k}f_{*}.$$
+In many cases, if we twist the sheaf $\mathscr{F}$ before pushing forward, we then only need to consider $f_{*}\mathscr{F}$. For example, [FGA Explained Lemma5.4] says that $\phi: T\rightarrow S$ is a morphism of noetherian schemes, $\mathscr{F}$ be a coherent sheaf on $\mathbb{P}_{S}^{n}$, and let $\mathscr{F}_{T}$ be the pull-back of $\mathscr{F}$ w.r.t to the morphism $\mathbb{P}_{T}^{n}\rightarrow \mathbb{P}_{S}^{n}$. Let $\pi_{S}: \mathbb{P}_{S}^{n}\rightarrow S$, $\pi_{T}: \mathbb{P}_{T}^{n}\rightarrow T$ bethe projections. Then there exists an integer $r_{0}$ such that the base-change homomorphism 
+$$\phi^{*}\pi_{S, *}\mathscr{F}(r)\rightarrow \pi_{T,*}\mathscr{F}_{T}(r)$$
+is an isomorphism for all $r\geq r_{0}$. I guess if we drop the twists, we might have a quasi-isomorphism
+$$\phi^{*}R^{\bullet}\pi_{S, *}\mathscr{F}(r)\rightarrow R^{\bullet}\pi_{T,*}\mathscr{F}_{T}(r).$$
+\end{example}
+
+\begin{example}[Local duality $$H^{i}_{\mathfrak{m}}(M)\cong (\mathrm{Ext}^{r+1-i}(M, S(-r-1)))^{\vee}$$]
+Let $S=k[x,y]$, $\mathfrak{m}=(x,y)$. Consider the $S$-module $R=k[x,y]/(x^{2}, xy)$, we want to compute the local cohomology $\mathrm{H}_{\mathfrak{m}}^{i}(R)$, Hilbert polynomial $\chi_{R}(t)$, and Castelnovo-Mumford regularity of $R$. The \Cech complex is given by 
+$$0\rightarrow R\xrightarrow{\binom{1}{1}} R[x^{-1}]\oplus R[y^{-1}]\rightarrow R[x^{-1}y^{-1}]\rightarrow 0.$$
+\end{example}
+\begin{remark}[Reference]
+This example and the original theorem can be found in \href{http://www.msri.org/people/staff/de/ready.pdf}{The Geometry of Syzygies
+}
+\end{remark}
+
+\begin{example}[Hartshorne $\mathrm{II}.5.14$]
+Let $X$ be a connected, normal closed subscheme of $\mathbb{P}_{A}^{r}$, where $A$ is a finitely generated $k$-algebra for some field $d$. We consider the relation between the homogeneous coordinate ring $S(X)=A[x_{0},\dots, x_{n}]/I, I=\Gamma_{*}(\mathscr{I})$ and $\Gamma_{*}(X,\mathcal{O}_{X})$.  
+\begin{proof}
+We'll prove the following statements in steps
+\begin{itemize}
+\item $\Gamma=\Gamma_{*}(X,\mathcal{O}_{X})=\oplus_{n\geq 0}\Gamma(X,\mathcal{O}_{X}(n))$ is integral over $S=A[x_{0},,\dots, x_{n}]$.
+\item $\Gamma$ is integrally closed.
+\item $\Gamma_{d}=S_{d}$ for $d$ large enough.
+\item $S^{(d)}=\oplus_{n\geq 0}S_{nd}$ is integrally closed for $d$ large enough. Thus the $n$-tuple embedding is projectively normal.
+\end{itemize}
+First note that $S$ is an integral domain(otherwise how you can call it normal). And by definition 
+$$\Gamma=\cap_{i=0}^{r}S_{x_{i}}$$
+thus for $\forall y\in \Gamma$, we can choose $N$ big enough, such that $x_{i}^{N}y\in S$ for all $i$. In other words
+$$y\in S\bullet \frac{1}{x_{i}^{N}}.$$
+Note that $S\bullet\frac{1}{x_{i}^{N}}$ is a finite module over $S$, thus we know $y$ is integral over $S$. 
+Secondly to see $\Gamma$ is integrally closed, note that the degree $0$ part $S_{((x_{i}))}$ of $S_{x_{i}}$ is integrally closed, since it's isomorphic to $A[\frac{x_{0}}{x_{i}},\dots, \frac{x_{n}}{x_{i}}]$(this comes from the assumption that $X$ is normal, thus $S_{((x_{i}))}$ corresponding to the affine coordinate ring of $S\cap \mathbb{A}^{r}$, which is normal). And observe that 
+$$\Gamma^{i};=\{x\in S_{x_{i}}|deg(x)\geq 0\}\cong S_{((x_{i}))}[x_{i}]$$
+and 
+$$\Gamma=\cap_{i=1}^{r}\Gamma^{i}$$
+Since $S_{((x_{i}))}$ is integrally closed, so is $\Gamma^{i}=S_{((x_{i}))}[x_{i}]$, and hence $\Gamma$ is integrally closed. So we actually know $\Gamma$ is the integral closure of $S$.
+Thirdly, simply because $\Gamma$ is a finite module over $S$(general relation between a finitely generated $k$-algebra, domain and its algebraic closure). For example, let $\{y_{1},\dots, y_{k}\}$ be a basis, by the method above we have $S_{N_{i}}y_{i}\subset S$,thus if $d$ is big enough we have $\Gamma_{d}\subset S_{d}$, together with the fact that $S\subset \Gamma$, we know $S_{d}=\Gamma_{d}$ for large enough $d$. 
+
+Finally, to prove $\Gamma^(d)$ is integrally closed for large enough $d$, if $y\in Frac(\Gamma^{(d)})$ and $y$ is integral over $\Gamma^{(d)}$, we know $y\in \Gamma$, use the same trick again, we can prove
+$$x_{i}^{dN}y^{n}\in S_{\geq dN+deg(y)}\Rightarrow x_{i}^{dN}y^{n}\in \Gamma^{(d)},\forall n$$
+$\Rightarrow$ is because $y\in \Gamma\cap Frac(\Gamma^{(d)})$, thus $y$ can be written of the form $\frac{y'}{x_{i}^{dk_{1}}}, y'\in \Gamma^{(d)}$, thus $d|dN+ndeg(y)$. So we get $x_{i}^{dN}y^{n}\in \Gamma^{(d)},\forall n$. Then we conclude $y\in \Gamma^{(d)}$, $\Gamma^{d}$ is integrally closed for $\underlin{all}$ $d$, thus if $d$ is large enough, we know $S^{(d)}=\Gamma^{(d)}$ is integrally closed. 
+
+As a corollary of the fact that $\Gamma$ is integrally closed, we know if $X\subset \mathbb{P}_{A}^{r}$ is normal closed subscheme, then it's projectively normal if and only if $$\Gamma(\mathbb{P}_{A}^{r}, \mathcal{O}_{\mathbb{P}_{A}^{r}}(n))\rightarrow \Gamma(X,\mathcal{O}_{X}(n))$$ is surjective. For example nonsingular degree $d$ hypersurfaces are all projectively normal.
+\end{proof}
+
+\end{example}
+\begin{example}[$\Gamma_{*}(X,\mathcal{O}_{X})\neq S(X)$]
+As a special case of this exercise, we can construct many projective schemes, such that 
+$$\Gamma_{*}(X,\mathcal{O}_{X})\neq S(X).$$
+For example consider the smooth quartic curve in $\mathbb{P}^{3}$(details of this example can be found in my notes `Hilbert schemes')
+$$C:\mathbb{P}^{1}\rightarrow \mathbb{P}^{3}$$
+$$[u,v]\mapsto [u^{4},u^{3}v, uv^{3},v^{4}]$$
+Then we have 
+$$H^{0}(\mathbb{P}^{3}, \mathscr{I}_{C}(1))=0, H^{1}(\mathbb{P}^{3}, \mathscr{I}_{C}(1))\cong k$$
+Thus we have 
+$$0\rightarrow H^{0}(\mathbb{P}^{3},\mathcal{O}_{\mathbb{P}^{3}}(1))\rightarrow H^{0}(\mathbb{P}^{3}, \mathcal{O}_{C}(1))\rightarrow k \rightarrow 0$$
+Thus $C$ cannot be projectively normal. How come? Actually we know $\{u^{4},u^{3}v,uv^{3},v^{4}\}$ comes from the restriction of $\{x,y,z,w\}$, however $u^{2}v^{2}$ doesn't come from this restriction. One way we can see this is by the isomorphism $\mathcal{O}_{C}(1)\cong \mathcal{O}_{\mathbb{P}^{1}}(4)$, another way is that we can construct it directly 
+$$D_{+}(x): u^{2}v^{2}=(\frac{y}{x})^{2}\bullet x$$
+$$D_{+}(y): u^{2}v^{2}=(\frac{x}{y})(\frac{z}{y})\bullet y$$
+$$D_{+}(z): u^{2}v^{2}=(\frac{y}{z})(\frac{w}{z})\bullet z$$
+$$D_{+}(w): u^{2}v^{2}=(\frac{z}{w})^{2}\bullet w.$$
+\end{example}
+\begin{remark}[Relations between the homogeneous coordinate ring $S(X)$ and $\oplus_{n\geq 0}\mathcal{O}_{X}(n)$]
+Distinguish the following different concepts
+\begin{itemize}
+\item $X=\mathrm{Proj}(S)$
+\item The coordinate ring $S(X)$. This is a relative concept depending on the specific embedding. So in general, $S(X)$ is one of the $S$'s which can give us $X=\mathrm{Proj}(S)$. 
+\item $\Gamma(X,\mathcal{O}_{X})\neq S.$
+\item $\Gamma_{*}(X,\mathcal{O}_{X})=\oplus_{n\geq 0}\Gamma(X,\mathcal{O}_{X}(n))$. Note that in general $\Gamma_{*}(X,\mathcal{O}_{X})\neq S.$
+\item even if $S$ is an integral domain, $\Gamma(X,\mathcal{O}_{X})\neq S_{(0)}$, the former is just the degree $0$ part of the latter.
+\item $X\cong Y$, but $\mathcal{O}_{X}(n)\neq \mathcal{O}_{Y}(n)$ in general(I mean if $f:X\rightarrow Y$, $f^{*}\mathcal{O}_{Y}(n)\neq \mathcal{O}_{X}(n)$ in general.)
+\end{itemize}
+
+\end{remark}
+
+
+
+
+
+
+\begin{remark}[Local cohomology, Mumford regularity, Hilbert polynomial]
+The local cohomology $H_{Q}^{i}(-)$ is defined to be the right derived functor of the $Q$-torsion functor
+$$H_{Q}^{0}(M):=\{m\in M|Q^{d}m=0 \text{ for some $d$}\}.$$
+In the following case, the local cohomology can be computed in \Cech cohomology. Suppose $R$ is a noetherian ring and $Q=(x_{1}, \dots, x_{t})$, for any $R$-module $M$, the local cohomology $H_{Q}^{i}(M)$ is the $i$-th cohomology of the complex
+$$C(x_{1}, \dots, x_{t}; M):0\rightarrow M\xrightarrow{d}\oplus_{i=1}^{t} M[x_{i}^{-1}]\xrightarrow{d}\dots \rightarrow \oplus_{\# J=k}M[x_{J}^{-1}]\rightarrow \dots \rightarrow M[x_{1,2,\dots, t}^{-1}]\rightarrow 0.$$
+$$d(m_{J}\in M[x_{J}^{-1}])=\sum_{k\notin J}(-1)^{\#\{i\in J|i<k\}}m_{J\cup\{k\}}$$
+where $m_{J\cup\{k\}}$ denote the localization map $M[x_{J}^{-1}]\rightarrow M[x_{J\cup\{k\}}^{-1}]$.
+\end{remark}
+
+
+
+\begin{example}[Regularity theorem is false if the sheaf is not an ideal sheaf]
+Let $\mathscr{F}=\mathcal{O}_{\mathbb{P}^{1}}(k)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-k), k\geq 0$. Then 
+$$\chi(\mathscr{F}(m))=2m+2=2\binom{m}{0}+2\binom{m}{1}$$
+which is independent of $k$, however
+$$\mathrm{H}^{1}(\mathbb{P}^{1}, \mathscr{F}(m-1))=0\Rightarrow m\geq k-1.$$
+Thus there's no such polynomial $F(x_{0}, x_{1})$, such that $\mathscr{F}$ is $F(a_{0}, a_{1})=F(2,2)$-regular, since $F(2,2)$ is just a constant. 
+\end{example}
+\begin{remark}
+This example and the original theorem can be found in Mumford's book `Lectures on curves on surfaces, 14,15'.
+\end{remark}
+
+
+\begin{example}[Some relations between (co)homology theories]
+We have
+\begin{itemize}
+\item $H_{i}^{BM}(X)=H_{i}(\hat{X}, *)$
+\item $H_{i}^{BM}(X)=H_{i}(\overline{X}, \overline{X}\setminus X)$
+\item $H_{i}(X, A)\cong \widetilde{H}_{i}(X/A)$ if $A$ is a deformation retraction of some neighborhood in $X$.
+\end{itemize}
+\end{example}
+
+\begin{example}[Borel-Moore homology of $\mathbb{R}$ and  $\mathbb{R}^{2}\setminus\{0\}$]
+If we only want to see the results, just apply $$H_{i}^{BM}(\mathbb{R}^{1})=H_{i}(S^{1}, *)=\widetilde{H}_{i}(S^{1})=\begin{cases}\mathbb{Z} & \text{ if $n=1$}\\
+0 & \text{otherwise}.\end{cases}$$
+Similarly, we have
+$$H_{i}^{BM}(\mathbb{R}^{2}\setminus\{0\})=H_{i}(S^{2}, \{0, \infty\})=\widetilde{H}_{i}(S^{2}/\{0, \infty\})=\begin{cases}\mathbb{Z} & \text{ if $n=1, 2$}\\
+0 & \text{otherwise}.\end{cases}$$
+We can also use locally finite simplicial chains to compute them, take $\mathbb{R}^{2}\setmiuns\{0\}$ as an example, the computation above tells us a generator of $H_{1}^{BM}(X)$ is given by the ray connecting $0$ and $\infty$, on the other hand a generator of $H_{1}(X)$(the ordinary simplicial homology) is given by a circle surrounding $0$. In Borel-Moore homology this circle is a boundary of a locally finite cycle! In other words, the homomorphisms $H_{i}(X)\rightarrow H_{i}^{BM}(X)$ given by the definitions via chain complex are all $0$.
+
+\end{example}
+\begin{remark}
+Note that 
+\begin{itemize}
+\item $H_{i}^{BM}(X)$ is not homotopic invariant.
+\item $H_{i}^{BM}$ doesn't have the naive \Poincare duality.
+\item ordinary push-forward doesn't exist in general for $H_{i}^{BM}(X)$, just think about the inclusion $\mathbb{R}\setminus\{0\}\rightarrow \mathbb{R}$, then the push-forward of the cycle $\sum_{i\geq 0}[\frac{1}{2^{i+1}}, \frac{1}{2^{i}}]$ is not locally finite at $0$.
+\item If $X$ is nice enough, $U\subset X$ open, $Y=X\setminus U$, then we have 
+$$\dots \rightarrow H_{k}^{BM}(Y)\rightarrow H_{k}^{BM}(X)\rightarrow H_{k}^{BM}(U)\rightarrow H_{k-1}^{BM}(Y)\rightarrow \dots$$
+This is deduced form the long exact sequence associated to triple of spaces $X\subset Y\subset Z$ and the \Poincare duality for Borel-Moore homology.
+\end{itemize}
+\end{remark}
+
+\begin{example}[Poincar\'{e} duality]
+We list several version of \Poincare duality
+\begin{itemize}
+\item Let $X$ be a closed subset of a smooth, oriented manifold $M$ with $\mathrm{dim}_{\mathbb{R}}(M)=n$, then we have $$H_{i}^{BM}(X)=H^{n-i}(M, M\setminus X)$$
+$$H^{i}_{BM}(M)\cong H_{n-i}(M).$$
+Note that we have to distinguish the first isomorphism and the definition 
+$$H_{i}^{BM}=H_{i}(\hat{X}, *)=H_{i}(\overline{X}, \overline{X}\setminus X).$$
+In other words, if $M$ is a compactification of $X$(this implies $X$ itself is smooth), then we must have 
+$$H^{n-i}(M, M\setminus X)=H_{i}(M, M\setminus X).$$
+\item Lefschetz duality. Let $M$ be an oriented compact manifold with boundary $X$, then we have
+$$H^{k}(M,X)=H_{n-k}(M)$$
+$$H_{k}(M)=H_{n-k}(M, X).$$
+Note that this is quite different from the relative homology used in Borel-Moore homology, since $X$, as the boundary of $M$, is closed in $M$ while in Borel-Moore theory, $M\setminus X$ is open in general.
+\end{itemize}
+\end{example}
+\begin{remark}
+\href{https://www.math.wisc.edu/~maxim/853notes.pdf}{Intersection homology}
+\end{remark}
+\begin{example}[Perverse cohomology, perverse sheaf]
+
+\end{example}
+
+\begin{example}[Intersection cohomology, Grosky-MacPerson]
+
+\end{example}
+
+\begin{example}[Intersection cohomology]
+$$IH^{n+*}(Y, L):=H^{*}(Y, IC(L))$$
+\end{example}
+
+\begin{example}[(co)homology theories related to perverse sheaves]
+We want to use some examples to illustrate the following (co)homology theories occur in the study of the decomposition theorem. 
+\begin{itemize}
+\item ordinary (co)homology $H^{i}(X, \mathbb{Z})$.
+\item cohomology with support $H_{Y}(X, \mathscr{F})$.
+\item Borel-Moore homology $H_{i}^{BM}(X, \mathbb{Z})$.
+\item Sheaf cohomology with compact support $H_{c}^{i}(X, \mathscr{L})$.
+\item Stalk cohomology $H_{x}^{i}(A^{\bullet})$.
+\item Cohomology sheaf $\mathbf{H}^{i}(A^{\bullet})$.
+\item $\underline{H}^{r}(A^{\bullet})$.
+\item Sheaf complex cohomology $H^{i}(X, A^{\bullet})$ via injective resolution.
+\item Perverse cohomology $^{\overline{p}}H^{i}(A^{\bullet})$.
+\item Intersection (co)homology with $\overline{p}$-perversity, $IH_{i}^{\overline{p}}(X)$.
+\item Relative intersection (cohomology) with perversity $\overline{p}$, $IH^{\overlind{p}}_{i}(X,X\setminus\{x\};\mathscr{L})$.
+\end{itemize}
+\end{example}
+
+\begin{example}[Operations related to perverse sheaves]
+Some notations need in the theory of perverse sheaves.
+\begin{itemize}
+\item perversity.
+\item mapping cone.
+\item link.
+\item cone slice.
+\item injective resolution of a complex of sheaves.
+\item (co)support condition.
+\item truncation functor $^{\overline{p}}\tau_{\leq 0}, ^{\overline{p}}\tau^{\geq 1}$.
+\item truncation functor $^{\overline{p}}\tau_{\leq r}, ^{\overline{p}}\tau^{\geq r}$.
+\item $Rj_{*}\mathscr{L}$ is a complex of sheaves.
+\item Perverse functors such as $^{\overline{p}}j_{*}, ^{\overline{p}}j_{!}$.
+\item support of sheaf. 
+\item support of a global section.
+\item Intersection sheaves $\mathrm{IC}(X, \mathscr{L})$.
+\end{itemize}
+\end{example}
+
+\begin{example}[$j_{*}, j_{!}$]
+We encounter $j_{*}, j_{!}$ in different situations many times. For example
+\begin{itemize}
+\item $j_{*}\mathscr{F}, R^{k}j_{*}$ in ordinary sheaf theory.
+\item $j_{*}\mathscr{F}, j_{!}\mathscr{F},R^{k}j_{*}, Rj_{*}, R^{\bullet}j_{*}$ in $K$-theory.
+\item $Rj_{*}(A^{\bullet}), R^{\bullet}j_{*}, R^{k}j_{*}$ in some derived category.
+\end{itemize}
+Relations between these constructions.
+\begin{itemize}
+
+\end{itemize}
+Exact sequence associated to these constructions.
+
+
+\end{example}
+
+
+\begin{example}[Leray spectral sequence doesn't degenerate]
+The following two example are taken from \href{http://www-personal.umich.edu/~takumim/MATH731.pdf}{Bhargav Bhatt's notes on perverse sheaves}. First in the holomorphic setting Leray spectral sequence doesn't degenerate.
+
+\end{example}
+\begin{remark}
+Deligne proves that if $f: X\rightarrow Y$ is a smooth projective morphisms of varieties over $\mathbb{C}$, then the Leray spectral sequence degenerates:
+$$E_{2}^{p,q}=H^{p}(Y, R^{q}f_{*}\underline{\mathbb{Q}})\Rightarrow H^{p+q}(X, \underline{\mathbb{Q}}).$$
+\end{remark}
+
+
+\begin{example}[Pathologies of non-abelian categories]
+Note the following 
+\begin{itemize}
+\item Consider the category of finitely generated modules over $R=k[x_{1}, \dots, x_{n}, \dots]$. Then the kernel of the projection $R\rightarrow k$ doesn's exist.
+\item Consider the category of free abelian groups, then the cokernel might not exist. For example $\mathbb{Z}\xrightarrow{\times 2} \mathbb{Z}$.
+\item Vanishing of kernel and cokernel do not imply isomorphism.
+\end{itemize}
+\end{example}
+
+\begin{example}[Exactness depends on the ambient abelian category]
+Let $X=\mathbb{P}^{1}$, then the Euler sequence 
+$$0\rightarrow \mathcal{O}(-2)\rightarrow \mathcal{O}(-1)\oplus\mathcal{O}(-1)\rightarrow \mathcal{O}\rightarrow 0 $$
+is not exact in the category of presheaves.
+\end{example}
+
+\begin{example}[Derived functors and derived categories]
+Some references 
+\href{https://www.math.utah.edu/dc/tilting.pdf}{explicit derived categories}
+\href{http://www.math.wisc.edu/~andreic/publications/lnPoland.pdf}{Derived category}
+\end{example}
+
+\begin{example}[Non-isomorphic abelian categories, isomorphic derived categories]
+\href{https://math.berkeley.edu/~vivek/274/lec6.pdf}{Non-isomorphic abelian categories, isomorphic derived categories}
+\end{example}
+
+\begin{example}[$\mathbf{R}\Gamma(X, \mathscr{F}), \mathbf{R}\Gamma(A^{\bullet}), \mathbf{R}f_{*}(\mathscr{F}), \mathbf{R}f_{*}(A^{\bullet})$]
+
+\end{example}
+\begin{remark}[Derived functors(in derived categories, to get a complex), spectral sequence, hypercohomology]
+
+\end{remark}
+
+
+\begin{example}[Perverse truncation and perverse cohomology]
+To get some feeling about these constructions, first consider smooth algebraic varieties over $\mathbb{C}$, then the perverse truncation is just the ordinary truncation functor. Then if we only have two strata $X=U\amalg Z$, we can glue the two naive $t$-structures to get a non-trivial $t$-structure on $X$, and use the method described in Grosky's notes, we can get the perverse truncation functors as some complexes in a distinguish triangle. Let's illustrate what we said in an example.  
+\end{example}
+
+
+\begin{example}[$H^{0}(N_{Z/X})\neq H^{0}(N_{Z/X}|_{Z})$]
+This is silly, consider $I=(x), R=\mathbb{C}[x]$, then we know 
+$$\mathrm{Hom}_{R}(I/I^{2}, R)=0.$$
+This is because $\forall f\in \mathrm{Hom}_{R}(I/I^{2}, R), f(x^{2})=xf(x)=0\Rightarrow f(x)=0$. This also tells us as a $R$-module, $(I/I^{2})^{\vee}=0$(note that $\mathrm{dim}_{\mathbb{C}}H^{0}(I/I^{2})=1$). However, $$\mathrm{Hom}_{R/I}(I/I^{2}, R/I)=\mathrm{Hom}_{\mathbb{C}}(\mathbb{C}, \mathbb{C})\cong \mathbb{C}.$$
+For example, we have 
+$$T_{Z}\mathrm{Hilb}(X)=\mathrm{Hom}_{\mathcal{O}_{X}}(\mathcal{I}_{Z}, \mathcal{O}_{Z})=\mathrm{Hom}_{\mathcal{O}_{Z}}(\mathcal{I}_{Z}/\mathcal{I}_{Z}^{2}, \mathcal{O}_{Z})=H^{0}(N_{Z/X}|_{Z}).$$
+If $X$ is smooth and $1$-dimensional, $Z$ is a $0$-dimensional subscheme, together with Serre duality, we have 
+$$T_{Z}\mathrm{Hilb}(X)=H^{0}(T^{\vee}_{X}\otimes \mathcal{O}_{Z})^{\vee}.$$
+Specially for $I=(x^{n})$, we know $H^{0}(T^{\vee}_{X}\otimes \mathcal{O}_{Z})=\{x, x^{2}, \dots, x^{n}\}$, as a torus representation, we get 
+$$T_{(x^{n})}\mathrm{Hilb}(\mathbb{C})=t+\dots + t^{n}.$$
+This also agree with the global coordinates of $\mathrm{Hilb}(\mathbb{C})\cong \mathbb{C}^{n}$ given by $(a_{1}, \dots, a_{n})$.
+$$I=(f), f=x^{n}+a_{1}x^{n-1}+\dots+ a_{0}$$
+\end{example}
+
+\end{document}
