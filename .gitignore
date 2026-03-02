@@ -1,0 +1,49 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.dvi
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+
+# Keep the compiled PDF
+!examples-and-counterexamples.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# MkDocs build output
+site/build/
+
+# AI assistant files
+CLAUDE.md
+.claude/
