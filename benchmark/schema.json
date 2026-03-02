@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECAG-Bench Entry",
+  "description": "Schema for an ECAG-Bench benchmark entry",
+  "type": "object",
+  "required": ["id", "problem", "solution", "difficulty", "chapter", "topic", "question_type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ecag-[0-9]{4}$",
+      "description": "Unique identifier in ecag-XXXX format"
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The benchmark question in standard LaTeX"
+    },
+    "solution": {
+      "type": "string",
+      "description": "Full reference solution with expanded macros"
+    },
+    "answer": {
+      "type": ["string", "null"],
+      "description": "Closed-form answer for computation problems, null otherwise"
+    },
+    "answer_type": {
+      "type": "string",
+      "enum": ["example", "counterexample", "closed_form", "proof", "true_false"],
+      "description": "Type of expected answer"
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3,
+      "description": "1=routine, 2=standard theorem, 3=deep/combining results"
+    },
+    "chapter": {
+      "type": "string",
+      "enum": ["basic_concepts", "cohomology", "computations", "moduli", "relative"],
+      "description": "Chapter/section of the source material"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Mathematical topic"
+    },
+    "subtopic": {
+      "type": "string",
+      "description": "More specific subtopic"
+    },
+    "question_type": {
+      "type": "string",
+      "enum": ["example", "counterexample", "computation", "proof", "true_false"],
+      "description": "What kind of response is expected"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Searchable tags"
+    },
+    "source": {
+      "type": "string",
+      "description": "Attribution: Original, Hartshorne X.Y.Z, etc."
+    },
+    "reference": {
+      "type": ["string", "null"],
+      "description": "URL or citation for external references"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Concepts needed to solve this problem"
+    },
+    "msc_codes": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[0-9]{2}[A-Z][0-9]{2}$"},
+      "description": "Mathematics Subject Classification codes"
+    },
+    "verification_strategy": {
+      "type": "string",
+      "enum": ["exact", "cas", "rubric", "hybrid"],
+      "description": "How to verify the answer"
+    },
+    "verification_script": {
+      "type": ["string", "null"],
+      "description": "Path to CAS verification script"
+    },
+    "accepts_multiple": {
+      "type": "boolean",
+      "description": "Whether multiple different correct answers exist"
+    },
+    "is_stub": {
+      "type": "boolean",
+      "description": "True if the original LaTeX source was an empty stub"
+    },
+    "latex_source": {
+      "type": "string",
+      "description": "Path to the original LaTeX source file"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,26 @@
+name: LaTeX Build Check
+
+on:
+  pull_request:
+    paths:
+      - 'latex/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: latex/main.tex
+          working_directory: latex
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: examples-and-counterexamples
+          path: latex/main.pdf

@@ -1,0 +1,21 @@
+name: Validate Benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'benchmark/**'
+      - 'scripts/validate_benchmark.py'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate ECAG-Bench schema
+        run: python scripts/validate_benchmark.py benchmark/data/ecag_bench.jsonl benchmark/schema.json

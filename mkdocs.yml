@@ -1,0 +1,84 @@
+site_name: "Examples and Counterexamples in Elementary Algebraic Geometry"
+site_url: "https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/"
+repo_url: "https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry"
+repo_name: "Waerden001/ECAG"
+
+docs_dir: content
+site_dir: site/build
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry
+
+copyright: "CC BY 4.0 &copy; 2018-2026 Shuai Wang"
+
+nav:
+  - Home: index.md
+  - Basic Concepts:
+      - Commutative Algebra: basic_concepts/commutative_algebra.md
+      - Morphisms: basic_concepts/morphisms.md
+      - Topology: basic_concepts/topology.md
+      - Base Change: basic_concepts/base_change.md
+      - Local-Global: basic_concepts/local_global.md
+      - Sheaves & Bundles: basic_concepts/sheaves_and_bundles.md
+      - Curves: basic_concepts/curves.md
+      - Algebraic Groups: basic_concepts/algebraic_groups.md
+  - Cohomology:
+      - Cohomology: cohomology/cohomology.md
+      - Étale: cohomology/etale.md
+      - Derived Categories: cohomology/derived.md
+      - Homological Algebra: cohomology/homological.md
+  - Computations:
+      - Picard Groups: computations/picard.md
+      - Characteristic Classes: computations/characteristics.md
+      - Hodge Theory: computations/hodge.md
+      - Intersection Theory: computations/intersection_theory.md
+      - Morse Theory: computations/morse.md
+      - Monads: computations/monad.md
+      - Weight Filtrations: computations/weight.md
+  - Moduli & Deformation:
+      - Deformation Theory: moduli/deformation_theory.md
+      - Moduli Spaces: moduli/moduli.md
