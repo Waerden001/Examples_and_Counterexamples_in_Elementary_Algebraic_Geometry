@@ -6,6 +6,8 @@ A curated collection of **concrete examples, counterexamples, constructions, and
 
 This project collects worked examples that complement standard textbooks (Hartshorne, Vakil, Stacks Project, etc.), giving learners concrete objects to work with when entering the field.
 
+![Overview of scheme morphism properties (chart by Konrad Voelkel)](img/morphisms.png)
+
 The collection covers:
 
 - **Schemes & morphisms**: affineness, flatness, smoothness, etale maps, base change

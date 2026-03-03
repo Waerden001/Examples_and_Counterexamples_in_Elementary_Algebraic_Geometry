@@ -171,17 +171,17 @@ A concrete instance: if $E = E_1 \oplus E_2$ is a direct sum of two non-isomorph
 <!-- BENCHMARK_PROBLEM: Give an example of a coherent sheaf $E$ on a smooth projective variety $X$ such that the coarse moduli space $M$ of semistable sheaves exists, but $T_{[E]} M \neq \operatorname{Ext}^1(E, E)$. Explain why the identification fails. -->
 
 ## Deformation of quotient sheaves
-Let $X$ be a scheme over $k$. $\mathcal{F}$ be a coherent sheaf on $X$, $\mathcal{S}_{0}$ be a coherent subsheaf of $\mathcal{F}$, $\qQ_{0}$ be the quotient. Define the deformation functor
+Let $X$ be a scheme over $k$. $\mathcal{F}$ be a coherent sheaf on $X$, $\mathcal{S}_{0}$ be a coherent subsheaf of $\mathcal{F}$, $\mathcal{Q}_{0}$ be the quotient. Define the deformation functor
 
 $$
-D:=D_{[\mathcal{F}\rightarrow \qQ_{0}\rightarrow 0]}: \mathbf{Art}/k\rightarrow \mathbf{Set}
+D:=D_{[\mathcal{F}\rightarrow \mathcal{Q}_{0}\rightarrow 0]}: \mathbf{Art}/k\rightarrow \mathbf{Set}
 $$
 
 $$
-A\mapsto \{ \text{exact sequences of } A\text{-flat sheaves } 0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \qQ\rightarrow 0 \text{ on } X_{A},  \mathcal{S}\otimes_{A}k\cong \mathcal{S}_{0} \}/\sim.
+A\mapsto \{ \text{exact sequences of } A\text{-flat sheaves } 0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \mathcal{Q}\rightarrow 0 \text{ on } X_{A},  \mathcal{S}\otimes_{A}k\cong \mathcal{S}_{0} \}/\sim.
 $$
 
-By definition, $[0\rightarrow \mathcal{S}'\rightarrow \mathcal{F}\otimes_{k}B\rightarrow \qQ'\rightarrow 0]\in D(B)$ is a deformation of $[0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \qQ\rightarrow 0]\in D(A)$ if and only if we have
+By definition, $[0\rightarrow \mathcal{S}'\rightarrow \mathcal{F}\otimes_{k}B\rightarrow \mathcal{Q}'\rightarrow 0]\in D(B)$ is a deformation of $[0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \mathcal{Q}\rightarrow 0]\in D(A)$ if and only if we have
 
 - $\mathcal{S}'\otimes_{B}A=\mathcal{S}$
 - $\mathcal{S}'$ is flat over $B$. We know $\mathcal{S}'\otimes_{B}A=\mathcal{S}$ is flat over $A$, thus we only need $\mathcal{S}'\otimes_{B} M=\mathcal{S}\otimes_{B}A\otimes_{A}M=\mathcal{S}\otimes_{A}M \rightarrow \mathcal{S}'$ is an injection. In other words, flatness is equivalent to the existence of the short exact sequence
@@ -190,37 +190,35 @@ $$
 0\rightarrow \mathcal{S}\otimes_{A}M\rightarrow \mathcal{S}'\rightarrow \mathcal{S}\rightarrow 0.
 $$
 
-In other words, an extension exists if and only if we can find a subsheaf $\mathcal{E}$ of  $\mathcal{F}\otimes_{k}B/S\otimes_{A}M=\mathcal{F}\otimes_{k}B/\operatorname{im}(\alpha)$ whose image in $\mathcal{F}\otimes_{k}A$ is exactly $\mathcal{S}$. Because the image lies in $\mathcal{S}$, we only need to find a subsheaf of $\ker(\beta)/\operatorname{im}(\alpha)$ has this property. In other words, we need the following sequence to split
+In other words, an extension exists if and only if we can find a subsheaf $\mathcal{E}$ of  $\mathcal{F}\otimes_{k}B/\mathcal{S}\otimes_{A}M=\mathcal{F}\otimes_{k}B/\operatorname{im}(\alpha)$ whose image in $\mathcal{F}\otimes_{k}A$ is exactly $\mathcal{S}$. Because the image lies in $\mathcal{S}$, we only need to find a subsheaf of $\ker(\beta)/\operatorname{im}(\alpha)$ has this property. In other words, we need the following sequence to split
 
 $$
 0\rightarrow \ker\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0.
 $$
 
-We can check that $\ker=\mathcal{F}\otimes_{k}M/\mathcal{S}\otimes_{A}M=\qQ\otimes_{A}M$. That is, the obstruction is given by
+We can check that $\ker=\mathcal{F}\otimes_{k}M/\mathcal{S}\otimes_{A}M=\mathcal{Q}\otimes_{A}M$. That is, the obstruction is given by
 
 $$
-\operatorname{ob}=[0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0]\in \operatorname{Ext}^{1}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M).
+\operatorname{ob}=[0\rightarrow \mathcal{Q}\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0]\in \operatorname{Ext}^{1}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \mathcal{Q}\otimes_{A}M).
 $$
 
 Moreover, all flat deformations of the given element is bijective to
 
 $$
-\operatorname{Ext}^{0}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Hom}(\mathcal{S}, \qQ\otimes_{A}M).
+\operatorname{Ext}^{0}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \mathcal{Q}\otimes_{A}M)=\operatorname{Hom}(\mathcal{S}, \mathcal{Q}\otimes_{A}M).
 $$
 
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 & 0\arrow{d} & & 0 \arrow{d}\\
 & \mathcal{S}\otimes_{A}M\arrow{d}\arrow[dashrightarrow]{dr}{\alpha}& & \mathcal{S}\arrow{d}\\
 0\arrow{r} & \mathcal{F}\otimes_{k}M\arrow{r}\arrow{d}& \mathcal{F}\otimes_{k}B\arrow[dashrightarrow]{dr}{\beta}\arrow{r}& \mathcal{F}\otimes_{k}A\arrow{r}\arrow{d} & 0\\
-&\qQ\otimes_{A}M\arrow{d} & &Q\arrow{d}\\
+&\mathcal{Q}\otimes_{A}M\arrow{d} & &\mathcal{Q}\arrow{d}\\
 & 0 & &0
 \end{tikzcd}
 ```
-```
+
 There's still one more issue, these two $\operatorname{Ext}$ groups still depend on $B$. We claim that  the $M(\ker(\beta)/\operatorname{im}(\alpha))=0$. Indeed if $\gamma=\sum f_{i}\otimes_{k}b_{i}\in \ker(\beta)$, then we have $\sum f_{i}\otimes_{k}a_{i}\in \mathcal{S}$, where $a_{i}=b_{i}\pmod M$. Then $m\gamma =\sum f_{i}\otimes mb_{i}=\sum f_{i}\otimes ma_{i}$, the last identity comes from the fact that $M^{2}=0$, thus $ma_{i}$ is well defined. Then $m\gamma=m(\sum f_{i}\otimes_{k}a_{i})\in \operatorname{im}(\alpha)$.
 Apply $\otimes_{A}k$ to
 
@@ -231,34 +229,32 @@ $$
 We still get an exact sequence by the $A$-flatness of $\mathcal{S}$
 
 $$
-0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\rightarrow \mathcal{S}\otimes_{A}k\rightarrow 0.
+0\rightarrow \mathcal{Q}\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\rightarrow \mathcal{S}\otimes_{A}k\rightarrow 0.
 $$
 
-We can check that we have the following commutative diagram. If we just consider small extensions, we have $\qQ\otimes_{A}M\otimes_{A}k=\qQ\otimes_{A}M$ because $m_{A}M=0$.
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
+We can check that we have the following commutative diagram. If we just consider small extensions, we have $\mathcal{Q}\otimes_{A}M\otimes_{A}k=\mathcal{Q}\otimes_{A}M$ because $m_{A}M=0$.
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 & & 0\arrow{d}& 0\arrow{d}&\\
  & & \mathcal{S}\otimes_{A}m_{A}\arrow{d}\arrow[r, equal]&  \mathcal{S}\otimes_{A}m_{A}\arrow{d}&\\
- 0\arrow{r}&\qQ\otimes_{A}M \arrow{r}\arrow[d,equal]& \ker(\beta)/\operatorname{im}(\alpha)\arrow{r}\arrow{d}&  \mathcal{S}\arrow{d}\arrow{r}& 0\\
- 0\arrow{r}&\qQ\otimes_{A}M \arrow{r}& \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\arrow{r}\arrow{d}&\mathcal{S}\otimes_{A}k \arrow{d}\arrow{r}&0\\
+ 0\arrow{r}&\mathcal{Q}\otimes_{A}M \arrow{r}\arrow[d,equal]& \ker(\beta)/\operatorname{im}(\alpha)\arrow{r}\arrow{d}&  \mathcal{S}\arrow{d}\arrow{r}& 0\\
+ 0\arrow{r}&\mathcal{Q}\otimes_{A}M \arrow{r}& \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\arrow{r}\arrow{d}&\mathcal{S}\otimes_{A}k \arrow{d}\arrow{r}&0\\
  & & 0& 0& \\
 \end{tikzcd}
 ```
-```
+
 In conclusion, we have
 
 $$
-\operatorname{Hom}_{X_{A}}(\mathcal{S},\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}\otimes_{A}k,\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k}M
+\operatorname{Hom}_{X_{A}}(\mathcal{S},\mathcal{Q}\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}\otimes_{A}k,\mathcal{Q}\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}_{0}, \mathcal{Q}_{0})\otimes_{k}M
 $$
 
 $$
-\operatorname{Ext}^{1}_{X_{A}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}\otimes_{A}k, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k} M.
+\operatorname{Ext}^{1}_{X_{A}}(\mathcal{S}, \mathcal{Q}\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}\otimes_{A}k, \mathcal{Q}\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}_{0}, \mathcal{Q}_{0})\otimes_{k} M.
 $$
 
-Because $m_{A}M=0$, any element in $\operatorname{Hom}_{X_{A}}(\mathcal{S}, \qQ\otimes_{A}M)$ factors through the geometric fibre. And we can take out $M$ because of the projection formula, $M$ is simply viewed as a vector space. As a special case, the tangent-obstruction theory of the Hilbert scheme functor $H_{Z,X}$ is given by $T_{1}=\operatorname{Hom}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z}), T_{2}=\operatorname{Ext}^{1}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z})$.
+Because $m_{A}M=0$, any element in $\operatorname{Hom}_{X_{A}}(\mathcal{S}, \mathcal{Q}\otimes_{A}M)$ factors through the geometric fibre. And we can take out $M$ because of the projection formula, $M$ is simply viewed as a vector space. As a special case, the tangent-obstruction theory of the Hilbert scheme functor $H_{Z,X}$ is given by $T_{1}=\operatorname{Hom}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z}), T_{2}=\operatorname{Ext}^{1}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z})$.
 
 ### Remark {#ecag-0305}
 
@@ -286,7 +282,7 @@ When $X$ is smooth, $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_X) \cong H^0(
 
 Alternatively, the last isomorphism follows from viewing $\operatorname{Hilb}^n(X)$ as the moduli space of rank-$1$ torsion-free sheaves: the ideal sheaf $\mathcal{I}_Z$ is a rank-$1$ torsion-free sheaf, and the deformation theory of coherent sheaves (Theorem ecag-0302) identifies the tangent space with $\operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{I}_Z)$.
 
-**Verification for a single point.** Let $X$ be a smooth surface and $Z$ a single reduced point. Then $\mathcal{I}_Z = \mathfrak{m}_Z$ (the maximal ideal sheaf) and $\mathcal{O}_Z = k$. We have $\operatorname{Hom}(\mathfrak{m}_Z, k) = \mathfrak{m}_Z / \mathfrak{m}_Z^2)^* \cong k^2$ (the Zariski cotangent space), so $\dim T_Z \operatorname{Hilb}^1(X) = 2 = \dim X$. This is consistent with $\operatorname{Hilb}^1(X) \cong X$.
+**Verification for a single point.** Let $X$ be a smooth surface and $Z$ a single reduced point. Then $\mathcal{I}_Z = \mathfrak{m}_Z$ (the maximal ideal sheaf) and $\mathcal{O}_Z = k$. We have $\operatorname{Hom}(\mathfrak{m}_Z, k) = (\mathfrak{m}_Z / \mathfrak{m}_Z^2)^* \cong k^2$ (the Zariski cotangent space), so $\dim T_Z \operatorname{Hilb}^1(X) = 2 = \dim X$. This is consistent with $\operatorname{Hilb}^1(X) \cong X$.
 
 <!-- BENCHMARK_PROBLEM: Let $X$ be a smooth projective surface over $\mathbb{C}$, and let $Z \subset X$ consist of a single reduced point. Compute $\dim_k T_Z \operatorname{Hilb}^1(X)$ using each of the three descriptions $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z)$, $\operatorname{Ext}^1(\mathcal{O}_Z, \mathcal{O}_Z)$, and $\operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{I}_Z)$, and verify they agree. -->
 

@@ -5,6 +5,11 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 
 ## Chow rings
 
+![Chow ring computation tables](../img/matrix.JPG)
+
+![Chow ring computation tables (continued)](../img/matrix2.JPG)
+
+
 ### Example: Chow ring of $\overline{\mathrm{M}}_{0,n}$ {#ecag-0233}
 
 The moduli space $\overline{\mathrm{M}}_{0,n}$ of stable $n$-pointed rational curves admits an explicit Chow ring description via Keel's generators-and-relations theorem. For small $n$, these rings can be computed completely and matched against classical geometric models.

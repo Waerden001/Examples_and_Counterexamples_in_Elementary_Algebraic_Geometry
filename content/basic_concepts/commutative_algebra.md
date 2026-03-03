@@ -492,7 +492,7 @@ The ring $k[x,y,z,w]/(z^2, zw, w^2, xz - yw)$ has no embedded primes (its associ
 
 <!-- BENCHMARK_PROBLEM: For the ring $R = k[x,y,z,w]/(z^2, zw, w^2, xz - yw)$ viewed as a $k[x,y]$-algebra, show that $R$ is not flat over $k[x,y]$ by proving that the natural map $I \otimes_{k[x,y]} R \to R$ is not injective, where $I = (x,y) \subset k[x,y]$. Exhibit an explicit nonzero element in the kernel. -->
 
-### Example: Hartshorne $\mathrm{III}.9.8.4 & \mathrm{III}.12.4$, flat families, dimension jump {#ecag-0063}
+### Example: Hartshorne $\mathrm{III}.9.8.4$ and $\mathrm{III}.12.4$, flat families, dimension jump {#ecag-0063}
 
 There exists a flat family of curves in $\mathbb{P}^{3}$ parametrized by $\mathbb{A}^{1}$ such that the general fibre is a smooth twisted cubic but the special fibre is a singular curve with an embedded point. The cohomology dimensions $h^i$ of the ideal sheaf jump at the special fibre, but the Euler characteristic remains constant.
 
@@ -1184,7 +1184,9 @@ On a Kahler manifold $M$, a Kahler form $\omega$ is a closed real $(1,1)$-form t
 
 ### Remark: why this construction doesn't work with two curves? {#ecag-0097}
 
-In Hironaka's deformation (ecag-0094), three curves are used rather than two. The reason is that with only two curves, the special fibre of the family can become non-reduced, preventing the analytic arguments (complex structure, Kahler metrics, GAGA) from applying. This is a typical phenomenon: families of subschemes can have non-reduced limits even when all general fibres are reduced. For example, consider the family of two skew lines in $\mathbb{A}_{k}^{3}$ parametrized by $\mathbb{A}_{k}^{1}$:
+In Hironaka's deformation (ecag-0094), three curves are used rather than two. The reason is that with only two curves, the special fibre of the family can become non-reduced, preventing the analytic arguments (complex structure, Kahler metrics, GAGA) from applying. This is a typical phenomenon: families of subschemes can have non-reduced limits even when all general fibres are reduced.
+
+![Family of skew lines with non-reduced limit](../img/skewlines.jpg) For example, consider the family of two skew lines in $\mathbb{A}_{k}^{3}$ parametrized by $\mathbb{A}_{k}^{1}$:
 
 $$
 X_{t} = \operatorname{Spec}(k[x,y,z,t] / ((x,y) \cap (x-t, z))) = \operatorname{Spec}(k[x,y,z,t]/(yz, xz, xy - yt, x^{2} - xt)).

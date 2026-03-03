@@ -127,6 +127,8 @@ With coordinates $[X : Y : Z : W]$ on $\mathbb{P}^3$, the Segre quadric is $\{XW
 
 **Topological trivialization and the antipodal section.** Identifying $\mathbb{P}^1(\mathbb{C}) \cong S^2$, the map $\sigma(x) = (x, -x)$ (antipodal point) gives a continuous section of $\pi$ that is neither holomorphic nor algebraic.
 
+![An orientation of S²](../img/sphere.png)
+
 **Degree computation via self-intersection.** To identify the topological type of the line bundle, we compute the self-intersection number of the zero section $\sigma$.
 
 Perturb $\sigma$ by rotating the second factor through angle $t$ about the polar axis:
