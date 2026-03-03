@@ -1,0 +1,35 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Mathematical reasoning has emerged as a central testbed for evaluating the capabilities of large language models (LLMs).
+Existing benchmarks primarily assess two modes of mathematical reasoning: \emph{competition-style problem solving}~\citep{hendrycks2021measuring, zhong2023agieval} and \emph{formal theorem proving}~\citep{tsoukalas2024putnambench}.
+Both modes share a common structure: given a precisely stated problem, produce a proof or a unique numerical answer.
+
+We identify a third mode---\emph{constructive reasoning}---that is pervasive in mathematical practice yet largely absent from current benchmarks.
+Constructive reasoning asks: given a set of desired properties, can you \emph{build} a concrete mathematical object that satisfies them?
+For example:
+\begin{itemize}[nosep]
+  \item Construct a smooth projective curve of genus $2$ whose Jacobian has complex multiplication.
+  \item Give an example of a flat morphism that is not smooth.
+  \item Find a coherent sheaf on $\mathbf{P}^2$ with prescribed Hilbert polynomial.
+\end{itemize}
+
+This mode of reasoning is fundamentally different from verification.
+In verification, one checks whether a given object has a property; in construction, one must \emph{synthesize} an object from scratch.
+The answer space is typically infinite and non-unique: many different objects may satisfy the given constraints, and the ``difficulty'' lies not in finding \emph{the} answer but in finding \emph{any} valid answer.
+
+Algebraic geometry provides an ideal domain for testing constructive reasoning.
+The field is characterized by a rich interplay between abstract theory and concrete computation: theorems about schemes, sheaves, and cohomology become meaningful only when instantiated on specific geometric objects.
+Standard references~\citep{hartshorne1977algebraic, vakil2017rising, stacks-project} develop the theory through carefully chosen examples that illustrate both the power and the limitations of general results.
+
+We introduce \textsc{ECAG-Bench} (\textbf{E}xamples and \textbf{C}ounterexamples in \textbf{A}lgebraic \textbf{G}eometry \textbf{Bench}mark), a dataset of 332 constructive problems in algebraic geometry.
+Each problem asks the model to construct a specific mathematical object---a scheme, a morphism, a sheaf, a cohomology class, or a numerical invariant---satisfying stated properties.
+The problems are drawn from a curated collection of examples and counterexamples that has been developed over several years as supplementary material for learners entering algebraic geometry.
+
+Our key contributions are:
+\begin{enumerate}[nosep]
+  \item \textbf{A new benchmark} of 332 constructive algebraic geometry problems at three difficulty levels, covering five major areas of the subject.
+  \item \textbf{A four-layer verification pipeline} that validates properties of constructed objects rather than checking answer equivalence, using computer algebra systems (CAS) as the primary verification mechanism.
+  \item \textbf{Baseline evaluations} of frontier LLMs, revealing that constructive algebraic geometry reasoning remains a significant challenge even for the most capable models.
+  \item \textbf{A taxonomy of failure modes} specific to constructive mathematical reasoning, including fabricated objects, property confusion, and computational errors in invariant calculations.
+\end{enumerate}

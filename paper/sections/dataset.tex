@@ -1,0 +1,84 @@
+\section{Dataset}
+\label{sec:dataset}
+
+\subsection{Source Material}
+
+ECAG-Bench is derived from \emph{Examples and Counterexamples in Elementary Algebraic Geometry}, a collection of worked examples originally written as supplementary material for learners entering algebraic geometry.
+The collection has been developed over several years and covers topics ranging from basic scheme theory to derived categories and moduli spaces.
+
+The original material was written in \LaTeX\ and subsequently converted to Markdown for web publication.
+Each example was then enhanced to meet a uniform quality standard: a self-contained mathematical narrative with complete constructions, precise references, and explicit computational details.
+
+\subsection{Content Enhancement}
+
+The content enhancement process involved restructuring each example into a natural mathematical exposition following a consistent quality standard:
+\begin{enumerate}[nosep]
+  \item \textbf{Narrative form:} Each example reads as a self-contained mathematical essay rather than a template with bullet points.
+  \item \textbf{Complete constructions:} All computational steps are shown explicitly, allowing independent verification.
+  \item \textbf{Benchmark problem extraction:} Each example is annotated with a structured benchmark problem specification, including the problem statement, expected answer type, difficulty level, and verification strategy.
+\end{enumerate}
+
+All 332 entries have been enhanced to this standard, with zero stubs remaining.
+
+\subsection{Statistics}
+
+\begin{table}[h]
+\centering
+\caption{ECAG-Bench dataset statistics.}
+\label{tab:statistics}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metric} & \textbf{Count} \\
+\midrule
+Total entries & 332 \\
+Substantive (with solution) & 332 \\
+Stubs & 0 \\
+\midrule
+\multicolumn{2}{l}{\textbf{By Chapter}} \\
+\midrule
+Basic Concepts & 162 \\
+Computations & 66 \\
+Moduli \& Deformation & 58 \\
+Cohomology & 46 \\
+\midrule
+\multicolumn{2}{l}{\textbf{By Difficulty}} \\
+\midrule
+Level 1 (Routine) & 77 \\
+Level 2 (Non-trivial theorem) & 237 \\
+Level 3 (Deep/combining results) & 18 \\
+\midrule
+\multicolumn{2}{l}{\textbf{By Question Type}} \\
+\midrule
+Example & 243 \\
+Counterexample & 66 \\
+Computation & 14 \\
+Proof & 9 \\
+\midrule
+\multicolumn{2}{l}{\textbf{By Verification Strategy}} \\
+\midrule
+CAS & 309 \\
+Exact match & 14 \\
+Rubric & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Difficulty Levels}
+
+Problems are assigned one of three difficulty levels:
+\begin{description}[nosep]
+  \item[Level 1 (Routine):] The construction follows directly from definitions. A student who has read the relevant section of a standard textbook should be able to produce an answer.
+  \item[Level 2 (Non-trivial):] The construction requires applying a significant theorem or combining multiple standard results. This is the level of a good homework problem in a graduate course.
+  \item[Level 3 (Deep):] The construction requires either deep structural insight, the combination of results from different areas, or the knowledge of a specific ``trick'' that is not obvious from the problem statement.
+\end{description}
+
+\subsection{Quality Control}
+
+Each entry has been reviewed for:
+\begin{itemize}[nosep]
+  \item Mathematical correctness of the stated construction
+  \item Completeness of computational details
+  \item Accuracy of the benchmark problem formulation
+  \item Consistency of difficulty rating across the dataset
+  \item Validity of the assigned verification strategy
+\end{itemize}

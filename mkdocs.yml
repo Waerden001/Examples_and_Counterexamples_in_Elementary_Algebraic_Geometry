@@ -53,7 +53,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry
 
-copyright: "CC BY 4.0 &copy; 2018-2026 Shuai Wang"
+copyright: "CC BY 4.0 &copy; 2018-2026 Waerden"
 
 nav:
   - Home: index.md

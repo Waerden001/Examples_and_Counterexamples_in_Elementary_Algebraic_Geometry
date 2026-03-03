@@ -1,0 +1,40 @@
+\section{Analysis}
+\label{sec:analysis}
+
+\todo{Fill in after running experiments.}
+
+\subsection{Failure Mode Taxonomy}
+
+Based on preliminary evaluation, we identify the following failure modes specific to constructive algebraic geometry reasoning:
+
+\paragraph{F1: Fabricated objects.}
+The model produces a mathematical object that does not exist or is not well-defined.
+For example, claiming that a certain polynomial defines a smooth curve when it is in fact singular, or referencing a ``well-known'' variety that does not appear in the literature.
+
+\paragraph{F2: Property confusion.}
+The model constructs a valid object but confuses the required properties.
+For example, producing a smooth but projective variety when asked for a smooth non-projective variety, or computing the Picard group when asked for the class group.
+
+\paragraph{F3: Computational errors.}
+The model follows a correct strategy but makes arithmetic or algebraic errors in the computation.
+This is particularly common in problems involving intersection numbers, Chern class computations, and cohomology calculations.
+
+\paragraph{F4: Trivial or degenerate answers.}
+The model produces a technically correct but trivially degenerate answer that fails to demonstrate understanding.
+For example, answering ``give an example of a flat morphism'' with the identity morphism.
+
+\paragraph{F5: Hallucinated theorems.}
+The model invokes a theorem that does not exist, or misattributes a result to a standard reference.
+This is distinct from F1 in that the constructed object may be valid, but the justification relies on a non-existent result.
+
+\paragraph{F6: Incomplete verification.}
+The model constructs a plausible object and provides some justification, but fails to verify all the required properties.
+For example, showing that a morphism is flat without checking that it is not smooth.
+
+\subsection{Difficulty Calibration}
+
+\todo{Analyze whether model performance correlates with assigned difficulty levels. Check for problems where difficulty assignment may need revision.}
+
+\subsection{Chapter-Level Analysis}
+
+\todo{Analyze which areas of algebraic geometry are most challenging for LLMs. Hypothesize reasons based on training data availability and problem structure.}

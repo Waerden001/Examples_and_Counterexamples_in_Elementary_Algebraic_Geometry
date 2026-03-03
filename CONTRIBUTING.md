@@ -1,27 +1,19 @@
 # Contributing to ECAG
 
-Thank you for your interest in contributing! This project thrives on community input — whether you're fixing errors, filling stubs, or adding entirely new examples.
+Thank you for your interest in contributing! This project thrives on community input — whether you're fixing errors, improving existing content, or adding new examples.
 
-## Ways to Contribute
+## Quality Standards
 
-### 1. Fix errors in existing examples
+Every example in this collection should be a **self-contained mathematical narrative** — not a template or checklist, but a natural exposition that a reader can follow from statement to conclusion. Specifically:
 
-If you find a mathematical error:
+1. **Natural mathematical prose.** Write as you would in a good textbook or survey article. Avoid bullet-point-heavy formats; instead, let the argument flow logically from one step to the next.
+2. **Complete constructions.** If the example involves constructing an object, include all the computational details needed for a reader to verify the construction independently. Don't just state the answer — show *why* it works.
+3. **Logical completeness.** Every claim should be justified, either by a direct argument or by a precise reference. If a result is "well-known," cite where it can be found.
+4. **Key insight.** Each example should make clear *what* the reader should take away — the surprising phenomenon, the instructive failure, or the essential technique.
 
-1. Open an issue using the **Error Report** template
-2. Or submit a PR directly editing the relevant file in `content/`
+### Reference Example
 
-### 2. Fill in stubs
-
-Many examples have titles but no content (marked **Stub** in the website). These are open for contribution. Search for `> **Status:** Stub` in `content/` files to find them.
-
-### 3. Add new examples or counterexamples
-
-Create a new entry in the appropriate `content/` file following the format below.
-
-### 4. Improve the benchmark
-
-Add `tags`, `prerequisites`, `msc_codes`, or improve `problem` formulations in `benchmark/data/ecag_bench.jsonl`.
+See [`content/computations/characteristics.md`](content/computations/characteristics.md), entry **ecag-0230** (Chern classes of the Horrocks–Mumford bundle) for a model of the quality and depth we aim for.
 
 ## Content Format
 
@@ -30,31 +22,80 @@ Each example in `content/` follows this structure:
 ```markdown
 ### Example: Your descriptive title here {#ecag-XXXX}
 
-Your mathematical content here. Use standard LaTeX in math mode:
+A natural mathematical exposition of the example, flowing from the problem
+statement through the construction or proof to the key insight.
 
-$$\operatorname{Pic}(X) \cong \mathbb{Z}$$
+The construction proceeds as follows. Let $X$ be a smooth projective variety...
 
-Inline math: $X$ is a smooth projective curve of genus $g$.
+$$
+\operatorname{Pic}(X) \cong \mathbb{Z}
+$$
+
+This result is surprising because...
+
+<!-- BENCHMARK_PROBLEM: {"problem": "Compute Pic(X) for ...", "answer": "Z", "answer_type": "closed_form", "difficulty": 2, "tags": ["picard-group"], "verification_strategy": "cas"} -->
 ```
 
-**Rules:**
+## Formatting Rules
 
-- **Use standard LaTeX only** — write `\operatorname{Spec}` not `\Spec`, write `\mathcal{O}` not `\O`, write `\mathbf{P}` not `\P`. Custom macros from `mystyle.sty` are only for the LaTeX source in `latex/`.
-- **ECAG ID** — for new entries, use a placeholder `{#ecag-NEW}` and the maintainer will assign the real ID.
-- **Stub entries** — if you can only provide a title and rough statement, that's still valuable. Mark the body with `> **Status:** Stub — content needed.`
-- **References** — link to Stacks Project tags, Hartshorne exercises, or other sources where applicable.
-- **Diagrams** — commutative diagrams using `tikzcd` should be wrapped in a fenced code block with a comment: `<!-- tikzcd diagram: manual conversion needed -->`.
+### BENCHMARK_PROBLEM
 
-## Benchmark Entries
+Each example must end with a `<!-- BENCHMARK_PROBLEM: {...} -->` HTML comment containing a JSON object. This is extracted automatically by `scripts/build_benchmark.py` to generate the benchmark dataset.
 
-If you edit `benchmark/data/ecag_bench.jsonl`, ensure:
+### Display Math
 
-1. All math uses standard LaTeX (no custom macros)
-2. `id` follows the `ecag-XXXX` pattern
-3. Run validation before committing:
-   ```bash
-   python scripts/validate_benchmark.py benchmark/data/ecag_bench.jsonl benchmark/schema.json
-   ```
+Display math (`$$`) must follow these rules:
+
+- `$$` must appear on its own line (no inline text on the same line)
+- There must be a blank line before the opening `$$` and after the closing `$$`
+- No blank lines inside the `$$...$$` block (MathJax interprets blank lines as paragraph breaks)
+
+**Correct:**
+
+```markdown
+The Picard group is computed as follows.
+
+$$
+\operatorname{Pic}(X) \cong \mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}
+$$
+
+This shows that...
+```
+
+**Incorrect:**
+
+```markdown
+The Picard group is $$\operatorname{Pic}(X) \cong \mathbb{Z}$$
+```
+
+### LaTeX Conventions
+
+- **Use standard LaTeX** — write `\operatorname{Spec}` not `\Spec`, write `\mathcal{O}` not `\O`, write `\mathbf{P}` not `\P`. Custom macros from `mystyle.sty` are only for the LaTeX source in `latex/`.
+- **Aligned environments:** Inside MathJax, use `\begin{aligned}...\end{aligned}` (not `\begin{align}` or `\begin{align*}`).
+- **Operator names:** Always use `\operatorname{Name}` for operator-style names (Spec, Proj, Pic, Hom, Ext, etc.).
+
+### ECAG IDs
+
+- For new entries, use a placeholder `{#ecag-NEW}` and the maintainer will assign the real ID.
+- Existing IDs must not be changed or reused.
+
+## Ways to Contribute
+
+### 1. Improve existing examples
+
+If an example's exposition could be clearer, more complete, or better motivated, submit a PR. This is the most valuable form of contribution.
+
+### 2. Fix mathematical errors
+
+If you find an error, open an issue using the **Error Report** template, or submit a PR directly.
+
+### 3. Add new examples or counterexamples
+
+Create a new entry in the appropriate `content/` file following the format above. Include the `BENCHMARK_PROBLEM` comment.
+
+### 4. Improve the benchmark
+
+Refine `problem` formulations, add better `tags`, `prerequisites`, or `msc_codes`.
 
 ## LaTeX Source
 
@@ -67,7 +108,9 @@ The original LaTeX is in `latex/`. If you edit LaTeX files:
 ## Pull Request Checklist
 
 - [ ] Content in `content/` uses standard LaTeX (no custom macros)
-- [ ] If benchmark edited, `validate_benchmark.py` passes
+- [ ] Display math follows the `$$`-on-its-own-line rule with blank lines before/after
+- [ ] Each example includes a `<!-- BENCHMARK_PROBLEM: ... -->` comment
+- [ ] `python scripts/validate_benchmark.py benchmark/data/ecag_bench.jsonl benchmark/schema.json` passes
 - [ ] If LaTeX edited, `pdflatex main.tex` compiles
 - [ ] ECAG ID is assigned or placeholder `{#ecag-NEW}` is used
 

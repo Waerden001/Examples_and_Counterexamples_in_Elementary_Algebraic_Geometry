@@ -54,4 +54,4 @@ This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/
 
 ## Author
 
-**Shuai Wang** — originally written during PhD studies; now maintained as an open community resource.
+**Waerden** — originally written during PhD studies; now maintained as an open community resource.

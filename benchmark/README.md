@@ -27,7 +27,7 @@ This is a fundamentally different capability from proof verification — answers
 
 ## Dataset Description
 
-- **Source:** Curated from *Examples and Counterexamples in Elementary Algebraic Geometry* by Shuai Wang
+- **Source:** Curated from *Examples and Counterexamples in Elementary Algebraic Geometry* by Waerden
 - **Repository:** [GitHub](https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry)
 - **Website:** [GitHub Pages](https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/)
 - **License:** CC-BY-4.0
@@ -37,43 +37,43 @@ This is a fundamentally different capability from proof verification — answers
 
 | Metric | Count |
 |--------|-------|
-| Total entries | 200 |
-| Substantive (with solution) | 160 |
-| Stubs (title only) | 40 |
+| Total entries | 332 |
+| Substantive (with solution) | 332 |
+| Stubs (title only) | 0 |
 
 ### By Chapter
 
 | Chapter | Count |
 |---------|-------|
-| Basic Concepts | 119 |
-| Moduli & Deformation | 30 |
-| Computations | 29 |
-| Cohomology | 22 |
+| Basic Concepts | 162 |
+| Computations | 66 |
+| Moduli & Deformation | 58 |
+| Cohomology | 46 |
 
 ### By Difficulty
 
 | Level | Description | Count |
 |-------|-------------|-------|
-| 1 | Routine: directly from definitions | 144 |
-| 2 | Requires applying a non-trivial theorem | 46 |
-| 3 | Deep: combining multiple results or unexpected | 10 |
+| 1 | Routine: directly from definitions | 77 |
+| 2 | Requires applying a non-trivial theorem | 237 |
+| 3 | Deep: combining multiple results or unexpected | 18 |
 
 ### By Question Type
 
 | Type | Count |
 |------|-------|
-| Example | 136 |
-| Counterexample | 54 |
-| Computation | 9 |
-| Proof | 1 |
+| Example | 243 |
+| Counterexample | 66 |
+| Computation | 14 |
+| Proof | 9 |
 
 ### By Verification Strategy
 
 | Strategy | Count | Description |
 |----------|-------|-------------|
-| CAS (SageMath/Macaulay2) | 190 | Automated property verification |
-| Exact match | 9 | Unique numeric/symbolic answer |
-| Rubric | 1 | Human/LLM-judge with structured rubric |
+| CAS (SageMath/Macaulay2) | 309 | Automated property verification |
+| Exact match | 14 | Unique numeric/symbolic answer |
+| Rubric | 9 | Human/LLM-judge with structured rubric |
 
 ## Schema
 
@@ -155,7 +155,7 @@ python scripts/validate_benchmark.py benchmark/data/ecag_bench.jsonl benchmark/s
 ```bibtex
 @misc{wang2026ecagbench,
   title={ECAG-Bench: A Benchmark for Constructive Algebraic Geometry Reasoning in Large Language Models},
-  author={Wang, Shuai},
+  author={Waerden},
   year={2026},
   url={https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry},
   note={Examples and Counterexamples in Elementary Algebraic Geometry}

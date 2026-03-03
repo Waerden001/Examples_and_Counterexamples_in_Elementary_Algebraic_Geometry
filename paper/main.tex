@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% Math operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hilb}{Hilb}
+
+% Colors for TODO notes
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+\title{ECAG-Bench: A Benchmark for Constructive Algebraic Geometry Reasoning in Large Language Models}
+
+\author{Waerden}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We introduce \textsc{ECAG-Bench}, a benchmark for evaluating the ability of large language models to perform \emph{constructive reasoning} in algebraic geometry.
+Unlike existing mathematical benchmarks that focus on theorem proving or competition problems, ECAG-Bench requires models to construct concrete mathematical objects---schemes, sheaves, morphisms, and cohomology classes---satisfying specified properties.
+The benchmark comprises 332 problems across five chapters of algebraic geometry, spanning three difficulty levels, with a four-layer verification pipeline that validates properties of constructed objects rather than checking answer equivalence.
+We establish baselines using frontier language models and analyze their failure modes, finding that constructive algebraic geometry reasoning remains a significant challenge even for the most capable models.
+\end{abstract}
+
+\section*{Keywords}
+Large language models, mathematical reasoning, algebraic geometry, benchmark, constructive mathematics
+
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/dataset}
+\input{sections/benchmark}
+\input{sections/experiments}
+\input{sections/analysis}
+\input{sections/conclusion}
+
+\bibliography{references}
+
+\end{document}

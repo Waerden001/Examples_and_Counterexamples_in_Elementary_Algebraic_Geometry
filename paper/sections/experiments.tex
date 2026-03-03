@@ -1,0 +1,63 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\todo{Run baseline experiments and fill in results.}
+
+\subsection{Models}
+
+We evaluate the following frontier models:
+
+\begin{itemize}[nosep]
+  \item Claude Opus 4~\citep{anthropic2024claude}
+  \item GPT-4o~\citep{openai2024gpt4}
+  \item Gemini 2.5 Pro~\citep{google2024gemini}
+\end{itemize}
+
+All models are evaluated via their respective APIs with default parameters (temperature 0, no system prompt modifications beyond the evaluation template).
+
+\subsection{Results}
+
+\begin{table}[h]
+\centering
+\caption{Overall accuracy on ECAG-Bench by model and difficulty level. \todo{Fill with actual results.}}
+\label{tab:results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{Overall} & \textbf{Level 1} & \textbf{Level 2} & \textbf{Level 3} & \textbf{Partial} \\
+\midrule
+Claude Opus 4 & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+GPT-4o & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+Gemini 2.5 Pro & \todo{} & \todo{} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Accuracy by chapter. \todo{Fill with actual results.}}
+\label{tab:by-chapter}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Basic} & \textbf{Cohomology} & \textbf{Computations} & \textbf{Moduli} \\
+\midrule
+Claude Opus 4 & \todo{} & \todo{} & \todo{} & \todo{} \\
+GPT-4o & \todo{} & \todo{} & \todo{} & \todo{} \\
+Gemini 2.5 Pro & \todo{} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Accuracy by question type. \todo{Fill with actual results.}}
+\label{tab:by-type}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Example} & \textbf{Counter-ex.} & \textbf{Computation} & \textbf{Proof} \\
+\midrule
+Claude Opus 4 & \todo{} & \todo{} & \todo{} & \todo{} \\
+GPT-4o & \todo{} & \todo{} & \todo{} & \todo{} \\
+Gemini 2.5 Pro & \todo{} & \todo{} & \todo{} & \todo{} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,69 @@
+\section{Benchmark Design}
+\label{sec:benchmark}
+
+\subsection{Problem Types}
+
+ECAG-Bench problems fall into four categories:
+
+\begin{description}[nosep]
+  \item[Example:] Construct a mathematical object with specified properties. (``Give an example of a flat morphism that is not smooth.'')
+  \item[Counterexample:] Construct an object that violates a plausible-sounding statement. (``Give a counterexample to: every coherent sheaf on a smooth variety is locally free.'')
+  \item[Computation:] Compute a specific invariant of a given object. (``Compute the Picard group of $\Spec \mathbb{Z}[\sqrt{-5}]$.'')
+  \item[Proof:] Prove a statement about a specific object. (``Show that the Horrocks--Mumford bundle is stable.'')
+\end{description}
+
+\subsection{Four-Layer Verification Pipeline}
+\label{sec:verification}
+
+Since constructions in algebraic geometry are non-unique, standard answer-matching is insufficient.
+ECAG-Bench employs a four-layer verification pipeline:
+
+\paragraph{Layer 1: Parsing.}
+The model's output is parsed to extract the claimed mathematical object.
+This layer uses regex and SymPy to determine whether the output is a well-formed mathematical expression (a polynomial, a variety defined by equations, a morphism given by coordinate functions, etc.).
+
+\paragraph{Layer 2: CAS Verification.}
+The extracted object is verified using computer algebra systems---primarily SageMath, with Singular and Macaulay2 for specialized computations.
+The CAS checks whether the constructed object actually satisfies the required properties: genus, smoothness, dimension, cohomology vanishing, etc.
+This is the \emph{core layer}: 309 of 332 problems (93.1\%) use CAS verification.
+
+\paragraph{Layer 3: LLM-Assisted Judgment.}
+For problems where CAS verification is insufficient (e.g., those requiring assessment of reasoning quality or non-triviality), a rubric-based LLM judge evaluates:
+\begin{itemize}[nosep]
+  \item (C1) Correctness: Is the constructed object valid?
+  \item (C2) Completeness: Are all required properties verified?
+  \item (C3) Non-triviality: Is the answer non-degenerate?
+  \item (C4) Reasoning: Is the justification sound?
+\end{itemize}
+
+\paragraph{Layer 4: Human Expert Sampling.}
+A random subset of model responses is reviewed by a human expert in algebraic geometry to calibrate the automated layers and catch systematic errors.
+
+\subsection{Verification Strategies}
+
+Each problem is assigned one of three verification strategies:
+
+\begin{description}[nosep]
+  \item[Strategy A (Exact):] Problems with unique numeric or symbolic answers (e.g., ``Compute $\dim H^1(X, \mathcal{O}_X)$'').
+  Verified by exact match. 14 problems (4.2\%).
+  \item[Strategy B (CAS):] The model outputs a mathematical object; CAS verifies its properties deterministically.
+  This is the primary strategy. 309 problems (93.1\%).
+  \item[Strategy C (Rubric):] Structured scoring on correctness, completeness, non-triviality, and reasoning validity.
+  Used for proofs and complex constructions. 9 problems (2.7\%).
+\end{description}
+
+\subsection{Evaluation Protocol}
+
+Models are evaluated in a zero-shot, single-turn setting.
+Each problem is presented as a standalone prompt with the following format:
+
+\begin{quote}
+\texttt{You are an expert in algebraic geometry. [Problem statement]. Provide a concrete construction with full justification.}
+\end{quote}
+
+Responses are scored as:
+\begin{itemize}[nosep]
+  \item \textbf{Correct (1.0):} The constructed object is valid and satisfies all stated properties.
+  \item \textbf{Partial (0.5):} The object is valid but missing some properties, or the justification is incomplete.
+  \item \textbf{Incorrect (0.0):} The object is invalid, does not exist, or does not satisfy the required properties.
+\end{itemize}

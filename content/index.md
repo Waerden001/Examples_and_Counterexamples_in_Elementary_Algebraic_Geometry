@@ -27,4 +27,4 @@ We welcome contributions! See [CONTRIBUTING.md](https://github.com/Waerden001/Ex
 
 ## License
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Shuai Wang, 2018-2026.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — Waerden, 2018-2026.

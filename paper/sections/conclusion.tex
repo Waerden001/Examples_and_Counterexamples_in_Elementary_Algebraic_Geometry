@@ -1,0 +1,25 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have introduced ECAG-Bench, a benchmark of 332 constructive problems in algebraic geometry designed to evaluate a mode of mathematical reasoning---object construction---that is central to mathematical practice but underrepresented in existing LLM benchmarks.
+Our four-layer verification pipeline, anchored by CAS-based property verification, enables reliable evaluation of non-unique mathematical constructions.
+
+\paragraph{Limitations.}
+ECAG-Bench focuses on algebraic geometry, which limits the generalizability of our findings to other areas of mathematics.
+The CAS verification layer, while powerful, cannot verify all properties---some require human judgment or more sophisticated formal methods.
+Our current evaluation uses single-turn prompting; multi-turn interaction may significantly improve model performance.
+
+\paragraph{Future work.}
+We plan to:
+\begin{enumerate}[nosep]
+  \item Expand the benchmark to cover additional areas (arithmetic geometry, algebraic topology, commutative algebra).
+  \item Implement the full CAS verification pipeline with automated SageMath/Macaulay2 scripts.
+  \item Evaluate models in multi-turn interactive settings, where they can refine constructions based on CAS feedback.
+  \item Investigate whether fine-tuning on algebraic geometry textbooks improves constructive reasoning.
+  \item Release a public leaderboard for tracking progress on ECAG-Bench.
+\end{enumerate}
+
+\paragraph{Broader impact.}
+Constructive mathematical reasoning is a prerequisite for using LLMs as research tools in mathematics.
+If models cannot construct examples and counterexamples, they cannot assist mathematicians in the exploratory phase of research---the phase where intuition is built and conjectures are tested.
+ECAG-Bench provides a concrete measure of progress toward this goal.
