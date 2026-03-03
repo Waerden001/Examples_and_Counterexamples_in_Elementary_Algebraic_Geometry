@@ -79,7 +79,8 @@ The tangent space (take $A = k$, $B = k[\epsilon]$, $M = k$) is $H^1(X, \mathcal
 ## Deformation of torsors
 ## Deformation of coherent sheaves
 Let $X$ be a smooth projective variety. $E$ be a coherent sheaf of $\mathcal{O}_{X}$-module. We denote the ring of dual numbers by $k[\epsilon]$, $\operatorname{Spec}(k[\epsilon])$ by $D$ and $X\otimes_{k}\operatorname{Spec}(k[\epsilon])$ by $X_{D}$. Consider the deformation functor
-$$ \mathcal{M}: \mathbf{Art}/k \rightarrow \mathbf{Set}, \quad A \mapsto \{A\text{-flat coherent sheaf } E'\in \mathbf{Coh}(X_{A}), \phi:E'|_{X}\cong E\}/\sim.
+$$
+ \mathcal{M}: \mathbf{Art}/k \rightarrow \mathbf{Set}, \quad A \mapsto \{A\text{-flat coherent sheaf } E'\in \mathbf{Coh}(X_{A}), \phi:E'|_{X}\cong E\}/\sim.
 $$
 
 ### Theorem {#ecag-0302}
@@ -159,29 +160,35 @@ A concrete instance: if $E = E_1 \oplus E_2$ is a direct sum of two non-isomorph
 ## Deformation of quotient sheaves
 Let $X$ be a scheme over $k$. $\mathcal{F}$ be a coherent sheaf on $X$, $\mathcal{S}_{0}$ be a coherent subsheaf of $\mathcal{F}$, $\qQ_{0}$ be the quotient. Define the deformation functor
 
-$$D:=D_{[\mathcal{F}\rightarrow \qQ_{0}\rightarrow 0]}: \mathbf{Art}/k\rightarrow \mathbf{Set}$$
-
-$$A\mapsto \{ \text{exact sequences of } A\text{-flat sheaves } 0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \qQ\rightarrow 0 \text{ on } X_{A},  \mathcal{S}\otimes_{A}k\cong \mathcal{S}_{0} \}/\sim.$$
-
+$$
+D:=D_{[\mathcal{F}\rightarrow \qQ_{0}\rightarrow 0]}: \mathbf{Art}/k\rightarrow \mathbf{Set}
+$$
+$$
+A\mapsto \{ \text{exact sequences of } A\text{-flat sheaves } 0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \qQ\rightarrow 0 \text{ on } X_{A},  \mathcal{S}\otimes_{A}k\cong \mathcal{S}_{0} \}/\sim.
+$$
 By definition, $[0\rightarrow \mathcal{S}'\rightarrow \mathcal{F}\otimes_{k}B\rightarrow \qQ'\rightarrow 0]\in D(B)$ is a deformation of $[0\rightarrow \mathcal{S}\rightarrow \mathcal{F}\otimes_{k}A\rightarrow \qQ\rightarrow 0]\in D(A)$ if and only if we have
 
 - $\mathcal{S}'\otimes_{B}A=\mathcal{S}$
 - $\mathcal{S}'$ is flat over $B$. We know $\mathcal{S}'\otimes_{B}A=\mathcal{S}$ is flat over $A$, thus we only need $\mathcal{S}'\otimes_{B} M=\mathcal{S}\otimes_{B}A\otimes_{A}M=\mathcal{S}\otimes_{A}M \rightarrow \mathcal{S}'$ is an injection. In other words, flatness is equivalent to the existence of the short exact sequence
 
-$$0\rightarrow \mathcal{S}\otimes_{A}M\rightarrow \mathcal{S}'\rightarrow \mathcal{S}\rightarrow 0.$$
-
+$$
+0\rightarrow \mathcal{S}\otimes_{A}M\rightarrow \mathcal{S}'\rightarrow \mathcal{S}\rightarrow 0.
+$$
 In other words, an extension exists if and only if we can find a subsheaf $\mathcal{E}$ of  $\mathcal{F}\otimes_{k}B/S\otimes_{A}M=\mathcal{F}\otimes_{k}B/\operatorname{im}(\alpha)$ whose image in $\mathcal{F}\otimes_{k}A$ is exactly $\mathcal{S}$. Because the image lies in $\mathcal{S}$, we only need to find a subsheaf of $\ker(\beta)/\operatorname{im}(\alpha)$ has this property. In other words, we need the following sequence to split
 
-$$0\rightarrow \ker\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0.$$
-
+$$
+0\rightarrow \ker\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0.
+$$
 We can check that $\ker=\mathcal{F}\otimes_{k}M/\mathcal{S}\otimes_{A}M=\qQ\otimes_{A}M$. That is, the obstruction is given by
 
-$$\operatorname{ob}=[0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0]\in \operatorname{Ext}^{1}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M).$$
-
+$$
+\operatorname{ob}=[0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0]\in \operatorname{Ext}^{1}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M).
+$$
 Moreover, all flat deformations of the given element is bijective to
 
-$$\operatorname{Ext}^{0}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Hom}(\mathcal{S}, \qQ\otimes_{A}M).$$
-
+$$
+\operatorname{Ext}^{0}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Hom}(\mathcal{S}, \qQ\otimes_{A}M).
+$$
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 <!-- tikzcd diagram: manual conversion needed -->
@@ -198,12 +205,14 @@ $$\operatorname{Ext}^{0}_{\mathcal{O}_{X_{B}}}(\mathcal{S}, \qQ\otimes_{A}M)=\op
 There's still one more issue, these two $\operatorname{Ext}$ groups still depend on $B$. We claim that  the $M(\ker(\beta)/\operatorname{im}(\alpha))=0$. Indeed if $\gamma=\sum f_{i}\otimes_{k}b_{i}\in \ker(\beta)$, then we have $\sum f_{i}\otimes_{k}a_{i}\in \mathcal{S}$, where $a_{i}=b_{i}\pmod M$. Then $m\gamma =\sum f_{i}\otimes mb_{i}=\sum f_{i}\otimes ma_{i}$, the last identity comes from the fact that $M^{2}=0$, thus $ma_{i}$ is well defined. Then $m\gamma=m(\sum f_{i}\otimes_{k}a_{i})\in \operatorname{im}(\alpha)$.
 Apply $\otimes_{A}k$ to
 
-$$0\rightarrow \ker\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0.$$
-
+$$
+0\rightarrow \ker\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\rightarrow \mathcal{S}\rightarrow 0.
+$$
 We still get an exact sequence by the $A$-flatness of $\mathcal{S}$
 
-$$0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\rightarrow \mathcal{S}\otimes_{A}k\rightarrow 0.$$
-
+$$
+0\rightarrow \qQ\otimes_{A}M\rightarrow \ker(\beta)/\operatorname{im}(\alpha)\otimes_{A}k\rightarrow \mathcal{S}\otimes_{A}k\rightarrow 0.
+$$
 We can check that we have the following commutative diagram. If we just consider small extensions, we have $\qQ\otimes_{A}M\otimes_{A}k=\qQ\otimes_{A}M$ because $m_{A}M=0$.
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -220,10 +229,12 @@ We can check that we have the following commutative diagram. If we just consider
 ```
 In conclusion, we have
 
-$$\operatorname{Hom}_{X_{A}}(\mathcal{S},\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}\otimes_{A}k,\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k}M$$
-
-$$\operatorname{Ext}^{1}_{X_{A}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}\otimes_{A}k, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k} M.$$
-
+$$
+\operatorname{Hom}_{X_{A}}(\mathcal{S},\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}\otimes_{A}k,\qQ\otimes_{A}M)=\operatorname{Hom}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k}M
+$$
+$$
+\operatorname{Ext}^{1}_{X_{A}}(\mathcal{S}, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}\otimes_{A}k, \qQ\otimes_{A}M)=\operatorname{Ext}^{1}_{X}(\mathcal{S}_{0}, \qQ_{0})\otimes_{k} M.
+$$
 Because $m_{A}M=0$, any element in $\operatorname{Hom}_{X_{A}}(\mathcal{S}, \qQ\otimes_{A}M)$ factors through the geometric fibre. And we can take out $M$ because of the projection formula, $M$ is simply viewed as a vector space. As a special case, the tangent-obstruction theory of the Hilbert scheme functor $H_{Z,X}$ is given by $T_{1}=\operatorname{Hom}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z}), T_{2}=\operatorname{Ext}^{1}_{\mathcal{O}_{X}}(I_{Z}, \mathcal{O}_{Z})$.
 
 ### Remark {#ecag-0305}

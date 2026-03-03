@@ -743,20 +743,24 @@ See also [this discussion on math.stackexchange](https://math.stackexchange.com/
 
 Let $k$ be an algebraically closed field of characteristic $2$, and let $\mathfrak{d}$ be the linear system of cubic curves in $\mathbb{P}_{k}^{2}$ passing through all $7$ points of $\mathbb{P}_{\mathbb{F}_{2}}^{2}$, namely $[1,0,0], [0,1,0], [0,0,1], [1,1,0], [1,0,1], [0,1,1], [1,1,1]$. Since $\operatorname{char}(k) = 2$, the cubics through these $7$ points take the form
 
-$$\mathfrak{d}=\{a(x^{2}y+xy^{2})+b(x^{2}z+xz^{2})+c(y^{2}z+yz^{2}) \mid a,b,c\in k\},$$
-
+$$
+\mathfrak{d}=\{a(x^{2}y+xy^{2})+b(x^{2}z+xz^{2})+c(y^{2}z+yz^{2}) \mid a,b,c\in k\},
+$$
 which is a $2$-dimensional linear system. One checks directly that the base locus is exactly $T = \{p_{1},\dots, p_{7}\}$, so the linear system defines a rational map
 
-$$\mathbb{P}_{k}^{2} \dashrightarrow \mathbb{P}_{k}^{2}, \quad [x,y,z]\mapsto [x^{2}y+xy^{2},\, x^{2}z+xz^{2},\, y^{2}z+yz^{2}].$$
-
+$$
+\mathbb{P}_{k}^{2} \dashrightarrow \mathbb{P}_{k}^{2}, \quad [x,y,z]\mapsto [x^{2}y+xy^{2},\, x^{2}z+xz^{2},\, y^{2}z+yz^{2}].
+$$
 Restricting to $D_{+}(z)$, the induced field extension $\phi: k(u,v) \hookrightarrow k(x,y)$ is given by
 
-$$u\mapsto \frac{x(x+y)}{y+1}, \quad v\mapsto \frac{x(x+1)}{y(y+1)}.$$
-
+$$
+u\mapsto \frac{x(x+y)}{y+1}, \quad v\mapsto \frac{x(x+1)}{y(y+1)}.
+$$
 Since $yv + u = x$, we get $k(x,y) = k(u,v)[y]$. Substituting $x = yv + u$ yields the minimal polynomial
 
-$$y^{2} - \frac{u^{2}+u}{v^{2}+v} = 0,$$
-
+$$
+y^{2} - \frac{u^{2}+u}{v^{2}+v} = 0,
+$$
 which is inseparable (its derivative with respect to $y$ is $0$ in characteristic $2$). Thus the rational map is purely inseparable of degree $2$.
 
 Every curve $C \in \mathfrak{d}$ corresponding to parameters $(a, b, c)$ is singular at the unique point $p = [\sqrt{a}, \sqrt{b}, \sqrt{c}]$ (the Frobenius preimage). If $p = p_i$ for some $i$, then $C$ is the union of three lines through $p_i$; otherwise $C$ is a cuspidal cubic with cusp at $p \notin T$. The singularity moves around in $\mathbb{P}_k^2$ as $(a, b, c)$ varies, and in particular moves outside the base locus $T$. This demonstrates that Bertini's theorem fails in characteristic $2$: the linear system factors through the Frobenius endomorphism, making every member singular. The classical Bertini theorem requires characteristic $0$, or more precisely, separability of the induced map on function fields.
@@ -767,8 +771,9 @@ Every curve $C \in \mathfrak{d}$ corresponding to parameters $(a, b, c)$ is sing
 
 In $\mathbb{P}_{k}^{3} = \operatorname{Proj}(k[x,y,z,w])$ over a field $k$ of any characteristic, consider the pencil
 
-$$\{uw + t((x-z)^{2}+y^{2}-z^{2}) \mid [u,t] \in \mathbb{P}^1\}.$$
-
+$$
+\{uw + t((x-z)^{2}+y^{2}-z^{2}) \mid [u,t] \in \mathbb{P}^1\}.
+$$
 The base locus of this pencil consists of the conic $\{w = 0,\; (x-z)^{2}+y^{2}-z^{2} = 0\}$ together with the line $\{x = z,\; y = 0\}$ (the "$z$-axis"). For each value of the parameter $[u, t]$, the corresponding surface is singular at a point moving along the $w$-axis. The singular points of the general member lie within the base locus.
 
 This contrasts with the previous example (ecag-0079), where singularities moved outside the base locus due to inseparability in characteristic $2$. Here the phenomenon is characteristic-independent: the base locus itself forces every member of the pencil to be singular. Bertini's theorem requires the linear system to be base-point free (or at least to have sufficiently well-behaved base locus) to guarantee smoothness of the general member.
@@ -811,16 +816,19 @@ In particular, an ample bundle on $X$ must have strictly positive degree on each
 
 Consider any smooth cubic surface $X \subset \mathbb{P}^{3}$, for example the Fermat cubic
 
-$$X: x^{3}+y^{3}+z^{3}+w^{3} = 0.$$
-
+$$
+X: x^{3}+y^{3}+z^{3}+w^{3} = 0.
+$$
 The line $L: \{x+y=0,\; z+w=0\}$ lies on $X$ (substitute to verify: $x^3 + (-x)^3 + z^3 + (-z)^3 = 0$). Now $L \cong \mathbb{P}^1$, and by the adjunction formula on $X$:
 
-$$-2 = \deg(K_{L}) = (K_{X}+L) \cdot L.$$
-
+$$
+-2 = \deg(K_{L}) = (K_{X}+L) \cdot L.
+$$
 Since $X$ is a cubic surface in $\mathbb{P}^3$, we have $K_X = (K_{\mathbb{P}^3} + X)|_X = (-4H + 3H)|_X = -H|_X$, where $H$ is the hyperplane class. Thus $K_X \cdot L = -H \cdot L = -1$ (since $L$ is a line). Substituting:
 
-$$-2 = -1 + L^{2} \implies L^{2} = -1.$$
-
+$$
+-2 = -1 + L^{2} \implies L^{2} = -1.
+$$
 By the Nakai--Moishezon criterion, an ample divisor $D$ on a surface must satisfy $D \cdot C > 0$ for every curve $C$. Since $L \cdot L = -1 < 0$, the effective divisor $L$ is not ample. Lines on cubic surfaces are $(-1)$-curves --- rational curves with self-intersection $-1$ and normal bundle $N_{L/X} \cong \mathcal{O}_{\mathbb{P}^1}(-1)$ --- and negative self-intersection immediately obstructs ampleness, even for effective divisors.
 
 <!-- BENCHMARK_PROBLEM: Let $X \subset \mathbb{P}^3$ be a smooth cubic surface and $L \subset X$ a line. Compute $L^2$ using the adjunction formula and explain why $L$ cannot be an ample divisor on $X$. -->
@@ -841,22 +849,26 @@ For cycles of codimension greater than $1$ on a smooth projective variety, the n
 
 *Lines on quintic threefolds.* A general quintic threefold $X \subset \mathbb{P}^4$ contains exactly $2875$ lines. The Fermat threefold
 
-$$X: x_{0}^{5}+x_{1}^{5}+x_{2}^{5}+x_{3}^{5}+x_{4}^{5} = 0$$
-
+$$
+X: x_{0}^{5}+x_{1}^{5}+x_{2}^{5}+x_{3}^{5}+x_{4}^{5} = 0
+$$
 contains infinitely many lines (partition the variables into groups of size at least $2$, with one group of size at least $3$). The line $L = \{[t, 0, -t, s, -s]\}$, defined by $(x_0 + x_2, x_1, x_3 + x_4)$, lies on $X$. Since $L$ has codimension $2$ in the threefold $X$, it is not a divisor. The generalized adjunction formula gives
 
-$$K_L = (K_X|_L) \otimes \det(N_{L/X}|_L),$$
-
+$$
+K_L = (K_X|_L) \otimes \det(N_{L/X}|_L),
+$$
 hence $\det(N_{L/X})|_L \cong \mathcal{O}_{\mathbb{P}^1}(-2)$ (since $K_X = \mathcal{O}_X(0)$ for a quintic Calabi-Yau). The self-intersection in the Chow ring is
 
-$$L^2 = c_2(N_{L/X}) = 0.$$
-
+$$
+L^2 = c_2(N_{L/X}) = 0.
+$$
 Note that the ordinary divisor adjunction formula $K_L = (K_X + L) \cdot L$ does **not** apply here since $L$ is not a divisor on $X$.
 
 *A rigid rational curve on a quintic threefold.* Consider
 
-$$i: \mathbb{P}^{1}\rightarrow \mathbb{P}^{4}, \quad [u,v]\mapsto [u^{2},-u^{2},v^{2},-v^{2},uv].$$
-
+$$
+i: \mathbb{P}^{1}\rightarrow \mathbb{P}^{4}, \quad [u,v]\mapsto [u^{2},-u^{2},v^{2},-v^{2},uv].
+$$
 The image $C$ lies on $X: x_0^5 + x_1^5 + x_2^5 + x_3^5 + x_4^5 - x_0 x_1 x_2 x_3 x_4 = 0$. After a coordinate change, $C$ is parametrized by $[u^2, uv, v^2, 0, 0]$. The normal bundle computation proceeds in three steps:
 
 **Step 1** (Ambient tangent bundle): From the Euler sequence restricted to $C$, we compute $T_{\mathbb{P}^4}|_C \cong \mathcal{O}_{\mathbb{P}^1}(3)^2 \oplus \mathcal{O}_{\mathbb{P}^1}(2)^2$.
@@ -865,8 +877,9 @@ The image $C$ lies on $X: x_0^5 + x_1^5 + x_2^5 + x_3^5 + x_4^5 - x_0 x_1 x_2 x_
 
 **Step 3** (Normal bundle of $C$ in $X$): From $0 \to T_C \to T_X|_C \to N_{C/X} \to 0$ with $T_C = \mathcal{O}_{\mathbb{P}^1}(2)$, and since $\operatorname{Hom}(\mathcal{O}(2), \mathcal{O}(-1)) = 0$, the sequence splits:
 
-$$N_{C/X}|_{C}\cong \mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1).$$
-
+$$
+N_{C/X}|_{C}\cong \mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1).
+$$
 This means $H^0(C, N_{C/X}) = 0$, so $C$ is a rigid rational curve with no first-order deformations inside $X$. The normal bundle $\mathcal{O}(-1) \oplus \mathcal{O}(-1)$ on a rational curve in a Calabi--Yau threefold is precisely the rigidity condition that appears in Gromov--Witten theory: such isolated rational curves contribute to the genus-zero Gromov--Witten invariants and play a central role in mirror symmetry.
 
 <!-- BENCHMARK_PROBLEM: Let $C \cong \mathbb{P}^1$ be a smooth rational curve on a smooth quintic threefold $X \subset \mathbb{P}^4$. Given that $T_X|_C \cong \mathcal{O}_{\mathbb{P}^1}(2) \oplus \mathcal{O}_{\mathbb{P}^1}(-1)^2$, compute $N_{C/X}$ and determine $h^0(C, N_{C/X})$. What does this say about the deformation theory of $C$ inside $X$? -->
@@ -882,26 +895,30 @@ by three methods.
 
 *Method 1 (Representation theory).* We have $i^* T_{\mathbb{P}^3} \cong \mathcal{O}_{\mathbb{P}^1}(4)^3$ (from the Euler sequence restricted to $C$). From the exact sequence
 
-$$0 \to T_C \to i^* T_{\mathbb{P}^3} \to N_{C/\mathbb{P}^3} \to 0$$
-
+$$
+0 \to T_C \to i^* T_{\mathbb{P}^3} \to N_{C/\mathbb{P}^3} \to 0
+$$
 with $T_C = \mathcal{O}_{\mathbb{P}^1}(2)$, the degree of $N_{C/\mathbb{P}^3}$ is $12 - 2 = 10$, so either $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$ or $\mathcal{O}(4) \oplus \mathcal{O}(6)$.
 
 Tensor with $\mathcal{O}(-6)$ and take the long exact sequence in cohomology:
 
-$$0 \to H^0(N_{C/\mathbb{P}^3}(-6)) \to H^1(\mathcal{O}(-4)).$$
-
+$$
+0 \to H^0(N_{C/\mathbb{P}^3}(-6)) \to H^1(\mathcal{O}(-4)).
+$$
 Viewing the twisted cubic as $\mathbb{P}(V) \to \mathbb{P}(S^3 V)$ with $V$ a $2$-dimensional vector space, representation theory gives $H^1(\mathcal{O}(-4)) \cong H^0(\mathcal{O}(2))^{\vee} \cong S^2 V$. Since $S^2 V$ is an irreducible $GL(V)$-representation of dimension $3$, we have $\dim H^0(N_{C/\mathbb{P}^3}(-6)) \in \{0, 3\}$. But $h^0(\mathcal{O}(-1) \oplus \mathcal{O}(-1)) = 0$ while $h^0(\mathcal{O}(-2) \oplus \mathcal{O}(0)) = 1$. Thus $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$.
 
 *Method 2 (Transition functions, after Ted Shifrin).* Work with the conormal bundle via the exact sequence $0 \to N^*_{C/\mathbb{P}^3} \to T^* \mathbb{P}^3|_C \xrightarrow{\phi} T^* C \to 0$. In the chart $[1,x,y,z]$ with $C$ parametrized by $(t, t^2, t^3)$, the conormal frame is $\sigma_1 = -2t\,dx + dy$ and $\sigma_2 = -3t^2 dx + dz$. In the chart at infinity $[X,Y,Z,1]$ with $C$ parametrized by $(s^3, s^2, s)$, the change-of-coordinates computation gives transition functions whose Smith normal form yields $t^{-5}$ on each summand, hence $N^*_{C/\mathbb{P}^3} \cong \mathcal{O}(-5) \oplus \mathcal{O}(-5)$.
 
 *Method 3 (Direct computation via the conormal sequence).* From the conormal sequence in homogeneous coordinates:
 
-$$0 \to N^{\vee}_{C/\mathbb{P}^3} \to \mathcal{O}_{\mathbb{P}^1}(-4)^3 \to \mathcal{O}_{\mathbb{P}^1}(-2) \to 0,$$
-
+$$
+0 \to N^{\vee}_{C/\mathbb{P}^3} \to \mathcal{O}_{\mathbb{P}^1}(-4)^3 \to \mathcal{O}_{\mathbb{P}^1}(-2) \to 0,
+$$
 the surjection is given by $[3u^2, 2uv, v^2]$. The kernel (relations among $u^2, uv, v^2$) gives the injection via the matrix
 
-$$\begin{bmatrix}-2v & 0\\ 3u & -v\\ 0 & 2u\end{bmatrix},$$
-
+$$
+\begin{bmatrix}-2v & 0\\ 3u & -v\\ 0 & 2u\end{bmatrix},
+$$
 yielding $N^{\vee}_{C/\mathbb{P}^3} \cong \mathcal{O}(-5) \oplus \mathcal{O}(-5)$, hence $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$.
 
 The balanced splitting $\mathcal{O}(5) \oplus \mathcal{O}(5)$ reflects the high symmetry of the twisted cubic under $PGL(2)$: the representation-theoretic argument (Method 1) elegantly rules out the unbalanced splitting $\mathcal{O}(4) \oplus \mathcal{O}(6)$ using the irreducibility of $S^2 V$ as a $GL(V)$-representation.
@@ -927,8 +944,9 @@ This confirms $[C] \cdot [L_1] = 2$ and $[C] \cdot [L_2] = 1$, consistent with $
 
 *Intersection with a pencil of quadrics.* Let $Y: yw - z^2 = 0$ and $Z: xz - y^2 = 0$. The pencil $t_0 Y + t_1 Z$ intersects $X$ in the union of $C$ and a residual line $L_t$. By Bezout's theorem:
 
-$$([C] + [L])^2 = (2h)^2 = 4 \cdot \deg(X) = 8,$$
-
+$$
+([C] + [L])^2 = (2h)^2 = 4 \cdot \deg(X) = 8,
+$$
 giving $[C] \cdot [L] = 2$ and $[L]^2 = 0$. The intersection number $[C] \cdot [L] = 2$ (despite $C$ being cubic and $L$ being a line) arises because each residual line $L_t$ is tangent to $C$.
 
 The two projections $\pi_1, \pi_2: X \cong \mathbb{P}^1 \times \mathbb{P}^1 \to \mathbb{P}^1$, when restricted to $C$, give: one is an isomorphism (the projection onto the factor with class $(1,\cdot)$), and the other is a degree $2$ map (the projection onto the factor with class $(\cdot, 1)$), ramified at $2$ points.
@@ -947,8 +965,9 @@ We show $C(\mathbb{Q}) = \emptyset$. Suppose $(x, y, z) \in \mathbb{Z}^3$ is a p
 
 However, base-changing to $K = \mathbb{Q}(\sqrt{p})$, the point $[1, 0, 1/\sqrt{p}]$ lies on $C_K$ (since $1 + 0 = p \cdot (1/\sqrt{p})^2$). Projecting from this rational point gives a birational map
 
-$$\mathbb{P}_{K}^{1}\rightarrow C_{K}, \quad t\mapsto \left(t^{2}-1,\; 2t,\; \frac{1}{\sqrt{p}}(t^{2}+1)\right).$$
-
+$$
+\mathbb{P}_{K}^{1}\rightarrow C_{K}, \quad t\mapsto \left(t^{2}-1,\; 2t,\; \frac{1}{\sqrt{p}}(t^{2}+1)\right).
+$$
 Thus $C_{K} = C \times_{\mathbb{Q}} K$ is a rational curve over $K$. The obstruction to rationality of $C$ over $\mathbb{Q}$ is purely arithmetic --- the failure of $-1$ to be a quadratic residue mod $p$ --- and disappears after a suitable field extension.
 
 <!-- BENCHMARK_PROBLEM: Let $p$ be a prime with $p \equiv 3 \pmod{4}$. Prove that the conic $C: x^2 + y^2 = pz^2$ has no rational points over $\mathbb{Q}$, and exhibit an explicit birational map $\mathbb{P}^1_K \to C_K$ for some explicit field extension $K/\mathbb{Q}$. -->

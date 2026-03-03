@@ -482,8 +482,9 @@ All entries have $\gcd(x, y, z) = 1$, confirming they are primitive. The existen
 
 Over an algebraically closed field $\bar{\mathbb{F}}_{p}$ of characteristic $p \geq 5$, the number of supersingular elliptic curves up to isomorphism, weighted by automorphisms, is governed by the Eichler--Deuring mass formula:
 
-$$\sum_{E/\bar{\mathbb{F}}_{p} \text{ supersingular}} \frac{1}{|\operatorname{Aut}(E)|} = \frac{p - 1}{24},$$
-
+$$
+\sum_{E/\bar{\mathbb{F}}_{p} \text{ supersingular}} \frac{1}{|\operatorname{Aut}(E)|} = \frac{p - 1}{24},
+$$
 where the sum runs over isomorphism classes of supersingular elliptic curves over $\bar{\mathbb{F}}_{p}$.
 
 An elliptic curve $E$ over $\bar{\mathbb{F}}_{p}$ is supersingular if $E[p](\bar{\mathbb{F}}_{p}) = 0$, or equivalently if $\operatorname{End}(E) \otimes \mathbb{Q}$ is a quaternion algebra (rather than an imaginary quadratic field). The mass formula arises from the Eichler--Deuring correspondence, which identifies isomorphism classes of supersingular elliptic curves with classes of maximal orders in the quaternion algebra $B_{p,\infty}$ ramified at $p$ and $\infty$. The Minkowski--Siegel mass formula for the genus of maximal orders yields the factor $(p-1)/24$.
@@ -573,8 +574,9 @@ The obstruction to Zariski-local triviality is detected by the class of the asso
 
 The isotrivial family $y^{2} = x^{3} - t$ from the previous example becomes trivial after an etale base change. Consider the etale morphism
 
-$$\phi: \operatorname{Spec}(k[t^{1/6}, t^{-1/6}]) \to \operatorname{Spec}(k[t, t^{-1}]),$$
-
+$$
+\phi: \operatorname{Spec}(k[t^{1/6}, t^{-1/6}]) \to \operatorname{Spec}(k[t, t^{-1}]),
+$$
 corresponding to the ring map $t \mapsto (t^{1/6})^{6}$. This is etale because $6$ is invertible in $k$ (assuming $\operatorname{char}(k) \neq 2, 3$).
 
 After pulling back the family along $\phi$, the substitution $x = t^{1/3} x'$, $y = t^{1/2} y'$ transforms the equation $y^{2} = x^{3} - t$ into $(y')^{2} = (x')^{3} - 1$, which is a constant curve. Explicitly, the pulled-back family is isomorphic to $E_{0} \times \operatorname{Spec}(k[t^{1/6}, t^{-1/6}])$ where $E_{0}: (y')^{2} = (x')^{3} - 1$.
@@ -605,12 +607,14 @@ which is a scheme and a $\mathbb{G}_{m}$-torsor over $T$.
 
 Any morphism $T' \to B\mathbb{G}_{m}$ from a scheme $T'$ is representable. To verify this, by the diagonal criterion, it suffices to show that the diagonal $\Delta: B\mathbb{G}_{m} \to B\mathbb{G}_{m} \times B\mathbb{G}_{m}$ is representable. Given a scheme $T$ with a morphism $T \to B\mathbb{G}_{m} \times B\mathbb{G}_{m}$ corresponding to two line bundles $\mathcal{L}_{1}, \mathcal{L}_{2}$ on $T$, the fiber product
 
-$$B\mathbb{G}_{m} \times_{B\mathbb{G}_{m} \times B\mathbb{G}_{m}} T$$
-
+$$
+B\mathbb{G}_{m} \times_{B\mathbb{G}_{m} \times B\mathbb{G}_{m}} T
+$$
 is the functor of isomorphisms $\operatorname{Isom}(\mathcal{L}_{1}, \mathcal{L}_{2})$. An isomorphism $\mathcal{L}_{1} \xrightarrow{\sim} \mathcal{L}_{2}$ is the same as a nowhere-vanishing section of $\mathcal{L}_{2} \otimes \mathcal{L}_{1}^{\vee}$. Thus
 
-$$\operatorname{Isom}(\mathcal{L}_{1}, \mathcal{L}_{2}) \cong \operatorname{Tot}(\mathcal{L}_{2} \otimes \mathcal{L}_{1}^{\vee}) \setminus \{0\},$$
-
+$$
+\operatorname{Isom}(\mathcal{L}_{1}, \mathcal{L}_{2}) \cong \operatorname{Tot}(\mathcal{L}_{2} \otimes \mathcal{L}_{1}^{\vee}) \setminus \{0\},
+$$
 which is a scheme (an open subscheme of the total space of a line bundle). Therefore the diagonal is representable, and consequently any morphism from a scheme to $B\mathbb{G}_{m}$ is representable.
 
 ### Remark: `glue' {#ecag-0334}
