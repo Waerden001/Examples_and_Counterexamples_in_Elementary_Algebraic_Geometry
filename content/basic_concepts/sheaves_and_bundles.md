@@ -14,6 +14,7 @@ Let $k$ be a field and write $\mathbb{A}^1_k = \operatorname{Spec}(k[T])$. We ex
 **(2) A non-quasi-coherent skyscraper.** Let $\mathscr{F}$ be the skyscraper sheaf on $\mathbb{A}^1_k$ with stalk $k(T)$ at the origin and stalk $0$ elsewhere. Suppose $\mathscr{F} \cong \widetilde{M}$ for some $k[T]$-module $M$. Then $M = \Gamma(\mathbb{A}^1_k, \mathscr{F})$. Since $\mathbb{A}^1_k$ is the only open set in the Zariski topology containing the generic point and the origin simultaneously, and $\mathscr{F}$ is a skyscraper, one finds $M = k(T)$. But $k(T)$ is a divisible $k[T]$-module: for any nonzero $f \in k[T]$, the localization $k(T)_f = k(T)$. Therefore $\widetilde{k(T)}$ has stalk $k(T)$ at every point of $\mathbb{A}^1_k$, including the generic point $(0)$. The skyscraper sheaf $\mathscr{F}$, however, has stalk $0$ at the generic point. This contradiction shows $\mathscr{F}$ is not quasi-coherent.
 
 **(3) The constant sheaf on $\mathbb{P}^1_k$.** Cover $\mathbb{P}^1_k$ by $U_0 = \operatorname{Spec}(k[t])$ and $U_1 = \operatorname{Spec}(k[t^{-1}])$, with $U_0 \cap U_1 = \operatorname{Spec}(k[t, t^{-1}])$. The constant sheaf $\underline{k}$ assigns $k$ to every connected open, so $\underline{k}(U_0) = \underline{k}(U_1) = \underline{k}(U_0 \cap U_1) = k$ (each being irreducible, hence connected). If $\underline{k}|_{U_0}$ were quasi-coherent, it would equal $\widetilde{M}$ for some $k[t]$-module $M$ with $M = \underline{k}(U_0) = k$. The localization axiom then forces
+
 $$
 \underline{k}(U_0 \cap U_1) = M \otimes_{k[t]} k[t, t^{-1}] = k \otimes_{k[t]} k[t, t^{-1}] = k[t, t^{-1}]/(t) = 0,
 $$
@@ -33,6 +34,7 @@ The underlying point is that quasi-coherence is an algebraic condition: sections
 The choice of Grothendieck topology on a scheme fundamentally affects sheaf cohomology, even for simple sheaves on simple spaces.
 
 **Grothendieck vanishing.** For a Noetherian topological space $X$ of dimension $n$ and any sheaf of abelian groups $\mathscr{F}$ on $X$ (in the Zariski topology), we have $H^i(X, \mathscr{F}) = 0$ for all $i > n$. This dimensional bound applies in the Zariski topology but not in the etale topology. For a concrete comparison:
+
 $$
 H^2_{\mathrm{Zar}}(\mathbb{P}^1, \underline{k}) = 0, \quad H^2_{\text{et}}(\mathbb{P}^1, \underline{k}) \cong k.
 $$
@@ -40,6 +42,7 @@ $$
 The Zariski vanishing is immediate from $\dim(\mathbb{P}^1) = 1$ and Grothendieck's theorem. The nonvanishing in the etale topology reflects the richer structure of the etale site: etale covers can detect topological features (such as the fundamental group and higher homotopy) that are invisible to Zariski opens.
 
 **Cech-to-derived spectral sequence.** For the standard affine cover $\mathfrak{U} = \{U_0, U_1\}$ of $\mathbb{P}^1$, the Cech complex for $\underline{k}$ involves sections over $U_0$, $U_1$, and $U_0 \cap U_1$. The cover need not be acyclic for $\underline{k}$ in either topology. However, the Cech-to-derived-functor spectral sequence
+
 $$
 \check{H}^p(\mathfrak{U}, \mathscr{H}^q(\mathscr{F})) \Rightarrow H^{p+q}(X, \mathscr{F})
 $$
@@ -105,6 +108,7 @@ This example demonstrates that stalk-wise freeness does not globalize to project
 ### Example: A (smooth) vector bundle but not a (holomorphic, algebraic) vector bundle {#ecag-0171}
 
 Consider the projection from $\mathbb{P}^1 \times \mathbb{P}^1$ minus the diagonal,
+
 $$
 \pi : X = \mathbb{P}^1 \times \mathbb{P}^1 \setminus \Delta \longrightarrow \mathbb{P}^1, \quad (x,y) \mapsto x,
 $$
@@ -112,6 +116,7 @@ $$
 over $\mathbb{C}$. We show that $\pi$ is topologically the line bundle $\mathcal{O}_{\mathbb{P}^1}(-2)$ but admits no algebraic or holomorphic section.
 
 **$X$ is affine.** The Segre embedding maps
+
 $$
 s : \mathbb{P}^1 \times \mathbb{P}^1 \hookrightarrow \mathbb{P}^3, \quad ([x_0 : x_1], [y_0 : y_1]) \mapsto [x_0 y_0 : x_0 y_1 : x_1 y_0 : x_1 y_1].
 $$
@@ -125,6 +130,7 @@ With coordinates $[X : Y : Z : W]$ on $\mathbb{P}^3$, the Segre quadric is $\{XW
 **Degree computation via self-intersection.** To identify the topological type of the line bundle, we compute the self-intersection number of the zero section $\sigma$.
 
 Perturb $\sigma$ by rotating the second factor through angle $t$ about the polar axis:
+
 $$
 \sigma_t(x) = (x, \rho_t(-x)),
 $$
@@ -132,11 +138,13 @@ $$
 where $\rho_t$ is rotation by $t$. The sections $\sigma$ and $\sigma_t$ intersect at exactly two points: $p = (N, S)$ and $q = (S, N)$ (north and south poles).
 
 Near $p = (N, S)$, use stereographic coordinates $(x', y')$ on the first $S^2$ near $N$ and $(u, v)$ on the second near $S$. The two sections are
+
 $$
 \sigma : (x', y') \mapsto (x', y', -x', y'), \qquad \sigma_t : (x', y') \mapsto (x', y', -x'\cos t + y'\sin t,\; x'\sin t + y'\cos t).
 $$
 
 The intersection index at $p$ is the sign of
+
 $$
 \det \begin{pmatrix} 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 0 & -\cos t & \sin t \\ 0 & 1 & \sin t & \cos t \end{pmatrix} = -2 + \sin(2t).
 $$
@@ -152,6 +160,7 @@ The complement of the diagonal in $\mathbb{P}^1 \times \mathbb{P}^1$ is thus alg
 ### Remark {#ecag-0172}
 
 The local-coordinate formula $\sigma(x', y') = (x', y', -x', y')$ near the point $(N, S)$ deserves unpacking. Here $(x', y')$ are stereographic coordinates on the source $S^2$ near the north pole $N$, and $(x, y, u, v)$ are coordinates on $S^2 \times S^2$ near $(N, S)$, with $(x, y)$ for the first factor near $N$ and $(u, v)$ for the second factor near $S$. The section reads
+
 $$
 \sigma : x = x',\; y = y',\; u = -x',\; v = y'.
 $$
@@ -163,6 +172,7 @@ The sign in $u = -x'$ and the absence of sign change in $v = y'$ encode how the 
 Several related notions of "index" and "degree" appear across differential topology and algebraic geometry. We collect them for comparison.
 
 **Fixed-point index.** For $f : X \to X$ a smooth self-map and $p \in \operatorname{Fix}(f)$ an isolated fixed point,
+
 $$
 i(p) = \operatorname{sign} \det(\operatorname{Id} - Df_p),
 $$
@@ -170,6 +180,7 @@ $$
 where $Df_p : T_p X \to T_p X$ is the differential.
 
 **Lefschetz number.** For $f : X \to X$ on a compact manifold,
+
 $$
 \Lambda(f) = \sum_{k} (-1)^k \operatorname{Tr}(f^* : H^k(X) \to H^k(X)).
 $$
@@ -209,6 +220,7 @@ On a normal variety of dimension $\geq 2$, reflexive rank-1 sheaves correspond t
 Let $n \geq 2$ and let $X$ be the affine $n$-space with doubled origin, obtained by gluing two copies $U_0, U_1 \cong \mathbb{A}^n_k$ along the common open $U_0 \cap U_1 = \mathbb{A}^n_k \setminus \{0\}$. We show that $X$ carries a coherent sheaf that is not a quotient of any locally free sheaf.
 
 **Every locally free sheaf on $X$ is trivial.** By the Quillen--Suslin theorem, every finitely generated projective module over $k[x_1, \ldots, x_n]$ is free, so every locally free sheaf on $\mathbb{A}^n_k$ is trivial. A locally free sheaf $\mathscr{E}$ on $X$ is determined by trivializations $\mathscr{E}|_{U_0}$ and $\mathscr{E}|_{U_1}$ together with a gluing automorphism $\varphi$ over $U_0 \cap U_1 = \mathbb{A}^n_k \setminus \{0\}$. Since $n \geq 2$, the complement of the origin has codimension $\geq 2$, so Hartogs' extension gives
+
 $$
 \Gamma(\mathbb{A}^n_k \setminus \{0\}, \mathcal{O}) = \Gamma(\mathbb{A}^n_k, \mathcal{O}) = k[x_1, \ldots, x_n].
 $$
@@ -218,6 +230,7 @@ Therefore $\varphi$ extends to an automorphism over all of $\mathbb{A}^n_k$, for
 **The resolution property fails.** If every coherent sheaf on $X$ were a quotient of a locally free sheaf, then (since all locally free sheaves are trivial, hence isomorphic to $\mathcal{O}_X^{\oplus r}$) every coherent sheaf would be globally generated. By Serre's affineness criterion, this would force $X$ to be affine. But $X$ is not separated (the two origins cannot be separated by global functions), hence not affine -- a contradiction.
 
 **An explicit non-globally-generated sheaf.** Let $p \in U_0$ and $q \in U_1$ denote the two origins. The ideal sheaf $\mathscr{I}$ of the point $p$ has
+
 $$
 \mathscr{I}(U_0) = (x_1, \ldots, x_n) \subset k[x_1, \ldots, x_n], \qquad \mathscr{I}(U_1) = k[y_1, \ldots, y_n],
 $$
@@ -239,6 +252,7 @@ We exhibit two finite (hence universally closed) morphisms that fail to be close
 **Degree-$n$ map on $\mathbb{P}^1$.** The morphism $f : \mathbb{P}^1_k \to \mathbb{P}^1_k$ given by $[x : y] \mapsto [x^n : y^n]$ for $n \geq 2$ is finite of degree $n$ between proper schemes, hence proper. It is not a closed embedding because it is not injective on geometric points: the fiber over any point other than $[0:1]$ and $[1:0]$ consists of $n$ distinct points (the $n$-th roots). Equivalently, $f$ is not a monomorphism.
 
 **Normalization of the cusp.** The ring inclusion $k[t^2, t^3] \hookrightarrow k[t]$ is an integral extension ($t$ satisfies $t^2 - t^2 = 0$; more precisely, $t$ is integral over $k[t^2, t^3]$ since $t^2 \in k[t^2, t^3]$). The corresponding morphism
+
 $$
 f : \operatorname{Spec}(k[t]) \to \operatorname{Spec}(k[t^2, t^3])
 $$
@@ -256,6 +270,7 @@ A coherent sheaf can have constant fiber dimension at every point yet fail to be
 **Setup.** Let $R = k[t]/(t^2)$ be the ring of dual numbers and $X = \operatorname{Spec}(R)$, a single point $y = (t)$ with residue field $k(y) = k$. Take $M = k$, viewed as an $R$-module via the surjection $R \twoheadrightarrow k$ (i.e., $t$ acts as zero).
 
 **Constant fiber dimension.** The (unique) fiber has dimension
+
 $$
 \dim_{k(y)} (M \otimes_R k(y)) = \dim_k (k \otimes_{k[t]/(t^2)} k) = \dim_k k = 1.
 $$
@@ -263,11 +278,13 @@ $$
 This is trivially constant since $X$ has a single point.
 
 **Non-freeness and non-flatness.** A free $R$-module of rank 1 is $R$ itself, which has $\dim_k R = 2$, while $\dim_k M = 1$. So $M$ is not free. More precisely, $M$ is not even flat over $R$. To see this, consider the exact sequence $0 \to (t) \to R \to k \to 0$. Since $(t) \cong R/(t) = k$ as $R$-modules, tensoring with $M = k$ gives
+
 $$
 (t) \otimes_R k \to R \otimes_R k \to k \otimes_R k \to 0.
 $$
 
 Now $(t) \otimes_R k \cong k \otimes_R k \cong k$, and the map $(t) \otimes_R k \to R \otimes_R k$ is zero (because $t$ acts as $0$ on $k$, so the image of the generator $t \otimes 1$ is $0$). The kernel of $R \otimes_R k \to k \otimes_R k$ is therefore all of $(t) \otimes_R k \cong k$, giving
+
 $$
 \operatorname{Tor}_1^R(k, k) \cong k \neq 0.
 $$

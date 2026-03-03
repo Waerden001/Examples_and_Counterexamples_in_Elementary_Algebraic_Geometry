@@ -10,6 +10,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 The Horrocks–Mumford bundle $\mathscr{F}$ is a rank-2 vector bundle on $\mathbb{P}^4$ with Chern classes $c_1(\mathscr{F}) = 5h$ and $c_2(\mathscr{F}) = 10h^2$, where $h$ is the hyperplane class. It is the unique (up to twist and automorphisms) indecomposable rank-2 bundle on $\mathbb{P}^n$ for $n \geq 3$.
 
 We compute $\chi(\mathscr{F}(n-5))$ via the Hirzebruch–Riemann–Roch theorem:
+
 $$
 \chi(\mathscr{F}(n-5)) = \int_{\mathbb{P}^4} \operatorname{ch}(\mathscr{F}(n-5)) \cdot \operatorname{td}(\mathbb{P}^4).
 $$
@@ -46,6 +47,7 @@ $$
 | $\operatorname{ch}_4 \cdot \operatorname{td}_0$ | $\frac{2t^4+20t^3+30t^2-100t-175}{24}$ | $2t^4 + 20t^3 + 30t^2 - 100t - 175$ |
 
 Collecting by degree: $2t^4 + 40t^3 + 250t^2 + 500t + 48$. So
+
 $$
 \chi(\mathscr{F}(t)) = \frac{2t^4 + 40t^3 + 250t^2 + 500t + 48}{24} = \frac{t^4+20t^3+125t^2+250t+24}{12}.
 $$
@@ -61,6 +63,7 @@ $$
 | $n^0$ | $625$ | $-2500$ | $3125$ | $-1250$ | $24$ | $24$ |
 
 The vanishing of the $n^3$ and $n^1$ coefficients reflects Serre duality: since $\omega_{\mathbb{P}^4} = \mathcal{O}(-5)$ and $c_1(\mathscr{F}) = 5$, we have $\mathscr{F}^{\vee} \cong \mathscr{F}(-5)$, so $\chi(\mathscr{F}(t)) = \chi(\mathscr{F}(-t-5))$ by Serre duality, which forces the polynomial in $n = t+5$ to be even. Hence
+
 $$
 \chi(\mathscr{F}(n-5)) = \frac{n^4 - 25n^2 + 24}{12} = \frac{(n^2-1)(n^2-24)}{12} = \frac{(n-1)(n+1)(n^2-24)}{12}.
 $$

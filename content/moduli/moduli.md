@@ -10,6 +10,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 Mumford--Takemoto stability of a coherent sheaf on a smooth projective variety $X$ over a field $k$ depends on the ground field. We construct a rank-2 bundle on $\mathbb{P}^1_{\mathbb{R}}$ that is stable over $\mathbb{R}$ but becomes strictly semistable after base change to $\mathbb{C}$.
 
 Take $k = \mathbb{R}$, $X = \mathbb{P}^1_{\mathbb{R}}$, and $H = \mathcal{O}(1)$. The finite morphism $\pi \colon \mathbb{P}^1_{\mathbb{C}} \to \mathbb{P}^1_{\mathbb{R}}$ induced by $\mathbb{R} \hookrightarrow \mathbb{C}$ gives a rank-2 bundle $\mathcal{E} = \pi_* \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}$ on $\mathbb{P}^1_{\mathbb{R}}$. Since $\pi$ is finite of degree 2 and $\mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}$ has degree 0, the projection formula gives $\deg(\mathcal{E}) = 0$, so
+
 $$
 \mu_H(\mathcal{E}) = \frac{\deg(\mathcal{E})}{\operatorname{rk}(\mathcal{E})} = \frac{0}{2} = 0.
 $$
@@ -17,6 +18,7 @@ $$
 To verify stability over $\mathbb{R}$, let $\mathcal{F} \cong \mathcal{O}(d) \hookrightarrow \mathcal{E}$ be a rank-1 subsheaf. By adjunction for $\pi_*\dashv\pi^*$, a nonzero map $\mathcal{O}(d) \to \pi_* \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}$ corresponds to a nonzero map $\pi^* \mathcal{O}(d) \cong \mathcal{O}(d) \to \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}$. For this to be nonzero we need $d \leq 0$. A Galois-theoretic refinement sharpens this: the inclusion $\mathcal{O}(d) \hookrightarrow \mathcal{E}$ defines an $\mathbb{R}$-rational sub-line-bundle. But $\pi_* \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}$ carries a $\operatorname{Gal}(\mathbb{C}/\mathbb{R})$-action exchanging the two summands that appear after base change (see below), so any $\mathbb{R}$-rational sub-line-bundle must land in the invariant part, forcing $d \leq -1$. Hence $\mu_H(\mathcal{F}) = d \leq -1 < 0 = \mu_H(\mathcal{E})$, and $\mathcal{E}$ is Mumford--Takemoto stable over $\mathbb{R}$.
 
 After base change to $\bar{k} = \mathbb{C}$, the morphism $\pi$ splits: $\mathbb{P}^1_{\mathbb{C}} \times_{\mathbb{P}^1_{\mathbb{R}}} \mathbb{P}^1_{\mathbb{C}} \cong \mathbb{P}^1_{\mathbb{C}} \sqcup \mathbb{P}^1_{\mathbb{C}}$, so
+
 $$
 \mathcal{E}_{\mathbb{C}} \cong \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}} \oplus \mathcal{O}_{\mathbb{P}^1_{\mathbb{C}}}.
 $$
@@ -32,11 +34,13 @@ This phenomenon is general: whenever the Galois group $\operatorname{Gal}(\bar{k
 The cotangent bundle $\Omega_{\mathbb{P}^n}$ is Mumford--Takemoto stable with respect to $H = \mathcal{O}(1)$, over any algebraically closed field of characteristic 0. The proof combines a naive slope bound from the Euler sequence with Hoppe's criterion and Bott vanishing.
 
 From the dual Euler sequence
+
 $$
 0 \to \Omega_{\mathbb{P}^n} \to \mathcal{O}_{\mathbb{P}^n}(-1)^{\oplus(n+1)} \to \mathcal{O}_{\mathbb{P}^n} \to 0,
 $$
 
 we read off $\operatorname{rk}(\Omega_{\mathbb{P}^n}) = n$ and $c_1(\Omega_{\mathbb{P}^n}) = -(n+1)H$, giving
+
 $$
 \mu_H(\Omega_{\mathbb{P}^n}) = \frac{-(n+1)}{n}.
 $$
@@ -44,11 +48,13 @@ $$
 **Naive bound from the Euler sequence.** Let $\mathcal{F} \subset \Omega_{\mathbb{P}^n}$ be a coherent subsheaf of rank $r$ with $0 < r < n$. The composite $\mathcal{F} \hookrightarrow \Omega_{\mathbb{P}^n} \hookrightarrow \mathcal{O}(-1)^{\oplus(n+1)}$ induces a nonzero map $\det(\mathcal{F}) \to \bigwedge^r \mathcal{O}(-1)^{\oplus(n+1)} \cong \mathcal{O}(-r)^{\oplus \binom{n+1}{r}}$, hence a nonzero map $\mathcal{O}(c_1(\mathcal{F})) \to \mathcal{O}(-r)$. Existence of a nonzero global section of $\mathcal{O}(-r - c_1(\mathcal{F}))$ forces $c_1(\mathcal{F}) \leq -r$, so $\mu_H(\mathcal{F}) \leq -1$. This is insufficient: $-1 > -(n+1)/n$ for $n \geq 2$, so the Euler sequence alone does not prove stability.
 
 **Hoppe's criterion and Bott vanishing.** Hoppe's criterion states that a vector bundle $\mathcal{E}$ of rank $n$ on $\mathbb{P}^n$ with $c_1(\mathcal{E})/\operatorname{rk}(\mathcal{E})$ not an integer is stable if
+
 $$
 H^0\!\left(\mathbb{P}^n,\, \bigl(\textstyle\bigwedge^p \mathcal{E}\bigr)(q)\right) = 0 \quad \text{for all } 1 \leq p \leq n-1 \text{ and } q = \left\lfloor p \cdot \mu_H(\mathcal{E}) \right\rfloor + 1.
 $$
 
 For $\mathcal{E} = \Omega_{\mathbb{P}^n}$ with $\mu = -(n+1)/n$, it suffices to verify $H^0(\mathbb{P}^n, \Omega_{\mathbb{P}^n}^p(q)) = 0$ for $1 \leq p \leq n-1$ and
+
 $$
 q \leq \left\lfloor p \cdot \tfrac{n+1}{n} \right\rfloor = p + \left\lfloor \tfrac{p}{n} \right\rfloor = p \quad (\text{since } 1 \leq p \leq n-1).
 $$
@@ -71,6 +77,7 @@ Both conditions hold, confirming stability of $\Omega_{\mathbb{P}^3}$.
 Mumford--Takemoto semistability and Gieseker semistability are distinct conditions: the former compares slopes $\mu_H = c_1 \cdot H^{n-1}/\operatorname{rk}$, while the latter compares full reduced Hilbert polynomials. We exhibit a rank-2 sheaf on $\mathbb{P}^2$ that is Mumford--Takemoto semistable but Gieseker unstable.
 
 On $X = \mathbb{P}^2$ with $H = \mathcal{O}(1)$, choose a non-split extension
+
 $$
 0 \to \mathcal{O}_{\mathbb{P}^2} \to \mathcal{E} \to \mathcal{I}_p \to 0,
 $$
@@ -80,11 +87,13 @@ where $\mathcal{I}_p$ is the ideal sheaf of a closed point $p \in \mathbb{P}^2$.
 **Mumford--Takemoto semistability.** The slope is $\mu_H(\mathcal{E}) = 0$. Let $\mathcal{L} \cong \mathcal{O}(d)$ be a saturated rank-1 subsheaf of $\mathcal{E}$. The composition $\mathcal{O}(d) \hookrightarrow \mathcal{E} \twoheadrightarrow \mathcal{I}_p$ is either zero or nonzero. If nonzero, it gives an injection $\mathcal{O}(d) \hookrightarrow \mathcal{I}_p \subset \mathcal{O}$, forcing $d \leq 0$. If zero, the map factors through $\mathcal{O}(d) \hookrightarrow \mathcal{O}$, again forcing $d \leq 0$. In either case $\mu_H(\mathcal{L}) = d \leq 0 = \mu_H(\mathcal{E})$, confirming Mumford--Takemoto semistability.
 
 **Gieseker instability.** On $\mathbb{P}^2$, $\chi(\mathcal{O}(m)) = \binom{m+2}{2} = \frac{(m+1)(m+2)}{2}$. From $0 \to \mathcal{I}_p \to \mathcal{O} \to \mathcal{O}_p \to 0$ we get $\chi(\mathcal{I}_p(m)) = \frac{(m+1)(m+2)}{2} - 1 = \frac{m^2 + 3m}{2}$. Additivity on the defining extension yields
+
 $$
 \chi(\mathcal{E}(m)) = \chi(\mathcal{O}(m)) + \chi(\mathcal{I}_p(m)) = \frac{(m+1)(m+2)}{2} + \frac{m^2 + 3m}{2} = m^2 + 3m + 1.
 $$
 
 The reduced Hilbert polynomials are therefore
+
 $$
 p(\mathcal{E}, m) = \frac{m^2 + 3m + 1}{2}, \qquad p(\mathcal{O}, m) = \frac{m^2 + 3m + 2}{2}.
 $$
@@ -99,6 +108,7 @@ On $X = \mathbb{P}^1 \times \mathbb{P}^1$, stability of a vector bundle depends 
 Let $\operatorname{Pic}(X) \cong \mathbb{Z}^2$ be generated by $f_1 = \{pt\} \times \mathbb{P}^1$ and $f_2 = \mathbb{P}^1 \times \{pt\}$, with intersection products $f_1^2 = f_2^2 = 0$ and $f_1 \cdot f_2 = 1$. An ample class is $H_{a,b} = af_1 + bf_2$ with $a, b > 0$.
 
 **A split example.** Consider $\mathcal{E} = \mathcal{O}(1,0) \oplus \mathcal{O}(0,1)$, which has $c_1(\mathcal{E}) = f_1 + f_2$. The slope with respect to $H_{a,b}$ is
+
 $$
 \mu_{H_{a,b}}(\mathcal{E}) = \frac{(f_1 + f_2) \cdot (af_1 + bf_2)}{2} = \frac{a + b}{2}.
 $$
@@ -106,11 +116,13 @@ $$
 The subsheaf $\mathcal{O}(1,0)$ has slope $\mu_{H_{a,b}}(\mathcal{O}(1,0)) = f_1 \cdot (af_1 + bf_2) = b$, which exceeds $(a+b)/2$ precisely when $b > a$. Similarly, $\mathcal{O}(0,1)$ destabilizes when $a > b$. For $a = b$, both summands have slope equal to $\mu_H(\mathcal{E})$, so $\mathcal{E}$ is strictly semistable. For $a \neq b$, $\mathcal{E}$ is always unstable, but the destabilizing subsheaf switches as we cross the wall $a = b$.
 
 **A non-split example.** Take a non-split extension
+
 $$
 0 \to \mathcal{O}(1,-1) \to \mathcal{E} \to \mathcal{O}(-1,1) \to 0.
 $$
 
 Now $c_1(\mathcal{E}) = 0$, so $\mu_{H_{a,b}}(\mathcal{E}) = 0$ for all polarizations. The only potential destabilizing subsheaf (up to saturation) is $\mathcal{O}(1,-1) \subset \mathcal{E}$, with slope
+
 $$
 \mu_{H_{a,b}}(\mathcal{O}(1,-1)) = (f_1 - f_2) \cdot (af_1 + bf_2) = b - a.
 $$
@@ -142,6 +154,7 @@ Recall that the Mukai vector of a sheaf $\mathcal{E}$ on $S$ is $v(\mathcal{E}) 
 Two semistable sheaves $\mathcal{E}$ and $\mathcal{E}'$ are $S$-equivalent if their associated graded objects under the Jordan--Holder filtration are isomorphic: $\operatorname{gr}^{JH}(\mathcal{E}) \cong \operatorname{gr}^{JH}(\mathcal{E}')$. The moduli space of semistable sheaves parametrizes $S$-equivalence classes, not isomorphism classes. This identification is necessary for the moduli space to be separated.
 
 On $\mathbb{P}^1$, the phenomenon is invisible: $\operatorname{Ext}^1(\mathcal{O}, \mathcal{O}) = H^1(\mathbb{P}^1, \mathcal{O}) = 0$, so every extension of $\mathcal{O}$ by $\mathcal{O}$ splits. To see a non-trivial example, work on an elliptic curve $C$. Since $\operatorname{Ext}^1(\mathcal{O}_C, \mathcal{O}_C) = H^1(C, \mathcal{O}_C) \cong k$, there is a unique (up to scaling) non-trivial extension
+
 $$
 0 \to \mathcal{O}_C \to \mathcal{E} \to \mathcal{O}_C \to 0.
 $$
@@ -159,6 +172,7 @@ Without this identification, one could construct a family over $\mathbb{A}^1$ wh
 The Harder--Narasimhan (HN) filtration and the Jordan--Holder (JH) filtration serve fundamentally different roles. The HN filtration exists uniquely for any torsion-free sheaf, with semistable graded pieces of strictly decreasing slopes; it measures how far a sheaf is from being semistable. The JH filtration applies only to a semistable sheaf, refining it into stable graded pieces of equal slope; the filtration itself is not unique, but $\operatorname{gr}^{JH}(\mathcal{E})$ is unique up to isomorphism, and this defines $S$-equivalence classes for moduli construction.
 
 **The Harder--Narasimhan filtration.** On $\mathbb{P}^2$ with $H = \mathcal{O}(1)$, consider $\mathcal{E} = \mathcal{O}(3) \oplus \mathcal{O}(1) \oplus \mathcal{O}(-2)$. The slopes of the summands are $3, 1, -2$. The HN filtration is the unique filtration whose successive quotients are semistable with strictly decreasing slopes:
+
 $$
 0 \subset \mathcal{O}(3) \subset \mathcal{O}(3) \oplus \mathcal{O}(1) \subset \mathcal{E},
 $$
@@ -166,6 +180,7 @@ $$
 with graded pieces $\mathcal{O}(3)$ (slope 3), $\mathcal{O}(1)$ (slope 1), and $\mathcal{O}(-2)$ (slope $-2$). Each graded piece is a line bundle, hence stable.
 
 **The Jordan--Holder filtration.** On an elliptic curve $C$, consider a semistable rank-3 bundle $\mathcal{E}$ of degree 0 fitting into $0 \to \mathcal{L}_1 \to \mathcal{E} \to \mathcal{L}_2 \oplus \mathcal{L}_3 \to 0$, where $\mathcal{L}_1, \mathcal{L}_2, \mathcal{L}_3$ are pairwise non-isomorphic degree-0 line bundles. On an elliptic curve, degree-0 line bundles are stable, so the JH filtration refines $\mathcal{E}$ into three stable pieces. However, the filtration itself is non-unique: one could take
+
 $$
 0 \subset \mathcal{L}_1 \subset \mathcal{L}_1 \oplus \mathcal{L}_2 \subset \mathcal{E} \qquad \text{or} \qquad 0 \subset \mathcal{L}_1 \subset \mathcal{L}_1 \oplus \mathcal{L}_3 \subset \mathcal{E}.
 $$
@@ -184,6 +199,7 @@ In both cases, $\operatorname{gr}^{JH}(\mathcal{E}) \cong \mathcal{L}_1 \oplus \
 Over an algebraically closed field $k$ of characteristic $p > 0$, a vector bundle $\mathcal{E}$ on a smooth projective variety $X$ is strongly semistable if $(F^n)^*\mathcal{E}$ is semistable for all $n \geq 0$, where $F \colon X \to X$ is the absolute Frobenius. Unlike ordinary semistability, strong semistability is not an open condition in families.
 
 The reason is structural: for each fixed $n$, the locus
+
 $$
 U_n = \{t \in T : (F^n)^*\mathcal{E}_t \text{ is semistable}\}
 $$
@@ -213,6 +229,7 @@ The identification $\overline{\mathcal{M}}_{0,5} \cong \operatorname{Bl}_4 \math
 **Recursive structure.** The forgetful morphism $\pi \colon \overline{\mathcal{M}}_{0,n+1} \to \overline{\mathcal{M}}_{0,n}$ (forgetting the last marked point) realizes $\overline{\mathcal{M}}_{0,n+1}$ as the universal curve over $\overline{\mathcal{M}}_{0,n}$. By Keel's theorem, the cohomology ring $H^*(\overline{\mathcal{M}}_{0,n}, \mathbb{Z})$ is generated by boundary divisor classes subject to explicit quadratic relations, enabling recursive computation of Betti numbers.
 
 **Euler characteristic.** The open stratum $\mathcal{M}_{0,n}$ has $\chi(\mathcal{M}_{0,n}) = (-1)^{n-3}(n-2)!$ (since $\mathcal{M}_{0,n} \cong M_{0,n}$ is an iterated fibration with fibers $\mathbb{P}^1$ minus finitely many points). By inclusion-exclusion over boundary strata -- each of which is a product of lower $\overline{\mathcal{M}}_{0,n_i}$ -- one obtains the formula
+
 $$
 \chi_{\mathrm{top}}(\overline{\mathcal{M}}_{0,n}) = \sum_{k=0}^{n-3} b_{2k}.
 $$
@@ -226,6 +243,7 @@ For $n = 6$: $\chi = 1 + 16 + 16 + 1 = 34$.
 The canonical divisor of $\overline{\mathcal{M}}_{0,n}$ admits an expression in terms of boundary divisors and psi-classes. Recall that the boundary divisors $\delta_I$ (indexed by subsets $I \subset \{1, \ldots, n\}$ with $2 \leq |I| \leq n-2$, identifying $\delta_I = \delta_{I^c}$) correspond to stable curves with one node separating marked points labeled by $I$ from those labeled by $I^c$, and each is isomorphic to $\overline{\mathcal{M}}_{0,|I|+1} \times \overline{\mathcal{M}}_{0,|I^c|+1}$. The psi-classes $\psi_i = c_1(\mathbb{L}_i)$ are the first Chern classes of the cotangent line bundles at the $i$-th marked point.
 
 The canonical class is given by the Knudsen--Mumford formula:
+
 $$
 K_{\overline{\mathcal{M}}_{0,n}} = \sum_{i=1}^{n} \psi_i - 2 \sum_I \delta_I.
 $$
@@ -243,11 +261,13 @@ For small $n$, the anti-canonical class $-K$ is ample, making $\overline{\mathca
 The Picard group of $\overline{\mathcal{M}}_{0,n}$ is freely generated by the boundary divisor classes $\delta_I$, and the rank of $H^2(\overline{\mathcal{M}}_{0,n}, \mathbb{Z})$ equals $2^{n-1} - \binom{n}{2} - 1$ for $n \geq 3$.
 
 **Counting boundary divisors.** The boundary divisors $\delta_I$ are indexed by subsets $I \subset \{1, \ldots, n\}$ with $2 \leq |I| \leq n-2$, subject to the identification $\delta_I = \delta_{I^c}$. The number of such divisors is
+
 $$
 \frac{1}{2}\sum_{k=2}^{n-2} \binom{n}{k} = \frac{1}{2}(2^n - 2 - 2n) = 2^{n-1} - n - 1.
 $$
 
 **The Keel relations.** By Keel's theorem, $H^*(\overline{\mathcal{M}}_{0,n}, \mathbb{Z})$ is generated as a ring by the $\delta_I$, subject to explicit quadratic relations: for any four distinct elements $i, j, k, l \in \{1, \ldots, n\}$,
+
 $$
 \sum_{\substack{I:\, i,j \in I \\ k,l \notin I}} \delta_I = \sum_{\substack{I:\, i,k \in I \\ j,l \notin I}} \delta_I.
 $$
@@ -272,6 +292,7 @@ The rank grows exponentially with $n$, reflecting the exponential growth of the 
 The rational Picard group of the Deligne--Mumford compactification $\overline{\mathscr{M}}_g$ (the moduli stack of stable curves of genus $g$) has rank $2 + \lfloor g/2 \rfloor$ for $g \geq 3$, with explicit generators given by the Hodge class $\lambda$ and the boundary divisor classes $\delta_0, \delta_1, \ldots, \delta_{\lfloor g/2 \rfloor}$. Here $\delta_0$ is the class of the locus of irreducible nodal curves, and $\delta_i$ for $i \geq 1$ corresponds to curves with a separating node where the two components have genera $i$ and $g - i$ (with $\delta_i = \delta_{g-i}$, so the index runs to $\lfloor g/2 \rfloor$).
 
 Arbarello and Cornalba proved that $\operatorname{Pic}(\overline{\mathscr{M}}_g) \otimes \mathbb{Q}$ is freely generated by these classes:
+
 $$
 \operatorname{Pic}(\overline{\mathscr{M}}_g) \otimes \mathbb{Q} = \mathbb{Q}\lambda \oplus \mathbb{Q}\delta_0 \oplus \mathbb{Q}\delta_1 \oplus \cdots \oplus \mathbb{Q}\delta_{\lfloor g/2 \rfloor}.
 $$
@@ -287,11 +308,13 @@ The Picard group of the moduli stack $\mathscr{M}_{1,1}$ of elliptic curves is $
 Over $\mathbb{C}$, the upper half-plane $\mathfrak{h}$ uniformizes elliptic curves via $\tau \mapsto \mathbb{C}/(\mathbb{Z} + \mathbb{Z}\tau)$, giving $\mathscr{M}_{1,1}^{\mathrm{an}} \simeq [\mathfrak{h}/\operatorname{SL}_2(\mathbb{Z})]$. A line bundle on this quotient stack is an $\operatorname{SL}_2(\mathbb{Z})$-equivariant line bundle on $\mathfrak{h}$. Since $\mathfrak{h}$ is contractible, every line bundle on $\mathfrak{h}$ is trivial, and equivariant structures correspond to characters $\chi \colon \operatorname{SL}_2(\mathbb{Z}) \to \mathbb{C}^*$.
 
 The group $\operatorname{SL}_2(\mathbb{Z})$ has the presentation as an amalgamated free product
+
 $$
 \operatorname{SL}_2(\mathbb{Z}) \cong \mathbb{Z}/4\mathbb{Z} \ast_{\mathbb{Z}/2\mathbb{Z}} \mathbb{Z}/6\mathbb{Z},
 $$
 
 where the generator $S = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ has order 4 and $T' = ST = \begin{pmatrix} 0 & -1 \\ 1 & 1 \end{pmatrix}$ has order 6, with $S^2 = (T')^3 = -I$. A character $\chi$ must send $S$ to a 4th root of unity and $T'$ to a 6th root of unity, subject to $\chi(S)^2 = \chi(T')^3$. The set of such pairs forms the fiber product
+
 $$
 \operatorname{Hom}(\operatorname{SL}_2(\mathbb{Z}), \mathbb{C}^*) \cong \mathbb{Z}/4\mathbb{Z} \times_{\mathbb{Z}/2\mathbb{Z}} \mathbb{Z}/6\mathbb{Z} \cong \mathbb{Z}/12\mathbb{Z}.
 $$
@@ -310,6 +333,7 @@ It is highly recommended to read David Mumford's book *Lectures on curves on an 
 The affine line $\mathbb{A}_{\mathbb{Z}}^1 = \operatorname{Spec}(\mathbb{Z}[t])$ represents the forgetful functor from schemes to sets sending $S$ to $\Gamma(S, \mathcal{O}_S)$. This is the most basic instance of the Yoneda lemma in algebraic geometry.
 
 For any scheme $S$, a morphism $f \colon S \to \mathbb{A}_{\mathbb{Z}}^1 = \operatorname{Spec}(\mathbb{Z}[t])$ corresponds to a ring homomorphism $f^\sharp \colon \mathbb{Z}[t] \to \Gamma(S, \mathcal{O}_S)$, which is uniquely determined by the image $a = f^\sharp(t) \in \Gamma(S, \mathcal{O}_S)$. This follows from the universal property of the polynomial ring: $\mathbb{Z}[t]$ is the free $\mathbb{Z}$-algebra on one generator. The correspondence
+
 $$
 \operatorname{Hom}_{\mathrm{Sch}}(S, \mathbb{A}_{\mathbb{Z}}^1) \xrightarrow{\;\sim\;} \Gamma(S, \mathcal{O}_S), \qquad f \mapsto f^\sharp(t),
 $$
@@ -325,6 +349,7 @@ Over a base ring $R$, the scheme $\mathbb{A}_R^1 = \operatorname{Spec}(R[t])$ re
 ### Example: $\mathbb{P}_{\mathbb{Z}}^{n}$ {#ecag-0320}
 
 Projective space $\mathbb{P}_{\mathbb{Z}}^n = \operatorname{Proj}(\mathbb{Z}[x_0, \ldots, x_n])$ represents the functor sending a scheme $S$ to the set of isomorphism classes of pairs $(\mathcal{L}, (s_0, \ldots, s_n))$, where $\mathcal{L}$ is a line bundle on $S$ and $s_0, \ldots, s_n \in \Gamma(S, \mathcal{L})$ generate $\mathcal{L}$:
+
 $$
 \operatorname{Hom}(S, \mathbb{P}_{\mathbb{Z}}^n) \cong \{(\mathcal{L}, s_0, \ldots, s_n) : s_i \in \Gamma(S, \mathcal{L}),\; (s_0, \ldots, s_n) \text{ generate } \mathcal{L}\}/{\cong}.
 $$
@@ -342,6 +367,7 @@ These constructions are inverse to each other up to the equivalence $(\mathcal{L
 ### Example: Fano scheme and its tangent space {#ecag-0321}
 
 The Fano scheme $F_k(X)$ of $k$-dimensional linear subspaces contained in a projective variety $X \subset \mathbb{P}^n$ is a closed subscheme of the Grassmannian $\operatorname{Gr}(k+1, n+1)$. Its Zariski tangent space at a point $[\Lambda]$ corresponding to a $k$-plane $\Lambda \cong \mathbb{P}^k \subset X$ is
+
 $$
 T_{[\Lambda]} F_k(X) \cong H^0(\Lambda, \mathcal{N}_{\Lambda/X}),
 $$
@@ -351,6 +377,7 @@ where $\mathcal{N}_{\Lambda/X}$ is the normal bundle of $\Lambda$ in $X$.
 **Representability.** The Fano scheme represents the functor $S \mapsto \{(V, f) : V \subset \mathcal{O}_S^{n+1} \text{ rank-}(k+1) \text{ subbundle},\, f^*I_X = 0\}$. Concretely, if $X = V(F_1, \ldots, F_m) \subset \mathbb{P}^n$, the conditions $F_j|_\Lambda = 0$ cut out $F_k(X)$ as a closed subscheme of $\operatorname{Gr}(k+1, n+1)$.
 
 **Tangent space computation.** A first-order deformation of $[\Lambda]$ in $F_k(X)$ is a flat family of $(k+1)$-planes in $\mathbb{P}^n$ over $\operatorname{Spec}(k[\epsilon]/(\epsilon^2))$ contained in $X$. The tangent space of the Grassmannian at $[\Lambda]$ is $T_{[\Lambda]} \operatorname{Gr}(k+1, n+1) \cong \operatorname{Hom}(\mathcal{S}|_\Lambda, \mathcal{Q}|_\Lambda) \cong H^0(\Lambda, \mathcal{N}_{\Lambda/\mathbb{P}^n})$. The condition that the deformed plane stays inside $X$ is captured by the normal bundle sequence
+
 $$
 0 \to \mathcal{N}_{\Lambda/X} \to \mathcal{N}_{\Lambda/\mathbb{P}^n} \to \mathcal{N}_{X/\mathbb{P}^n}|_\Lambda \to 0,
 $$
@@ -366,6 +393,7 @@ and the tangent space $T_{[\Lambda]} F_k(X)$ is the kernel of the induced map on
 ### Example: Grassmannian {#ecag-0322}
 
 The Grassmannian $\operatorname{Gr}(k, n)$ represents the functor sending a scheme $S$ to the set of rank-$k$ locally free quotients of $\mathcal{O}_S^n$ (equivalently, rank-$k$ subbundles of $\mathcal{O}_S^n$):
+
 $$
 h_{\operatorname{Gr}(k,n)}(S) = \{\mathcal{E} \subset \mathcal{O}_S^n : \mathcal{E} \text{ locally free of rank } k,\; \mathcal{O}_S^n/\mathcal{E} \text{ locally free}\}.
 $$
@@ -377,6 +405,7 @@ It is a smooth projective scheme of dimension $k(n-k)$ over $\mathbb{Z}$, with $
 **The Plucker embedding.** The map $\operatorname{Gr}(k, n) \hookrightarrow \mathbb{P}(\bigwedge^k \mathbb{Z}^n) = \mathbb{P}^{\binom{n}{k}-1}$ sends $\mathcal{E}$ to $\bigwedge^k \mathcal{E} \subset \bigwedge^k \mathcal{O}_S^n$. The image is cut out by the quadratic Plucker relations.
 
 **Tautological bundles.** On $\operatorname{Gr}(k, n)$ there is a tautological exact sequence
+
 $$
 0 \to \mathcal{S} \to \mathcal{O}^n \to \mathcal{Q} \to 0,
 $$
@@ -411,6 +440,7 @@ The quotient stack $[\mathbb{A}^n/\operatorname{GL}_n]$, where $\operatorname{GL
 **The groupoid of $S$-points.** By definition, the $S$-points of $[\mathbb{A}^n/\operatorname{GL}_n]$ form a groupoid whose objects are pairs $(\mathcal{E}, s)$ where $\mathcal{E}$ is a $\operatorname{GL}_n$-torsor on $S$ and $s \colon S \to \mathcal{E} \times^{\operatorname{GL}_n} \mathbb{A}^n$ is a section. A $\operatorname{GL}_n$-torsor on $S$ is equivalent (via the associated bundle construction) to a rank-$n$ vector bundle $\mathcal{V}$ on $S$, and the associated space $\mathcal{E} \times^{\operatorname{GL}_n} \mathbb{A}^n$ is the total space of $\mathcal{V}$. A section is simply an element $s \in \Gamma(S, \mathcal{V})$. Morphisms in the groupoid are bundle isomorphisms $\phi \colon \mathcal{V} \xrightarrow{\sim} \mathcal{V}'$ with $\phi(s) = s'$.
 
 Thus:
+
 $$
 [\mathbb{A}^n/\operatorname{GL}_n](S) \simeq \{(\mathcal{V}, s) : \mathcal{V} \text{ rank-}n \text{ vector bundle on } S,\; s \in \Gamma(S, \mathcal{V})\}.
 $$
@@ -430,6 +460,7 @@ Not every algebraic stack admits a coarse moduli space. The Keel--Mori theorem g
 **The stack $[\mathbb{A}^1/\mathbb{G}_m]$.** Let $\mathbb{G}_m$ act on $\mathbb{A}^1$ by scaling: $t \cdot x = tx$. The orbits are $\{0\}$ (with stabilizer $\mathbb{G}_m$) and $\mathbb{A}^1 \setminus \{0\}$ (a single free orbit). A coarse moduli space $M$ would need to be an algebraic space with a map $\mathscr{X} = [\mathbb{A}^1/\mathbb{G}_m] \to M$ that is initial among maps to algebraic spaces and induces a bijection on geometric points.
 
 Since there are two orbits, $M$ should have two geometric points. However, the GIT quotient is
+
 $$
 \mathbb{A}^1 /\!/ \mathbb{G}_m = \operatorname{Spec}(k[x]^{\mathbb{G}_m}) = \operatorname{Spec}(k),
 $$
@@ -458,6 +489,7 @@ $$
 a smooth curve of genus $3$. Its automorphism group is $\operatorname{PSL}_{2}(\mathbb{F}_{7})$, of order $168$. This is the maximum possible for genus $3$, since the Hurwitz bound gives $|\operatorname{Aut}(C)| \leq 84(g - 1) = 84 \cdot 2 = 168$.
 
 **Genus computation via the Hurwitz formula.** The quotient map $X(7) \to X(7)/\operatorname{PSL}_{2}(\mathbb{F}_{7}) \cong X(1) \cong \mathbb{P}^{1}$ has degree $168$. The ramification occurs above three points of $\mathbb{P}^{1}$: above $j = 0$ the stabilizers have order $7$, yielding $168/7 = 24$ branch points each with $e_{P} - 1 = 6$; above $j = 1728$ the stabilizers have order $2$, yielding $84$ points each contributing $1$; and above $j = \infty$ the stabilizers have order $3$, yielding $56$ points each contributing $2$. The Hurwitz formula gives
+
 $$
 2g(X(7)) - 2 = 168(2 \cdot 0 - 2) + 24 \cdot 6 + 84 \cdot 1 + 56 \cdot 2 = -336 + 144 + 84 + 112 = 4,
 $$
@@ -485,6 +517,7 @@ Over an algebraically closed field $\bar{\mathbb{F}}_{p}$ of characteristic $p \
 $$
 \sum_{E/\bar{\mathbb{F}}_{p} \text{ supersingular}} \frac{1}{|\operatorname{Aut}(E)|} = \frac{p - 1}{24},
 $$
+
 where the sum runs over isomorphism classes of supersingular elliptic curves over $\bar{\mathbb{F}}_{p}$.
 
 An elliptic curve $E$ over $\bar{\mathbb{F}}_{p}$ is supersingular if $E[p](\bar{\mathbb{F}}_{p}) = 0$, or equivalently if $\operatorname{End}(E) \otimes \mathbb{Q}$ is a quaternion algebra (rather than an imaginary quadratic field). The mass formula arises from the Eichler--Deuring correspondence, which identifies isomorphism classes of supersingular elliptic curves with classes of maximal orders in the quaternion algebra $B_{p,\infty}$ ramified at $p$ and $\infty$. The Minkowski--Siegel mass formula for the genus of maximal orders yields the factor $(p-1)/24$.
@@ -514,6 +547,7 @@ In his foundational paper "Picard groups of moduli problems," Mumford computed $
 A line bundle $\mathscr{L}$ on the moduli stack $\mathscr{M}_{1,1}$ assigns to each family $\pi: \mathscr{X} \to S$ a line bundle $\mathscr{L}_{\pi}$ on $S$, compatibly with base change. For a single elliptic curve $C$ over $\operatorname{Spec}(k)$, every automorphism $\alpha \in \operatorname{Aut}(C)$ induces a scalar $\mathscr{L}(\alpha) \in k^{*}$ acting on the one-dimensional fiber $\mathscr{L}|_{C}$.
 
 **The invariant $\beta$.** Consider the two elliptic curves with enhanced automorphisms: $C_{1}: y^{2} = x^{3} - x$ with $j = 1728$ and $\operatorname{Aut}(C_{1}) \cong \mathbb{Z}/4\mathbb{Z}$ generated by $\sigma: (x, y) \mapsto (-x, iy)$; and $C_{2}: y^{2} = x^{3} - 1$ with $j = 0$ and $\operatorname{Aut}(C_{2}) \cong \mathbb{Z}/6\mathbb{Z}$ generated by $\tau: (x, y) \mapsto (\omega x, -y)$ where $\omega = e^{2\pi i/3}$. A line bundle $\mathscr{L}$ determines $\mathscr{L}(\sigma) \in \mu_{4}$ and $\mathscr{L}(\tau) \in \mu_{6}$. The constraint $\sigma^{2} = \tau^{3} = [-1]$ forces $\mathscr{L}(\sigma)^{2} = \mathscr{L}(\tau)^{3}$, yielding
+
 $$
 \beta: \operatorname{Pic}(\mathscr{M}_{1,1}) \to \mathbb{Z}/4\mathbb{Z} \times_{\mathbb{Z}/2\mathbb{Z}} \mathbb{Z}/6\mathbb{Z} \cong \mathbb{Z}/12\mathbb{Z}.
 $$
@@ -526,6 +560,7 @@ $$
 ### Example: Tangent space of the Picard scheme {#ecag-0329}
 
 Let $X$ be a proper scheme over a field $k$. Under suitable hypotheses (e.g., $X$ geometrically integral), the Picard scheme $\operatorname{Pic}_{X/k}$ represents the relative Picard functor. Its tangent space at the origin $[\mathcal{O}_{X}]$ is
+
 $$
 T_{[\mathcal{O}_{X}]} \operatorname{Pic}_{X/k} \cong H^{1}(X, \mathcal{O}_{X}).
 $$
@@ -533,11 +568,13 @@ $$
 By definition, the tangent space is $\operatorname{Pic}_{X/k}(\operatorname{Spec}(k[\epsilon]/(\epsilon^{2})))$, the set of first-order deformations of $\mathcal{O}_{X}$. A line bundle on $X[\epsilon] := X \times \operatorname{Spec}(k[\epsilon])$ restricting to $\mathcal{O}_{X}$ on the closed fiber lies in the kernel of the restriction $H^{1}(X[\epsilon], \mathcal{O}_{X[\epsilon]}^{*}) \to H^{1}(X, \mathcal{O}_{X}^{*})$.
 
 **Computing the kernel.** Consider the exact sequence of sheaves on $X$:
+
 $$
 1 \to 1 + \epsilon \cdot \mathcal{O}_{X} \to \mathcal{O}_{X[\epsilon]}^{*} \to \mathcal{O}_{X}^{*} \to 1.
 $$
 
 The sheaf $1 + \epsilon \cdot \mathcal{O}_{X}$ is isomorphic to $\mathcal{O}_{X}$ as an additive group via $1 + \epsilon f \mapsto f$. The associated long exact sequence in cohomology reads
+
 $$
 H^{0}(X, \mathcal{O}_{X}^{*}) \to H^{1}(X, \mathcal{O}_{X}) \to H^{1}(X[\epsilon], \mathcal{O}_{X[\epsilon]}^{*}) \to H^{1}(X, \mathcal{O}_{X}^{*}).
 $$
@@ -551,6 +588,7 @@ The connecting map from $H^{0}(X, \mathcal{O}_{X}^{*})$ is zero because global u
 ### Example: Isotrivial but non-trivial family of elliptic curves {#ecag-0330}
 
 The family of elliptic curves
+
 $$
 X := \operatorname{Spec}(k[x, y, t, t^{-1}]/(y^{2} - x^{3} + t)) \to \operatorname{Spec}(k[t, t^{-1}]) = \mathbb{G}_{m}
 $$
@@ -558,6 +596,7 @@ $$
 is isotrivial but not trivial. The fibers $y^{2} = x^{3} - t$ all have $j$-invariant $j = 0$ (since the Weierstrass form $y^{2} = x^{3} + a$ has $j = 0$ whenever $a \neq 0$), so every fiber is isomorphic to $E_{0}: y^{2} = x^{3} - 1$ over $\bar{k}$. Nevertheless, $X \not\cong E_{0} \times \mathbb{G}_{m}$.
 
 **The total space is affine.** The defining relation $t = y^{2} - x^{3}$ shows that
+
 $$
 X \cong \operatorname{Spec}(k[x, y, (y^{2} - x^{3})^{-1}]) = \mathbb{A}^{2}_{k} \setminus V(y^{2} - x^{3}),
 $$
@@ -577,6 +616,7 @@ The isotrivial family $y^{2} = x^{3} - t$ from the previous example becomes triv
 $$
 \phi: \operatorname{Spec}(k[t^{1/6}, t^{-1/6}]) \to \operatorname{Spec}(k[t, t^{-1}]),
 $$
+
 corresponding to the ring map $t \mapsto (t^{1/6})^{6}$. This is etale because $6$ is invertible in $k$ (assuming $\operatorname{char}(k) \neq 2, 3$).
 
 After pulling back the family along $\phi$, the substitution $x = t^{1/3} x'$, $y = t^{1/2} y'$ transforms the equation $y^{2} = x^{3} - t$ into $(y')^{2} = (x')^{3} - 1$, which is a constant curve. Explicitly, the pulled-back family is isomorphic to $E_{0} \times \operatorname{Spec}(k[t^{1/6}, t^{-1/6}])$ where $E_{0}: (y')^{2} = (x')^{3} - 1$.
@@ -591,6 +631,7 @@ Recall that $B\mathbb{G}_{m}$ is the classifying stack of $\mathbb{G}_{m}$: for 
 **Computing the fiber product.** The map $\operatorname{pt} \to B\mathbb{G}_{m}$ corresponds to $\mathcal{O}_{\operatorname{pt}}$. For a test scheme $X$, a map $X \to T \times_{B\mathbb{G}_{m}} \operatorname{pt}$ consists of $g: X \to T$, $g': X \to \operatorname{pt}$, and an isomorphism $g^{*}\mathcal{L} \xrightarrow{\sim} \mathcal{O}_{X}$. When $g^{*}\mathcal{L} \cong \mathcal{O}_{X}$, the set of such trivializations is a $\mathbb{G}_{m}(X)$-torsor (since any two trivializations differ by a unit); otherwise it is empty.
 
 **Representability.** Choose a Zariski trivialization $\{U_{i}\}$ of $\mathcal{L}$ with transition functions $g_{ij} \in \mathcal{O}^{*}(U_{i} \cap U_{j})$. The fiber product is obtained by gluing $\mathbb{G}_{m} \times U_{i}$ along $U_{i} \cap U_{j}$ via the same transition functions $g_{ij}$. This is precisely $\operatorname{Tot}(\mathcal{L}) \setminus \{0\}$, the total space of $\mathcal{L}$ with the zero section removed. Hence
+
 $$
 T \times_{B\mathbb{G}_{m}} \operatorname{pt} \cong \operatorname{Tot}(\mathcal{L}) \setminus \{0\text{-section}\},
 $$
@@ -610,11 +651,13 @@ Any morphism $T' \to B\mathbb{G}_{m}$ from a scheme $T'$ is representable. To ve
 $$
 B\mathbb{G}_{m} \times_{B\mathbb{G}_{m} \times B\mathbb{G}_{m}} T
 $$
+
 is the functor of isomorphisms $\operatorname{Isom}(\mathcal{L}_{1}, \mathcal{L}_{2})$. An isomorphism $\mathcal{L}_{1} \xrightarrow{\sim} \mathcal{L}_{2}$ is the same as a nowhere-vanishing section of $\mathcal{L}_{2} \otimes \mathcal{L}_{1}^{\vee}$. Thus
 
 $$
 \operatorname{Isom}(\mathcal{L}_{1}, \mathcal{L}_{2}) \cong \operatorname{Tot}(\mathcal{L}_{2} \otimes \mathcal{L}_{1}^{\vee}) \setminus \{0\},
 $$
+
 which is a scheme (an open subscheme of the total space of a line bundle). Therefore the diagonal is representable, and consequently any morphism from a scheme to $B\mathbb{G}_{m}$ is representable.
 
 ### Remark: `glue' {#ecag-0334}
@@ -641,6 +684,7 @@ Since the action is free, the Riemann--Hurwitz formula (with no ramification) gi
 ### Example: $\mathrm{Pic}(BG)$ over an algebraically closed field $k$ {#ecag-0336}
 
 Let $G$ be a finite group and $k$ an algebraically closed field with $\operatorname{char}(k) \nmid |G|$. Then
+
 $$
 \operatorname{Pic}(BG) \cong \operatorname{Hom}(G, k^{*}) = H^{1}(G, k^{*}),
 $$
@@ -650,6 +694,7 @@ the group of characters of $G$. Line bundles on $BG$ are purely group-theoretic:
 **Via descent.** Since $k = \bar{k}$, the $G$-torsor $\operatorname{pt} \to BG$ trivializes everything: every line bundle on $BG$ descends from a line bundle on $\operatorname{pt}$. The only line bundle on $\operatorname{pt}$ is $\mathcal{O}$, so a descent datum consists of specifying, for each $g \in G$, an automorphism $\alpha(g) \in \operatorname{Aut}(\mathcal{O}_{\operatorname{pt}}) \cong k^{*}$. The cocycle condition requires $\alpha(g_{1} g_{2}) = \alpha(g_{1}) \cdot \alpha(g_{2})$, i.e., $\alpha: G \to k^{*}$ is a group homomorphism. Two descent data are isomorphic if and only if they differ by a coboundary; since $\operatorname{Aut}(\mathcal{O})$ is abelian, all coboundaries are trivial. Hence $\operatorname{Pic}(BG) \cong \operatorname{Hom}(G, k^{*})$.
 
 **Geometric realization.** Given a character $\chi: G \to k^{*}$ and a $G$-torsor $\mathcal{G}$ on a scheme $X$, the corresponding line bundle is the associated bundle
+
 $$
 \mathscr{L}_{\mathcal{G}} = \mathcal{G} \times_{G} \mathbb{A}^{1}_{k},
 $$
@@ -671,6 +716,7 @@ For $G = \mathbb{G}_{m}$, the isomorphism $\operatorname{Pic}(B\mathbb{G}_{m}) \
 ### Example: $\mathrm{Pic}(\mathscr{M}_{1,1})$ over a field $k$, $char(k)\neq 2,3$, algebraic method {#ecag-0337}
 
 Over a field $k$ with $\operatorname{char}(k) \neq 2, 3$, the Picard group of the moduli stack of elliptic curves is
+
 $$
 \operatorname{Pic}(\mathscr{M}_{1,1}) \cong \mathbb{Z}/12\mathbb{Z},
 $$
@@ -680,6 +726,7 @@ generated by the Hodge bundle $\Lambda$. This is Mumford's theorem from "Picard 
 **The inversion invariant $\alpha$.** Every elliptic curve has the inversion automorphism $\rho = [-1]$ of order $2$. A line bundle $\mathscr{L}$ on $\mathscr{M}_{1,1}$ induces $\mathscr{L}(\rho) = \pm 1$ on any connected family. Evaluating on the Legendre family $E_{t}: y^{2} = x(x-1)(x-t)$ over $\mathbb{A}^{1} \setminus \{0, 1\}$ gives a homomorphism $\alpha: \operatorname{Pic}(\mathscr{M}_{1,1}) \to \mathbb{Z}/2\mathbb{Z}$.
 
 **Refining to $\beta$.** The curves $C_{1}: y^{2} = x^{3} - x$ ($j = 1728$) and $C_{2}: y^{2} = x^{3} - 1$ ($j = 0$) have enhanced automorphisms $\sigma: (x,y) \mapsto (-x, iy)$ of order $4$ and $\tau: (x,y) \mapsto (\omega x, -y)$ of order $6$. Since $\sigma^{2} = \tau^{3} = \rho$, the scalars $\mathscr{L}(\sigma) \in \mu_{4}$ and $\mathscr{L}(\tau) \in \mu_{6}$ satisfy $\mathscr{L}(\sigma)^{2} = \mathscr{L}(\tau)^{3} = \alpha(\mathscr{L})$. Fixing a primitive $12$th root $\zeta$, there is a unique $\beta(\mathscr{L}) \in \mathbb{Z}/12\mathbb{Z}$ with $\zeta^{3\beta} = \mathscr{L}(\sigma)$ and $\zeta^{2\beta} = \mathscr{L}(\tau)$. This gives
+
 $$
 \beta: \operatorname{Pic}(\mathscr{M}_{1,1}) \to \mathbb{Z}/4\mathbb{Z} \times_{\mathbb{Z}/2\mathbb{Z}} \mathbb{Z}/6\mathbb{Z} \cong \mathbb{Z}/12\mathbb{Z}.
 $$
@@ -719,6 +766,7 @@ Over a general base scheme $S$ (not necessarily a field), $\operatorname{Pic}(\m
 **The quotient stack presentation.** Over $\operatorname{Spec}(\mathbb{Z}[1/6])$, every elliptic curve admits a short Weierstrass form $y^{2} = x^{3} + ax + b$ with discriminant $\Delta = -16(4a^{3} + 27b^{2}) \neq 0$. The parameter space is $U = \operatorname{Spec}(\mathbb{Z}[1/6][a, b, \Delta^{-1}])$, and $\mathbb{G}_{m}$ acts by $t \cdot (a, b) = (t^{4}a, t^{6}b)$, corresponding to the substitution $x \mapsto t^{2}x$, $y \mapsto t^{3}y$ in the Weierstrass equation. This gives $\mathscr{M}_{1,1} \cong [U/\mathbb{G}_{m}]$.
 
 **Weight computation.** The discriminant $\Delta = -16(4a^{3} + 27b^{2})$ has weight $\operatorname{wt}(\Delta) = \operatorname{wt}(a^{3}) = 3 \cdot 4 = 12$ (equivalently, $\operatorname{wt}(b^{2}) = 2 \cdot 6 = 12$). An equivariant line bundle on $U$ is determined by a character $n \in \mathbb{Z}$ of $\mathbb{G}_{m}$. Since $\operatorname{Pic}(U) = 0$ ($U$ is an open in affine space), $\operatorname{Pic}^{\mathbb{G}_{m}}(U) \cong \mathbb{Z}$. But $\Delta$ is an invertible function of weight $12$ on $U$, so characters $n$ and $n + 12$ give isomorphic equivariant line bundles. Therefore
+
 $$
 \operatorname{Pic}(\mathscr{M}_{1,1}) = \operatorname{Pic}([U/\mathbb{G}_{m}]) \cong \mathbb{Z}/12\mathbb{Z}.
 $$
@@ -767,6 +815,7 @@ Hironaka constructed a smooth complete threefold $V$ over $\mathbb{C}$ that is n
 The result is smooth and complete (proper over $\mathbb{C}$).
 
 **Non-projectivity.** Let $L_{1}, L_{2}$ denote the two components of the exceptional fiber $\pi^{-1}(P)$ and $M_{1}, M_{2}$ those of $\pi^{-1}(Q)$. The key relation is
+
 $$
 L_{1} + M_{1} \sim 0 \quad \text{(numerical equivalence)},
 $$
@@ -785,6 +834,7 @@ There exists a descent datum $(V/X, \phi)$ relative to an etale cover $X \to S$ 
 The fixed locus of $g$ consists of points $[x,y,z,w]$ with $[y,x,w,z] = [x,y,z,w]$, i.e., $x = y$ and $z = w$ (up to scaling), which gives the two lines $l_{1} = \{[x,x,z,z]\}$ and $l_{2} = \{[x,-x,z,-z]\}$. Setting $Y = \mathbb{P}^{3} \setminus (l_{1} \cup l_{2})$, the action of $G$ on $Y$ is free.
 
 **The invariant ring.** The ring of invariants $k[x,y,z,w]^{G}$ is generated by the symmetric functions $u_{0} = x+y$, $u_{1} = z+w$ and the "anti-symmetric squares" $v_{0} = (x-y)^{2}$, $v_{1} = (z-w)^{2}$, $v_{2} = (x-y)(z-w)$. These satisfy the relation $v_{0}v_{1} = v_{2}^{2}$ (a quadric cone), and the quotient is
+
 $$
 S = Y/G \hookrightarrow \operatorname{Proj}(k[u_{0}, u_{1}, v_{0}, v_{1}, v_{2}]/(v_{0}v_{1} - v_{2}^{2})).
 $$
@@ -792,6 +842,7 @@ $$
 **Constructing the descent datum.** Apply Hironaka's blow-up construction to $Y$ to obtain $\pi: V_{Y} \to Y$. The $G$-action on $Y$ lifts to $V_{Y}$ (since $g$ swaps $C$ and $D$, it swaps the blow-up orders at $P$ and $Q$, which is exactly how $V_{Y}$ is constructed). This gives a descent datum $(V_{Y}/Y, \phi)$ relative to the $G$-torsor $Y \to S$. The morphism $V_{Y} \to Y$ is projective (locally given by blow-ups of smooth subvarieties).
 
 **Proof of non-effectivity.** Suppose the descent datum is effective, producing a scheme $U$ with $V_{Y} \to U$ the quotient by $G$. The exceptional fibers are
+
 $$
 \pi^{-1}(P) = L_{1} \cup L_{2}, \quad \pi^{-1}(Q) = M_{1} \cup M_{2},
 $$
@@ -872,6 +923,7 @@ Let $X$ be a smooth projective variety over $\mathbb{C}$. Several cohomology the
 **Holomorphic vs. smooth forms.** The algebraic de Rham complex $\Omega_{X/\mathbb{C}}^{\bullet}$ involves only holomorphic (algebraic) differential forms. Antiholomorphic forms such as $d\bar{z}$ are $C^{\infty}$ but not holomorphic; they appear in the smooth de Rham complex $\mathcal{A}_X^{\bullet}$ and in the Dolbeault resolution $\mathcal{A}_X^{p,q}$, which resolves the sheaf $\Omega_X^p$ of holomorphic $p$-forms. The Hodge decomposition necessarily involves both holomorphic and antiholomorphic contributions.
 
 **The Hodge decomposition.** When $X$ is smooth projective (or more generally compact Kahler), the Hodge theorem gives a canonical decomposition
+
 $$
 H^n(X^{\mathrm{an}}, \mathbb{C}) \cong \bigoplus_{p+q=n} H^{p,q}(X),
 $$
@@ -879,6 +931,7 @@ $$
 where $H^{p,q}(X)$ consists of cohomology classes representable by harmonic $(p,q)$-forms. The Dolbeault theorem identifies $H^{p,q}(X) \cong H^q(X, \Omega_X^p)$. Complex conjugation interchanges the summands: $\overline{H^{p,q}(X)} = H^{q,p}(X)$, a statement about the real structure $H^n(X, \mathbb{C}) = H^n(X, \mathbb{R}) \otimes_{\mathbb{R}} \mathbb{C}$.
 
 **Algebraic de Rham cohomology.** The algebraic de Rham cohomology $H^n_{\mathrm{dR}}(X/\mathbb{C}) = \mathbb{H}^n(\Omega_{X/\mathbb{C}}^{\bullet})$ is the hypercohomology of the algebraic de Rham complex. By GAGA (which identifies algebraic and analytic coherent cohomology on proper varieties) and the holomorphic Poincare lemma (which shows the analytic de Rham complex resolves $\underline{\mathbb{C}}$), one obtains the comparison isomorphism
+
 $$
 H^n_{\mathrm{dR}}(X/\mathbb{C}) \cong H^n(X^{\mathrm{an}}, \mathbb{C}).
 $$
@@ -889,6 +942,7 @@ $$
 ### Example: William Lang, Hodge spectral sequence in characteristic $3$ {#ecag-0350}
 
 Over $k = \mathbb{F}_3$, the surface
+
 $$
 X\colon y^2 z = x^3 - t z^2 \subset \mathbb{P}^3_k
 $$
@@ -898,11 +952,13 @@ provides an explicit example where the Hodge-to-de Rham spectral sequence fails 
 **The quasi-elliptic fibration.** The projection to the coordinate $t$ realizes $X$ as a fibration $\pi\colon X \to \mathbb{P}^1$ whose generic fiber is the curve $y^2 = x^3 - t$ over $k(t)$. In characteristic $3$, the identity $d(x^3) = 3x^2\,dx = 0$ makes the map $x \mapsto x^3$ purely inseparable, so the generic fiber is a cuspidal rational curve rather than a smooth elliptic curve. Such a fibration is called quasi-elliptic.
 
 **Hodge numbers.** The individual Hodge numbers are computed from sheaf cohomology:
+
 $$
 h^{1,0} = \dim_k H^0(X, \Omega_{X/k}^1) = 1, \qquad h^{0,1} = \dim_k H^1(X, \mathcal{O}_X) = 1.
 $$
 
 **The spectral sequence.** The algebraic de Rham cohomology $H^1_{\mathrm{dR}}(X/k) = \mathbb{H}^1(\Omega_{X/k}^{\bullet})$ is computed via the Hodge-to-de Rham spectral sequence
+
 $$
 E_1^{p,q} = H^q(X, \Omega_{X/k}^p) \implies H^{p+q}_{\mathrm{dR}}(X/k).
 $$
@@ -924,6 +980,7 @@ The relevant theorem of Deligne-Illusie states: if $X$ is smooth proper over a p
 ### Remark: $X$ irreducible, then $H_{\mathrm{dR}}^{i}(X/k)=0, \forall i>0$? (This cannot be true) {#ecag-0352}
 
 The following erroneous argument illustrates a common confusion about algebraic de Rham cohomology. Recall that de Rham cohomology is defined as
+
 $$
 H^i_{\mathrm{dR}}(X/k) := \mathbb{H}^i(\Omega_{X/k}^{\bullet}).
 $$
@@ -933,6 +990,7 @@ Suppose the de Rham complex $0 \to \mathcal{O}_X \to \Omega_{X/k}^1 \to \cdots \
 The error lies in the premise: **the algebraic de Rham complex is not exact in the Zariski topology**. The Poincare lemma -- the statement that closed forms are locally exact -- holds in the $C^{\infty}$ or analytic setting (where "local" means on a small contractible ball), but fails in the Zariski setting where open sets are far too large. For instance, on $\mathbb{A}^1 = \operatorname{Spec}(k[t])$, the $1$-form $dt/t$ is closed on $\mathbb{G}_m$ but not exact: there is no algebraic logarithm. The Zariski open set $\mathbb{G}_m \subset \mathbb{A}^1$ is not contractible in any relevant sense.
 
 The correct statement is therefore:
+
 $$
 H^i(X, \underline{k}) \neq \mathbb{H}^i(\Omega_{X/k}^{\bullet}) \quad \text{in general}.
 $$
@@ -966,6 +1024,7 @@ In a family of smooth projective varieties $\{X_t\}_{t \in B}$, the rank of the 
 For a very general quartic $X_t$, the Picard number is $\rho = 1$, generated by the hyperplane class $h$. At special values of $t$, the Picard number jumps. The most extreme case is the Fermat quartic $x_0^4 + x_1^4 + x_2^4 + x_3^4 = 0$, which has $\rho = 20$, the maximum allowed by $h^{1,1}$.
 
 **The Noether-Lefschetz theorem.** The locus
+
 $$
 \mathrm{NL} = \{t \in B : \rho(X_t) > 1\}
 $$
@@ -978,6 +1037,7 @@ is a countable dense union of divisors in the parameter space $B$. Each Noether-
 ### Example: Family of elliptic curves, Gauss-Manin connection and Picard-Fuchs equation {#ecag-0355}
 
 The Legendre family of elliptic curves $E_t\colon y^2 = x(x-1)(x-t)$ over $S = \mathbb{P}^1 \setminus \{0, 1, \infty\}$ provides the most classical example of the Gauss-Manin connection and its associated Picard-Fuchs equation. The periods of the family satisfy
+
 $$
 t(1-t)\, f''(t) + (1 - 2t)\, f'(t) - \tfrac{1}{4}\, f(t) = 0.
 $$
@@ -985,11 +1045,13 @@ $$
 **The Gauss-Manin connection.** The family $\pi\colon \mathscr{E} \to S$ produces a rank-$2$ local system $\mathcal{H} = R^1\pi_*\mathbb{C}$ on $S$. The associated flat vector bundle $\mathcal{H} \otimes_{\mathbb{C}} \mathcal{O}_S$ carries the Gauss-Manin connection $\nabla$, which differentiates cohomology classes along the parameter $t$.
 
 **Deriving the Picard-Fuchs equation.** The holomorphic period is the multivalued function
+
 $$
 \omega(t) = \int_{\gamma} \frac{dx}{\sqrt{x(x-1)(x-t)}},
 $$
 
 where $\gamma \in H_1(E_t, \mathbb{Z})$. Differentiating under the integral sign:
+
 $$
 \omega'(t) = \frac{1}{2} \int_{\gamma} \frac{dx}{(x-t)\sqrt{x(x-1)(x-t)}}.
 $$
@@ -997,6 +1059,7 @@ $$
 By the Griffiths-Dwork reduction, the integrand $\frac{dx}{(x-t)y}$ can be expressed as a $k(t)$-linear combination of $\frac{dx}{y}$ and $\frac{x\,dx}{y}$ plus an exact form. Iterating this reduction for $\omega''(t)$ and eliminating the second basis element yields the Picard-Fuchs ODE above.
 
 **Solutions and monodromy.** The Picard-Fuchs equation is Fuchsian with regular singular points at $t = 0, 1, \infty$. Two linearly independent solutions near $t = 0$ are the complete elliptic integrals $K(t)$ and $K(1-t)$, equivalently the Gauss hypergeometric function
+
 $$
 f(t) = {}_2F_1\bigl(\tfrac{1}{2}, \tfrac{1}{2}; 1; t\bigr) = 1 + \frac{1}{4}t + \frac{9}{64}t^2 + \cdots
 $$
@@ -1016,6 +1079,7 @@ A polarized variation of Hodge structure (PVHS) over the punctured disk $\Delta^
 **The monodromy theorem.** The monodromy $T$ is quasi-unipotent: $(T^m - I)^{n+1} = 0$ for some $m \geq 1$, where $n$ is the weight. After the base change $t \mapsto t^m$ we may assume $T$ is unipotent, and write $T = e^N$ where $N = \log T = (T - I) - \frac{1}{2}(T-I)^2 + \cdots$ is nilpotent.
 
 **Schmid's nilpotent orbit theorem.** The Hodge filtration $F_t^{\bullet}$ on $H^n(\mathscr{X}_t, \mathbb{C})$ satisfies
+
 $$
 F_t^{\bullet} \sim e^{\frac{\log t}{2\pi i} N} \cdot F_{\infty}^{\bullet}
 $$
@@ -1023,6 +1087,7 @@ $$
 as $t \to 0$, where $F_{\infty}^{\bullet}$ is the limiting Hodge filtration. The pair $(W_{\bullet}, F_{\infty}^{\bullet})$ -- where $W_{\bullet}$ is the unique monodromy weight filtration associated to $N$ centered at weight $n$ -- defines a mixed Hodge structure on $H^n(\mathscr{X}_t, \mathbb{Q})$ (identified via the nearby cycle functor).
 
 **Concrete example: degenerating elliptic curves.** For the Legendre family $y^2 = x(x-1)(x-t)$ as $t \to 0$, the fiber degenerates to a nodal rational curve. The monodromy is
+
 $$
 T = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}, \qquad N = \log T = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}.
 $$
@@ -1034,6 +1099,7 @@ The weight filtration associated to $N$ (centered at weight $1$) is $W_0 = \oper
 ### Example: variation of Hodge structures, Siegel upper half plane {#ecag-0357}
 
 The period domain for weight-$1$ polarized Hodge structures of dimension $g$ is the Siegel upper half space
+
 $$
 \mathfrak{H}_g = \{Z \in \operatorname{Mat}_{g \times g}(\mathbb{C}) : Z = Z^T, \; \operatorname{Im}(Z) > 0\}.
 $$
@@ -1045,6 +1111,7 @@ This is the natural generalization of the upper half plane $\mathfrak{H}_1 = \{z
 Choose a symplectic basis $(e_1, \ldots, e_g, f_1, \ldots, f_g)$ with $Q(e_i, f_j) = \delta_{ij}$. The subspace $H^{1,0}$ is the row space of a $(g \times 2g)$-matrix $(\Omega_1 \mid \Omega_2)$ where $\Omega_2$ is invertible. Setting $Z = \Omega_2^{-1} \Omega_1$, the Hodge-Riemann conditions translate to $Z = Z^T$ (from the isotropy condition $Q(H^{1,0}, H^{1,0}) = 0$) and $\operatorname{Im}(Z) > 0$ (from positivity). This identifies the parameter space with $\mathfrak{H}_g$.
 
 **Dimensions and group actions.** The Siegel upper half space $\mathfrak{H}_g$ has complex dimension $g(g+1)/2$. The real symplectic group $\operatorname{Sp}_{2g}(\mathbb{R})$ acts transitively on $\mathfrak{H}_g$ by generalized Mobius transformations:
+
 $$
 \begin{pmatrix} A & B \\ C & D \end{pmatrix} \cdot Z = (AZ + B)(CZ + D)^{-1}.
 $$
@@ -1058,16 +1125,19 @@ $$
 Let $C$ be a projective curve with a single node $p$, obtained by identifying two distinct points $p_1, p_2$ on the smooth normalization $\widetilde{C}$. The first cohomology $H^1(C, \mathbb{Z})$ carries a mixed Hodge structure whose weight filtration cleanly separates the contribution of the singularity from that of the normalization.
 
 **The normalization sequence.** The normalization map $\nu\colon \widetilde{C} \to C$ gives an exact sequence of sheaves on $C$:
+
 $$
 0 \to \mathcal{O}_C \to \nu_* \mathcal{O}_{\widetilde{C}} \to \mathbb{C}_p \to 0,
 $$
 
 where $\mathbb{C}_p$ is the skyscraper sheaf at the node (the cokernel encodes the identification $f(p_1) = f(p_2)$ imposed on functions). The associated long exact sequence in cohomology yields
+
 $$
 0 \to \mathbb{C} \to \mathbb{C} \oplus \mathbb{C} \to \mathbb{C} \to H^1(C, \mathcal{O}_C) \to H^1(\widetilde{C}, \mathcal{O}_{\widetilde{C}}) \to 0.
 $$
 
 Since both $C$ and $\widetilde{C}$ are connected, $H^0(C, \mathcal{O}_C) = H^0(\widetilde{C}, \mathcal{O}_{\widetilde{C}}) = \mathbb{C}$. The connecting map $\mathbb{C} \to H^1$ is injective, giving
+
 $$
 \dim H^1(C, \mathcal{O}_C) = g(\widetilde{C}) + 1 = p_a(C).
 $$
@@ -1093,6 +1163,7 @@ A mixed Hodge structure $(H_{\mathbb{Z}}, W_{\bullet}, F^{\bullet})$ is $\mathbb
 **An $\mathbb{R}$-split example.** The mixed Hodge structure on $H^1$ of a rational nodal curve is $\mathbb{R}$-split: $H^1(C, \mathbb{Z}) = \mathbb{Z}$ of type $(0,0)$, which is trivially split (there is no nontrivial extension data).
 
 **A non-$\mathbb{R}$-split example.** Take $H_{\mathbb{Z}} = \mathbb{Z}^3$ with basis $\{e_1, e_2, e_3\}$. Define the weight filtration by $W_0 = \mathbb{Z} e_1$ and $W_1 = H_{\mathbb{Z}}$, so $\operatorname{Gr}_0^W \cong \mathbb{Z}$ of type $(0,0)$ and $\operatorname{Gr}_1^W \cong \mathbb{Z}^2$ with Hodge decomposition of type $\{(1,0),(0,1)\}$. Define the Hodge filtration by
+
 $$
 F^1 = \mathbb{C} \cdot (e_2 + i e_3 + \tau e_1),
 $$
@@ -1120,6 +1191,7 @@ A unimodular lattice is a free $\mathbb{Z}$-module $L$ of finite rank equipped w
 **Intersection forms of $4k$-manifolds.** For a smooth compact oriented $4k$-manifold $M$, Poincare duality makes the intersection pairing on $H^{2k}(M, \mathbb{Z})/\mathrm{torsion}$ into a unimodular lattice. For simply connected closed $4$-manifolds, Freedman's theorem states that the homeomorphism type is determined by this lattice (together with a $\mathbb{Z}/2$-valued invariant in the odd case).
 
 **The K3 lattice.** For a K3 surface $X$, the intersection form on $H^2(X, \mathbb{Z})$ is the unique even unimodular lattice of signature $(3, 19)$:
+
 $$
 \Lambda_{K3} = U^{\oplus 3} \oplus E_8(-1)^{\oplus 2}.
 $$
@@ -1133,9 +1205,11 @@ This has rank $3 \cdot 2 + 2 \cdot 8 = 22$. The signature is $(3 \cdot 1 + 2 \cd
 If $(V_{\mathbb{Q}}, W_{\bullet}, F^{\bullet})$ is a mixed Hodge structure, then the endomorphism space $\operatorname{End}(V) \cong V^{\vee} \otimes V \cong \mathfrak{gl}(V)$ inherits a natural mixed Hodge structure. This construction connects Hodge theory to Lie theory: the weight-graded pieces of $\operatorname{End}(V)$ encode the Lie algebra of the Mumford-Tate group.
 
 **The induced filtrations.** The weight and Hodge filtrations on $\operatorname{End}(V)$ are defined by:
+
 $$
 W_k \operatorname{End}(V_{\mathbb{Q}}) = \{f \in \operatorname{End}(V_{\mathbb{Q}}) : f(W_i) \subset W_{i+k} \text{ for all } i\},
 $$
+
 $$
 F^p \operatorname{End}(V_{\mathbb{C}}) = \{f \in \operatorname{End}(V_{\mathbb{C}}) : f(F^i) \subset F^{i+p} \text{ for all } i\}.
 $$

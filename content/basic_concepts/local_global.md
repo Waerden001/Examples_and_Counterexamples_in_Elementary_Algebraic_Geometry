@@ -6,6 +6,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ### Example: Hartshorne, Example $\mathrm{III}.10.0.2$ {#ecag-0157}
 
 Let $f : X \to Y$ be a morphism of schemes with $X$ integral and Noetherian, and let $\Omega_{X/Y}$ denote the sheaf of relative Kähler differentials. The claim is that $\Omega_{X/Y}$ is locally free of rank $n$ if and only if the fiber dimension is constant:
+
 $$
 \dim_{k(x)} \Omega_{X/Y} \otimes_{\mathcal{O}_{X,x}} k(x) = n \quad \text{for every } x \in X.
 $$
@@ -19,6 +20,7 @@ The key input is that $X$ is integral. The generic stalk $\Omega_{X/Y,\eta}$ is 
 This is a standard and useful fact: a coherent sheaf on an integral Noetherian scheme with constant fiber dimension is locally free. (See, e.g., Hartshorne II, Exercise 5.8 or Vakil, Theorem 13.7.2.)
 
 **Reinterpretation via cohomology and base change.** There is an instructive (if circular) way to recover the same conclusion from the base change machinery. Consider the identity morphism $\operatorname{id} : X \to X$ and the coherent sheaf $\mathscr{F} = \Omega_{X/Y}$. If $\Omega_{X/Y}$ is flat over $\mathcal{O}_X$ (via $\operatorname{id}$, this simply means flat as an $\mathcal{O}_X$-module), then the base change theorem (Hartshorne III.12.11, or Grauert's theorem in the proper case) guarantees that the natural map
+
 $$
 \varphi^0(x) : R^0(\operatorname{id})_*(\Omega_{X/Y}) \otimes k(x) \longrightarrow H^0(X_x, \Omega_{X/Y}|_{X_x})
 $$

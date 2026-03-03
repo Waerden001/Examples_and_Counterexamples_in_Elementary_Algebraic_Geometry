@@ -9,6 +9,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ### Example: An \'{e}tale morphism, Hartshorne $\mathrm{III}.10.6$ {#ecag-0158}
 
 Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$, and let $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. We construct a degree-2 etale morphism onto $Y$ from a smooth source by defining
+
 $$
 f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2 - 1)^2)) \longrightarrow Y
 $$
@@ -18,6 +19,7 @@ via the ring homomorphism $\varphi: k[x,y]/(y^2 - x^2(x+1)) \to k[s,t]/(t^2 - (s
 **Well-definedness.** The map $\varphi$ must send the defining relation of $\mathcal{O}(Y)$ to zero in $\mathcal{O}(X)$. We compute $\varphi(y^2 - x^2(x+1)) = s^2 t^2 - (s^2-1)^2 \cdot s^2 = s^2(t^2 - (s^2-1)^2)$, which vanishes in $\mathcal{O}(X)$ as required.
 
 **The source scheme $X$.** The defining equation $t^2 = (s^2 - 1)^2$ factors as $(t - (s^2-1))(t + (s^2-1)) = 0$, so
+
 $$
 X \cong \operatorname{Spec}(k[s,t]/(t - s^2 + 1)) \sqcup \operatorname{Spec}(k[s,t]/(t + s^2 - 1)) \cong \mathbb{A}^1_k \sqcup \mathbb{A}^1_k,
 $$
@@ -25,6 +27,7 @@ $$
 a disjoint union of two copies of the affine line, each parametrized by $s$. In particular, $X$ is smooth.
 
 **Fibre over the node.** The node of $Y$ is the origin, corresponding to the maximal ideal $(x,y) \subset \mathcal{O}(Y)$. Setting $x = s^2 - 1 = 0$ and $y = st = 0$ in $\mathcal{O}(X)$ gives $s = \pm 1$ (using $\operatorname{char}(k) \neq 2$) and, since $s \neq 0$, forces $t = 0$. The scheme-theoretic fibre is therefore
+
 $$
 f^{-1}((0,0)) = \operatorname{Spec}(k[s]/(s^2 - 1)) \cong \operatorname{Spec}(k) \sqcup \operatorname{Spec}(k),
 $$
@@ -79,6 +82,7 @@ On $\overline{k}$-points, the absolute Frobenius acts as the identity on the und
 The geometric Frobenius, rather than the arithmetic Frobenius, is the natural operator on $\ell$-adic cohomology $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$. Its eigenvalues satisfy the weight bounds predicted by the Weil conjectures (proved by Deligne): on $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$ for a smooth projective variety $X$ of dimension $d$ over $\mathbb{F}_q$, the eigenvalues of the geometric Frobenius are algebraic numbers of absolute value $q^{i/2}$ under every complex embedding.
 
 The connection to point counting is through the Grothendieck--Lefschetz trace formula:
+
 $$
 \# X(\mathbb{F}_{q^n}) = \sum_{i=0}^{2d} (-1)^i \operatorname{Tr}(\operatorname{Frob}_q^n \mid H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)),
 $$
@@ -89,6 +93,7 @@ where $\operatorname{Frob}_q$ denotes the geometric Frobenius. On $\overline{\ma
 
 ## Global L-functions of zero-dimensional schemes
 Let $X \rightarrow \operatorname{Spec}(\mathbb{Z})$ be a $0$-dimensional scheme over $\mathbb{Z}$. Since zero-dimensional schemes do not have the complication of bad reduction in the usual sense, the global zeta function of $X$ can be defined as
+
 $$
 \zeta(X, s) := \prod_{p} Z(X_p, p^{-s}),
 $$
@@ -98,16 +103,19 @@ where $X_p = X \times_{\operatorname{Spec}(\mathbb{Z})} \operatorname{Spec}(\mat
 ### Example: Empty scheme {#ecag-0161}
 
 The empty scheme $X = \emptyset = \operatorname{Spec}(0)$ over $\operatorname{Spec}(\mathbb{Z})$ has the simplest possible zeta function. For any prime $p$, the reduction modulo $p$ is
+
 $$
 X_p = \operatorname{Spec}(0 \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(0) = \emptyset,
 $$
 
 which has no points over any field extension: $\# X_p(\mathbb{F}_{p^n}) = 0$ for all $n \geq 1$. The local zeta function is therefore
+
 $$
 Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{0}{n} t^n\right) = e^0 = 1,
 $$
 
 and the global zeta function is
+
 $$
 \zeta(\emptyset, s) = \prod_p 1 = 1.
 $$
@@ -119,6 +127,7 @@ This is consistent with the multiplicativity of the zeta function under disjoint
 ### Example {#ecag-0162}
 
 The scheme $X = \operatorname{Spec}(\mathbb{Z})$ over itself (via the identity morphism) has zeta function equal to the Riemann zeta function. For each prime $p$, the fibre is
+
 $$
 X_p = \operatorname{Spec}(\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(\mathbb{F}_p),
 $$
@@ -126,16 +135,19 @@ $$
 a single closed point with residue field $\mathbb{F}_p$. For every $n \geq 1$, there is exactly one $\mathbb{F}_p$-algebra homomorphism $\mathbb{F}_p \to \mathbb{F}_{p^n}$ (the canonical inclusion), so $\# X_p(\mathbb{F}_{p^n}) = 1$.
 
 The local zeta function is
+
 $$
 Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{t^n}{n}\right) = \exp(-\ln(1 - t)) = \frac{1}{1 - t},
 $$
 
 using the Taylor series $-\ln(1 - t) = \sum_{n=1}^{\infty} t^n/n$ for $|t| < 1$. The global zeta function is
+
 $$
 \zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}}.
 $$
 
 By the Euler product formula, this equals the Riemann zeta function:
+
 $$
 \prod_p \frac{1}{1 - p^{-s}} = \sum_{n=1}^{\infty} \frac{1}{n^s} = \zeta(s),
 $$
@@ -149,6 +161,7 @@ The scheme $\operatorname{Spec}(\mathbb{Z})$ is the terminal object in the categ
 ### Example: Two points {#ecag-0163}
 
 Consider $X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))$, which by the Chinese Remainder Theorem decomposes as
+
 $$
 X = \operatorname{Spec}(\mathbb{Z}[x]/(x) \times \mathbb{Z}[x]/(x-1)) \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z}),
 $$
@@ -156,16 +169,19 @@ $$
 a disjoint union of two copies of $\operatorname{Spec}(\mathbb{Z})$. (The CRT applies because $x$ and $x - 1$ generate the unit ideal in $\mathbb{Z}[x]$: they satisfy $1 = x - (x-1)$.)
 
 For any prime $p$, the elements $0$ and $1$ remain distinct in $\mathbb{F}_p$, so $x$ and $x-1$ remain coprime in $\mathbb{F}_p[x]$, giving
+
 $$
 X_p = \operatorname{Spec}(\mathbb{F}_p[x]/(x(x-1))) \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p).
 $$
 
 Each component contributes one point over every extension, so $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$. The local zeta function is
+
 $$
 Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{2}{n} t^n\right) = \exp(-2\ln(1-t)) = \frac{1}{(1-t)^2}.
 $$
 
 The global zeta function is therefore
+
 $$
 \zeta(X, s) = \prod_p \frac{1}{(1-p^{-s})^2} = \left(\prod_p \frac{1}{1-p^{-s}}\right)^2 = \zeta(s)^2.
 $$
@@ -191,21 +207,25 @@ The scheme $X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))$ provides the s
 For split primes: $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$, giving $Z(X_p, t) = \frac{1}{(1-t)^2}$.
 
 For inert primes: an $\mathbb{F}_{p^n}$-point of $\operatorname{Spec}(\mathbb{F}_{p^2})$ is a homomorphism $\mathbb{F}_{p^2} \to \mathbb{F}_{p^n}$, which exists if and only if $2 \mid n$. So $\# X_p(\mathbb{F}_{p^n}) = 1$ if $2 \mid n$ and $0$ otherwise, giving
+
 $$
 Z(X_p, t) = \exp\left(\sum_{m=1}^{\infty} \frac{t^{2m}}{m}\right) = \frac{1}{1 - t^2} = \frac{1}{(1-t)(1+t)}.
 $$
 
 **Global zeta function.** Assembling the Euler product:
+
 $$
 \zeta(X, s) = \frac{1}{1 - 5^{-s}} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = 1}} \frac{1}{(1 - p^{-s})^2} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = -1}} \frac{1}{(1 - p^{-s})(1 + p^{-s})}.
 $$
 
 Each local factor can be rewritten uniformly. For split primes, $\frac{1}{(1-p^{-s})^2} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$ since $\left(\frac{p}{5}\right) = 1$. For inert primes, $\frac{1}{(1-p^{-s})(1+p^{-s})} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$ since $\left(\frac{p}{5}\right) = -1$. Therefore
+
 $$
 \zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}} \cdot \prod_{p \neq 5} \frac{1}{1 - \left(\frac{p}{5}\right) p^{-s}} = \zeta(s) \cdot L(\chi, s),
 $$
 
 where $\chi = \left(\frac{\cdot}{5}\right)$ is the Legendre symbol character modulo 5, and
+
 $$
 L(\chi, s) = \prod_{p \neq 5} \frac{1}{1 - \chi(p) p^{-s}} = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}
 $$

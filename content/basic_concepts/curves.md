@@ -10,6 +10,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 For every integer $g \geq 0$, there exists a smooth projective curve of genus $g$ over an algebraically closed field $k$. Two families of curves suffice to realize all genera.
 
 **Plane curves.** A smooth plane curve $C \subset \mathbb{P}^2_k$ of degree $d$ has genus
+
 $$
 g = \frac{(d-1)(d-2)}{2}
 $$
@@ -17,11 +18,13 @@ $$
 by the degree-genus formula. The values produced are $g = 0, 1, 3, 6, 10, \ldots$ (triangular numbers), so most genera are missing.
 
 **Curves on $\mathbb{P}^1 \times \mathbb{P}^1$.** A smooth curve $C$ of bidegree $(a, b)$ on $\mathbb{P}^1 \times \mathbb{P}^1$ has genus determined by the adjunction formula. The canonical sheaf of $\mathbb{P}^1 \times \mathbb{P}^1$ is $\mathcal{O}(-2, -2)$, so
+
 $$
 \omega_C = \left(\omega_{\mathbb{P}^1 \times \mathbb{P}^1} \otimes \mathcal{O}(a, b)\right)\big|_C = \mathcal{O}(a - 2, b - 2)\big|_C.
 $$
 
 The degree of $\omega_C$ on $C$ is $(a-2)b + a(b-2) = 2ab - 2a - 2b$. Since $\deg(\omega_C) = 2g - 2$:
+
 $$
 g = (a-1)(b-1).
 $$
@@ -45,6 +48,7 @@ The underlying reason is that the plane curve genus formula is quadratic in $d$,
 Every unirational curve over an algebraically closed field is rational (Luroth's theorem). However, a birational morphism between curves need not be an isomorphism: the normalization map $\mathbb{P}^1_k \to C$ for a singular rational curve $C$ is birational and bijective but not an isomorphism.
 
 **The cuspidal cubic.** Consider $C : y^2 z = x^3$ in $\mathbb{P}^2_k$. Define
+
 $$
 \varphi : \mathbb{P}^1_k \longrightarrow C, \quad [u, v] \longmapsto [u^2 v,\, u^3,\, v^3].
 $$
@@ -68,6 +72,7 @@ Every smooth complete rational curve over an algebraically closed field $k$ is i
 A rational curve $C$ admits a dominant rational map $\varphi : \mathbb{P}^1_k \dashrightarrow C$. Since $C$ is smooth and complete, and $\mathbb{P}^1_k$ is a smooth curve, the rational map extends to a morphism $\varphi : \mathbb{P}^1_k \to C$ (a rational map from a smooth curve to a complete variety is everywhere defined). This morphism is dominant, hence surjective and finite.
 
 By the Riemann--Hurwitz formula for a finite separable morphism $\varphi : \mathbb{P}^1_k \to C$ of degree $n$:
+
 $$
 2g(\mathbb{P}^1) - 2 = n(2g(C) - 2) + \deg R
 $$
@@ -96,6 +101,7 @@ Since $X$ is a group variety, $\Omega^1_X$ is a trivial vector bundle of rank $\
 ### Example: Every point is an inflection point {#ecag-0134}
 
 Over a field $k$ with $\operatorname{char}(k) = 3$, the smooth plane quartic
+
 $$
 C : x^3 y + y^3 z + z^3 x = 0
 $$
@@ -103,16 +109,19 @@ $$
 has the property that every point of $C$ is an inflection point.
 
 **Computing intersection multiplicities.** Work in the affine chart $z = 1$ with $F(x, y) = x^3 y + y^3 + x$. The partial derivatives are $F_x = x + 1$ and $F_y = x^3$ in characteristic $3$ (since $3y^2 = 0$). Wait -- let us be more careful. The partial derivatives of $F = x^3 y + y^3 + x$ are:
+
 $$
 F_x = 3x^2 y + 1 = 1, \qquad F_y = x^3 + 3y^2 = x^3
 $$
 
 in characteristic $3$. The tangent line at $p = (a, b) \in C$ (where $a^3 b + b^3 + a = 0$) is
+
 $$
 L : 1 \cdot (x - a) + a^3 (y - b) = 0 \quad\Longrightarrow\quad x + a^3 y = a + a^3 b.
 $$
 
 Substitute $x = -a^3 y + a + a^3 b$ into $F$. Using $\operatorname{char}(k) = 3$ so that $(-a^3 y + a + a^3 b)^3 = -a^9 y^3 + a^3 + a^9 b^3$ (the cross terms vanish), and the relation $a = -a^3 b - b^3$ from the curve equation, the substitution yields
+
 $$
 (y - b)^3(-a^9 y + a^9 b + 1)
 $$
@@ -130,6 +139,7 @@ In both cases every point is an inflection point. The underlying cause is that i
 ### Remark {#ecag-0135}
 
 Over a field with $\operatorname{char}(k) = 0$, for a smooth plane curve $C$ of degree $d$, the inflection points are cut out by the intersection of $C$ with its Hessian curve (the determinant of the $3 \times 3$ matrix of second partial derivatives of the defining equation). The Hessian has degree $3(d - 2)$, so by Bezout's theorem, the number of inflection points counted with multiplicity is
+
 $$
 d \cdot 3(d - 2) = 3d(d-2).
 $$
@@ -151,16 +161,19 @@ Given the plane curve $C : 4y^2 z = x^3 - xz^2$ in $\mathbb{P}^2$, we compute it
 **The curve.** In affine coordinates ($z = 1$), $C$ is defined by $f(x, y) = x^3 - 4y^2 - x$, an elliptic curve (genus $1$, discriminant nonzero).
 
 **Polar curve.** The polar curve of $C$ with respect to $p = (p_0, p_1, p_2) \in \mathbb{P}^2$ is
+
 $$
 C_p : \; p_0 \frac{\partial F}{\partial x} + p_1 \frac{\partial F}{\partial y} + p_2 \frac{\partial F}{\partial z} = 0
 $$
 
 where $F(x, y, z) = x^3 - xz^2 - 4y^2 z$. The partial derivatives are
+
 $$
 F_x = 3x^2 - z^2, \qquad F_y = -8yz, \qquad F_z = -2xz - 4y^2.
 $$
 
 For $p = [9/10, 0, 1]$ (i.e., $p_0 = 9/10$, $p_1 = 0$, $p_2 = 1$), the polar curve is
+
 $$
 C_p : \; \tfrac{9}{10}(3x^2 - z^2) + (-2xz - 4y^2) = 0,
 $$
@@ -168,11 +181,13 @@ $$
 which in affine coordinates ($z = 1$) becomes $4y^2 = 2.7x^2 - 2x - 0.9$, a conic. By Bezout's theorem, $C \cap C_p$ consists of $3 \cdot 2 = 6$ points counted with multiplicity; these include the singular points of $C$ and the points where the tangent to $C$ passes through $p$.
 
 **Dual curve.** The dual curve $C^* \subset (\mathbb{P}^2)^{\vee}$ parametrizes the tangent lines to $C$. At a smooth point $(a, b, c) \in C$, the tangent line has dual coordinates $[X, Y, Z]$ proportional to the gradient $[F_x, F_y, F_z]$. The defining equation of $C^*$ is obtained by eliminating $(a, b, c)$ from the system
+
 $$
 X = \lambda F_x(a,b,c), \quad Y = \lambda F_y(a,b,c), \quad Z = \lambda F_z(a,b,c), \quad Xa + Yb + Zc = 0.
 $$
 
 The result is the sextic
+
 $$
 C^* : \; 4X^4 Y^2 + Y^6 + 64X^5 Z + 24XY^4 Z + 120X^2 Y^2 Z^2 - 64X^3 Z^3 - 108Y^2 Z^4 = 0.
 $$
@@ -204,16 +219,19 @@ Extension of morphisms to complete varieties is automatic for curves because loc
 A plane curve $C \subset \mathbb{P}^2_k$ of degree $d$ -- regardless of whether it is smooth, reducible, or singular -- has arithmetic genus $p_a(C) = \frac{(d-1)(d-2)}{2}$. We give two proofs.
 
 **Via the ideal sheaf sequence.** For any degree-$d$ curve $C \subset \mathbb{P}^2$, the short exact sequence
+
 $$
 0 \rightarrow \mathcal{O}_{\mathbb{P}^2}(-d) \rightarrow \mathcal{O}_{\mathbb{P}^2} \rightarrow \mathcal{O}_C \rightarrow 0
 $$
 
 gives $\chi(\mathcal{O}_C) = \chi(\mathcal{O}_{\mathbb{P}^2}) - \chi(\mathcal{O}_{\mathbb{P}^2}(-d))$. Using $\chi(\mathcal{O}_{\mathbb{P}^2}(n)) = \binom{n+2}{2}$:
+
 $$
 \chi(\mathcal{O}_C) = 1 - \binom{-d+2}{2} = 1 - \frac{(d-1)(d-2)}{2}.
 $$
 
 Since $p_a = 1 - \chi(\mathcal{O}_C)$:
+
 $$
 p_a(C) = \frac{(d-1)(d-2)}{2}.
 $$
@@ -221,6 +239,7 @@ $$
 **Via degeneration to $d$ lines.** Consider a flat family degenerating a smooth degree-$d$ curve into a union $L_1 \cup \cdots \cup L_d$ of $d$ lines in general position (each pair meeting transversally at a distinct point). Arithmetic genus is constant in flat families, so we compute $p_a$ for the union of lines.
 
 The normalization $\widetilde{C}$ of $L_1 \cup \cdots \cup L_d$ is a disjoint union of $d$ copies of $\mathbb{P}^1$, which has $\chi(\mathcal{O}_{\widetilde{C}}) = d$, so $p_a(\widetilde{C}) = 1 - d$. The normalization map resolves $\binom{d}{2}$ nodes (one per pair of lines). Each node increases the arithmetic genus by $1$:
+
 $$
 p_a(C) = (1 - d) + \binom{d}{2} = 1 - d + \frac{d(d-1)}{2} = \frac{(d-1)(d-2)}{2}.
 $$
@@ -242,16 +261,19 @@ The arithmetic genus depends only on the Hilbert polynomial, which is determined
 For a smooth plane curve $C \subset \mathbb{P}^2_k$ of degree $d$, the space of regular differentials $H^0(C, \Omega^1_C)$ has dimension $g = \frac{(d-1)(d-2)}{2}$, with an explicit basis given by differentials $\omega_h = h\,dx / (\partial F/\partial y)$ where $h$ ranges over monomials of degree $\leq d - 3$.
 
 **Kahler differentials on an affine curve.** Consider the affine curve $X : F(x,y) = 0$ with $F$ irreducible. The module of Kahler differentials $\Omega^1_{k[X]/k}$ is generated by $dx$ and $dy$ subject to
+
 $$
 \frac{\partial F}{\partial x}\,dx + \frac{\partial F}{\partial y}\,dy = 0.
 $$
 
 If $X$ is smooth, the partials have no common zero on $X$ (Jacobian criterion). By the Nullstellensatz, there exist $f, g \in k[X]$ with $f \cdot \frac{\partial F}{\partial y} + g \cdot \frac{\partial F}{\partial x} = 1$, and we obtain a well-defined regular differential
+
 $$
 \omega = \frac{dx}{\partial F / \partial y} = \frac{-dy}{\partial F / \partial x}.
 $$
 
 **Explicit example.** For $X : y^2 = x^3 + x$, we have $F_x = 3x^2 + 1$ and $F_y = 2y$. One verifies directly that
+
 $$
 \bigl(-\tfrac{9}{4}xy\bigr)(2y) + \bigl(\tfrac{3}{2}x^2 + 1\bigr)(3x^2 + 1) = 1,
 $$
@@ -259,11 +281,13 @@ $$
 so $\omega = \frac{dx}{2y} = \frac{-dy}{3x^2+1}$ is regular, and explicitly $\omega = -\frac{9}{4}xy\,dx + (\frac{3}{2}x^2 + 1)\,dy$.
 
 **Global regular differentials on a projective plane curve.** For $C \subset \mathbb{P}^2$ defined by $F(x,y) = 0$ in the chart $D_+(Z)$, all regular differentials take the form
+
 $$
 \omega = \frac{h\,dx}{\partial F / \partial y}, \quad \deg(h) \leq d - 3.
 $$
 
 **Why $\deg(h) \leq d - 3$.** Regularity must be checked on other charts. On $D_+(Y)$ with coordinates $u = X/Y$, $v = Z/Y$, we have $x = u/v$, $y = 1/v$, hence $dy = -v^{-2}\,dv$. The differential becomes
+
 $$
 \frac{h(u/v, 1/v) \cdot (-v^{-2}\,dv)}{f(u/v, 1/v)}.
 $$
@@ -271,6 +295,7 @@ $$
 The denominator $f = \partial F/\partial y$ has degree $d - 1$ in $(x, y)$, contributing $v^{-(d-1)}$. The numerator contributes $v^{-\deg(h) - 2}$. Regularity on $D_+(Y)$ requires $\deg(h) + 2 \leq d - 1$, i.e., $\deg(h) \leq d - 3$.
 
 **Dimension count.** The space of polynomials of degree $\leq d - 3$ in two variables has dimension
+
 $$
 \binom{(d-3) + 2}{2} = \frac{(d-1)(d-2)}{2} = g.
 $$
@@ -288,6 +313,7 @@ The condition $\deg(h) \leq d - 3$ arises from the cost of the coordinate change
 ### Example: Hartshorne $IV.3.7$, not every plane curve with nodes a projection of a regular curve in $\mathbb{P}^{3}$ {#ecag-0140}
 
 Over an algebraically closed field $k$ with $\operatorname{char}(k) \neq 2$, the plane quartic
+
 $$
 C : xyz^2 + x^4 + y^4 = 0
 $$
@@ -295,6 +321,7 @@ $$
 in $\mathbb{P}^2_k$ has only nodes as singularities, yet $C$ is not the image of any smooth curve in $\mathbb{P}^3$ under a linear projection.
 
 **Singularity analysis.** The partial derivatives of $F = xyz^2 + x^4 + y^4$ are
+
 $$
 F_x = yz^2 + 4x^3, \quad F_y = xz^2 + 4y^3, \quad F_z = 2xyz.
 $$
@@ -308,6 +335,7 @@ From $F_z = 2xyz = 0$ (with $\operatorname{char}(k) \neq 2$), at least one of $x
 A careful case analysis confirms the singular points are ordinary double points (nodes), verified by checking that the Hessian matrix at each has rank $\geq 2$.
 
 **Obstruction to being a projection.** Suppose $C$ were the image of a smooth curve $\widetilde{C} \subset \mathbb{P}^3$ under projection from a point. The projection preserves the degree, so $\widetilde{C}$ has degree $4$. If $C$ has $\delta$ nodes, the geometric genus of the normalization is $g(\widetilde{C}) = \frac{(4-1)(4-2)}{2} - \delta = 3 - \delta$. But smooth space curves of degree $4$ in $\mathbb{P}^3$ are subject to the Castelnuovo bound
+
 $$
 g \leq \frac{m(m-1)}{2}(d - m - 1) + \binom{m}{2}
 $$
@@ -323,11 +351,13 @@ Not every nodal plane curve arises as a projection of a smooth space curve. The 
 A *strange curve* is an irreducible curve $C \subset \mathbb{P}^2_k$ over a field of positive characteristic such that all tangent lines at smooth points pass through a single point (the *nucleus*).
 
 **Example 1: The Frobenius image.** Let $\operatorname{char}(k) = p > 0$. Consider
+
 $$
 C : y^p z - x^{p+1} = 0 \quad \subset \mathbb{P}^2_k,
 $$
 
 a curve of degree $p + 1$. The partial derivatives are $F_x = -(p+1)x^p = -x^p$, $F_y = py^{p-1}z = 0$, and $F_z = y^p$. The tangent line at a smooth point $[a, b, c]$ (with $b \neq 0$, so $b^p c = a^{p+1}$) is
+
 $$
 -a^p(X - a) + b^p(Z - c) = 0.
 $$
@@ -335,6 +365,7 @@ $$
 Using $a^{p+1} = b^p c$, this simplifies to $a^p X = b^p Z$, which passes through $[0, 1, 0]$ for all $[a, b, c]$. The point $[0, 1, 0]$ is the nucleus.
 
 **Example 2: Conics in characteristic 2.** Over $\operatorname{char}(k) = 2$, the conic
+
 $$
 C : x^2 + yz = 0
 $$
@@ -354,6 +385,7 @@ There exists a purely inseparable finite morphism $f : C \to D$ between smooth p
 **The Frobenius morphism.** Let $k$ be algebraically closed of characteristic $p > 0$. For a smooth projective curve $D$ of genus $g \geq 1$, the relative Frobenius $F : D \to D^{(p)}$ is a purely inseparable morphism of degree $p$. Since $k$ is perfect, $D^{(p)} \cong D$ as abstract schemes, so the genus is preserved in this case.
 
 **Artin--Schreier curves.** A more interesting construction uses the Stacks Project example (Tag 0CD1). Let $p \geq 3$ and consider
+
 $$
 C : y^p - y = x^2
 $$
@@ -361,6 +393,7 @@ $$
 over $k = \overline{\mathbb{F}_p}$. This is a smooth projective curve of genus $g(C) = (p-1)/2$, computed from the Artin--Schreier theory (the cover $C \to \mathbb{P}^1$ given by $(x,y) \mapsto x$ has degree $p$ and is totally ramified above $\infty$).
 
 **Genus change over non-perfect fields.** Over a non-perfect field $k$, one can construct $D$ smooth with $g(D) \neq g(C)$ where $C \to D$ is purely inseparable. If $k(D) = k(x)$ and $k(C) = k(x, y)$ with $y^p = f(x)$ for some $f$ that is not a $p$-th power, then $C \to D$ is purely inseparable of degree $p$. The Riemann--Hurwitz formula adapted for inseparable maps reads
+
 $$
 2g(C) - 2 = p(2g(D) - 2) + \deg(\text{different}).
 $$
@@ -378,6 +411,7 @@ All smooth projective curves of genus $2$ are hyperelliptic. For genus $g \geq 3
 **Non-hyperelliptic criterion.** By the theorem of Noether--Enriques, a smooth projective curve of genus $g \geq 2$ is non-hyperelliptic if and only if $|K_C|$ is very ample, embedding $C \hookrightarrow \mathbb{P}^{g-1}$.
 
 **Example 1: Smooth plane quartics ($g = 3$).** Consider
+
 $$
 C : x^4 + y^4 + z^4 = 0 \subset \mathbb{P}^2_k, \quad g = \frac{(4-1)(4-2)}{2} = 3.
 $$
@@ -385,6 +419,7 @@ $$
 By adjunction, $\omega_C = \mathcal{O}_{\mathbb{P}^2}(4 - 3)|_C = \mathcal{O}_{\mathbb{P}^2}(1)|_C$, which is very ample. The canonical embedding is the inclusion $C \hookrightarrow \mathbb{P}^2$ itself.
 
 **Example 2: Complete intersection curves.** A smooth curve $C = V(f_1, \ldots, f_{n-1}) \subset \mathbb{P}^n$ with $\deg(f_i) = d_i$ has
+
 $$
 \omega_C = \mathcal{O}_{\mathbb{P}^n}\!\left(\sum_{i} d_i - n - 1\right)\bigg|_C.
 $$
@@ -392,11 +427,13 @@ $$
 Since $\sum d_i - n - 1 \geq 1$ whenever $g \geq 2$, the canonical sheaf is the restriction of a positive twist of $\mathcal{O}(1)$, hence very ample. Every smooth complete intersection curve of genus $\geq 2$ is non-hyperelliptic.
 
 **Example 3: Genus 4 complete intersection.** Take
+
 $$
 C = V(f_1, f_2) \subset \mathbb{P}^3, \quad \deg(f_1) = 2,\; \deg(f_2) = 3.
 $$
 
 The genus is
+
 $$
 g = \frac{1}{2} \cdot 2 \cdot 3 \cdot (2 + 3 - 4) + 1 = 4,
 $$
@@ -424,6 +461,7 @@ There exist genus-$1$ curves over $\mathbb{Q}$ that are everywhere locally solub
 2. **Selmer:** The diagonal plane cubic $C : 3x^3 + 4y^3 + 5z^3 = 0$ is everywhere locally soluble but has no rational points.
 
 **Families with constant $j$-invariant.** Based on Lind's example:
+
 $$
 X_t : 2y^2 = 1 - \bigl[(t^2 + t + 3)^4 + 16(t^2 + t + 1)^4\bigr] x^4,
 $$
@@ -433,6 +471,7 @@ giving a non-trivial family violating the Hasse principle with constant $j$-inva
 **Cubic surface examples.**
 
 3. **Swinnerton-Dyer (1962):** The cubic surface
+
 $$
 t(t + x)(2t + x) = \prod_i (x + \theta_i y + \theta_i^2 z)^3, \quad \theta^3 - 7\theta^2 + 14\theta - 7 = 0
 $$
@@ -442,11 +481,13 @@ violates the Hasse principle.
 4. **Cassels--Guy (1966):** The smooth cubic surface $X : 5x^3 + 9y^3 + 10z^3 + 12w^3 = 0$ violates the Hasse principle.
 
 **Families with non-constant $j$-invariant (Poonen's method).** Based on Cassels--Guy:
+
 $$
 X_t : 5x^3 + 9y^3 + 10z^3 + 12\!\left(\frac{t^2 + 82}{t^2 + 22}\right)^{\!3}(x + y + z)^3 = 0.
 $$
 
 **Proof for the Swinnerton-Dyer surface.** We verify local solubility and prove absence of rational points for
+
 $$
 S : t(t + x)(2t + x) = \prod_i (x + \theta_i y + \theta_i^2 z), \quad \theta^3 - 7\theta^2 + 14\theta - 7 = 0.
 $$
@@ -482,6 +523,7 @@ The Jacobian $\operatorname{Jac}(C)$ of a smooth projective curve $C$ of genus $
 **The Fermat quartic.** Let $C : x^4 + y^4 + z^4 = 0 \subset \mathbb{P}^2_{\mathbb{C}}$. Then $g = 3$, so $\operatorname{Jac}(C)$ is a principally polarized abelian $3$-fold. Over $\mathbb{C}$, $\operatorname{Jac}(C) \cong \mathbb{C}^3 / \Lambda$ for a lattice $\Lambda \cong \mathbb{Z}^6$.
 
 The period matrix is computed from the integrals of the holomorphic differentials
+
 $$
 \omega_1 = \frac{dx}{4y^3}, \quad \omega_2 = \frac{x\,dx}{4y^3}, \quad \omega_3 = \frac{z\,dx}{4y^3}
 $$
@@ -499,6 +541,7 @@ The Jacobian linearizes the geometry of a curve: it transforms intersection-theo
 The coordinate ring $k[C] = k[x_1, \ldots, x_n]/I(C)$ of an affine curve $C$ over an algebraically closed field $k$ is a UFD if and only if $\operatorname{Cl}(C) = 0$, i.e., every Weil divisor on $C$ is principal.
 
 For a smooth affine curve $C$ with smooth projective completion $\overline{C}$, there is an exact sequence
+
 $$
 0 \to \operatorname{Cl}(C) \to \operatorname{Pic}(\overline{C}) \to \bigoplus_{p \in \overline{C} \setminus C} \mathbb{Z} \to 0,
 $$
@@ -520,11 +563,13 @@ so $k[C]$ is a UFD if and only if the points at infinity generate $\operatorname
 ### Remark: $\mathrm{Cl}^{0}(X)$ of the nodal curve {#ecag-0147}
 
 For the nodal cubic $X : y^2 z = x^2(x + z)$ in $\mathbb{P}^2_k$ (with a single node at $[0, 0, 1]$), the degree-zero part of the divisor class group is
+
 $$
 \operatorname{Cl}^0(X) \cong \mathbb{G}_m = k^*.
 $$
 
 **Computation via the normalization.** The normalization $\nu : \mathbb{P}^1 \to X$ is an isomorphism away from the node. The node has two preimages $p_1, p_2 \in \mathbb{P}^1$. A Cartier divisor on $X$ pulls back to a Cartier divisor on $\mathbb{P}^1$, subject to a compatibility constraint at the node: the local equations at both branches must agree. This gives the exact sequence
+
 $$
 0 \to k^* \to \operatorname{Pic}(X) \xrightarrow{\nu^*} \operatorname{Pic}(\mathbb{P}^1) \to 0.
 $$
@@ -532,6 +577,7 @@ $$
 The kernel $k^*$ is identified with $\operatorname{Cl}^0(X)$: the element $\lambda \in k^*$ corresponds to the line bundle on $X$ obtained by gluing the trivial bundle on $\mathbb{P}^1 \setminus \{p_1\}$ and $\mathbb{P}^1 \setminus \{p_2\}$ with transition function $\lambda$ at the node.
 
 **Contrast with the cuspidal cubic.** For the cuspidal cubic $Y : y^2 z = x^3$, the analogous computation gives
+
 $$
 \operatorname{Cl}^0(Y) \cong \mathbb{G}_a = (k, +).
 $$
@@ -545,11 +591,13 @@ A node introduces *multiplicative* gluing data ($k^*$) while a cusp introduces *
 There exist compact complex manifolds admitting no algebraic (or even Kahler) structure. The classical examples are the Hopf surface and generic complex tori of dimension $\geq 2$.
 
 **The Hopf surface.** Fix $a \in \mathbb{R}$, $a > 1$, and define
+
 $$
 X = \left(\mathbb{C}^2 \setminus \{0\}\right) / \left((x,y) \sim (a^k x, a^k y),\; k \in \mathbb{Z}\right).
 $$
 
 Topologically, $X$ is diffeomorphic to $S^3 \times S^1$. By the Kunneth theorem, the only potentially nonzero contributions to $H^2(X, \mathbb{Z})$ are
+
 $$
 H^2(S^3) \otimes H^0(S^1) \oplus H^1(S^3) \otimes H^1(S^1) \oplus H^0(S^3) \otimes H^2(S^1).
 $$
@@ -576,31 +624,37 @@ For $n = 1$, every complex torus $\mathbb{C}/\Lambda$ is automatically an ellipt
 ### Example: Degree genus formula for smooth complete intersection {#ecag-0149}
 
 Let $C \subset \mathbb{P}^n$ be a smooth complete intersection curve, the intersection of $n-1$ hypersurfaces of degrees $a_1, \ldots, a_{n-1}$. The genus of $C$ is
+
 $$
 g(C) = \frac{1}{2} \prod_{i=1}^{n-1} a_i \left(\sum_{i=1}^{n-1} a_i - n - 1\right) + 1.
 $$
 
 **Derivation via adjunction.** The conormal sequence for $C \subset \mathbb{P}^n$ reads
+
 $$
 0 \rightarrow \bigoplus_{i=1}^{n-1} \mathcal{O}_{\mathbb{P}^n}(-a_i)\big|_C \rightarrow \Omega^1_{\mathbb{P}^n}\big|_C \rightarrow \Omega^1_C \rightarrow 0.
 $$
 
 Taking determinants: $\det(\Omega^1_{\mathbb{P}^n}) = \mathcal{O}_{\mathbb{P}^n}(-n-1)$ and $\det(\bigoplus \mathcal{O}(-a_i)) = \mathcal{O}(-\sum a_i)$, so the adjunction formula gives
+
 $$
 \omega_C = \mathcal{O}_{\mathbb{P}^n}\!\left(\sum_{i=1}^{n-1} a_i - n - 1\right)\bigg|_C.
 $$
 
 The degree of $\omega_C$ on $C$ is
+
 $$
 \deg(\omega_C) = \left(\sum a_i - n - 1\right) \cdot \deg(C) = \left(\sum a_i - n - 1\right) \cdot \prod a_i,
 $$
 
 where $\deg(C) = \prod a_i$ by Bezout's theorem. Since $\deg(\omega_C) = 2g - 2$:
+
 $$
 g = \frac{1}{2} \prod a_i \left(\sum a_i - n - 1\right) + 1.
 $$
 
 **Special case: $\mathbb{P}^3$.** For $C = V(f_1, f_2) \subset \mathbb{P}^3$ with $\deg(f_1) = a$, $\deg(f_2) = b$:
+
 $$
 g = \frac{1}{2} ab(a + b - 4) + 1.
 $$
@@ -619,6 +673,7 @@ The intersection of two quadrics ($a = b = 2$) gives an elliptic curve; the cano
 ### Remark: Non-hyperelliptic curves {#ecag-0150}
 
 If a smooth projective curve $C$ of genus $g \geq 2$ can be realized as a complete intersection in some $\mathbb{P}^n$, then $C$ is non-hyperelliptic. The adjunction formula gives
+
 $$
 \omega_C = \mathcal{O}_{\mathbb{P}^n}\!\left(\sum a_i - n - 1\right)\bigg|_C.
 $$
@@ -634,6 +689,7 @@ This gives a clean sufficient condition: complete intersection implies non-hyper
 In positive characteristic, a group scheme can act faithfully on a variety with zero derivative at every fixed point. This is impossible in characteristic zero.
 
 **Construction.** Let $\operatorname{char}(k) = p > 0$. Define an action of $\mathbb{G}_m$ on $\mathbb{A}^1_k$ by
+
 $$
 \mathbb{G}_m(R) \times \mathbb{A}^1(R) \longrightarrow \mathbb{A}^1(R), \quad (\alpha, r) \longmapsto \alpha^p r
 $$
@@ -643,6 +699,7 @@ for any $k$-algebra $R$. On coordinate rings, this is the coaction $k[t] \to k[s
 **Faithfulness.** The action is faithful: $\alpha^p r = r$ for all $r$ implies $\alpha^p = 1$. In characteristic $p$, $\alpha^p = 1 \Leftrightarrow (\alpha - 1)^p = 0 \Leftrightarrow \alpha = 1$ (since $\mathbb{G}_m(R) = R^\times$ with $R$ reduced). So only the identity acts trivially.
 
 **Zero derivative.** The derivative of $\alpha \mapsto \alpha^p$ is $d(\alpha^p) = p\alpha^{p-1}\,d\alpha = 0$ in characteristic $p$. The induced map on tangent spaces at the fixed point $r = 0$ and identity $\alpha = 1$,
+
 $$
 d\sigma : T_1 \mathbb{G}_m \longrightarrow T_0 \mathbb{A}^1,
 $$
@@ -660,6 +717,7 @@ The Frobenius endomorphism $\alpha \mapsto \alpha^p$ is the essential mechanism:
 In characteristic zero, Hurwitz's automorphism theorem gives $\#\operatorname{Aut}(C) \leq 84(g - 1)$ for a smooth projective curve of genus $g \geq 2$. This bound fails in positive characteristic.
 
 **The curve $y^2 = x^p - x$.** Let $k$ be algebraically closed of characteristic $p = 2g + 1$ (so $g = (p-1)/2 \geq 2$ for $p \geq 5$). The curve
+
 $$
 C : y^2 = x^p - x
 $$
@@ -711,6 +769,7 @@ The Frobenius identity $a^p = a$ for $a \in \mathbb{F}_p$ forces $x^p - x$ to va
 Let $C$ be a smooth projective curve of genus $g \geq 2$ over any field $k$. Then $\operatorname{Aut}(C)$ is finite (as a group scheme, it is zero-dimensional).
 
 **Canonical embedding.** For $g \geq 2$, choose $m$ large enough that $\omega_C^{\otimes m}$ is very ample (for $g = 2$, take $m \geq 3$; for non-hyperelliptic $g \geq 3$, $m = 1$ suffices). This gives an $\operatorname{Aut}(C)$-equivariant embedding
+
 $$
 j : C \hookrightarrow \mathbb{P}(H^0(C, \omega_C^{\otimes m})) =: \mathbb{P}V.
 $$

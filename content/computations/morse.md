@@ -8,6 +8,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ### Example: Morse theory on Grassmannians {#ecag-0245}
 
 The Grassmannian $\operatorname{Gr}(k,n)$ of $k$-planes in $\mathbb{C}^n$ has Poincare polynomial given by the Gaussian binomial coefficient:
+
 $$
 P_t(\operatorname{Gr}(k,n)) = \frac{\prod_{i=1}^{n}(1-t^{2i})}{\prod_{i=1}^{k}(1-t^{2i})\cdot\prod_{i=1}^{n-k}(1-t^{2i})}.
 $$
@@ -17,11 +18,13 @@ We compute this via the torus action and Morse theory.
 **Torus action and fixed points.** The torus $T = (\mathbb{C}^*)^n$ acts on $\operatorname{Gr}(k,n)$ by scaling columns: for $t = \operatorname{diag}(t_1,\dots,t_n)$ and a $k \times n$ matrix representative $A$ of $[W] \in \operatorname{Gr}(k,n)$, the action is $A \mapsto A \cdot t$. A point $[W]$ is $T$-fixed if and only if $W$ is spanned by coordinate vectors, so the fixed points correspond to $k$-element subsets $J = \{j_1 < j_2 < \dots < j_k\} \subset \{1,\dots,n\}$. There are $\binom{n}{k}$ such fixed points, one for each Plucker coordinate $x_J$.
 
 **Tangent weights and Morse index.** At the fixed point corresponding to $J$, the tangent space $T_{[W]}\operatorname{Gr}(k,n) \cong \operatorname{Hom}(W, \mathbb{C}^n/W)$ decomposes into one-dimensional $T$-weight spaces:
+
 $$
 T_{[W]}\operatorname{Gr}(k,n) \cong \bigoplus_{\substack{i \in J \\ j \notin J}} V(i,j), \quad \text{weight}(V(i,j)) = t_j t_i^{-1}.
 $$
 
 For a generic moment map $\mu([W]) = \sum_{i \in J} \lambda_i$ with $\lambda_1 > \lambda_2 > \dots > \lambda_n$, the Morse index at $x_J$ is twice the number of pairs $(i,j)$ with $i \in J$, $j \notin J$, $j > i$:
+
 $$
 d_J = 2\,\#\{(i,j) : i\in J,\, j\notin J,\, j>i\}.
 $$
@@ -29,6 +32,7 @@ $$
 Since all Morse indices are even --- a consequence of $\operatorname{Gr}(k,n)$ being a complex manifold with moment map from a torus action --- the Morse inequalities are equalities and $P_t(\operatorname{Gr}(k,n)) = \sum_J t^{d_J}$.
 
 **Partition interpretation.** The data of a $k$-element subset $J = \{j_1 < \dots < j_k\} \subset \{1,\dots,n\}$ is equivalent to a partition $\lambda = (j_k - k, \dots, j_1 - 1)$ fitting inside a $k \times (n-k)$ rectangle. Under this bijection, $d_J/2 = |\lambda|$, the size of the partition. Thus
+
 $$
 P_t(\operatorname{Gr}(k,n)) = \sum_{\lambda \subset k \times (n-k)} t^{2|\lambda|},
 $$
@@ -36,6 +40,7 @@ $$
 and the Poincare polynomial is symmetric in $t^2$ by the involution $\lambda \mapsto \lambda^c$ (complementary partition in the rectangle).
 
 **Recursion and closed form.** Partitioning according to whether $j_k = n$ (the partition has a full bottom row of length $n - k$) or $j_k < n$ gives the recursion
+
 $$
 P_t(k,n) = P_t(k, n-1) + t^{2(n-k)} P_t(k-1, n-1),
 $$
@@ -69,6 +74,7 @@ For $\mathbb{P}^n = \operatorname{Gr}(1,n+1)$, the fixed points $J = \{j\}$ have
 ### Remark: Nakajima's operators {#ecag-0246}
 
 The Poincare polynomials $P_t(\operatorname{Gr}(k,n))$ admit a representation-theoretic interpretation through the Boson--Fermion correspondence. The generating function
+
 $$
 \sum_{n \geq k \geq 0} q^n z^k P_t(\operatorname{Gr}(k,n))
 $$
@@ -76,6 +82,7 @@ $$
 is related to the trace over a Fock space representation of the Heisenberg algebra. Nakajima's construction provides a geometric realization: creation and annihilation operators $\mathfrak{q}_n$ on $\bigoplus_m \mathrm{H}^*(\operatorname{Hilb}^m(S))$ act by correspondences, and the character of this representation recovers the product formula for Poincare polynomials.
 
 For Grassmannians specifically, the relevant operators come from Hecke correspondences
+
 $$
 \operatorname{Gr}(k,n) \leftarrow \operatorname{Fl}(k,k+1;n) \rightarrow \operatorname{Gr}(k+1,n),
 $$
@@ -91,6 +98,7 @@ As a consistency check, setting $t = 1$ in $P_t(\operatorname{Gr}(k,n))$ gives $
 The Hilbert scheme of $n$ points $\operatorname{Hilb}^n(\mathbb{C}^2)$ is a smooth variety of dimension $2n$ (Fogarty's theorem) carrying a natural $T = (\mathbb{C}^*)^2$-action induced from $(t_1,t_2) \cdot (x,y) = (t_1 x, t_2 y)$ on $\mathbb{C}^2$. The $T$-fixed points are monomial ideals, parametrized by partitions of $n$: the partition $\lambda \vdash n$ corresponds to the monomial ideal $I_\lambda \subset \mathbb{C}[x,y]$ whose complement $\{x^a y^b : (a,b) \in \lambda\}$ forms a basis of $\mathbb{C}[x,y]/I_\lambda$.
 
 **Tangent weights.** The tangent space $T_{I_\lambda}\operatorname{Hilb}^n(\mathbb{C}^2) \cong \operatorname{Hom}_{\mathbb{C}[x,y]}(I_\lambda, \mathbb{C}[x,y]/I_\lambda)$ decomposes into $T$-weight spaces. For each cell $s = (i,j)$ in the Young diagram of $\lambda$, there are two contributing weights:
+
 $$
 t_1^{-l(s)-1}\, t_2^{a(s)} \quad\text{and}\quad t_1^{l(s)}\, t_2^{-a(s)-1},
 $$
@@ -100,6 +108,7 @@ where $a(s) = \lambda_i - j - 1$ is the arm length and $l(s) = \lambda'_j - i - 
 **Morse index.** Choose a generic one-parameter subgroup $\rho: \mathbb{C}^* \to T$ given by $t \mapsto (t^{m_1}, t^{m_2})$ with $m_1, m_2 > 0$ generic. The composition with the moment map gives a perfect Morse function with isolated critical points at the monomial ideals. The Morse index at $I_\lambda$ is twice the number of negative weights under $\rho$, which equals $2(n(\lambda) + n(\lambda'))$, where $n(\lambda) = \sum_i (i-1)\lambda_i$.
 
 Since all Morse indices are even (isolated critical points on a smooth complex manifold), the Morse inequalities are equalities:
+
 $$
 P_t(\operatorname{Hilb}^n(\mathbb{C}^2)) = \sum_{\lambda \vdash n} t^{2(n(\lambda)+n(\lambda'))}.
 $$
@@ -121,6 +130,7 @@ For $\lambda = (2,1)$: $n(\lambda) = 0 \cdot 2 + 1 \cdot 1 = 1$. Conjugate $\lam
 For $\lambda = (1,1,1)$: $n(\lambda) = 0 + 1 + 2 = 3$. Conjugate $\lambda' = (3)$, so $n(\lambda') = 0$. Index $= 2(3+0) = 6$.
 
 This gives $P_t = t^6 + t^4 + t^6 = 2t^6 + t^4$, but the correct answer is $P_t(\operatorname{Hilb}^3(\mathbb{C}^2)) = 1 + t^2 + 2t^4 + t^6$. The discrepancy arises because the Morse index should be computed from negative weights for a specific choice of generic $\rho$, not directly from $n(\lambda) + n(\lambda')$. Indeed, the Betti numbers of $\operatorname{Hilb}^n(\mathbb{C}^2)$ are given by the number of partitions of $n$ with a given value of $n(\lambda)$ alone (not $n(\lambda) + n(\lambda')$), since by the Ellingsrud--Stromme/Goettsche result the Poincare polynomial satisfies
+
 $$
 \sum_{n=0}^{\infty} P_t(\operatorname{Hilb}^n(\mathbb{C}^2))\, q^n = \prod_{k=1}^{\infty} \frac{1}{1-q^k t^{2(k-1)}}.
 $$
@@ -146,11 +156,13 @@ The nested Hilbert scheme $(\mathbb{C}^2)^{[n,n+1]}$ parametrizes pairs of ideal
 **$T$-fixed points.** The $T = (\mathbb{C}^*)^2$-action on $\mathbb{C}^2$ induces an action on $(\mathbb{C}^2)^{[n,n+1]}$. The fixed points are pairs of monomial ideals $(I_\lambda, I_\mu)$ with $I_\mu \subset I_\lambda$, corresponding to pairs of partitions $(\lambda, \mu)$ where $\mu \vdash (n+1)$ and $\lambda$ is obtained from $\mu$ by removing a single box. The number of such pairs equals $\sum_{\mu \vdash (n+1)} r(\mu)$, where $r(\mu)$ is the number of removable corners of $\mu$.
 
 **Tangent weights and Morse theory.** The tangent space at $(I_\lambda, I_\mu)$ decomposes under $T$ as
+
 $$
 T_{(I_\lambda, I_\mu)} (\mathbb{C}^2)^{[n,n+1]} \cong \operatorname{Hom}(I_\mu, \mathbb{C}[x,y]/I_\mu) \oplus \operatorname{Hom}(I_\mu/I_\lambda, \mathbb{C}[x,y]/I_\lambda),
 $$
 
 with appropriate corrections from the tangent-obstruction theory. Since the nested Hilbert scheme is smooth with isolated fixed points and all Morse indices are even, the Poincare polynomial is
+
 $$
 P_t((\mathbb{C}^2)^{[n,n+1]}) = \sum_{\substack{\mu \vdash (n+1) \\ s \in \mu \text{ removable}}} t^{2\,\operatorname{ind}(\mu, s)},
 $$
@@ -174,6 +186,7 @@ Total: $1 + 2 + 1 = 4$ fixed points, confirming $\sum_{\mu \vdash 3} r(\mu) = 4$
 Coadjoint orbits of a compact Lie group $G$ provide the fundamental examples connecting symplectic geometry, representation theory, and Morse theory.
 
 For a compact Lie group $G$ with Lie algebra $\mathfrak{g}$, the coadjoint orbit $\mathcal{O}_\xi = G \cdot \xi \subset \mathfrak{g}^*$ through $\xi \in \mathfrak{g}^*$ carries the Kirillov--Kostant--Souriau symplectic form: for tangent vectors $X^\sharp_\eta, Y^\sharp_\eta$ at $\eta \in \mathcal{O}_\xi$ generated by $X, Y \in \mathfrak{g}$,
+
 $$
 \omega_\eta(X^\sharp_\eta, Y^\sharp_\eta) = \langle \eta, [X,Y] \rangle.
 $$
