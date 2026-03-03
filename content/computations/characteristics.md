@@ -13,6 +13,7 @@ We compute $\chi(\mathscr{F}(n-5))$ via the Hirzebruch–Riemann–Roch theorem:
 
 $$
 \chi(\mathscr{F}(n-5)) = \int_{\mathbb{P}^4} \operatorname{ch}(\mathscr{F}(n-5)) \cdot \operatorname{td}(\mathbb{P}^4).
+
 $$
 
 **Chern character of $\mathscr{F}(t)$ with $t = n-5$.** The twisted bundle has $c_1(\mathscr{F}(t)) = (2t + 5)h$ and $c_2(\mathscr{F}(t)) = (t^2 + 5t + 10)h^2$. For a rank-2 bundle, the Chern character components are determined by Newton's identities:
@@ -50,6 +51,7 @@ Collecting by degree: $2t^4 + 40t^3 + 250t^2 + 500t + 48$. So
 
 $$
 \chi(\mathscr{F}(t)) = \frac{2t^4 + 40t^3 + 250t^2 + 500t + 48}{24} = \frac{t^4+20t^3+125t^2+250t+24}{12}.
+
 $$
 
 **Substituting $t = n - 5$.** We expand and collect:
@@ -66,6 +68,7 @@ The vanishing of the $n^3$ and $n^1$ coefficients reflects Serre duality: since 
 
 $$
 \chi(\mathscr{F}(n-5)) = \frac{n^4 - 25n^2 + 24}{12} = \frac{(n^2-1)(n^2-24)}{12} = \frac{(n-1)(n+1)(n^2-24)}{12}.
+
 $$
 
 **Verification.**

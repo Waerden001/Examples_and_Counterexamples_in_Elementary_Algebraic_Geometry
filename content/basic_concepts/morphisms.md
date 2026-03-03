@@ -8,74 +8,92 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 
 ### Example: An \'{e}tale morphism, Hartshorne $\mathrm{III}.10.6$ {#ecag-0158}
 
-**Statement:** Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$. There exists a degree $2$ etale morphism from a disjoint union of two copies of $\mathbb{A}_k^1$ to the nodal cubic curve $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$.
-
-**Construction/Proof:** Define the morphism
+Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$, and let $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. We construct a degree-2 etale morphism onto $Y$ from a smooth source by defining
 
 $$
-f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2 - 1)^2)) \rightarrow \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1))) = Y
+f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2 - 1)^2)) \longrightarrow Y
 
 $$
 
-by the ring map $x \mapsto s^2 - 1$, $y \mapsto st$.
+via the ring homomorphism $\varphi: k[x,y]/(y^2 - x^2(x+1)) \to k[s,t]/(t^2 - (s^2-1)^2)$ given by $x \mapsto s^2 - 1$ and $y \mapsto st$.
 
-**Step 1 (Well-definedness):** We must verify that the relations in $\mathcal{O}(Y)$ are preserved. We check $y^2 - x^2(x+1)$: under the map, $y^2 = s^2 t^2$ and $x^2(x+1) = (s^2-1)^2 \cdot s^2$. So $y^2 - x^2(x+1) = s^2 t^2 - s^2(s^2-1)^2 = s^2(t^2 - (s^2-1)^2)$, which vanishes in $\mathcal{O}(X)$.
+**Well-definedness.** The map $\varphi$ must send the defining relation of $\mathcal{O}(Y)$ to zero in $\mathcal{O}(X)$. We compute $\varphi(y^2 - x^2(x+1)) = s^2 t^2 - (s^2-1)^2 \cdot s^2 = s^2(t^2 - (s^2-1)^2)$, which vanishes in $\mathcal{O}(X)$ as required.
 
-**Step 2 (Fibre over the node):** The node of $Y$ is the origin $(x,y)$. The fibre over this point is
-
-$$
-X_0 = X \times_Y \operatorname{Spec}(k) = \operatorname{Spec}\left( k[s,t]/(t^2 - (s^2-1)^2) \otimes_{k[x,y]/(y^2 - x^2(x+1))} k[x,y]/(x,y) \right).
+**The source scheme $X$.** The defining equation $t^2 = (s^2 - 1)^2$ factors as $(t - (s^2-1))(t + (s^2-1)) = 0$, so
 
 $$
-
-Setting $x = s^2 - 1 = 0$ and $y = st = 0$ in $\mathcal{O}(X)$ gives the conditions $s^2 = 1$ and $st = 0$. Since $s = \pm 1 \neq 0$, we must have $t = 0$. Thus
-
-$$
-X_0 = \operatorname{Spec}(k[s,t]/(t, s^2 - 1)) = \operatorname{Spec}(k[s]/(s^2 - 1)) \cong \operatorname{Spec}(k) \sqcup \operatorname{Spec}(k),
+X \cong \operatorname{Spec}(k[s,t]/(t - s^2 + 1)) \sqcup \operatorname{Spec}(k[s,t]/(t + s^2 - 1)) \cong \mathbb{A}^1_k \sqcup \mathbb{A}^1_k,
 
 $$
 
-which consists of two reduced points (here we use $\operatorname{char}(k) \neq 2$).
+a disjoint union of two copies of the affine line, each parametrized by $s$. In particular, $X$ is smooth.
 
-**Step 3 (Flatness):** Each fibre of $f$ over a closed point of $Y$ consists of exactly two points (counted with multiplicity), and in fact all fibres are reduced of degree $2$. Since the domain and target are both integral schemes and $f$ is a finite morphism of constant fibre degree, $f$ is flat. More precisely, $\mathcal{O}(X)$ is a free $\mathcal{O}(Y)$-module of rank $2$.
+**Fibre over the node.** The node of $Y$ is the origin, corresponding to the maximal ideal $(x,y) \subset \mathcal{O}(Y)$. Setting $x = s^2 - 1 = 0$ and $y = st = 0$ in $\mathcal{O}(X)$ gives $s = \pm 1$ (using $\operatorname{char}(k) \neq 2$) and, since $s \neq 0$, forces $t = 0$. The scheme-theoretic fibre is therefore
 
-**Step 4 (Etaleness):** The morphism $f$ is of finite presentation (it is finite). To verify smoothness, we check that the map on differentials $f^* \Omega_{Y/k} \rightarrow \Omega_{X/k}$ is an isomorphism. Since $X$ and $Y$ are both curves (of dimension $1$), this means $f$ is smooth of relative dimension $0$. A smooth morphism of relative dimension $0$ is etale. Equivalently, $f$ is flat and unramified: at each point $q \in X$ mapping to $p \in Y$, the induced map on residue fields is a separable extension, and $\mathfrak{m}_p \cdot \mathcal{O}_{X,q} = \mathfrak{m}_q$. Both conditions are satisfied since every fibre is reduced and consists of $k$-rational points. Therefore $f$ is a degree $2$ etale morphism.
+$$
+f^{-1}((0,0)) = \operatorname{Spec}(k[s]/(s^2 - 1)) \cong \operatorname{Spec}(k) \sqcup \operatorname{Spec}(k),
 
-**Key Insight:** The nodal cubic admits an etale cover by a smooth curve precisely because the node is an ordinary double point. The two branches of the node are "separated" in the cover, with each preimage point lying on a distinct branch. This illustrates that etale morphisms can resolve the topology (but not the singularity) of nodal curves.
+$$
 
-**Prerequisites:** Etale morphisms, flatness criteria, Kahler differentials, nodal curves, fibre products of schemes
+consisting of two reduced $k$-rational points at $s = 1$ and $s = -1$.
+
+**Flatness.** Since $f$ is a finite morphism between integral schemes and every fibre has the same degree 2 (two reduced points over every closed point of $Y$, as one verifies by examining generic and special fibres), $f$ is flat by the local criterion: for a finite morphism of Noetherian integral schemes, flatness is equivalent to constancy of the fibre degree.
+
+**Etaleness.** A morphism is etale if and only if it is flat and unramified. Flatness was established above. For unramifiedness at a point $q \in X$ lying over $p \in Y$, we need two conditions: the residue field extension $k(p) \hookrightarrow k(q)$ is separable, and $\mathfrak{m}_p \cdot \mathcal{O}_{X,q} = \mathfrak{m}_q$. Both hold at every point: the residue fields are all $k$ (since $k$ is algebraically closed and all fibres consist of $k$-rational points), so the extension is trivially separable, and the fibre at each point is reduced, which gives $\mathfrak{m}_p \cdot \mathcal{O}_{X,q} = \mathfrak{m}_q$. Therefore $f$ is a degree-2 etale morphism.
+
+The nodal cubic admits this etale cover by a smooth curve precisely because its singularity is an ordinary double point. The two branches of the node are separated in the cover, with each preimage point lying on a distinct component of $X$. This illustrates that etale morphisms capture the local topology (the two branches) without resolving the singularity in the algebro-geometric sense.
 
 <!-- BENCHMARK_PROBLEM: Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$, and let $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. Consider the morphism $f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2-1)^2)) \to Y$ defined by $x \mapsto s^2 - 1$, $y \mapsto st$. Compute the scheme-theoretic fibre $f^{-1}((x,y))$ over the node and determine whether $f$ is etale. Justify your answer by verifying flatness and unramifiedness. -->
 
 ### Remark {#ecag-0159}
 
-One may ask whether there is a more direct way to verify the flatness of the morphism $f$ from the previous example using localization. Let $\mathfrak{p} = (x,y) \subset k[x,y]/(y^2 - x^2(x+1))$ be the prime ideal corresponding to the node, and let $\mathfrak{q}_1 = (s-1, t)$ and $\mathfrak{q}_2 = (s+1, t)$ be the two primes of $\mathcal{O}(X)$ lying over $\mathfrak{p}$. One approach is to localize the ring extension $\mathcal{O}(Y) \hookrightarrow \mathcal{O}(X)$ at $\mathfrak{p}$ and verify that $\mathcal{O}(X)_{\mathfrak{q}_i}$ is a flat (equivalently, free) module over $\mathcal{O}(Y)_{\mathfrak{p}}$ for $i = 1, 2$. Since $\mathcal{O}(Y)_{\mathfrak{p}}$ is a one-dimensional local ring and each $\mathcal{O}(X)_{\mathfrak{q}_i}$ is a one-dimensional local domain, flatness can be checked by verifying that the maximal ideal $\mathfrak{m}_{\mathfrak{p}}$ generates $\mathfrak{m}_{\mathfrak{q}_i}$ (unramifiedness) and that there is no torsion. Alternatively, for a finite morphism between integral Noetherian schemes, flatness is equivalent to constancy of the fibre degree (by Grothendieck's generic flatness combined with the local criterion of flatness). This provides a more computational approach than the differential criterion used above.
+The flatness of the morphism $f$ in the previous example can also be verified directly by localization. Let $\mathfrak{p} = (x,y) \subset \mathcal{O}(Y)$ be the prime corresponding to the node, and let $\mathfrak{q}_1 = (s-1, t)$ and $\mathfrak{q}_2 = (s+1, t)$ be the two primes of $\mathcal{O}(X)$ lying over $\mathfrak{p}$. One localizes the ring extension $\mathcal{O}(Y) \hookrightarrow \mathcal{O}(X)$ at $\mathfrak{p}$ and checks that each $\mathcal{O}(X)_{\mathfrak{q}_i}$ is a flat (equivalently, free) module over $\mathcal{O}(Y)_{\mathfrak{p}}$.
+
+Since $\mathcal{O}(Y)_{\mathfrak{p}}$ is a one-dimensional local ring and each $\mathcal{O}(X)_{\mathfrak{q}_i}$ is a one-dimensional local domain, flatness reduces to two checkable conditions: the maximal ideal $\mathfrak{m}_{\mathfrak{p}}$ generates $\mathfrak{m}_{\mathfrak{q}_i}$ (which is precisely unramifiedness), and the module has no torsion (which holds automatically since $\mathcal{O}(X)_{\mathfrak{q}_i}$ is a domain and $\mathcal{O}(Y)_{\mathfrak{p}}$ is an integral domain).
+
+More generally, for a finite morphism between integral Noetherian schemes, flatness is equivalent to constancy of the fibre degree. This follows from Grothendieck's generic flatness theorem (which gives flatness on a dense open) combined with the local criterion of flatness (which promotes generic flatness to global flatness when the fibre degree is constant). This algebraic criterion is often more practical than the differential approach via Kahler differentials.
+
+<!-- BENCHMARK_PROBLEM: Let $f: X \to Y$ be the degree-2 morphism from the etale cover of the nodal cubic constructed in ecag-0158. Let $\mathfrak{p} = (x,y) \subset \mathcal{O}(Y)$ be the node, and let $\mathfrak{q}_1 = (s-1,t)$, $\mathfrak{q}_2 = (s+1,t) \subset \mathcal{O}(X)$ be the primes lying over $\mathfrak{p}$. Verify flatness of $f$ at $\mathfrak{q}_1$ by showing that $\mathcal{O}(X)_{\mathfrak{q}_1}$ is a free module over $\mathcal{O}(Y)_{\mathfrak{p}}$. -->
 
 ### Different Frobenius actions
 
-Let $X$ be a scheme over $k = \mathbb{F}_p$, where $p$ is a prime, and let $\overline{X} = X \times_{\operatorname{Spec}(k)} \operatorname{Spec}(\overline{k})$ be the base change to the algebraic closure. There are four distinct Frobenius morphisms associated to this situation:
+Let $X$ be a scheme over $k = \mathbb{F}_p$ for a prime $p$, and let $\overline{X} = X \times_{\operatorname{Spec}(k)} \operatorname{Spec}(\overline{k})$ be the base change to the algebraic closure. There are four distinct Frobenius morphisms associated to this situation, each playing a different role in arithmetic geometry.
 
-- **Global (absolute) Frobenius** $F_{\overline{X}}$: This is the morphism $\overline{X} \to \overline{X}$ that acts on the structure sheaf by $f \mapsto f^p$, raising every section to its $p$-th power. Over $k = \mathbb{F}_p$, this is a $k$-linear morphism since $a^p = a$ for all $a \in \mathbb{F}_p$. This $k$-linearity fails over $\mathbb{F}_q$ for $q = p^r$ with $r > 1$.
+The **absolute (global) Frobenius** $F_{\overline{X}}: \overline{X} \to \overline{X}$ acts on the structure sheaf by $f \mapsto f^p$, raising every section to its $p$-th power. Over $k = \mathbb{F}_p$, this is $k$-linear since $a^p = a$ for all $a \in \mathbb{F}_p$ by Fermat's little theorem. This $k$-linearity fails over $\mathbb{F}_q$ for $q = p^r$ with $r > 1$.
 
-- **Relative Frobenius** $F_{X/k}$: This is defined as $F_{X/k} = 1_{\operatorname{Spec}(\overline{k})} \times_k F_X$, where $F_X: X \to X$ is the absolute Frobenius of $X$. It is a morphism $\overline{X} \to \overline{X}^{(p)}$ (or $\overline{X} \to \overline{X}$ when $k = \mathbb{F}_p$ since $X^{(p)} \cong X$ in that case). The relative Frobenius is an $\overline{k}$-linear map because $a^p = a$ for $a \in \mathbb{F}_p$ on the coefficient side. Over $\mathbb{F}_q$ with $q \neq p$, one must distinguish between $X$ and $X^{(p)}$, since the Frobenius twist is nontrivial.
+The **relative Frobenius** $F_{X/k}: \overline{X} \to \overline{X}^{(p)}$ is defined as $F_{X/k} = 1_{\operatorname{Spec}(\overline{k})} \times_k F_X$, where $F_X: X \to X$ is the absolute Frobenius of $X$. When $k = \mathbb{F}_p$, we have $X^{(p)} \cong X$ (since the Frobenius twist is trivial on $\mathbb{F}_p$-schemes), so $F_{X/k}$ can be viewed as an endomorphism of $\overline{X}$. It is $\overline{k}$-linear because $a^p = a$ for $a \in \mathbb{F}_p$ on the structure side. Over $\mathbb{F}_q$ with $q \neq p$, the Frobenius twist $X^{(p)}$ is genuinely different from $X$.
 
-- **Arithmetic Frobenius**: This is the morphism $F_{\overline{k}} \times_k 1_X: \overline{X} \to \overline{X}$, which acts by applying the Frobenius $a \mapsto a^p$ to the geometric fibre (i.e., to the $\overline{k}$-coefficients) while fixing the $X$-structure.
+The **arithmetic Frobenius** is $F_{\overline{k}} \times_k 1_X: \overline{X} \to \overline{X}$, which applies $a \mapsto a^p$ to the $\overline{k}$-coefficients while fixing the $X$-structure. The **geometric Frobenius** is $F_{\overline{k}}^{-1} \times_k 1_X: \overline{X} \to \overline{X}$, applying the inverse Frobenius $a \mapsto a^{1/p}$ to the $\overline{k}$-coefficients. The geometric Frobenius is the natural operator on etale cohomology and appears in the Grothendieck--Lefschetz trace formula.
 
-- **Geometric Frobenius**: This is the morphism $F_{\overline{k}}^{-1} \times_k 1_X: \overline{X} \to \overline{X}$, which acts by applying the inverse Frobenius $a \mapsto a^{1/p}$ to the $\overline{k}$-coefficients. The geometric Frobenius is the one that acts naturally on etale cohomology and appears in the Grothendieck--Lefschetz trace formula.
+**Explicit formulas for $X = \mathbb{A}^n_{\mathbb{F}_p}$.** Writing elements of $\mathcal{O}(\overline{X}) = \overline{k}[x_1, \ldots, x_n]$ as polynomials $\sum a_I x^I$ with $a_I \in \overline{k}$:
 
-**Explicit description for affine space.** In the case $X = \operatorname{Spec}(\mathbb{F}_p[x_1, \ldots, x_n])$, writing elements as polynomials $\sum a_I x^I$ with $a_I \in \overline{k}$:
-- The global Frobenius sends $\sum a_I x^I \mapsto \sum a_I^p x^{pI}$ (raises everything to the $p$-th power).
-- The relative Frobenius sends $\sum a_I x^I \mapsto \sum a_I x^{pI}$ (raises variables to the $p$-th power, fixes coefficients).
-- The arithmetic Frobenius sends $\sum a_I x^I \mapsto \sum a_I^p x^I$ (raises coefficients to the $p$-th power, fixes variables).
-- The geometric Frobenius sends $\sum a_I x^I \mapsto \sum a_I^{1/p} x^I$ (takes $p$-th roots of coefficients, fixes variables).
+| Frobenius | Action on $\sum a_I x^I$ | Effect on coefficients | Effect on variables |
+|-----------|--------------------------|----------------------|-------------------|
+| Absolute | $\sum a_I^p x^{pI}$ | $a_I \mapsto a_I^p$ | $x_i \mapsto x_i^p$ |
+| Relative | $\sum a_I x^{pI}$ | unchanged | $x_i \mapsto x_i^p$ |
+| Arithmetic | $\sum a_I^p x^I$ | $a_I \mapsto a_I^p$ | unchanged |
+| Geometric | $\sum a_I^{1/p} x^I$ | $a_I \mapsto a_I^{1/p}$ | unchanged |
 
-Note the fundamental relation: $F_{\overline{X}} = F_{X/k} \circ (\text{arithmetic Frobenius})$, i.e., the absolute Frobenius factors as the composition of the relative and arithmetic Frobenius morphisms. On $\overline{k}$-points, the global Frobenius is the identity map (since it is a morphism of $\overline{k}$-schemes that equals the identity on topological spaces), while the relative and geometric Frobenius both act as the map $(a_1, \ldots, a_n) \mapsto (a_1^p, \ldots, a_n^p)$ on $\overline{k}$-points.
+The fundamental factorization is $F_{\overline{X}} = F_{X/k} \circ (\text{arithmetic Frobenius})$: the absolute Frobenius decomposes as the relative Frobenius followed by the arithmetic Frobenius. This is immediate from the table: raising both coefficients and variables to the $p$-th power is the same as first raising coefficients, then raising variables.
 
-<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{F}_p[x])$ and $\overline{X} = X \times_{\operatorname{Spec}(\mathbb{F}_p)} \operatorname{Spec}(\overline{\mathbb{F}_p})$. For the polynomial $f = \alpha x^2 + \beta x + \gamma \in \overline{\mathbb{F}_p}[x]$ where $\alpha, \beta, \gamma \in \overline{\mathbb{F}_p}$, write down explicitly the image of $f$ under each of the four Frobenius morphisms (global, relative, arithmetic, geometric). Verify that the global Frobenius equals the composition of the relative and arithmetic Frobenius. -->
+On $\overline{k}$-points, the absolute Frobenius acts as the identity on the underlying topological space (it is a morphism of locally ringed spaces that is a homeomorphism). The relative and geometric Frobenius both act as $(a_1, \ldots, a_n) \mapsto (a_1^p, \ldots, a_n^p)$ on $\overline{k}$-valued points. This is why the geometric Frobenius, rather than the arithmetic one, plays the central role in the Weil conjectures: its fixed points on $\overline{X}(\overline{k})$ are precisely the $\mathbb{F}_p$-rational points of $X$.
+
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{F}_p[x])$ and $\overline{X} = X \times_{\operatorname{Spec}(\mathbb{F}_p)} \operatorname{Spec}(\overline{\mathbb{F}_p})$. For the polynomial $f = \alpha x^2 + \beta x + \gamma \in \overline{\mathbb{F}_p}[x]$ where $\alpha, \beta, \gamma \in \overline{\mathbb{F}_p}$, write down explicitly the image of $f$ under each of the four Frobenius morphisms (absolute, relative, arithmetic, geometric). Verify that the absolute Frobenius equals the composition of the relative and arithmetic Frobenius. -->
 
 ### Remark {#ecag-0160}
 
-For a detailed treatment of the interplay between the various Frobenius morphisms and the Lefschetz trace formula in etale cohomology, see [Some remarks on Frobenius and Lefschetz in etale cohomology](http://www.math.mcgill.ca/goren/SeminarOnCohomology/Frobenius.pdf) by E. Goren. In particular, that reference clarifies the role of the geometric Frobenius (rather than the arithmetic Frobenius) as the natural operator on $\ell$-adic cohomology $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$, since its eigenvalues satisfy the weight bounds predicted by the Weil conjectures (proved by Deligne). The key point is that on $\overline{\mathbb{F}_q}$-points, the geometric Frobenius acts as $(x_1, \ldots, x_n) \mapsto (x_1^q, \ldots, x_n^q)$, and its fixed points are precisely the $\mathbb{F}_q$-rational points of $X$, which connects the Grothendieck--Lefschetz trace formula to point counting.
+The geometric Frobenius, rather than the arithmetic Frobenius, is the natural operator on $\ell$-adic cohomology $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$. Its eigenvalues satisfy the weight bounds predicted by the Weil conjectures (proved by Deligne): on $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$ for a smooth projective variety $X$ of dimension $d$ over $\mathbb{F}_q$, the eigenvalues of the geometric Frobenius are algebraic numbers of absolute value $q^{i/2}$ under every complex embedding.
+
+The connection to point counting is through the Grothendieck--Lefschetz trace formula:
+
+$$
+\# X(\mathbb{F}_{q^n}) = \sum_{i=0}^{2d} (-1)^i \operatorname{Tr}(\operatorname{Frob}_q^n \mid H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)),
+
+$$
+
+where $\operatorname{Frob}_q$ denotes the geometric Frobenius. On $\overline{\mathbb{F}_q}$-points, the geometric Frobenius acts as $(x_1, \ldots, x_n) \mapsto (x_1^q, \ldots, x_n^q)$, and its fixed points are precisely the $\mathbb{F}_q$-rational points of $X$. This is the scheme-theoretic formulation of Weil's original insight connecting point counts to cohomological data. For a detailed treatment, see Goren, *Some remarks on Frobenius and Lefschetz in etale cohomology*.
+
+<!-- BENCHMARK_PROBLEM: Let $X$ be a smooth projective curve of genus $g$ over $\mathbb{F}_q$. Using the Grothendieck--Lefschetz trace formula, express $\# X(\mathbb{F}_{q^n})$ in terms of the eigenvalues of the geometric Frobenius on $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$ for $i = 0, 1, 2$. State the Riemann hypothesis for curves (Weil's theorem) as a constraint on these eigenvalues. -->
 
 ## Global L-functions of zero-dimensional schemes
 Let $X \rightarrow \operatorname{Spec}(\mathbb{Z})$ be a $0$-dimensional scheme over $\mathbb{Z}$. Since zero-dimensional schemes do not have the complication of bad reduction in the usual sense, the global zeta function of $X$ can be defined as
@@ -89,59 +107,53 @@ where $X_p = X \times_{\operatorname{Spec}(\mathbb{Z})} \operatorname{Spec}(\mat
 
 ### Example: Empty scheme {#ecag-0161}
 
-**Statement:** The global zeta function of the empty scheme $X = \emptyset$ over $\operatorname{Spec}(\mathbb{Z})$ equals $1$.
-
-**Construction/Proof:** Let $X = \emptyset = \operatorname{Spec}(0) \to \operatorname{Spec}(\mathbb{Z})$, where $0$ denotes the zero ring. For any prime $p$, the reduction modulo $p$ is
+The empty scheme $X = \emptyset = \operatorname{Spec}(0)$ over $\operatorname{Spec}(\mathbb{Z})$ has the simplest possible zeta function. For any prime $p$, the reduction modulo $p$ is
 
 $$
-X_p = \operatorname{Spec}(0 \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(0) = \emptyset.
+X_p = \operatorname{Spec}(0 \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(0) = \emptyset,
 
 $$
 
-Since $X_p$ is empty, it has no points over any field extension: $\# X_p(\mathbb{F}_{p^n}) = 0$ for all $n \geq 1$. Therefore the local zeta function is
+which has no points over any field extension: $\# X_p(\mathbb{F}_{p^n}) = 0$ for all $n \geq 1$. The local zeta function is therefore
 
 $$
-Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{0}{n} t^n\right) = \exp(0) = 1.
-
-$$
-
-The global zeta function is then
-
-$$
-\zeta(\emptyset, s) = \prod_p Z(X_p, p^{-s}) = \prod_p 1 = 1.
+Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{0}{n} t^n\right) = e^0 = 1,
 
 $$
 
-**Key Insight:** The empty scheme serves as the identity element for the zeta function under disjoint union of schemes, since $\zeta(X \sqcup \emptyset, s) = \zeta(X, s) \cdot \zeta(\emptyset, s) = \zeta(X, s)$. This is consistent with the fact that the empty product equals $1$.
+and the global zeta function is
 
-**Prerequisites:** Local zeta function, global zeta function, base change of schemes
+$$
+\zeta(\emptyset, s) = \prod_p 1 = 1.
+
+$$
+
+This is consistent with the multiplicativity of the zeta function under disjoint union: $\zeta(X \sqcup \emptyset, s) = \zeta(X, s) \cdot \zeta(\emptyset, s) = \zeta(X, s)$. The empty scheme is the identity element for the monoid of isomorphism classes of schemes over $\operatorname{Spec}(\mathbb{Z})$ under disjoint union, and $\zeta(\emptyset, s) = 1$ is the corresponding identity in the multiplicative group of Dirichlet series.
 
 <!-- BENCHMARK_PROBLEM: Let $X = \emptyset$ be the empty scheme over $\operatorname{Spec}(\mathbb{Z})$. Compute the local zeta function $Z(X_p, t)$ for every prime $p$ and the global zeta function $\zeta(X, s)$. Express your answers in closed form. -->
 
 ### Example {#ecag-0162}
 
-**Statement:** The global zeta function of $X = \operatorname{Spec}(\mathbb{Z})$ over itself equals the Riemann zeta function $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$.
-
-**Construction/Proof:** Let $X = \operatorname{Spec}(\mathbb{Z}) \to \operatorname{Spec}(\mathbb{Z})$ be the identity morphism. For each prime $p$, the fibre is
+The scheme $X = \operatorname{Spec}(\mathbb{Z})$ over itself (via the identity morphism) has zeta function equal to the Riemann zeta function. For each prime $p$, the fibre is
 
 $$
 X_p = \operatorname{Spec}(\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(\mathbb{F}_p),
 
 $$
 
-which is a single closed point with residue field $\mathbb{F}_p$. For every $n \geq 1$, there is exactly one $\mathbb{F}_p$-algebra homomorphism $\mathbb{F}_p \to \mathbb{F}_{p^n}$ (the inclusion), so $\# X_p(\mathbb{F}_{p^n}) = 1$.
+a single closed point with residue field $\mathbb{F}_p$. For every $n \geq 1$, there is exactly one $\mathbb{F}_p$-algebra homomorphism $\mathbb{F}_p \to \mathbb{F}_{p^n}$ (the canonical inclusion), so $\# X_p(\mathbb{F}_{p^n}) = 1$.
 
-The local zeta function is therefore
-
-$$
-Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{1}{n} t^n\right) = \exp(-\ln(1 - t)) = \frac{1}{1 - t}.
+The local zeta function is
 
 $$
-
-Here we used the Taylor series $-\ln(1 - t) = \sum_{n=1}^{\infty} \frac{t^n}{n}$ for $|t| < 1$. The global zeta function is
+Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{t^n}{n}\right) = \exp(-\ln(1 - t)) = \frac{1}{1 - t},
 
 $$
-\zeta(X, s) = \prod_p Z(X_p, p^{-s}) = \prod_p \frac{1}{1 - p^{-s}}.
+
+using the Taylor series $-\ln(1 - t) = \sum_{n=1}^{\infty} t^n/n$ for $|t| < 1$. The global zeta function is
+
+$$
+\zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}}.
 
 $$
 
@@ -152,120 +164,106 @@ $$
 
 $$
 
-which converges for $\operatorname{Re}(s) > 1$.
+converging for $\operatorname{Re}(s) > 1$. The Euler product identity follows from unique factorization in $\mathbb{Z}$: expanding each geometric series $\frac{1}{1-p^{-s}} = \sum_{k=0}^{\infty} p^{-ks}$ and multiplying over all primes recovers every positive integer $n = \prod p_i^{k_i}$ exactly once.
 
-**Key Insight:** The scheme $\operatorname{Spec}(\mathbb{Z})$ is the terminal object in the category of schemes, and its zeta function recovers the most fundamental object of analytic number theory. This example illustrates that the scheme-theoretic zeta function is a vast generalization of the Riemann zeta function: for any scheme $X$ of finite type over $\mathbb{Z}$, the zeta function $\zeta(X, s)$ encodes arithmetic information about the reductions of $X$ modulo all primes.
-
-**Prerequisites:** Euler product formula, Riemann zeta function, local zeta function, base change
+The scheme $\operatorname{Spec}(\mathbb{Z})$ is the terminal object in the category of schemes, and the fact that its zeta function recovers the Riemann zeta function shows that the scheme-theoretic zeta function is a direct generalization of the most fundamental object of analytic number theory.
 
 <!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z})$. Compute the local zeta function $Z(X_p, t)$ for each prime $p$ by first determining $\# X_p(\mathbb{F}_{p^n})$ for all $n \geq 1$, and then show that the global zeta function $\zeta(X, s) = \prod_p Z(X_p, p^{-s})$ equals the Riemann zeta function $\sum_{n=1}^{\infty} n^{-s}$. -->
 
 ### Example: Two points {#ecag-0163}
 
-**Statement:** The global zeta function of $X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))$, the disjoint union of two copies of $\operatorname{Spec}(\mathbb{Z})$, equals $\zeta(s)^2$, the square of the Riemann zeta function.
-
-**Construction/Proof:** The ring $\mathbb{Z}[x]/(x(x-1)) \cong \mathbb{Z}[x]/(x) \times \mathbb{Z}[x]/(x-1) \cong \mathbb{Z} \times \mathbb{Z}$ by the Chinese Remainder Theorem (since $x$ and $x - 1$ are coprime). Therefore
+Consider $X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))$, which by the Chinese Remainder Theorem decomposes as
 
 $$
-X = \operatorname{Spec}(\mathbb{Z} \times \mathbb{Z}) \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z}).
+X = \operatorname{Spec}(\mathbb{Z}[x]/(x) \times \mathbb{Z}[x]/(x-1)) \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z}),
 
 $$
 
-For any prime $p$, reducing modulo $p$:
+a disjoint union of two copies of $\operatorname{Spec}(\mathbb{Z})$. (The CRT applies because $x$ and $x - 1$ generate the unit ideal in $\mathbb{Z}[x]$: they satisfy $1 = x - (x-1)$.)
+
+For any prime $p$, the elements $0$ and $1$ remain distinct in $\mathbb{F}_p$, so $x$ and $x-1$ remain coprime in $\mathbb{F}_p[x]$, giving
 
 $$
-X_p = \operatorname{Spec}(\mathbb{F}_p[x]/(x(x-1))) \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p),
+X_p = \operatorname{Spec}(\mathbb{F}_p[x]/(x(x-1))) \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p).
 
 $$
 
-since $x$ and $x - 1$ remain coprime in $\mathbb{F}_p[x]$ for all primes $p$ (note $0 \neq 1$ in $\mathbb{F}_p$ for every prime $p$). Thus $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$.
-
-The local zeta function is
+Each component contributes one point over every extension, so $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$. The local zeta function is
 
 $$
 Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{2}{n} t^n\right) = \exp(-2\ln(1-t)) = \frac{1}{(1-t)^2}.
 
 $$
 
-The global zeta function is
+The global zeta function is therefore
 
 $$
 \zeta(X, s) = \prod_p \frac{1}{(1-p^{-s})^2} = \left(\prod_p \frac{1}{1-p^{-s}}\right)^2 = \zeta(s)^2.
 
 $$
 
-**Key Insight:** The zeta function is multiplicative under disjoint union: $\zeta(X \sqcup Y, s) = \zeta(X, s) \cdot \zeta(Y, s)$, since the point counts and hence the local zeta functions factor accordingly. This example is the simplest nontrivial instance of this principle.
-
-**Prerequisites:** Chinese Remainder Theorem, Riemann zeta function, local zeta function, Euler product
+This illustrates the multiplicativity of the zeta function under disjoint union: since $X \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z})$, we get $\zeta(X, s) = \zeta(\operatorname{Spec}(\mathbb{Z}), s)^2 = \zeta(s)^2$. Point counts add under disjoint union, exponents in the local zeta function add, and the global zeta function multiplies.
 
 <!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))$ viewed as a scheme over $\operatorname{Spec}(\mathbb{Z})$. Compute $\# X_p(\mathbb{F}_{p^n})$ for all primes $p$ and all $n \geq 1$, determine the local zeta function $Z(X_p, t)$, and express the global zeta function $\zeta(X, s)$ in terms of the Riemann zeta function. -->
 
 ### Example {#ecag-0164}
 
-**Statement:** The global zeta function of $X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))$ equals $\zeta(s) \cdot L(\chi, s)$, where $\zeta(s)$ is the Riemann zeta function and $L(\chi, s)$ is the Dirichlet $L$-function for the Legendre symbol character $\chi = \left(\frac{\cdot}{5}\right)$, the quadratic character modulo $5$.
+The scheme $X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))$ provides the simplest nontrivial instance of the Dedekind zeta function factorization. The polynomial $x^2 - x - 1$ has discriminant $\Delta = 1 + 4 = 5$, its splitting field is $\mathbb{Q}(\sqrt{5})$, and $\mathbb{Z}[x]/(x^2 - x - 1) \cong \mathbb{Z}\left[\frac{1+\sqrt{5}}{2}\right] = \mathcal{O}_{\mathbb{Q}(\sqrt{5})}$ is the ring of integers of $\mathbb{Q}(\sqrt{5})$.
 
-**Construction/Proof:** The polynomial $x^2 - x - 1$ has discriminant $\Delta = 1 + 4 = 5$. Its splitting field is $\mathbb{Q}(\sqrt{5})$, and $\mathbb{Z}[x]/(x^2 - x - 1) \cong \mathbb{Z}\left[\frac{1+\sqrt{5}}{2}\right]$ is the ring of integers of $\mathbb{Q}(\sqrt{5})$.
+**Splitting behavior of primes.** The structure of the fibre $X_p$ is governed by the factorization of $x^2 - x - 1$ modulo $p$. By quadratic reciprocity (applicable since $5 \equiv 1 \pmod{4}$, so $\left(\frac{5}{p}\right) = \left(\frac{p}{5}\right)$), there are three cases:
 
-**Step 1 (Splitting behavior by quadratic reciprocity):** The behavior of $X_p$ is governed by the splitting of $p$ in $\mathbb{Z}\left[\frac{1+\sqrt{5}}{2}\right]$, which depends on the Legendre symbol $\left(\frac{5}{p}\right) = \left(\frac{p}{5}\right)$ (by quadratic reciprocity, since $5 \equiv 1 \pmod{4}$):
+- **Ramified** ($p = 5$): We have $x^2 - x - 1 \equiv (x - 3)^2 \pmod{5}$, so $X_5 = \operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)$, a fat point supported at $x = 3$.
 
-- If $p = 5$ (ramified): $x^2 - x - 1 \equiv (x - 3)^2 \pmod{5}$, so $X_5 = \operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)$, a fat point.
-- If $\left(\frac{p}{5}\right) = 1$, i.e., $p \equiv 1, 4 \pmod{5}$ (split): $x^2 - x - 1$ factors into two distinct linear factors in $\mathbb{F}_p[x]$, so $X_p \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p)$.
-- If $\left(\frac{p}{5}\right) = -1$, i.e., $p \equiv 2, 3 \pmod{5}$ (inert): $x^2 - x - 1$ is irreducible over $\mathbb{F}_p$, so $X_p \cong \operatorname{Spec}(\mathbb{F}_{p^2})$, a single closed point with residue field $\mathbb{F}_{p^2}$.
+- **Split** ($\left(\frac{p}{5}\right) = 1$, i.e., $p \equiv \pm 1 \pmod{5}$): The polynomial $x^2 - x - 1$ has two distinct roots in $\mathbb{F}_p$, so $X_p \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p)$.
 
-**Step 2 (Local zeta functions):**
+- **Inert** ($\left(\frac{p}{5}\right) = -1$, i.e., $p \equiv \pm 2 \pmod{5}$): The polynomial $x^2 - x - 1$ is irreducible over $\mathbb{F}_p$, so $X_p \cong \operatorname{Spec}(\mathbb{F}_{p^2})$, a single closed point with residue field $\mathbb{F}_{p^2}$.
 
-*Case $p = 5$:* The scheme $\operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)$ has the same $\mathbb{F}_{p^n}$-points as $\operatorname{Spec}(\mathbb{F}_5[x]/(x-3)) = \operatorname{Spec}(\mathbb{F}_5)$ for any field extension, since a ring homomorphism $\mathbb{F}_5[x]/(x-3)^2 \to \mathbb{F}_{5^n}$ is determined by the image of $x$, which must satisfy $(x-3)^2 = 0$, hence $x = 3$ (as $\mathbb{F}_{5^n}$ is reduced). Thus $\# X_5(\mathbb{F}_{5^n}) = 1$ and
+**Local zeta functions.** For $p = 5$: a ring homomorphism $\mathbb{F}_5[x]/(x-3)^2 \to \mathbb{F}_{5^n}$ must send $x$ to an element satisfying $(x-3)^2 = 0$; since $\mathbb{F}_{5^n}$ is reduced, this forces $x = 3$, so $\# X_5(\mathbb{F}_{5^n}) = 1$ and $Z(X_5, t) = \frac{1}{1 - t}$.
 
-$$
-Z(X_5, t) = \frac{1}{1 - t}.
+For split primes: $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$, giving $Z(X_p, t) = \frac{1}{(1-t)^2}$.
 
-$$
-
-*Case $p \equiv 1, 4 \pmod{5}$ (split):* Here $X_p$ consists of two $\mathbb{F}_p$-rational points, so $\# X_p(\mathbb{F}_{p^n}) = 2$ for all $n \geq 1$, giving
+For inert primes: an $\mathbb{F}_{p^n}$-point of $\operatorname{Spec}(\mathbb{F}_{p^2})$ is a homomorphism $\mathbb{F}_{p^2} \to \mathbb{F}_{p^n}$, which exists if and only if $2 \mid n$. So $\# X_p(\mathbb{F}_{p^n}) = 1$ if $2 \mid n$ and $0$ otherwise, giving
 
 $$
-Z(X_p, t) = \frac{1}{(1-t)^2}.
+Z(X_p, t) = \exp\left(\sum_{m=1}^{\infty} \frac{t^{2m}}{m}\right) = \frac{1}{1 - t^2} = \frac{1}{(1-t)(1+t)}.
 
 $$
 
-*Case $p \equiv 2, 3 \pmod{5}$ (inert):* Here $X_p = \operatorname{Spec}(\mathbb{F}_{p^2})$. An $\mathbb{F}_{p^n}$-point corresponds to a ring homomorphism $\mathbb{F}_{p^2} \to \mathbb{F}_{p^n}$, which exists if and only if $2 \mid n$ (since $\mathbb{F}_{p^2} \hookrightarrow \mathbb{F}_{p^n}$ if and only if $2 \mid n$). When it exists, it is unique as a point of the spectrum (there are $\operatorname{Gal}(\mathbb{F}_{p^2}/\mathbb{F}_p)$-conjugate embeddings, but they give the same closed point). Thus $\# X_p(\mathbb{F}_{p^n}) = 0$ if $n$ is odd and $\# X_p(\mathbb{F}_{p^n}) = 1$ if $n$ is even, giving
+**Global zeta function.** Assembling the Euler product:
 
 $$
-Z(X_p, t) = \exp\left(\sum_{m=1}^{\infty} \frac{t^{2m}}{m}\right) = \exp(-\ln(1 - t^2)) = \frac{1}{1 - t^2}.
-
-$$
-
-**Step 3 (Global zeta function):** Assembling the Euler product:
-
-$$
-\begin{aligned}
-\zeta(X, s) &= Z(X_5, 5^{-s}) \cdot \prod_{p \equiv 1,4 \pmod{5}} \frac{1}{(1 - p^{-s})^2} \cdot \prod_{p \equiv 2,3 \pmod{5}} \frac{1}{1 - p^{-2s}} \\
-&= \frac{1}{1 - 5^{-s}} \cdot \prod_{p \equiv 1,4 \pmod{5}} \frac{1}{(1 - p^{-s})^2} \cdot \prod_{p \equiv 2,3 \pmod{5}} \frac{1}{(1 - p^{-s})(1 + p^{-s})}.
-\end{aligned}
+\zeta(X, s) = \frac{1}{1 - 5^{-s}} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = 1}} \frac{1}{(1 - p^{-s})^2} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = -1}} \frac{1}{(1 - p^{-s})(1 + p^{-s})}.
 
 $$
 
-Now observe that for split primes $\left(\frac{p}{5}\right) = 1$, we have $\frac{1}{(1-p^{-s})^2} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$, and for inert primes $\left(\frac{p}{5}\right) = -1$, we have $\frac{1}{1-p^{-2s}} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1+p^{-s}} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$. Therefore:
+Each local factor can be rewritten uniformly. For split primes, $\frac{1}{(1-p^{-s})^2} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$ since $\left(\frac{p}{5}\right) = 1$. For inert primes, $\frac{1}{(1-p^{-s})(1+p^{-s})} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}$ since $\left(\frac{p}{5}\right) = -1$. Therefore
 
 $$
-\begin{aligned}
-\zeta(X, s) &= \prod_p \frac{1}{1 - p^{-s}} \cdot \prod_{p \neq 5} \frac{1}{1 - \left(\frac{p}{5}\right) p^{-s}} \\
-&= \zeta(s) \cdot L(\chi, s),
-\end{aligned}
+\zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}} \cdot \prod_{p \neq 5} \frac{1}{1 - \left(\frac{p}{5}\right) p^{-s}} = \zeta(s) \cdot L(\chi, s),
 
 $$
 
-where $\chi: (\mathbb{Z}/5\mathbb{Z})^\times \to \mathbb{C}^\times$ is the Legendre symbol character $\chi(n) = \left(\frac{n}{5}\right)$, and
+where $\chi = \left(\frac{\cdot}{5}\right)$ is the Legendre symbol character modulo 5, and
 
 $$
-L(\chi, s) := \prod_{p \neq 5} \frac{1}{1 - \chi(p) p^{-s}} = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}
+L(\chi, s) = \prod_{p \neq 5} \frac{1}{1 - \chi(p) p^{-s}} = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}
 
 $$
 
-is the Dirichlet $L$-function associated to $\chi$ (where by convention $\chi(5) = 0$, so the factor at $p = 5$ is absorbed).
+is the associated Dirichlet $L$-function (with the convention $\chi(5) = 0$, so the factor at $p = 5$ is absorbed).
 
-**Key Insight:** This is the simplest nontrivial instance of the Dedekind zeta function factorization: for a number field $K/\mathbb{Q}$ of degree $d$, the Dedekind zeta function $\zeta_K(s)$ equals the zeta function of $\operatorname{Spec}(\mathcal{O}_K)$ and factors as a product of the Riemann zeta function and Artin $L$-functions. For the quadratic field $\mathbb{Q}(\sqrt{5})$, one gets $\zeta_K(s) = \zeta(s) \cdot L(\chi, s)$. The splitting behavior of primes in the ring of integers is completely governed by the Legendre symbol, connecting algebraic geometry over $\operatorname{Spec}(\mathbb{Z})$ to classical analytic number theory.
+**Verification.** We check the first few primes:
 
-**Prerequisites:** Dedekind zeta function, quadratic reciprocity, Legendre symbol, Dirichlet $L$-functions, splitting of primes in number fields, local zeta function
+| $p$ | $p \bmod 5$ | $\left(\frac{p}{5}\right)$ | Type | $X_p$ | $Z(X_p, t)$ |
+|-----|------------|----------------------------|------|--------|-------------|
+| $2$ | $2$ | $-1$ | inert | $\operatorname{Spec}(\mathbb{F}_4)$ | $\frac{1}{1-t^2}$ |
+| $3$ | $3$ | $-1$ | inert | $\operatorname{Spec}(\mathbb{F}_9)$ | $\frac{1}{1-t^2}$ |
+| $5$ | $0$ | $0$ | ramified | $\operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)$ | $\frac{1}{1-t}$ |
+| $7$ | $2$ | $-1$ | inert | $\operatorname{Spec}(\mathbb{F}_{49})$ | $\frac{1}{1-t^2}$ |
+| $11$ | $1$ | $1$ | split | $\operatorname{Spec}(\mathbb{F}_{11})^{\sqcup 2}$ | $\frac{1}{(1-t)^2}$ |
+
+For $p = 11$: we verify that $x^2 - x - 1 \equiv 0 \pmod{11}$ has roots $x = \frac{1 \pm \sqrt{5}}{2}$. Since $4 \cdot 5 = 20 \equiv 9 \pmod{11}$ and $\sqrt{9} = \pm 3$ in $\mathbb{F}_{11}$, the discriminant $\sqrt{5}$ equals $\pm 3 \cdot 2^{-1} \cdot 2 = \pm 3$ (more directly, $4^2 = 16 \equiv 5$, so $\sqrt{5} = \pm 4$), giving roots $x = \frac{1 \pm 4}{2} \equiv \frac{5}{2}, \frac{-3}{2} \equiv 8, 4 \pmod{11}$. Indeed $8^2 - 8 - 1 = 55 \equiv 0$ and $4^2 - 4 - 1 = 11 \equiv 0 \pmod{11}$.
+
+This factorization $\zeta_{\mathbb{Q}(\sqrt{5})}(s) = \zeta(s) \cdot L(\chi, s)$ is a special case of the general result that the Dedekind zeta function of an abelian extension $K/\mathbb{Q}$ factors as a product of Dirichlet $L$-functions, one for each character of $\operatorname{Gal}(K/\mathbb{Q})$.
 
 <!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))$ over $\operatorname{Spec}(\mathbb{Z})$. (a) Determine the structure of the fibre $X_p$ for $p = 2, 3, 5, 7, 11$, specifying whether $p$ is split, inert, or ramified in $\mathbb{Q}(\sqrt{5})$. (b) Compute the local zeta function $Z(X_p, t)$ for each of these primes. (c) Show that the global zeta function satisfies $\zeta(X, s) = \zeta(s) \cdot L(\chi, s)$ where $\chi$ is the quadratic character modulo $5$. -->

@@ -5,129 +5,243 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 
 ## Homological algebra
 
-### Example: $\mathrm{Hom}, \mathscr{H}om, \operatorname{Ext}^{i}_{A}(-,-), \mathscr{E}xt^{i}_{-}(-,-), \operatorname{Tor}^{i}_{-}(-,-)$ with Macaulay2 {#ecag-0227}
+### Example: $\operatorname{Hom}$, $\mathscr{H}\!om$, $\operatorname{Ext}^{i}$, $\mathscr{E}\!xt^{i}$, and $\operatorname{Tor}_{i}$ for lines in $\mathbb{P}^3$ {#ecag-0227}
 
-**Statement:** We illustrate the computation of the fundamental homological functors $\mathrm{Hom}$, $\mathscr{H}om$, $\operatorname{Ext}^{i}$, $\mathscr{E}xt^{i}$, and $\operatorname{Tor}_{i}$ using the computer algebra system Macaulay2. In particular, we compute $\mathscr{E}xt^{i}(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ for two lines $L_1, L_2$ in $\mathbb{P}^3$.
+We compute the sheaf-Ext groups $\mathscr{E}\!xt^i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ for two lines $L_1, L_2 \subset \mathbb{P}^3_k$ over an algebraically closed field $k$, illustrating the distinction between global and local homological functors.
 
-**Construction/Proof:** Recall the key distinctions among these functors:
-
-1. *Global Hom vs. sheaf Hom.* For an $A$-module $M$ and $N$, $\mathrm{Hom}_A(M, N)$ is the $A$-module of module homomorphisms. For sheaves $\mathscr{F}, \mathscr{G}$ on a scheme $X$, the sheaf $\mathscr{H}om(\mathscr{F}, \mathscr{G})$ is defined by $U \mapsto \operatorname{Hom}_{\mathcal{O}_X|_U}(\mathscr{F}|_U, \mathscr{G}|_U)$. One has $\Gamma(X, \mathscr{H}om(\mathscr{F}, \mathscr{G})) = \operatorname{Hom}_{\mathcal{O}_X}(\mathscr{F}, \mathscr{G})$.
-
-2. *Ext as derived functor.* $\operatorname{Ext}^i_A(M, N)$ is the $i$-th right derived functor of $\mathrm{Hom}_A(M, -)$ (equivalently, of $\mathrm{Hom}_A(-, N)$). In Macaulay2, given a ring $R$, modules $M, N$, one computes $\operatorname{Ext}^i(M, N)$ via `Ext^i(M, N)`.
-
-3. *Sheaf Ext.* $\mathscr{E}xt^i(\mathscr{F}, \mathscr{G})$ is the sheafification of the presheaf $U \mapsto \operatorname{Ext}^i_{\mathcal{O}_X(U)}(\mathscr{F}(U), \mathscr{G}(U))$. For coherent sheaves on projective space, Macaulay2 computes this via the module $\operatorname{Ext}^i_S(M, N)$ over the homogeneous coordinate ring $S$, then sheafifying.
-
-4. *Tor.* $\operatorname{Tor}_i^A(M, N)$ is the $i$-th left derived functor of $M \otimes_A -$. In Macaulay2, one computes it via `Tor_i(M, N)`.
-
-5. *Concrete example:* Let $L_1, L_2 \subset \mathbb{P}^3$ be two skew lines. In Macaulay2, set $S = k[x_0, x_1, x_2, x_3]$ and define ideals $I_1, I_2$ cutting out $L_1, L_2$. Then $\mathscr{E}xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0$ (since the lines are disjoint), while $\mathscr{E}xt^2(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ is computed from the module $\operatorname{Ext}^2_S(S/I_1, S/I_2)$. If the lines meet at a point $p$, then $\mathscr{E}xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ is supported at $p$.
-
-**References:**
-
-- [Computing with sheaves and sheaf cohomology in algebraic geometry (Stillman, SWC 2006)](http://swc.math.arizona.edu/aws/2006/06StillmanNotes.pdf)
-- [Computing with sheaves and sheaf cohomology in algebraic geometry (Stillman, Osaka 2015)](http://www.math.sci.osaka-u.ac.jp/~msj-si-2015/school_slides/stillman-day2.pdf)
-- [$\mathscr{E}xt^{i}(\mathcal{O}_{L_{1}},\mathcal{O}_{L_{2}})$ for two lines $L_{1}, L_{2}$ in $\mathbb{P}^{3}$ (Math StackExchange)](https://math.stackexchange.com/questions/1550511/mathcalexti-mathcalo-l-1-mathcalo-l-2-and-textexti-mathc?rq=1)
-
-**Key Insight:** The distinction between the global functor $\operatorname{Ext}^i$ and the sheaf functor $\mathscr{E}xt^i$ is crucial: $\operatorname{Ext}^i$ captures global extension classes while $\mathscr{E}xt^i$ captures local information and is itself a sheaf. Macaulay2 makes these abstract constructions computationally accessible, allowing explicit verification of vanishing and support conditions.
-
-**Prerequisites:** Derived functors, Hom and tensor product of modules, coherent sheaves on projective space, Macaulay2 basics
-
-<!-- BENCHMARK_PROBLEM: Let $L_1$ and $L_2$ be two disjoint lines in $\mathbb{P}^3_k$ over an algebraically closed field $k$. Show that $\mathscr{E}xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0$. What is the support of $\mathscr{E}xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ when $L_1$ and $L_2$ meet at a single point? -->
-
-### Example: $\operatorname{Ext}^{1}$ and extension of vector bundles {#ecag-0228}
-
-**Statement:** We classify extensions of line bundles on $\mathbb{P}^1$ via $\operatorname{Ext}^1$. Specifically, elements of $\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(-2), \mathcal{O}_{\mathbb{P}^1}(2))$ parametrize isomorphism classes of short exact sequences of vector bundles on $\mathbb{P}^1$.
-
-**Construction/Proof:**
-
-1. *Setup.* Let $X = \mathbb{P}^1_k$. Consider the Ext group
+**Global vs. local functors.** For coherent sheaves $\mathscr{F}, \mathscr{G}$ on a scheme $X$, the global $\operatorname{Hom}$ and its derived functors $\operatorname{Ext}^i$ are abelian groups (or $k$-vector spaces), while the sheaf $\mathscr{H}\!om$ and its derived functors $\mathscr{E}\!xt^i$ are sheaves on $X$. They are related by the local-to-global spectral sequence
 
 $$
-\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(-2), \mathcal{O}_{\mathbb{P}^1}(2)).
+E_2^{p,q} = H^p(X, \mathscr{E}\!xt^q(\mathscr{F}, \mathscr{G})) \implies \operatorname{Ext}^{p+q}(\mathscr{F}, \mathscr{G}).
 
 $$
 
-By the standard adjunction and Serre duality computation, we have
+At the level of stalks, $\mathscr{E}\!xt^i(\mathscr{F}, \mathscr{G})_x \cong \operatorname{Ext}^i_{\mathcal{O}_{X,x}}(\mathscr{F}_x, \mathscr{G}_x)$, so $\mathscr{E}\!xt^i$ detects local extension phenomena.
+
+**Setup.** Let $S = k[x_0, x_1, x_2, x_3]$ be the homogeneous coordinate ring of $\mathbb{P}^3$. Take two lines:
+
+- $L_1 = V(x_0, x_1)$, with ideal $I_1 = (x_0, x_1)$ and structure sheaf $\mathcal{O}_{L_1} = \widetilde{S/I_1}$.
+- $L_2 = V(x_2, x_3)$, with ideal $I_2 = (x_2, x_3)$ and structure sheaf $\mathcal{O}_{L_2} = \widetilde{S/I_2}$.
+
+These two lines are disjoint: $L_1 \cap L_2 = V(x_0, x_1, x_2, x_3) = \emptyset$ in $\mathbb{P}^3$.
+
+**Resolution of $\mathcal{O}_{L_1}$.** The ideal $I_1 = (x_0, x_1)$ is generated by a regular sequence of length 2, so $\mathcal{O}_{L_1}$ admits the Koszul resolution
 
 $$
-\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(-2), \mathcal{O}_{\mathbb{P}^1}(2)) \cong H^1(\mathbb{P}^1, \mathcal{O}_{\mathbb{P}^1}(4)).
-
-$$
-
-Since $\deg(\mathcal{O}(4)) = 4 \geq 0$, by the standard cohomology of line bundles on $\mathbb{P}^1$ we get $H^1(\mathbb{P}^1, \mathcal{O}(4)) = 0$. Therefore
-
-$$
-\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(-2), \mathcal{O}_{\mathbb{P}^1}(2)) = 0.
-
-$$
-
-This means every short exact sequence $0 \to \mathcal{O}(2) \to \mathscr{E} \to \mathcal{O}(-2) \to 0$ splits, so $\mathscr{E} \cong \mathcal{O}(2) \oplus \mathcal{O}(-2)$.
-
-2. *A nontrivial case.* Now consider
-
-$$
-\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(2), \mathcal{O}_{\mathbb{P}^1}(-2)) \cong H^1(\mathbb{P}^1, \mathcal{O}_{\mathbb{P}^1}(-4)).
+0 \to \mathcal{O}_{\mathbb{P}^3}(-2) \xrightarrow{\begin{psmallmatrix} -x_1 \\ x_0 \end{psmallmatrix}} \mathcal{O}_{\mathbb{P}^3}(-1)^{\oplus 2} \xrightarrow{(x_0, x_1)} \mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_{L_1} \to 0.
 
 $$
 
-By Serre duality, $H^1(\mathbb{P}^1, \mathcal{O}(-4)) \cong H^0(\mathbb{P}^1, \mathcal{O}(2))^{\vee}$, which has dimension $3$. So there is a $3$-dimensional family of extensions
+**Computing $\mathscr{E}\!xt^i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$.** Apply $\mathscr{H}\!om(-, \mathcal{O}_{L_2})$ to the Koszul resolution. Since $\mathscr{H}\!om(\mathcal{O}_{\mathbb{P}^3}(a), \mathcal{O}_{L_2}) \cong \mathcal{O}_{L_2}(-a)$, the resulting complex is
+
+$$
+0 \to \mathcal{O}_{L_2} \xrightarrow{(x_0, x_1)^T} \mathcal{O}_{L_2}(1)^{\oplus 2} \xrightarrow{(-x_1, x_0)} \mathcal{O}_{L_2}(2) \to 0.
+
+$$
+
+Now $L_2 = V(x_2, x_3)$, so $x_0$ and $x_1$ restrict to the homogeneous coordinates on $L_2 \cong \mathbb{P}^1$, and in particular are not zero on $L_2$. The first map $\mathcal{O}_{L_2} \to \mathcal{O}_{L_2}(1)^{\oplus 2}$ given by $f \mapsto (x_0 f, x_1 f)$ is injective (since $x_0, x_1$ are not both zero at any point of $L_2$). Taking cohomology of the complex:
+
+- $\mathscr{E}\!xt^0(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = \ker\left(\mathcal{O}_{L_2} \xrightarrow{(x_0, x_1)^T} \mathcal{O}_{L_2}(1)^2\right)$. Since the lines are disjoint, there are no nonzero morphisms $\mathcal{O}_{L_1} \to \mathcal{O}_{L_2}$: any such morphism factors through $\mathcal{O}_{L_1 \cap L_2} = 0$. Alternatively, the map is injective as noted, so $\mathscr{E}\!xt^0 = 0$.
+
+- $\mathscr{E}\!xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ is the cohomology at the middle term. On $L_2 \cong \mathbb{P}^1$ with coordinates $[x_0, x_1]$, the sequence $0 \to \mathcal{O}_{L_2} \to \mathcal{O}_{L_2}(1)^2 \to \mathcal{O}_{L_2}(2) \to 0$ is precisely the Koszul complex of the regular sequence $(x_0, x_1)$ on $\mathbb{P}^1$, twisted from the Euler sequence. This complex is exact, so $\mathscr{E}\!xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0$.
+
+- $\mathscr{E}\!xt^2(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = \operatorname{coker}\left(\mathcal{O}_{L_2}(1)^2 \xrightarrow{(-x_1, x_0)} \mathcal{O}_{L_2}(2)\right)$. By the exactness of the Koszul complex, the map is surjective, so $\mathscr{E}\!xt^2 = 0$ as well.
+
+In summary, when $L_1 \cap L_2 = \emptyset$:
+
+$$
+\mathscr{E}\!xt^i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0 \quad \text{for all } i \geq 0.
+
+$$
+
+This is a general phenomenon: $\mathscr{E}\!xt^i(\mathscr{F}, \mathscr{G})$ is supported on $\operatorname{Supp}(\mathscr{F}) \cap \operatorname{Supp}(\mathscr{G})$, so disjoint supports force all sheaf-Ext's to vanish.
+
+**When the lines meet.** Now suppose $L_1$ and $L_2$ intersect at a single point $p$. For instance, take $L_1 = V(x_0, x_1)$ and $L_2 = V(x_0, x_2)$, which meet at $p = [0:0:0:1]$. The support of $\mathscr{E}\!xt^i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ is contained in $\{p\}$, and a local computation at $p$ (or a Macaulay2 computation over the homogeneous coordinate ring) gives
+
+$$
+\mathscr{E}\!xt^1(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) \cong k_p, \qquad \mathscr{E}\!xt^2(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) \cong k_p,
+
+$$
+
+where $k_p$ denotes the skyscraper sheaf at $p$ with stalk $k$. The local computation uses the Koszul resolution of $\mathcal{O}_{L_1}$ as before, but now $x_0$ restricts to zero on $L_2$ (since $x_0 \in I_2$), so the maps in the dual complex have nontrivial kernel and cokernel at $p$.
+
+**The Tor side.** For completeness, the derived tensor product $\operatorname{Tor}_i^{\mathcal{O}_{\mathbb{P}^3}}(\mathcal{O}_{L_1}, \mathcal{O}_{L_2})$ computes the "intersection" of $L_1$ and $L_2$ in the derived sense. Tensoring the Koszul resolution of $\mathcal{O}_{L_1}$ with $\mathcal{O}_{L_2}$:
+
+$$
+0 \to \mathcal{O}_{L_2}(-2) \to \mathcal{O}_{L_2}(-1)^{\oplus 2} \to \mathcal{O}_{L_2} \to 0.
+
+$$
+
+For disjoint lines, this complex is exact (by the same argument as above: $x_0, x_1$ form a regular sequence on $L_2$), so $\operatorname{Tor}_i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0$ for all $i$, consistent with $L_1 \cap L_2 = \emptyset$. For intersecting lines meeting at $p$, one obtains $\operatorname{Tor}_0 \cong k_p$ (the structure sheaf of the intersection point) and $\operatorname{Tor}_1 \cong k_p$ (detecting the excess intersection).
+
+<!-- BENCHMARK_PROBLEM: Let $L_1$ and $L_2$ be two disjoint lines in $\mathbb{P}^3_k$ over an algebraically closed field $k$. Using the Koszul resolution of $\mathcal{O}_{L_1}$ and the fact that the defining equations of $L_1$ restrict to a regular sequence on $L_2$, show that $\mathscr{E}xt^i(\mathcal{O}_{L_1}, \mathcal{O}_{L_2}) = 0$ for all $i$. What changes when $L_1 \cap L_2$ is a single point? -->
+
+### Example: $\operatorname{Ext}^{1}$ and extensions of line bundles on $\mathbb{P}^1$ {#ecag-0228}
+
+We classify extensions of line bundles on $\mathbb{P}^1_k$ via $\operatorname{Ext}^1$, using the cohomology of line bundles and Grothendieck's splitting theorem to determine all possible middle terms.
+
+**The Ext computation.** For line bundles $\mathcal{O}(a)$ and $\mathcal{O}(b)$ on $\mathbb{P}^1$,
+
+$$
+\operatorname{Ext}^1(\mathcal{O}(a), \mathcal{O}(b)) \cong H^1(\mathbb{P}^1, \mathscr{H}\!om(\mathcal{O}(a), \mathcal{O}(b))) = H^1(\mathbb{P}^1, \mathcal{O}(b-a)).
+
+$$
+
+The cohomology of line bundles on $\mathbb{P}^1$ is:
+
+$$
+h^0(\mathbb{P}^1, \mathcal{O}(n)) = \max(n+1, 0), \qquad h^1(\mathbb{P}^1, \mathcal{O}(n)) = \max(-n-1, 0).
+
+$$
+
+(The second formula follows from Serre duality: $H^1(\mathbb{P}^1, \mathcal{O}(n)) \cong H^0(\mathbb{P}^1, \mathcal{O}(-n-2))^{\vee}$, using $\omega_{\mathbb{P}^1} = \mathcal{O}(-2)$.) Therefore
+
+$$
+\dim_k \operatorname{Ext}^1(\mathcal{O}(a), \mathcal{O}(b)) = h^1(\mathbb{P}^1, \mathcal{O}(b-a)) = \max(a - b - 1,\, 0).
+
+$$
+
+This is nonzero precisely when $a \geq b + 2$, i.e., when the "source" line bundle has degree at least 2 more than the "target."
+
+| $a - b$ | $\dim \operatorname{Ext}^1(\mathcal{O}(a), \mathcal{O}(b))$ | Extensions |
+|---------|-------------------------------------------------------------|------------|
+| $\leq 1$ | $0$ | All split |
+| $2$ | $1$ | Unique nonsplit (up to scalar) |
+| $3$ | $2$ | $\mathbb{P}^1$-family of nonsplit |
+| $d \geq 2$ | $d - 1$ | $(d-1)$-dimensional |
+
+**A trivial case: $\operatorname{Ext}^1(\mathcal{O}(-2), \mathcal{O}(2))$.** Here $a - b = -4 < 2$, so $\operatorname{Ext}^1(\mathcal{O}(-2), \mathcal{O}(2)) = 0$. Every short exact sequence
+
+$$
+0 \to \mathcal{O}(2) \to \mathscr{E} \to \mathcal{O}(-2) \to 0
+
+$$
+
+splits, giving $\mathscr{E} \cong \mathcal{O}(2) \oplus \mathcal{O}(-2)$.
+
+**A nontrivial case: $\operatorname{Ext}^1(\mathcal{O}(2), \mathcal{O}(-2))$.** Now $a - b = 4$, so $\operatorname{Ext}^1(\mathcal{O}(2), \mathcal{O}(-2)) \cong H^1(\mathbb{P}^1, \mathcal{O}(-4))$. By Serre duality,
+
+$$
+H^1(\mathbb{P}^1, \mathcal{O}(-4)) \cong H^0(\mathbb{P}^1, \mathcal{O}(2))^{\vee} \cong k^3,
+
+$$
+
+since $H^0(\mathbb{P}^1, \mathcal{O}(2))$ has the basis $\{x_0^2, x_0 x_1, x_1^2\}$. So there is a 3-dimensional space of extensions
 
 $$
 0 \to \mathcal{O}(-2) \to \mathscr{E} \to \mathcal{O}(2) \to 0.
 
 $$
 
-By Grothendieck's theorem, every vector bundle on $\mathbb{P}^1$ splits as a direct sum of line bundles, so $\mathscr{E} \cong \mathcal{O}(a) \oplus \mathcal{O}(b)$ with $a + b = 0$. For the zero element in $\operatorname{Ext}^1$, we get the split extension $\mathscr{E} \cong \mathcal{O}(2) \oplus \mathcal{O}(-2)$. For a nonzero element, one can show $\mathscr{E} \cong \mathcal{O} \oplus \mathcal{O}$ or $\mathscr{E} \cong \mathcal{O}(1) \oplus \mathcal{O}(-1)$, depending on the specific extension class.
+**Classifying the middle terms.** By Grothendieck's theorem, every vector bundle on $\mathbb{P}^1$ splits as a direct sum of line bundles. The middle term of any extension is $\mathscr{E} \cong \mathcal{O}(a') \oplus \mathcal{O}(b')$ for some integers $a' \geq b'$. Two constraints determine the possibilities:
 
-3. *Birkhoff-Grothendieck classification.* By Grothendieck's theorem, the middle term $\mathscr{E}$ of any extension on $\mathbb{P}^1$ must split. The constraint $\det(\mathscr{E}) = \mathcal{O}(a+b) = \mathcal{O}(-2+2) = \mathcal{O}$ forces $a + b = 0$. The possible bundles are $\mathcal{O}(n) \oplus \mathcal{O}(-n)$ for $n \geq 0$, subject to the constraint that $\mathscr{E}$ admits a surjection onto $\mathcal{O}(2)$, which forces $n \leq 2$.
+1. *Determinant constraint:* $\det(\mathscr{E}) = \mathcal{O}(a' + b') \cong \mathcal{O}(-2 + 2) = \mathcal{O}$, so $a' + b' = 0$, i.e., $\mathscr{E} \cong \mathcal{O}(m) \oplus \mathcal{O}(-m)$ for some $m \geq 0$.
 
-**References:**
+2. *Quotient constraint:* There must be a surjection $\mathscr{E} \twoheadrightarrow \mathcal{O}(2)$. For $\mathscr{E} = \mathcal{O}(m) \oplus \mathcal{O}(-m)$, a surjection onto $\mathcal{O}(2)$ requires $\operatorname{Hom}(\mathcal{O}(m) \oplus \mathcal{O}(-m), \mathcal{O}(2)) = H^0(\mathcal{O}(2-m)) \oplus H^0(\mathcal{O}(2+m))$ to contain an element whose image generates $\mathcal{O}(2)$ at every point. The component $H^0(\mathcal{O}(2-m))$ is nonzero only when $m \leq 2$, and the surjectivity condition requires $m \leq 2$.
 
-- [Vector bundles in $\operatorname{Ext}^{1}(\mathcal{O}_{\mathbb{P}^{1}}(-2), \mathcal{O}_{\mathbb{P}^{1}}(2))$ (Math StackExchange)](https://math.stackexchange.com/questions/1529355/vector-bundles-in-textext1-mathcalo-mathbbp12-mathcalo-math?rq=1)
-- [Extensions of vector bundles on $\mathbb{P}^{1}$ (Math StackExchange)](https://math.stackexchange.com/questions/1601588/extension-of-vector-bundles-on-mathbbcp1?rq=1)
+The possible middle terms are therefore $\mathcal{O}(m) \oplus \mathcal{O}(-m)$ for $m = 0, 1, 2$:
 
-**Key Insight:** On $\mathbb{P}^1$, Grothendieck's splitting theorem rigidly constrains the middle terms of extensions. The vanishing or non-vanishing of $\operatorname{Ext}^1$ between line bundles is governed entirely by the cohomology of twist sheaves $\mathcal{O}(n)$, making $\mathbb{P}^1$ an ideal testing ground for extension computations.
+| $m$ | $\mathscr{E}$ | Extension type |
+|-----|---------------|----------------|
+| $2$ | $\mathcal{O}(2) \oplus \mathcal{O}(-2)$ | Split (the zero class in $\operatorname{Ext}^1$) |
+| $1$ | $\mathcal{O}(1) \oplus \mathcal{O}(-1)$ | Nonsplit |
+| $0$ | $\mathcal{O} \oplus \mathcal{O}$ | Nonsplit |
 
-**Prerequisites:** Cohomology of line bundles on $\mathbb{P}^1$, Serre duality, Grothendieck's splitting theorem, Ext groups as derived functors
+To see that $m = 1$ and $m = 0$ both occur, note that extension classes in $\operatorname{Ext}^1(\mathcal{O}(2), \mathcal{O}(-2)) \cong k^3$ are acted on by $\operatorname{Aut}(\mathcal{O}(2)) \times \operatorname{Aut}(\mathcal{O}(-2)) \cong k^* \times k^*$, which rescales but preserves the splitting type of the middle term. A general (generic) nonzero class gives $m = 0$, while special classes on a certain discriminant locus give $m = 1$. Explicitly, the extension class corresponding to a nonzero element $\xi \in H^1(\mathbb{P}^1, \mathcal{O}(-4))$ gives $\mathscr{E} \cong \mathcal{O}(1) \oplus \mathcal{O}(-1)$ when the Čech cocycle representing $\xi$ has a zero (i.e., the corresponding map $\mathcal{O}(2) \to \mathcal{O}(-2)$ on the overlap $U_{01}$ vanishes at some point), and $\mathscr{E} \cong \mathcal{O} \oplus \mathcal{O}$ for a generic cocycle.
+
+**Verification.** For the $m = 0$ case, the Euler exact sequence on $\mathbb{P}^1$ provides a concrete example. The tangent bundle $T_{\mathbb{P}^1} \cong \mathcal{O}(2)$ sits in the Euler sequence
+
+$$
+0 \to \mathcal{O} \to \mathcal{O}(1)^{\oplus 2} \to \mathcal{O}(2) \to 0.
+
+$$
+
+Twisting by $\mathcal{O}(-2)$ gives $0 \to \mathcal{O}(-2) \to \mathcal{O}(-1)^{\oplus 2} \to \mathcal{O} \to 0$, and dualizing yields $0 \to \mathcal{O} \to \mathcal{O}(1)^{\oplus 2} \to \mathcal{O}(2) \to 0$ again. Taking the sequence $0 \to \mathcal{O}(-2) \to \mathcal{O}(-1)^2 \to \mathcal{O} \to 0$, this is an extension of $\mathcal{O}$ by $\mathcal{O}(-2)$ with middle term $\mathcal{O}(-1)^2$, which is an instance of $m = 1$ in the $\operatorname{Ext}^1(\mathcal{O}(0), \mathcal{O}(-2))$ case ($a - b = 2$, one-dimensional Ext).
 
 <!-- BENCHMARK_PROBLEM: Compute $\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1}(a), \mathcal{O}_{\mathbb{P}^1}(b))$ as a function of $a, b \in \mathbb{Z}$. For which values of $a, b$ is this group nonzero? When it is nonzero, give its dimension over $k$. -->
 
-### Remark {#ecag-0229}
+### Remark: $\operatorname{Ext}^1_{\mathbb{Z}}$ for abelian groups {#ecag-0229}
 
-This remark collects computations of $\operatorname{Ext}^1_{\mathbf{Z}}(A, B)$ for various abelian groups $A, B$, illustrating two key vanishing principles and the use of free resolutions.
+We compute $\operatorname{Ext}^1_{\mathbb{Z}}(A, B)$ for various finitely generated and classical abelian groups, illustrating the interplay of projectivity, injectivity (divisibility), and free resolutions.
 
-**Vanishing principles.** $\operatorname{Ext}^1_{\mathbf{Z}}(A, B) = 0$ for any $B$ if $A$ is a free abelian group (since free modules are projective, so $\operatorname{Ext}^i$ vanishes for $i \geq 1$). Similarly, $\operatorname{Ext}^1_{\mathbf{Z}}(A, B) = 0$ for any $A$ if $B$ is divisible (i.e., $\forall b \in B$, $0 \neq n \in \mathbf{Z}$, $\exists b' \in B$ such that $nb' = b$), since divisible abelian groups are injective. Thus:
-
-$$
-\operatorname{Ext}^1(\mathbf{Z}, \mathbf{Z}) = 0, \quad \operatorname{Ext}^1(\mathbf{Z}, \mathbf{Q}) = 0
+**Vanishing from projectivity.** A free abelian group $F$ is projective, so $\operatorname{Ext}^i_{\mathbb{Z}}(F, B) = 0$ for all $i \geq 1$ and all $B$. Since $\mathbb{Z}$ is a PID, projective $\Leftrightarrow$ free $\Leftrightarrow$ torsion-free for finitely generated modules, so this gives
 
 $$
-
-$$
-\operatorname{Ext}^1(\mathbf{Z}/n\mathbf{Z}, \mathbf{Q}) = 0, \quad \operatorname{Ext}^1(\mathbf{Q}, \mathbf{Q}) = 0.
+\operatorname{Ext}^1(\mathbb{Z}, B) = 0 \quad \text{for all } B.
 
 $$
 
-**Computation via free resolutions.** For $\mathbf{Z}/n\mathbf{Z}$, we have the free resolution
+**Vanishing from injectivity.** Over $\mathbb{Z}$, a module is injective if and only if it is divisible (Baer's criterion). The groups $\mathbb{Q}$, $\mathbb{Q}/\mathbb{Z}$, and $\mathbb{R}$ are divisible, hence injective. Therefore
 
 $$
-0 \to \mathbf{Z} \xrightarrow{\cdot n} \mathbf{Z} \to \mathbf{Z}/n\mathbf{Z} \to 0.
-
-$$
-
-Applying $\operatorname{Hom}(-, \mathbf{Z})$ gives $0 \to \mathbf{Z} \xrightarrow{\cdot n} \mathbf{Z}$, whose cokernel is $\mathbf{Z}/n\mathbf{Z}$. Applying $\operatorname{Hom}(-, \mathbf{Z}/m\mathbf{Z})$ gives $0 \to \mathbf{Z}/m\mathbf{Z} \xrightarrow{\cdot n} \mathbf{Z}/m\mathbf{Z}$, whose cokernel is $\mathbf{Z}/\gcd(m,n)\mathbf{Z}$. Therefore:
-
-$$
-\operatorname{Ext}^1(\mathbf{Z}/n\mathbf{Z}, \mathbf{Z}) = \mathbf{Z}/n\mathbf{Z}, \quad \operatorname{Ext}^1(\mathbf{Z}/m\mathbf{Z}, \mathbf{Z}/n\mathbf{Z}) = \mathbf{Z}/\gcd(m,n)\mathbf{Z}.
+\operatorname{Ext}^1(A, \mathbb{Q}) = 0, \quad \operatorname{Ext}^1(A, \mathbb{Q}/\mathbb{Z}) = 0 \quad \text{for all } A.
 
 $$
 
-**Torsion-versus-divisibility argument.** To show $\operatorname{Ext}^1(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z}) = 0$: take any free resolution of $\mathbf{Q}$ and apply $\operatorname{Hom}(-, \mathbf{Z}/m\mathbf{Z})$. Since $\mathbf{Z}/m\mathbf{Z}$ is $m$-torsion, $\operatorname{Ext}^1(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z})$ is $m$-torsion. On the other hand, $\mathbf{Q}$ is a $\mathbf{Q}$-module, so the scalar multiplication by any nonzero integer $n$ on $\mathbf{Q}$ is an isomorphism. This induces an isomorphism on $\operatorname{Ext}^1(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z})$ via functoriality, giving it a $\mathbf{Q}$-vector space structure. An abelian group that is simultaneously $m$-torsion and a $\mathbf{Q}$-vector space must be zero. Hence:
+**Computation via the free resolution of $\mathbb{Z}/n\mathbb{Z}$.** The cyclic group $\mathbb{Z}/n\mathbb{Z}$ has the free resolution
 
 $$
-\operatorname{Ext}^1(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z}) = 0.
+0 \to \mathbb{Z} \xrightarrow{\cdot\, n} \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z} \to 0.
 
 $$
 
-Note: the computation of $\operatorname{Ext}^1(\mathbf{Q}, \mathbf{Z})$ is considerably more subtle. One can show $\operatorname{Ext}^1_{\mathbf{Z}}(\mathbf{Q}, \mathbf{Z}) \cong \widehat{\mathbf{Z}} / \mathbf{Z}$, where $\widehat{\mathbf{Z}} = \prod_p \mathbf{Z}_p$ is the profinite completion of $\mathbf{Z}$. This is a large, uncountable, torsion-free, divisible group.
+Applying $\operatorname{Hom}_{\mathbb{Z}}(-, B)$ to the deleted resolution $0 \to \mathbb{Z} \xrightarrow{\cdot\, n} \mathbb{Z} \to 0$ gives the complex
+
+$$
+0 \to B \xrightarrow{\cdot\, n} B \to 0,
+
+$$
+
+since $\operatorname{Hom}(\mathbb{Z}, B) \cong B$ canonically and the induced map is multiplication by $n$. Therefore
+
+$$
+\operatorname{Ext}^0(\mathbb{Z}/n\mathbb{Z}, B) = \ker(B \xrightarrow{\cdot\, n} B) = B[n], \qquad \operatorname{Ext}^1(\mathbb{Z}/n\mathbb{Z}, B) = B / nB.
+
+$$
+
+Since $\mathbb{Z}$ has global dimension 1, $\operatorname{Ext}^i(\mathbb{Z}/n\mathbb{Z}, B) = 0$ for $i \geq 2$.
+
+Specializing to particular targets:
+
+| $A$ | $B$ | $\operatorname{Ext}^1(A, B)$ | Reason |
+|-----|-----|------------------------------|--------|
+| $\mathbb{Z}/n\mathbb{Z}$ | $\mathbb{Z}$ | $\mathbb{Z}/n\mathbb{Z}$ | $\mathbb{Z}/n\mathbb{Z} = \mathbb{Z}/n\mathbb{Z}$ |
+| $\mathbb{Z}/n\mathbb{Z}$ | $\mathbb{Z}/m\mathbb{Z}$ | $\mathbb{Z}/\gcd(m,n)\mathbb{Z}$ | $(\mathbb{Z}/m\mathbb{Z})/n(\mathbb{Z}/m\mathbb{Z}) \cong \mathbb{Z}/\gcd(m,n)\mathbb{Z}$ |
+| $\mathbb{Z}/n\mathbb{Z}$ | $\mathbb{Q}$ | $0$ | $\mathbb{Q}/n\mathbb{Q} = 0$ ($\mathbb{Q}$ is divisible) |
+| $\mathbb{Z}$ | any $B$ | $0$ | $\mathbb{Z}$ is free |
+
+For the entry $\operatorname{Ext}^1(\mathbb{Z}/n\mathbb{Z}, \mathbb{Z}/m\mathbb{Z})$: the image of $n$ in $\mathbb{Z}/m\mathbb{Z}$ is $\bar{n} = n \bmod m$, and $(\mathbb{Z}/m\mathbb{Z}) / \langle \bar{n} \rangle \cong \mathbb{Z}/\gcd(m,n)\mathbb{Z}$. This is because the image of the multiplication-by-$n$ map on $\mathbb{Z}/m\mathbb{Z}$ is $\gcd(m,n) \cdot (\mathbb{Z}/m\mathbb{Z}) \cong \mathbb{Z}/(m/\gcd(m,n))\mathbb{Z}$, so the cokernel has order $\gcd(m,n)$.
+
+**The case $\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z}) = 0$.** This requires a different argument since $\mathbb{Q}$ is not finitely generated. For any nonzero integer $n$, the multiplication map $n : \mathbb{Q} \to \mathbb{Q}$ is an isomorphism. By functoriality of $\operatorname{Ext}$, the induced map $n : \operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z}) \to \operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z})$ is also an isomorphism. This gives $\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z})$ the structure of a $\mathbb{Q}$-vector space (since every nonzero integer acts invertibly).
+
+On the other hand, the target $\mathbb{Z}/m\mathbb{Z}$ is $m$-torsion, and $\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z})$ is a quotient of a module built from $\operatorname{Hom}$ groups into $\mathbb{Z}/m\mathbb{Z}$. More precisely, from any free resolution $0 \to F_1 \to F_0 \to \mathbb{Q} \to 0$ (e.g., the one where $F_0 = \bigoplus_{n \geq 1} \mathbb{Z}$ maps to $\mathbb{Q}$ by sending the $n$-th generator to $1/n!$), the group $\operatorname{Ext}^1$ is a subquotient of $\operatorname{Hom}(F_1, \mathbb{Z}/m\mathbb{Z})$, which is $m$-torsion. An abelian group that is simultaneously a $\mathbb{Q}$-vector space and $m$-torsion must be zero:
+
+$$
+\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}/m\mathbb{Z}) = 0.
+
+$$
+
+**The subtle case $\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z})$.** By contrast, $\operatorname{Ext}^1_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})$ is nonzero and quite large. Consider the short exact sequence $0 \to \mathbb{Z} \to \mathbb{Q} \to \mathbb{Q}/\mathbb{Z} \to 0$ and apply $\operatorname{Hom}(-, \mathbb{Z})$. Since $\operatorname{Hom}(\mathbb{Q}, \mathbb{Z}) = 0$ (no nonzero homomorphism from a divisible group to $\mathbb{Z}$) and $\operatorname{Hom}(\mathbb{Z}, \mathbb{Z}) = \mathbb{Z}$, the long exact sequence gives
+
+$$
+0 \to \mathbb{Z} \to \operatorname{Ext}^1(\mathbb{Q}/\mathbb{Z}, \mathbb{Z}) \to \operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}) \to 0.
+
+$$
+
+The group $\operatorname{Ext}^1(\mathbb{Q}/\mathbb{Z}, \mathbb{Z})$ can be computed from $\mathbb{Q}/\mathbb{Z} \cong \bigoplus_p \mathbb{Z}[p^{-1}]/\mathbb{Z} = \bigoplus_p \mathbb{Q}_p/\mathbb{Z}_p$:
+
+$$
+\operatorname{Ext}^1(\mathbb{Q}/\mathbb{Z}, \mathbb{Z}) \cong \prod_p \operatorname{Ext}^1(\mathbb{Q}_p/\mathbb{Z}_p, \mathbb{Z}) \cong \prod_p \mathbb{Z}_p = \widehat{\mathbb{Z}},
+
+$$
+
+the profinite completion of $\mathbb{Z}$. (Here $\operatorname{Ext}^1(\mathbb{Q}_p/\mathbb{Z}_p, \mathbb{Z}) \cong \mathbb{Z}_p$ follows from taking the inverse limit of $\operatorname{Ext}^1(\mathbb{Z}/p^n\mathbb{Z}, \mathbb{Z}) \cong \mathbb{Z}/p^n\mathbb{Z}$.) Therefore
+
+$$
+\operatorname{Ext}^1(\mathbb{Q}, \mathbb{Z}) \cong \widehat{\mathbb{Z}} / \mathbb{Z} \cong \left(\prod_p \mathbb{Z}_p\right) / \mathbb{Z}.
+
+$$
+
+This is an uncountable, torsion-free, divisible abelian group. Its divisibility can be checked directly: given $x \in \widehat{\mathbb{Z}}/\mathbb{Z}$ and a nonzero integer $n$, the multiplication-by-$n$ map on $\widehat{\mathbb{Z}}$ is surjective (since it is surjective on each $\mathbb{Z}_p$), so $x$ has a preimage. The torsion-freeness follows because $\widehat{\mathbb{Z}}$ is torsion-free and $\mathbb{Z} \hookrightarrow \widehat{\mathbb{Z}}$ is a pure subgroup. As a $\mathbb{Q}$-vector space, $\widehat{\mathbb{Z}}/\mathbb{Z}$ has dimension $2^{\aleph_0}$ (the cardinality of the continuum).
 
 <!-- BENCHMARK_PROBLEM: Compute $\operatorname{Ext}^1_{\mathbf{Z}}(\mathbf{Z}/m\mathbf{Z}, \mathbf{Z}/n\mathbf{Z})$ for arbitrary positive integers $m, n$. Express your answer in terms of $m$ and $n$. -->

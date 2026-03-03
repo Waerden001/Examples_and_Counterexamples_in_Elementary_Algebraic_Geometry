@@ -3,589 +3,464 @@ chapter: cohomology
 source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/latex/Cohomology_and_homological_algebra/cohomology.tex
 ---
 
-### Example: Serre's example {#ecag-0184}
+## Cohomology and homological algebra
 
-**Statement:** Let $X$ be a projective variety over a field $k$. Serre's fundamental example demonstrates that sheaf cohomology $H^i(X, \mathcal{F})$ for coherent sheaves $\mathcal{F}$ on $X$ can be computed via Cech cohomology when the cover is sufficiently nice (e.g., affine). Specifically, let $X = \mathbb{P}^n_k$ and consider the standard affine cover $\{U_i = D_+(x_i)\}_{i=0}^{n}$. Then for any quasi-coherent sheaf $\mathcal{F}$ on $X$, the Cech cohomology with respect to this cover computes the sheaf cohomology:
+### Example: Serre's computation of sheaf cohomology on projective space {#ecag-0184}
 
-$$
-\check{H}^i(\{U_j\}, \mathcal{F}) \cong H^i(X, \mathcal{F}).
-
-$$
-
-In particular, Serre showed that for $X = \mathbb{P}^n_k$ and $\mathcal{F} = \mathcal{O}_X(m)$:
+Let $X = \mathbb{P}^n_k$ and consider the standard affine cover $\mathfrak{U} = \{U_i = D_+(x_i)\}_{i=0}^{n}$. Since each finite intersection $U_{i_0} \cap \cdots \cap U_{i_p} = \operatorname{Spec}(k[x_0/x_{i_0}, \ldots, x_n/x_{i_0}]_{x_{i_1}/x_{i_0} \cdots x_{i_p}/x_{i_0}})$ is affine, and higher sheaf cohomology of quasi-coherent sheaves on affine schemes vanishes, the Leray theorem for acyclic covers gives
 
 $$
-H^i(\mathbb{P}^n_k, \mathcal{O}(m)) = \begin{cases} S_m & \text{if } i = 0, \\ 0 & \text{if } 0 < i < n, \\ S_{-m-n-1}^{\vee} & \text{if } i = n, \end{cases}
+\check{H}^i(\mathfrak{U}, \mathcal{F}) \cong H^i(X, \mathcal{F})
 
 $$
 
-where $S = k[x_0, \ldots, x_n]$ and $S_d$ denotes the degree $d$ graded piece.
+for any quasi-coherent sheaf $\mathcal{F}$ on $\mathbb{P}^n_k$.
 
-**Construction/Proof:** The proof relies on Serre's vanishing theorem for affine covers. Since each $U_i = \operatorname{Spec}(k[x_0/x_i, \ldots, x_n/x_i])$ is affine, and intersections $U_{i_0} \cap \cdots \cap U_{i_p}$ are also affine (as open subsets of affine schemes defined by inverting elements), the Leray theorem for acyclic covers applies. The Cech complex for $\mathcal{O}(m)$ on the standard cover is:
-
-$$
-0 \rightarrow \bigoplus_{i} S_{x_i} \rightarrow \bigoplus_{i < j} S_{x_i x_j} \rightarrow \cdots \rightarrow S_{x_0 x_1 \cdots x_n} \rightarrow 0,
+For $\mathcal{F} = \mathcal{O}(m)$, the Cech complex on this cover is
 
 $$
-
-where all modules are taken in degree $m$. The $H^0$ is the intersection $\bigcap_i (S_{x_i})_m = S_m$ for $m \geq 0$ (global sections are polynomials of degree $m$). The $H^n$ consists of Laurent monomials $x_0^{a_0} \cdots x_n^{a_n}$ of degree $m$ with all $a_i < 0$, which by the substitution $a_i \mapsto -1 - b_i$ is dual to degree $-m - n - 1$ polynomials.
-
-**Key Insight:** The computation works because affine schemes have vanishing higher cohomology for quasi-coherent sheaves, so the standard affine open cover of projective space gives an acyclic Cech cover, reducing sheaf cohomology to an explicit combinatorial computation with Laurent polynomials.
-
-**Prerequisites:** Sheaf cohomology, Cech cohomology, projective space, quasi-coherent sheaves, Leray's theorem
-
-<!-- BENCHMARK_PROBLEM: Let X = P^2_k with the standard affine cover {U_0, U_1, U_2}. Compute H^0(P^2, O(2)) and H^2(P^2, O(-4)) as k-vector spaces. What are their dimensions? -->
-
-### Example: Why $H^{i}(X, \mathscr{F}(n))=0$? {#ecag-0185}
-
-**Statement:** Let $X$ be a projective scheme over a noetherian ring $A$, let $\mathcal{O}_{X}(1)$ be a very ample invertible sheaf on $X$ over $\operatorname{Spec}(A)$, and let $\mathscr{F}$ be a coherent sheaf on $X$. Then:
-
-1. For all $i \geq 0$, $H^{i}(X, \mathscr{F})$ is a finitely generated $A$-module.
-2. For all $i \geq 1$, there exists $n_0 = n_0(i, \mathscr{F})$ such that $H^{i}(X, \mathscr{F}(n)) = 0$ for all $n \geq n_0$.
-
-**Construction/Proof:** The intuition comes from the explicit computation on projective space. Consider $H^{n}(\mathbb{P}^{n}, \mathcal{O}(m))$: this is the $k$-vector space spanned by Laurent monomials $x_{0}^{a_{0}} \cdots x_{n}^{a_{n}}$ of total degree $m$ with all $a_i \leq -1$. For such a monomial to exist in degree $m$, we need $a_0 + \cdots + a_n = m$ with each $a_i \leq -1$, which forces $m \leq -n - 1$, i.e., $m + n + 1 \leq 0$. So $H^n(\mathbb{P}^n, \mathcal{O}(m)) = 0$ for $m \geq -n$. Twisting by $\mathcal{O}(n)$ corresponds to shifting $m \mapsto m + n$, so for large enough twist the negative-exponent condition cannot be satisfied.
-
-One key application of the vanishing theorem is that it simplifies derived pushforwards. In general, for a proper morphism $f: X \to Y$ and a coherent sheaf $\mathscr{F}$, the derived pushforward $\mathbf{R}f_*\mathscr{F}$ involves all $R^i f_* \mathscr{F}$. However, if we twist $\mathscr{F}$ sufficiently, only $f_* \mathscr{F}(n)$ survives.
-
-For example, by FGA Explained (Lemma 5.4): let $\phi: T \rightarrow S$ be a morphism of noetherian schemes, $\mathscr{F}$ a coherent sheaf on $\mathbb{P}_{S}^{n}$, and $\mathscr{F}_{T}$ its pullback to $\mathbb{P}_{T}^{n}$. Let $\pi_{S}: \mathbb{P}_{S}^{n} \rightarrow S$ and $\pi_{T}: \mathbb{P}_{T}^{n} \rightarrow T$ be the projections. Then there exists $r_0$ such that the base-change homomorphism
-
-$$
-\phi^{*}\pi_{S,*}\mathscr{F}(r) \rightarrow \pi_{T,*}\mathscr{F}_{T}(r)
+0 \rightarrow \bigoplus_{i} (S_{x_i})_m \rightarrow \bigoplus_{i < j} (S_{x_i x_j})_m \rightarrow \cdots \rightarrow (S_{x_0 x_1 \cdots x_n})_m \rightarrow 0
 
 $$
 
-is an isomorphism for all $r \geq r_0$. Without twisting, the correct statement involves derived categories: there is a quasi-isomorphism
+where $S = k[x_0, \ldots, x_n]$ and the subscript $m$ denotes the degree-$m$ graded piece. Computing the cohomology of this complex yields Serre's result:
 
 $$
-L\phi^{*} \mathbf{R}\pi_{S,*}\mathscr{F} \xrightarrow{\sim} \mathbf{R}\pi_{T,*}\mathscr{F}_{T}
+H^i(\mathbb{P}^n_k, \mathcal{O}(m)) = \begin{cases} S_m & \text{if } i = 0, \\ 0 & \text{if } 0 < i < n, \\ S_{-m-n-1}^{\vee} & \text{if } i = n. \end{cases}
 
 $$
 
-under appropriate flatness hypotheses (flat base change theorem).
+**$H^0$: global sections.** A degree-$m$ element of $S_{x_i}$ is a fraction $f/x_i^N$ with $\deg f = m + N$. An element lies in $\bigcap_i (S_{x_i})_m$ if and only if it is a polynomial of degree $m$ (no denominators needed), so $H^0 = S_m$. For $m < 0$, no monomial of negative degree exists, giving $H^0 = 0$.
 
-**Key Insight:** The vanishing of higher cohomology after twisting is ultimately a finiteness phenomenon: the negative-degree Laurent monomials contributing to $H^n$ get pushed into positive degrees by the twist, and eventually no monomials satisfy the required negativity conditions.
+**$H^n$: top cohomology.** An element of $(S_{x_0 \cdots x_n})_m$ is a Laurent monomial $x_0^{a_0} \cdots x_n^{a_n}$ with $\sum a_i = m$ and each $a_i \in \mathbb{Z}$. A monomial lies in the image of the Cech differential if and only if at least one exponent $a_i \geq 0$. Therefore $H^n$ is spanned by monomials with all $a_i \leq -1$. The substitution $a_i = -1 - b_i$ with $b_i \geq 0$ gives $\sum b_i = -m - n - 1$, so $H^n \cong (S_{-m-n-1})^\vee$. This vanishes when $-m - n - 1 < 0$, i.e., $m > -n - 1$.
 
-**Prerequisites:** Coherent sheaves, sheaf cohomology on projective schemes, Serre vanishing theorem, derived pushforward, base change
+**Dimensions.** In particular, $\dim_k H^0(\mathbb{P}^n, \mathcal{O}(m)) = \binom{m+n}{n}$ for $m \geq 0$ and $\dim_k H^n(\mathbb{P}^n, \mathcal{O}(m)) = \binom{-m-1}{n}$ for $m \leq -n-1$.
 
-<!-- BENCHMARK_PROBLEM: Let F = O(m) on P^n_k. For which values of m is H^n(P^n, O(m)) = 0? Express the answer in terms of n. -->
+**Verification on $\mathbb{P}^2$.** For $\mathcal{O}(2)$: $h^0 = \binom{4}{2} = 6$, with basis $\{x_0^2, x_0 x_1, x_0 x_2, x_1^2, x_1 x_2, x_2^2\}$. For $\mathcal{O}(-4)$: $h^2 = \binom{3}{2} = 3$, with basis $\{x_0^{-1}x_1^{-1}x_2^{-2}, x_0^{-1}x_1^{-2}x_2^{-1}, x_0^{-2}x_1^{-1}x_2^{-1}\}$ in the Cech picture. These are consistent with the Euler characteristic $\chi(\mathcal{O}(m)) = \binom{m+n}{n}$.
 
-### Example: Local duality $H^{i}_{\mathfrak{m}}(M)\cong (\mathrm{Ext}^{r+1-i}(M, S(-r-1)))^{\vee}$ {#ecag-0186}
+<!-- BENCHMARK_PROBLEM: Let $X = \mathbb{P}^2_k$ with the standard affine cover $\{U_0, U_1, U_2\}$. Using the Cech complex, compute $H^0(\mathbb{P}^2, \mathcal{O}(2))$ and $H^2(\mathbb{P}^2, \mathcal{O}(-4))$ as $k$-vector spaces, giving explicit bases in terms of monomials. What are their dimensions? -->
 
-**Statement:** Let $S = k[x, y]$ with the irrelevant maximal ideal $\mathfrak{m} = (x, y)$, and consider the graded $S$-module $R = k[x, y]/(x^2, xy)$. Compute the local cohomology modules $H_{\mathfrak{m}}^{i}(R)$, the Hilbert polynomial $\chi_R(t)$, and the Castelnuovo-Mumford regularity of $R$. The Cech complex for computing local cohomology is:
+### Example: Serre vanishing for coherent sheaves on projective schemes {#ecag-0185}
+
+Let $X$ be a projective scheme over a noetherian ring $A$, let $\mathcal{O}_X(1)$ be a very ample invertible sheaf on $X$ over $\operatorname{Spec}(A)$, and let $\mathscr{F}$ be a coherent sheaf on $X$. Serre's theorem asserts:
+
+1. For all $i \geq 0$, $H^i(X, \mathscr{F})$ is a finitely generated $A$-module.
+2. For all $i \geq 1$, there exists $n_0 = n_0(i, \mathscr{F})$ such that $H^i(X, \mathscr{F}(n)) = 0$ for all $n \geq n_0$.
+
+The mechanism is transparent from the explicit computation on projective space. Consider $H^n(\mathbb{P}^n, \mathcal{O}(m))$: this is spanned by Laurent monomials $x_0^{a_0} \cdots x_n^{a_n}$ of total degree $m$ with all $a_i \leq -1$. For such a monomial to exist, we need $\sum a_i = m$ with each $a_i \leq -1$, forcing $m \leq -n-1$. Hence $H^n(\mathbb{P}^n, \mathcal{O}(m)) = 0$ for all $m \geq -n$. Twisting by $\mathcal{O}(n)$ shifts $m \mapsto m + n$, so sufficiently large twist eliminates the top cohomology.
+
+**Application to base change.** One important consequence is the simplification of derived pushforwards. For a proper morphism $f: X \to Y$ and a coherent sheaf $\mathscr{F}$, the derived pushforward $\mathbf{R}f_*\mathscr{F}$ involves all $R^i f_*\mathscr{F}$. After sufficient twist, only $f_*\mathscr{F}(n)$ survives, reducing the derived pushforward to an ordinary pushforward. Concretely, for a morphism $\phi: T \to S$ of noetherian schemes, $\mathscr{F}$ coherent on $\mathbb{P}^n_S$, and projections $\pi_S, \pi_T$, there exists $r_0$ such that the base-change homomorphism
+
+$$
+\phi^* \pi_{S,*}\mathscr{F}(r) \xrightarrow{\;\sim\;} \pi_{T,*}\mathscr{F}_T(r)
+
+$$
+
+is an isomorphism for all $r \geq r_0$. Without twisting, the correct statement involves derived categories: $L\phi^* \mathbf{R}\pi_{S,*}\mathscr{F} \xrightarrow{\sim} \mathbf{R}\pi_{T,*}\mathscr{F}_T$ under appropriate flatness hypotheses (flat base change theorem).
+
+<!-- BENCHMARK_PROBLEM: Let $\mathcal{F} = \mathcal{O}(m)$ on $\mathbb{P}^n_k$. Determine precisely for which values of $m$ the group $H^n(\mathbb{P}^n, \mathcal{O}(m))$ vanishes. Express your answer as an inequality in $m$ and $n$, and explain why the result follows from the Laurent monomial description of the Cech cohomology. -->
+
+### Example: Local cohomology and regularity for $k[x,y]/(x^2, xy)$ {#ecag-0186}
+
+Let $S = k[x, y]$ with irrelevant ideal $\mathfrak{m} = (x, y)$, and let $R = S/(x^2, xy)$. We compute the local cohomology modules $H^i_{\mathfrak{m}}(R)$, the Hilbert polynomial, and the Castelnuovo--Mumford regularity of $R$.
+
+**The module $R$ as a graded vector space.** A $k$-basis of $R$ is $\{1, x, y, y^2, y^3, \ldots\}$. The element $x$ satisfies $x^2 = xy = 0$ in $R$, so $x$ spans a 1-dimensional submodule annihilated by $\mathfrak{m}$.
+
+**The Cech complex.** Local cohomology is computed by the Cech complex on the generators $x, y$ of $\mathfrak{m}$:
 
 $$
 0 \rightarrow R \xrightarrow{\binom{1}{1}} R[x^{-1}] \oplus R[y^{-1}] \rightarrow R[x^{-1}y^{-1}] \rightarrow 0.
 
 $$
 
-**Construction/Proof:** Step 1: Analyze $R = k[x,y]/(x^2, xy)$. As a $k$-vector space, a basis for $R$ is $\{1, x, y, y^2, y^3, \ldots\}$. The element $x$ is annihilated by both $x$ and $y$ in $R$.
-
-Step 2: Compute the localizations. In $R[x^{-1}]$, since $x^2 = 0$ in $R$, we get $0 = x^2 \cdot x^{-2} = 1$, so $R[x^{-1}] = 0$. Thus the Cech complex simplifies to:
+Since $x^2 = 0$ in $R$, the localization $R[x^{-1}]$ contains $1 = x^2 \cdot x^{-2} = 0$, so $R[x^{-1}] = 0$. Similarly $R[x^{-1}y^{-1}] = 0$ (localizing at $x$ already kills everything). The complex collapses to
 
 $$
 0 \rightarrow R \xrightarrow{\iota} R[y^{-1}] \rightarrow 0.
 
 $$
 
-Step 3: Compute $H^0_{\mathfrak{m}}(R) = \ker(\iota)$. This consists of elements $r \in R$ annihilated by some power of $y$. Since $y^n \cdot x = 0$ for $n \geq 1$ (as $xy = 0$ in $R$) and $y^n \cdot 1 = y^n \neq 0$, we have $H^0_{\mathfrak{m}}(R) = (x) \cong k$ concentrated in degree 1.
+**$H^0_{\mathfrak{m}}(R)$.** This is $\ker(\iota) = \{r \in R \mid y^N r = 0 \text{ for some } N\}$. Since $xy = 0$ and $y^n \cdot 1 = y^n \neq 0$ for all $n$, we have $H^0_{\mathfrak{m}}(R) = (x) \cong k$, concentrated in graded degree 1.
 
-Step 4: Compute $H^1_{\mathfrak{m}}(R)$. We have $R[y^{-1}] \cong k[y, y^{-1}]$ (since $x = 0$ in $R[y^{-1}]$ because $x = x \cdot y \cdot y^{-1} = 0$). The cokernel $R[y^{-1}]/R$ is the span of $\{y^{-1}, y^{-2}, \ldots\}$, so $H^1_{\mathfrak{m}}(R) \cong k[y^{-1}] \cdot y^{-1}$.
+**$H^1_{\mathfrak{m}}(R)$.** In $R[y^{-1}]$, the element $x$ vanishes: $x = xy \cdot y^{-1} = 0$. So $R[y^{-1}] \cong k[y, y^{-1}]$. The cokernel of $\iota$ is $k[y, y^{-1}] / k[y] \cong \bigoplus_{j \geq 1} k \cdot y^{-j}$, giving $H^1_{\mathfrak{m}}(R) \cong k[y^{-1}] \cdot y^{-1}$ with nonzero graded pieces in degrees $\leq -1$.
 
-Step 5: The Hilbert function is $H_R(t) = \dim_k R_t$. We have $R_0 = k$, $R_1 = \langle x, y \rangle \cong k^2$, and $R_t = \langle y^t \rangle \cong k$ for $t \geq 2$. Thus the Hilbert polynomial is $\chi_R(t) = 1$ for $t \gg 0$.
+**Hilbert function and polynomial.** We have $\dim_k R_d = 1$ for $d = 0$, $\dim_k R_d = 2$ for $d = 1$ (spanned by $x, y$), and $\dim_k R_d = 1$ for $d \geq 2$ (spanned by $y^d$). Thus the Hilbert polynomial is $\chi_R(t) = 1$ for $t \gg 0$.
 
-Step 6: For Castelnuovo-Mumford regularity, we need the largest $d$ such that $H^i_{\mathfrak{m}}(R)_{d-i} \neq 0$ for some $i$. We have $H^0_{\mathfrak{m}}(R)$ nonzero only in degree 1 and $H^1_{\mathfrak{m}}(R)$ nonzero in degrees $\leq -1$. So $\operatorname{reg}(R) = \max(1 + 0, -1 + 1) = 1$.
+**Castelnuovo--Mumford regularity.** By definition, $\operatorname{reg}(R) = \max\{d + i \mid H^i_{\mathfrak{m}}(R)_d \neq 0\}$. From the computation above:
 
-Step 7: Verify by local duality. With $r = 1$ (since $S = k[x,y]$ has Krull dimension 2), local duality gives $H^i_{\mathfrak{m}}(R) \cong (\operatorname{Ext}_S^{2-i}(R, S(-2)))^{\vee}$.
+| Module | Nonzero degrees $d$ | Contributing $d + i$ |
+|--------|--------------------|-----------------------|
+| $H^0_{\mathfrak{m}}(R)$ ($i = 0$) | $d = 1$ | $1$ |
+| $H^1_{\mathfrak{m}}(R)$ ($i = 1$) | $d = -1, -2, \ldots$ | $0, -1, \ldots$ |
 
-**Key Insight:** The localization $R[x^{-1}]$ vanishes because $x$ is nilpotent in $R$, which dramatically simplifies the Cech complex and makes the local cohomology computation tractable.
+Therefore $\operatorname{reg}(R) = 1$.
 
-**Prerequisites:** Local cohomology, Cech complex, Castelnuovo-Mumford regularity, Hilbert polynomial, local duality theorem
+**Verification via local duality.** With $S = k[x,y]$ of Krull dimension 2, local duality gives $H^i_{\mathfrak{m}}(R) \cong (\operatorname{Ext}_S^{2-i}(R, S(-2)))^\vee$. For $i = 0$: $\operatorname{Ext}^2_S(R, S(-2))^\vee \cong k^\vee = k$, consistent with $H^0_{\mathfrak{m}}(R) \cong k$. For $i = 1$: $\operatorname{Ext}^1_S(R, S(-2))^\vee$ can be computed from the free resolution $0 \to S(-3) \xrightarrow{\binom{y}{-x}} S(-2)^2 \xrightarrow{(x^2, xy)} S \to R \to 0$, confirming the result.
 
-<!-- BENCHMARK_PROBLEM: Let S = k[x,y], m = (x,y), and R = S/(x^2, xy). Compute H^0_m(R) and H^1_m(R) as graded k-vector spaces, and determine the Castelnuovo-Mumford regularity of R. -->
+<!-- BENCHMARK_PROBLEM: Let $S = k[x,y]$, $\mathfrak{m} = (x,y)$, and $R = S/(x^2, xy)$. Compute $H^0_{\mathfrak{m}}(R)$ and $H^1_{\mathfrak{m}}(R)$ as graded $k$-vector spaces by analyzing the Cech complex. Determine the Castelnuovo--Mumford regularity $\operatorname{reg}(R)$. -->
 
-### Remark: Reference {#ecag-0187}
+### Remark: Local duality theorem {#ecag-0187}
 
-This example and the original local duality theorem can be found in Eisenbud's *The Geometry of Syzygies* (Springer, 2005). The local duality theorem in its general form states that for a polynomial ring $S = k[x_0, \ldots, x_r]$ with irrelevant ideal $\mathfrak{m}$, and a finitely generated graded $S$-module $M$, there is a natural isomorphism of graded modules:
+The preceding example illustrates the local duality theorem in its general form (cf. Eisenbud, *The Geometry of Syzygies*, Springer 2005). For a polynomial ring $S = k[x_0, \ldots, x_r]$ with irrelevant ideal $\mathfrak{m}$ and a finitely generated graded $S$-module $M$, there is a natural isomorphism of graded modules
 
 $$
 H^i_{\mathfrak{m}}(M) \cong \left(\operatorname{Ext}_S^{r+1-i}(M, S(-r-1))\right)^{\vee}
 
 $$
 
-where $(-)^{\vee}$ denotes the graded $k$-dual. This duality is a graded local version of Serre duality.
+where $(-)^\vee$ denotes the graded $k$-dual. This is a graded local analogue of Serre duality: the local cohomology at the irrelevant ideal plays the role of sheaf cohomology, and $S(-r-1)$ plays the role of the dualizing module $\omega_S$.
 
-### Example: Hartshorne $\mathrm{II}.5.14$ {#ecag-0188}
+<!-- BENCHMARK_PROBLEM: State the local duality theorem for a polynomial ring $S = k[x_0, \ldots, x_r]$ with irrelevant ideal $\mathfrak{m}$, and verify it for the module $M = S/(x_0)$ by computing both $H^i_{\mathfrak{m}}(M)$ and $\operatorname{Ext}_S^{r+1-i}(M, S(-r-1))$. -->
 
-**Statement:** Let $X$ be a connected, normal closed subscheme of $\mathbb{P}_A^r$, where $A$ is a finitely generated $k$-algebra for a field $k$. Let $S(X) = A[x_0, \ldots, x_r]/I$ be the homogeneous coordinate ring (where $I = \Gamma_*(\mathscr{I}_X)$), and let $\Gamma = \Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} \Gamma(X, \mathcal{O}_X(n))$. Then:
+### Example: Projective normality and the integral closure of $S(X)$ {#ecag-0188}
 
-1. $\Gamma$ is integral over $S = S(X)$.
+Let $X$ be a connected, normal closed subscheme of $\mathbb{P}^r_A$, where $A$ is a finitely generated $k$-algebra. Write $S = S(X) = A[x_0, \ldots, x_r]/I$ for the homogeneous coordinate ring and $\Gamma = \Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} \Gamma(X, \mathcal{O}_X(n))$ for the saturated graded ring of global sections. The main assertions (Hartshorne II.5.14) are:
+
+1. $\Gamma$ is integral over $S$.
 2. $\Gamma$ is integrally closed.
-3. $\Gamma_d = S_d$ for $d$ sufficiently large.
-4. $S^{(d)} = \bigoplus_{n \geq 0} S_{nd}$ is integrally closed for all $d$. In particular, the $d$-uple embedding is projectively normal for $d \gg 0$.
+3. $\Gamma_d = S_d$ for $d \gg 0$.
+4. The Veronese subring $S^{(d)} = \bigoplus_{n \geq 0} S_{nd}$ is integrally closed for all $d$; in particular, the $d$-uple embedding is projectively normal for $d \gg 0$.
 
-**Construction/Proof:** We prove each statement in turn.
+**Proof of (1).** Since $X$ is integral (connected and normal implies irreducible), $S$ is a domain. We have $\Gamma = \bigcap_{i=0}^r S_{x_i}$, where each $S_{x_i}$ is a localization of $S$. For any $y \in \Gamma$, there exists $N$ such that $x_i^N y \in S$ for all $i$, so $y$ is integral over $S$ (it lies in the finitely generated $S$-module $S \cdot x_i^{-N}$).
 
-*Step 1: $\Gamma$ is integral over $S$.* Since $X$ is an integral scheme (connected and normal implies irreducible), $S$ is an integral domain. By definition,
+**Proof of (2).** The degree-zero part $S_{((x_i))}$ of $S_{x_i}$ is the coordinate ring of the affine open $X \cap D_+(x_i)$, which is normal since $X$ is. Setting $\Gamma^{(i)} = \{z \in S_{x_i} \mid \deg(z) \geq 0\} \cong S_{((x_i))}[x_i]$, we get $\Gamma = \bigcap_i \Gamma^{(i)}$. Since each $S_{((x_i))}$ is integrally closed, so is the polynomial ring $\Gamma^{(i)}$, and an intersection of integrally closed subrings of a common fraction field is integrally closed. Therefore $\Gamma$ is the integral closure of $S$.
 
-$$
-\Gamma = \bigcap_{i=0}^{r} S_{x_i}
+**Proof of (3).** Since $S$ is a finitely generated domain over a field, its integral closure $\Gamma$ is a finite $S$-module. Let $y_1, \ldots, y_m$ generate $\Gamma$ over $S$. For each $y_j$ there exists $N_j$ with $x_i^{N_j} y_j \in S$ for all $i$, so $\Gamma_d \subset S_d$ for $d \geq \max_j \deg(y_j) + \max_j N_j$. Combined with $S \subset \Gamma$, this gives $S_d = \Gamma_d$ for $d \gg 0$.
 
-$$
+**Proof of (4).** If $y \in \operatorname{Frac}(\Gamma^{(d)})$ is integral over $\Gamma^{(d)}$, then $y \in \Gamma$ since $\Gamma$ is integrally closed. The degree of $y$ must be divisible by $d$ (it lies in $\operatorname{Frac}(\Gamma^{(d)})$), so $y \in \Gamma^{(d)}$. For $d \gg 0$, $S^{(d)} = \Gamma^{(d)}$ by (3), so $S^{(d)}$ is integrally closed.
 
-where $S_{x_i}$ denotes localization at $x_i$. For any $y \in \Gamma$, we can choose $N$ large enough so that $x_i^N y \in S$ for all $i$. In other words, $y \in S \cdot \frac{1}{x_i^N}$, and since $S \cdot \frac{1}{x_i^N}$ is a finitely generated $S$-module, $y$ is integral over $S$.
+As a consequence, $X$ is projectively normal if and only if $\Gamma(X, \mathcal{O}_X(n)) = S(X)_n$ for all $n \geq 0$, equivalently, the restriction map $H^0(\mathbb{P}^r_A, \mathcal{O}(n)) \to H^0(X, \mathcal{O}_X(n))$ is surjective for all $n$. Any nonsingular hypersurface in $\mathbb{P}^r$ is projectively normal (the ideal sheaf sequence and the vanishing $H^1(\mathbb{P}^r, \mathcal{O}(n-d)) = 0$ for $n \geq d$ give the surjectivity).
 
-*Step 2: $\Gamma$ is integrally closed.* The degree-zero part $S_{((x_i))}$ of $S_{x_i}$ is integrally closed, since it is isomorphic to the affine coordinate ring of $X \cap D_+(x_i)$, which is normal (as $X$ is normal). Define
+<!-- BENCHMARK_PROBLEM: Let $X$ be a normal projective variety over a field $k$ embedded in $\mathbb{P}^r$. Prove that the Veronese $d$-uple embedding of $X$ is projectively normal for $d$ sufficiently large. Identify the key algebraic fact that guarantees $\Gamma_d = S(X)_d$ for large $d$. -->
 
-$$
-\Gamma^{(i)} := \{z \in S_{x_i} \mid \deg(z) \geq 0\} \cong S_{((x_i))}[x_i].
+### Example: The rational quartic and failure of projective normality {#ecag-0189}
 
-$$
-
-Then $\Gamma = \bigcap_{i=0}^{r} \Gamma^{(i)}$. Since $S_{((x_i))}$ is integrally closed, so is the polynomial ring $\Gamma^{(i)} = S_{((x_i))}[x_i]$. An intersection of integrally closed subrings of a common fraction field is integrally closed, so $\Gamma$ is integrally closed. Therefore $\Gamma$ is the integral closure of $S$.
-
-*Step 3: $\Gamma_d = S_d$ for large $d$.* Since $\Gamma$ is the integral closure of $S$ in its fraction field, and $S$ is a finitely generated $k$-algebra that is a domain, the integral closure $\Gamma$ is a finite $S$-module (by the finiteness of integral closure for finitely generated domains over a field). Let $\{y_1, \ldots, y_m\}$ be generators of $\Gamma$ as an $S$-module. For each $y_j$, there exists $N_j$ such that $x_i^{N_j} y_j \in S$. Thus for $d$ large enough, $\Gamma_d \subset S_d$. Combined with $S \subset \Gamma$, we get $S_d = \Gamma_d$ for $d \gg 0$.
-
-*Step 4: $\Gamma^{(d)}$ is integrally closed for all $d$.* Suppose $y \in \operatorname{Frac}(\Gamma^{(d)})$ is integral over $\Gamma^{(d)}$. Then $y \in \Gamma$ (since $\Gamma$ is integrally closed and $\operatorname{Frac}(\Gamma^{(d)}) \subset \operatorname{Frac}(\Gamma)$). Since $y \in \Gamma \cap \operatorname{Frac}(\Gamma^{(d)})$, we can write $y = y'/x_i^{dk_1}$ for some $y' \in \Gamma^{(d)}$, so $\deg(y)$ is divisible by $d$. For large $N$, $x_i^{dN} y^n \in S$ for all $n$, and since $d \mid dN + n\deg(y)$, we have $x_i^{dN} y^n \in \Gamma^{(d)}$ for all $n$, which implies $y$ is integral over $\Gamma^{(d)}$, hence $y \in \Gamma^{(d)}$. Therefore $\Gamma^{(d)}$ is integrally closed for all $d$. For $d \gg 0$, $S^{(d)} = \Gamma^{(d)}$, so $S^{(d)}$ is integrally closed.
-
-*Corollary:* A normal closed subscheme $X \subset \mathbb{P}_A^r$ is projectively normal if and only if the restriction map
+Consider the map $\varphi: \mathbb{P}^1 \to \mathbb{P}^3$ defined by
 
 $$
-\Gamma(\mathbb{P}_A^r, \mathcal{O}_{\mathbb{P}_A^r}(n)) \rightarrow \Gamma(X, \mathcal{O}_X(n))
+[u, v] \mapsto [u^4,\; u^3 v,\; uv^3,\; v^4].
 
 $$
 
-is surjective for all $n \geq 0$. For instance, nonsingular degree-$d$ hypersurfaces in $\mathbb{P}^r$ are projectively normal.
+Let $C = \varphi(\mathbb{P}^1)$, a rational quartic curve. The linear system used is the span of $\{u^4, u^3v, uv^3, v^4\} \subset H^0(\mathbb{P}^1, \mathcal{O}(4))$, which is incomplete: the monomial $u^2v^2$ is missing.
 
-**Key Insight:** The integral closure of the homogeneous coordinate ring $S(X)$ is always $\Gamma_*(X, \mathcal{O}_X)$ when $X$ is normal, and the two agree in large enough degrees by finiteness of integral closure. This is why the $d$-uple embedding eventually makes any normal variety projectively normal.
+Since $\mathcal{O}_C(1) \cong \varphi^*\mathcal{O}_{\mathbb{P}^3}(1) \cong \mathcal{O}_{\mathbb{P}^1}(4)$, we have $h^0(C, \mathcal{O}_C(1)) = h^0(\mathbb{P}^1, \mathcal{O}(4)) = 5$. On the other hand, $h^0(\mathbb{P}^3, \mathcal{O}(1)) = 4$. The restriction map $H^0(\mathbb{P}^3, \mathcal{O}(1)) \to H^0(C, \mathcal{O}_C(1))$ has image spanned by the four coordinate monomials, with $u^2v^2$ generating the 1-dimensional cokernel.
 
-**Prerequisites:** Projective schemes, integral closure, normal varieties, homogeneous coordinate ring, Veronese embedding
+**The section $u^2v^2$ is regular on each affine open.** Writing $[x, y, z, w]$ for coordinates on $\mathbb{P}^3$:
 
-<!-- BENCHMARK_PROBLEM: Let X be a normal projective variety over a field k embedded in P^r. Prove that the Veronese d-uple embedding of X is projectively normal for d sufficiently large. What is the key algebraic fact that guarantees Gamma_d = S(X)_d for large d? -->
+| Affine open | Expression for $u^2v^2$ |
+|-------------|------------------------|
+| $D_+(x)$ | $(y/x)^2 \cdot x$ |
+| $D_+(y)$ | $(x/y)(z/y) \cdot y$ |
+| $D_+(z)$ | $(y/z)(w/z) \cdot z$ |
+| $D_+(w)$ | $(z/w)^2 \cdot w$ |
 
-### Example: $\Gamma_{*}(X,\mathcal{O}_{X})\neq S(X)$ {#ecag-0189}
+Each expression is a regular function times a degree-1 element, confirming $u^2v^2 \in \Gamma(C, \mathcal{O}_C(1)) \setminus S(C)_1$.
 
-**Statement:** There exist projective schemes $X \subset \mathbb{P}^r$ for which the graded ring of global sections $\Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} \Gamma(X, \mathcal{O}_X(n))$ is strictly larger than the homogeneous coordinate ring $S(X)$. A concrete example is the rational quartic curve in $\mathbb{P}^3$.
+From the ideal sheaf sequence $0 \to \mathscr{I}_C \to \mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_C \to 0$ twisted by $\mathcal{O}(1)$, the non-surjectivity of the restriction map gives $H^1(\mathbb{P}^3, \mathscr{I}_C(1)) \cong k$. Thus $C$ is not projectively normal, and $\Gamma_*(C, \mathcal{O}_C) \supsetneq S(C)$.
 
-**Construction/Proof:** Consider the morphism
+<!-- BENCHMARK_PROBLEM: Let $C$ be the image of the map $\mathbb{P}^1 \to \mathbb{P}^3$ given by $[u,v] \mapsto [u^4, u^3v, uv^3, v^4]$. Compute $h^0(C, \mathcal{O}_C(1))$ and $h^0(\mathbb{P}^3, \mathcal{O}(1))$, identify the missing section explicitly, and explain why $C$ is not projectively normal. -->
 
-$$
-C: \mathbb{P}^1 \rightarrow \mathbb{P}^3, \quad [u, v] \mapsto [u^4, u^3 v, uv^3, v^4].
+### Remark: $S(X)$ versus $\Gamma_*(X, \mathcal{O}_X)$ {#ecag-0190}
 
-$$
+For a projective scheme $X = \operatorname{Proj}(S)$, several related but distinct objects must be carefully distinguished:
 
-This is the image of $\mathbb{P}^1$ under the incomplete linear system spanned by $\{u^4, u^3v, uv^3, v^4\} \subset H^0(\mathbb{P}^1, \mathcal{O}(4))$. The monomial $u^2 v^2$ is missing from this list, which is the source of the failure of projective normality.
+- The scheme $X$ does not determine $S$ uniquely. Different graded rings can give isomorphic $\operatorname{Proj}$'s; for instance $\operatorname{Proj}(S) \cong \operatorname{Proj}(S^{(d)})$ for any $d \geq 1$.
 
-Step 1: Compute cohomology. The ideal sheaf sequence $0 \to \mathscr{I}_C \to \mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_C \to 0$ twisted by $\mathcal{O}(1)$ gives:
+- The homogeneous coordinate ring $S(X)$ depends on the specific embedding $X \hookrightarrow \mathbb{P}^r$, not just the abstract scheme $X$.
 
-$$
-0 \to H^0(\mathbb{P}^3, \mathscr{I}_C(1)) \to H^0(\mathbb{P}^3, \mathcal{O}_{\mathbb{P}^3}(1)) \to H^0(C, \mathcal{O}_C(1)) \to H^1(\mathbb{P}^3, \mathscr{I}_C(1)) \to 0.
+- The saturated ring $\Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} H^0(X, \mathcal{O}_X(n))$ is an intrinsic invariant of the pair $(X, \mathcal{O}_X(1))$. There is always a natural map $S(X) \to \Gamma_*(X, \mathcal{O}_X)$, which is an isomorphism in large degrees (by the finiteness of the integral closure), but it can fail to be surjective in small degrees (as the rational quartic example shows).
 
-$$
+- The associated sheaves $\widetilde{S}$ and $\widetilde{\Gamma_*}$ are isomorphic on $X$; the distinction lives entirely in graded module theory, not in sheaf theory.
 
-We have $H^0(\mathbb{P}^3, \mathscr{I}_C(1)) = 0$ (no linear form vanishes on $C$) and $H^1(\mathbb{P}^3, \mathscr{I}_C(1)) \cong k$. Since $\mathcal{O}_C(1) \cong \mathcal{O}_{\mathbb{P}^1}(4)$, we get $h^0(C, \mathcal{O}_C(1)) = 5$, while $h^0(\mathbb{P}^3, \mathcal{O}(1)) = 4$. The extra section is precisely $u^2 v^2$.
+- An isomorphism $X \cong Y$ of abstract schemes does not imply $\mathcal{O}_X(1) \cong f^*\mathcal{O}_Y(1)$, since $\mathcal{O}(1)$ depends on the embedding.
 
-Step 2: Verify that $u^2 v^2$ is a global section. On each standard affine open:
+<!-- BENCHMARK_PROBLEM: Give an example of two non-isomorphic graded rings $S$ and $S'$ with $\operatorname{Proj}(S) \cong \operatorname{Proj}(S')$, and explain why $\operatorname{Proj}$ does not determine the graded ring. -->
 
-- $D_+(x)$: $u^2 v^2 = (y/x)^2 \cdot x$
-- $D_+(y)$: $u^2 v^2 = (x/y)(z/y) \cdot y$
-- $D_+(z)$: $u^2 v^2 = (y/z)(w/z) \cdot z$
-- $D_+(w)$: $u^2 v^2 = (z/w)^2 \cdot w$
+### Remark: Local cohomology, Cech complex, and Castelnuovo--Mumford regularity {#ecag-0191}
 
-where $x, y, z, w$ are the coordinates on $\mathbb{P}^3$. Each expression is a regular function times a degree-1 element, confirming $u^2 v^2 \in \Gamma(C, \mathcal{O}_C(1))$.
-
-Step 3: Conclude. Since the restriction map $H^0(\mathbb{P}^3, \mathcal{O}(1)) \to H^0(C, \mathcal{O}_C(1))$ is not surjective (it has a 1-dimensional cokernel), $C$ is not projectively normal, and $\Gamma_*(C, \mathcal{O}_C) \neq S(C)$.
-
-**Key Insight:** The curve $C$ is the image of $\mathbb{P}^1$ under an incomplete linear system of degree 4 (missing $u^2v^2$), so the restriction of linear forms on $\mathbb{P}^3$ does not recover all degree-4 monomials on $\mathbb{P}^1$. This gap between $S(X)$ and $\Gamma_*(X, \mathcal{O}_X)$ is detected by $H^1(\mathbb{P}^3, \mathscr{I}_C(1)) \neq 0$.
-
-**Prerequisites:** Projective normality, ideal sheaf sequence, cohomology of line bundles on $\mathbb{P}^1$, Veronese and Segre maps
-
-<!-- BENCHMARK_PROBLEM: Let C be the image of the map P^1 -> P^3 given by [u,v] -> [u^4, u^3v, uv^3, v^4]. Compute h^0(C, O_C(1)) and h^0(P^3, O(1)), and explain why C is not projectively normal. -->
-
-### Remark: Relations between the homogeneous coordinate ring $S(X)$ and $\oplus_{n\geq 0}\mathcal{O}_{X}(n)$ {#ecag-0190}
-
-One must carefully distinguish the following concepts for a projective scheme $X = \operatorname{Proj}(S)$:
-
-- **$X = \operatorname{Proj}(S)$**: The scheme $X$ is defined by the graded ring $S$, but the ring $S$ is not uniquely determined by $X$. Different graded rings can give isomorphic schemes.
-- **The homogeneous coordinate ring $S(X)$**: This depends on the specific closed embedding $X \hookrightarrow \mathbb{P}^r$. It is one particular graded ring $S$ such that $X = \operatorname{Proj}(S)$.
-- **$\Gamma(X, \mathcal{O}_X) \neq S$**: The ring of global sections is just the degree-zero part of $\Gamma_*(X, \mathcal{O}_X)$, which in general does not equal $S_0$.
-- **$\Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} \Gamma(X, \mathcal{O}_X(n))$**: This is the "saturation" of $S$. In general $\Gamma_*(X, \mathcal{O}_X) \neq S$, though $\widetilde{S} \cong \widetilde{\Gamma_*(X, \mathcal{O}_X)}$ as sheaves on $X$.
-- **Even if $S$ is a domain**, $\Gamma(X, \mathcal{O}_X)$ equals the degree-0 part of $\Gamma_*(X, \mathcal{O}_X)$, not $S_{(0)}$ (the degree-zero elements of the localization).
-- **Isomorphism $X \cong Y$ does not imply $\mathcal{O}_X(n) \cong f^*\mathcal{O}_Y(n)$** in general, since $\mathcal{O}(1)$ depends on the embedding, not just the abstract scheme.
-
-<!-- BENCHMARK_PROBLEM: Give an example of two graded rings S and S' with Proj(S) isomorphic to Proj(S') but S not isomorphic to S' as graded rings. -->
-
-### Remark: Local cohomology, Mumford regularity, Hilbert polynomial {#ecag-0191}
-
-The local cohomology $H_Q^i(-)$ is defined as the $i$-th right derived functor of the $Q$-torsion functor:
+For a noetherian ring $R$ and an ideal $Q = (x_1, \ldots, x_t)$, the local cohomology $H^i_Q(M)$ of an $R$-module $M$ is the $i$-th right derived functor of the $Q$-torsion functor $\Gamma_Q(M) = \{m \in M \mid Q^d m = 0 \text{ for some } d \geq 1\}$. It can be computed as the $i$-th cohomology of the Cech complex
 
 $$
-H_Q^0(M) := \{m \in M \mid Q^d m = 0 \text{ for some } d \geq 1\}.
+C(x_1, \ldots, x_t; M): \quad 0 \to M \xrightarrow{d} \bigoplus_{i=1}^{t} M[x_i^{-1}] \xrightarrow{d} \cdots \to \bigoplus_{|J|=k} M[x_J^{-1}] \to \cdots \to M[x_{1 \cdots t}^{-1}] \to 0
 
 $$
 
-When $R$ is a noetherian ring and $Q = (x_1, \ldots, x_t)$, local cohomology can be computed via the Cech complex. For any $R$-module $M$, $H_Q^i(M)$ is the $i$-th cohomology of:
+with differential $d(m_J) = \sum_{k \notin J} (-1)^{|\{i \in J : i < k\}|} m_{J \cup \{k\}}$, where $m_{J \cup \{k\}}$ denotes the natural image of $m_J$ under localization.
+
+For the polynomial ring $S = k[x_0, \ldots, x_r]$ with $\mathfrak{m} = (x_0, \ldots, x_r)$, the **Castelnuovo--Mumford regularity** of a finitely generated graded $S$-module $M$ is
 
 $$
-C(x_1, \ldots, x_t; M): 0 \rightarrow M \xrightarrow{d} \bigoplus_{i=1}^{t} M[x_i^{-1}] \xrightarrow{d} \cdots \rightarrow \bigoplus_{\#J = k} M[x_J^{-1}] \rightarrow \cdots \rightarrow M[x_{1,2,\ldots,t}^{-1}] \rightarrow 0.
-
-$$
-
-The differential is given by:
-
-$$
-d(m_J \in M[x_J^{-1}]) = \sum_{k \notin J} (-1)^{\#\{i \in J \mid i < k\}} m_{J \cup \{k\}}
+\operatorname{reg}(M) = \max\{d + i \mid H^i_{\mathfrak{m}}(M)_d \neq 0\}.
 
 $$
 
-where $m_{J \cup \{k\}}$ denotes the image of $m_J$ under the natural localization map $M[x_J^{-1}] \rightarrow M[x_{J \cup \{k\}}^{-1}]$.
+This invariant controls the degree from which the Hilbert function agrees with the Hilbert polynomial, and it bounds the degrees of generators and syzygies of $M$.
 
-The **Castelnuovo-Mumford regularity** of a finitely generated graded $S$-module $M$ (where $S = k[x_0, \ldots, x_r]$) is defined as:
+<!-- BENCHMARK_PROBLEM: Let $S = k[x,y,z]$, $\mathfrak{m} = (x,y,z)$, and $M = S/(x,y)$. Compute $H^i_{\mathfrak{m}}(M)$ for all $i$ using the Cech complex on $x, y, z$, and determine $\operatorname{reg}(M)$. -->
 
-$$
-\operatorname{reg}(M) = \max\{d + i \mid H_{\mathfrak{m}}^i(M)_d \neq 0\}
+### Example: Regularity cannot be bounded by Hilbert polynomial for arbitrary sheaves {#ecag-0192}
 
-$$
+Let $\mathscr{F} = \mathcal{O}_{\mathbb{P}^1}(k) \oplus \mathcal{O}_{\mathbb{P}^1}(-k)$ for $k \geq 0$. The Hilbert polynomial of $\mathscr{F}$ is independent of $k$, yet its Castelnuovo--Mumford regularity grows without bound.
 
-where $\mathfrak{m} = (x_0, \ldots, x_r)$. This invariant controls when the Hilbert function of $M$ agrees with the Hilbert polynomial.
-
-<!-- BENCHMARK_PROBLEM: Let S = k[x,y,z] and M = S/(x,y). Compute H^i_m(M) for all i, where m = (x,y,z), and determine reg(M). -->
-
-### Example: Regularity theorem is false if the sheaf is not an ideal sheaf {#ecag-0192}
-
-**Statement:** Let $\mathscr{F} = \mathcal{O}_{\mathbb{P}^1}(k) \oplus \mathcal{O}_{\mathbb{P}^1}(-k)$ for $k \geq 0$. The Euler characteristic (and hence the Hilbert polynomial) of $\mathscr{F}$ is independent of $k$, yet the Castelnuovo-Mumford regularity of $\mathscr{F}$ depends on $k$ and can be made arbitrarily large. This shows that the regularity of a coherent sheaf cannot be bounded purely in terms of its Hilbert polynomial, unlike the case of ideal sheaves.
-
-**Construction/Proof:** Step 1: Compute the Euler characteristic. We have:
+**Euler characteristic.** By additivity,
 
 $$
-\chi(\mathscr{F}(m)) = \chi(\mathcal{O}(m+k)) + \chi(\mathcal{O}(m-k)) = (m + k + 1) + (m - k + 1) = 2m + 2.
+\chi(\mathscr{F}(m)) = \chi(\mathcal{O}(m+k)) + \chi(\mathcal{O}(m-k)) = (m+k+1) + (m-k+1) = 2m + 2.
 
 $$
 
-This equals $2\binom{m+1}{1}$ and is independent of $k$.
+The Hilbert polynomial $2m + 2 = 2\binom{m+1}{1}$ is independent of $k$.
 
-Step 2: Compute the regularity. The sheaf $\mathscr{F}$ is $m$-regular if $H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = 0$. We have:
-
-$$
-H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = H^1(\mathbb{P}^1, \mathcal{O}(m-1+k)) \oplus H^1(\mathbb{P}^1, \mathcal{O}(m-1-k)).
+**Regularity.** The sheaf $\mathscr{F}$ is $m$-regular if $H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = 0$. We have
 
 $$
-
-By Serre duality, $H^1(\mathbb{P}^1, \mathcal{O}(j)) = 0$ if and only if $j \geq -1$. So:
-- $H^1(\mathbb{P}^1, \mathcal{O}(m-1+k)) = 0$ for $m \geq -k$ (always satisfied for $m \geq 0$).
-- $H^1(\mathbb{P}^1, \mathcal{O}(m-1-k)) = 0$ if and only if $m - 1 - k \geq -1$, i.e., $m \geq k$.
-
-Therefore $\operatorname{reg}(\mathscr{F}) = k$.
-
-Step 3: Conclude. If there existed a polynomial $F(a_0, a_1)$ bounding the regularity in terms of the coefficients $a_0, a_1$ of the Hilbert polynomial (here $a_0 = 2, a_1 = 2$), then $\operatorname{reg}(\mathscr{F}) \leq F(2, 2)$, a fixed constant. But $\operatorname{reg}(\mathscr{F}) = k$ is unbounded, a contradiction.
-
-**Key Insight:** The Hilbert polynomial only sees the Euler characteristic, which involves cancellation between $H^0$ and $H^1$. A sheaf can have large higher cohomology that is "hidden" by this cancellation, so the Hilbert polynomial alone cannot control regularity for arbitrary coherent sheaves.
-
-**Prerequisites:** Castelnuovo-Mumford regularity, cohomology of line bundles on $\mathbb{P}^1$, Serre duality, Hilbert polynomial
-
-<!-- BENCHMARK_PROBLEM: Let F = O_{P^1}(k) + O_{P^1}(-k) for k >= 0. Show that reg(F) = k, while the Hilbert polynomial of F is 2m + 2, independent of k. What does this imply about bounding regularity by Hilbert polynomial coefficients? -->
-
-### Remark {#ecag-0193}
-
-This example and the original regularity theorem for ideal sheaves can be found in Mumford's *Lectures on Curves on an Algebraic Surface* (Annals of Mathematics Studies, No. 59), specifically Lectures 14 and 15. Mumford proves that for an ideal sheaf $\mathscr{I}_X$ of a subvariety $X \subset \mathbb{P}^n$, the regularity can be bounded in terms of the Hilbert polynomial of $X$. The example above shows this bound fails for arbitrary coherent sheaves.
-
-### Example: Some relations between (co)homology theories {#ecag-0194}
-
-**Statement:** Several fundamental isomorphisms relate Borel-Moore homology, singular homology, and reduced homology:
-
-1. $H_i^{BM}(X) \cong H_i(\hat{X}, \{*\})$, where $\hat{X} = X^+ = X \cup \{*\}$ is the one-point compactification of $X$.
-2. $H_i^{BM}(X) \cong H_i(\overline{X}, \overline{X} \setminus X)$ for any compactification $\overline{X}$ of $X$.
-3. $H_i(X, A) \cong \widetilde{H}_i(X/A)$ whenever $A$ is a closed subspace that is a deformation retract of some open neighborhood in $X$ (i.e., $(X, A)$ is a "good pair").
-
-**Construction/Proof:** For (1): Borel-Moore homology of a locally compact space $X$ is defined using locally finite chains. By definition, these are precisely the chains in the one-point compactification $\hat{X}$ that are finite relative to the added point, yielding $H_i^{BM}(X) = H_i(\hat{X}, \{*\})$.
-
-For (2): If $\overline{X}$ is any compactification, excision applied to $\overline{X} \setminus X$ (which is closed) gives $H_i(\overline{X}, \overline{X} \setminus X) \cong H_i(\hat{X}, \{*\})$, since collapsing $\overline{X} \setminus X$ to a point recovers the one-point compactification up to homotopy equivalence of pairs.
-
-For (3): This is the standard excision/quotient theorem. If $A$ is a deformation retract of a neighborhood $U$ in $X$, then the quotient map $(X, A) \to (X/A, A/A)$ induces an isomorphism on relative homology, and $H_i(X/A, A/A) = \widetilde{H}_i(X/A)$ by definition of reduced homology.
-
-**Key Insight:** Borel-Moore homology captures the homology "at infinity" by measuring cycles that are allowed to be non-compact but must be locally finite; the one-point compactification provides a clean way to encode this.
-
-**Prerequisites:** Borel-Moore homology, singular homology, one-point compactification, excision theorem, good pairs
-
-<!-- BENCHMARK_PROBLEM: Compute H_i^{BM}(R^n) for all i using the one-point compactification R^n_+ = S^n. Express the answer in terms of n. -->
-
-### Example: Borel-Moore homology of $\mathbb{R}$ and  $\mathbb{R}^{2}\setminus\{0\}$ {#ecag-0195}
-
-**Statement:** The Borel-Moore homology groups are:
-
-$$
-H_i^{BM}(\mathbb{R}^1) = \begin{cases} \mathbb{Z} & \text{if } i = 1, \\ 0 & \text{otherwise.} \end{cases}
+H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = H^1(\mathcal{O}(m-1+k)) \oplus H^1(\mathcal{O}(m-1-k)).
 
 $$
 
-$$
-H_i^{BM}(\mathbb{R}^2 \setminus \{0\}) = \begin{cases} \mathbb{Z} & \text{if } i = 1, 2, \\ 0 & \text{otherwise.} \end{cases}
+Since $H^1(\mathbb{P}^1, \mathcal{O}(j)) = 0$ if and only if $j \geq -1$ (by Serre duality, $H^1(\mathcal{O}(j)) \cong H^0(\mathcal{O}(-j-2))^\vee$), the second summand vanishes if and only if $m - 1 - k \geq -1$, i.e., $m \geq k$. The first summand vanishes for all $m \geq 0$. Therefore $\operatorname{reg}(\mathscr{F}) = k$.
+
+Since the Hilbert polynomial is $2m + 2$ regardless of $k$, no function of the Hilbert polynomial coefficients can bound $\operatorname{reg}(\mathscr{F})$. This contrasts with Mumford's theorem for ideal sheaves $\mathscr{I}_X \subset \mathcal{O}_{\mathbb{P}^n}$, where the regularity is bounded by a function of the Hilbert polynomial.
+
+<!-- BENCHMARK_PROBLEM: Let $\mathscr{F} = \mathcal{O}_{\mathbb{P}^1}(k) \oplus \mathcal{O}_{\mathbb{P}^1}(-k)$ for $k \geq 0$. Show that $\operatorname{reg}(\mathscr{F}) = k$ while the Hilbert polynomial of $\mathscr{F}$ is $2m + 2$, independent of $k$. What does this imply about bounding regularity solely in terms of Hilbert polynomial coefficients for arbitrary coherent sheaves? -->
+
+### Remark: Mumford's regularity theorem for ideal sheaves {#ecag-0193}
+
+Mumford proved (in *Lectures on Curves on an Algebraic Surface*, Annals of Mathematics Studies No. 59, Lectures 14--15) that for an ideal sheaf $\mathscr{I}_X$ of a subvariety $X \subset \mathbb{P}^n$, the Castelnuovo--Mumford regularity can be bounded in terms of the Hilbert polynomial of $X$. The preceding example shows this bound fails for arbitrary coherent sheaves: the family $\mathcal{O}(k) \oplus \mathcal{O}(-k)$ on $\mathbb{P}^1$ has constant Hilbert polynomial but unbounded regularity.
+
+<!-- BENCHMARK_PROBLEM: State the distinction between Mumford's regularity theorem for ideal sheaves and the behavior of regularity for arbitrary coherent sheaves. Give an explicit family of sheaves on $\mathbb{P}^1$ demonstrating the failure. -->
+
+### Example: Relations between (co)homology theories {#ecag-0194}
+
+Three fundamental isomorphisms relate Borel--Moore homology to singular and relative homology:
+
+**(1)** $H_i^{BM}(X) \cong H_i(\hat{X}, \{*\})$, where $\hat{X} = X \cup \{*\}$ is the one-point compactification of the locally compact Hausdorff space $X$. Borel--Moore homology uses locally finite chains; a locally finite chain on $X$ extends to a chain on $\hat{X}$ by declaring it to be finite relative to $*$, and this identification is exact.
+
+**(2)** $H_i^{BM}(X) \cong H_i(\overline{X}, \overline{X} \setminus X)$ for any compactification $\overline{X}$ of $X$. By excision, $H_i(\overline{X}, \overline{X} \setminus X) \cong H_i(\hat{X}, \{*\})$, since collapsing the complement $\overline{X} \setminus X$ to a point recovers the one-point compactification (up to homotopy equivalence of pairs).
+
+**(3)** $H_i(X, A) \cong \widetilde{H}_i(X/A)$ whenever $(X, A)$ is a good pair, meaning $A$ is a closed subspace that is a deformation retract of some open neighborhood in $X$. This is the standard excision/quotient theorem: the quotient map $(X, A) \to (X/A, A/A)$ induces an isomorphism on relative homology, and $H_i(X/A, A/A) = \widetilde{H}_i(X/A)$ by definition.
+
+<!-- BENCHMARK_PROBLEM: Compute $H_i^{BM}(\mathbb{R}^n)$ for all $i$ using the one-point compactification $(\mathbb{R}^n)^+ = S^n$ and the isomorphism $H_i^{BM}(X) \cong \widetilde{H}_i(\hat{X})$. Express your answer in terms of $n$. -->
+
+### Example: Borel--Moore homology of $\mathbb{R}$ and $\mathbb{R}^2 \setminus \{0\}$ {#ecag-0195}
+
+**Computation for $\mathbb{R}$.** The one-point compactification of $\mathbb{R}$ is $S^1$, so
 
 $$
-
-Moreover, the natural map $H_i(X) \to H_i^{BM}(X)$ is zero for $X = \mathbb{R}^2 \setminus \{0\}$.
-
-**Construction/Proof:** Step 1: Compute $H_i^{BM}(\mathbb{R}^1)$. The one-point compactification of $\mathbb{R}$ is $S^1$, so:
-
-$$
-H_i^{BM}(\mathbb{R}^1) = H_i(S^1, \{*\}) = \widetilde{H}_i(S^1) = \begin{cases} \mathbb{Z} & \text{if } i = 1, \\ 0 & \text{otherwise.} \end{cases}
+H_i^{BM}(\mathbb{R}) = H_i(S^1, \{*\}) = \widetilde{H}_i(S^1) = \begin{cases} \mathbb{Z} & i = 1, \\ 0 & \text{otherwise.} \end{cases}
 
 $$
 
-Step 2: Compute $H_i^{BM}(\mathbb{R}^2 \setminus \{0\})$. The one-point compactification of $\mathbb{R}^2$ is $S^2$. Under the one-point compactification of $\mathbb{R}^2 \setminus \{0\}$, we adjoin a point at infinity $\infty$ to get $(S^2 \setminus \{0\}) \cup \{\infty\}$. However, by the relation $H_i^{BM}(X) = H_i(\overline{X}, \overline{X} \setminus X)$ with $\overline{X} = S^2$ as a compactification (where $S^2 \setminus (\mathbb{R}^2 \setminus \{0\}) = \{0, \infty\}$), we get:
+**Computation for $\mathbb{R}^2 \setminus \{0\}$.** Take the compactification $\overline{X} = S^2$ (the one-point compactification of $\mathbb{R}^2$). The complement $S^2 \setminus (\mathbb{R}^2 \setminus \{0\}) = \{0, \infty\}$ consists of two points, so
 
 $$
 H_i^{BM}(\mathbb{R}^2 \setminus \{0\}) = H_i(S^2, \{0, \infty\}) \cong \widetilde{H}_i(S^2 / \{0, \infty\}).
 
 $$
 
-The space $S^2 / \{0, \infty\}$ is obtained by identifying the north and south poles of $S^2$, giving $S^2 \vee S^1$ (a sphere with a circle attached). Thus:
+Identifying the north and south poles of $S^2$ produces the wedge $S^2 \vee S^1$ (a sphere with a circle attached at the identified point). Hence
 
 $$
-\widetilde{H}_i(S^2 \vee S^1) = \widetilde{H}_i(S^2) \oplus \widetilde{H}_i(S^1) = \begin{cases} \mathbb{Z} & \text{if } i = 1, 2, \\ 0 & \text{otherwise.} \end{cases}
-
-$$
-
-Step 3: Compare with ordinary homology. The ordinary homology $H_1(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$, generated by a circle around the origin. In Borel-Moore homology, $H_1^{BM}(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$, but a generator is given by a ray from $0$ to $\infty$ (a locally finite 1-chain). The circle that generates $H_1$ is actually a boundary in the Borel-Moore complex (it bounds the locally finite 2-chain consisting of one of the two half-planes it divides). Therefore the natural homomorphism $H_i(\mathbb{R}^2 \setminus \{0\}) \to H_i^{BM}(\mathbb{R}^2 \setminus \{0\})$ is zero for all $i$.
-
-**Key Insight:** Borel-Moore homology detects "non-compact" cycles (like rays to infinity) that are invisible to ordinary homology, while compact cycles (like circles) that are non-trivial in ordinary homology can become boundaries when locally finite chains are allowed.
-
-**Prerequisites:** Borel-Moore homology, one-point compactification, reduced homology, locally finite chains
-
-<!-- BENCHMARK_PROBLEM: Compute H_i^{BM}(R^2 \ {0}) for all i using the one-point compactification method. Identify a generator of H_1^{BM} and explain why the circle generating H_1(R^2 \ {0}) maps to zero in H_1^{BM}. -->
-
-### Remark {#ecag-0196}
-
-Important properties and pathologies of Borel-Moore homology:
-
-- **Not homotopy invariant.** For example, $H_1^{BM}(\mathbb{R}) \cong \mathbb{Z}$ while $H_1^{BM}(\{pt\}) = 0$, even though $\mathbb{R}$ is contractible.
-- **No naive Poincare duality.** For non-compact manifolds, the usual Poincare duality $H_i(M) \cong H^{n-i}(M)$ fails. The correct statement involves Borel-Moore homology: $H_i^{BM}(M) \cong H^{n-i}(M)$ for an oriented $n$-manifold.
-- **Proper pushforward only.** A continuous map $f: X \to Y$ does not in general induce $f_*: H_i^{BM}(X) \to H_i^{BM}(Y)$, because the image of a locally finite chain need not be locally finite. For example, the inclusion $\mathbb{R} \setminus \{0\} \hookrightarrow \mathbb{R}$ sends the locally finite chain $\sum_{i \geq 0} [1/2^{i+1}, 1/2^i]$, which is locally finite on $\mathbb{R} \setminus \{0\}$, to a chain that is not locally finite at $0 \in \mathbb{R}$. Proper maps do induce pushforwards.
-- **Localization long exact sequence.** For a locally compact space $X$, a closed subset $Y \subset X$, and $U = X \setminus Y$, there is a long exact sequence:
-
-$$
-\cdots \rightarrow H_k^{BM}(Y) \rightarrow H_k^{BM}(X) \rightarrow H_k^{BM}(U) \rightarrow H_{k-1}^{BM}(Y) \rightarrow \cdots
+H_i^{BM}(\mathbb{R}^2 \setminus \{0\}) = \widetilde{H}_i(S^2 \vee S^1) = \begin{cases} \mathbb{Z} & i = 1, 2, \\ 0 & \text{otherwise.} \end{cases}
 
 $$
 
-This follows from the long exact sequence of the triple $(\overline{X}, \overline{X} \setminus U, \overline{X} \setminus X)$ combined with Poincare-Lefschetz duality for Borel-Moore homology.
+**Comparison with ordinary homology.** The ordinary homology $H_1(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$ is generated by a circle around the origin. In the Borel--Moore setting, this circle bounds the locally finite 2-chain given by either half-plane it separates, so it maps to zero in $H_1^{BM}$. Instead, $H_1^{BM}(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}$ is generated by a ray from $0$ to $\infty$ -- a locally finite 1-chain that has no compact analogue. Thus the natural map $H_i(\mathbb{R}^2 \setminus \{0\}) \to H_i^{BM}(\mathbb{R}^2 \setminus \{0\})$ is the zero map for all $i$.
 
-### Example: Poincar\'{e} duality {#ecag-0197}
+<!-- BENCHMARK_PROBLEM: Compute $H_i^{BM}(\mathbb{R}^2 \setminus \{0\})$ for all $i$ using a compactification argument. Identify a generator of $H_1^{BM}$ as a locally finite chain, and explain why the circle generating $H_1(\mathbb{R}^2 \setminus \{0\})$ maps to zero in Borel--Moore homology. -->
 
-**Statement:** Several versions of Poincare duality relate homology and cohomology:
+### Remark: Properties and pathologies of Borel--Moore homology {#ecag-0196}
 
-1. **(Poincare-Lefschetz duality)** Let $X$ be a closed subset of a smooth, oriented manifold $M$ with $\dim_{\mathbb{R}}(M) = n$. Then:
+Borel--Moore homology differs from ordinary singular homology in several important ways:
+
+**Not homotopy invariant.** We have $H_1^{BM}(\mathbb{R}) \cong \mathbb{Z}$ but $H_1^{BM}(\{pt\}) = 0$, even though $\mathbb{R}$ is contractible.
+
+**Poincare duality for non-compact manifolds.** For an oriented $n$-manifold $M$, the correct duality is $H_i^{BM}(M) \cong H^{n-i}(M)$, not $H_i(M) \cong H^{n-i}(M)$ (which fails for non-compact $M$).
+
+**Proper pushforward only.** A continuous map $f: X \to Y$ does not generally induce $f_*: H_i^{BM}(X) \to H_i^{BM}(Y)$, because images of locally finite chains need not be locally finite. For example, the inclusion $\mathbb{R} \setminus \{0\} \hookrightarrow \mathbb{R}$ sends the locally finite chain $\sum_{j \geq 0} [2^{-j-1}, 2^{-j}]$ (locally finite on $\mathbb{R} \setminus \{0\}$) to a chain that is not locally finite at $0 \in \mathbb{R}$. Proper maps do induce pushforwards.
+
+**Localization sequence.** For $Y \subset X$ closed in a locally compact space and $U = X \setminus Y$, there is a long exact sequence
+
+$$
+\cdots \to H_k^{BM}(Y) \to H_k^{BM}(X) \to H_k^{BM}(U) \to H_{k-1}^{BM}(Y) \to \cdots
+
+$$
+
+arising from the long exact sequence of the pair $(\overline{X}, \overline{X} \setminus U)$.
+
+<!-- BENCHMARK_PROBLEM: Using the localization long exact sequence for Borel--Moore homology applied to $Y = \{0\} \subset X = \mathbb{R}$ with $U = \mathbb{R} \setminus \{0\}$, compute $H_i^{BM}(\mathbb{R} \setminus \{0\})$ for all $i$. -->
+
+### Example: Poincare duality and Poincare--Lefschetz duality {#ecag-0197}
+
+**Poincare--Lefschetz duality.** Let $X$ be a closed subset of a smooth oriented manifold $M$ of real dimension $n$. Then
 
 $$
 H_i^{BM}(X) \cong H^{n-i}(M, M \setminus X).
 
 $$
 
-In particular, for $X = M$:
+The isomorphism is given by the cap product with the fundamental class. When $X = M$ is compact, $H_i^{BM}(M) = H_i(M)$ and $M \setminus M = \varnothing$, recovering classical Poincare duality $H_i(M) \cong H^{n-i}(M)$.
+
+When $X$ is open in $M$ (so $M$ is a compactification of $X$), combining Poincare--Lefschetz duality with the Borel--Moore definition $H_i^{BM}(X) = H_i(M, M \setminus X)$ gives the self-duality $H^{n-i}(M, M \setminus X) \cong H_i(M, M \setminus X)$.
+
+**Lefschetz duality for manifolds with boundary.** For a compact oriented $n$-manifold $M$ with boundary $\partial M$:
 
 $$
-H_i^{BM}(M) \cong H^{n-i}(M).
-
-$$
-
-2. **(Lefschetz duality for manifolds with boundary)** Let $M$ be an oriented compact $n$-manifold with boundary $\partial M$. Then:
-
-$$
-H^k(M, \partial M) \cong H_{n-k}(M), \quad H_k(M) \cong H^{n-k}(M, \partial M).
+H^k(M, \partial M) \cong H_{n-k}(M), \qquad H_k(M) \cong H^{n-k}(M, \partial M).
 
 $$
 
-**Construction/Proof:** For (1): This is proved using the cap product with the fundamental class. The key input is the local computation: for any $x \in M$, the local homology $H_n(M, M \setminus \{x\}) \cong \mathbb{Z}$ by the orientation, and this assembles into a global duality pairing. When $X = M$ is closed and compact, $H_i^{BM}(M) = H_i(M)$, recovering classical Poincare duality.
+The proof uses the fundamental class $[M, \partial M] \in H_n(M, \partial M)$ and the cap product. This differs from the Borel--Moore setting: here $\partial M$ is closed in $M$, whereas Borel--Moore theory involves the complement $M \setminus X$, which is open.
 
-Note the distinction between Poincare-Lefschetz duality $H_i^{BM}(X) \cong H^{n-i}(M, M \setminus X)$ and the definition $H_i^{BM}(X) = H_i(\overline{X}, \overline{X} \setminus X)$. The former requires $X$ to be embedded in a smooth manifold $M$; the latter is the general definition using any compactification. When $M$ is itself a compactification of $X$ (which implies $X$ is an open submanifold), combining the two gives:
+<!-- BENCHMARK_PROBLEM: Let $M$ be a smooth compact oriented $n$-manifold without boundary, and let $X = M \setminus \{p\}$ for a point $p$. Using Poincare--Lefschetz duality $H_i^{BM}(X) \cong H^{n-i}(M, M \setminus X)$, compute $H_i^{BM}(M \setminus \{p\})$ in terms of the cohomology of $M$ and the local cohomology at $p$. -->
 
-$$
-H^{n-i}(M, M \setminus X) \cong H_i(M, M \setminus X).
+### Remark: Intersection homology reference {#ecag-0198}
 
-$$
+A comprehensive treatment of intersection homology, including the construction of allowable chains with perversity conditions and the proof of generalized Poincare duality for singular spaces, is given in Maxim's lecture notes (*Intersection Homology*, University of Wisconsin). Intersection homology, introduced by Goresky and MacPherson (1980), recovers Poincare duality for singular algebraic varieties by restricting chains according to a perversity function that controls how chains interact with the singular strata.
 
-For (2): Lefschetz duality for manifolds with boundary differs from the Borel-Moore setting. Here $\partial M$ is closed in $M$ (as the boundary), whereas in Borel-Moore theory, $M \setminus X$ is typically open. The proof uses the fundamental class $[M, \partial M] \in H_n(M, \partial M)$ and the cap product.
+<!-- BENCHMARK_PROBLEM: State the perversity condition for a chain to be $\overline{p}$-allowable in intersection homology, and explain why the middle perversity is the unique self-dual perversity for even-dimensional strata. -->
 
-**Key Insight:** Poincare duality in its various forms converts homological information to cohomological information via the fundamental class; the correct version depends on whether the space is compact, has boundary, or is embedded in an ambient manifold.
+### Example: Perverse sheaves {#ecag-0199}
 
-**Prerequisites:** Poincare duality, Borel-Moore homology, cap product, fundamental class, manifolds with boundary, Lefschetz duality
+A perverse sheaf on a complex algebraic variety $X$ (with a fixed stratification $X = \bigsqcup_\alpha S_\alpha$) is an object $\mathcal{F}^\bullet \in D^b_c(X, \mathbb{Q})$ satisfying:
 
-<!-- BENCHMARK_PROBLEM: Let M be a smooth compact oriented manifold of dimension n without boundary. State the Poincare duality isomorphism. Then let X = M \ {p} for a point p. Compute H_i^{BM}(X) in terms of the homology of M and the local homology at p, using the Poincare-Lefschetz duality. -->
+- **(Support)** $\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j$ for all $j$.
+- **(Cosupport)** $\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j$ for all $j$, where $\mathbb{D}$ is Verdier duality.
 
-### Remark {#ecag-0198}
-
-A comprehensive reference for intersection homology, including the construction of intersection homology groups with perversity conditions and the proof of generalized Poincare duality for singular spaces, is Maxim's lecture notes: [Intersection Homology](https://www.math.wisc.edu/~maxim/853notes.pdf). Intersection homology, introduced by Goresky and MacPherson, recovers Poincare duality for singular algebraic varieties by restricting the allowable chains according to a perversity function that controls how chains interact with the singular strata.
-
-### Example: Perverse cohomology, perverse sheaf {#ecag-0199}
-
-**Statement:** A perverse sheaf on a complex algebraic variety $X$ (with a fixed stratification $X = \bigsqcup_\alpha S_\alpha$) is an object $\mathcal{F}^\bullet$ in the bounded derived category $D^b_c(X, \mathbb{Q})$ of constructible sheaves satisfying two conditions:
-
-1. **(Support condition)** $\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j$ for all $j$.
-2. **(Cosupport condition)** $\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j$ for all $j$, where $\mathbb{D}$ is the Verdier duality functor.
-
-The category $\operatorname{Perv}(X)$ of perverse sheaves is an abelian subcategory of $D^b_c(X)$, forming the heart of the perverse $t$-structure.
-
-**Construction/Proof:** The perverse $t$-structure on $D^b_c(X)$ is defined by:
+The category $\operatorname{Perv}(X)$ of perverse sheaves is the heart of the perverse $t$-structure on $D^b_c(X)$, defined by
 
 $$
-{}^p D^{\leq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j \text{ for all } j\},
+{}^p D^{\leq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j \;\forall\; j\}, \quad {}^p D^{\geq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j \;\forall\; j\}.
 
 $$
 
-$$
-{}^p D^{\geq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j \text{ for all } j\}.
+Despite the name, perverse sheaves are not sheaves but complexes of sheaves satisfying these dimensional conditions.
 
-$$
+**Fundamental example: shifted local systems.** If $X$ is smooth of pure dimension $d$ and $\mathcal{L}$ is a local system on $X$, then $\mathcal{L}[d]$ is a perverse sheaf. The support condition is satisfied because $\mathcal{H}^j(\mathcal{L}[d]) = 0$ for $j \neq -d$, and $\operatorname{supp} \mathcal{H}^{-d}(\mathcal{L}[d]) = X$ has dimension $d = -(-d)$. The cosupport condition follows by Verdier duality: $\mathbb{D}(\mathcal{L}[d]) \cong \mathcal{L}^\vee[d]$ (up to twist), and the same dimension count applies.
 
-The key example: if $X$ is smooth of dimension $d$, then a local system $\mathcal{L}$ on $X$ shifted by $d$ gives a perverse sheaf $\mathcal{L}[d]$. The shift is necessary because the support condition for $\mathcal{H}^j(\mathcal{L}[d])$ requires the stalk cohomology to vanish except in degree $-d$.
+**Intersection cohomology complex.** For a singular variety with smooth locus $j: U \hookrightarrow X$ and a local system $\mathcal{L}$ on $U$, the intersection cohomology complex $\operatorname{IC}(X, \mathcal{L})$ is the unique extension of $\mathcal{L}[\dim X]$ to a perverse sheaf on $X$ having no nontrivial sub-objects or quotient-objects supported on $X \setminus U$.
 
-For a singular variety with strata $S_\alpha$ of dimension $d_\alpha$, the intersection cohomology complex $\operatorname{IC}(X, \mathcal{L})$ (where $\mathcal{L}$ is a local system on the smooth part) is the fundamental example of a perverse sheaf. It is characterized as the unique extension of $\mathcal{L}[\dim X]$ satisfying both the support and cosupport conditions.
+The perverse cohomology functors ${}^p H^i: D^b_c(X) \to \operatorname{Perv}(X)$ are the cohomology functors of the perverse $t$-structure, analogous to ordinary cohomology sheaves $\mathcal{H}^i$ for the standard $t$-structure.
 
-The perverse cohomology functors ${}^p H^i: D^b_c(X) \to \operatorname{Perv}(X)$ are the cohomology functors associated to the perverse $t$-structure, analogous to ordinary cohomology sheaves $\mathcal{H}^i$ for the standard $t$-structure.
+<!-- BENCHMARK_PROBLEM: Let $X$ be a smooth complex variety of dimension $d$ and $\mathcal{L}$ a local system on $X$. Verify that $\mathcal{L}[d]$ satisfies the support and cosupport conditions to be a perverse sheaf. Determine ${}^p H^0(\mathcal{L}[d])$. -->
 
-**Key Insight:** Perverse sheaves are not sheaves in the classical sense but complexes of sheaves satisfying dimensional conditions that ensure Verdier self-duality; the shift by dimension in the definition compensates for the dimension of the support, making the theory sensitive to the geometry of singularities.
+### Example: Intersection cohomology via the IC complex {#ecag-0200}
 
-**Prerequisites:** Derived category of constructible sheaves, Verdier duality, $t$-structures, stratifications, local systems, intersection cohomology
-
-<!-- BENCHMARK_PROBLEM: Let X be a smooth complex variety of dimension d and let L be a local system on X. Show that L[d] is a perverse sheaf by verifying the support and cosupport conditions. What is the perverse cohomology {}^p H^0 of L[d]? -->
-
-### Example: Intersection cohomology, Goresky-MacPherson {#ecag-0200}
-
-**Statement:** Let $X$ be a (possibly singular) complex algebraic variety of pure dimension $n$, and let $\mathcal{L}$ be a local system on a smooth dense open subset $U \subset X$. The intersection cohomology groups $IH^k(X, \mathcal{L})$ are defined by:
+Let $X$ be a (possibly singular) complex algebraic variety of pure dimension $n$, and let $\mathcal{L}$ be a local system on a smooth dense open $U \subset X$. The intersection cohomology groups are
 
 $$
 IH^k(X, \mathcal{L}) := H^{k-n}(X, \operatorname{IC}(X, \mathcal{L}))
 
 $$
 
-where $\operatorname{IC}(X, \mathcal{L})$ is the intersection cohomology complex (a perverse sheaf extending $\mathcal{L}[n]$). These groups satisfy generalized Poincare duality:
+where $\operatorname{IC}(X, \mathcal{L})$ is the intersection cohomology complex extending $\mathcal{L}[n]$. The shift ensures that when $X$ is smooth and $\mathcal{L}$ is constant, $IH^k(X, \mathbb{Q}) = H^k(X, \mathbb{Q})$.
 
-$$
-IH^k(X, \mathcal{L}) \cong IH^{2n-k}(X, \mathcal{L}^\vee)^\vee.
-
-$$
-
-**Construction/Proof:** The intersection cohomology complex $\operatorname{IC}(X, \mathcal{L})$ is constructed by iterated truncation. Fix a Whitney stratification $X = \bigsqcup_\alpha S_\alpha$ with $U = S_0$ the open stratum. Let $U_k = \bigsqcup_{\dim S_\alpha \geq n - k} S_\alpha$ be the open subsets obtained by successively including strata of decreasing dimension, with inclusions $j_k: U_k \hookrightarrow U_{k+1}$. Then:
+**Construction of IC by iterated truncation.** Fix a Whitney stratification $X = \bigsqcup_\alpha S_\alpha$ with open stratum $U = S_0$. Let $U_k = \bigsqcup_{\dim S_\alpha \geq n-k} S_\alpha$ with inclusions $j_k: U_k \hookrightarrow U_{k+1}$. Then
 
 $$
 \operatorname{IC}(X, \mathcal{L}) = \tau_{\leq -1} R(j_{n-1})_* \cdots \tau_{\leq -n+1} R(j_1)_* (\mathcal{L}[n]).
 
 $$
 
-Each truncation $\tau_{\leq p}$ at each stage enforces the support condition stratum by stratum. The resulting complex is independent of the choice of stratification and is Verdier self-dual (up to a shift and twist by $\mathcal{L}^\vee$), which gives the generalized Poincare duality.
+Each truncation enforces the support condition stratum by stratum. The result is independent of the stratification and is Verdier self-dual (up to twist by $\mathcal{L}^\vee$), yielding generalized Poincare duality:
 
-For a concrete example, if $X$ is a curve with a node $p$, $U = X \setminus \{p\}$, and $\mathcal{L} = \mathbb{Q}_U$, then $\operatorname{IC}(X, \mathbb{Q})$ differs from $\mathbb{Q}_X[1]$ precisely at the node, where the stalk cohomology is corrected to restore Poincare duality. Specifically, $\mathcal{H}^{-1}(\operatorname{IC}(X))_p \cong \mathbb{Q}$ and $\mathcal{H}^{0}(\operatorname{IC}(X))_p = 0$ (the vanishing cycle at the node is killed).
+$$
+IH^k(X, \mathcal{L}) \cong IH^{2n-k}(X, \mathcal{L}^\vee)^\vee.
 
-**Key Insight:** Intersection cohomology restores Poincare duality on singular spaces by restricting which cycles are "allowable" near singular strata; the perversity condition is encoded algebraically through iterated truncation of the derived pushforward from the smooth part.
+$$
 
-**Prerequisites:** Constructible sheaves, derived categories, Whitney stratifications, Verdier duality, truncation functors, local systems
+**Concrete example: nodal curve.** Let $X$ be a curve with a single node $p$, and set $U = X \setminus \{p\}$, $\mathcal{L} = \mathbb{Q}_U$. The constant sheaf $\mathbb{Q}_X[1]$ fails to be a perverse sheaf at $p$ because the stalk $\mathcal{H}^0(\mathbb{Q}_X[1])_p = 0$ but the cosupport condition is violated (the local $H^0$ of the Verdier dual is too large). The IC complex corrects this: $\mathcal{H}^{-1}(\operatorname{IC}(X))_p \cong \mathbb{Q}$ and $\mathcal{H}^0(\operatorname{IC}(X))_p = 0$. In terms of the Cech picture, the vanishing cycle at the node is killed by the truncation.
 
-<!-- BENCHMARK_PROBLEM: Let X be a projective curve with a single node p, and let U = X \ {p} be the smooth locus. Describe the stalk cohomology H^j(IC(X, Q))_p at the node for all j, and explain how it differs from the stalk cohomology of Q_X[1] at p. -->
+<!-- BENCHMARK_PROBLEM: Let $X$ be a projective curve with a single node $p$, and let $U = X \setminus \{p\}$. Describe the stalk cohomology $\mathcal{H}^j(\operatorname{IC}(X, \mathbb{Q}))_p$ at the node for all $j$, and explain how it differs from $\mathcal{H}^j(\mathbb{Q}_X[1])_p$. -->
 
-### Example: Intersection cohomology {#ecag-0201}
+### Example: Intersection cohomology and the decomposition theorem {#ecag-0201}
 
-**Statement:** Given a complex algebraic variety $Y$ of pure dimension $n$ and a local system $L$ on a smooth dense open subset $U \subset Y$, the intersection cohomology groups are defined as:
+For a complex variety $Y$ of pure dimension $n$ with smooth dense open $U \subset Y$ carrying a local system $L$, the intersection cohomology groups
 
 $$
 IH^{n+k}(Y, L) := H^k(Y, \operatorname{IC}(Y, L))
 
 $$
 
-where $\operatorname{IC}(Y, L) \in D^b_c(Y)$ is the intersection cohomology complex, the unique (up to isomorphism) perverse sheaf extending $L[n]$ from $U$ to $Y$.
+are defined so that $\operatorname{IC}(Y, L)$, which lives in cohomological degrees $[-n, 0]$, normalizes the indexing: for smooth $Y$ with $L$ constant, $IH^k(Y, \mathbb{Q}) = H^k(Y, \mathbb{Q})$. The key structural results are:
 
-**Construction/Proof:** The indexing convention $IH^{n+k} = H^k(Y, \operatorname{IC}(Y, L))$ reflects the fact that $\operatorname{IC}(Y, L)$ lives in cohomological degrees $[-n, 0]$. The shift by $n$ ensures that when $Y$ is smooth and $L$ is constant, $IH^k(Y, \mathbb{Q}) = H^k(Y, \mathbb{Q})$ recovers ordinary cohomology. The key properties are:
+**Poincare duality.** $IH^k(Y, L) \cong IH^{2n-k}(Y, L^\vee)^\vee$.
 
-1. **Poincare duality:** $IH^k(Y, L) \cong IH^{2n-k}(Y, L^\vee)^\vee$.
-2. **Hard Lefschetz:** If $Y$ is projective, then cupping with the hyperplane class $\eta$ gives isomorphisms $\eta^j: IH^{n-j}(Y) \xrightarrow{\sim} IH^{n+j}(Y)$.
-3. **Decomposition theorem (Beilinson-Bernstein-Deligne-Gabber):** For a proper morphism $f: X \to Y$ with $X$ smooth, $\mathbf{R}f_*\mathbb{Q}_X[n]$ decomposes as a direct sum of shifted intersection cohomology complexes of semisimple local systems on strata of $Y$.
+**Hard Lefschetz.** If $Y$ is projective with hyperplane class $\eta$, then $\eta^j: IH^{n-j}(Y) \xrightarrow{\sim} IH^{n+j}(Y)$ for all $j \geq 0$.
 
-**Key Insight:** The notation $IH^{n+*}$ normalizes intersection cohomology so that the fundamental class lives in the expected degree and Poincare duality takes the familiar form; the intersection cohomology complex $\operatorname{IC}$ is the unique "best" extension of a local system from the smooth locus to the singular variety.
-
-**Prerequisites:** Perverse sheaves, intersection cohomology complex, derived categories, Poincare duality, decomposition theorem
-
-<!-- BENCHMARK_PROBLEM: Let Y be a projective variety of dimension n with a single isolated singular point p, smooth elsewhere. If the link of p is a rational homology sphere, how does IH^k(Y, Q) compare to the ordinary cohomology H^k(Y, Q)? -->
-
-### Example: (co)homology theories related to perverse sheaves {#ecag-0202}
-
-**Statement:** The following (co)homology theories arise naturally in the study of the decomposition theorem and perverse sheaves. We summarize each and explain their interrelationships.
-
-**Construction/Proof:**
-
-1. **Ordinary (co)homology** $H^i(X, \mathbb{Z})$: Singular cohomology, computed via the derived global sections $\mathbf{R}\Gamma(X, \mathbb{Z}_X)$.
-
-2. **Cohomology with support** $H_Y^i(X, \mathscr{F})$: For $Y \subset X$ closed, $H_Y^i(X, \mathscr{F}) = R^i\Gamma_Y(X, \mathscr{F})$ where $\Gamma_Y$ is the sections-with-support-in-$Y$ functor. Fits into the exact sequence $\cdots \to H_Y^i(X, \mathscr{F}) \to H^i(X, \mathscr{F}) \to H^i(X \setminus Y, \mathscr{F}) \to \cdots$.
-
-3. **Borel-Moore homology** $H_i^{BM}(X, \mathbb{Z})$: Homology using locally finite chains. For $X$ an oriented $n$-manifold, $H_i^{BM}(X) \cong H^{n-i}(X)$. Related to compactly supported cohomology by $H_i^{BM}(X) \cong H_c^{2n-i}(X)^\vee$ for complex varieties.
-
-4. **Cohomology with compact support** $H_c^i(X, \mathscr{L})$: Defined as $H^i(\overline{X}, j_!\mathscr{L})$ for any compactification $j: X \hookrightarrow \overline{X}$. Satisfies Poincare duality: $H_c^i(X) \cong H^{2n-i}(X)^\vee$ for smooth $X$ of dimension $n$.
-
-5. **Stalk cohomology** $\mathcal{H}_x^i(A^\bullet) = H^i(A^\bullet_x)$: The cohomology of the stalk complex at $x$. Controls the support and cosupport conditions for perverse sheaves.
-
-6. **Cohomology sheaf** $\mathcal{H}^i(A^\bullet)$: The sheafification of $U \mapsto H^i(\Gamma(U, A^\bullet))$. For constructible complexes, $\mathcal{H}^i(A^\bullet)$ is constructible.
-
-7. **Hypercohomology** $\mathbb{H}^i(X, A^\bullet) = H^i(X, A^\bullet)$: The derived functor cohomology of a complex of sheaves. Computed via injective resolution: replace $A^\bullet$ by a quasi-isomorphic complex of injectives $I^\bullet$ and take $H^i(\Gamma(X, \operatorname{Tot}(I^{\bullet,\bullet})))$.
-
-8. **Perverse cohomology** ${}^p H^i(A^\bullet)$: The cohomology functors of the perverse $t$-structure. For $A^\bullet \in D^b_c(X)$, ${}^p H^i(A^\bullet) \in \operatorname{Perv}(X)$. These are perverse sheaves, not classical sheaves.
-
-9. **Intersection (co)homology** $IH_i^{\overline{p}}(X)$: Homology computed using only $\overline{p}$-allowable chains, where the perversity $\overline{p}$ controls how much a chain can intersect each singular stratum. For the middle perversity $\overline{m}$, this recovers the intersection cohomology complex $\operatorname{IC}(X)$.
-
-10. **Relative intersection homology** $IH_i^{\overline{p}}(X, X \setminus \{x\}; \mathscr{L})$: The local intersection homology at a point $x$, which computes the stalk of the intersection cohomology complex and is determined by the topology of the link of $x$ in $X$.
-
-**Key Insight:** These theories form a hierarchy: stalk cohomology is the local invariant, cohomology sheaves assemble these into a sheaf, hypercohomology globalizes, and perverse cohomology replaces the standard $t$-structure with one adapted to the geometry of singularities.
-
-**Prerequisites:** Derived categories, constructible sheaves, Verdier duality, perverse $t$-structure, intersection homology, Borel-Moore homology
-
-<!-- BENCHMARK_PROBLEM: For a smooth complex variety X of dimension n, express H^i_c(X, Q), H_i^{BM}(X, Q), and IH^i(X, Q) in terms of ordinary cohomology H^j(X, Q). Which of these theories are homotopy invariant? -->
-
-### Example: Operations related to perverse sheaves {#ecag-0203}
-
-**Statement:** The theory of perverse sheaves requires a collection of key operations and constructions. We list the most important ones with precise definitions.
-
-**Construction/Proof:**
-
-1. **Perversity.** A perversity is a function $\overline{p}: \{2, 3, \ldots\} \to \mathbb{Z}_{\geq 0}$ with $\overline{p}(2) = 0$ and $\overline{p}(k+1) \in \{\overline{p}(k), \overline{p}(k)+1\}$. The middle perversity is $\overline{m}(2k) = k-1$, $\overline{m}(2k+1) = k-1$. In the algebraic geometry convention (Beilinson-Bernstein-Deligne), the perversity is absorbed into the definition of the $t$-structure.
-
-2. **Mapping cone.** For a morphism $f: A^\bullet \to B^\bullet$ in $D^b(X)$, the mapping cone $\operatorname{Cone}(f)$ fits in a distinguished triangle $A^\bullet \xrightarrow{f} B^\bullet \to \operatorname{Cone}(f) \xrightarrow{[1]} A^\bullet[1]$.
-
-3. **Link.** For a point $x$ in a stratified space $X$, the link $L_x$ is the boundary of a small normal slice to the stratum through $x$. The local topology of $X$ near $x$ is modeled on $\operatorname{cone}(L_x) \times \mathbb{R}^{d}$ where $d = \dim S_\alpha$.
-
-4. **Injective resolution of a complex.** For $A^\bullet \in D^b(X)$, an injective resolution is a quasi-isomorphism $A^\bullet \xrightarrow{\sim} I^\bullet$ where each $I^k$ is injective. One can use Godement resolutions or flasque resolutions in practice.
-
-5. **Support/cosupport conditions.** $A^\bullet \in {}^pD^{\leq 0}$ iff $\dim \operatorname{supp} \mathcal{H}^j(A^\bullet) \leq -j$ for all $j$. The cosupport condition uses Verdier dual $\mathbb{D}A^\bullet$.
-
-6. **Perverse truncation functors** ${}^p\tau_{\leq n}, {}^p\tau_{\geq n}$: These are the truncation functors for the perverse $t$-structure. For any $A^\bullet \in D^b_c(X)$, there is a distinguished triangle ${}^p\tau_{\leq n} A^\bullet \to A^\bullet \to {}^p\tau_{\geq n+1} A^\bullet \xrightarrow{[1]}$, and ${}^p H^n(A^\bullet) = {}^p\tau_{\leq n} {}^p\tau_{\geq n} A^\bullet$.
-
-7. **Derived pushforward $Rj_*\mathscr{L}$.** For $j: U \hookrightarrow X$ an open inclusion and $\mathscr{L}$ a local system on $U$, $Rj_*\mathscr{L}$ is a complex of sheaves on $X$ whose stalk cohomology at $x \in X \setminus U$ computes $H^*(L_x, \mathscr{L})$.
-
-8. **Perverse functors ${}^p j_*, {}^p j_!$.** These are the intermediate extensions: ${}^p j_{!*}\mathcal{F} = \operatorname{Im}({}^p H^0(j_!\mathcal{F}) \to {}^p H^0(Rj_*\mathcal{F}))$ for $\mathcal{F} \in \operatorname{Perv}(U)$.
-
-9. **Intersection cohomology complex $\operatorname{IC}(X, \mathscr{L})$.** The intermediate extension $j_{!*}(\mathscr{L}[\dim X])$ where $j: U \hookrightarrow X$ is the smooth locus. It is the unique perverse sheaf extending $\mathscr{L}[\dim X]$ with no sub- or quotient-objects supported on $X \setminus U$.
-
-**Key Insight:** The perverse $t$-structure recalibrates the notion of "truncation" to be sensitive to the dimension of supports, so that the resulting heart (perverse sheaves) captures the geometry of singularities in a way that the standard $t$-structure cannot.
-
-**Prerequisites:** Derived categories, $t$-structures, constructible sheaves, Verdier duality, stratified spaces, intermediate extension
-
-<!-- BENCHMARK_PROBLEM: Let j: U -> X be the inclusion of the smooth locus of a variety X. Define the intermediate extension functor j_{!*} and explain why IC(X, L) = j_{!*}(L[dim X]) has no nontrivial sub-objects or quotient-objects supported on X \ U in the category Perv(X). -->
-
-### Example: $j_{*}, j_{!}$ {#ecag-0204}
-
-**Statement:** The functors $j_*$ (direct image) and $j_!$ (extension by zero / proper direct image) appear in several categorical contexts with related but distinct meanings. We catalog the main appearances and their relationships.
-
-**Construction/Proof:**
-
-*In ordinary sheaf theory:* For an open inclusion $j: U \hookrightarrow X$, $j_*\mathscr{F}$ is the direct image sheaf: $(j_*\mathscr{F})(V) = \mathscr{F}(V \cap U)$. The functor $j_!$ is extension by zero: $(j_!\mathscr{F})(V) = \{s \in \mathscr{F}(V \cap U) \mid \operatorname{supp}(s) \text{ is closed in } V\}$. There is a natural inclusion $j_!\mathscr{F} \hookrightarrow j_*\mathscr{F}$.
-
-*Higher derived functors:* $R^k j_*\mathscr{F}$ is the sheafification of $V \mapsto H^k(V \cap U, \mathscr{F})$. For $j$ an open immersion, $j_!$ is exact, so $R^k j_! = 0$ for $k > 0$. The total derived functors $Rj_*$ and $Rj_!$ live in the derived category.
-
-*In the derived category:* For $A^\bullet \in D^b_c(U)$, $Rj_*A^\bullet$ and $j_! A^\bullet$ (which equals $Rj_! A^\bullet$ for open $j$) are related by Verdier duality: $\mathbb{D}(Rj_*A^\bullet) \cong j_!(\mathbb{D}A^\bullet)$.
-
-*Key exact sequences:* For $j: U \hookrightarrow X$ open with complement $i: Z \hookrightarrow X$ closed:
+**Decomposition theorem** (Beilinson--Bernstein--Deligne--Gabber). For a proper morphism $f: X \to Y$ with $X$ smooth of dimension $n$, the derived pushforward $\mathbf{R}f_*\mathbb{Q}_X[n]$ decomposes in $D^b_c(Y)$ as a direct sum of shifted IC complexes of semisimple local systems on strata of $Y$:
 
 $$
-0 \to j_! j^* \mathscr{F} \to \mathscr{F} \to i_* i^* \mathscr{F} \to 0
+\mathbf{R}f_*\mathbb{Q}_X[n] \cong \bigoplus_{i} \operatorname{IC}(\overline{S_i}, \mathcal{L}_i)[n_i]
 
 $$
 
-for any sheaf $\mathscr{F}$ on $X$. In the derived category, there are distinguished triangles:
+where each $\mathcal{L}_i$ is a semisimple local system on a stratum $S_i$ of $Y$. This is one of the deepest results in the theory, subsuming Deligne's degeneration theorem and the semisimplicity of monodromy for algebraic families.
+
+<!-- BENCHMARK_PROBLEM: Let $Y$ be a projective variety of dimension $n$ with a single isolated singularity $p$, smooth elsewhere. If the link of $p$ is a rational homology sphere, show that $IH^k(Y, \mathbb{Q}) \cong H^k(Y, \mathbb{Q})$ for all $k$. -->
+
+### Example: Catalog of (co)homology theories related to perverse sheaves {#ecag-0202}
+
+The following theories arise naturally in the study of the decomposition theorem and perverse sheaves. We list their definitions and interrelationships.
+
+1. **Ordinary cohomology** $H^i(X, \mathbb{Z})$: singular cohomology, computed as $H^i(\mathbf{R}\Gamma(X, \mathbb{Z}_X))$.
+
+2. **Cohomology with support** $H^i_Y(X, \mathscr{F})$: for $Y \subset X$ closed, $H^i_Y = R^i\Gamma_Y$ where $\Gamma_Y$ is sections supported in $Y$. Fits into the exact sequence $\cdots \to H^i_Y(X, \mathscr{F}) \to H^i(X, \mathscr{F}) \to H^i(X \setminus Y, \mathscr{F}) \to \cdots$.
+
+3. **Borel--Moore homology** $H_i^{BM}(X)$: homology via locally finite chains. For an oriented $n$-manifold, $H_i^{BM}(X) \cong H^{n-i}(X)$. For complex varieties, $H_i^{BM}(X) \cong H_c^{2n-i}(X)^\vee$.
+
+4. **Compactly supported cohomology** $H^i_c(X, \mathscr{L})$: defined as $H^i(\overline{X}, j_!\mathscr{L})$ for any compactification $j: X \hookrightarrow \overline{X}$. Satisfies $H^i_c(X) \cong H^{2n-i}(X)^\vee$ for smooth $X$ of complex dimension $n$.
+
+5. **Stalk cohomology** $\mathcal{H}^i_x(A^\bullet) = H^i(A^\bullet_x)$: the local invariant controlling support and cosupport conditions for perverse sheaves.
+
+6. **Cohomology sheaf** $\mathcal{H}^i(A^\bullet)$: sheafification of $U \mapsto H^i(\Gamma(U, A^\bullet))$, always constructible for constructible complexes.
+
+7. **Hypercohomology** $\mathbb{H}^i(X, A^\bullet) = H^i(\mathbf{R}\Gamma(X, A^\bullet))$: derived functor cohomology of a complex of sheaves.
+
+8. **Perverse cohomology** ${}^p H^i(A^\bullet)$: cohomology functors of the perverse $t$-structure. These are perverse sheaves, not classical sheaves.
+
+9. **Intersection homology** $IH_i^{\overline{p}}(X)$: homology using only $\overline{p}$-allowable chains, where the perversity controls interaction with singular strata. The middle perversity $\overline{m}$ gives $\operatorname{IC}(X)$.
+
+10. **Local intersection homology** $IH_i^{\overline{p}}(X, X \setminus \{x\}; \mathscr{L})$: computes the stalk of IC and is determined by the topology of the link of $x$.
+
+These form a hierarchy: stalk cohomology is the local invariant, cohomology sheaves assemble stalks into a global sheaf, hypercohomology globalizes further, and perverse cohomology replaces the standard $t$-structure with one adapted to singularities.
+
+<!-- BENCHMARK_PROBLEM: For a smooth complex variety $X$ of dimension $n$, express $H^i_c(X, \mathbb{Q})$, $H_i^{BM}(X, \mathbb{Q})$, and $IH^i(X, \mathbb{Q})$ in terms of ordinary cohomology $H^j(X, \mathbb{Q})$. Which of these theories are homotopy invariant? -->
+
+### Example: Operations in the theory of perverse sheaves {#ecag-0203}
+
+The theory of perverse sheaves requires several key constructions, which we catalog with precise definitions.
+
+**Perversity.** A perversity is a function $\overline{p}: \{2, 3, \ldots\} \to \mathbb{Z}_{\geq 0}$ with $\overline{p}(2) = 0$ and $\overline{p}(k+1) \in \{\overline{p}(k), \overline{p}(k)+1\}$. The middle perversity is $\overline{m}(2s) = \overline{m}(2s+1) = s-1$. In the BBD (Beilinson--Bernstein--Deligne) convention, the perversity is absorbed into the $t$-structure definition.
+
+**Mapping cone.** For $f: A^\bullet \to B^\bullet$ in $D^b(X)$, the mapping cone $\operatorname{Cone}(f)$ fits in a distinguished triangle $A^\bullet \xrightarrow{f} B^\bullet \to \operatorname{Cone}(f) \xrightarrow{[1]} A^\bullet[1]$.
+
+**Link.** For a point $x$ in a stratified space $X$ belonging to a stratum $S_\alpha$ of dimension $d$, the link $L_x$ is the boundary of a small normal slice to $S_\alpha$ through $x$. The local topology is modeled on $\operatorname{cone}(L_x) \times \mathbb{R}^d$.
+
+**Perverse truncation.** The functors ${}^p\tau_{\leq n}, {}^p\tau_{\geq n}$ are the truncation functors for the perverse $t$-structure. For $A^\bullet \in D^b_c(X)$, there is a distinguished triangle ${}^p\tau_{\leq n} A^\bullet \to A^\bullet \to {}^p\tau_{\geq n+1} A^\bullet \xrightarrow{[1]}$, and ${}^p H^n(A^\bullet) = {}^p\tau_{\leq n}\, {}^p\tau_{\geq n} A^\bullet$.
+
+**Derived pushforward.** For $j: U \hookrightarrow X$ open and $\mathscr{L}$ a local system on $U$, the stalk cohomology of $Rj_*\mathscr{L}$ at $x \in X \setminus U$ computes $H^*(L_x, \mathscr{L})$, the cohomology of the local system restricted to the link.
+
+**Intermediate extension.** For $\mathcal{F} \in \operatorname{Perv}(U)$, the intermediate extension is $j_{!*}\mathcal{F} = \operatorname{Im}({}^p H^0(j_!\mathcal{F}) \to {}^p H^0(Rj_*\mathcal{F}))$. The IC complex is $\operatorname{IC}(X, \mathscr{L}) = j_{!*}(\mathscr{L}[\dim X])$, characterized as the unique perverse extension with no sub- or quotient-objects supported on $X \setminus U$.
+
+<!-- BENCHMARK_PROBLEM: Let $j: U \to X$ be the inclusion of the smooth locus of a variety $X$. Define the intermediate extension functor $j_{!*}$ and prove that $\operatorname{IC}(X, \mathcal{L}) = j_{!*}(\mathcal{L}[\dim X])$ has no nontrivial sub-objects or quotient-objects supported on $X \setminus U$ in $\operatorname{Perv}(X)$. -->
+
+### Example: The functors $j_*$ and $j_!$ across categorical contexts {#ecag-0204}
+
+The functors $j_*$ (direct image) and $j_!$ (extension by zero / proper direct image) appear in several settings with related but distinct meanings.
+
+**Ordinary sheaf theory.** For an open immersion $j: U \hookrightarrow X$:
+
+- $j_*\mathscr{F}$ is the direct image: $(j_*\mathscr{F})(V) = \mathscr{F}(V \cap U)$.
+- $j_!\mathscr{F}$ is extension by zero: $(j_!\mathscr{F})(V) = \{s \in \mathscr{F}(V \cap U) \mid \operatorname{supp}(s) \text{ is closed in } V\}$.
+- There is a natural inclusion $j_!\mathscr{F} \hookrightarrow j_*\mathscr{F}$.
+
+**Higher derived functors.** $R^k j_*\mathscr{F}$ is the sheafification of $V \mapsto H^k(V \cap U, \mathscr{F})$. Since $j_!$ is exact for open immersions, $R^k j_! = 0$ for $k > 0$.
+
+**Derived category.** For $A^\bullet \in D^b_c(U)$, $Rj_*$ and $j_! = Rj_!$ (for open $j$) are related by Verdier duality: $\mathbb{D}(Rj_* A^\bullet) \cong j_!(\mathbb{D}A^\bullet)$.
+
+**Recollement triangles.** For $j: U \hookrightarrow X$ open with closed complement $i: Z \hookrightarrow X$, any sheaf $\mathscr{F}$ on $X$ fits in the short exact sequence $0 \to j_!j^*\mathscr{F} \to \mathscr{F} \to i_*i^*\mathscr{F} \to 0$. In the derived category, the corresponding distinguished triangles are:
 
 $$
 j_! j^* A^\bullet \to A^\bullet \to Ri_* i^* A^\bullet \xrightarrow{[1]}
@@ -597,165 +472,135 @@ i_* i^! A^\bullet \to A^\bullet \to Rj_* j^* A^\bullet \xrightarrow{[1]}.
 
 $$
 
-*In $K$-theory:* For a proper morphism $f$, $f_!: K_0(X) \to K_0(Y)$ is the $K$-theoretic pushforward defined by $f_!([\mathscr{F}]) = \sum (-1)^i [R^i f_*\mathscr{F}]$. This requires properness (or compact support) for well-definedness.
+These are dual to each other under Verdier duality: applying $\mathbb{D}$ to the first yields the second (using $\mathbb{D} \circ j_! \cong Rj_* \circ \mathbb{D}$ and $\mathbb{D} \circ i_* \cong i_* \circ \mathbb{D}$, $i^! \cong \mathbb{D} \circ i^* \circ \mathbb{D}$).
 
-**Key Insight:** The functor $j_!$ is the "minimal" extension (extending by zero outside $U$) while $j_*$ is the "maximal" extension (taking all sections); the intermediate extension $j_{!*}$ in the perverse setting interpolates between them.
+**$K$-theory.** For a proper morphism $f: X \to Y$, the $K$-theoretic pushforward $f_!: K_0(X) \to K_0(Y)$ is $f_!([\mathscr{F}]) = \sum_i (-1)^i [R^i f_*\mathscr{F}]$. Properness ensures the higher direct images are coherent.
 
-**Prerequisites:** Sheaf theory, open/closed immersions, derived categories, Verdier duality, $K$-theory, proper pushforward
+<!-- BENCHMARK_PROBLEM: Let $j: U \to X$ be an open immersion with closed complement $i: Z \to X$. Write down the two distinguished triangles relating $j_!, j^*, Rj_*, i_*, i^*, Ri_*, i^!$ in $D^b_c(X)$, and verify they are interchanged by Verdier duality. -->
 
-<!-- BENCHMARK_PROBLEM: Let j: U -> X be an open immersion with closed complement i: Z -> X. Write down the two distinguished triangles relating j_!, j^*, Rj_*, i_*, i^*, Ri_*, i^! in the derived category. Verify they are compatible with Verdier duality. -->
+### Example: Non-degeneration of the Leray spectral sequence {#ecag-0205}
 
-### Example: Leray spectral sequence doesn't degenerate {#ecag-0205}
+The Leray spectral sequence $E_2^{p,q} = H^p(Y, R^q f_*\mathbb{Q}) \Rightarrow H^{p+q}(X, \mathbb{Q})$ for a smooth proper morphism $f: X \to Y$ does not always degenerate at $E_2$, contrary to what one might expect from the algebraic setting.
 
-**Statement:** The Leray spectral sequence does not always degenerate, even for fibrations. In the holomorphic (non-algebraic) setting, there exist smooth proper morphisms $f: X \to Y$ of complex manifolds for which the Leray spectral sequence
+**The Hopf surface.** Let $X = (\mathbb{C}^2 \setminus \{0\})/\langle z \mapsto 2z \rangle$. This compact complex surface fibers over $\mathbb{P}^1$ via $f: X \to \mathbb{P}^1$, with elliptic curve fibers. The fundamental group is $\pi_1(X) \cong \mathbb{Z}$ (generated by the contracting loop), so $b_1(X) = 1$.
 
-$$
-E_2^{p,q} = H^p(Y, R^q f_* \underline{\mathbb{Q}}) \Rightarrow H^{p+q}(X, \underline{\mathbb{Q}})
+Since $b_1$ is odd, $X$ cannot be Kahler (for compact Kahler manifolds, $b_1$ is even by the Hodge decomposition $H^1 \cong H^{1,0} \oplus H^{0,1}$ with $h^{1,0} = h^{0,1}$).
 
-$$
+If the Leray spectral sequence for $f$ degenerated at $E_2$, then $H^1(X, \mathbb{Q})$ would be a quotient of $E_2^{1,0} \oplus E_2^{0,1} = H^1(\mathbb{P}^1, f_*\mathbb{Q}) \oplus H^0(\mathbb{P}^1, R^1 f_*\mathbb{Q})$. We have $H^1(\mathbb{P}^1, \mathbb{Q}) \cong \mathbb{Q}^2$ and $R^1 f_*\mathbb{Q}$ is a local system of rank 2 on $\mathbb{P}^1$. The dimension count from degeneration is incompatible with $b_1(X) = 1$.
 
-fails to degenerate at $E_2$.
+The essential point is that Deligne's degeneration theorem requires the morphism to be algebraic (or at least that the total space admits a Kahler metric). The Hopf surface is a purely holomorphic, non-algebraic example where degeneration fails.
 
-**Construction/Proof:** Consider the Hopf surface $X = (\mathbb{C}^2 \setminus \{0\}) / \langle z \mapsto 2z \rangle$. This is a compact complex surface that fibers over $\mathbb{P}^1$ via the natural projection $f: X \to \mathbb{P}^1$. The fibers are elliptic curves (tori), but $X$ is not Kahler (it has $b_1 = 1$, which is odd, impossible for a compact Kahler manifold). The Leray spectral sequence for $f$ does not degenerate at $E_2$: we have $H^1(X, \mathbb{Q}) \cong \mathbb{Q}$, but $E_2^{1,0} \oplus E_2^{0,1} = H^1(\mathbb{P}^1, \mathbb{Q}) \oplus H^0(\mathbb{P}^1, R^1 f_* \mathbb{Q})$ would give a different answer if the spectral sequence degenerated.
+<!-- BENCHMARK_PROBLEM: The Hopf surface $X = (\mathbb{C}^2 \setminus \{0\})/\langle z \mapsto 2z \rangle$ fibers over $\mathbb{P}^1$ with elliptic curve fibers. Compute $b_1(X)$, explain why $X$ is not Kahler, and use this to argue that the Leray spectral sequence for $f: X \to \mathbb{P}^1$ does not degenerate at $E_2$. -->
 
-More generally, the non-degeneracy can occur for any holomorphic fiber bundle where the total space is not Kahler. The crucial point is that Deligne's degeneration theorem requires the morphism to be algebraic (or at least that the total space admits a Kahler metric), not merely holomorphic.
+### Remark: Deligne's degeneration theorem {#ecag-0206}
 
-**Key Insight:** Deligne's theorem on degeneration of the Leray spectral sequence for smooth projective morphisms of algebraic varieties is fundamentally an algebraic (or Kahler) result; it relies on the Hard Lefschetz theorem applied fiberwise, which requires a Kahler class and fails in the purely holomorphic setting.
-
-**Prerequisites:** Leray spectral sequence, Hodge theory, Kahler manifolds, Hopf surface, Deligne's degeneration theorem
-
-<!-- BENCHMARK_PROBLEM: The Hopf surface X = (C^2 \ {0}) / <z -> 2z> fibers over P^1 with elliptic curve fibers. Explain why X is not Kahler (compute b_1), and use this to argue that the Leray spectral sequence for f: X -> P^1 cannot degenerate at E_2. -->
-
-### Remark {#ecag-0206}
-
-Deligne's degeneration theorem (1968) states that if $f: X \to Y$ is a smooth projective morphism of algebraic varieties over $\mathbb{C}$, then the Leray spectral sequence degenerates at $E_2$:
+Deligne's theorem (1968) states that for a smooth projective morphism $f: X \to Y$ of algebraic varieties over $\mathbb{C}$, the Leray spectral sequence
 
 $$
-E_2^{p,q} = H^p(Y, R^q f_* \underline{\mathbb{Q}}) \Rightarrow H^{p+q}(X, \underline{\mathbb{Q}}).
+E_2^{p,q} = H^p(Y, R^q f_*\mathbb{Q}) \Rightarrow H^{p+q}(X, \mathbb{Q})
 
 $$
 
-The proof uses the Hard Lefschetz theorem on the fibers to construct a splitting. More precisely, a relative ample class $\eta \in H^2(X, \mathbb{Q})$ acts on $R^q f_*\mathbb{Q}$ via the Lefschetz operator, and the resulting decomposition $R^q f_*\mathbb{Q} \cong \bigoplus_j \mathcal{L}_j$ into primitive parts gives the splitting of the spectral sequence. This result was later vastly generalized by the decomposition theorem of Beilinson-Bernstein-Deligne-Gabber (1982), which handles arbitrary proper morphisms (allowing singular fibers) using perverse sheaves and intersection cohomology.
+degenerates at $E_2$. The proof uses the Hard Lefschetz theorem on the fibers: a relative ample class $\eta \in H^2(X, \mathbb{Q})$ acts on $R^q f_*\mathbb{Q}$ via the Lefschetz operator, and the resulting decomposition into primitive parts gives a splitting of the spectral sequence. This was vastly generalized by the decomposition theorem of Beilinson--Bernstein--Deligne--Gabber (1982), which handles arbitrary proper morphisms (allowing singular fibers) using perverse sheaves and intersection cohomology.
+
+<!-- BENCHMARK_PROBLEM: State Deligne's degeneration theorem for smooth projective morphisms. Explain the role of the Hard Lefschetz theorem on fibers in the proof, and state how the BBDG decomposition theorem generalizes it to proper morphisms with singular fibers. -->
 
 ### Example: Pathologies of non-abelian categories {#ecag-0207}
 
-**Statement:** Certain basic properties of abelian categories fail in non-abelian (additive but not abelian) categories. The following three pathologies illustrate this.
+Several basic properties of abelian categories fail in additive categories that are not abelian. Three illustrative pathologies:
 
-**Construction/Proof:**
+**Kernels may not exist.** In the category of finitely generated modules over $R = k[x_1, x_2, \ldots]$ (polynomial ring in infinitely many variables), the projection $\pi: R \to k = R/(x_1, x_2, \ldots)$ has kernel $(x_1, x_2, \ldots)$, which is not finitely generated. So $\ker(\pi)$ does not exist in the category of finitely generated $R$-modules.
 
-1. **Kernels may not exist.** Consider the category of finitely generated modules over $R = k[x_1, x_2, \ldots]$ (a polynomial ring in infinitely many variables). The kernel of the natural projection $\pi: R \to k = R/(x_1, x_2, \ldots)$ is the ideal $(x_1, x_2, \ldots)$, which is not finitely generated as an $R$-module. Therefore, in the category of finitely generated $R$-modules, $\ker(\pi)$ does not exist.
+**Cokernels may not exist.** In the category of free abelian groups, the map $\mathbb{Z} \xrightarrow{\times 2} \mathbb{Z}$ has cokernel $\mathbb{Z}/2\mathbb{Z}$ in $\operatorname{Ab}$, but $\mathbb{Z}/2\mathbb{Z}$ is not free. No free abelian group satisfies the universal property: if $G$ is free and $\varphi: \mathbb{Z} \to G$ satisfies $\varphi(2n) = 0$ for all $n$, then $2\varphi(1) = 0$, forcing $\varphi(1) = 0$ since $G$ is torsion-free. So the only map $\mathbb{Z} \to G$ annihilating the image of $\times 2$ is zero, but the zero group fails the universal property (the quotient map $\mathbb{Z} \to \mathbb{Z}/2$ is nonzero).
 
-2. **Cokernels may not exist.** Consider the category of free abelian groups. The map $\mathbb{Z} \xrightarrow{\times 2} \mathbb{Z}$ has cokernel $\mathbb{Z}/2\mathbb{Z}$ in the category of all abelian groups, but $\mathbb{Z}/2\mathbb{Z}$ is not free. No free abelian group satisfies the universal property of the cokernel, so the cokernel does not exist in this subcategory.
+**Zero kernel and cokernel do not imply isomorphism.** In the category of filtered vector spaces, let $V = k$ with $F^0 V = V, F^1 V = 0$, and $W = k$ with $F^0 W = W, F^1 W = W$. The identity map $\operatorname{id}: V \to W$ has trivial kernel and cokernel (as filtered spaces), but it is not an isomorphism: its inverse $W \to V$ does not preserve the filtration (it would need $F^1 V \supseteq F^1 W = W$, but $F^1 V = 0$).
 
-3. **Vanishing of kernel and cokernel does not imply isomorphism.** In the category of filtered vector spaces (with morphisms preserving filtrations), a morphism can have zero kernel and zero cokernel without being an isomorphism. For example, let $V = k$ with filtration $F^0 V = V, F^1 V = 0$, and $W = k$ with filtration $F^0 W = W, F^1 W = W$. The identity map $\operatorname{id}: V \to W$ has trivial kernel and cokernel as a map of filtered spaces, but it is not an isomorphism of filtered vector spaces (the inverse does not preserve the filtration).
+These pathologies show why the axioms of an abelian category -- existence of all kernels and cokernels, and the condition that every monic is a kernel and every epic is a cokernel -- are precisely what is needed for homological algebra.
 
-**Key Insight:** These pathologies show why the axioms of an abelian category (existence of all kernels and cokernels, and the condition that every monomorphism is a kernel and every epimorphism is a cokernel) are precisely what is needed for homological algebra to function.
+<!-- BENCHMARK_PROBLEM: In the category of free abelian groups, prove that the map $\mathbb{Z} \xrightarrow{\times 2} \mathbb{Z}$ has no cokernel by showing that no free abelian group satisfies the universal property. -->
 
-**Prerequisites:** Abelian categories, kernels and cokernels, finitely generated modules, free abelian groups, filtered vector spaces
+### Example: Exactness in sheaves versus presheaves {#ecag-0208}
 
-<!-- BENCHMARK_PROBLEM: In the category of free abelian groups, show that the multiplication-by-2 map Z -> Z has no cokernel. Prove this by showing that no free abelian group satisfies the universal property of the cokernel. -->
-
-### Example: Exactness depends on the ambient abelian category {#ecag-0208}
-
-**Statement:** The Euler sequence on $\mathbb{P}^1$:
+The Euler sequence on $\mathbb{P}^1$, twisted by $\mathcal{O}(-1)$:
 
 $$
-0 \rightarrow \mathcal{O}(-2) \rightarrow \mathcal{O}(-1) \oplus \mathcal{O}(-1) \rightarrow \mathcal{O} \rightarrow 0
+0 \to \mathcal{O}(-2) \to \mathcal{O}(-1) \oplus \mathcal{O}(-1) \to \mathcal{O} \to 0
 
 $$
 
-is exact in the category of sheaves of $\mathcal{O}_{\mathbb{P}^1}$-modules, but it is not exact in the category of presheaves on $\mathbb{P}^1$.
+is exact as a sequence of sheaves (checked on stalks) but not exact as a sequence of presheaves.
 
-**Construction/Proof:** The Euler sequence on $\mathbb{P}^n$ is $0 \to \Omega^1_{\mathbb{P}^n}(1) \to \mathcal{O}^{n+1} \to \mathcal{O}(1) \to 0$. For $\mathbb{P}^1$, twisting by $\mathcal{O}(-1)$ gives the sequence above, since $\Omega^1_{\mathbb{P}^1} \cong \mathcal{O}(-2)$.
+For presheaf exactness, the sequence of sections over every open set $U$ would need to be exact. Taking $U = \mathbb{P}^1$:
 
-Exactness as sheaves is checked on stalks: at each point $p \in \mathbb{P}^1$, the stalk sequence is exact. However, exactness as presheaves would require that for every open set $U$, the sequence of sections
+| Sheaf | $H^0(\mathbb{P}^1, -)$ |
+|-------|------------------------|
+| $\mathcal{O}(-2)$ | $0$ |
+| $\mathcal{O}(-1) \oplus \mathcal{O}(-1)$ | $0$ |
+| $\mathcal{O}$ | $k$ |
 
-$$
-0 \to \mathcal{O}(-2)(U) \to (\mathcal{O}(-1) \oplus \mathcal{O}(-1))(U) \to \mathcal{O}(U) \to 0
+The global sections sequence $0 \to 0 \to 0 \to k \to 0$ fails to be exact at the last nonzero term: the surjection $\mathcal{O}(-1)^2 \to \mathcal{O}$ induces the zero map $0 \to k$ on global sections, which is not surjective.
 
-$$
+The discrepancy is resolved by sheafification: the map $\mathcal{O}(-1)^2 \to \mathcal{O}$ is surjective on stalks (equivalently, every point has a neighborhood where the map is surjective), but global surjectivity fails because $H^1(\mathbb{P}^1, \mathcal{O}(-2)) \cong k \neq 0$. The long exact sequence in cohomology gives $H^0(\mathcal{O}(-1)^2) \to H^0(\mathcal{O}) \to H^1(\mathcal{O}(-2)) \to \cdots$, and the obstruction to surjectivity on global sections is precisely $H^1$ of the kernel.
 
-is exact. Consider $U = \mathbb{P}^1$ itself. Then $\mathcal{O}(-2)(\mathbb{P}^1) = 0$, $(\mathcal{O}(-1) \oplus \mathcal{O}(-1))(\mathbb{P}^1) = 0$, and $\mathcal{O}(\mathbb{P}^1) = k$. So the sequence of global sections is $0 \to 0 \to 0 \to k \to 0$, which is not exact (the map to $k$ is not surjective). Thus the last map in the presheaf sequence is not surjective on global sections.
-
-The discrepancy arises because sheafification is needed: the surjection $\mathcal{O}(-1)^2 \to \mathcal{O}$ is surjective on stalks (equivalently, locally surjective), but not surjective as a presheaf map. Sheafification is an exact functor that turns locally surjective presheaf maps into surjective sheaf maps.
-
-**Key Insight:** Exactness of a sequence of sheaves is a local condition (checked on stalks), while exactness of presheaves is a global condition (checked on sections over every open set). Sheafification bridges the gap, but the two notions of exactness are genuinely different.
-
-**Prerequisites:** Sheaves and presheaves, Euler sequence on projective space, sheafification, cohomology of line bundles on $\mathbb{P}^1$
-
-<!-- BENCHMARK_PROBLEM: Show that the surjection O(-1)^2 -> O on P^1 is not surjective as a map of presheaves by computing global sections of both sides. Explain what property of sheafification resolves this. -->
+<!-- BENCHMARK_PROBLEM: Show that the surjection $\mathcal{O}(-1)^2 \to \mathcal{O}$ on $\mathbb{P}^1$ is not surjective as a map of presheaves by computing global sections. Identify the cohomological obstruction to global surjectivity using the long exact sequence. -->
 
 ### Example: Derived functors and derived categories {#ecag-0209}
 
-**Statement:** Derived categories provide a framework for working with derived functors systematically. We illustrate the basic ideas through examples and computations.
+The derived category $D^b(\mathcal{A})$ of an abelian category $\mathcal{A}$ is constructed in two steps: first, form the homotopy category $K^b(\mathcal{A})$ by identifying chain-homotopic morphisms; second, formally invert quasi-isomorphisms.
 
-**Construction/Proof:** The derived category $D^b(\mathcal{A})$ of a bounded complex of objects in an abelian category $\mathcal{A}$ is constructed in two steps:
+A left-exact functor $F: \mathcal{A} \to \mathcal{B}$ (with $\mathcal{A}$ having enough injectives) has a total right derived functor $\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})$, computed by replacing an object by an injective resolution and applying $F$ termwise. The classical derived functors are recovered as $R^i F(A) = H^i(\mathbf{R}F(A))$.
 
-Step 1: Form the homotopy category $K^b(\mathcal{A})$ by identifying chain-homotopic morphisms.
+**Example: sheaf cohomology.** For the global sections functor $\Gamma(X, -)$, the derived functor $\mathbf{R}\Gamma(X, \mathcal{F})$ is a complex whose $i$-th cohomology is $H^i(X, \mathcal{F})$.
 
-Step 2: Formally invert quasi-isomorphisms (maps inducing isomorphisms on cohomology) to obtain $D^b(\mathcal{A})$.
+**Tilting and derived equivalence.** For a finite-dimensional algebra $A$ and a tilting module $T$ (i.e., $\operatorname{pd}(T) \leq 1$, $\operatorname{Ext}^1_A(T, T) = 0$, and $T$ generates $K^b(\operatorname{proj}(A))$), the tilting theorem gives an equivalence $D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(\operatorname{End}_A(T)))$. This provides explicit equivalences between derived categories of different abelian categories, showing that the derived category retains strictly less information than the abelian category.
 
-A left-exact functor $F: \mathcal{A} \to \mathcal{B}$ has a right derived functor $\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})$ computed by replacing an object (or complex) by an injective resolution and applying $F$ termwise. The key property: $R^i F(A) = H^i(\mathbf{R}F(A))$.
+<!-- BENCHMARK_PROBLEM: Let $A = k[x]/(x^2)$. Describe the bounded derived category $D^b(\operatorname{mod}(A))$ by listing the indecomposable objects (up to shift) and the morphism spaces between them. -->
 
-Example: For the global sections functor $\Gamma(X, -): \operatorname{Sh}(X) \to \operatorname{Ab}$, the derived functor $\mathbf{R}\Gamma(X, \mathcal{F})$ is the complex whose $i$-th cohomology is $H^i(X, \mathcal{F})$.
+### Example: Non-isomorphic abelian categories with equivalent derived categories {#ecag-0210}
 
-For explicit computations of derived categories of finite-dimensional algebras, tilting theory provides a powerful tool. If $\mathcal{A} = \operatorname{mod}(A)$ for a finite-dimensional algebra $A$, and $T$ is a tilting module, then $D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(\operatorname{End}(T)))$. This gives explicit equivalences between derived categories of different abelian categories.
+**Quiver example.** Let $A$ be the path algebra of $1 \to 2$ over $k$. The category $\operatorname{mod}(A)$ has two simple modules $S_1, S_2$ and one non-simple indecomposable $P_1 = \begin{smallmatrix} k \\ \downarrow \\ k \end{smallmatrix}$ (the projective cover of $S_1$). Let $B$ be the path algebra of the opposite quiver $2 \to 1$.
 
-References: *Explicit Derived Categories* (Utah lecture notes), Cald$\breve{\text{a}}$r$\breve{\text{a}}$ru's *Derived Categories of Sheaves: A Skimming*.
+The module $T = S_2 \oplus P_1$ is a tilting module for $A$: it has projective dimension $\leq 1$ (since $S_2$ has a projective resolution $0 \to P_1 \to P_2 \to S_2 \to 0$), $\operatorname{Ext}^1_A(T, T) = 0$, and the number of non-isomorphic indecomposable summands equals the number of simples. One verifies $\operatorname{End}_A(T) \cong B$. The Rickard--Happel theorem then gives $D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(B))$, even though $\operatorname{mod}(A) \not\cong \operatorname{mod}(B)$ as abelian categories (their Auslander--Reiten quivers differ).
 
-**Key Insight:** The derived category remembers the "higher order" information lost when passing to cohomology, and derived functors are the correct way to extend functors that are only exact on one side to the entire derived category.
+**Geometric example.** Mukai showed that for an abelian variety $A$ over $\mathbb{C}$, there is an equivalence $D^b(\operatorname{Coh}(A)) \cong D^b(\operatorname{Coh}(\hat{A}))$, where $\hat{A} = \operatorname{Pic}^0(A)$ is the dual abelian variety. The equivalence is given by the Fourier--Mukai transform with kernel the Poincare line bundle $\mathcal{P}$ on $A \times \hat{A}$:
 
-**Prerequisites:** Abelian categories, chain complexes, quasi-isomorphisms, injective resolutions, derived functors, tilting theory
+$$
+\Phi_\mathcal{P}: D^b(\operatorname{Coh}(A)) \xrightarrow{\sim} D^b(\operatorname{Coh}(\hat{A})), \quad \mathscr{F} \mapsto \mathbf{R}p_{2,*}(p_1^*\mathscr{F} \otimes^L \mathcal{P}).
 
-<!-- BENCHMARK_PROBLEM: Let A = k[x]/(x^2) and let T = k[x]/(x^2) + k be the direct sum of the regular module and the simple module. Verify that T is a tilting module for A and identify End(T). What does the derived equivalence D^b(mod(A)) = D^b(mod(End(T))) give? -->
+$$
 
-### Example: Non-isomorphic abelian categories, isomorphic derived categories {#ecag-0210}
+For a generic abelian variety, $A \not\cong \hat{A}$, so $\operatorname{Coh}(A) \not\cong \operatorname{Coh}(\hat{A})$, yet the derived categories are equivalent. This shows that derived equivalence is strictly weaker than equivalence of abelian categories.
 
-**Statement:** There exist abelian categories $\mathcal{A}$ and $\mathcal{B}$ that are not equivalent as abelian categories, yet whose bounded derived categories $D^b(\mathcal{A}) \cong D^b(\mathcal{B})$ are equivalent as triangulated categories. Such categories are called *derived equivalent*.
+<!-- BENCHMARK_PROBLEM: Let $A$ be the path algebra of $1 \to 2$ over a field $k$. Construct a tilting module $T \in \operatorname{mod}(A)$ with $\operatorname{End}_A(T)$ isomorphic to the path algebra $B$ of $2 \to 1$. Verify that $T$ satisfies the three conditions for a tilting module. -->
 
-**Construction/Proof:** The simplest example comes from tilting theory. Let $A$ be the path algebra of the quiver $1 \to 2$ over a field $k$. Then $\operatorname{mod}(A)$ is the category of representations of $1 \to 2$, which has two simples $S_1, S_2$ and one indecomposable $P_1 = \begin{smallmatrix} 1 \\ 2 \end{smallmatrix}$.
+### Example: Derived global sections and derived pushforward {#ecag-0211}
 
-Let $B$ be the path algebra of the quiver $2 \leftarrow 1$ (the opposite quiver). Then $\operatorname{mod}(A) \not\cong \operatorname{mod}(B)$ as abelian categories (the Auslander-Reiten quivers differ), but the tilting module $T = S_2 \oplus P_1$ for $A$ satisfies $\operatorname{End}_A(T) \cong B$, giving an equivalence $D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(B))$.
+The two fundamental derived functors in sheaf theory are derived global sections $\mathbf{R}\Gamma$ and derived pushforward $\mathbf{R}f_*$.
 
-A more geometric example: Mukai showed that for an abelian variety $A$ over $\mathbb{C}$, $D^b(\operatorname{Coh}(A)) \cong D^b(\operatorname{Coh}(\hat{A}))$, where $\hat{A}$ is the dual abelian variety. For a generic abelian variety, $A \not\cong \hat{A}$, so $\operatorname{Coh}(A) \not\cong \operatorname{Coh}(\hat{A})$, yet they have equivalent derived categories. The equivalence is given by the Fourier-Mukai transform with kernel the Poincare bundle $\mathcal{P}$ on $A \times \hat{A}$.
+**For a single sheaf $\mathscr{F}$ on $X$:** choose an injective resolution $\mathscr{F} \xrightarrow{\sim} I^\bullet$. Then $\mathbf{R}\Gamma(X, \mathscr{F}) = \Gamma(X, I^\bullet)$ with $H^i(\mathbf{R}\Gamma(X, \mathscr{F})) = H^i(X, \mathscr{F})$.
 
-**Key Insight:** Derived equivalence is strictly weaker than abelian equivalence; the derived category forgets some of the "abelian" structure (like which sequences are short exact) while retaining enough information for most cohomological computations.
+**For a complex $A^\bullet \in D^b(X)$:** replace by an injective complex $A^\bullet \xrightarrow{\sim} I^\bullet$ (via Cartan--Eilenberg resolution). Then $\mathbf{R}\Gamma(X, A^\bullet) = \Gamma(X, I^\bullet)$ with $H^i(\mathbf{R}\Gamma(X, A^\bullet)) = \mathbb{H}^i(X, A^\bullet)$ (hypercohomology).
 
-**Prerequisites:** Derived categories, tilting theory, path algebras of quivers, Fourier-Mukai transform, abelian varieties
+**Derived pushforward:** for $f: X \to Y$ and $\mathscr{F}$ on $X$, $\mathbf{R}f_*\mathscr{F} = f_*(I^\bullet)$ with cohomology sheaves $\mathcal{H}^i(\mathbf{R}f_*\mathscr{F}) = R^i f_*\mathscr{F}$.
 
-<!-- BENCHMARK_PROBLEM: Let A be the path algebra of the quiver 1 -> 2 over a field k. Find a tilting module T in mod(A) such that End(T) is isomorphic to the path algebra B of the quiver 2 -> 1 (the opposite quiver). Verify that T has projective dimension at most 1 and generates D^b(mod(A)). -->
+**Composition and the Leray spectral sequence.** The isomorphism $\mathbf{R}\Gamma(Y, -) \circ \mathbf{R}f_* \cong \mathbf{R}\Gamma(X, -)$ recovers the Leray spectral sequence $E_2^{p,q} = H^p(Y, R^q f_*\mathscr{F}) \Rightarrow H^{p+q}(X, \mathscr{F})$ upon passage to cohomology.
 
-### Example: $\mathbf{R}\Gamma(X, \mathscr{F}), \mathbf{R}\Gamma(A^{\bullet}), \mathbf{R}f_{*}(\mathscr{F}), \mathbf{R}f_{*}(A^{\bullet})$ {#ecag-0211}
+**Projection formula.** For $f: X \to Y$ proper, $\mathscr{F} \in D^b(X)$, $\mathscr{G} \in D^b(Y)$:
 
-**Statement:** The derived global sections functor $\mathbf{R}\Gamma$ and the derived pushforward $\mathbf{R}f_*$ are the two fundamental derived functors in sheaf theory. We describe their construction and key properties for both single sheaves and complexes.
+$$
+\mathbf{R}f_*(\mathscr{F} \otimes^L f^*\mathscr{G}) \cong \mathbf{R}f_*\mathscr{F} \otimes^L \mathscr{G}.
 
-**Construction/Proof:**
+$$
 
-*Derived global sections of a sheaf:* For $\mathscr{F}$ a sheaf on $X$, choose an injective resolution $\mathscr{F} \xrightarrow{\sim} I^\bullet$. Then $\mathbf{R}\Gamma(X, \mathscr{F}) = \Gamma(X, I^\bullet)$ is a complex of abelian groups with $H^i(\mathbf{R}\Gamma(X, \mathscr{F})) = H^i(X, \mathscr{F})$.
+**Base change.** For $f: X \to Y$ proper with $\mathscr{F}$ on $X$ flat over $Y$, the base change map $(R^i f_*\mathscr{F})_y \otimes k(y) \to H^i(X_y, \mathscr{F}|_{X_y})$ is an isomorphism when $R^i f_*\mathscr{F}$ is locally free, or more generally when $h^i(X_y, \mathscr{F}|_{X_y})$ is constant as a function of $y$.
 
-*Derived global sections of a complex:* For $A^\bullet \in D^b(X)$, choose a quasi-isomorphism $A^\bullet \xrightarrow{\sim} I^\bullet$ where $I^\bullet$ is a complex of injectives (using Cartan-Eilenberg resolution or the existence of enough injectives). Then $\mathbf{R}\Gamma(X, A^\bullet) = \Gamma(X, I^\bullet)$, and $H^i(\mathbf{R}\Gamma(X, A^\bullet)) = \mathbb{H}^i(X, A^\bullet)$ is the hypercohomology.
+<!-- BENCHMARK_PROBLEM: Let $f: X \to Y$ be a proper morphism of smooth projective varieties and $\mathscr{F}$ a coherent sheaf on $X$ flat over $Y$. State the base change theorem relating $(R^i f_*\mathscr{F})_y$ to $H^i(X_y, \mathscr{F}|_{X_y})$, and give a sufficient condition for the base change map to be an isomorphism. -->
 
-*Derived pushforward of a sheaf:* For $f: X \to Y$ a morphism and $\mathscr{F}$ a sheaf on $X$, $\mathbf{R}f_*\mathscr{F}$ is computed by $f_*(I^\bullet)$ for an injective resolution $\mathscr{F} \to I^\bullet$. The cohomology sheaves are $\mathcal{H}^i(\mathbf{R}f_*\mathscr{F}) = R^i f_*\mathscr{F}$.
+### Remark: Derived functors, spectral sequences, and hypercohomology {#ecag-0212}
 
-*Derived pushforward of a complex:* For $A^\bullet \in D^b(X)$, $\mathbf{R}f_*(A^\bullet)$ is computed via injective replacement, and $\mathcal{H}^i(\mathbf{R}f_* A^\bullet)$ is the sheaf associated to $V \mapsto \mathbb{H}^i(f^{-1}(V), A^\bullet|_{f^{-1}(V)})$.
+Given a left-exact functor $F: \mathcal{A} \to \mathcal{B}$ (with $\mathcal{A}$ having enough injectives), the derived functor $\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})$ produces a complex in $D^+(\mathcal{B})$. The classical derived functors are $R^i F(A) = H^i(\mathbf{R}F(A))$.
 
-*Composition:* $\mathbf{R}\Gamma(Y, -) \circ \mathbf{R}f_* \cong \mathbf{R}\Gamma(X, -)$, which at the level of cohomology recovers the Leray spectral sequence $E_2^{p,q} = H^p(Y, R^q f_* \mathscr{F}) \Rightarrow H^{p+q}(X, \mathscr{F})$.
-
-*Projection formula:* For $f: X \to Y$ proper and $\mathscr{F} \in D^b(X)$, $\mathscr{G} \in D^b(Y)$: $\mathbf{R}f_*(\mathscr{F} \otimes^L f^*\mathscr{G}) \cong \mathbf{R}f_*\mathscr{F} \otimes^L \mathscr{G}$.
-
-**Key Insight:** Working with derived functors on complexes (rather than just single sheaves) is essential because many natural constructions (like intersection cohomology complexes or perverse sheaves) are inherently complexes of sheaves, and the derived category provides the correct framework for composition and base change.
-
-**Prerequisites:** Derived categories, injective resolutions, hypercohomology, Leray spectral sequence, projection formula
-
-<!-- BENCHMARK_PROBLEM: Let f: X -> Y be a proper morphism of smooth projective varieties and F a coherent sheaf on X flat over Y. State the base change theorem relating the fiber (R^i f_* F)_y to H^i(X_y, F|_{X_y}), and give a condition under which the base change map is an isomorphism. -->
-
-### Remark: Derived functors(in derived categories, to get a complex), spectral sequence, hypercohomology {#ecag-0212}
-
-The relationship between derived functors, spectral sequences, and hypercohomology is as follows.
-
-Given a left-exact functor $F: \mathcal{A} \to \mathcal{B}$ between abelian categories (with $\mathcal{A}$ having enough injectives), the derived functor $\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})$ produces a complex in $D^+(\mathcal{B})$, not just a single object. The individual cohomology objects $R^i F(A) = H^i(\mathbf{R}F(A))$ are the classical derived functors.
-
-When applied to a complex $A^\bullet$ (rather than a single object), the derived functor $\mathbf{R}F(A^\bullet)$ gives rise to two spectral sequences:
+When applied to a complex $A^\bullet$ rather than a single object, two spectral sequences arise:
 
 $$
 {}^{I}E_2^{p,q} = R^p F(\mathcal{H}^q(A^\bullet)) \Rightarrow H^{p+q}(\mathbf{R}F(A^\bullet))
@@ -767,96 +612,59 @@ $$
 
 $$
 
-The target $H^n(\mathbf{R}F(A^\bullet))$ is called the **hypercohomology** $\mathbb{H}^n(A^\bullet)$ (when $F = \Gamma(X, -)$ is the global sections functor). The first spectral sequence is the Grothendieck spectral sequence for the composition of derived functors, while the second comes from the double complex obtained by applying $F$ to an injective Cartan-Eilenberg resolution of $A^\bullet$.
+The target $H^n(\mathbf{R}F(A^\bullet))$ is the **hypercohomology** $\mathbb{H}^n(A^\bullet)$ when $F = \Gamma(X, -)$. The first spectral sequence is the Grothendieck spectral sequence for composition of derived functors; the second comes from the double complex obtained by applying $F$ to an injective Cartan--Eilenberg resolution of $A^\bullet$.
 
-<!-- BENCHMARK_PROBLEM: Let A^* be a two-term complex F -> G of coherent sheaves on a projective variety X. Write out the first spectral sequence converging to the hypercohomology H^n(X, A^*) and identify the E_2 terms explicitly in terms of H^i(X, F) and H^i(X, G). -->
+<!-- BENCHMARK_PROBLEM: Let $A^\bullet = [\mathscr{F} \xrightarrow{d} \mathscr{G}]$ be a two-term complex of coherent sheaves on a projective variety $X$ (with $\mathscr{F}$ in degree 0). Write out the first spectral sequence converging to $\mathbb{H}^n(X, A^\bullet)$, identifying the $E_2$ terms in terms of $H^i(X, \ker d)$, $H^i(X, \operatorname{im} d)$, and $H^i(X, \operatorname{coker} d)$. -->
 
-### Example: Perverse truncation and perverse cohomology {#ecag-0213}
+### Example: Perverse truncation on smooth and two-stratum varieties {#ecag-0213}
 
-**Statement:** For smooth algebraic varieties over $\mathbb{C}$, the perverse truncation reduces to the ordinary truncation (shifted by dimension). For a variety with two strata $X = U \sqcup Z$ (where $j: U \hookrightarrow X$ is open, $i: Z \hookrightarrow X$ is closed), the perverse truncation can be described explicitly by gluing the standard $t$-structures on $U$ and $Z$.
+**Smooth case.** On a smooth variety $X$ of dimension $d$, a constructible complex $A^\bullet$ lies in ${}^p D^{\leq 0}$ if and only if $\mathcal{H}^j(A^\bullet) = 0$ for $j > -d$, i.e., $A^\bullet[-d] \in D^{\leq 0}$ in the standard $t$-structure. Thus the perverse $t$-structure is the standard $t$-structure shifted by $\dim X$, and perverse sheaves on a smooth variety are simply local systems placed in degree $-d$.
 
-**Construction/Proof:** Step 1: On a smooth variety $X$ of dimension $d$, a constructible complex $A^\bullet$ is in ${}^p D^{\leq 0}$ if and only if $A^\bullet[-d]$ is in the standard $D^{\leq 0}$, i.e., $\mathcal{H}^j(A^\bullet) = 0$ for $j > -d$. Thus the perverse $t$-structure on a smooth variety is just the standard $t$-structure shifted by $\dim X$, and perverse sheaves on $X$ are just local systems shifted by $d$.
+**Two-stratum case.** Let $X = U \sqcup Z$ with $j: U \hookrightarrow X$ open of dimension $n$ and $i: Z \hookrightarrow X$ closed of dimension $m$. The perverse $t$-structure is obtained by gluing the shifted standard $t$-structures on each stratum: $A^\bullet \in {}^p D^{\leq 0}$ if and only if
 
-Step 2: For $X = U \sqcup Z$ with $\dim U = n$ and $\dim Z = m$, the perverse $t$-structure on $X$ is obtained by gluing. An object $A^\bullet \in D^b_c(X)$ is in ${}^p D^{\leq 0}$ if and only if:
-- $j^* A^\bullet \in D^{\leq -n}(U)$ (i.e., $\mathcal{H}^k(j^* A^\bullet) = 0$ for $k > -n$), and
-- $i^* A^\bullet \in D^{\leq -m}(Z)$ (i.e., $\mathcal{H}^k(i^* A^\bullet) = 0$ for $k > -m$).
+- $\mathcal{H}^k(j^* A^\bullet) = 0$ for $k > -n$, and
+- $\mathcal{H}^k(i^* A^\bullet) = 0$ for $k > -m$.
 
-Step 3: The perverse truncation ${}^p\tau_{\leq 0} A^\bullet$ is constructed via the distinguished triangle:
+The perverse truncation ${}^p\tau_{\leq 0} A^\bullet$ is constructed via the distinguished triangle ${}^p\tau_{\leq 0} A^\bullet \to A^\bullet \to {}^p\tau_{\geq 1} A^\bullet \xrightarrow{[1]}$. In the two-stratum setting, this can be computed explicitly: first take the standard truncation $\tau_{\leq -n}(j^* A^\bullet)$ on $U$, then glue with the appropriate truncation on $Z$ using the recollement formalism.
 
-$$
-{}^p\tau_{\leq 0} A^\bullet \to A^\bullet \to {}^p\tau_{\geq 1} A^\bullet \xrightarrow{[1]}
+The perverse cohomology ${}^p H^0(A^\bullet) = {}^p\tau_{\leq 0}\, {}^p\tau_{\geq 0} A^\bullet$ is a perverse sheaf encoding how the cohomology of $A^\bullet|_U$ extends across $Z$.
 
-$$
+<!-- BENCHMARK_PROBLEM: Let $X$ be a variety with stratification $X = U \cup Z$ where $U$ is smooth open of dimension 2 and $Z$ is a smooth closed point. For the constant sheaf complex $\mathbb{Q}_X[2]$, check whether it satisfies the support and cosupport conditions. Is $\mathbb{Q}_X[2]$ a perverse sheaf? Compute ${}^p H^0(\mathbb{Q}_X[2])$. -->
 
-In the two-strata case, this can be computed explicitly. Let $A^\bullet \in D^b_c(X)$. Apply $j^*$ and compute the standard truncation $\tau_{\leq -n}(j^* A^\bullet)$ on $U$. The perverse truncation on $X$ is then obtained by the fiber sequence:
+### Example: Normal sheaf versus restricted normal sheaf {#ecag-0214}
 
-$$
-{}^p\tau_{\leq 0} A^\bullet \to \tau_{\leq -m}(A^\bullet) \to i_* \tau_{\leq -m}(i^* \operatorname{Cone}(\tau_{\leq -n} Rj_* j^* A^\bullet \to A^\bullet)).
+For a closed subscheme $Z \subset X$ with ideal sheaf $\mathcal{I}_Z$, the normal sheaf $\mathcal{N}_{Z/X} = \mathcal{H}om_{\mathcal{O}_X}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_X)$ and the restricted normal sheaf $\mathcal{N}_{Z/X}|_Z = \mathcal{H}om_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z)$ can have very different global sections. The latter computes the Zariski tangent space to the Hilbert scheme.
 
-$$
-
-The perverse cohomology ${}^p H^0(A^\bullet) = {}^p\tau_{\leq 0} {}^p\tau_{\geq 0} A^\bullet$ is a perverse sheaf that, in the two-strata case, encodes how the cohomology of $A^\bullet$ on $U$ extends across $Z$.
-
-**Key Insight:** The perverse $t$-structure is obtained by shifting the standard $t$-structure differently on each stratum (by the dimension of that stratum), then gluing; this dimension-dependent shift is what allows perverse sheaves to detect singularities.
-
-**Prerequisites:** $t$-structures, gluing of $t$-structures, constructible sheaves, stratified spaces, distinguished triangles
-
-<!-- BENCHMARK_PROBLEM: Let X be a variety with stratification X = U ∪ Z where U is smooth open of dimension 2 and Z is a smooth closed point. For the constant sheaf complex Q_X[2], compute the perverse cohomology {}^p H^0(Q_X[2]) by checking the support and cosupport conditions. Is Q_X[2] perverse? -->
-
-### Example: $H^{0}(N_{Z/X})\neq H^{0}(N_{Z/X}|_{Z})$ {#ecag-0214}
-
-**Statement:** The global sections of the normal sheaf $\mathcal{N}_{Z/X} = \mathcal{H}om_{\mathcal{O}_X}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_X)$, viewed as an $\mathcal{O}_X$-module, can differ dramatically from the global sections of the restricted normal sheaf $\mathcal{N}_{Z/X}|_Z = \mathcal{H}om_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z)$. The latter is the tangent space to the Hilbert scheme.
-
-**Construction/Proof:** Step 1: A basic example. Let $R = \mathbb{C}[x]$ and $I = (x)$. Then $I/I^2 \cong R/I \cong \mathbb{C}$ as an $R$-module, generated by the class of $x$. We compute:
+**Basic example.** Let $R = \mathbb{C}[x]$ and $I = (x)$, so $Z = \{0\} \subset \mathbb{A}^1$. Then $I/I^2 \cong R/I \cong \mathbb{C}$ as an $R$-module (generated by $\bar{x}$). For any $f \in \operatorname{Hom}_R(I/I^2, R)$, the element $f(\bar{x}) \in R$ must satisfy $xf(\bar{x}) = f(x\bar{x}) = f(\overline{x^2}) = 0$ (since $x^2 \in I^2$). Since $R$ is a domain, $f(\bar{x}) = 0$. Therefore
 
 $$
 \operatorname{Hom}_R(I/I^2, R) = 0.
 
 $$
 
-Indeed, for any $f \in \operatorname{Hom}_R(I/I^2, R)$, we have $f(\bar{x}) \in R$ and $x \cdot f(\bar{x}) = f(x \cdot \bar{x}) = f(\bar{x^2}) = f(0) = 0$ (since $x^2 \in I^2$), so $f(\bar{x}) = 0$ because $R$ is a domain. This shows that as an $R$-module, $(I/I^2)^\vee = 0$, even though $\dim_\mathbb{C}(I/I^2) = 1$.
-
-Step 2: However, restricting to $R/I$:
+However, restricting to $R/I$:
 
 $$
 \operatorname{Hom}_{R/I}(I/I^2, R/I) = \operatorname{Hom}_\mathbb{C}(\mathbb{C}, \mathbb{C}) \cong \mathbb{C}.
 
 $$
 
-Step 3: Application to Hilbert schemes. The Zariski tangent space to the Hilbert scheme at a point $[Z] \in \operatorname{Hilb}(X)$ is:
+**Hilbert scheme tangent space.** The Zariski tangent space to $\operatorname{Hilb}(X)$ at $[Z]$ is
 
 $$
-T_Z \operatorname{Hilb}(X) = \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{I}_Z, \mathcal{O}_Z) = \operatorname{Hom}_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z) = H^0(\mathcal{N}_{Z/X}|_Z).
-
-$$
-
-Note that this is $\operatorname{Hom}$ over $\mathcal{O}_Z$ (not $\mathcal{O}_X$), which is the restricted normal sheaf.
-
-Step 4: When $X$ is smooth of dimension 1 and $Z$ is a 0-dimensional subscheme, Serre duality gives:
-
-$$
-T_Z \operatorname{Hilb}(X) = H^0(\Omega_X^1 \otimes \mathcal{O}_Z)^\vee.
+T_{[Z]} \operatorname{Hilb}(X) = \operatorname{Hom}_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z) = H^0(\mathcal{N}_{Z/X}|_Z)
 
 $$
 
-Step 5: For $I = (x^n) \subset \mathbb{C}[x]$, we have $\Omega_X^1 \otimes \mathcal{O}_Z \cong \mathbb{C}[x]/(x^n)$ with basis $\{x, x^2, \ldots, x^n\}$ as a torus representation ($\mathbb{C}^*$ acts by $x \mapsto tx$). Thus:
+-- note the $\operatorname{Hom}$ is over $\mathcal{O}_Z$, not $\mathcal{O}_X$.
+
+**Torus action on $\operatorname{Hilb}^n(\mathbb{C})$.** For $I = (x^n) \subset \mathbb{C}[x]$, the module $I/I^2 \cong \mathbb{C}[x]/(x^n)$ has $\operatorname{Hom}_{\mathbb{C}[x]/(x^n)}(I/I^2, \mathbb{C}[x]/(x^n)) \cong \mathbb{C}[x]/(x^n)$ as a vector space. Under the $\mathbb{C}^*$-action $x \mapsto tx$, the tangent space decomposes as
 
 $$
-T_{(x^n)} \operatorname{Hilb}^n(\mathbb{C}) = t + t^2 + \cdots + t^n
-
-$$
-
-as a torus representation. This agrees with the global coordinates on $\operatorname{Hilb}^n(\mathbb{C}) \cong \mathbb{C}^n$ given by $(a_1, \ldots, a_n)$ where:
-
-$$
-I = (f), \quad f = x^n + a_1 x^{n-1} + \cdots + a_n.
+T_{(x^n)} \operatorname{Hilb}^n(\mathbb{C}) = t \oplus t^2 \oplus \cdots \oplus t^n
 
 $$
 
-The weight of $a_i$ under $x \mapsto tx$ is $t^i$, confirming the torus representation.
+as a representation of $\mathbb{C}^*$. This matches the global coordinates on $\operatorname{Hilb}^n(\mathbb{C}) \cong \mathbb{C}^n$: each ideal $I = (f)$ with $f = x^n + a_1 x^{n-1} + \cdots + a_n$ is parametrized by $(a_1, \ldots, a_n)$, and the weight of $a_i$ under $x \mapsto tx$ is $t^i$.
 
-**Key Insight:** The distinction between $\operatorname{Hom}_{\mathcal{O}_X}$ and $\operatorname{Hom}_{\mathcal{O}_Z}$ is crucial: the former sees the $\mathcal{O}_X$-module structure of the target (where torsion can kill everything), while the latter restricts to $Z$ first and computes the tangent space to the Hilbert scheme.
-
-**Prerequisites:** Normal sheaf, Hilbert scheme, Zariski tangent space, Serre duality, torus representations
-
-<!-- BENCHMARK_PROBLEM: Let R = C[x], I = (x^n). Compute Hom_R(I/I^2, R) and Hom_{R/I}(I/I^2, R/I) as C-vector spaces. What are their dimensions? Use this to find the dimension of the Zariski tangent space T_{(x^n)} Hilb^n(C). -->
+<!-- BENCHMARK_PROBLEM: Let $R = \mathbb{C}[x]$ and $I = (x^n)$. Compute $\operatorname{Hom}_R(I/I^2, R)$ and $\operatorname{Hom}_{R/I}(I/I^2, R/I)$. Use the latter to determine $\dim T_{(x^n)} \operatorname{Hilb}^n(\mathbb{C})$, and describe the $\mathbb{C}^*$-weight decomposition of the tangent space. -->
