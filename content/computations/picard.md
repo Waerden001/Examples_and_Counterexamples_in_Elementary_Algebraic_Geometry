@@ -31,7 +31,9 @@ The short answer is that
 - To define all these concepts, we need noetherian(for finiteness) integral(anyway, we have to deal with fractional field), (separated), regular in codimension $1$(for example, normal, because we need codimension $1$ local rings are all $DVR$).
 - $\mathrm{CaCl}(X)\rightarrow \mathrm{Cl}(X)$ is in general injective, to be an isomorphism, we need to realize every divisor(height $1$ primes as Catier divisors, that is locally principle), this is possible if the scheme is factorial(every local ring is a UFD), since in any $UFD$, height $1$ primes are principle.
 - $\mathrm{CaCl}(X)\rightarrow \mathrm{Pic}(X)$ is in general injective(even without the Noetherian assumption), to be an isomorphism, we only need $X$ to be Noetherian and reduced(or in practice, integral). The reason is that to realize every line bundle as a subsheaf of $\mathcal{M}$, we need 
+
 $$i:\mathcal{O}_{X}(U)\rightarrow \mathcal{O}_{X}(U\cap U')$$
+
 to be injective, what matters is the nilradicals. If we assume $X$ is reduced, then, nilradicals are $0$, $f\in \mathcal{O}_{X}(U)$ is determined by its values at generic points, then $i$ would be an monomorphism.
 
 ### Example: Another way to compute the Picard group of an affine line with double origins {#ecag-0252}
@@ -53,32 +55,54 @@ We can talk about $\mathrm{CaCl}(X)$ and $\mathrm{Pic}(X)$ in general even witho
 ### Example: Hartshorne $\mathrm{II}.7.13$, a complete nonprojective surface, ??? still some problems {#ecag-0256}
 
 This construction can be described as `constructing a twisted family of $\mathbb{P}_{k}^{1}$ parametrized by the cuspidal curve $C$'. To be more precise, let $k$ be an algebraically closed field and $char(k)\neq 2$ consider 
+
 $$C: y^{2}z=x^{3}\subset \mathbb{P}_{k}^{2}.$$
+
 We identify two copies of $C\times_{k}\mathbb{A}_{k}^{1}$ along $C\times \mathbb{A}_{k}^{1}-\{0\}$ by the morphism $(x,t)\sim (\phi_{t}(x),t^{-1})$. Denote the surface by $X$. Then we have a natural morphism 
+
 $$\pi: X\rightarrow \mathbb{P}_{k}^{1}.$$
+
 Since properness is local on base, and over $D_{+}(x)$ or $D_{+}(y)$ this morphism looks like $C\times \mathbb{A}_{k}^{1}\rightarrow \mathbb{A}_{k}^{1}$, which is just the base change of $C\rightarrow \mathrm{Spec}(k)$, thus is proper. We know $X$ is a complete surface(i.e proper over $k$). Next we use the method in [Hartshorne $\mathrm{II}.6.9$], and we can get a similar short exact sequence, the normalization of $C\times \mathbb{A}_{k}^{1}$ is just $f:\mathbb{P}_{k}^{1}\times \mathbb{A}_{k}^{1}\rightarrow C\times \mathbb{A}_{k}^{1}$, we have 
 
 $$0\rightarrow \oplus_{p\in C\times \mathbb{A}_{k}^{1}}\widetilde{\mathcal{O}}_{p}/\mathcal{O}_{P}\rightarrow \mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\rightarrow \mathrm{Pic}(\mathbb{P}_{k}^{1}\times \mathbb{A}_{k}^{1})\rightarrow 0$$
+
 We only need to consider the codimension $1$ singular locus $p=0\times \mathbb{A}_{k}^{1}$  
+
 $$\widetilde{\mathcal{O}}_{p}=k[t,z]_{(t)}, \mathcal{O}_{p}=k[t^{2}, t^{3},z]_{(t^{2},t^{3})}$$
+
 The only difference is degree $1$ monomials $ct, c\in\mathbb{A}_{k}^{1}$, then we actually have 
+
 $$0\rightarrow \mathbb{G}_{a}\rightarrow \mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\rightarrow \mathbb{Z}\rightarrow 0.$$ 
+
 We can easily construct a splitting on the RHS. Thus we have 
-$$\mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\cong \mathbb{G}_{a}\times \mathbb{Z}.$$ To compute $\mathrm{Pic}(C\times \mathbb{A}_{k}^{1})-\{0\}$, we can use the sequence as above 
+
+$$\mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\cong \mathbb{G}_{a}\times \mathbb{Z}.$$
+
+To compute $\mathrm{Pic}(C\times \mathbb{A}_{k}^{1})-\{0\}$, we can use the sequence as above
+
 $$0\rightarrow \oplus_{p\in C\times \mathbb{A}_{k}^{1}-\{0\}}\widetilde{\mathcal{O}}_{p}/\mathcal{O}_{P}\rightarrow \mathrm{Pic}(C\times \mathbb{A}_{k}^{1}-\{0\})\rightarrow \mathrm{Pic}(\mathbb{P}_{k}^{1}\times \mathbb{A}_{k}^{1}-\{0\})\rightarrow 0$$
+
 together with the fact that $A[z,z^{-1}]^{*}\cong A^{*}\times \mathbb{Z}$ for any ring $A$, we know similar argument gives us 
+
 $$\mathrm{Pic}(C\times \mathbb{A}_{k}^{1}-\{0\})\cong \mathbb{G}_{a}\times \mathbb{Z}\times \mathbb{Z}.$$
+
 Next we consider the restriction map $\mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\rightarrow \mathrm{Pic}(C\times \mathbb{A}_{k}^{1}-\{0\}).$ We have plenty of space, so I decide to draw the commutative diagram 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 0 \arrow{r} & \oplus_{p\in C\times \mathbb{A}_{k}^{1}}\widetilde{\mathcal{O}}_{p}/\mathcal{O}_{P}\arrow{r}\arrow{d}{i}& \mathrm{Pic}(C\times \mathbb{A}_{k}^{1})\arrow{r}\arrow{d}{r} & \mathrm{Pic}(\mathbb{P}_{k}^{1}\times \mathbb{A}_{k}^{1})\arrow{r}\arrow{d}{j} & 0\\
 0 \arrow{r} & \oplus_{p\in C\times \mathbb{A}_{k}^{1}-\{0\}}\widetilde{\mathcal{O}}_{p}/\mathcal{O}_{P}\arrow{r}& \mathrm{Pic}(C\times \mathbb{A}_{k}^{1}-\{0\})\arrow{r} & \mathrm{Pic}(\mathbb{P}_{k}^{1}\times \mathbb{A}_{k}^{1}-\{0\})\arrow{r} & 0
 \end{tikzcd}
-```$$
+```
+```
 where $i: \mathbb{G}_{a}\rightarrow \mathbb{G}_{a}\times \mathbb{Z}$ is just the injection into the first component, and $j$ is an isomorphism. So we know the restriction is given by 
+
 $$r:\mathbb{G}_{a}\times \mathbb{Z}\rightarrow \mathbb{G}_{a}\times \mathbb{Z}\times \mathbb{Z}$$
+
 $$(c,n)\rightarrow (c,0,n).$$
+
 Our final step is to compute $\mathrm{Pic}(X)$.
 
 ### Remark: Why does $\mathrm{Pic}(X)\cong \mathbb{G}_{a}$ implies $X$ is not projective? {#ecag-0257}
@@ -88,7 +112,9 @@ Our final step is to compute $\mathrm{Pic}(X)$.
 ### Remark {#ecag-0258}
 
 Since most schemes in this example are not regular in codimension $1$, so we cannot use the `stratification trick', which means, we $\mathbf{DON'T}$ have
+
 $$\mathrm{Pic}(Y)\rightarrow \mathrm{Pic}(X)\rightarrow \mathrm{Pic}(X-Y)\rightarrow 0.$$
+
 Actually this sequence comes from $\mathrm{Cl}(X)$, in our situation, we can't even talk about $\mathrm{Cl}(X).$
 
 ### Example: Hironaka varieties, smooth complete nonprojective $3$-folds {#ecag-0259}
@@ -111,16 +137,29 @@ Let $k$ be a field, $char(k)\neq 2$, and let $X$ be the affine quadric hypersurf
 - if $r=3$, for example $\mathrm{Spec}(k[x,y,z,w]/(xy-z^{2}-w^{2}))$, then $\mathrm{Cl}(X)\cong \mathbb{Z}$.
 - if $r\geq 4$, for example $\mathrm{Spec}(k[x,y,z,w,u]/(xy-z^{2}-w^{2}-u^{2}))$, then $\mathrm{Cl}(X)=0$.
 
-- For the first statement just consider the example, let $Y$ be the prime divisor defined by $(y,z)$, we localize at the vertex $(y,z)$, then the $\mathrm{DVR}$ is given by $$(k[x,y,z]/(xy-z^{2}))_{(y,z)},\mathfrak{m}=(z), (y)=(z^{2}).$$
+- For the first statement just consider the example, let $Y$ be the prime divisor defined by $(y,z)$, we localize at the vertex $(y,z)$, then the $\mathrm{DVR}$ is given by
+
+$$(k[x,y,z]/(xy-z^{2}))_{(y,z)},\mathfrak{m}=(z), (y)=(z^{2}).$$
+
 Then consider the short exact sequece 
+
 $$\mathbb{Z}\rightarrow \mathrm{Cl}(X)\rightarrow \mathrm{Cl}(X-Y)\rightarrow 0$$
+
 since $X-Y\cong \mathrm{Spec}(k[x,y,z]/(xy-z^{2})_{y})=\mathrm{Spec}(k[y,y^{-1},z])$, $k[y,y^{-1},z]$ is normal and is a $\mathrm{UFD}$, thus $\mathrm{Cl}(X-Y)=0$, and we know $(y)=2Y$ is principle. Since $X$ is normal and if $\mathrm{Cl}(X)=0$, we must have $(y,z)$ is a principle ideal in $k[x,y,z]/(xy-z^{2})$, which is not true by considering $\mathfrak{m}_{p}/\mathfrak{m}_{p}^{2}$, which is a $k$-vector space generated by $\bar{x}, \bar{y},\bar{z}$. Thus we know $\mathrm{Cl}(X)=\mathbb{Z}/2\mathbb{Z}$.
 - Fot the second statement, we have to use the fact that $X$ is the affine cone over $V=\mathrm{Proj}(k[x,y,z,w]/(xy-z^{2}-w^{2}))$, and Hartshorne $\mathrm{II}.6.3(b)$ tells us we have 
+
 $$\mathbb{Z}\rightarrow \mathrm{Cl}(V)\rightarrow \mathrm{Cl}(X)\rightarrow 0$$
+
 where the first map is just sending $1$ to a hyperplane section $H\cap V$ as long as $V$ is not contained in $H$. And together with the fact that $V\cong \mathbb{P}^{1}\times \mathbb{P}^{1}$, we know $\mathrm{Cl}(V)\cong \mathbb{Z}\oplus \mathbb{Z}$, then we know we actually have 
+
 $$\mathbb{Z}\rightarrow \mathrm{Cl}(V)$$
+
 $$1\mapsto (1,1) .$$
-- If $r\geq 4$, use the Lefschetz hyperplane theorem(Grothendieck's version, if we're allowed to do so), then we know $$\mathbb{Z}\rightarrow \mathrm{Cl}(V)$$
+
+- If $r\geq 4$, use the Lefschetz hyperplane theorem(Grothendieck's version, if we're allowed to do so), then we know
+
+$$\mathbb{Z}\rightarrow \mathrm{Cl}(V)$$
+
 is an isomorphism, thus the cokernel $\mathrm{Cl}(X)$ is forced to be $0$.
 
 Then we consider the projective varieties defined by the same equations as above, we still denote them by $X$. Then 
@@ -137,7 +176,9 @@ Thus $\mathrm{Cl}(X)$ is given by the cokernel of this map, which is isomorphic 
 ### Remark: Lefschetz hyperplane theorem {#ecag-0264}
 
 From the discussion above, we can prove Klein's theorem, which says that if $r\geq 4$, and $Y$ is an irreducible subvariety of codimension $1$ on $Q$, then $Y$ is a complete intersection of $Q$ and a hyperplane $H\subset \mathbb{P}_{k}^{n}$. From
+
 $$0\rightarrow \mathcal{O}_{\mathbb{P}_{k}^{r}}(-2)\rightarrow \mathcal{O}_{\mathbb{P}_{k}^{r}}\rightarrow \mathcal{O}_{Q}\rightarrow 0$$
+
 we know $H^{0}(\mathcal{O}_{\mathbb{P}_{k}^{r}}(n))\rightarrow H^{0}(\mathcal{O}_{Q}(n))$ is an isomorphism, thus pick a random hyperplane $H$, then we have $H\cap Q\sim Y$, thus $\exist f\in K(Q)$, such that $(f)_{0}=H\cap Q, f_{\infty}=Y$, the only possibility is that $f=\frac{l_{1}}{l_{2}}$, where $l_{1}, l_{2}$ are just linear functions, thus $Y=Q\cap V(l_{2})$, that is $Y$ is a complete intersection. Also note that since the affine variety $X=\mathrm{Spec}(k[x_{0},\dots, x_{n}]/(x_{0}^{2}+x_{1}^{2}+\dots +x_{n}^{2}))$ is normal, and $\mathrm{Cl}(X)=0$, by Hartshorne $\mathrm{II}.6.2$, we know $k[x_{0},\dots, x_{n}]/(x_{0}^{2}+\dots + x_{n}^{2})$ is a $\mathrm{UFD}$.
 
 ### Example: Smooth cubic surface $X\subset \mathbb{P}^{3}$, $\mathrm{Cl}(X)\cong \mathbb{Z}^{7}$ {#ecag-0265}
@@ -145,18 +186,23 @@ we know $H^{0}(\mathcal{O}_{\mathbb{P}_{k}^{r}}(n))\rightarrow H^{0}(\mathcal{O}
 > **Status:** Stub — content needed.
 
 The following few examples need a result I learned from $V.L.Popov$'s  paper, `Picard groups of homogeneous spaces of linear algebraic groups and one-dimensional homogeneous vector bundles', which say that if $\mathrm{Pic}(G)=0$(for example, if $G$ is a connected, simply connected linear algebraic group), then we have a short exact sequence 
+
 $$0\rightarrow \mathrm{X}_{G}(H)\rightarrow \mathrm{X}(H)\rightarrow \mathrm{Pic}(G/H)\rightarrow 0$$
+
 where $\mathrm{X}_{G}(H)$ means characters($\mathrm{Hom}(H,\mathbb{G}_{m})$) of $H$ which can be extended to $G$. In practice, it's also useful to know that $\mathrm{X}(H)/\mathrm{X}_{G}(H)$ is just $\mathrm{X}([G,G]\cap H)$.  And we assume in the applications of this method, $k=\mathbb{C}$.
 
 ### Example: $\mathrm{Pic}(X)$ of flag varieties {#ecag-0266}
 
 Consider the complete flag variety $F=SL_{n}/B_{+}$, then we know $\mathrm{X}(B_{+})\cong \mathbb{Z}^{n-1}$ and $\mathrm{X}(SL_{n})=0$, thus we have 
+
 $$\mathrm{Pic}(F_{n})\cong \mathbb{Z}^{n-1}.$$
 
 ### Remark: $\mathrm{Pic}(G/B)$ {#ecag-0267}
 
 By the Bruhat decomposition and some elementary argument(see my notes `examples in intersection theory' or Iversen's paper), we know the Picard group of the generalized flag variety $G/B$ is given by 
+
 $$\mathrm{Pic}(G/B)\cong \mathbb{Z}^{|\Phi_{+}|}$$
+
 where $|\Phi_{+}|$ means the cardinality of the set of positive roots. And the corresponding Weil divisors are given by $\overline{Uw_{0}s_{\alpha}B}$.
 
 ### Example: Computing $\mathrm{Cl}(X)$ of quadrics from a different point of view {#ecag-0268}
@@ -164,12 +210,17 @@ where $|\Phi_{+}|$ means the cardinality of the set of positive roots. And the c
 It turns out that $\mathrm{Pic}(Q_{n})$ depends on $n$ can be interpreted as we have several sporadic isogenies to orthogonal groups.
 
 - $\mathrm{Proj}(k[x,y,z]/(x^{2}+y^{2}+z^{2}))=Q_{2}\subset \mathbb{P}^{2}$, $SO(3,\mathbb{C})$ acts transitively on $Q_{2}$, but to apply the theorem, we have to work in $Spin(3,\mathbb{C})$, however it's just $SL(2,\mathbb{C})$($SL(2,\mathbb{C})$ acts on $\mathfrak{sl}(2,\mathbb{C})$ equipped with the Killing form $<x,y>=tr(xy)$ by the adjoint representation, then you can check it's a double cover $SL(2,\mathbb{C})\rightarrow SO(3,\mathbb{C})$). Then the isotropic group of a given point on $Q_{2}$ is isomorphic to $SO(2,\mathbb{C})$ which is just $\mathbb{C}^{\times}$($SO(2,\mathbb{C})=\{e^{iz}|z\in \mathbb{C}\}$), thus we know the isotropic group of a given point in $SL(2,\mathbb{C})$ is just the $B_{+}$, the Borel subgroup, thus we know 
+
 $$\mathrm{Pic(Q_{2})}\cong \mathrm{X}(B_{+})=\mathrm{X}(\mathbb{C}^{\times}) \cong \mathbb{Z}.$$
+
 - $\mathrm{Proj}(k[x,y,z,w]/(x^{2}+y^{2}+z^{2}+w^{2}))=Q_{2}\subset \mathbb{P}^{3}$, this time we have 
+
 $$SL(2,\mathbb{C})\times SL(2,\mathbb{C})\rightarrow SO(4,\mathbb{C}).$$
+
 This is obtained by the action of $SL(2,\mathbb{C})\times SL(2,\mathbb{C})$ on $V=M_{2}(\mathbb{C})$  by $(g,h)\bullet A=gAh^{-1}$, $V$ is equipped with a symmetric bilinear form $$<x,y>=tr(xwy^{t}w^{-1}); w=\begin{bmatrix}0 & -1\\
 1 & 0\end{bmatrix}.$$
 The isotropic subgroup of a given point on $Q_{2}$ is the preimage of the corresponding $SO(3,\mathbb{C})$ in $SL(2,\mathbb{C})\times SL(2,\mathbb{C})$, then it's given by $B_{+}\times B_{-}$, thus we get 
+
 $$\mathrm{Pic}(Q_{3})=\mathrm{X}(B_{+}\times B_{-})\cong \mathbb{Z}\oplus \mathbb{Z}.$$
 
 ### Remark: ???? {#ecag-0269}
@@ -183,6 +234,7 @@ It's encoded in the chracter and weight lattices.
 ### Example: $\mathrm{Cl}(X)$ of Grassmannian {#ecag-0271}
 
 Consider $Gr(V,k)$, $\mathrm{dim}(V)=n$. Then $SL_{n}$ acts transitively on it and the isotropic subgroup of a point is isomorphic to $GL_{m}\hookrightarrow SL_{n}$, know that $\mathrm{X}(GL_{m})\cong \mathbb{Z}$, and since $[SL_{n},SL_{n}]=SL_{n}$ we know $\mathrm{X}(SL_{n})=0$, thus 
+
 $$\mathrm{Pic}(Gr(V,m))\cong \mathbb{Z}.$$
 
 ### Remark: Chow ring of Grassmannian {#ecag-0272}
@@ -196,6 +248,7 @@ Use some basic knowledge of the Chow ring of Grassmannian, we know there's only 
 ### Example: $\mathrm{Cl}(X)$ of connected algebraic groups {#ecag-0274}
 
 In short, all connected semisimple simply connected linear algebraic have trivial Picard. And Picard groups of connected semisimple adjoint linear algebraic group can be realized as the cokernel of their Cartan matrices. In general, you have to consider the cokernel of the character map
+
 $$0\rightarrow \mathrm{X}(G)\rightarrow \mathrm{X}(T)\rightarrow \mathrm{Pic}(G/B)\rightarrow \mathrm{Pic}(G)\rightarrow 0.$$
 
 ### Example: $\mathrm{Pic}(X)$ of determinantal varieties $R_{m\times n,s}$ {#ecag-0275}
@@ -203,11 +256,17 @@ $$0\rightarrow \mathrm{X}(G)\rightarrow \mathrm{X}(T)\rightarrow \mathrm{Pic}(G/
 $R_{m\times n,s}$ denotes all $m\times n$ matrices with rank less or equal to $s$, we assume $s\leq m\leq n$, note that $R_{m \times n,s}$ is not projective anymore, but it's quasi-projective.
 
 - If $s=m\leq n$, then $R_{m\times n,m}\cong \mathbb{A}_{k}^{nm}$, thus we have 
+
 $$\mathrm{Pic}(R_{m\times n,m})=0.$$
+
 - If $s<m\leq n$, then we claim 
+
 $$\mathrm{Pic}(R_{m\times n,s})\cong \mathbb{Z}.$$ 
+
 First note that $R_{m\times n, s-1}$ is a closed subvariety of $R_{m\times n,s}$, the complement $U_{s}=R_{m\times n,s}-R_{m\times n, s-1}$ is given by all matrices have rank exactly $s$, then we have
+
 $$\mathrm{Pic}(R_{m\times n,s-1})\rightarrow \mathrm{Pic}(R_{m\times n,s})\rightarrow \mathrm{Pic}(U_{s})\rightarrow 0.$$
+
 Now we want to compute $\mathrm{dim}(R_{m\times n,s})$, consider the group action of $G=SL_{m}\times SL_{n}$ on $U_{s}$, $(g,h)\bullet R\mapsto gRh^{-1}$, then we know this action is transitive, since $G$ is connected and irreducible, we know $U_{s}$ is irreducible, $R_{m\times n, s}$ is irreducible. We first compute the isotropic group $H\subset G$ of the matrix
 $$\begin{bmatrix}I_{s\times s} & 0_{s\times (n-s)}\\
 0_{(m-s)\times s} & 0_{(m-s)(n-s)}\end{bmatrix}$$
@@ -215,12 +274,21 @@ then $H$ is given by
 $$\{(g,h)=(\begin{bmatrix}A_{s\times s} & C_{s\times (m-s)}\\
 0_{(m-s)\times s} & D_{(m-s)(m-s)}\end{bmatrix}, \begin{bmatrix}A_{s\times s} & 0_{s\times (n-s)}\\mathcal{F}_{(n-s)\times s} & H_{(n-s)(n-s)}\end{bmatrix})\in SL_{m}\times SL_{n}\}$$
 Then we get 
+
 $$\mathrm{dim}(R_{m\times n,s})=\mathrm{dim}(U_{s})=\mathrm{dim}(SL_{m}\times SL_{n})-\mathrm{dim}(H)$$
+
 $$=(m^{2}-1)+(n^{2}-1)-(s^{2}+(m-s)^{2}-1+s(m-s))-((n-s)^{2}+s(n-s))$$
+
 $$=(m+n-s)s.$$
-Now $$\mathrm{dim}(R_{m\times n,s})-\mathrm{dim}(R_{m\times n,s-1})=m+n-2s+1\geq 3.$$
+
+Now
+
+$$\mathrm{dim}(R_{m\times n,s})-\mathrm{dim}(R_{m\times n,s-1})=m+n-2s+1\geq 3.$$
+
 As a consequence we know $\mathrm{Pic}(R_{m\times n,s-1})\rightarrow \mathrm{Pic}(R_{m\times n,s})$ is just the zero map, thus we know 
+
 $$\mathrm{Pic}(R_{m\times n,s})\cong \mathrm{Pic}(U_{s})=\mathrm{X}(H)\cong \mathbb{Z}$$
+
 where the last isomorphism is given by the character
 $$det: (\begin{bmatrix}A_{s\times s} & C_{s\times (m-s)}\\
 0_{(m-s)\times s} & D_{(m-s)(m-s)}\end{bmatrix}, \begin{bmatrix}A_{s\times s} & 0_{s\times (n-s)}\\mathcal{F}_{(n-s)\times s} & H_{(n-s)(n-s)}\end{bmatrix})\in SL_{m}\times SL_{n}\mapsto det(A).$$
@@ -234,27 +302,41 @@ The discussion above shows that $R_{m\times n,s}$ has a natural stratification, 
 First recall that $S_{n,m}$ is defined to be the set of all unordered $m$-frames in an $n$-dimensional vector space. $GL(n)$ acts transitively on it, and we can realize it as a homogeneous space which is equipped with a canonical algebraic structure. Then the isotropic subgroup $H$ of $p=\{e_{1},\dots, e_{m}\}$ is given by matrices
 \begin{itemize}
 \item If $m=1$, $H\cong GL_{n-1}$, $H'\cong SL_{n-1}$, thus 
+
 $$\mathrm{Pic}(S_{n,1})=0.$$
+
 This is not surprising at all, since $S_{n,1}\cong \mathbb{A}_{k}^{n}$.
 \item If $n=m$, then $H\cong S_{n}$, $H'\cong A_{m}$. Moreover
 
 - if $n=m=1$ or $2$, then $A_{1}, A_{2}$ are just the trivial group. Hence 
+
 $$\mathrm{Pic}(S_{1,1})\cong \mathrm{Pic}(S_{2,2})=0$$
+
 Note that $S_{1,1}\cong \mathbb{A}_{k}^{1}$.
 - If $n=m=3$, then $A_{3}\cong \mathbb{Z}/3\mathbb{Z}$, thus 
+
 $$\mathrm{Pic}(S_{3,3})\cong \mathrm{X}(\mathbb{Z}/3\mathbb{Z})\cong \mathbb{Z}/3\mathbb{Z}.$$
+
 - If $n=m=4$, then $H'=A_{4}$ is not abelian anymore, but $[H',H']$ is given by the Klein group which is isomorphic to $K=\mathbb{Z}/2\mathbb{Z}\times \mathbb{Z}/2\mathbb{Z}$, thus we know
+
 $$\mathrm{Pic}(S_{4,4})=\mathrm{X}(A_{4})\cong \mathrm{X}(A_{4}/[A_{4},A_{4}])\cong \mathbb{Z}/3\mathbb{Z}.$$
+
 - If $n=m\geq 5$, then $H=A_{m}$ is simple, $H'=H$, thus $A_{m}$ doesn't have any nontrivial $1$-dimensional representations, we get 
+
 $$\mathrm{Pic}(S_{n,n})=0; n\geq 5.$$
 
 \item If $n>m>1$,
 $$\begin{bmatrix}S & *\\
 0 & M\end{bmatrix}$$
 where $S$ is a $m\times m$ unimodular matrix(i.e just the permutations of vectors in a given frame, thus it's isomorphic to $S_{m}$), and $M$ is an invertible $(n-m)\times (n-m)$ matrix. And we know $\mathrm{Pic}(GL(n))=0$, thus we know
+
 $$\mathrm{Pic}(S_{n,m})\cong \mathrm{X}([GL_{n},GL_{n}]\cap H)=\mathrm{X}(SL_{n}\cap H).$$
+
 Now let $H'=H\cap SL_{n}$, to construct $1$-dimensional representations of $H'$, we only need to compute $[H',H']$, then we can get 
 $$[H',H']=\{\begin{bmatrix}A_{m} & * \\
 0 & SL_{n-m}\end{bmatrix}\}$$
-Thus we know $$\mathrm{Pic}(S_{n,m})\cong \mathrm{X}(H'/[H',H'])\cong\mathbb{Z}/2\mathbb{Z}.$$
+Thus we know
+
+$$\mathrm{Pic}(S_{n,m})\cong \mathrm{X}(H'/[H',H'])\cong\mathbb{Z}/2\mathbb{Z}.$$
+
 \end{itemize}

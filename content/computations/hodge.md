@@ -10,7 +10,9 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 We give several computations of the hodge number of $Bl_{C}(\mathbb{P}^{3})$(over $\mathbb{C}$), where $C$ is the twisted cubic parametrized by $[u^{3}, u^{2}v, uv^{2}, v^{3}]$.
 
 - $\chi^{p,q}=(-1)^{p+q}h^{p,q}$ is additive. Then we know 
+
 $$\chi^{p,q}(Bl_{C}(\mathbb{P}^{3}))=\chi^{p,q}(\mathbb{P}^{1}\times \mathbb{P}^{1})+\chi^{p,q}(\mathbb{P}^{3})-\chi^{p,q}(C)$$
+
 Then we know the Hodge diamond is given by 
 $$\begin{pmatrix} & & & 1& & & \\
  & & 0& &0 & &\\

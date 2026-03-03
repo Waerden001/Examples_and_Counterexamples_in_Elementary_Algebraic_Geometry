@@ -9,18 +9,29 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ### Example: An \'{e}tale morphism, Hartshorne $\mathrm{III}.10.6$ {#ecag-0158}
 
 We can use two copies of $\mathbb{A}_{k}^{1}$ to construct a degree $2$ \'{e}tale cover of the nodal curve
+
 $$f:X=\mathrm{Spec}(k[s,t]/(t^{2}-(s^{2}-1)^{2}))\rightarrow \mathrm{Spec}(k[x,y]/(y^{2}-x^{2}(x+1)))=Y$$
-$$x\mapsto s^{2}-1, y\mapsto st.$$ then the fibre is given by 
+
+$$x\mapsto s^{2}-1, y\mapsto st.$$
+
+then the fibre is given by
+
 $$k[x,y]/(x,y)\otimes_{k[x,y]/(y^{2}-x^{2}(x+1))}k[s,t]/(t^{2}-(s^{2}-1)^{2})$$
+
 in other words $st=y\otimes 1=0, s^{2}-1=x\otimes 1=0$, we get 
+
 $$X_{0}=\mathrm{Spec}(k[s,t]/(t^{2}, s^{2}-1,st))$$
+
 Note that $x=xy^{2}-x(y^{2}-1)$, thus it's actually 
+
 $$\mathrm{Spec}(k[s,t]/(t,s^{2}-1))=\mathrm{Spec}(k[s]/(s^{2}-1))$$
+
 all other fibres are the same(scheme theoretically), thus we know it's a flat morphism. We can use the fibre criterion for smoothness(this map is naturally of finite presentation), or observe that $f^{*}\Omega_{Y/k}\rightarrow \Omega_{X/k}$ is an isomorphism. we know $f$ is smooth and of relative dimension $0$, and $f$ is unramified. So $f$ is a degree $2$ \'{e}tale  morphism.
 
 ### Remark {#ecag-0159}
 
 Are there any easier ways to  check the flatness of $f$ , for example  using localization?. Let $\mathfrak{p}=(x,y)$, $\frak{q}_{1}=(s-1,t), \mathfrak{q}_{2}=(s+1, t)$, then we have 
+
 $$\mathcal{O}_{X,\mathfrak{q}_{1}}......$$
 
 ### Different Frobenius actions

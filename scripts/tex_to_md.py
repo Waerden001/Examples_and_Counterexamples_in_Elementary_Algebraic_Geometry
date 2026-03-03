@@ -136,26 +136,44 @@ def convert_labels_and_refs(text: str) -> str:
 
 
 def convert_includegraphics(text: str) -> str:
-    """Convert \\includegraphics to Markdown image."""
+    """Convert \\includegraphics to Markdown image with correct path."""
+    def fix_img_path(m):
+        path = m.group(1)
+        # Images are in content/img/ but .md files are in content/chapter/
+        if path.startswith('img/'):
+            path = '../' + path
+        return f'![]({path})'
+
     text = re.sub(
         r'\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}',
-        r'![](\1)',
+        fix_img_path,
         text
     )
     return text
 
 
 def flag_tikzcd(text: str) -> str:
-    """Flag tikzcd environments for manual conversion."""
+    """Flag tikzcd environments for manual conversion.
+
+    Remove surrounding $$ if present — tikzcd is not MathJax-compatible.
+    """
+    # tikzcd inside $$...$$ — strip the $$
+    text = re.sub(
+        r'\$\$\s*(\\begin\{tikzcd\}.*?\\end\{tikzcd\})\s*\$\$',
+        r'<!-- tikzcd diagram: manual conversion needed -->\n```latex\n\1\n```',
+        text,
+        flags=re.DOTALL,
+    )
+    # tikzcd not inside $$ (standalone)
     text = re.sub(
         r'(\\begin\{tikzcd\}.*?\\end\{tikzcd\})',
         r'<!-- tikzcd diagram: manual conversion needed -->\n```latex\n\1\n```',
         text,
         flags=re.DOTALL,
     )
-    # Also flag xy-pic diagrams
+    # xy-pic diagrams inside $$...$$ — strip the $$
     text = re.sub(
-        r'(\$\$\s*\\xymatrix.*?\$\$)',
+        r'\$\$\s*(\\xymatrix.*?)\$\$',
         r'<!-- xymatrix diagram: manual conversion needed -->\n```latex\n\1\n```',
         text,
         flags=re.DOTALL,

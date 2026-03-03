@@ -18,9 +18,13 @@ The proof is not hard, but let me ask
 - where do we need to use the Nakayama's lemma?
 
 For the first question, the answer is we can get a short exact sequence 
+
 $$0\rightarrow f^{*}\mathrm{kernel}\rightarrow \mathcal{O}_{U}^{r}\rightarrow \mathscr{F}\rightarrow 0$$
+
 so you know we actually only need the flatness. For the second question , we have
+
 $$0\rightarrow f^{*}\mathrm{kernel} \otimes k(x)\rightarrow \mathcal{O}_{U,x}^{r}\otimes k(x)\rightarrow f^{*}\mathscr{F}\otimes k(x)\rightarrow 0.$$
+
 And use Nakayama's theorem, and the freeness of $f^{*}\mathscr{F}$, we know $f^{*}\mathrm{kernel} \otimes k(x)=0$. Then we get $f^{*}\mathrm{kernel} =0$, if $f$ is faithfully flat, we can get $\mathrm{kernel}=0$ directly, but here we don't need it, because firbre, we know $\mathcal{O}_{U,x}^{r}\rightarrow f^{*}\mathscr{F}$ is an isomorphism, so actually the original $\mathcal{O}_{X}^{r}\rightarrow \mathscr{F}\rightarrow 0$ is an isomorphism fibrewise. Then we know $f^{*}\mathscr{F}$ is locally free.
 
 ### Example: $\mathbb{A}^{1}$ is not algebraically simply connected {#ecag-0181}
@@ -36,7 +40,9 @@ Note that we need conditions like $K$ is separably closed. See for example [Galo
 Note the following facts
  
 - Grothendieck vanishing theorem is true for Noetherian topological spaces(in Zariski topology) and sheaves of abelian groups. 
+
  $$H^{2}_{Zar}(\mathbb{P}^{1},\underline{k})=0, H^{2}_{ét}(\mathbb{P}^{1}, \underline{k})\cong k.$$
+
 - Čech cohomology also relies on the topology. For example, $\mathbb{P}^{1}=U_{0}\cap U_{1}$. If we want to compute the Čech cohomology, we have two difficulties
  
 - this cover is not fine, no matter in Zariski topology or étale topology. This is not an issue, because we can use spectral sequence to compute $H^{2}(X,\underline{k})$

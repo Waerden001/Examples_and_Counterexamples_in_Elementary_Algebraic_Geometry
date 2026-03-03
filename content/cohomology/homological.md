@@ -24,9 +24,15 @@ Consider the following example
 ### Remark {#ecag-0229}
 
 $\mathrm{Ext}_{\mathbf{Z}}(A,B)=0$ for any $B$ if $A$ is a free abelian group. $\mathrm{Ext}_{\mathbf{Z}}(A,B)=0$ for any $A$ if $B$ is divisible (i.e  $\forall b\in B, 0\neq n\in \mathbf{Z}, \exists b'\in B$ such that $nb'=b$ ). Thus we have 
+
 $$\mathrm{Ext}(\mathbf{Z},\mathbf{Z})=0, \mathrm{Ext}(\mathbf{Z},\mathbf{Q})=0$$
+
 $$\mathrm{Ext}(\mathbf{Z}/n\mathbf{Z}, \mathbf{Q})=0, \mathrm{Ext}(\mathbf{Q}, \mathbf{Q})=0.$$
+
 For $\mathbf{Z}/n\mathbf{Z}$, we have the free resolution $0\rightarrow \mathbf{Z}\rightarrow \mathbf{Z}\rightarrow \mathbf{Z}/n\mathbf{Z}\rightarrow 0$, apply $\hom(-, \mathbf{Z})$ or $\hom(-,\mathbf{Z}/m\mathbf{Z})$, we can get 
+
 $$\mathrm{Ext}(\mathbf{Z}/m\mathbf{Z}, \mathbf{Z})=\mathbf{Z}/m\mathbf{Z}, \mathrm{Ext}(\mathbf{Z}/m\mathbf{Z}, \mathbf{Z}/m\mathbf{Z})=\mathbf{Z}/(m,n)\mathbf{Z}.$$
+
 Sometimes, we can also use the torsion property of vector space structure for some abelian groups to compute the $\mathrm{Ext}$ groups. For example, $\mathrm{Ext}(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z})$ is $m$-torsion by taking a free resolution of $\mathbf{Q}$ and then apply $\hom(-,\mathbf{Z}/m\mathbf{Z})$. It also has a $\mathbf{Q}$-vector space structure induced from the scalar multiplication of $\mathbf{Q}$. Thus we know
+
 $$\mathrm{Ext}(\mathbf{Q}, \mathbf{Z}/m\mathbf{Z})=0.$$

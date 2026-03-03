@@ -81,11 +81,12 @@ It's highly recommended to read David Mumford's book Lectures on curves on an al
 
 The graph of a morphism to a separated scheme is closed.
 
-### Example: Quotient stack $[\mathbb{A}^{n}/GL_{n}\text{ {#ecag-0324}
+### Example: Quotient stack $[\mathbb{A}^{n}/GL_{n}$ {#ecag-0324}
 
 }$]
 [The quotient stack](https://mathoverflow.net/questions/184253/the-quotient-stack-mathbban-mathrmgl-n?rq=1).
 Geometric picture
+
 $$-\bullet$$
 
 ### Example: Examples of algebraic stacks without coarse moduli space {#ecag-0325}
@@ -112,17 +113,25 @@ $$-\bullet$$
 ### Example: Isotrivial but non-trivial family of elliptic curves {#ecag-0330}
 
 Consider the family of elliptic curves over $k^{*}$
+
 $$X:=\mathrm{Spec}(k[x,y, t,t^{-1}]/(y^{2}-x^{3}+t))\rightarrow \mathrm{Spec}k[t,t^{-1}]=k^{*}.$$
+
 This is a family of elliptic curves with constant $j\equiv 0$. This is not a trivial bundle because the total space $E$ is affine, that is 
+
 $$\mathrm{Spec}(k[x,y, t,t^{-1}]/(y^{2}-x^{3}+t))=D_{+}(y^{2}-x^{3})\subset \mathbb{A}_{k}^{2}.$$
+
 If this family is trivial $X\cong E\times k^{*}$, then we get a dominant morphism 
+
 $$\mathbb{P}^{2}\dashrightarrow E\times k^{*}\rightarrow E,$$
+
 this implies that $E$ is unirational, by Luroth's theorem, this means $E$ is rational, contradicts the fact that $g(E)=1$.
 
 ### Remark: Trivialization in \'{e}tale topology {#ecag-0331}
 
 Consider the étale open subset 
+
 $$\phi:\mathrm{Spec}(k[t^{\frac{1}{6}}, t^{\frac{-1}{6}}])\rightarrow \mattrm{Spec}(k[t,t^{-1}]),$$
+
 which means if we let $x=t^{\frac{1}{3}}x', y=t^{\frac{1}{2}}y'$, we get an isomorphism between $y^{2}=x^{3}-t$ and $(y')^{2}=(x')^{3}-1.$
 
 ### Example: $\operatorname{pt}\rightarrow B\mathbb{G}_{m}$ is an $\mathrm{fppf}$ (even smooth and surjective) cover {#ecag-0332}
@@ -130,52 +139,79 @@ which means if we let $x=t^{\frac{1}{3}}x', y=t^{\frac{1}{2}}y'$, we get an isom
 I read this from Daniel Litt's notes `Picard groups of moduli problems'. We try to parametrize all line bundles, that means we `remember'
 
 - `isomorphism', namely, let $\{U_{i}\}$ be a cover of $X$. $\mathcal{L},\mathcal{L}'$ are two line bundles on $X$, and $f_{i}: \mathcal{L}|_{U_{i}}\rightarrow \mathcal{L}'|_{U_{i}}$ are isomorphisms, so that $f_{i}|_{U_{i}\cap U_{j}}=f_{j}|_{U_{i}\cap U_{j}}$, then $f$ descents to(i.e gives us ) an isomorphism $f:\mathcal{L}\rightarrow \mathcal{L}'$. In other words $\mathrm{Isom}(\mathcal{L},\mathcal{L}')$ is an $\mathrm{fpqc}$ sheaf: if $i: U\rightarrow X$ is a $\mathrm{fpqc}$ morphism, we have an exact sequence
+
 $$\mathrm{Isom}(\mathcal{L},\mathcal{L}')(X)\rightarrow \mathrm{Isom}(\mathcal{L},\mathcal{L}')(U)\rightrightarrows \mathrm{Isom}(\mathcal{L},\mathcal{L}')(U\times_{X}U).$$
+
 - `automorphism', that's just the cocycle condition. Let $B\mathbb{G}_{m}(X)$ be the category of line bundles on $X$, with isomorphisms as morphisms, for any $\mathrm{fpqc}$ morphism $U\rightarrow X$, we have an exact sequence in the sense of $groupoids.$
+
 $$B\mathbb{G}_{m}(X)\rightarrow B\mathbb{G}_{m}(U)\rightrightarrows B\mathbb{G}_{m}(U\times_{X}U)\triplerightarrow B\mathbb{G}_{m}(U\times_{X}U\times_{X}U).$$
 
 A morphism $f: T\rightarrow B\mathbb{G}_{m}$ is the same as a line bundle on $T$(but different morphisms may have isomorphisms between them). Let $\mathcal{L}, \mathcal{L}'$ be a bundle on $T$ and $T'$ respectively, corresponding to morphisms $f,f'$, consider   
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 T\times_{B\mathbb{G}_{m}}T'\arrow{r}\arrow{d} & T'\arrow{d}{f'}\\
 T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}
-```$$
+```
+```
 Then a morphism $X\rightarrow T\times_{B\mathbb{G}_{m}}T'$ is the same as 
 
 - morphisms $g: X\rightarrow T, g': X\rightarrow T'$ and
 - $f\circ g=f'\circ g'$, let the bundle corresponding to $f\circ g$ be $\mathcal{M}$, then we know the condition means `$\mathcal{M}(U\rightarrow X)\cong \mathcal{L}(U\rightarrow X\rightarrow T)$'(to be more precise, to really get a line bundle on $X$, we mean the inverse sheaf tensored with the structure sheaf of $X$), that is $\mathcal{M}\cong g^{*}\mathcal{L}$. In other words $f\circ g=f'\circ g'$ is the same as 
+
 $$g^{*}\mathcal{L}\cong g'^{*}\mathcal{L}'.$$
 
 Then we can justify the fact $pt\rightarrow B\mathbb{G}_{m}$ is a $\mathrm{fppf}.$ cover.
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 T\times_{B\mathbb{G}_{m}}pt\arrow{r}\arrow{d} & pt\arrow{d}{f'}\\
 T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}
-```$$
+```
+```
 where $f'$ is given by $\mathcal{O}_{pt}$ and $f$ is given by a line bundle on $T$. By our discussion, a morphism $X\rightarrow T\times_{B\mathbb{G}_{m}}pt$(i.e a 'point' of this functor) is the same as 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 X\arrow{r}{g'}\arrow{d}{g} & pt\arrow{d}{f'}\\
 T\arrow{r}{f}& B\mathbb{G}_{m}\end{tikzcd}
-```$$
+```
+```
+
 $$\text{an isomorphism}: g^{*}\mathcal{L}\cong g'^{*}\mathcal{O}_{pt}=\mathcal{O}_{X}.$$
+
 Now what does $(T\times_{B\mathbb{G}_{m}}pt)(X)$ mean? It means all possible isomorphisms $g^{*}\mathcal{L}\cong g'^{*}\mathcal{O}_{pt}=\mathcal{O}_{X}$, so we get 
 
-- if $g^{*}\mathcal{L}\cong \mathcal{O}_{X}$, then $$(T\times_{B\mathbb{G}_{m}}pt)(X)=\mathbb{G}_{m}(X)=\mathcal{O}_{X}^{*},$$
-- if $g^{*}\mathcal{L}\not\simeq \mathcal{O}_{X}$, then $$(T\times_{B\mathbb{G}_{m}}pt)(X)=\emptyset.$$
+- if $g^{*}\mathcal{L}\cong \mathcal{O}_{X}$, then
+
+$$(T\times_{B\mathbb{G}_{m}}pt)(X)=\mathbb{G}_{m}(X)=\mathcal{O}_{X}^{*},$$
+
+- if $g^{*}\mathcal{L}\not\simeq \mathcal{O}_{X}$, then
+
+$$(T\times_{B\mathbb{G}_{m}}pt)(X)=\emptyset.$$
+
 $T\times_{B\mathbb{G}_{m}}pt$ is actually a scheme. To see this, let $f_{i}:U_{i}\rightarrow X$ be morphisms such that $f_{i}^{*}\mathcal{L}\cong \mathcal{O}_{X}$,  we know this functor is `glued' together by its restrictions to $U_{i}\times pt$, that is 'gluing'(in the sence above, two descents) $\mathbb{G}_{m}(U_{i})$ by automorphisms of $\mathbb{G}_{m}(U_{i}\cap U_{j})$ which satisfies the cocycle conditions, that's the same as the ordinary gluing procedure of $\mathcal{L}$, namely $\mathcal{L}|_{U_{i}}\cong \mathcal{L}|_{U_{j}}$, in short
+
 $$\text{we're now gluing $\mathbb{G}_{m}(U_{i})$ by the same construction of $\mathcal{L}$}$$
+
 this tells us
+
 $$T\times_{B\mathbb{G}_{m}}pt\cong \mathrm{Tot}(\mathcal{L})\setminus\{0\}.$$
+
 That's just the $\mathbb{G}_{m}$-bundle associated to $\mathcal{L}$ and $\{0\}$ means the zero section. $\mathrm{L}\setminus \{0\}$ is indeed faithfully flat over $T$.
 
 ### Remark: $T'\rightarrow B\mathbb{G}_{m}$ representable?(i.e any pull-back along this morphism is a scheme) {#ecag-0333}
 
 The answer is YES. By the diagonal criterion in Daniel's Notes, we only need to check the following pull-back is representable
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 B\mathbb{G}_{m}\times_{B\mathbb{G}_{m}\times B\mathbb{G}_{m}}T\arrow{r}\arrow{d} & T\arrow{d}{(\mathcal{L}_{1}, \mathcal{L}_{2})}\\
@@ -221,7 +257,7 @@ $$\mathrm{Pic}(B\mathbb{G}_{m})=\mathrm{Hom}(\mathbb{G}_{m},\mathbb{G}_{m})\cong
 We follow Mumford's original paper `Picard groups of moduli problems', it's very readable and enlightening, thus we highly recommend interested readers of reading it. We want to find some numerical invariants of a line bundle on $\mathscr{M}_{1,1}$.  To be more clear, our goal is to define a homomorphism 
 $$\mathrm{Pic}(\mathscr{M}_{1,1})\rightarrow \mathbb{Z}/12\mathbb{Z}.$$
 Consider a line bundle $\mathscr{L}$ on the moduli problem $\mathscr{M}_{1,1}$ and a family of elliptic curves $\pi: \mathscr{X}\rightarrow S$, then the family has a natural involution(order $2$ automorphism), namely the inversion $\rho$:
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}\mathscr{X}\arrow{r}{\rho}\arrow{d}{\pi} & \mathscr{X}\arrow{d}{\pi}\\
 S\arrow{r}{id} & S\end{tikzcd}
@@ -254,13 +290,16 @@ Similarly, $H^{0}(C_{2}, \omega_{C_{2}})$ is a one dimensional vector space gene
 $$\tau: \frac{dx}{2y}\mapsto \frac{\omega dx}{-dy}=-\omega\frac{dx}{2y}, \mathrm{ord}(\tau)=6.$$
 $\beta$ is thus surjective. We can make a one-and-for-all choice such that $\beta(\Lambda)=1$. 
 To prove $\beta$ is injective, we let $\beta(\mathscr{L})=0$, we have to prove that $\mathscr{L}\cong \mathcal{O}_{\mathscr{M}_{1,1}}$. What does this mean? This means we can find an étale cover $S$ of $\mathscr{M}_{1,1}$ which trivilizes $\mathscr{L}$, such that if we fix a trivilization $\phi:\mathscr{L}|_{S}\cong \mathcal{O}_{S}$, the descent data of $\mathscr{L}$ commutes with that of $\mathscr{O}_{\mathscr{M}_{1,1}}$ under this trivilization. We already know $S=\mathscr{E}_{t}\rightarrow \mathbb{A}_{t}^{1}\setminus\{0,1\}$ above is an étale cover of $\mathscr{M}_{1,1}$ of degree $12$, any line bundle on $S$ is trivial since it's an open subset of $\mathbb{A}_{t}^{1}$. Now we have to prove the compatibility on the fibre product 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}S\times_{\mathscr{M}_{1,1}}S\arrow{r}{\pi_{1}}\arrow{d}{\pi_{2}} & S\\
 S.\end{tikzcd}
-```$$ 
+```
+``` 
 That is, the following diagram commutes 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}\pi_{1}^{*}\mathscr{L}\arrow{r}\arrow{d}{\pi_{1}^{*}\phi} & \pi_{2}^{*}\mathscr{L}\arrow{d}{\pi_{2}^{*}\phi}\\
 \pi_{1}^{*}\mathcal{O}_{S}\arrow{r} & \pi_{2}^{*}\mathcal{O}_{S}.\end{tikzcd}
@@ -270,13 +309,13 @@ $$g_{1}: \lambda \mapsto \frac{1}{\lambda}, g_{2}:\lambda \mapsto 1-\lambda.$$
 The point is that $\mathscr{L}_{\psi_{s}}$ comes from an antomorphism(provided by the group action) of the family $\pi: \mathscr{X}\rightarrow S-\mathbb{A}_{j}^{1}\setminus\{0,1\}$. $H^{0}(S, \mathcal{O}_{S}^{*})=k^{*}$, so $\beta$ is defined on this family and restricted $\alpha(C)$ on every fibre $C$. Since $\beta(\mathscr{L})=0$, we know the induced action $H^{0}(S,\mathscr{L})\rightarrow H^{0}(S,\mathscr{L})$ is just the identity map. For the diagram to commute, we only need to check $\mathscr{L}(\psi_{s}):\pi^{*}\theta|_{s_{1}}\rightarrow \pi_{2}^{*}\theta|_{s_{2}}$,since this isomorphism comes from an antomorphism of $S$, we need to check $\theta(s_{1})=\theta(s_{2})$, this is true if $\theta\in H^{0}(S, \mathscr{L})^{G}$, $H^{0}(S, \mathscr{L})^{G}\neq \emptyset$ because the existence of the $j$-invariant. Thus it's always possible to choose such a global section $\theta$. Therefor $\beta$ is injective. 
 In conclusion, we get an isomorphism 
 $$\beta: \mathrm{Pic}(\mathscr{M}_{1,1})\cong \mathbb{Z}/12\mathbb{Z}.$$
-%%the point is that we have to prove this `induced isomorphism' is uniquely determined. For 
-%%$$s'=\{\mathrm{Spec}(k)\rightarrow S\times_{\mathscr{M}_{1,1}}S\}$$ 
-%%another closed point over $s_{1}, s_{2}\in S$, we get another isomorphism %%$\psi_{s'}:\pi^{-1}(s_{1})\sim\pi^{-1}(s_{2})$. This gives us another isomorphism %%$\mathscr{L}(\psi_{s'}): \mathscr{L}_{s_{1}}\rightarrow \mathscr{L}_{s_{2}}$, now consider %%$$\mathscr{L}(\psi_{s'}\circ \psi_{s}):\mathscr{L}_{s_{1}} \rightarrow \mathscr{L}_{s_{1}}.$$
-%%This is induced by the automorphsim $\psi_{s'}\circ \psi_{s}$, since $\beta(\mathscr{L})=0$, we know 
-%%$$\mathscr{L}(\psi_{s'}\circ \psi_{s})=id!$$
-%%This is exactly the descent data for $\mathcal{O}_{\mathscr{M}_{1,1}}$, by a theorem of %%Grothendieck(roughly speaking,it the slogan `a sheaf is determined its descent data', Theorem$90$ in %%Mumford's paper), we get
-%%$$\mathscr{L}\cong \mathcal{O}_{\mathscr{M}_{1,1}}.$$
+<!-- %%the point is that we have to prove this `induced isomorphism' is uniquely determined. For -->
+<!-- %%$$s'=\{\mathrm{Spec}(k)\rightarrow S\times_{\mathscr{M}_{1,1}}S\}$$ -->
+<!-- %%another closed point over $s_{1}, s_{2}\in S$, we get another isomorphism %%$\psi_{s'}:\pi^{-1}(s_{1})\sim\pi^{-1}(s_{2})$. This gives us another isomorphism %%$\mathscr{L}(\psi_{s'}): \mathscr{L}_{s_{1}}\rightarrow \mathscr{L}_{s_{2}}$, now consider %%$$\mathscr{L}(\psi_{s'}\circ \psi_{s}):\mathscr{L}_{s_{1}} \rightarrow \mathscr{L}_{s_{1}}.$$ -->
+<!-- %%This is induced by the automorphsim $\psi_{s'}\circ \psi_{s}$, since $\beta(\mathscr{L})=0$, we know -->
+<!-- %%$$\mathscr{L}(\psi_{s'}\circ \psi_{s})=id!$$ -->
+<!-- %%This is exactly the descent data for $\mathcal{O}_{\mathscr{M}_{1,1}}$, by a theorem of %%Grothendieck(roughly speaking,it the slogan `a sheaf is determined its descent data', Theorem$90$ in %%Mumford's paper), we get -->
+<!-- %%$$\mathscr{L}\cong \mathcal{O}_{\mathscr{M}_{1,1}}.$$ -->
 
 ### Remark: Hodge bundle, $S\times_{\mathscr{M}_{1,1}}S$ and degree of the étale cover {#ecag-0338}
 
@@ -323,21 +362,29 @@ $$\pi: V_{Y}\rightarrow Y.$$
 $$X=(Y-P)\sqcup (Y-Q).$$
 
 Now the group action on $Y$ lifts to a group action on $V_{Y}$ by properly switching the preimage of $C, D$, this gives us a descent datum $(V_{Y}/Y, \phi_{Y})$ relative to the $G$-torsor $Y\rightarrow S$(what does mean?). Consider the diagram of natural pull-backs 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}V\arrow{r}{p}\arrow{d}{f'} & X\arrow{d}\arrow{d}{f}\\
 V_{Y}\arrow{r}{\pi}\arrow{d}{h'} & Y \arrow{d}{h}\\
 U\arrow{r}{\theta }& S.\end{tikzcd}
-```$$
+```
+```
 Note that the composition(and the two arrows themselves) $X\rightarrow Y\rightarrow S$ are étale covers. $p$ is projective since when restricted to $Y-P$ or $Y-Q$, $\pi$ is given by blow-ups. And the descent datum $(V_{Y}/Y, \phi_{Y})$ pulls back to a descent datum $(V/X, \phi).$
 If the descent datum $(V/X, \phi)$ is effective in the category of schemes, then $U$ must exist as a scheme and its corresponding descent datum pulls back to $(V/X, \phi)$. Then $U$ is the quotient of $V_{Y}$ of the $G$-action. Let $E=\pi^{-1}(C\cup D)$, we use the notation and result in the first example, then we have 
+
 $$\pi^{-1}(P)=L_{1}\cup L_{2}, \pi^{-1}(Q)=\pi^{-1}(gP)=M_{1}\cup M_{2},$$
+
 $$g(L_{1})=M_{1}, g(L_{2})=M_{2},$$
+
 $$L_{1}+M_{1}=L_{1}+g(L_{1})\sim 0.$$
+
 By descent of closed subschemes(actually by descent of affine morphims), we can find a copy of $\mathbb{P}^{1}\cong L\subset U$ such that $h^{-1}(L)=L_{1}\cup g(L_{1})=L_{1}\cup M_{1}.$ Chose a complex point $R$ (thus not the generic point), thus we can find a function $f\in \mathcal{O}_{U, R}$
 in the local ring at $R$ such that $f(R)=0$, but $L\nsubseteq V(f)$. Fix an irreducible component of $V(f)$ containing $R$, denote it by $W$, it has codimension $1$ in $\mathrm{Spec}(\mathcal{O}_{U,R})$. Then we have 
+
 $$\emptyset \neq h'^{-1}(W)\cap (L_{1}\cup g(L_{1}))$$
+
 $$L_{1}\nsubseteq h'^{-1}(W), g(L_{1})\nsubseteq h'^{-1}(W).$$
+
 We give a name to effective divisor $h'^{-1}(W)$, call it $D$. We know $V_{Y}$ is smooth, thus $\mathcal{O}(D)$ is a line bundle on $V_{Y}$. We naturally get a line bundle on $E=\pi^{-1}(C\cup D)$((the `red and blue surface'). This line bundle on $E$ has a positive intersection number on the $1$-cycle $L_{1}\cup g(L_{1})$, however we have $L_{1}+g(L_{1})\sim 0$! This contradicts the fact that on any proper smooth schemes over a field, the degree of a line bundle is well defined. The only possibility is that $U$ doesn't live in the category of schemes.The descent datum $(V/X, \phi)$ is not effective.
 
 ### Remark: Descent datum {#ecag-0344}
@@ -391,10 +438,17 @@ Relevant materials.
 ### Example: William Lang, Hoge spectral sequence in characteristic $3$ {#ecag-0350}
 
 Let $k=\mathbb{F}_{3}$. Consider 
+
 $$X: y^{2}z=x^{3}-tz^{2}\subset \mathbb{P}_{k}^{3}.$$
-Then $$b_{\mathrm{dR}}^{1}=\mathrm{dim}_{k}(H^{1}_{\mathrm{dR}}(X/k))=3.$$
+
+Then
+
+$$b_{\mathrm{dR}}^{1}=\mathrm{dim}_{k}(H^{1}_{\mathrm{dR}}(X/k))=3.$$
+
 However 
+
 $$h^{0,1}=h^{1,0}=1,$$
+
 where $h^{p,q}=\mathrm{dim}_{k}(H^{q}(X,\wedge^{p}\Omega_{X/k}))$. That means in positive characteristics, the ordinary relation between the Hodge cohomology groups $H^{q}(X,\wege^{p}\Omega_{X})$ and the algebraic de Rham cohomology groups $H_{\mathrm{dR}}^{n}(X/k)$ fails.
 
 ### Remark {#ecag-0351}
@@ -404,13 +458,21 @@ This example is provided by William Lang in his thesis `Quasi-elliptic surfaces 
 ### Remark: $X$ irreucible, then $H_{\mathrm{dR}}^{i}(X/k)=0, \forall i>0$?(This cannot be true) {#ecag-0352}
 
 Recall our definition of the algebraic de Rham cohomology 
+
 $$0\rightarrow \underline{k}\rightarrow \mathcal{O}_{X}\rightarrow \Omega_{X/k}^{1}\rightarrow \dots \rightarrow \wedge^{n}\Omega_{X/k}\rightarrow 0$$
+
 $$H^{i}_{\mathrm{dR}}(X/k):=\mathbb{H}^{i}(\Omega_{X/k}^{\bullet})$$
+
 The de Rham complex above is a resolution of $\underline{k}$, then by abstract nonsense, we have 
+
 $$\mathbb{H}^{i}(\Omega_{X/k}^{\bullet})\cong H^{i}(X,\underline{k}).$$
+
 If $X$ is irreducible, then the constant sheaf $\underline{k}$ is flasque, therefore $H^{i}(X,\underline{k})=0\Rightarrow H^{i}_{\mathrm{dR}}(X/k)=0, \forall i>0$, this is ridiculous! What's wrong? Actually, we don't have any type of Poicare lemma in algebraic settings, to put it more directly
+
 $$\text{the de Rham complex is not a resolution of the constant sheaf $\underline{k}$ in Zariski topology}.$$
+
 In general 
+
 $$H^{i}(X,\unerline{k})\neq \mathbb{H}^{i}(\Omega_{X/k}^{\bullet}).$$
 
 ### Example: Kähler manifold but not algebraic {#ecag-0353}

@@ -8,6 +8,7 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ### Example: $X=\mathbb{C}^{\times}\hookrightarrow\mathbb{P}_{\mathbb{C}}^{1}=\overline{X}$, weight filtration {#ecag-0278}
 
 $D=\overline{X}\setminus X=\{*, *\}$. The weight spectral sequence is given by 
+
 $$
 E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -21,7 +22,8 @@ E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 0 & 1\end{tikzcd}
 ```.$$
 $d_{1}$ is surjective is because we know $E_{2}^{p,q}$ computes $H^{p+q}(X)$, which is just the cohomology of $S^{1}$. The filtration of $H^{1}(X)$ is given by 
-$$
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
@@ -29,18 +31,24 @@ $$
 Gr_{2}^{W}H^{1}(X; \mathbb{Q})=W_{2}H^{1}(X;\mathbb{Q})/W_{1}H^{1}(X; \mathbb{Q})\cong \mathbb{Q}.
 \end{tikzcd}
 ```
-$$
+```
 
 ### Remark: Weight filtration, [reference, Joana Cirici
  {#ecag-0279}
 
 (http://userpage.fu-berlin.de/jcirici/computeweight.pdf)]
 Let $X$ be a smooth complex variety of dimension $n$. Let $j:X\hookrightarrow \overline{X}$ be a smooth compatification of $X$ such that $D=\overline{X}\setminus X$ is a normal crossing divisor. $D=\bigcup_{i=1}^{N}D_{i}$ is the decomposition of $D$ into irreducible components. Let $D^{(0)}=\overline{X}$, $D^{(p)}=\{\amalg_{\{i_{1}, \dots, i_{p}\}\subset\{1,2,\dots, N\}}D_{i_{1}}\cap \dots \cap D_{i_{p}}\}$, note that since $D$ is a normal crossing divisor, $D^{(p)}$ is a smooth projective variety of dimension $n-p$. The weight spectral sequence is given by 
+
 $$E_{1}^{-p,q}=H^{q-2p}(D^{(p)};\mathbb{Q})\Rightarrow H^{q-p}(X;\mathbb{Q}).$$
+
 The differential on the $E_{1}$-page is given by the sum of Gysin maps
+
 $$d_{1}:E_{1}^{-p,q}\rightarrow E_{1}^{-p+1,q}$$
+
 $$i_{*}(j): H^{q-2p}(D_{i_{1}}\cap \dots \cap D_{i_{p}})\rightarrow H^{q-2p+2}(D_{i_{i}}\cap \dots \hat{D}_{i}_{k}\dots \cap D_{i_{p}})$$, where $i$ is just the natural embedding. The weight spectral sequence degenerates on the $E_{2}$-page which gives us a filtration of the form 
+
 $$0=W_{n-1}H^{n}(X; \mathbb{Q})\subset W_{n}H^{n}(X; \mathbb{Q})\subset \dots \subset W_{2n}H^{n}(X; \mathbb{Q})=H^{n}(X; \mathbb{Q}),$$
+
 where $Gr_{q}^{W}H^{p+q}=E_{2}^{p,q}$ and $W_{k+1}H^{n}(X;\mathbb{Q})/W_{k}H^{n}(X)=Gr_{k+1}^{W}H^{n}(X)$. To make this discussion more obvious, see the following diagrams.
 $$E_{1}^{-p,q}(X)=H^{q-2p}(D^{(p)}; \mathbb{Q})=
 <!-- tikzcd diagram: manual conversion needed -->
@@ -56,7 +64,9 @@ H^{0}(D^{2})\arrow{r}{d_{1}} & H^{2}(D^{(1)}) \arrow{r}{d_{1}}& H^{4}(\overline{
 D^{(2)} & D^{1} & D^{(p=0)}=\overline{X} & \\
 \end{tikzcd}
 ```
+
 $$
+
 $$
 \Rightarrow E_{2}^{p,q}(X)=Gr_{q}H^{p+q}(X)
 <!-- tikzcd diagram: manual conversion needed -->
@@ -80,6 +90,7 @@ $$
 ### Example: punctured Riemann surface {#ecag-0281}
 
 Let $\overline{X}$ be a Riemann surface of genus $g$. $D$ is given by $p$ distinct points, $X=\overline{X}\setminus D$. Then we have 
+
 $$
 E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -93,12 +104,15 @@ E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 0 & 1\end{tikzcd}
 ```.$$
 Note that we don't need to do any computation, since we know $X$ is homotopic to some wedge product of several $S^{1}$'s, thus $H^{2}(X;\mathbb{Q})$ and above all vanish. This gives us the surjectivity of $d_{1}$. The only interesting part is the filtration of $H^{1}(X;\mathbb{Q})$ which is given by 
+
 $$0=W_{0}H^{1}(X;\mathbb{Q})\subset W_{1}H^{1}(X; \mathbb{Q})\cong \mathbb{Q}^{2g}\subset W_{2}H^{1}(X;\mathbb{Q})\cong H^{1}(X;\mathbb{Q})\cong \mathbb{Q}^{2g+p-1},$$
+
 $$Gr_{1}H^{1}(X;\mathbb{Q})\cong \mathbb{Q}^{2g}, Gr_{2}H^{1}(X;\mathbb{Q})\cong \mathbb{Q}^{p-1}.$$
 
 ### Example: complement of three intersecting lines in $\mathbb{P}^{2}$ {#ecag-0282}
 
 Let $\overline{X}=\mathbb{P}^{2}$, $D$ be the union of three lines intersecting at $3$ different points, which is of course a normal crossing divisor. $X=\overline{X}\setminus D$. Now we have $D^{(1)}=\{\mathbb{P}^{1},\mathbb{P}^{1},\mathbb{P}^{1}\}, D^{(2)}=\{*, * ,*\}$, run the weight spectral sequence we get  
+
 $$
 E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -122,6 +136,7 @@ Note again, here we don't need to do any computation, topologically, $\mathbb{P}
 ### Example: complement of three concurrent lines in $\mathbb{P}^{2}$ {#ecag-0283}
 
 The point of this example is that three concurrent lines in $\mathbb{P}^{2}$ is not a normal crossing divisor. However, it's not a problem at all, we can blow them up w.r.t to the intersecting point , let's denote the blow up by $\overline{X}=Bl_{p}(\mathbb{P}^{2})$. Set $D$ to be $\{L_{1}, L_{2}, L_{3}, E\}$, where $E$ is the exceptional divisor. Then $\overline{X}\setminus D$ is isomorphic to the complement of three concurrent lines. Now $D^{(1)}=\{\mathbb{P}^{1},\mathbb{P}^{1},\mathbb{P}^{1},\mathbb{P}^{1}\}$, $D^{(1)}=\{*, *, *\}$. Apply the weight spectral sequence, we get 
+
 $$
 E_{1}^{p,q}=<!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -148,7 +163,8 @@ Use the same method again(we mean, blow-up), it's not hard to see the weight fil
 
 ### Example: cubical hyperresolution, It's our guess, we didn't check the precise definition carefully!!!!!! {#ecag-0285}
 
-$$
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
@@ -158,17 +174,20 @@ $$
 \colorbox{yellow}{$*$} \arrow{rr}\arrow{ur}& &\colorbox{blue}{$*$} \arrow{ur} & & &\\
 \end{tikzcd}
 ```
-$$
+```
 
 ### Example: Nodal curve {#ecag-0286}
 
 Consider $X=\{(x,y,z)\subset \mathbb{P}^{2}|y^{2}z=x^{2}(x+z)\}$, then the standard resolution is given by 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 \tilde{Y}=\{*, *\}\arrow{r}\arrow{d} & \widetilde{X}\cong \mathbb{P}^{1}\arrow{d}{f}\\
 Y=\{*=(0,0)\}\arrow{r} & X\end{tikzcd}
-```$$
+```
+```
 
 ### Remark: weight spectral sequence for singular varieties {#ecag-0287}
 
@@ -215,24 +234,39 @@ See the following
 
 (http://achinger.impan.pl/thesis.pdf)]
 The definition of Milnor fibre exactly means close enough to a point $x\in X_{0}$, the family over some small  punctured disk $S^{*}$ is trivial, then just choose one typical fibre in this family. And the classical definition or the definition  by a base change to the the universal covering of $S^{*}$([see here, page $3$](http://achinger.impan.pl/thesis.pdf)) is just a way to make out choice in some sense `canonical' or `unambiguous'.   Consider the family 
+
 $$X=\{(x_{1}, x_{2}, t)|x_{1}x_{2}=t, |t|<1\}\rightarrow D$$
+
 $$(x_{1}, x_{2}, t)\mapsto t.$$
+
 Then by the intuition of `nearby cycle', we know the Milnor fibre over $pt=(0,0,0)$ is given by $x_{1}x_{2}=\epsilon\neq 0$, which is just $(a, \frac{1}{a})$, which is just $\mathbb{C}^{\times}$.
 This intuition can be verified by the definition, which say that the Milnor fibre over $pt$ is given by 
+
 $$F_{pt}=\{(x_{1}, x_{2}, u)||x_{1}|^{2}+|x_{2}|^{2}+|x_{1}x_{2}|^{2}<\epsilon, \mathrm{exp}(u)=x_{1}x_{2}\}.$$
+
 Note that the domain of $u$ is contractible, so $F_{pt}$ is a trivial $S^{1}$ fibration over a contractible base. We conclude that 
+
 $$F_{p}\cong S^{1}.$$
+
 And the sheaves of nearby cycles are just skyscraper sheaves supported at the point $pt$.
+
 $$R\Psi\mathbb{Z}\cong \mathbb{Z}, R^{1}\Psi\mathbb{Z}\cong \mathbb{Z}_{pt}.$$
 
 ### Example: Dwork family of elliptic curves, need 'monodromy formula' {#ecag-0297}
 
 Consider the family 
+
 $$f: X=\{(\epsilon, [x,y,z]\in D\times \mathbb{P}_{\mathbb{C}}^{2}|\epsilon(x^{3}+y^{3}+z^{3})=3xyz\}\rightarrow D.$$
-$$X_{0}$$ consists of three lines intersecting at $3$ different points. 
+
+$$X_{0}$$
+
+consists of three lines intersecting at $3$ different points.
+
 $$P_{1}=[1,0,0], P_{2}=[0,1,0], P_{3}=[0,0,1].$$
+
 Note that $R^{0}\Psi\mathbb{Z}\cong \mathbb{Z}, R^{1}\Psi\mathbb{Z}\cong \oplus_{i=1}^{3}\mathbb{Z}_{P_{i}}$ and higher nearby cycles sheaves vanish because $R^{1}\Psi\mathbb{Z}$ is locally of rank 1. then the $E_{2}$-page of the nearby cycles spectral sequence looks like 
-$$
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
 <!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
@@ -240,7 +274,8 @@ H^{0}(X_{0}, R^{1}\Psi\mathbb{Z})\arrow{drr} & H^{1}(X_{0}, R^{1}\Psi\mathbb{Z})
 H^{0}(X_{0}, \mathbb{Z}) & H^{1}(X_{0}, \mathbb{Z}) & H^{2}(X_{0}, \mathbb{Z})
 \end{tikzcd}
 ```
-$$
+```
+
 $$
 =<!-- tikzcd diagram: manual conversion needed -->
 ```latex
@@ -249,33 +284,46 @@ $$
 \mathbb{Z} & \mathbb{Z} & \mathbb{Z}^{3}
 \end{tikzcd}
 ```
+
 $$
 Since it degenerates to $H^{i}(X_{t}, \mathbb{Z})$, we know $\mathrm{ker}(d_{2})\cong \mathbb{Z}$. Or we can state this fact as the following exact sequence 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 0\arrow{r} & H^{1}(X_{0}, \mathbb{Z})\arrow{r}{i}\arrow{d}{=} & H^{1}(X_{t}, \mathbb{Z})\arrow{r}{p}\arrow{d}{=}&  H^{0}(X_{0}, R^{1}\Psi\mathbb{Z})\arrow{r}{d_{2}}\arrow{d}{=} & H^{2}(X_{0}, \mathbb{Z})\arrow{r}\arrow{d}{=}&  H^{2}(X_{t}, \mathbb{Z})\arrow{r}\arrow{d}{=}& 0\\
 0\arrow{r} & \mathbb{Z}\arrow{r}{i} & \mathbb{Z}^{2}\arrow{r}{p}& \mathbb{Z}^{3}\arrow{r}{d_{2}} & \mathbb{Z}^{3}\arrow{r}&  \mathbb{Z}\arrow{r}& 0
 \end{tikzcd}
-```$$
+```
+```
 We want to compute the monodromy action on $H^{1}(X_{t}, \mathbb{Z})$. By the construction in the reference, we know the monodromy action of $\pi_{1}(S^{*})$ on $R^{k}\Psi\mathbb{Z}$ is trivial if $i\geq 1$. Then as a $\pi_{1}(S^{*})$-module, 
 Since the monodromy action doesn't affect the cohomology of the special fibre, we can choose a basis of $H^{1}(X_{t}, \mathbb{Z})=\{e_{1}, e_{2}\}$, where $e_{1}$ is the image of a generator of $H^{1}(X_{0}, \mathbb{Z})$, and $e_{2}$ is the pre-image of a generator of $\mathrm{ker}(d_{2})$, then the monodromy action of a generator $T$ of $\pi_{1}(S^{*})$ can be written in a form
 $$T=\begin{pmatrix}1 & m\\
 0 & 1\end{pmatrix}.$$
 We want to figure out the integer number $m$ above. Apply the ['monodromy formula'](http://achinger.impan.pl/thesis.pdf), we know the dollowing diagram commutes up to sign. 
-$$<!-- tikzcd diagram: manual conversion needed -->
+<!-- tikzcd diagram: manual conversion needed -->
+```latex
+<!-- tikzcd diagram: manual conversion needed -->
 ```latex
 \begin{tikzcd}
 H^{1}(X_{t}, \mathbb{Z}) \arrow{r}{p}\arrow{d}{1-T} &H^{0}(X_{0}, R^{1}\Psi\mathbb{Z})\arrow{d}{\overline{\alpha}}\\
 H^{1}(X_{t}, \mathbb{Z}) & H^{1}(X_{0}, \mathbb{Z})\arrow{l}
 \end{tikzcd}
-```$$
+```
+```
 where $\overline{\alpha}$ comes from the LES associated to the short exact sequence 
+
 $$0\rightarrow\mathbb{Z}\rightarrow  \oplus_{i=1}^{3}\mathbb{Z}_{L_{i}}\rightarrow R^{1}\Psi\mathbb{Z}\cong\oplus_{i=1}^{3}\mathbb{Z}_{P_{i}}\rightarrow 0.$$
+
 Use \v{C}ech  cohomology, we can compute 
+
 $$\overline{\alpha}: H^{0}(X_{0}, R^{1}\Psi\mathbb{Z})\rightarrow H^{1}(X, \mathbb{Z})$$
+
 $$[P_{i}]\mapsto 1.$$ 
+
 The point is that $\mathrm{im}(p)=\mathrm{ker}(d_{2})$ is $\mathbb{Z}/3\mathbb{Z}$-invariant. Because let $\mathbb{Z}/3\mathbb{Z}$ act on $X$ by permuting the coordinates, then $p$ is naturally invariant almost by definition of the nearby cycle spectral sequence. And the we know $\mathrm{coker}(p)\cong \mathbb{Z}^{2}$ is torsion free, thus $\mathrm{im}(p)$ is generated by $[P_{1}]+[P_{2}]+[P_{3}]$, there for $\overline{\alpha}([P_{1}]+[P_{2}]+[P_{3}])=3$. We conclude that the monodromy action of $\pi_{1}(S^{*})$ on $H^{1}(X_{t}, \mathbb{Z})$ is given by 
+
 $$T\mapsto \begin{pmatrix}1 & 3\\0 & 1\end{pmatrix}.$$
 
 ### Remark {#ecag-0298}
