@@ -208,57 +208,59 @@ Difficulty levels: 1 = routine (follows from definitions), 2 = non-trivial (requ
 \label{app:case-studies}
 
 This appendix provides representative model outputs from the pilot evaluation discussed in Section~\ref{sec:experiments}.
-All outputs are from Claude Sonnet~4.6 via \texttt{claude -p}.
+Outputs are from Claude Opus~4.6 unless otherwise noted.
 
-\subsection*{D.1: Successful Counterexample (\ecagid{0043})}
+\subsection*{D.1: Successful Level~3 Construction (\ecagid{0363})}
 
-\textbf{Problem:} State the precise difference between ``locally of finite type'' and ``of finite type'' for a morphism of schemes. Give an example of a morphism that is locally of finite type but not of finite type, and identify which condition fails.
+\textbf{Problem:} Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i \mid H^j \rangle_{0,d}$ and verify the quantum product formula.
 
-\textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~2 \quad \textbf{Score:} 1.0
+\textbf{Type:} Example \quad \textbf{Difficulty:} Level~3 \quad \textbf{Opus Score:} 1.0 \quad \textbf{Sonnet:} Timeout
+
+\textbf{Model output (Opus, abbreviated):}
+
+\begin{quote}
+\small
+\textbf{Evaluation maps and tautological classes.}
+The three evaluation maps $\operatorname{ev}_a: \overline{M}_{0,3}(\mathbb{P}^n,1) \to \mathbb{P}^n$ project onto the $a$-th copy of $\mathcal{U}$.
+Setting $\xi = c_1(\mathcal{O}_{\mathbb{P}(\mathcal{S})}(1))$, we get $\operatorname{ev}_a^*(H^{a_i}) = \xi_a^{a_i}$.
+
+\textbf{Fiber integration via Segre classes.}
+Since $\xi_a$ lives on independent fiber factors, $\rho_*(\xi_1^{a_1}\cdot \xi_2^{a_2}\cdot \xi_3^{a_3}) = \pi_*(\xi^{a_1})\cdot \pi_*(\xi^{a_2})\cdot \pi_*(\xi^{a_3})$.
+By the projective bundle formula, $\pi_*(\xi^a) = s_{a-1}(\mathcal{S}) = c_{a-1}(\mathcal{Q}) = \sigma_{a-1}$,
+reducing the Gromov--Witten invariant to a triple Schubert intersection on $G$. [...]
+\end{quote}
+
+This Level~3 problem requires synthesizing Gromov--Witten theory, Schubert calculus, and quantum cohomology.
+Opus produced a correct 5{,}443-character response, while Sonnet timed out after 600 seconds---illustrating the capability gap at the highest difficulty level.
+
+\subsection*{D.2: Property Confusion (\ecagid{0174}, F2)}
+
+\textbf{Problem:} Exhibit a reflexive non-locally-free sheaf on the quadric cone and compute the class group.
+
+\textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~2 \quad \textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2
 
 \textbf{Model output (abbreviated):}
 
 \begin{quote}
 \small
-\textbf{Answer:} The precise difference lies in \textbf{quasi-compactness}: finite type = locally of finite type + quasi-compact.
-
-\textbf{Counterexample:} Let $X = \coprod_{n=0}^{\infty} \mathbb{A}^n_k$, $Y = \Spec(k)$, $f: X \to Y$ the structure morphism. Then $f$ is locally of finite type but not of finite type; the failing condition is quasi-compactness.
-
-\textbf{Verification --- locally of finite type:} Take the affine open cover $\{V = \Spec(k)\}$ of $Y$. Then $f^{-1}(V) = X = \coprod_{n \geq 0} \Spec(k[t_1,\ldots,t_n])$. Each $k[t_1,\ldots,t_n]$ is a finitely generated $k$-algebra, so $f$ is locally of finite type.
-
-\textbf{Verification --- not quasi-compact:} The open cover $\{U_n\}_{n \geq 0}$ where $U_n = \Spec(k[t_1,\ldots,t_n])$ has no finite subcover, since each $U_n$ is a distinct connected component.
-
-\textbf{Key insight:} The distinction between ``locally'' and ``globally'' properties of morphisms typically involves a quasi-compactness condition.
+\textbf{Answer:} The sheaf $\widetilde{\mathfrak{m}}$ on $X = \Spec(R)$, where $R = k[x,y,z]/(xy - z^2)$ and $\mathfrak{m} = (x,y,z)$, is reflexive of rank~1 but not locally free.
+It corresponds to the Weil divisor $D = V(x,z)$, which generates $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$.
+Since $D$ is not Cartier (so $\widetilde{\mathfrak{m}}$ is not locally free), but $2D = \operatorname{div}(x)$ is Cartier, $\widetilde{\mathfrak{m}}$ is reflexive. [...]
 \end{quote}
 
-The model correctly identified quasi-compactness as the distinguishing property, constructed a standard separating example, and verified both the positive and negative conditions rigorously.
+\textbf{Analysis:} The model correctly identified the quadric cone, the maximal ideal sheaf, and the class group structure.
+However, the scorer noted that the class group calculation, while using Nagata's sequence correctly, contained a subtle error in the final identification of divisor class relations.
+This exemplifies F2: the overall mathematical approach is sound, but a property confusion in the details leads to a partially incorrect conclusion.
 
-\subsection*{D.2: Property Confusion (\ecagid{0343}, F2)}
+\subsection*{D.3: Cross-Model Comparison (\ecagid{0090})}
 
-\textbf{Problem:} In the setup above, verify that $g \cdot P = Q$, $g \cdot C = D$, and that the fixed locus of the $G$-action on $\mathbb{P}^{3}$ is exactly $l_{1} \cup l_{2}$. Compute the invariant ring $k[x,y,z,w]^{G}$ and verify the relation $v_{0}v_{1} = v_{2}^{2}$.
+\textbf{Problem:} In Hironaka's construction, let $X = \mathbb{P}_k^3$ with two smooth conics $C, D$ meeting transversely. Explain the two different blow-up orders and describe the resulting variety.
 
-\textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~3 \quad \textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2
+\textbf{Type:} Example \quad \textbf{Difficulty:} Level~3
 
-\textbf{Model output (abbreviated):}
+\textbf{Opus:} Score 0.5 (F6, incomplete verification). The model correctly set up the two blow-up orderings and the gluing construction, but did not fully verify that the resulting variety has the claimed pathological properties (non-projective, non-K\"ahler).
 
-\begin{quote}
-\small
-\textbf{Setup:} Let $G = \mathbb{Z}/2\mathbb{Z} = \{e, g\}$, with $g$ acting on $\mathbb{P}^3_k$ by:
-$g \cdot [x:y:z:w] := [-x:-y:z:w]$
-corresponding to $\sigma = \operatorname{diag}(-1,-1,1,1)$.
+\textbf{Sonnet:} Timeout. The model failed to produce any response within 600 seconds.
 
-\textbf{Verification $g \cdot P = Q$:}
-$g \cdot P = g \cdot [1:0:-1:0] = [-1:0:-1:0] = [1:0:1:0] = Q$. $\checkmark$
-
-\textbf{Invariant ring:} The degree-$d$ invariants of $k[x,y,z,w]$ under this action consist of monomials $x^a y^b z^c w^d$ with $a+b$ even.  Setting $v_0 = x^2, v_1 = y^2, v_2 = xy, v_3 = z, v_4 = w$, the invariant ring is $k[v_0, v_1, v_2, v_3, v_4]/(v_0 v_1 - v_2^2)$. $\checkmark$
-\end{quote}
-
-\textbf{Analysis:} The model substituted a different group action ($g \cdot [x:y:z:w] = [-x:-y:z:w]$) from the one specified in the problem setup (which is $g \cdot [x:y:z:w] = [y:x:w:z]$, a transposition). While the algebraic computations for the substituted action were internally consistent, the mismatch with the intended construction means the results do not answer the stated question. This exemplifies F2 (property confusion): the model demonstrates algebraic competence but applies it to the wrong mathematical object.
-
-\subsection*{D.3: Timeout on Deep Problem (\ecagid{0363})}
-
-\textbf{Problem:} Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i | H^j \rangle_{0,d}$ and verify the quantum product formula.
-
-\textbf{Type:} Example \quad \textbf{Difficulty:} Level~3 \quad \textbf{Score:} 0.0 (timeout)
-
-The model timed out after 600 seconds without producing any response. This problem requires synthesizing Gromov--Witten theory, Schubert calculus, and quantum cohomology---a combination of techniques at the frontier of the represented material. The timeout pattern was common at Level~3, where 45.5\% of problems caused the model to fail silently, suggesting that the model's inability to produce even a partial response on such problems reflects a fundamental gap in its ability to combine deep techniques from multiple areas of algebraic geometry.
+This case illustrates a common Level~3 pattern: Opus can engage with the problem and produce partially correct responses, while Sonnet fails to respond at all.
+The failure mode (F6, incomplete verification) is less severe than a timeout, as it provides a correct partial construction that could be completed with CAS feedback in a multi-turn setting.

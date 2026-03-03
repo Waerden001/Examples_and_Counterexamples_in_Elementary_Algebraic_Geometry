@@ -4,38 +4,38 @@
 We have introduced \ecagbench{}, a benchmark of 332 constructive problems in algebraic geometry designed to evaluate a mode of mathematical reasoning---object construction---that is central to mathematical practice but underrepresented in existing LLM benchmarks.
 
 \paragraph{Key findings.}
-Our pilot evaluation of Claude Sonnet~4.6 on a stratified 100-problem subset reveals:
+Our pilot evaluation of Claude Opus~4.6 and Claude Sonnet~4.6 on a stratified 100-problem subset reveals:
 \begin{enumerate}[nosep]
-  \item \textbf{A steep difficulty gradient:} The model achieves 78\% accuracy overall, but this masks a 68-percentage-point drop from Level~1 (95\%) to Level~3 (27\%), confirming that \ecagbench{} effectively discriminates between routine constructions and deep problems requiring synthesis of advanced techniques.
-  \item \textbf{Counterexamples are harder than examples:} The 15-percentage-point gap (80\% vs.\ 65\%) confirms that understanding theorem boundaries requires deeper reasoning than applying theorems directly.
-  \item \textbf{Timeouts as a failure mode:} 18\% of problems caused the model to time out (>600s), with the timeout rate reaching 45.5\% at Level~3, suggesting that the hardest problems cause the model to fail silently before producing any response.
-  \item \textbf{Chapter-dependent performance:} Accuracy ranges from 93\% (Cohomology) to 65\% (Moduli), reflecting the varying difficulty of constructive reasoning across algebraic geometry subfields.
-  \item \textbf{Failure modes are structured:} The six failure modes (F1--F6) provide a systematic taxonomy for characterizing model weaknesses, with property confusion (F2) and incomplete verification (F6) observed in the pilot.
+  \item \textbf{A steep difficulty gradient:} Opus achieves 90\% overall accuracy but drops from 95\% (Level~1) to 64\% (Level~3), a 31-percentage-point decline. Sonnet shows an even steeper drop: 95\% to 27\%.
+  \item \textbf{Counterexamples are harder than examples:} Both models show a persistent gap (Opus: ${\sim}$9pp, Sonnet: ${\sim}$15pp), confirming that understanding theorem boundaries requires deeper reasoning than applying theorems directly.
+  \item \textbf{Scale benefits deep reasoning disproportionately:} Opus outperforms Sonnet by 12pp overall, but the gap is 0pp at Level~1, 12pp at Level~2, and 36pp at Level~3. The largest per-chapter gain is on Moduli ($+$24pp).
+  \item \textbf{Timeouts as a failure mode:} Sonnet times out on 18\% of problems (45.5\% at Level~3) vs.\ Opus's 4\%, suggesting that model scale helps avoid ``silent failures'' where no response is generated.
+  \item \textbf{Failure modes are structured:} Property confusion (F2) is the most common failure among completed responses, accounting for 50\% of Opus's classified errors.
 \end{enumerate}
 
 \paragraph{Limitations.}
-Our evaluation has several limitations that should be addressed in future work:
+Our evaluation has several limitations:
 \begin{itemize}[nosep]
-  \item \textbf{Single model:} We evaluate only Claude Sonnet~4.6. Multi-model comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}, Llemma~\citep{azerbayev2024llemma}) is needed to determine whether the observed patterns are model-specific.
-  \item \textbf{Self-evaluation bias:} Both the problem solver and the automated scorer are LLMs from the same model family, introducing potential concordance bias. Among the 82 problems that received responses, 95.1\% were scored as correct, which may reflect systematic overrating. Human expert scoring is needed to validate these results (see Section~\ref{sec:self-eval-limitations}).
-  \item \textbf{Single-turn only:} Multi-turn interaction, where the model can refine constructions based on CAS feedback, may significantly improve performance and is an important evaluation modality to explore.
-  \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains, though we expect similar example/counterexample patterns.
-  \item \textbf{CAS coverage:} While 93.1\% of problems use CAS verification, the CAS cannot verify all properties, and some verifications require specialized scripts that have not yet been fully implemented.
+  \item \textbf{Same-family models:} Both models are from the Claude family. Cross-family comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}) is needed to assess generalizability.
+  \item \textbf{LLM-based scoring:} The automated scorer is from the same model family as the solver, introducing potential concordance bias. Among Opus's 96 non-timeout responses, 93.8\% were scored as correct, which may reflect systematic overrating (Section~\ref{sec:self-eval-limitations}). Human expert scoring is needed to validate these results.
+  \item \textbf{Single-turn only:} Multi-turn interaction with CAS feedback may substantially improve performance.
+  \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains.
+  \item \textbf{CAS coverage:} While 93.1\% of problems use CAS verification, some verifications require specialized scripts not yet implemented.
 \end{itemize}
 
 \paragraph{Future work.}
 We plan several extensions:
 \begin{enumerate}[nosep]
-  \item \textbf{Full-scale evaluation with human scoring:} Evaluate multiple frontier models on the complete 332-problem benchmark with human expert scoring to establish unbiased baselines.
-  \item \textbf{Multi-turn interaction:} Evaluate models in an interactive setting where they receive CAS feedback and can revise their constructions.
-  \item \textbf{Lean~4 integration:} Formalize a subset of problems in Lean~4, enabling formal verification as an additional evaluation layer.
-  \item \textbf{Fine-tuning studies:} Investigate whether fine-tuning on algebraic geometry textbooks~\citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} or the accompanying \ecagbench{} textbook improves constructive reasoning.
-  \item \textbf{Community contributions:} The open-source nature of the project (CC-BY-4.0 license) invites community contributions of new problems, verification scripts, and evaluation results.
-  \item \textbf{Cross-domain extension:} Develop analogous benchmarks for arithmetic geometry, algebraic topology, and commutative algebra to investigate whether the example/counterexample performance gap generalizes.
+  \item \textbf{Human expert scoring:} Full human review of all 100 responses to establish unbiased baselines and validate the automated scoring.
+  \item \textbf{Cross-family evaluation:} Evaluate GPT-4o, Gemini 2.5 Pro, DeepSeek-R1, and Llemma~\citep{azerbayev2024llemma} to determine which patterns are model-specific vs.\ fundamental.
+  \item \textbf{Full-scale evaluation:} Evaluate all 332 problems with automated CAS verification scripts.
+  \item \textbf{Multi-turn interaction:} Enable models to refine constructions based on CAS feedback.
+  \item \textbf{Lean~4 integration:} Formalize a subset of problems for formal verification.
+  \item \textbf{Fine-tuning studies:} Investigate whether training on algebraic geometry textbooks~\citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} improves constructive reasoning.
 \end{enumerate}
 
 \paragraph{Broader impact.}
 Constructive mathematical reasoning is a prerequisite for using LLMs as research tools in mathematics.
-If models cannot construct examples and counterexamples, they cannot assist mathematicians in the exploratory phase of research---the phase where intuition is built and conjectures are tested.
-The pronounced difficulty of counterexample construction is particularly significant: as Lakatos~\citep{lakatos1976proofs} argued, mathematical progress depends on the ability to find refutations, and this ability appears to be a current blind spot for language models.
-\ecagbench{} provides a concrete measure of progress toward closing this gap.
+The pronounced difficulty of counterexample construction is particularly significant: as Lakatos~\citep{lakatos1976proofs} argued, mathematical progress depends on the ability to find refutations.
+Our cross-model comparison shows that this ability improves with scale---the counterexample gap narrows from ${\sim}$15pp (Sonnet) to ${\sim}$9pp (Opus)---suggesting that future, more capable models may further close this gap.
+\ecagbench{} provides a concrete measure of progress.

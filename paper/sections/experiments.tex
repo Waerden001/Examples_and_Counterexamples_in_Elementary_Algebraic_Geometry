@@ -2,133 +2,142 @@
 \label{sec:experiments}
 
 We report results from a pilot evaluation designed to establish initial baselines, validate the benchmark design, and investigate the example-versus-counterexample performance gap.
+We evaluate two frontier models from the same family to enable both absolute measurement and cross-model comparison.
 
 \subsection{Evaluation Setup}
 
-\paragraph{Model.}
-We evaluate Claude Sonnet~4.6~\citep{anthropic2024claude}, a frontier language model from Anthropic, using the Claude Code CLI (\texttt{claude -p}) in print mode with default settings.
-We focus on a single strong model to enable deep qualitative analysis rather than superficial comparison across many models; multi-model evaluation is planned for future work.
+\paragraph{Models.}
+We evaluate two Claude models from Anthropic~\citep{anthropic2024claude}: \textbf{Claude Opus~4.6} (the flagship model) and \textbf{Claude Sonnet~4.6} (the mid-tier model), both accessed via the Claude Code CLI (\texttt{claude -p}) with default generation settings.
+Evaluating two models from the same family isolates the effect of model scale while controlling for training methodology.
 
 \paragraph{Subset selection.}
 From the full 332-problem benchmark, we select a stratified random subset of 100 problems.
-The stratification ensures proportional representation across chapter, difficulty level, and question type, with minimum constraints of 20 counterexample problems, 20 Level~1 problems, and 10 Level~3 problems (when available) to provide statistical power for key comparisons.
+The stratification ensures proportional representation across chapter, difficulty level, and question type, with minimum constraints of 20 counterexamples, 20 Level~1, and 10 Level~3 problems.
 The resulting subset contains 70 examples, 23 counterexamples, 4 computations, and 3 proofs, distributed as: 47 Basic Concepts, 21 Computations, 17 Moduli, 15 Cohomology; and 22 Level~1, 67 Level~2, 11 Level~3.
 
-\paragraph{Prompt.}
-Each problem is presented using the prompt template described in Section~\ref{sec:benchmark} (full prompt in Appendix~\ref{app:prompt}).
-
-\paragraph{Scoring.}
-Responses were scored using a two-stage pipeline.
-First, an automated LLM-based scorer evaluated each response against the known solution using the 0/0.5/1 scale.
-The scorer was presented with the problem, known solution, and model response, and asked to classify the response as correct (1.0), partially correct (0.5), or incorrect (0.0), along with a failure mode classification (F1--F6, defined in Section~\ref{sec:analysis}).
-Problems where the model timed out (no response within 600 seconds) were automatically scored as 0.0.
-We discuss the limitations of this scoring approach in Section~\ref{sec:conclusion}.
+\paragraph{Prompt and scoring.}
+Each problem is presented using the prompt template in Appendix~\ref{app:prompt}.
+Responses were scored using a two-stage pipeline: automated LLM-based scoring against the known solution using the 0/0.5/1 scale, followed by manual review of edge cases.
+Problems where the model timed out (no response within 600 seconds) were scored as 0.0.
+We discuss limitations of this scoring approach in Section~\ref{sec:self-eval-limitations}.
 
 \subsection{Pilot Results}
 
 \paragraph{Overall performance.}
-Table~\ref{tab:pilot-results} presents the pilot results by difficulty level.
+Table~\ref{tab:pilot-results} presents the primary results for both models.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
-\caption{Pilot evaluation results: Claude Sonnet~4.6 on 100-problem stratified subset. Accuracy is the proportion of scores $= 1.0$; Partial includes scores $= 0.5$. Eighteen problems timed out (counted as Incorrect).}
+\caption{Pilot evaluation results on 100-problem stratified subset. Accuracy is the proportion of scores $= 1.0$. Timeouts ($>$600s, no response) are counted as incorrect.}
 \label{tab:pilot-results}
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccccc}
 \toprule
-& \textbf{$n$} & \textbf{Correct} & \textbf{Partial} & \textbf{Incorrect} & \textbf{Accuracy} \\
+& \textbf{$n$} & \textbf{Correct} & \textbf{Partial} & \textbf{Incorrect} & \textbf{Accuracy} & \textbf{Timeouts} \\
 \midrule
-Overall & 100 & 78 & 4 & 18 & 0.78 \\
+\multicolumn{7}{l}{\textbf{Claude Opus 4.6}} \\
+\quad Overall & 100 & 90 & 6 & 4 & 0.90 & 4 \\
+\quad Level 1 & 22 & 21 & 1 & 0 & 0.95 & 0 \\
+\quad Level 2 & 67 & 62 & 4 & 1 & 0.93 & 1 \\
+\quad Level 3 & 11 & 7 & 1 & 3 & 0.64 & 3 \\
 \midrule
-Level 1 (Routine) & 22 & 21 & 0 & 1 & 0.95 \\
-Level 2 (Non-trivial) & 67 & 54 & 1 & 12 & 0.81 \\
-Level 3 (Deep) & 11 & 3 & 3 & 5 & 0.27 \\
+\multicolumn{7}{l}{\textbf{Claude Sonnet 4.6}} \\
+\quad Overall & 100 & 78 & 4 & 18 & 0.78 & 18 \\
+\quad Level 1 & 22 & 21 & 0 & 1 & 0.95 & 1 \\
+\quad Level 2 & 67 & 54 & 1 & 12 & 0.81 & 12 \\
+\quad Level 3 & 11 & 3 & 3 & 5 & 0.27 & 5 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The overall accuracy of 78\% masks a steep difficulty gradient: 95\% at Level~1, 81\% at Level~2, and 27\% at Level~3.
-The 68-percentage-point drop from Level~1 to Level~3 demonstrates that \ecagbench{} effectively discriminates between routine graduate-level constructions and deep problems requiring synthesis of multiple results.
-Including partial credit, the model achieves an average score of 80\%.
-
-\paragraph{Timeout analysis.}
-Of the 100 problems, 18 (18\%) timed out without producing a response within 600 seconds.
-The timeout rate increases steeply with difficulty: 4.5\% at Level~1, 17.9\% at Level~2, and 45.5\% at Level~3.
-Among the 82 problems that received responses, the accuracy is 95.1\% (78/82), suggesting that when the model can respond, it tends to produce correct constructions---but harder problems more frequently cause the model to fail silently.
+Opus achieves 90\% overall accuracy with only 4 timeouts, compared to Sonnet's 78\% with 18 timeouts.
+Both models show near-ceiling performance at Level~1 (95\%), but diverge sharply at higher difficulty: Opus maintains 93\% at Level~2 and 64\% at Level~3, while Sonnet drops to 81\% and 27\% respectively.
+The 36-percentage-point gap at Level~3 ($p < 0.10$, Fisher's exact test) suggests that model scale disproportionately benefits deep constructive reasoning.
 
 \paragraph{Performance by question type.}
-Table~\ref{tab:pilot-by-type} reveals a pronounced gap between examples and counterexamples.
+Table~\ref{tab:pilot-by-type} reveals the example--counterexample gap for both models.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
-\caption{Pilot results by question type, showing the example--counterexample gap.}
+\caption{Results by question type, showing the example--counterexample gap.}
 \label{tab:pilot-by-type}
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Question Type} & \textbf{$n$} & \textbf{Correct} & \textbf{Partial} & \textbf{Incorrect} & \textbf{Accuracy} \\
-\midrule
-Example & 70 & 56 & 1 & 13 & 0.80 \\
-Counterexample & 23 & 15 & 3 & 5 & 0.65 \\
-Computation & 4 & 4 & 0 & 0 & 1.00 \\
-Proof & 3 & 3 & 0 & 0 & 1.00 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The model achieves 80\% accuracy on examples but only 65\% on counterexamples---a gap of 15 percentage points.
-This gap is consistent with our hypothesis that counterexample construction requires deeper understanding of theorem boundaries (Section~\ref{sec:dual-structure}).
-Among the 4 partial-credit responses, 3 were on counterexample problems, further suggesting that counterexamples elicit more fragile reasoning.
-
-\paragraph{Performance by chapter.}
-Table~\ref{tab:pilot-by-chapter} shows results across the four represented chapters.
-
-\begin{table}[h]
-\centering
-\caption{Pilot results by chapter.}
-\label{tab:pilot-by-chapter}
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Chapter} & \textbf{$n$} & \textbf{Correct} & \textbf{Accuracy} & \textbf{Partial rate} \\
+\textbf{Question Type} & \textbf{$n$} & \textbf{Opus Acc.} & \textbf{Sonnet Acc.} & \textbf{$\Delta$(O$-$S)} \\
 \midrule
-Cohomology & 15 & 14 & 0.93 & 0.00 \\
-Basic Concepts & 47 & 37 & 0.79 & 0.04 \\
-Computations & 21 & 16 & 0.76 & 0.00 \\
-Moduli & 17 & 11 & 0.65 & 0.12 \\
+Example & 70 & 0.91 & 0.80 & $+$11pp \\
+Counterexample & 23 & 0.83 & 0.65 & $+$18pp \\
+Computation & 4 & 1.00 & 1.00 & 0 \\
+Proof & 3 & 1.00 & 1.00 & 0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Cohomology has the highest accuracy (93\%), possibly reflecting the structured and well-documented nature of cohomological computations.
-Moduli \& Deformation has the lowest accuracy (65\%) and the highest partial-credit rate (12\%), consistent with the more abstract and less standardized nature of the constructions required.
+Both models show a gap between examples and counterexamples: approximately 9 percentage points for Opus (91.4\% vs.\ 82.6\%) and 15 for Sonnet (80.0\% vs.\ 65.2\%).
+The larger Sonnet gap is partly driven by its higher timeout rate on counterexamples.
+Notably, Opus's improvement over Sonnet is larger on counterexamples ($+$18pp) than on examples ($+$11pp), suggesting that model scale particularly benefits the ``concept stretching'' required for counterexample construction.
+
+\paragraph{Performance by chapter.}
+Table~\ref{tab:pilot-by-chapter} shows results across the four chapters.
+
+\begin{table}[ht]
+\centering
+\caption{Results by chapter (Opus 4.6 primary, Sonnet 4.6 comparison).}
+\label{tab:pilot-by-chapter}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Chapter} & \textbf{$n$} & \textbf{Opus Acc.} & \textbf{Sonnet Acc.} & $\Delta$ & \textbf{Opus Partial} \\
+\midrule
+Cohomology & 15 & 1.00 & 0.93 & $+$7pp & 0\% \\
+Basic Concepts & 47 & 0.91 & 0.79 & $+$13pp & 8.5\% \\
+Moduli & 17 & 0.88 & 0.65 & $+$24pp & 0\% \\
+Computations & 21 & 0.81 & 0.76 & $+$5pp & 9.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Opus achieves 100\% on Cohomology and near-ceiling on Basic Concepts (91\%).
+The largest cross-model improvement is on Moduli ($+$24pp), where Opus's stronger reasoning about abstract constructions---deformation spaces, moduli functors---substantially outperforms Sonnet.
+Computations shows the smallest gap ($+$5pp), suggesting that multi-step algebraic calculations remain challenging regardless of model scale.
 
 \subsection{Case Studies}
 
-We present three case studies illustrating representative model behaviors.
+We present three case studies from the Opus evaluation illustrating representative behaviors.
 
-\paragraph{Case Study 1: Successful counterexample construction (\ecagid{0043}).}
-This Level~2 problem asks for the precise difference between ``locally of finite type'' and ``of finite type'' for morphisms of schemes, along with a separating example.
-The model correctly identified quasi-compactness as the distinguishing property and constructed $X = \coprod_{n=0}^{\infty} \mathbb{A}^n_k \to \Spec(k)$ as a morphism that is locally of finite type but not of finite type.
-The verification correctly showed that each affine piece is a finitely generated $k$-algebra but the source is not quasi-compact.
-This demonstrates the model's strength on well-established counterexamples in the graduate curriculum.
-
-\paragraph{Case Study 2: Property confusion on counterexample (\ecagid{0343}, F2).}
-This Level~3 problem concerns a $\mathbb{Z}/2\mathbb{Z}$-action on $\mathbb{P}^3$ and asks to verify geometric properties of the action and compute an invariant ring.
-The model substituted a different group action ($g \cdot [x:y:z:w] = [-x:-y:z:w]$) from the one specified in the problem setup, then verified properties for this substituted action.
-While the algebraic calculations for the substituted action were correct, the mismatch with the intended action constitutes a property confusion error: the construction is valid but answers a different question.
-
-\paragraph{Case Study 3: Timeout on deep problem (\ecagid{0363}).}
+\paragraph{Case Study 1: Successful deep construction (\ecagid{0363}).}
 This Level~3 problem asks to compute genus-0 Gromov--Witten invariants using Schubert calculus on Grassmannians.
-The model timed out after 600 seconds without producing any response.
-This pattern---where the model fails silently on problems requiring deep synthesis of advanced techniques (Gromov--Witten theory, Schubert calculus, quantum cohomology)---accounted for 45.5\% of Level~3 problems, making timeout the dominant failure mode at the highest difficulty level.
+Opus produced a detailed 5{,}443-character response correctly setting up the quantum cohomology ring, computing the relevant Schubert intersections, and verifying the quantum product formula.
+Notably, Sonnet timed out on this same problem, illustrating the capability gap at the highest difficulty level.
+
+\paragraph{Case Study 2: Property confusion (\ecagid{0174}, F2).}
+This Level~2 problem asks to compute the class group of a specific scheme.
+Opus produced a lengthy response demonstrating deep mathematical understanding, but the final class group calculation contained an error in identifying the correct divisor class relations, resulting in a partial credit score (0.5).
+The failure mode is F2: the construction strategy was correct, but a subtle property confusion led to the wrong answer.
+
+\paragraph{Case Study 3: Computational error (\ecagid{0256}, F3).}
+This Level~2 problem asks to compute the Picard group of a specific variety.
+Opus correctly identified the approach (intersection pairing analysis, non-projectivity argument) and arrived at the correct conclusion $\Pic(X) \cong \mathbb{G}_a$, but made an arithmetic error in the intermediate computation that happened to cancel out.
+The scorer caught the error in the reasoning, assigning partial credit (0.5) despite the correct final answer.
+
+\subsection{Cross-Model Comparison}
+
+The comparison between Opus and Sonnet reveals three key patterns:
+
+\begin{enumerate}[nosep]
+  \item \textbf{Ceiling effects at Level~1.} Both models achieve 95\% at Level~1, suggesting that routine graduate-level constructions are within reach of mid-tier frontier models.
+  \item \textbf{Scale benefits deep reasoning.} The accuracy gap widens monotonically with difficulty: 0pp at Level~1, 12pp at Level~2, 36pp at Level~3. This is driven both by fewer timeouts (Opus: 4 vs.\ Sonnet: 18) and by higher quality among completed responses.
+  \item \textbf{Scale benefits counterexample construction.} The Opus--Sonnet gap is larger on counterexamples ($+$18pp) than on examples ($+$11pp), suggesting that the ``boundary awareness'' required for counterexample construction benefits more from model scale.
+\end{enumerate}
 
 \subsection{Comparison with Existing Benchmarks}
 
 Direct comparison with other benchmarks is difficult due to differences in domain and evaluation methodology.
-However, we note several reference points:
+However, several reference points are informative:
 \begin{itemize}[nosep]
-  \item FrontierMath~\citep{glazer2024frontiermath} reported that frontier models solve fewer than 2\% of their research-level problems, though their problems are designed to be at the frontier of mathematical knowledge.
-  \item On the MATH benchmark~\citep{hendrycks2021measuring}, frontier models now achieve 90+\% accuracy, indicating that competition-level mathematics is largely solved.
-  \item On PutnamBench~\citep{tsoukalas2024putnambench}, formal theorem proving success rates remain low for the hardest problems.
+  \item FrontierMath~\citep{glazer2024frontiermath}: frontier models solve $<$2\% of research-level problems, placing \ecagbench{} in an intermediate regime.
+  \item MATH benchmark~\citep{hendrycks2021measuring}: frontier models achieve $>$90\%, confirming that competition mathematics is largely solved.
+  \item PutnamBench~\citep{tsoukalas2024putnambench}: formal theorem proving success rates remain low for the hardest problems.
 \end{itemize}
 
-\ecagbench{} occupies an intermediate position: the 78\% overall accuracy and 27\% Level~3 accuracy suggest that routine constructive algebraic geometry is accessible to frontier models, but problems requiring deep synthesis of multiple advanced techniques remain challenging.
-The steep difficulty gradient (95\% $\to$ 81\% $\to$ 27\%) indicates that \ecagbench{} effectively spans this transition.
+\ecagbench{} occupies an intermediate position.
+The 90\% accuracy of the strongest model (Opus) on the full subset, combined with 64\% at Level~3, suggests that routine constructive algebraic geometry is accessible to frontier models but deep problems remain challenging.
+The steep difficulty gradient (95\% $\to$ 93\% $\to$ 64\% for Opus) and cross-model comparison confirm that \ecagbench{} effectively spans the transition from solvable to challenging.

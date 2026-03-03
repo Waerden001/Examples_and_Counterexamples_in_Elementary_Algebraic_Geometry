@@ -84,7 +84,9 @@ Unlike existing mathematical benchmarks that focus on theorem proving or competi
 The benchmark comprises 332 problems derived from a curated collection of examples and counterexamples in algebraic geometry, organized across four chapters and three difficulty levels.
 A distinctive feature is the dual emphasis on \emph{examples} (243 problems asking models to build objects with prescribed properties) and \emph{counterexamples} (66 problems requiring models to construct objects that violate plausible-sounding statements), testing whether models understand not only where theorems apply but also where they fail.
 Our four-layer verification pipeline---parsing, computer algebra system (CAS) verification, LLM-assisted judgment, and human expert sampling---validates properties of constructed objects rather than checking answer equivalence.
-We report results from a pilot evaluation of Claude Sonnet~4.6 on a stratified 100-problem subset, finding an overall accuracy of 78\% with a pronounced gap between example construction (80\%) and counterexample construction (65\%), and a steep difficulty gradient from Level~1 (95\%) to Level~3 (27\%), suggesting that constructive reasoning at the frontier of algebraic geometry remains substantially beyond current model capabilities.
+We report results from a pilot evaluation of two frontier models---Claude Opus~4.6 and Claude Sonnet~4.6---on a stratified 100-problem subset.
+Opus~4.6 achieves 90\% overall accuracy but with a steep difficulty gradient (Level~1: 95\%, Level~2: 93\%, Level~3: 64\%) and a persistent gap between example construction (91\%) and counterexample construction (83\%).
+A cross-model comparison reveals that Opus outperforms Sonnet by 12 percentage points overall, with the largest gains at Level~3 (+36pp) and on counterexamples (+18pp), suggesting that scaling improves deep constructive reasoning more than routine constructions.
 We release the full dataset, evaluation code, and an accompanying open-source textbook at \url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}.
 \end{abstract}
 
