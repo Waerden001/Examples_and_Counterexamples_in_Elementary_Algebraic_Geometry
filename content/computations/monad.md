@@ -18,33 +18,25 @@ For later computations, we need the following lemmata.
 The cohomology of any line bundle $\mathcal{O}_{\Sigma_n}(p,q)$ on the Hirzebruch surface $\Sigma_n$ is completely determined by the integers $p$, $q$, and $n$ through the projection $\pi:\Sigma_n\to\mathbf{P}^1$. Since $\Sigma_n = \mathbf{P}(\mathcal{O}\oplus\mathcal{O}(-n))$, the higher direct images of $\mathcal{O}_{\Sigma_n}(p)$ along fibers of $\pi$ reduce the problem to cohomology on $\mathbf{P}^1$.
 
 **Direct image computation.** For $p \geq 0$, the projection formula gives
-
 $$
 \pi_*\mathcal{O}_{\Sigma_n}(p,q) = \operatorname{Sym}^p(\mathcal{O}\oplus\mathcal{O}(-n))\otimes\mathcal{O}_{\mathbf{P}^1}(q) = \bigoplus_{j=0}^{p}\mathcal{O}_{\mathbf{P}^1}(q-jn),
-
 $$
 
 while $\pi_*\mathcal{O}_{\Sigma_n}(p,q) = 0$ for $p < 0$ and $R^1\pi_*\mathcal{O}_{\Sigma_n}(p,q) = 0$ for $p \geq -1$.
 
 **$\mathrm{H}^0$ criterion.** By the Leray spectral sequence, $\mathrm{H}^0(\Sigma_n, \mathcal{O}(p,q)) = \mathrm{H}^0(\mathbf{P}^1, \pi_*\mathcal{O}(p,q))$. This is nonzero precisely when $p \geq 0$ and at least one summand $\mathcal{O}_{\mathbf{P}^1}(q - jn)$ has nonnegative degree for some $0 \leq j \leq p$, which amounts to $np + q \geq 0$. Hence
-
 $$
 \mathrm{H}^{0}(\mathcal{O}_{\Sigma_{n}}(p, q))\neq 0 \quad\text{if and only if}\quad p\geq 0 \;\text{ and }\; np+q\geq 0.
-
 $$
 
 **$\mathrm{H}^2$ by Serre duality.** Since $\omega_{\Sigma_n} = \mathcal{O}(-2, n-2)$, Serre duality gives $\mathrm{H}^2(\mathcal{O}(p,q)) = \mathrm{H}^0(\mathcal{O}(-p-2, n-2-q))^{\vee}$. Applying the $\mathrm{H}^0$ criterion to the dual: $-p-2 \geq 0$ and $n(-p-2) + (n-2-q) \geq 0$, i.e.,
-
 $$
 \mathrm{H}^{2}(\mathcal{O}_{\Sigma_{n}}(p, q))\neq 0 \quad\text{if and only if}\quad p\leq -2 \;\text{ and }\; np+q\leq -(n+2).
-
 $$
 
 **$\mathrm{H}^1$ by exclusion.** The Euler characteristic from Riemann--Roch on $\Sigma_n$ is $\chi(\mathcal{O}(p,q)) = \tfrac{1}{2}(p+1)(np+2q+2)$. Since $\mathrm{H}^1$ is determined by $\chi - h^0 + h^2$, the region where $\mathrm{H}^1 \neq 0$ consists of exactly two disjoint components:
-
 $$
 \mathrm{H}^{1}(\mathcal{O}_{\Sigma_{n}}(p, q))\neq 0 \quad\text{if and only if}\quad \begin{cases}p\geq 0,\; q\leq -2\end{cases} \;\text{ or }\; \begin{cases}p\leq -2,\; q\geq n.\end{cases}
-
 $$
 
 The first region corresponds to contributions from $R^0\pi_*$ summands of negative degree on $\mathbf{P}^1$ (specifically $\mathrm{H}^1(\mathbf{P}^1, \mathcal{O}(q-jn))$ for $j$ with $q - jn \leq -2$). The second region comes from $R^1\pi_*$ when $p \leq -2$, which by relative Serre duality contributes $\mathrm{H}^0$ of a bundle on $\mathbf{P}^1$ of sufficiently positive degree.
@@ -74,10 +66,8 @@ On the other hand, we can also take the direct image first, then we get the so-c
 ### Theorem: Buchdahl {#ecag-0241}
 
 For any torsion-free sheaf $\mathcal{E}$ on the Hirzebruch surface $\Sigma_n$, the two spectral sequences of the double complex $\mathbf{R}p_{2*}(C^\bullet \otimes p_1^*\mathcal{E})$ produce a Beilinson-type spectral sequence
-
 $$
 E_{1}^{p,q} = R^{q}p_{2*}(\wedge^{-p}\mathcal{G}^{\vee}\otimes p_{1}^{*}\mathcal{E}) \Rightarrow \begin{cases}\mathcal{E} & p+q=0\\ 0 & \text{otherwise}\end{cases},
-
 $$
 
 where $\mathcal{G}$ is the rank-$2$ bundle on $\Sigma_n \times \Sigma_n$ constructed from Buchdahl's resolution of the diagonal, and $p_1, p_2$ are the two projections.
@@ -111,15 +101,11 @@ For $p = 0$, the first sheaf vanishes and $\wedge^0\mathcal{G}^\vee \otimes p_1^
 ### Lemma {#ecag-0243}
 
 Let $\mathcal{E}$ be a torsion-free sheaf on $\Sigma_n$ that is trivial at infinity, meaning $\mathcal{E}|_E \cong \mathcal{O}_E^{\oplus r}$ where $E$ is the negative section. The triviality condition controls the fiberwise splitting type and forces cohomological vanishing in two complementary ranges:
-
 $$
 \mathrm{H}^{0}(\mathcal{E}(p,q))=0 \quad \text{for } np+q\leq -1,
-
 $$
-
 $$
 \mathrm{H}^{2}(\mathcal{E}(p,q))=0 \quad \text{for } np+q\geq -(n+1).
-
 $$
 
 For the $\mathrm{H}^0$ vanishing, restrict to a general fiber $F \cong \mathbf{P}^1$ of $\pi$. On each fiber, the restriction $\mathcal{E}(p,q)|_F$ has degree $np + q$ (since $H \cdot F = 1$ and $F \cdot F = 0$). Since $\mathcal{E}$ is trivial at infinity, the splitting type on each fiber is nonnegative, so $\mathcal{E}|_F \cong \bigoplus \mathcal{O}_{\mathbf{P}^1}(a_i)$ with each $a_i \geq 0$. When $np + q \leq -1$, the total degree is negative, so every summand $\mathcal{O}_{\mathbf{P}^1}(a_i + np + q)$ has $a_i + np + q \leq a_i - 1$, and for generic fibers $a_i = 0$, giving degree $\leq -1$. Thus any global section restricts to zero on every fiber, and $\pi_*\mathcal{E}(p,q) = 0$ forces $\mathrm{H}^0(\mathcal{E}(p,q)) = 0$.
@@ -131,17 +117,13 @@ For the $\mathrm{H}^2$ vanishing, Serre duality gives $\mathrm{H}^2(\mathcal{E}(
 ### Proposition {#ecag-0244}
 
 A torsion-free sheaf $\mathcal{E}$ on $\Sigma_n$ that is trivial at infinity admits a monad description: it is the cohomology of a three-term complex
-
 $$
 0\rightarrow \mathrm{H}^{1}(\mathcal{E}(-2,n-1))\otimes \mathcal{O}_{\Sigma_{n}}(0, -1)\rightarrow E_{1}^{-1, 1}\otimes\mathcal{O}_{\Sigma_{n}}(1, 0)\rightarrow  \mathrm{H}^{1}(\mathcal{E}(-1, 0))\otimes \mathcal{O}_{\Sigma_{n}}(1, 0)\rightarrow 0,
-
 $$
 
 where the middle term fits in a split short exact sequence
-
 $$
 0 \rightarrow \mathrm{H}^{1}(\mathcal{E}(-1, -1))\otimes\mathcal{O}_{\Sigma_n}(1, -1)\rightarrow E_{1}^{-1, 1}\otimes \mathcal{O}_{\Sigma_{n}}(1, 0)\rightarrow \mathrm{H}^{1}(\mathcal{E}(-2, n))\otimes \mathcal{O}_{\Sigma_{n}}(0, 0)\rightarrow 0.
-
 $$
 
 **Vanishing on the $E_1$-page.** The key step is to apply the Beilinson spectral sequence not to $\mathcal{E}$ but to the twist $\mathcal{E}(-1,0)$. The $E_1$-page for $\mathcal{E}(-1,0)$ is a $3 \times 3$ grid:
@@ -155,10 +137,8 @@ $$
 We use the vanishing lemma to kill the four corner entries. For $\mathrm{H}^0$: the fiberwise degree of $\mathcal{E}(-2,n-1)$ is $n(-2) + (n-1) = -(n+1) \leq -1$, so $\mathrm{H}^0 = 0$; for $\mathcal{E}(-1,0)$, the fiberwise degree is $-n \leq -1$, so $\mathrm{H}^0 = 0$. For $\mathrm{H}^2$: the fiberwise degree of $\mathcal{E}(-2,n-1)$ is $-(n+1) \geq -(n+1)$, so $\mathrm{H}^2 = 0$; for $\mathcal{E}(-1,0)$, the fiberwise degree is $-n \geq -(n+1)$, so $\mathrm{H}^2 = 0$.
 
 **Degeneration to a monad.** With all four corner entries vanishing, convergence of the spectral sequence forces $E_1^{-1,2} = 0$ and $E_1^{-1,0} = 0$ as well, since these would contribute to total degrees $1$ and $-1$ respectively with no surviving terms to cancel them. Only the $q = 1$ row survives, and the spectral sequence degenerates at $E_1$, expressing $\mathcal{E}(-1,0)$ as the cohomology of
-
 $$
 0\rightarrow \mathrm{H}^{1}(\mathcal{E}(-2,n-1))\otimes \mathcal{O}_{\Sigma_{n}}(-1, -1)\rightarrow E_{1}^{-1, 1}\rightarrow  \mathrm{H}^{1}(\mathcal{E}(-1, 0))\otimes \mathcal{O}_{\Sigma_{n}}\rightarrow 0.
-
 $$
 
 Tensoring with $\mathcal{O}_{\Sigma_n}(1,0)$ yields the first statement.

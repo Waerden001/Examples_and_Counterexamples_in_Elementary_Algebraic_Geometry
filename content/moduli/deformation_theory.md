@@ -10,10 +10,8 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 The union of two coordinate planes in $\mathbb{A}^4_k$ meeting at the origin provides a singular scheme that is nonetheless rigid. Set $R = k[x,y,z,w]/(xz, xw, yz, yw)$, so $X = \operatorname{Spec}(R)$ is the subscheme defined by the ideal $I = (x,y) \cap (z,w) = (xz, xw, yz, yw)$.
 
 The first-order deformations of $R$ as a $k$-algebra are classified by the $T^1$ functor. Writing $R = S/I$ with $S = k[x,y,z,w]$, the relevant exact sequence is
-
 $$
 \operatorname{Hom}_R(\Omega_{S/k} \otimes_S R,\, R) \xrightarrow{\;\delta\;} \operatorname{Hom}_R(I/I^2,\, R) \to T^1(R/k) \to 0.
-
 $$
 
 The map $\delta$ sends a $k$-derivation $D: S \to R$ to the restriction $D|_I: I/I^2 \to R$. A homomorphism $\phi \in \operatorname{Hom}_R(I/I^2, R)$ is determined by the images $\phi(xz)$, $\phi(xw)$, $\phi(yz)$, $\phi(yw)$, subject to the relations in $I/I^2$ coming from syzygies. The key syzygies are:
@@ -34,10 +32,8 @@ Thus $X$ is rigid despite being singular. This is a counterexample to the expect
 For a smooth projective variety $X$ over $k$, the Kodaira--Spencer correspondence identifies first-order deformations of $X$ (flat families over $\operatorname{Spec}(k[\epsilon]/(\epsilon^2))$ with special fiber $X$, up to isomorphism) with $H^1(X, T_X)$.
 
 As a basic application, projective space $\mathbb{P}^n_k$ is rigid for all $n \geq 1$. The Euler sequence
-
 $$
 0 \to \mathcal{O}_{\mathbb{P}^n} \to \mathcal{O}_{\mathbb{P}^n}(1)^{\oplus(n+1)} \to T_{\mathbb{P}^n} \to 0
-
 $$
 
 induces a long exact sequence in cohomology. Since $H^1(\mathbb{P}^n, \mathcal{O}(1)) = 0$ (by direct computation or Serre vanishing for $n \geq 1$) and $H^2(\mathbb{P}^n, \mathcal{O}) = 0$ (for $n \geq 2$; for $n = 1$, $H^1$ of the two-term sequence suffices), the connecting map gives $H^1(\mathbb{P}^n, T_{\mathbb{P}^n}) = 0$. So $\mathbb{P}^n$ admits no nontrivial first-order deformations.
@@ -49,35 +45,27 @@ More generally, obstructions to extending a first-order deformation to higher or
 ### Example: $T_{\operatorname{id}}(\operatorname{Aut}(X)) \cong \operatorname{Hom}(\Omega_X, \mathcal{O}_X)$ {#ecag-0301}
 
 **Infinitesimal automorphisms.** A tangent vector to $\operatorname{Aut}(X)$ at the identity is a morphism $\operatorname{Spec}(k[\epsilon]/(\epsilon^2)) \to \operatorname{Aut}(X)$, which corresponds to an automorphism of the trivial deformation $X[\epsilon] = X \times_k \operatorname{Spec}(k[\epsilon]/(\epsilon^2))$ reducing to the identity modulo $\epsilon$. Locally, such an automorphism takes the form $x_i \mapsto x_i + \epsilon f_i$ with $f_i \in \mathcal{O}_X$. The condition that this be a ring homomorphism forces the map $d: x_i \mapsto f_i$ to satisfy the Leibniz rule $d(x_i x_j) = x_i d(x_j) + x_j d(x_i)$, making $d$ a $k$-derivation of $\mathcal{O}_X$. By the universal property of Kahler differentials, such a derivation corresponds to an $\mathcal{O}_X$-module map $\Omega_{X/k} \to \mathcal{O}_X$. Hence
-
 $$
 T_{\operatorname{id}}(\operatorname{Aut}(X)) \cong \operatorname{Hom}_{\mathcal{O}_X}(\Omega_{X/k}, \mathcal{O}_X).
-
 $$
 
 When $X$ is smooth, $\Omega_{X/k}$ is locally free and $\mathcal{H}om(\Omega_{X/k}, \mathcal{O}_X) = T_X$, so $T_{\operatorname{id}}(\operatorname{Aut}(X)) \cong H^0(X, T_X)$.
 
 **Picard deformation functor.** For a proper $k$-scheme $X$ and a line bundle $\mathcal{L} \in \operatorname{Pic}(X)$, the deformation functor
-
 $$
 \widehat{\operatorname{Pic}}_{X, \mathcal{L}} : \mathbf{Art}/k \to \mathbf{Set}, \quad A \mapsto \{\mathcal{L}' \text{ on } X_A \;:\; \mathcal{L}'|_X \cong \mathcal{L}\}/\sim
-
 $$
 
 has tangent space $T_1 = H^1(X, \mathcal{O}_X)$ and obstruction space $T_2 = H^2(X, \mathcal{O}_X)$.
 
 To see this, consider a small extension $0 \to M \to B \to A \to 0$ in $\mathbf{Art}/k$. The closed immersion $\iota: X_A \hookrightarrow X_B$ has ideal sheaf $\mathcal{I} = \pi^*M$ with $\mathcal{I}^2 = 0$. The exponential exact sequence on $X_B$,
-
 $$
 1 \to 1 + \mathcal{I} \to \mathcal{O}_{X_B}^\times \to \mathcal{O}_{X_A}^\times \to 1,
-
 $$
 
 identifies $1 + \mathcal{I} \cong \mathcal{I} \cong \mathcal{O}_X \otimes_k M$ (via $s \mapsto 1 + s$, using $\mathcal{I}^2 = 0$). The long exact sequence in cohomology gives
-
 $$
 H^1(X, \mathcal{O}_X) \otimes_k M \to \operatorname{Pic}(X_B) \xrightarrow{\iota^*} \operatorname{Pic}(X_A) \to H^2(X, \mathcal{O}_X) \otimes_k M.
-
 $$
 
 The tangent space (take $A = k$, $B = k[\epsilon]$, $M = k$) is $H^1(X, \mathcal{O}_X)$, and the obstruction to lifting a line bundle from $X_A$ to $X_B$ lies in $H^2(X, \mathcal{O}_X) \otimes_k M$.
@@ -92,7 +80,6 @@ The tangent space (take $A = k$, $B = k[\epsilon]$, $M = k$) is $H^1(X, \mathcal
 ## Deformation of coherent sheaves
 Let $X$ be a smooth projective variety. $E$ be a coherent sheaf of $\mathcal{O}_{X}$-module. We denote the ring of dual numbers by $k[\epsilon]$, $\operatorname{Spec}(k[\epsilon])$ by $D$ and $X\otimes_{k}\operatorname{Spec}(k[\epsilon])$ by $X_{D}$. Consider the deformation functor
 $$ \mathcal{M}: \mathbf{Art}/k \rightarrow \mathbf{Set}, \quad A \mapsto \{A\text{-flat coherent sheaf } E'\in \mathbf{Coh}(X_{A}), \phi:E'|_{X}\cong E\}/\sim.
-
 $$
 
 ### Theorem {#ecag-0302}
@@ -100,26 +87,20 @@ $$
 First-order deformations of a coherent sheaf $E$ on a smooth projective variety $X$ are classified by $\operatorname{Ext}^1_{\mathcal{O}_X}(E, E)$. Precisely, there is a natural bijection $\mathcal{M}(D) \cong \operatorname{Ext}^1_{\mathcal{O}_X}(E, E)$, where $D = \operatorname{Spec}(k[\epsilon]/(\epsilon^2))$.
 
 **From deformations to extensions.** The structure sheaf sequence $0 \to (\epsilon) \to k[\epsilon] \to k \to 0$ with $(\epsilon) \cong k$ pulls back to
-
 $$
 0 \to \mathcal{O}_X \to \mathcal{O}_{X_D} \to \mathcal{O}_X \to 0.
-
 $$
 
 Given a deformation $E'$ of $E$ over $D$ (a coherent $\mathcal{O}_{X_D}$-module, flat over $D$, with $E'|_X \cong E$), flatness over $D$ ensures that tensoring preserves exactness, yielding
-
 $$
 0 \to \epsilon E \to E' \to E \to 0,
-
 $$
 
 where $\epsilon E \cong E$ as $\mathcal{O}_X$-modules (since $\epsilon^2 = 0$, the $\mathcal{O}_{X_D}$-structure on $\epsilon E$ factors through $\mathcal{O}_X$). This short exact sequence defines a class in $\operatorname{Ext}^1_{\mathcal{O}_X}(E, E)$.
 
 **From extensions to deformations.** Conversely, given a class in $\operatorname{Ext}^1_{\mathcal{O}_X}(E, E)$ represented by
-
 $$
 0 \to E \xrightarrow{\iota} E' \xrightarrow{p} E \to 0,
-
 $$
 
 define an $\mathcal{O}_{X_D}$-module structure on $E'$ by letting $\epsilon$ act as $\iota \circ p$. Since $(p \circ \iota) = 0$ by exactness, we have $\epsilon^2 = \iota \circ p \circ \iota \circ p = 0$, giving a well-defined $k[\epsilon]$-module structure.
@@ -135,10 +116,8 @@ These two constructions are inverse to each other: isomorphic deformations yield
 ### Theorem {#ecag-0303}
 
 For a coherent sheaf $E$ on a smooth projective variety $X$ with $\operatorname{Hom}(E, E) \cong k$ (e.g., a stable sheaf), the deformation functor $\mathcal{M}$ of $E$ admits a tangent-obstruction theory governed by the Ext groups of $E$. Given a small extension $0 \to I \to B \xrightarrow{\sigma} A \to 0$ in $\mathbf{Art}/k$ (with $\mathfrak{m}_A \cdot I = 0$):
-
 $$
 \operatorname{Ext}^1_{\mathcal{O}_X}(E, E) \otimes_k I \to \mathcal{M}(B) \to \mathcal{M}(A) \xrightarrow{\operatorname{ob}} \operatorname{Ext}^2_{\mathcal{O}_X}(E, E) \otimes_k I.
-
 $$
 
 The three structural properties are: (1) if $E_A \in \mathcal{M}(A)$ lifts to $\mathcal{M}(B)$, the set of lifts is an $\operatorname{Ext}^1(E,E) \otimes_k I$-torsor; (2) $E_A$ lifts if and only if $\operatorname{ob}(E_A) = 0$; and (3) the obstruction lies in the traceless part $\operatorname{Ext}^2_0(E,E) \otimes_k I = \ker(\operatorname{tr}: \operatorname{Ext}^2(E,E) \to H^2(X, \mathcal{O}_X)) \otimes_k I$.
@@ -146,10 +125,8 @@ The three structural properties are: (1) if $E_A \in \mathcal{M}(A)$ lifts to $\
 **Torsor structure.** Given two lifts $E_B, E'_B$ of $E_A$, the closed immersion $X_A \hookrightarrow X_B$ has ideal sheaf $\mathcal{I} = \mathcal{O}_{X_B} \otimes_B I$ with $\mathcal{I}^2 = 0$ (since $\mathfrak{m}_A \cdot I = 0$). Both lifts restrict to $E_A$ on $X_A$, so their difference defines a class in $\operatorname{Ext}^1_{\mathcal{O}_{X_A}}(E_A, I \otimes E_A)$. Using $\mathfrak{m}_A \cdot I = 0$ and the simplicity $\operatorname{Hom}(E,E) \cong k$, base change gives $\operatorname{Ext}^1_{\mathcal{O}_{X_A}}(E_A, I \otimes E_A) = \operatorname{Ext}^1_{\mathcal{O}_X}(E,E) \otimes_k I$.
 
 **Obstruction map.** Given $E_A \in \mathcal{M}(A)$, local lifts $\{E_{B,\alpha}\}$ always exist on an open cover $\{U_\alpha\}$ (local Ext computations). On overlaps $U_{\alpha\beta}$, the differences assemble into a Cech $2$-cocycle whose class
-
 $$
 \operatorname{ob}(E_A) \in \operatorname{Ext}^2_{\mathcal{O}_X}(E, E) \otimes_k I
-
 $$
 
 is the obstruction. It vanishes if and only if the local lifts patch globally.
@@ -169,10 +146,8 @@ The deformation-obstruction theory of a geometric object operates at several dis
 At the most fundamental level, the deformation functor $\mathcal{M}: \mathbf{Art}/k \to \mathbf{Set}$ is defined purely in terms of the object $E$ and its base extensions, without reference to any moduli space. The tangent space $\mathcal{M}(k[\epsilon]/(\epsilon^2))$ and obstruction spaces exist intrinsically.
 
 When a fine moduli space $M$ exists (carrying a universal family), the functor $\mathcal{M}$ is pro-representable by the formal completion $\widehat{M}_{[E]}$, and there is a canonical identification
-
 $$
 T_{[E]} M = \mathcal{M}(\operatorname{Spec}(k[\epsilon]/(\epsilon^2))).
-
 $$
 
 However, when only a coarse moduli space $M$ exists, this identification fails in general. The coarse moduli map $\mathcal{M} \to h_M$ need not be an isomorphism on tangent spaces. If $E$ has nontrivial automorphisms, first-order deformations modulo automorphisms may differ from the Zariski tangent space. This is particularly important for the moduli of semistable sheaves: the moduli functor is typically not representable, and the coarse moduli space (constructed via GIT) can have tangent spaces at properly semistable points that differ from $\operatorname{Ext}^1(E,E)$.
@@ -254,26 +229,20 @@ Because $m_{A}M=0$, any element in $\operatorname{Hom}_{X_{A}}(\mathcal{S}, \qQ\
 ### Remark {#ecag-0305}
 
 The tangent space at a point $[Z]$ on the Hilbert scheme $\operatorname{Hilb}^n(X)$ of $n$ points on a smooth quasi-projective variety $X$ admits three canonical descriptions, all naturally isomorphic:
-
 $$
 T_Z \operatorname{Hilb}^n(X) \;=\; \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{I}_Z, \mathcal{O}_Z) \;=\; \operatorname{Ext}^1_{\mathcal{O}_X}(\mathcal{O}_Z, \mathcal{O}_Z) \;=\; \operatorname{Ext}^1_{\mathcal{O}_X}(\mathcal{I}_Z, \mathcal{I}_Z).
-
 $$
 
 **First isomorphism: $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z) \cong \operatorname{Ext}^1(\mathcal{O}_Z, \mathcal{O}_Z)$.** Apply $\operatorname{Hom}(-, \mathcal{O}_Z)$ to the short exact sequence $0 \to \mathcal{I}_Z \to \mathcal{O}_X \to \mathcal{O}_Z \to 0$. The long exact sequence begins
-
 $$
 0 \to \operatorname{Hom}(\mathcal{O}_Z, \mathcal{O}_Z) \to \operatorname{Hom}(\mathcal{O}_X, \mathcal{O}_Z) \to \operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z) \to \operatorname{Ext}^1(\mathcal{O}_Z, \mathcal{O}_Z) \to \operatorname{Ext}^1(\mathcal{O}_X, \mathcal{O}_Z) \to \cdots
-
 $$
 
 The first map is an isomorphism (both terms equal $\operatorname{Hom}(\mathcal{O}_Z, \mathcal{O}_Z)$ via restriction from $\mathcal{O}_X$ to $\mathcal{O}_Z$), and $\operatorname{Ext}^1(\mathcal{O}_X, \mathcal{O}_Z) = H^1(X, \mathcal{O}_Z) = 0$ since $\mathcal{O}_Z$ is supported on a zero-dimensional subscheme. So the connecting map gives the isomorphism.
 
 **Second isomorphism: $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z) \cong \operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{I}_Z)$.** Apply $\operatorname{Hom}(\mathcal{I}_Z, -)$ to the same sequence:
-
 $$
 \operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_X) \to \operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z) \to \operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{I}_Z) \to \operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{O}_X).
-
 $$
 
 When $X$ is smooth, $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_X) \cong H^0(X, \mathcal{O}_X)$ (any map $\mathcal{I}_Z \to \mathcal{O}_X$ extends to $\mathcal{O}_X \to \mathcal{O}_X$ by normality, hence is multiplication by a global function). This first map sends $1 \in H^0(\mathcal{O}_X)$ to the inclusion $\mathcal{I}_Z \hookrightarrow \mathcal{O}_X \twoheadrightarrow \mathcal{O}_Z$, which is the zero map in $\operatorname{Hom}(\mathcal{I}_Z, \mathcal{O}_Z)$ only when $Z = \emptyset$. For the term $\operatorname{Ext}^1(\mathcal{I}_Z, \mathcal{O}_X)$: from the sequence $0 \to \mathcal{I}_Z \to \mathcal{O}_X \to \mathcal{O}_Z \to 0$ and $\mathcal{E}xt^i(\mathcal{O}_X, \mathcal{O}_X) = 0$ for $i > 0$, one obtains $\mathcal{E}xt^1(\mathcal{I}_Z, \mathcal{O}_X) \cong \mathcal{E}xt^2(\mathcal{O}_Z, \mathcal{O}_X)$, and the vanishing conditions (depending on $\dim X$) yield the desired isomorphism.

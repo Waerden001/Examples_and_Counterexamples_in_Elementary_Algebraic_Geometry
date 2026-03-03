@@ -30,10 +30,8 @@ The $E_2$-page is therefore:
 | $0$ | $0$ | $\mathbb{Q}$ |
 
 The spectral sequence degenerates at $E_2$, and the position $(-1, 2)$ contributes to $H^{-1+2}(X) = H^1(X)$. The weight filtration on $H^1(X; \mathbb{Q})$ reads
-
 $$
 0 = W_0 H^1(X; \mathbb{Q}) = W_1 H^1(X; \mathbb{Q}) \subset W_2 H^1(X; \mathbb{Q}) = H^1(X; \mathbb{Q}) = \mathbb{Q},
-
 $$
 
 so $\operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}$. The generator of $H^1(\mathbb{C}^{\times})$ has pure weight 2, not weight 1, because it arises from the boundary $D$ via the Gysin map rather than from the compact part $\overline{X}$. This is characteristic of non-compact smooth varieties: the missing compactness shifts the weight upward.
@@ -43,35 +41,27 @@ so $\operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}$. The generator of
 ### Remark: Weight filtration, [reference, Joana Cirici](http://userpage.fu-berlin.de/jcirici/computeweight.pdf) {#ecag-0279}
 
 Let $X$ be a smooth complex variety of dimension $n$. Choose a smooth compactification $j : X \hookrightarrow \overline{X}$ such that $D = \overline{X} \setminus X$ is a normal crossing divisor with irreducible components $D = \bigcup_{i=1}^{N} D_i$. Define $D^{(0)} = \overline{X}$ and, for $p \geq 1$,
-
 $$
 D^{(p)} = \coprod_{\{i_1, \dots, i_p\} \subset \{1, 2, \dots, N\}} D_{i_1} \cap \cdots \cap D_{i_p}.
-
 $$
 
 Since $D$ is normal crossing, each connected component of $D^{(p)}$ is a smooth projective variety of dimension $n - p$.
 
 The weight spectral sequence takes the form
-
 $$
 E_1^{-p,q} = H^{q-2p}(D^{(p)}; \mathbb{Q}) \Rightarrow H^{q-p}(X; \mathbb{Q}),
-
 $$
 
 with $E_1$-differential $d_1 : E_1^{-p,q} \to E_1^{-p+1,q}$ given by the alternating sum of Gysin maps
-
 $$
 i_* : H^{q-2p}(D_{i_1} \cap \cdots \cap D_{i_p}) \to H^{q-2p+2}(D_{i_1} \cap \cdots \cap \widehat{D_{i_k}} \cap \cdots \cap D_{i_p}),
-
 $$
 
 where $\widehat{D_{i_k}}$ denotes omission of the $k$-th component.
 
 The spectral sequence degenerates at $E_2$ (a theorem of Deligne), yielding the weight filtration
-
 $$
 0 = W_{n-1} H^n(X; \mathbb{Q}) \subset W_n H^n(X; \mathbb{Q}) \subset \cdots \subset W_{2n} H^n(X; \mathbb{Q}) = H^n(X; \mathbb{Q}),
-
 $$
 
 with graded pieces $\operatorname{Gr}_q^W H^{q-p}(X; \mathbb{Q}) = E_2^{-p,q}$.
@@ -105,17 +95,13 @@ Each anti-diagonal (entries with $q - p = n$ constant) assembles into the weight
 ### Remark: Gysin map {#ecag-0280}
 
 Let $i : Z \hookrightarrow X$ be a closed embedding of smooth complex varieties with $Z$ of codimension $c$ in $X$. The Gysin map (or pushforward in cohomology) is
-
 $$
 i_* : H^k(Z; \mathbb{Q}) \to H^{k+2c}(X; \mathbb{Q}),
-
 $$
 
 defined as the composition
-
 $$
 H^k(Z; \mathbb{Q}) \xrightarrow{\;\sim\;} H^{k+2c}_Z(X; \mathbb{Q}) \to H^{k+2c}(X; \mathbb{Q}),
-
 $$
 
 where the first map is the Thom isomorphism (using the orientation of the normal bundle $\mathcal{N}_{Z/X}$) and the second is the forgetful map from cohomology with supports to ordinary cohomology.
@@ -156,17 +142,13 @@ The $E_2$-page is:
 | $0$ | $0$ | $\mathbb{Q}$ |
 
 Reading off the weight filtration on $H^1(X; \mathbb{Q})$ from the anti-diagonal $q - p = 1$:
-
 $$
 0 = W_0 H^1(X; \mathbb{Q}) \subset W_1 H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g} \subset W_2 H^1(X; \mathbb{Q}) = H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g + p - 1},
-
 $$
 
 with graded pieces
-
 $$
 \operatorname{Gr}_1^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g}, \quad \operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{p-1}.
-
 $$
 
 The weight-1 part $W_1 H^1(X) \cong \mathbb{Q}^{2g}$ is the image of $H^1(\overline{X})$, carrying a pure Hodge structure of weight 1 from the compact surface. The weight-2 part $\operatorname{Gr}_2^W H^1(X) \cong \mathbb{Q}^{p-1}$ arises from the boundary and has dimension $p-1$ (not $p$) because the sum of all puncture classes vanishes in $H^2(\overline{X})/\operatorname{im}(d_1)$.
@@ -190,10 +172,8 @@ The boundary strata are $D^{(0)} = \mathbb{P}^2$, $D^{(1)} = L_1 \sqcup L_2 \sqc
 | $0$ | $0$ | $0$ | $H^0(\mathbb{P}^2) = \mathbb{Q}$ |
 
 To determine the $E_2$-page, we identify the topology of $X$. Removing one line from $\mathbb{P}^2$ yields $\mathbb{C}^2$; the remaining two lines become two lines in $\mathbb{C}^2$ intersecting in one point. After a linear change of coordinates, these are the coordinate axes, so
-
 $$
 X \simeq \mathbb{C}^2 \setminus \{\text{two lines through origin}\} \cong (\mathbb{C} \setminus \{0\}) \times (\mathbb{C} \setminus \{0\}) \simeq S^1 \times S^1 = T^2.
-
 $$
 
 Hence $H^0(X) = \mathbb{Q}$, $H^1(X) = \mathbb{Q}^2$, $H^2(X) = \mathbb{Q}$, and $H^k(X) = 0$ for $k \geq 3$.
@@ -249,10 +229,8 @@ Using convergence, the $E_2$-page must be:
 | $0$ | $0$ | $0$ | $\mathbb{Q}$ |
 
 The weight filtration gives $H^1(X; \mathbb{Q}) \cong \mathbb{Q}^2$ pure of weight 2:
-
 $$
 \operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^2.
-
 $$
 
 The extra generator in $H^2(\overline{X})$ from the exceptional divisor $E$ (compared to $H^2(\mathbb{P}^2) = \mathbb{Q}$) changes the rank of the $d_1$ differentials. Concretely, $d_1 : \mathbb{Q}^4 \to \mathbb{Q}^2$ at row $q = 2$ has kernel of dimension 2 (contributing to $\operatorname{Gr}_2^W H^1$), and the maps at row $q = 4$ are exact (killing all of $H^2(X)$).
@@ -283,34 +261,28 @@ The appearance of weight 4 on $H^3$ (rather than weight 3, which would occur for
 A cubical hyperresolution of a singular variety $X$ is a proper augmented cubical diagram of smooth varieties that resolves $X$ in a cohomological sense, enabling the construction of mixed Hodge structures even when $X$ is singular.
 
 For a variety $X$ with singular locus $Y \subset X$, the simplest case is a 1-cubical hyperresolution (a square diagram). Let $f : \widetilde{X} \to X$ be a resolution of singularities, and let $\widetilde{Y} = f^{-1}(Y)$ be the preimage of the singular locus. The resolution square is:
-
 $$
 \begin{array}{ccc}
 \widetilde{Y} & \longrightarrow & \widetilde{X} \\
 \downarrow & & \downarrow \, f \\
 Y & \longrightarrow & X
 \end{array}
-
 $$
 
 All four corners are varieties, but the upper row consists of smooth varieties: $\widetilde{X}$ is smooth by construction of the resolution, and $\widetilde{Y}$ can be arranged to be smooth (after further blow-ups if necessary). The horizontal maps are closed embeddings, and the vertical maps are proper and surjective.
 
 For a concrete instance, consider a nodal curve $X$ with a single node at $Y = \{p\}$. Taking the normalization $\widetilde{X} = X^{\nu}$ (a smooth curve), the preimage is $\widetilde{Y} = f^{-1}(p) = \{q_1, q_2\}$ (the two branches above the node). The square becomes:
-
 $$
 \begin{array}{ccc}
 \{q_1, q_2\} & \longrightarrow & X^{\nu} \\
 \downarrow & & \downarrow \\
 \{p\} & \longrightarrow & X
 \end{array}
-
 $$
 
 The cohomology of $X$ is then recovered from the Mayer--Vietoris-type exact sequence associated to this square:
-
 $$
 \cdots \to H^k(X) \to H^k(\widetilde{X}) \oplus H^k(Y) \to H^k(\widetilde{Y}) \to H^{k+1}(X) \to \cdots
-
 $$
 
 For deeper singularities (e.g., a variety whose singular locus is itself singular), one iterates: resolve $Y$, form the fiber product, resolve its singular locus, and so on. This produces a cubical diagram indexed by subsets of $\{0, 1, \ldots, d\}$ where $d$ is the depth of the stratification. The general construction, due to Guillen--Navarro Aznar--Pascual-Gainza--Puerta, ensures that at each vertex the variety is smooth, and the resulting weight spectral sequence is independent of the choices made.
@@ -322,21 +294,17 @@ For deeper singularities (e.g., a variety whose singular locus is itself singula
 Consider the nodal cubic $X = \{(x:y:z) \in \mathbb{P}^2 \mid y^2 z = x^2(x+z)\}$, which has a single node at $P = (0:0:1)$. We compute the mixed Hodge structure on $H^*(X; \mathbb{Q})$ using the normalization as a cubical hyperresolution.
 
 The normalization $f : \widetilde{X} \to X$ satisfies $\widetilde{X} \cong \mathbb{P}^1$ (since $X$ is a rational curve with one node). The preimage of the node consists of two points: $\widetilde{Y} = f^{-1}(P) = \{Q_1, Q_2\}$. Setting $Y = \{P\}$, the resolution square is:
-
 $$
 \begin{array}{ccc}
 \{Q_1, Q_2\} & \longrightarrow & \mathbb{P}^1 \\
 \downarrow & & \downarrow \, f \\
 \{P\} & \longrightarrow & X
 \end{array}
-
 $$
 
 The associated Mayer--Vietoris exact sequence is
-
 $$
 0 \to H^0(X) \to H^0(\widetilde{X}) \oplus H^0(Y) \to H^0(\widetilde{Y}) \to H^1(X) \to H^1(\widetilde{X}) \oplus H^1(Y) \to \cdots
-
 $$
 
 Substituting the known cohomology groups:
@@ -348,10 +316,8 @@ Substituting the known cohomology groups:
 | $\widetilde{Y} = \{Q_1, Q_2\}$ | $\mathbb{Q}^2$ | $0$ | $0$ |
 
 The exact sequence becomes
-
 $$
 0 \to H^0(X) \to \mathbb{Q}^2 \xrightarrow{\;\delta\;} \mathbb{Q}^2 \to H^1(X) \to 0 \to 0 \to H^2(X) \to \mathbb{Q} \to 0.
-
 $$
 
 The map $\delta : H^0(\widetilde{X}) \oplus H^0(Y) \to H^0(\widetilde{Y})$ sends $(a, b) \mapsto (a - b, \, a - b)$, since both points $Q_1, Q_2$ lie over $P$ and both map to the same connected component of $\widetilde{X}$. This map has kernel $\{a = b\} \cong \mathbb{Q}$ and cokernel $\mathbb{Q}$.
@@ -359,10 +325,8 @@ The map $\delta : H^0(\widetilde{X}) \oplus H^0(Y) \to H^0(\widetilde{Y})$ sends
 Therefore: $H^0(X) = \mathbb{Q}$, $H^1(X) = \mathbb{Q}$, $H^2(X) = \mathbb{Q}$.
 
 The generator of $H^1(X) \cong \mathbb{Q}$ comes from the cokernel of $\delta$, which involves only $H^0$ groups -- all of which carry pure Hodge structures of weight 0. Hence $H^1(X)$ carries weight 0:
-
 $$
 \operatorname{Gr}_0^W H^1(X; \mathbb{Q}) = \mathbb{Q}.
-
 $$
 
 This is markedly different from a smooth projective curve of genus 1, where $H^1$ is pure of weight 1. The node "pinches" a handle, creating a loop that arises from the failure of the normalization map to be injective (it identifies $Q_1$ with $Q_2$), and this purely topological origin places the resulting class at weight 0 rather than weight 1.
@@ -374,10 +338,8 @@ This is markedly different from a smooth projective curve of genus 1, where $H^1
 ### Remark: weight spectral sequence for singular varieties {#ecag-0287}
 
 For singular varieties, the weight spectral sequence is constructed via cubical hyperresolutions rather than smooth compactifications with normal crossing boundary. Given a singular variety $X$, one chooses a cubical hyperresolution $a_\bullet : X_\bullet \to X$, where each $X_I$ (indexed by subsets $I$ of a finite set) is a smooth variety. The weight spectral sequence takes the form
-
 $$
 E_1^{p,q} = \bigoplus_{|I|=p} H^q(X_I; \mathbb{Q}) \Rightarrow H^{p+q}(X; \mathbb{Q}).
-
 $$
 
 The fundamental results, due to Deligne in the smooth case and extended by Guillen--Navarro Aznar--Pascual-Gainza--Puerta to the singular case via cubical methods, are:
@@ -401,26 +363,20 @@ The smooth non-compact and singular projective cases are dual: removing a bounda
 ### Remark: Mayer-Vietoris exact sequence {#ecag-0288}
 
 In the context of cubical hyperresolutions and mixed Hodge theory, the Mayer--Vietoris exact sequence serves as the primary computational tool. For the simplest cubical hyperresolution (the normalization square of a singular variety), the associated long exact sequence is
-
 $$
 \cdots \to H^k(X) \to H^k(\widetilde{X}) \oplus H^k(Y) \to H^k(\widetilde{Y}) \to H^{k+1}(X) \to \cdots
-
 $$
 
 where $\widetilde{X} \to X$ is the resolution, $Y$ is the singular locus, and $\widetilde{Y} = \widetilde{X} \times_X Y$.
 
 More generally, for a variety $X = U \cup V$ covered by two open subvarieties, the classical Mayer--Vietoris sequence
-
 $$
 \cdots \to H^k(X) \to H^k(U) \oplus H^k(V) \to H^k(U \cap V) \to H^{k+1}(X) \to \cdots
-
 $$
 
 is a morphism of mixed Hodge structures. The crucial consequence is **strictness**: every map in the sequence is strict with respect to the weight filtration, meaning $f(W_k) = f(\text{source}) \cap W_k(\text{target})$ for each $k$. Strictness implies that the long exact sequence splits into short exact sequences on each graded piece:
-
 $$
 \cdots \to \operatorname{Gr}_m^W H^k(X) \to \operatorname{Gr}_m^W H^k(U) \oplus \operatorname{Gr}_m^W H^k(V) \to \operatorname{Gr}_m^W H^k(U \cap V) \to \operatorname{Gr}_m^W H^{k+1}(X) \to \cdots
-
 $$
 
 This is an exact sequence of pure Hodge structures (each $\operatorname{Gr}_m^W$ carries a pure Hodge structure of weight $m$), reducing mixed Hodge theory computations to manipulations of pure Hodge structures at each weight level. Without strictness, one could not separately track the weight-$m$ contributions through the exact sequence, and the bookkeeping would become intractable.
@@ -447,26 +403,20 @@ References: Guillen--Navarro Aznar--Pascual-Gainza--Puerta, *Hyperresolutions cu
 ### Example: cuspidal singularity {#ecag-0290}
 
 Consider the cuspidal cubic $X = \{(x:y:z) \in \mathbb{P}^2 \mid y^2 z = x^3\}$, which has a cusp at $P = (0:0:1)$. Unlike the node, the cusp is a unibranch singularity: the normalization $f : \widetilde{X} \to X$ satisfies $\widetilde{X} \cong \mathbb{P}^1$, and the preimage of the cusp is a single point $\widetilde{Y} = f^{-1}(P) = \{Q\}$. Setting $Y = \{P\}$, the resolution square is:
-
 $$
 \begin{array}{ccc}
 \{Q\} & \longrightarrow & \mathbb{P}^1 \\
 \downarrow & & \downarrow \, f \\
 \{P\} & \longrightarrow & X
 \end{array}
-
 $$
 
 The Mayer--Vietoris exact sequence gives
-
 $$
 0 \to H^0(X) \to H^0(\mathbb{P}^1) \oplus H^0(\{P\}) \to H^0(\{Q\}) \to H^1(X) \to H^1(\mathbb{P}^1) \to \cdots
-
 $$
-
 $$
 0 \to H^0(X) \to \mathbb{Q}^2 \xrightarrow{\;\delta\;} \mathbb{Q} \to H^1(X) \to 0 \to 0 \to H^2(X) \to \mathbb{Q} \to 0.
-
 $$
 
 The map $\delta : (a, b) \mapsto a - b$ is surjective (from $\mathbb{Q}^2$ to $\mathbb{Q}$). Therefore: $H^0(X) = \mathbb{Q}$ (kernel of $\delta$ restricted to the image of $H^0(X) \to \mathbb{Q}^2$, which is the diagonal), $H^1(X) = 0$ (cokernel of $\delta$ is zero), and $H^2(X) = \mathbb{Q}$.
@@ -504,10 +454,8 @@ These satisfy the fundamental relations $FV = p$ (multiplication by $p$), $FdV =
 In low degrees: $W_n \Omega^0_X = W_n \mathcal{O}_X$ is the sheaf of length-$n$ Witt vectors, and $W_n \Omega^1_X$ is generated over $W_n \mathcal{O}_X$ by symbols $d[a]$ and $V^i(d[b])$ subject to the relations above.
 
 The inverse limit $W\Omega^*_X = \varprojlim_n W_n \Omega^*_X$ computes crystalline cohomology:
-
 $$
 H^n_{\operatorname{cris}}(X/W(k)) \cong \mathbb{H}^n(X, W\Omega^*_X),
-
 $$
 
 where $W(k) = \varprojlim_n W_n(k)$ is the ring of $p$-typical Witt vectors of $k$. This is a $p$-adic cohomology theory: for $k = \mathbb{F}_p$, $W(k) = \mathbb{Z}_p$, and crystalline cohomology is a free $\mathbb{Z}_p$-module whose rank equals the corresponding Betti number (for "good" varieties, i.e., those that lift to characteristic 0).
@@ -532,10 +480,8 @@ The Tate twist $\mathbb{Z}(n)$ is a fundamental bookkeeping device in cohomology
 **Betti cohomology.** Over $\mathbb{C}$, set $\mathbb{Z}(1) = 2\pi i \cdot \mathbb{Z} \subset \mathbb{C}$ and $\mathbb{Z}(n) = (2\pi i)^n \cdot \mathbb{Z}$. As an abelian group, $\mathbb{Q}(n) \cong \mathbb{Q}$, but as a Hodge structure it is pure of type $(-n, -n)$. The Tate twist $\mathbb{Q}(n)$ shifts the Hodge filtration: if $V$ is a pure Hodge structure of weight $k$, then $V(n) = V \otimes \mathbb{Q}(n)$ is pure of weight $k - 2n$, with $F^p V(n) = F^{p+n} V$.
 
 **Etale cohomology.** For a scheme over a field $k$ with $\ell$ invertible in $k$, set $\mathbb{Z}/\ell^n(1) = \mu_{\ell^n}$ (the sheaf of $\ell^n$-th roots of unity) and
-
 $$
 \mathbb{Z}_\ell(1) = \varprojlim_n \mu_{\ell^n}, \qquad \mathbb{Z}_\ell(m) = \mathbb{Z}_\ell(1)^{\otimes m}.
-
 $$
 
 The absolute Galois group $\operatorname{Gal}(\overline{k}/k)$ acts on $\mathbb{Z}_\ell(1)$ via the cyclotomic character $\chi_\ell : \operatorname{Gal}(\overline{k}/k) \to \mathbb{Z}_\ell^{\times}$. For $k = \mathbb{F}_q$, the geometric Frobenius acts on $\mathbb{Z}_\ell(1)$ as multiplication by $q^{-1}$, so tensoring with $\mathbb{Q}_\ell(n)$ multiplies all Frobenius eigenvalues by $q^{-n}$.
@@ -543,10 +489,8 @@ The absolute Galois group $\operatorname{Gal}(\overline{k}/k)$ acts on $\mathbb{
 **$p$-adic cohomology.** The $p$-adic Tate twist $\mathbb{Z}_p(n)$ in mixed characteristic $(0,p)$ is more subtle. Constructions by Sato and others produce sheaves $\mathbb{Z}/p^r(n)$ on the etale site related to logarithmic de Rham--Witt sheaves $W_r \Omega^n_{\log}$.
 
 **Role in nearby cycles.** For a family $f : X \to S$ degenerating over $0 \in S$, the monodromy operator on nearby cycles satisfies
-
 $$
 N : \operatorname{Gr}_k^W R^n \Psi \mathbb{Q} \to \operatorname{Gr}_{k-2}^W R^n \Psi \mathbb{Q}(-1).
-
 $$
 
 The Tate twist $(-1)$ accounts for the weight shift of $-2$: since $\mathbb{Q}(-1)$ has weight $2$, tensoring with it compensates, making $N$ a morphism between objects of the same weight. Without the Tate twist, the graded pieces of the weight filtration would not carry pure Hodge structures of the correct weight, and the formalism of mixed Hodge modules would break down.
@@ -556,10 +500,8 @@ The Tate twist $(-1)$ accounts for the weight shift of $-2$: since $\mathbb{Q}(-
 ### Example: inertia group {#ecag-0293}
 
 Let $K$ be a complete discretely valued field with valuation ring $\mathcal{O}_K$, maximal ideal $\mathfrak{m}$, and residue field $k = \mathcal{O}_K / \mathfrak{m}$. Fix an algebraic closure $\overline{K}$ and let $\overline{k}$ be the corresponding residue field. The **inertia group** $I$ is defined as the kernel
-
 $$
 1 \to I \to \operatorname{Gal}(\overline{K}/K) \to \operatorname{Gal}(\overline{k}/k) \to 1,
-
 $$
 
 so $I$ consists of those automorphisms of $\overline{K}$ that act trivially on the residue field.
@@ -585,23 +527,19 @@ Let $X$ be a scheme over $\mathbb{F}_p$.
 **Absolute Frobenius.** The absolute Frobenius $F_{\mathrm{abs}} : X \to X$ is the identity on the underlying topological space and the $p$-th power map $a \mapsto a^p$ on $\mathcal{O}_X$. It is functorial in $X$ but is not a morphism of $\mathbb{F}_p$-schemes (it does not commute with the structure map to $\operatorname{Spec}(\mathbb{F}_p)$ unless $X = \operatorname{Spec}(\mathbb{F}_p)$).
 
 **Relative Frobenius.** If $X$ is an $S$-scheme with $S$ an $\mathbb{F}_p$-scheme, define the Frobenius twist $X^{(p)} = X \times_{S, F_S} S$. The relative Frobenius $F_{X/S} : X \to X^{(p)}$ is the unique morphism making the diagram
-
 $$
 \begin{array}{ccc}
 X & \xrightarrow{F_{X/S}} & X^{(p)} \\
 & \searrow & \downarrow \\
 & & S
 \end{array}
-
 $$
 
 commute, where $X \to S$ is the structure map and $X^{(p)} \to S$ is the base-changed structure map. The relative Frobenius is a morphism of $S$-schemes and is a purely inseparable morphism of degree $p^{\dim X}$.
 
 **Arithmetic and geometric Frobenius.** For $X$ over $\mathbb{F}_q$ (with $q = p^r$), the arithmetic Frobenius $\operatorname{Frob}_q \in \operatorname{Gal}(\overline{\mathbb{F}_q}/\mathbb{F}_q)$ acts by $x \mapsto x^q$. It acts on $\ell$-adic cohomology $H^n_{\mathrm{et}}(X_{\overline{\mathbb{F}_q}}, \mathbb{Q}_\ell)$ by functoriality. The geometric Frobenius $\operatorname{Frob}_q^{-1}$ is its inverse. Deligne's theorem (the Weil conjectures) states: for $X$ smooth and projective over $\mathbb{F}_q$, the eigenvalues $\alpha$ of geometric Frobenius on $H^n_{\mathrm{et}}(X_{\overline{\mathbb{F}_q}}, \mathbb{Q}_\ell)$ are algebraic numbers satisfying
-
 $$
 |\alpha| = q^{n/2}
-
 $$
 
 under every complex embedding. This is the "Riemann hypothesis over finite fields."
@@ -615,10 +553,8 @@ under every complex embedding. This is the "Riemann hypothesis over finite field
 Let $f : X \to D$ be a proper morphism from a smooth variety to a disk $D$ with smooth generic fiber. The fundamental group $\pi_1(D^*) \cong \mathbb{Z}$ of the punctured disk acts on the cohomology of the generic fiber $X_t$, producing the monodromy transformation $T \in \operatorname{Aut}(H^n(X_t; \mathbb{Q}))$.
 
 By the monodromy theorem, $T$ is quasi-unipotent: there exist positive integers $m$ and $k$ such that $(T^m - \operatorname{Id})^k = 0$. After the base change $s \mapsto s^m$ (which replaces $T$ by $T^m$), we may assume $T$ is unipotent: $(T - \operatorname{Id})^k = 0$ for some $k$. The **monodromy operator** (or **log monodromy**) is the nilpotent endomorphism
-
 $$
 N = \log(T) = \sum_{j=1}^{k-1} \frac{(-1)^{j+1}}{j}(T - \operatorname{Id})^j,
-
 $$
 
 which is a finite sum since $T$ is unipotent.
@@ -629,17 +565,13 @@ The operator $N$ determines a unique increasing filtration $M_\bullet$ on $H^n(X
 2. $N^j : \operatorname{Gr}_j^M \xrightarrow{\;\sim\;} \operatorname{Gr}_{-j}^M$ is an isomorphism for all $j \geq 0$.
 
 These two conditions determine $M_\bullet$ uniquely from $N$. Concretely, the filtration is built from the kernels and images of powers of $N$:
-
 $$
 M_j = \sum_{i \geq 0} \ker(N^{i+1}) \cap \operatorname{im}(N^{\max(i-j, 0)}).
-
 $$
 
 The **monodromy weight conjecture** (or weight-monodromy conjecture) asserts that the monodromy filtration $M_\bullet$, centered at weight $n$, coincides with the weight filtration from mixed Hodge theory. That is, on $H^n(X_t; \mathbb{Q})$:
-
 $$
 W_{n+j} = M_j.
-
 $$
 
 This has been proved in several important cases (by Deligne in equal characteristic, by Scholze for complete intersections in toric varieties).
@@ -653,10 +585,8 @@ At the sheaf level, $N$ acts as $N : R^n \Psi \mathbb{Q} \to R^n \Psi \mathbb{Q}
 Consider the family $f : X \to D$ defined by $X = \{(x_1, x_2, t) \in \mathbb{C}^2 \times D \mid x_1 x_2 = t\}$ with projection $(x_1, x_2, t) \mapsto t$. The special fiber $X_0 = \{x_1 x_2 = 0\}$ consists of the two coordinate axes meeting at the origin, and each generic fiber $X_t \cong \{x_1 x_2 = t\} \cong \mathbb{C}^{\times}$ for $t \neq 0$ is a smooth hyperbola.
 
 **Milnor fiber at the singular point.** The Milnor fiber $F_{\mathrm{pt}}$ at the origin $(0,0,0) \in X_0$ captures the local topology of the degeneration. Concretely, $F_{\mathrm{pt}}$ is the intersection of the generic fiber $\{x_1 x_2 = \epsilon\}$ with a small ball around the origin. For small $\epsilon \neq 0$, this set $\{(a, \epsilon/a) : a \in \mathbb{C}^{\times},\, |a|^2 + |\epsilon/a|^2 < r^2\}$ retracts onto the circle $|a| = |\epsilon|^{1/2}$. Therefore
-
 $$
 F_{\mathrm{pt}} \simeq S^1.
-
 $$
 
 **Milnor fiber at smooth points.** At any point $q \in X_0$ away from the origin, the family $f$ is a submersion (the singular locus of $f$ is precisely the origin), so the Milnor fiber is contractible: $F_q \simeq \{*\}$.
@@ -669,10 +599,8 @@ $$
 | origin | $S^1$ | $\mathbb{Z}$ | $\mathbb{Z}$ |
 
 As sheaves on $X_0$:
-
 $$
 R^0 \Psi \mathbb{Z} \cong \mathbb{Z}_{X_0}, \qquad R^1 \Psi \mathbb{Z} \cong \mathbb{Z}_{\mathrm{pt}},
-
 $$
 
 where $\mathbb{Z}_{X_0}$ is the constant sheaf and $\mathbb{Z}_{\mathrm{pt}}$ is the skyscraper sheaf supported at the origin.
@@ -684,26 +612,20 @@ The single nontrivial cycle in $H^1(F_{\mathrm{pt}}) = H^1(S^1) = \mathbb{Z}$ is
 ### Example: Dwork family of elliptic curves, need 'monodromy formula' {#ecag-0297}
 
 We compute the monodromy action on $H^1(X_t; \mathbb{Z})$ for the Dwork family
-
 $$
 f : X = \{(\epsilon, [x:y:z]) \in D \times \mathbb{P}^2 \mid \epsilon(x^3 + y^3 + z^3) = 3xyz\} \to D, \quad (\epsilon, [x:y:z]) \mapsto \epsilon.
-
 $$
 
 **The special fiber.** At $\epsilon = 0$, the equation becomes $3xyz = 0$, giving the union of three coordinate lines $L_1 = \{x=0\}$, $L_2 = \{y=0\}$, $L_3 = \{z=0\}$ in $\mathbb{P}^2$. These form a triangle with vertices
-
 $$
 P_1 = [1:0:0], \quad P_2 = [0:1:0], \quad P_3 = [0:0:1].
-
 $$
 
 For generic $\epsilon \neq 0$, the fiber $X_\epsilon$ is a smooth elliptic curve with $H^1(X_\epsilon; \mathbb{Z}) \cong \mathbb{Z}^2$.
 
 **Step 1: Nearby cycles sheaves.** At each vertex $P_i$, the singularity of $f$ is locally of the form $x_1 x_2 = t$ (an ordinary double point), so the Milnor fiber is $S^1$ and $R^1 \Psi \mathbb{Z}$ has stalk $\mathbb{Z}$ at each $P_i$. At smooth points of $X_0$, the family is locally trivial. Therefore:
-
 $$
 R^0 \Psi \mathbb{Z} \cong \mathbb{Z}_{X_0}, \qquad R^1 \Psi \mathbb{Z} \cong \bigoplus_{i=1}^{3} \mathbb{Z}_{P_i}.
-
 $$
 
 **Step 2: The nearby cycles spectral sequence.** The $E_2$-page of $H^p(X_0, R^q \Psi \mathbb{Z}) \Rightarrow H^{p+q}(X_t; \mathbb{Z})$ is:
@@ -716,60 +638,46 @@ $$
 Here $H^1(X_0, \mathbb{Z}) = \mathbb{Z}$: the triangle of three $\mathbb{P}^1$'s has first homology generated by the loop around the triangle. And $H^2(X_0, \mathbb{Z}) = \mathbb{Z}^3$: each irreducible component $L_i \cong \mathbb{P}^1$ contributes a fundamental class.
 
 The differential $d_2 : E_2^{0,1} = \mathbb{Z}^3 \to E_2^{2,0} = \mathbb{Z}^3$ must be compatible with convergence to $H^*(X_t)$ with $H^0 = \mathbb{Z}$, $H^1 = \mathbb{Z}^2$, $H^2 = \mathbb{Z}$. The resulting exact sequence is:
-
 $$
 0 \to H^1(X_0, \mathbb{Z}) \xrightarrow{\;i\;} H^1(X_t, \mathbb{Z}) \xrightarrow{\;p\;} H^0(X_0, R^1\Psi\mathbb{Z}) \xrightarrow{\;d_2\;} H^2(X_0, \mathbb{Z}) \to H^2(X_t, \mathbb{Z}) \to 0,
-
 $$
-
 $$
 0 \to \mathbb{Z} \xrightarrow{\;i\;} \mathbb{Z}^2 \xrightarrow{\;p\;} \mathbb{Z}^3 \xrightarrow{\;d_2\;} \mathbb{Z}^3 \to \mathbb{Z} \to 0.
-
 $$
 
 Since $\operatorname{im}(p) = \ker(d_2)$ has rank $2 - 1 = 1$, the map $d_2$ has rank 2.
 
 **Step 3: Monodromy form.** Choose a basis $\{e_1, e_2\}$ of $H^1(X_t; \mathbb{Z})$ where $e_1 = i(\text{generator of } H^1(X_0))$ and $e_2$ maps to a generator of $\ker(d_2) \subset H^0(X_0, R^1 \Psi \mathbb{Z})$. The monodromy $T$ acts trivially on $H^1(X_0)$ and on the stalks of $R^1 \Psi \mathbb{Z}$, so it has the form
-
 $$
 T = \begin{pmatrix} 1 & m \\ 0 & 1 \end{pmatrix}
-
 $$
 
 for some integer $m$.
 
 **Step 4: The monodromy formula.** There is a commutative diagram relating the two filtration steps of $H^1(X_t)$:
-
 $$
 \begin{array}{ccc}
 H^1(X_t, \mathbb{Z}) & \xrightarrow{\;p\;} & H^0(X_0, R^1\Psi\mathbb{Z}) \\
 \downarrow\, {1-T} & & \downarrow\, \overline{\alpha} \\
 H^1(X_t, \mathbb{Z}) & \xleftarrow{\;i\;} & H^1(X_0, \mathbb{Z})
 \end{array}
-
 $$
 
 where $\overline{\alpha}$ is the connecting homomorphism from the short exact sequence
-
 $$
 0 \to \mathbb{Z}_{X_0} \to \bigoplus_{i=1}^{3} \mathbb{Z}_{L_i} \to \bigoplus_{i=1}^{3} \mathbb{Z}_{P_i} \to 0.
-
 $$
 
 A Cech cohomology computation shows $\overline{\alpha}([P_i])$ equals the generator of $H^1(X_0, \mathbb{Z}) = \mathbb{Z}$ for each $i$.
 
 **Step 5: Exploiting the $\mathbb{Z}/3\mathbb{Z}$-symmetry.** The cyclic permutation $(x,y,z) \mapsto (y,z,x)$ acts on the Dwork family, permuting $P_1, P_2, P_3$ cyclically. Since $p$ is equivariant and $\operatorname{coker}(p) \cong \mathbb{Z}^2$ is torsion-free, the image $\operatorname{im}(p) \subset \mathbb{Z}^3$ is generated by the invariant element $[P_1] + [P_2] + [P_3]$. Therefore:
-
 $$
 \overline{\alpha}([P_1] + [P_2] + [P_3]) = 3 \in H^1(X_0, \mathbb{Z}) \cong \mathbb{Z}.
-
 $$
 
 From the commutative diagram, $(1-T)(e_2) = i(\overline{\alpha}(p(e_2))) = \pm 3 \cdot e_1$. Fixing orientations, the monodromy matrix is:
-
 $$
 T = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}.
-
 $$
 
 The monodromy index $m = 3$ equals the number of nodes in the special fiber. This is a general phenomenon for semistable degenerations of elliptic curves: the monodromy is unipotent with $m$ equal to the number of irreducible components in the Neron polygon of the special fiber.
@@ -781,10 +689,8 @@ The monodromy index $m = 3$ equals the number of nodes in the special fiber. Thi
 Every irreducible complex representation of an abelian group is 1-dimensional. This follows from Schur's lemma: if $\rho : G \to \operatorname{GL}(V)$ is an irreducible representation and $G$ is abelian, then $\rho(g)$ commutes with $\rho(h)$ for all $g, h \in G$, hence every $\rho(g)$ is an intertwining operator for $\rho$. Schur's lemma then forces $\rho(g)$ to be a scalar multiple of the identity, so every subspace of $V$ is $G$-invariant. Irreducibility then requires $\dim V = 1$.
 
 However, representations of abelian groups need not be semisimple (i.e., decompose as direct sums of irreducibles) unless the group is compact. The key example is $G = \mathbb{Z}$ with the representation
-
 $$
 \rho : \mathbb{Z} \to \operatorname{GL}_2(\mathbb{C}), \qquad 1 \mapsto \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.
-
 $$
 
 The subspace $\mathbb{C} \cdot \binom{1}{0}$ is invariant, but there is no complementary invariant subspace: if $\binom{a}{b}$ with $b \neq 0$ spanned a second invariant line, then $\rho(1) \binom{a}{b} = \binom{a+b}{b}$ would need to be a scalar multiple of $\binom{a}{b}$, forcing $b = 0$. So $\rho$ is indecomposable but reducible.

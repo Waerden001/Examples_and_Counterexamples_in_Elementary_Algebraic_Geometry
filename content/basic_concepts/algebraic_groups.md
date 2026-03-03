@@ -10,19 +10,15 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 The Zariski closure of an algebraic group inside an ambient variety need not be an algebraic group. The nodal cubic $C : y^2 = x^2(x+1)$ over a field $k$ provides a clean illustration: its smooth locus is isomorphic to $\mathbb{G}_m$, yet $C$ itself cannot carry any algebraic group structure because it is singular. This contrasts with the closure theorem for algebraic groups, which guarantees that the Zariski closure of an abstract subgroup $H \leq G$ inside an algebraic group $G$ is again a subgroup of $G$.
 
 **The nodal cubic and its singular point.** Consider the affine plane curve
-
 $$
 C : y^2 = x^2(x+1) \subset \mathbb{A}^2_k.
-
 $$
 
 Writing $f(x,y) = x^3 + x^2 - y^2$, the partial derivatives are $\partial f/\partial x = 3x^2 + 2x$ and $\partial f/\partial y = -2y$. Both vanish at the origin, so $(0,0)$ is a singular point. The tangent cone there is cut out by the lowest-degree homogeneous part of $f$, namely $x^2 - y^2 = (x-y)(x+y)$, which consists of two distinct lines (assuming $\operatorname{char}(k) \neq 2$). This confirms that $(0,0)$ is an ordinary node.
 
 **The smooth locus is $\mathbb{G}_m$.** Away from the node, introduce the parameter $t = y/x$. Then $t^2 = x + 1$, giving $x = t^2 - 1$ and $y = tx = t(t^2 - 1) = t^3 - t$. When $t \neq \pm 1$ (corresponding to $(x,y) \neq (0,0)$), this substitution is invertible. The map
-
 $$
 \varphi : \mathbb{G}_m \to C \setminus \{(0,0)\}, \qquad t \mapsto (t^2 - 1, \; t^3 - t)
-
 $$
 
 is an isomorphism of varieties. On the level of coordinate rings, $\mathcal{O}(C \setminus \{(0,0)\})$ is the localization of $k[x,y]/(y^2 - x^2(x+1))$ at the maximal ideal of the origin. Under $\varphi^*$, this ring is identified with $k[t, t^{-1}]$: the inverse map sends $t \mapsto y/x$, $t^{-1} \mapsto x(x+1)/y$ (using $y^2 = x^2(x+1)$ to verify $t \cdot t^{-1} = 1$). Under this identification, the group law on $\mathbb{G}_m$ corresponds to multiplication of the parameter $t$.
@@ -34,35 +30,27 @@ is an isomorphism of varieties. On the level of coordinate rings, $\mathcal{O}(C
 **Application: Zariski density of $\operatorname{SL}(2,\mathbb{Z})$ in $\operatorname{SL}(2,\mathbb{C})$.** The closure theorem gives a powerful method for proving density results. We show that $\overline{\operatorname{SL}(2,\mathbb{Z})}^{\mathrm{Zar}} = \operatorname{SL}(2,\mathbb{C})$ using the Bruhat decomposition.
 
 By the closure theorem, $\overline{\operatorname{SL}(2,\mathbb{Z})}$ is a closed subgroup of $\operatorname{SL}(2,\mathbb{C})$. We identify generators that lie in this closure. The matrices $\begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$ for $n \in \mathbb{Z}$ lie in $\operatorname{SL}(2,\mathbb{Z})$. Any polynomial $f(a)$ vanishing on all these matrices satisfies $f(n) = 0$ for all $n \in \mathbb{Z}$, hence $f = 0$. Therefore their Zariski closure is the full upper unipotent subgroup
-
 $$
 U_+ = \left\{ \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} : a \in \mathbb{C} \right\}.
-
 $$
 
 By the closure theorem (since $\overline{\operatorname{SL}(2,\mathbb{Z})}$ is a group), $U_+ \subset \overline{\operatorname{SL}(2,\mathbb{Z})}$. The same argument with $\begin{pmatrix} 1 & 0 \\ n & 1 \end{pmatrix}$ gives $U_- \subset \overline{\operatorname{SL}(2,\mathbb{Z})}$.
 
 To show the maximal torus $T = \left\{ \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix} : t \in \mathbb{C}^\times \right\}$ lies in $\overline{\operatorname{SL}(2,\mathbb{Z})}$, let $s = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \in \operatorname{SL}(2,\mathbb{Z})$ and compute, for any $a \in \mathbb{C}$ with $a \neq 0$:
-
 $$
 \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ -a^{-1} & 1 \end{pmatrix} \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & a \\ -a^{-1} & 1 \end{pmatrix} \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & a \\ -a^{-1} & 0 \end{pmatrix}.
-
 $$
 
 (The intermediate product has $(1,1)$-entry $1 + a(-a^{-1}) = 0$; the final $(2,2)$-entry is $(-a^{-1})(a) + 1 \cdot 1 = 0$.) This triple product lies in $\overline{\operatorname{SL}(2,\mathbb{Z})}$ since each factor belongs to $U_+$ or $U_-$. Now observe that
-
 $$
 s^{-1} \begin{pmatrix} 0 & a \\ -a^{-1} & 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \begin{pmatrix} 0 & a \\ -a^{-1} & 0 \end{pmatrix} = \begin{pmatrix} -a^{-1} & 0 \\ 0 & -a \end{pmatrix} = (-I) \begin{pmatrix} a^{-1} & 0 \\ 0 & a \end{pmatrix}.
-
 $$
 
 Since $s, -I \in \operatorname{SL}(2,\mathbb{Z})$ and $\overline{\operatorname{SL}(2,\mathbb{Z})}$ is a group, we conclude $\begin{pmatrix} a^{-1} & 0 \\ 0 & a \end{pmatrix} \in \overline{\operatorname{SL}(2,\mathbb{Z})}$ for all $a \neq 0$, i.e., $T \subset \overline{\operatorname{SL}(2,\mathbb{Z})}$.
 
 With $U_+$, $U_-$, and $T$ all contained in $\overline{\operatorname{SL}(2,\mathbb{Z})}$, the Bruhat decomposition completes the argument:
-
 $$
 \operatorname{SL}(2,\mathbb{C}) = B w_0 B \sqcup B
-
 $$
 
 where $B = TU_+$ is the upper Borel subgroup and $w_0 = s$ is the nontrivial Weyl group element. Since $T$ and $U_+$ both lie in $\overline{\operatorname{SL}(2,\mathbb{Z})}$, so does $B = TU_+$. The two Bruhat cells $BsB$ and $B$ are then both contained in $\overline{\operatorname{SL}(2,\mathbb{Z})}$ (using $s \in \operatorname{SL}(2,\mathbb{Z})$ and the fact that $\overline{\operatorname{SL}(2,\mathbb{Z})}$ is closed under multiplication), giving $\overline{\operatorname{SL}(2,\mathbb{Z})} = \operatorname{SL}(2,\mathbb{C})$.
@@ -84,10 +72,8 @@ Moreover, $\operatorname{SL}(2,\mathbb{Z}_5)$ is Zariski-dense in $\operatorname
 Any prime $p \equiv 1 \pmod{4}$ would work equally well, since $-1$ is a quadratic residue mod $p$ precisely when $p \equiv 1 \pmod{4}$ (by the first supplement to quadratic reciprocity). The choice $p = 5$ is simply the smallest such prime.
 
 **An open chart on $\operatorname{SL}_2$.** The map
-
 $$
 \psi : (\mathbb{A}^1 \setminus \{0\})^2 \times \mathbb{A}^1 \hookrightarrow \operatorname{SL}_2, \qquad (x, y, z) \mapsto \begin{pmatrix} x & y \\ z & \frac{1 + yz}{x} \end{pmatrix}
-
 $$
 
 is well-defined since the determinant equals $x \cdot \frac{1+yz}{x} - yz = 1$. Its image is the open subset $\{a_{11} \neq 0\} \cap \{a_{12} \neq 0\} \subset \operatorname{SL}_2$, which is Zariski-dense because $\operatorname{SL}_2$ is irreducible of dimension 3.
@@ -97,10 +83,8 @@ is well-defined since the determinant equals $x \cdot \frac{1+yz}{x} - yz = 1$. 
 Now we chain the density statements. Euclidean density implies Zariski density (a polynomial vanishing on a Euclidean-dense set vanishes identically), so $\operatorname{SL}(2,\mathbb{Q}(i))$ is Zariski-dense in $\operatorname{SL}(2,\mathbb{C})$. Since $\mathbb{Q}(i) \subset \mathbb{Q}_5$ and $\operatorname{SL}(2,\mathbb{Z})$ is Zariski-dense in $\operatorname{SL}(2,\mathbb{Q}_5)$, any polynomial vanishing on $\operatorname{SL}(2,\mathbb{Z})$ vanishes on $\operatorname{SL}(2,\mathbb{Q}_5)$, hence on $\operatorname{SL}(2,\mathbb{Q}(i))$, hence on $\operatorname{SL}(2,\mathbb{C})$. Therefore $\overline{\operatorname{SL}(2,\mathbb{Z})}^{\mathrm{Zar}} = \operatorname{SL}(2,\mathbb{C})$.
 
 **Verification.** We check the chain of inclusions is correct:
-
 $$
 \operatorname{SL}(2,\mathbb{Z}) \hookrightarrow \operatorname{SL}(2,\mathbb{Z}_5) \hookrightarrow \operatorname{SL}(2,\mathbb{Q}_5) \hookleftarrow \operatorname{SL}(2,\mathbb{Q}(i)) \hookrightarrow \operatorname{SL}(2,\mathbb{C}).
-
 $$
 
 The argument uses "Zariski-dense in" at each stage: the first two arrows are from strong approximation plus $p$-adic density, and the rightmost arrow is from Euclidean density of $\mathbb{Q}(i)$ in $\mathbb{C}$. The backward arrow $\operatorname{SL}(2,\mathbb{Q}(i)) \hookrightarrow \operatorname{SL}(2,\mathbb{Q}_5)$ uses that $\mathbb{Q}(i) \subset \mathbb{Q}_5$; the key subtlety is that we use Zariski density of $\operatorname{SL}(2,\mathbb{Z})$ in $\operatorname{SL}(2,\mathbb{Q}_5)$ to conclude vanishing of polynomials on $\operatorname{SL}(2,\mathbb{Q}(i))$ (since $\mathbb{Q}(i)$-points are a subset of $\mathbb{Q}_5$-points), and then Zariski density of $\operatorname{SL}(2,\mathbb{Q}(i))$ in $\operatorname{SL}(2,\mathbb{C})$ extends the vanishing to all of $\operatorname{SL}(2,\mathbb{C})$.
@@ -112,24 +96,18 @@ The argument uses "Zariski-dense in" at each stage: the first two arrows are fro
 In characteristic $p > 0$, the scheme $\operatorname{Spec}(k[x]/(x^p))$ underlies two fundamentally different group scheme structures. These arise as the kernels of the Frobenius endomorphism on $\mathbb{G}_m$ and $\mathbb{G}_a$ respectively, and they are distinguished entirely by their Hopf algebra structures.
 
 **The group schemes $\mu_p$ and $\alpha_p$.** Over a field $k$ of characteristic $p$, the Frobenius endomorphism $x \mapsto x^p$ is an endomorphism of both the multiplicative group $\mathbb{G}_m = \operatorname{Spec}(k[x, x^{-1}])$ and the additive group $\mathbb{G}_a = \operatorname{Spec}(k[x])$. Their kernels fit into exact sequences of group schemes:
-
 $$
 0 \to \mu_p \to \mathbb{G}_m \xrightarrow{x \mapsto x^p} \mathbb{G}_m \to 0,
-
 $$
-
 $$
 0 \to \alpha_p \to \mathbb{G}_a \xrightarrow{x \mapsto x^p} \mathbb{G}_a \to 0.
-
 $$
 
 As functors on $k$-algebras, $\mu_p(S) = \{ s \in S^\times : s^p = 1 \}$ (the $p$-th roots of unity in $S$) and $\alpha_p(S) = \{ s \in S : s^p = 0 \}$ (the $p$-nilpotent elements of $S$). These are represented by $\operatorname{Spec}(k[x]/(x^p - 1))$ and $\operatorname{Spec}(k[x]/(x^p))$ respectively.
 
 **Isomorphism of underlying schemes.** In characteristic $p$, the binomial theorem gives $x^p - 1 = (x-1)^p$, so the substitution $u = x - 1$ yields
-
 $$
 k[x]/(x^p - 1) \cong k[u]/(u^p).
-
 $$
 
 Thus $\mu_p$ and $\alpha_p$ have isomorphic underlying schemes --- both are $\operatorname{Spec}$ of a truncated polynomial ring of length $p$. As topological spaces, both consist of a single point (the unique prime ideal $(u)$), with structure sheaf $k[u]/(u^p)$.
@@ -146,19 +124,15 @@ Thus $\mu_p$ and $\alpha_p$ have isomorphic underlying schemes --- both are $\op
 One verifies that these are well-defined. For $\mu_p$: $\Delta(x)^p = x^p \otimes x^p = 1 \otimes 1$ in $A \otimes A$, so $\Delta$ factors through $A \otimes A$. For $\alpha_p$: $\Delta(x)^p = (x \otimes 1 + 1 \otimes x)^p = x^p \otimes 1 + 1 \otimes x^p = 0$ (the cross terms vanish since $\binom{p}{i} \equiv 0 \pmod{p}$ for $0 < i < p$), so $\Delta$ is well-defined on $k[x]/(x^p)$.
 
 **Non-isomorphism as group schemes.** To show $\mu_p \not\cong \alpha_p$, we prove that no $k$-algebra isomorphism $\varphi : k[u]/(u^p) \to k[u]/(u^p)$ can intertwine the two comultiplications. Under the substitution $u = x - 1$, the comultiplication of $\mu_p$ becomes
-
 $$
 \Delta_\mu(u) = \Delta_\mu(x) - 1 = x \otimes x - 1 \otimes 1 = (u+1) \otimes (u+1) - 1 = u \otimes 1 + 1 \otimes u + u \otimes u.
-
 $$
 
 For $\alpha_p$, the comultiplication is $\Delta_\alpha(u) = u \otimes 1 + 1 \otimes u$. So $\Delta_\mu$ and $\Delta_\alpha$ differ by the term $u \otimes u$.
 
 Any $k$-algebra automorphism of $k[u]/(u^p)$ has the form $\varphi(u) = a_1 u + a_2 u^2 + \cdots + a_{p-1} u^{p-1}$ with $a_1 \neq 0$ (since $\varphi$ must map the maximal ideal $(u)$ to itself and be an isomorphism). If $\varphi$ intertwined $\Delta_\mu$ with $\Delta_\alpha$, we would need
-
 $$
 (\varphi \otimes \varphi)(\Delta_\mu(u)) = \Delta_\alpha(\varphi(u)),
-
 $$
 
 i.e., $\varphi(u) \otimes 1 + 1 \otimes \varphi(u) + \varphi(u) \otimes \varphi(u) = \varphi(u) \otimes 1 + 1 \otimes \varphi(u)$, which forces $\varphi(u) \otimes \varphi(u) = 0$ in $k[u]/(u^p) \otimes k[u]/(u^p)$. But $\varphi(u) = a_1 u + \text{higher}$ with $a_1 \neq 0$, so $\varphi(u) \otimes \varphi(u)$ has leading term $a_1^2 (u \otimes u) \neq 0$. This is a contradiction.
@@ -172,24 +146,18 @@ Alternatively, one can distinguish $\mu_p$ from $\alpha_p$ by their Cartier dual
 Over a nonperfect field $k$ of characteristic $p > 0$, the closed subgroup scheme $G = V(x^p + \alpha y^p) \subset \mathbb{G}_{a,k}^2$ (where $\alpha \in k \setminus k^p$) is reduced and irreducible but nowhere smooth and not normal. This demonstrates that in positive characteristic, the implications "algebraic group $\Rightarrow$ smooth" and "reduced $\Rightarrow$ generically smooth" can both fail for group schemes over non-perfect base fields.
 
 **Setup and the subgroup scheme structure.** Let $k$ be a field of characteristic $p > 0$ with an element $\alpha \in k \setminus k^p$, and consider $\mathbb{G}_{a,k}^2 = \operatorname{Spec}(k[x,y])$ with the additive group law $(x,y) \mapsto (x_1 + x_2, \, y_1 + y_2)$. The comultiplication is $\Delta(x) = x \otimes 1 + 1 \otimes x$ and $\Delta(y) = y \otimes 1 + 1 \otimes y$. Define
-
 $$
 G = V(x^p + \alpha y^p) = \operatorname{Spec}\bigl(k[x,y]/(x^p + \alpha y^p)\bigr).
-
 $$
 
 To verify that $G$ is a closed subgroup scheme, we must check that the ideal $I = (x^p + \alpha y^p)$ is a Hopf ideal: it must be preserved by the comultiplication, counit, and antipode. For the comultiplication:
-
 $$
 \Delta(x^p + \alpha y^p) = (x \otimes 1 + 1 \otimes x)^p + \alpha(y \otimes 1 + 1 \otimes y)^p.
-
 $$
 
 In characteristic $p$, the Frobenius identity $(a + b)^p = a^p + b^p$ holds in any commutative ring (since $\binom{p}{i} \equiv 0 \pmod{p}$ for $0 < i < p$). Therefore
-
 $$
 \Delta(x^p + \alpha y^p) = (x^p + \alpha y^p) \otimes 1 + 1 \otimes (x^p + \alpha y^p),
-
 $$
 
 which lies in $I \otimes A + A \otimes I$ where $A = k[x,y]$. The counit sends $x, y \mapsto 0$, giving $\varepsilon(x^p + \alpha y^p) = 0$. The antipode sends $(x,y) \mapsto (-x,-y)$, giving $S(x^p + \alpha y^p) = (-x)^p + \alpha(-y)^p = -(x^p + \alpha y^p)$ (since $(-1)^p = -1$ in characteristic $p$, where $p$ is odd; for $p = 2$, $(-1)^2 = 1$ and $-(x^2 + \alpha y^2) = x^2 + \alpha y^2$ in characteristic 2, so the ideal is still preserved). Thus $G$ is a closed subgroup scheme of $\mathbb{G}_{a,k}^2$.
@@ -201,10 +169,8 @@ Now $g \in k[x,y]$ has degree $a$. The coefficient of $y^a$ in $g$ is $c(\alpha^
 Since $f$ is irreducible, the ideal $(f)$ is prime, and $G$ is integral (in particular, reduced and irreducible).
 
 **$G$ is nowhere smooth.** The Jacobian matrix of the single defining equation $f = x^p + \alpha y^p$ is
-
 $$
 \left(\frac{\partial f}{\partial x}, \; \frac{\partial f}{\partial y}\right) = \left(px^{p-1}, \; \alpha p y^{p-1}\right) = (0, \; 0)
-
 $$
 
 since $\operatorname{char}(k) = p$. The Jacobian vanishes identically on all of $\mathbb{A}^2_k$, not just on $G$. For a hypersurface $V(f) \subset \mathbb{A}^n$ to be smooth at a point, the Jacobian must have rank 1 at that point. Since it has rank 0 everywhere, $G$ is singular at every point, i.e., nowhere smooth over $k$.
@@ -212,10 +178,8 @@ since $\operatorname{char}(k) = p$. The Jacobian vanishes identically on all of 
 This is a purely inseparable phenomenon. Over a perfect field, the Frobenius is surjective, so $\alpha = \beta^p$ for some $\beta \in k$, and $x^p + \alpha y^p = (x + \beta y)^p$ is no longer irreducible --- the reduced scheme $V(x + \beta y)$ is a smooth line. The pathology arises precisely because $\alpha \notin k^p$.
 
 **$G$ is not normal.** In the fraction field $K = \operatorname{Frac}(k[x,y]/(x^p + \alpha y^p))$, consider the element $\xi = x/y$. This satisfies the monic polynomial equation
-
 $$
 \xi^p = \frac{x^p}{y^p} = \frac{-\alpha y^p}{y^p} = -\alpha \in k \subset k[x,y]/(f).
-
 $$
 
 So $\xi$ is integral over the coordinate ring $k[x,y]/(f)$ (it is a root of $T^p + \alpha \in k[T]$). However, $\xi = x/y$ does not lie in $k[x,y]/(f)$ itself: in $k[x,y]/(f)$, the element $y$ is not a unit (it vanishes at the origin of $G$), and $x$ is not divisible by $y$ (since $x$ and $y$ are algebraically independent modulo the relation $x^p = -\alpha y^p$, and no polynomial relation $x = y \cdot q(x,y)$ can hold modulo $f$ for degree reasons). Therefore the integral closure of $k[x,y]/(f)$ strictly contains $k[x,y]/(f)$, so $G$ is not normal.

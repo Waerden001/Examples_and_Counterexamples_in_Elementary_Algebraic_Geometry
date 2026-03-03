@@ -12,24 +12,18 @@ Let $k = \mathbf{F}_p(T)$ and $K = \mathbf{F}_p(T^{1/p})$. The scheme $\operator
 The extension $K/k$ is purely inseparable of degree $p$: the element $T^{1/p}$ satisfies the minimal polynomial $X^p - T \in k[X]$, which is irreducible over $k$ by Eisenstein's criterion at the prime $T$ in $\mathbf{F}_p[T]$ (then passing to the fraction field).
 
 The tensor product decomposes as
-
 $$
 K \otimes_k K \cong K[X]/(X^p - T) \cong K[X]/((X - T^{1/p})^p)
-
 $$
 
 since $X^p - T = (X - T^{1/p})^p$ in characteristic $p$. The element
-
 $$
 \alpha = 1 \otimes T^{1/p} - T^{1/p} \otimes 1
-
 $$
 
 corresponds to the residue class of $X - T^{1/p}$ in the quotient. This element is nonzero (since $X - T^{1/p}$ is not divisible by $(X - T^{1/p})^p$), but
-
 $$
 \alpha^p = (1 \otimes T^{1/p} - T^{1/p} \otimes 1)^p = 1 \otimes T - T \otimes 1 = 0
-
 $$
 
 because $T \in k$ and $1 \otimes t = t \otimes 1$ for all $t \in k$. So $\alpha$ is a nonzero nilpotent, and $\operatorname{Spec}(K \otimes_k K)$ is not reduced.
@@ -43,10 +37,8 @@ The obstruction to geometric reducedness is precisely that $k^{1/p} \not\subsete
 ### Example: Hartshorne $\operatorname{III}.12.4$ {#ecag-0006}
 
 Let $Y$ be an integral scheme of finite type over an algebraically closed field $k$, and let $f : X \to Y$ be a flat projective morphism whose fibres are integral schemes. If $L$ and $M$ are line bundles on $X$ with $L_y \cong M_y$ for every $y \in Y$, then there exists a line bundle $N$ on $Y$ such that
-
 $$
 L \cong M \otimes f^* N.
-
 $$
 
 Set $\mathscr{F} = L \otimes M^{-1}$. By hypothesis, $\mathscr{F}_y \cong \mathcal{O}_{X_y}$ for every $y \in Y$, so $h^0(X_y, \mathscr{F}_y) = 1$ for all $y$.
@@ -54,10 +46,8 @@ Set $\mathscr{F} = L \otimes M^{-1}$. By hypothesis, $\mathscr{F}_y \cong \mathc
 **The direct image is a line bundle.** By Grauert's theorem (Hartshorne III.12.9), since $f$ is a flat projective morphism between Noetherian schemes, $\mathscr{F}$ is coherent and flat over $Y$, and $y \mapsto h^0(X_y, \mathscr{F}_y) = 1$ is constant, the direct image $f_* \mathscr{F}$ is locally free of rank $1$. Integrality of the fibres is essential here: since each $X_y$ is connected and reduced, $H^0(X_y, \mathcal{O}_{X_y}) = k(y)$, ensuring the rank is exactly $1$ rather than higher. Set $N = f_* \mathscr{F}$.
 
 **The evaluation map is an isomorphism.** By cohomology and base change (applicable since $h^0$ is constant and $Y$ is integral), the natural map $f_* \mathscr{F} \otimes k(y) \to H^0(X_y, \mathscr{F}_y)$ is an isomorphism for each $y$. Since $\mathscr{F}_y \cong \mathcal{O}_{X_y}$ is globally generated, the evaluation map
-
 $$
 f^* f_* \mathscr{F} \to \mathscr{F}
-
 $$
 
 is surjective on each fibre. Both sides are line bundles on $X$ (the left side because $f^* N$ is a line bundle when $N$ is), and a surjection between line bundles is necessarily an isomorphism. Therefore $\mathscr{F} \cong f^* N$, giving $L \cong M \otimes f^* N$.
@@ -75,10 +65,8 @@ Apply the preceding argument with $\mathscr{F} = \mathcal{O}_X$. Each fibre $X_y
 ### Example: Fibres being integral is necessary; flatness matters {#ecag-0008}
 
 The conclusion $f_* \mathcal{O}_X \cong \mathcal{O}_Y$ can fail without flatness, even when fibres are connected. Consider the morphism
-
 $$
 f : X = \operatorname{Spec}(k[x,y]/(x^2, xy)) \to Y = \operatorname{Spec}(k[y])
-
 $$
 
 induced by $k[y] \hookrightarrow k[x,y]/(x^2, xy)$, $y \mapsto y$.
@@ -106,19 +94,15 @@ The morphism $f$ is not proper: $\operatorname{Spec}(k(x))$ is not even of finit
 Let $f : X = \coprod_{i=1}^{\infty} \operatorname{Spec}(\mathbb{Z}) \to S = \operatorname{Spec}(\mathbb{Z})$ be the fold map (identity on each component). We show that $f_* \mathcal{O}_X$ is not quasi-coherent on $S$.
 
 For any open $U \subseteq S$, we have $f_* \mathcal{O}_X(U) = \prod_{i=1}^{\infty} \mathcal{O}_S(U)$. Quasi-coherence on $S = \operatorname{Spec}(\mathbb{Z})$ requires $\mathscr{F}(D(a)) \cong \mathscr{F}(S) \otimes_\mathbb{Z} \mathbb{Z}[1/a]$ for every $a$. Testing at $a = 2$: the global sections are $f_* \mathcal{O}_X(S) = \prod_{i=1}^{\infty} \mathbb{Z}$ and the sections over $D(2)$ are $f_* \mathcal{O}_X(D(2)) = \prod_{i=1}^{\infty} \mathbb{Z}[1/2]$. If $f_* \mathcal{O}_X$ were quasi-coherent, the natural map
-
 $$
 \left(\prod_{i=1}^{\infty} \mathbb{Z}\right) \otimes_{\mathbb{Z}} \mathbb{Z}[1/2] \to \prod_{i=1}^{\infty} \mathbb{Z}[1/2]
-
 $$
 
 would be an isomorphism. Every element of the left-hand side can be written as $(a_i)_i \otimes 2^{-M}$ for some fixed $M$, giving entries $a_i / 2^M$ with a uniform bound on the power of $2$ in the denominator. But the right-hand side contains sequences like $(1/2, 1/4, 1/8, \ldots, 1/2^n, \ldots)$ where the denominators grow without bound. Such a sequence is not in the image, so the map is not surjective.
 
 **A second example.** On $\mathbb{A}^1_k = \operatorname{Spec}(k[t])$, define a sheaf by
-
 $$
 \mathscr{F}(U) = \begin{cases} \mathcal{O}_X(U) & \text{if } 0 \notin U, \\ 0 & \text{if } 0 \in U. \end{cases}
-
 $$
 
 This is a sheaf (restriction maps and gluing are easily verified). The global sections vanish since $0 \in \mathbb{A}^1_k$, yet $\mathscr{F}$ is not the zero sheaf (it has nonzero sections on opens avoiding the origin). A quasi-coherent sheaf with zero global sections on an affine scheme must be zero, so $\mathscr{F}$ is not quasi-coherent.
@@ -132,17 +116,13 @@ Quasi-coherence of $f_* \mathscr{F}$ requires conditions on $f$: the standard su
 Let $f : \mathbb{P}^1_k \to \operatorname{Spec}(k)$ be the structure morphism and $\mathscr{F} = \mathcal{O}_{\mathbb{P}^1_k}(-2)$. We compute $H^1$ via two different routes and find they disagree.
 
 **Via $f_*$.** Since $H^0(\mathbb{P}^1_k, \mathcal{O}(-2)) = 0$ (a line bundle of negative degree on $\mathbb{P}^1$ has no nonzero global sections), the push-forward is $f_* \mathcal{O}(-2) = 0$ as a sheaf on $\operatorname{Spec}(k)$. Therefore
-
 $$
 H^1(\operatorname{Spec}(k),\, f_* \mathcal{O}_{\mathbb{P}^1_k}(-2)) = 0.
-
 $$
 
 **Directly on $\mathbb{P}^1_k$.** The canonical bundle is $\omega_{\mathbb{P}^1} \cong \mathcal{O}(-2)$. By Serre duality,
-
 $$
 H^1(\mathbb{P}^1_k, \mathcal{O}(-2)) \cong H^0(\mathbb{P}^1_k, \mathcal{O})^\vee \cong k^\vee \cong k \neq 0.
-
 $$
 
 Alternatively, from the Cech computation with the standard cover $U_0 = D_+(x)$, $U_1 = D_+(y)$: the group $H^1(\mathbb{P}^1_k, \mathcal{O}(-2))$ is the $k$-vector space spanned by the class of $x^{-1}y^{-1}$, which is $1$-dimensional.
@@ -158,10 +138,8 @@ Two standard preservation results for quasi-coherent sheaves under push-forward:
 If $f : X \to Y$ is a morphism with $X$ Noetherian (or more generally, $f$ quasi-compact and quasi-separated), then $f_* \mathscr{F}$ is quasi-coherent on $Y$ for any quasi-coherent $\mathscr{F}$ on $X$.
 
 If moreover $X$ is separated and Noetherian, then Cech cohomology agrees with derived functor cohomology: for any quasi-coherent sheaf $\mathscr{F}$ on $X$ and any open affine cover $\mathfrak{U}$ of $X$,
-
 $$
 \check{H}^p(\mathfrak{U}, \mathscr{F}) = H^p(X, \mathscr{F})
-
 $$
 
 for all $p \geq 0$. The key input is Leray's theorem: on a separated Noetherian scheme, intersections of affine opens are affine (by separatedness), so affine opens form a Leray cover for quasi-coherent sheaves (since quasi-coherent sheaves are acyclic on affine schemes by Serre's theorem).
@@ -187,17 +165,13 @@ Several fundamental results govern when direct images preserve finiteness. We st
 ### Example: Push-forward of a trivial bundle might not be trivial {#ecag-0014}
 
 Let $f : \mathbb{P}^1 \to \mathbb{P}^1$ be the degree-2 map $[x : y] \mapsto [x^2 : y^2]$. Since $f$ is finite and flat of degree 2, the push-forward $f_* \mathcal{O}_{\mathbb{P}^1}$ is locally free of rank 2. By Grothendieck's splitting theorem, every vector bundle on $\mathbb{P}^1$ decomposes as a direct sum of line bundles:
-
 $$
 f_* \mathcal{O}_{\mathbb{P}^1} \cong \mathcal{O}(a) \oplus \mathcal{O}(b)
-
 $$
 
 for some $a, b \in \mathbb{Z}$. We determine $a$ and $b$ using the projection formula: for any $n \in \mathbb{Z}$,
-
 $$
 H^0(\mathbb{P}^1, \mathcal{O}(n) \otimes f_* \mathcal{O}) \cong H^0(\mathbb{P}^1, f^* \mathcal{O}(n)) = H^0(\mathbb{P}^1, \mathcal{O}(2n))
-
 $$
 
 since $f^* \mathcal{O}(1) \cong \mathcal{O}(2)$ (pulling back along a degree-2 map doubles the degree). The left side gives $h^0(\mathcal{O}(n+a)) + h^0(\mathcal{O}(n+b))$.
@@ -209,10 +183,8 @@ since $f^* \mathcal{O}(1) \cong \mathcal{O}(2)$ (pulling back along a degree-2 m
 | $1$ | $h^0(\mathcal{O}(2)) = 3$ | $h^0(\mathcal{O}(1+a)) + h^0(\mathcal{O}(1+b)) = 3$ | Determines the other |
 
 From $n = -1$: both $a, b \leq 0$. From $n = 0$: exactly one equals $0$; say $a = 0$, then $h^0(\mathcal{O}(b)) = 0$ forces $b < 0$. From $n = 1$: $2 + h^0(\mathcal{O}(1 + b)) = 3$, so $h^0(\mathcal{O}(1 + b)) = 1$, giving $b = -1$. Therefore
-
 $$
 f_* \mathcal{O}_{\mathbb{P}^1} \cong \mathcal{O}_{\mathbb{P}^1} \oplus \mathcal{O}_{\mathbb{P}^1}(-1).
-
 $$
 
 The trivial bundle $\mathcal{O}_{\mathbb{P}^1}$ acquires a nontrivial summand under push-forward. Grothendieck's splitting theorem reduces the identification to a finite computation of global sections, which the projection formula translates to cohomology on the source.
@@ -222,10 +194,8 @@ The trivial bundle $\mathcal{O}_{\mathbb{P}^1}$ acquires a nontrivial summand un
 ### Remark: Good things happen sometimes {#ecag-0015}
 
 In favorable situations, push-forwards of structure sheaves of divisors decompose simply. Let $k$ be algebraically closed, $f : X \to Y$ a finite morphism between smooth projective curves, and $D = \sum n_i p_i$ an effective divisor on $X$. Define $f_* D = \sum n_i f(p_i)$ as a divisor on $Y$. Then
-
 $$
 f_* \mathcal{O}_D \cong \mathcal{O}_{f_* D}.
-
 $$
 
 Here $\mathcal{O}_D = \mathcal{O}_X / \mathcal{O}_X(-D)$ is the structure sheaf of the subscheme defined by $D$, a skyscraper sheaf supported at the points $p_i$. Since $f$ is finite, $f_*$ on skyscraper sheaves simply relocates stalks: the stalk of $f_* \mathcal{O}_D$ at $q \in Y$ is $\bigoplus_{f(p_i) = q} \mathcal{O}_{X, p_i} / \mathfrak{m}_{p_i}^{n_i} \cong \bigoplus_{f(p_i) = q} k[t]/(t^{n_i})$. Over an algebraically closed field with distinct image points, this coincides with $\mathcal{O}_{f_* D}$ at $q$.
@@ -235,10 +205,8 @@ Here $\mathcal{O}_D = \mathcal{O}_X / \mathcal{O}_X(-D)$ is the structure sheaf 
 ### Example: $f^{*}f_{*}\mathscr{F}$ and $f_{*}f^{*}\mathscr{G}$ {#ecag-0016}
 
 For a morphism $f : X \to Y$, the functors $(f^*, f_*)$ form an adjoint pair, with natural transformations
-
 $$
 \varepsilon : f^* f_* \mathscr{F} \to \mathscr{F} \quad \text{(counit)}, \qquad \eta : \mathscr{G} \to f_* f^* \mathscr{G} \quad \text{(unit)}.
-
 $$
 
 We make these explicit in two settings.
@@ -246,28 +214,22 @@ We make these explicit in two settings.
 **Affine case.** Let $f : \operatorname{Spec}(A) \to \operatorname{Spec}(B)$ correspond to a ring map $\varphi : B \to A$, $M$ an $A$-module, and $N$ a $B$-module. Write $M_B$ for $M$ viewed as a $B$-module via $\varphi$.
 
 The counit is induced by the multiplication map
-
 $$
 A \otimes_B M_B \to M, \qquad a \otimes m \mapsto am.
-
 $$
 
 This is surjective (every $m \in M$ equals $1 \otimes m$), but typically not injective: the tensor product is over $B$, not $A$, so distinct simple tensors can collapse. For example, if $A = k[x]$, $B = k$, and $M = k[x]$, then $A \otimes_B M_B = k[x] \otimes_k k[x]$, which has dimension $> \dim_k k[x]$ in each graded piece.
 
 The unit is
-
 $$
 N \to (A \otimes_B N)_B, \qquad n \mapsto 1 \otimes n.
-
 $$
 
 This is injective when $\varphi : B \to A$ is faithfully flat.
 
 **Case $Y = \operatorname{Spec}(k)$.** For a coherent sheaf $\mathscr{F}$ on $X$, the push-forward $f_* \mathscr{F} = H^0(X, \mathscr{F})$ is a $k$-vector space, and
-
 $$
 f^* f_* \mathscr{F} = \mathcal{O}_X \otimes_k H^0(X, \mathscr{F}) \cong \mathcal{O}_X^{\oplus h^0(X, \mathscr{F})}.
-
 $$
 
 The counit $\mathcal{O}_X \otimes_k H^0(X, \mathscr{F}) \to \mathscr{F}$ is the evaluation map $g \otimes s \mapsto g \cdot s$. This is surjective precisely when $\mathscr{F}$ is globally generated.
@@ -283,24 +245,18 @@ The counit measures how far $\mathscr{F}$ is from being generated by its global 
 When $f : X \to Y$ is a finite etale Galois cover with Galois group $G$ (so $G$ acts on $X$ over $Y$ and $Y \cong X/G$), the adjunction maps yield explicit decompositions.
 
 **Pull-back of push-forward.** For a coherent sheaf $\mathscr{F}$ on $X$:
-
 $$
 f^* f_* \mathscr{F} \cong \bigoplus_{g \in G} g^* \mathscr{F}.
-
 $$
 
 This follows from the fibre product decomposition $X \times_Y X \cong \coprod_{g \in G} X$ (a defining property of Galois covers) and flat base change:
-
 $$
 f^* f_* \mathscr{F} \cong \operatorname{pr}_{1*}(\operatorname{pr}_2^* \mathscr{F}) \cong \bigoplus_{g \in G} g^* \mathscr{F}.
-
 $$
 
 **Push-forward of pull-back.** For a coherent sheaf $\mathscr{G}$ on $Y$:
-
 $$
 f_* f^* \mathscr{G} \cong \mathscr{G}^{\oplus |G|}.
-
 $$
 
 By the projection formula, $f_* f^* \mathscr{G} \cong \mathscr{G} \otimes f_* \mathcal{O}_X$. For an etale Galois cover, $f_* \mathcal{O}_X$ is a locally free $\mathcal{O}_Y$-module of rank $|G|$, decomposing (after passage to representations) according to the regular representation of $G$.
@@ -340,10 +296,8 @@ The rigidity here is purely ring-theoretic: the condition $1 \mapsto 1$ pins dow
 Consider $f : X = \operatorname{Spec}(\mathbb{Q}) \to Y = \operatorname{Spec}(\mathbb{Z})$ and the $\mathbb{Z}$-module $M = \mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$, defining a coherent sheaf $\mathscr{F} = \widetilde{M}$ on $Y$.
 
 **The pullback is free.** We compute
-
 $$
 f^* \mathscr{F} = \widetilde{M \otimes_\mathbb{Z} \mathbb{Q}} = \widetilde{(\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}) \otimes_\mathbb{Z} \mathbb{Q}}.
-
 $$
 
 Since $\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Q} \cong \mathbb{Q}$ and $\mathbb{Z}/2\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Q} = 0$ (torsion modules tensor to zero with $\mathbb{Q}$: for any $\bar{a} \otimes q$, we have $\bar{a} \otimes q = \bar{a} \otimes 2 \cdot (q/2) = 2\bar{a} \otimes (q/2) = 0$), we get $f^* \mathscr{F} \cong \widetilde{\mathbb{Q}}$, free of rank 1.
@@ -359,33 +313,25 @@ Since $\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Q} \cong \mathbb{Q}$ and $\mathbb{Z
 Let $Y = \operatorname{Spec}(k[x]/(x^2))$ be the spectrum of the dual numbers and $f : X = \mathbb{P}^1_Y \to Y$ the projection. We construct a vector bundle $E$ on $X$, flat over $Y$, such that $f_* E$ is not locally free -- even though $h^0(X_y, E_y)$ is constant. This shows the hypothesis that $Y$ be integral (or at least reduced) in the cohomology-and-base-change theorem is essential.
 
 **Construction via extensions.** The Euler exact sequence on $\mathbb{P}^1_Y$ and Serre duality give
-
 $$
 \operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1_Y}, \mathcal{O}_{\mathbb{P}^1_Y}(-2)) = H^1(\mathbb{P}^1_Y, \mathcal{O}_{\mathbb{P}^1_Y}(-2)) \cong k[x]/(x^2).
-
 $$
 
 Choose the extension class $x \in k[x]/(x^2)$ (nonzero but nilpotent) to get
-
 $$
 0 \to \mathcal{O}_{\mathbb{P}^1_Y}(-2) \to E \to \mathcal{O}_{\mathbb{P}^1_Y} \to 0.
-
 $$
 
 The middle term $E$ is locally free of rank 2 on $\mathbb{P}^1_Y$ (an extension of locally free sheaves on a smooth scheme is locally free) and flat over $Y$.
 
 **Computing $f_* E$.** Apply $f_*$ to the short exact sequence. The relevant portion of the long exact cohomology sequence is
-
 $$
 H^0(\mathbb{P}^1_Y, \mathcal{O}) \xrightarrow{\delta} H^1(\mathbb{P}^1_Y, \mathcal{O}(-2)),
-
 $$
 
 where $\delta$ is multiplication by the extension class $x$. Both $H^0$ and $H^1$ are isomorphic to $k[x]/(x^2)$, and the connecting map is
-
 $$
 \delta : k[x]/(x^2) \xrightarrow{\cdot\, x} k[x]/(x^2).
-
 $$
 
 Therefore $H^0(\mathbb{P}^1_Y, E) = \ker(\delta) = (x) \subset k[x]/(x^2)$. As a $k[x]/(x^2)$-module, $(x) \cong k$ (since $x \cdot x = 0$). This has length 1, while a free module of rank 1 has length 2. So $f_* E \cong \widetilde{k}$ is not locally free on $Y$.
@@ -399,19 +345,15 @@ Over a non-reduced base, the extension class can be nilpotent but nonzero, creat
 ### Remark: $\operatorname{Ext}^{1}$ and connecting maps in extensions {#ecag-0022}
 
 Given an exact sequence of coherent sheaves on a scheme $X$,
-
 $$
 0 \to \mathscr{F} \to \mathscr{E} \to \mathscr{G} \to 0,
-
 $$
 
 with extension class $e \in \operatorname{Ext}^1(\mathscr{G}, \mathscr{F})$, the connecting homomorphisms in the long exact cohomology sequence are governed by $e$ via the Yoneda product.
 
 **Connecting map as cup product.** For $\alpha \in H^i(X, \mathscr{G})$, the connecting homomorphism $\delta^i : H^i(X, \mathscr{G}) \to H^{i+1}(X, \mathscr{F})$ is
-
 $$
 \delta^i(\alpha) = e \cup \alpha \in H^{i+1}(X, \mathscr{F}).
-
 $$
 
 When $i = 0$, the map $\delta^0 : H^0(X, \mathscr{G}) \to H^1(X, \mathscr{F})$ sends a global section $s$ of $\mathscr{G}$ to the obstruction class for lifting $s$ to a global section of $\mathscr{E}$.
@@ -427,10 +369,8 @@ In ecag-0021, the connecting map $\delta^0$ was multiplication by the extension 
 ### Example: Pulling back a line bundle along a translation on an elliptic curve {#ecag-0023}
 
 Let $E$ be an elliptic curve over an algebraically closed field $k$ with origin $O$, and let $\tau_a : E \to E$ denote translation by $a \in E$. For any point $p \in E$,
-
 $$
 \tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p - a),
-
 $$
 
 and $\mathcal{O}_E(p) \cong \mathcal{O}_E(q)$ if and only if $p = q$. In particular, $\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p)$ for all $p$ if and only if $a = O$.
