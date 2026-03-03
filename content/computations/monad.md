@@ -10,9 +10,17 @@ $$
 0\rightarrow \mathcal{O}_{\Sigma_{n}}(-1, 0)\rightarrow \pi^{*}(\mathcal{E}^{\vee})\rightarrow T_{\Sigma_{n}/\mathbf{P}^1}(-1,0)\rightarrow 0.
 $$
 
+
+$$
+$$
+
 \begin{align*}\Omega_{\Sigma_{n}/\mathbf{P}^1}&=\mathcal{O}_{\Sigma_{n}}(-2, 0)\otimes \pi^{*}(\det \mathcal{E})=\mathcal{O}_{\Sigma_{n}}(-2,n)\\
 T_{\Sigma_{n}/\mathbf{P}^1}&=\mathcal{O}_{\Sigma_{n}}(2,-n)\\
 \omega_{\Sigma_{n}}&=\mathcal{O}_{\Sigma_{n}}(-2, n-2).\end{align*}
+
+$$
+$$
+
 For later computations, we need the following lemmata.
 
 ### Lemma {#ecag-0240}
@@ -97,11 +105,19 @@ $$
 
 $$
 For $p = 0$, the first sheaf vanishes and $\wedge^0\mathcal{G}^\vee \otimes p_1^*\mathcal{E} = p_1^*\mathcal{E}$. For $p = -2$, the last sheaf vanishes and $\wedge^2\mathcal{G}^\vee \otimes p_1^*\mathcal{E} = \mathcal{E}(-1,n-1) \boxtimes \mathcal{O}_{\Sigma_n}(-1,-1)$. Taking the associated long exact sequences in higher direct images yields
+$$
+
+
+$$
 \begin{align}
 &E_{1}^{0,q}= \mathrm{H}^{q}(\mathcal{E})\otimes \mathcal{O}_{\Sigma_{n}}(0,0)\\
 \dots\rightarrow \mathrm{H}^{q}(\mathcal{E}(0, -1))\otimes \mathcal{O}_{\Sigma_{n}}(0, -1)\rightarrow &E_{1}^{-1, q}\rightarrow \mathrm{H}^{q}(\mathcal{E}(-1, n))\otimes \mathcal{O}_{\Sigma_{n}}(-1, 0)\rightarrow \dots \\
 &E_{1}^{-2, q}= \mathrm{H}^{q}(\mathcal{E}(-1, n-1))\otimes \mathcal{O}_{\Sigma_{n}}(-1,-1).
 \end{align}
+$$
+
+
+$$
 <!-- BENCHMARK_PROBLEM: On $\Sigma_n$, explain why using $p_{2*}(p_1^*\mathcal{E}\otimes\mathcal{O}_\Delta)$ rather than $p_{1*}(p_2^*\mathcal{E}\otimes\mathcal{O}_\Delta)$ gives better vanishing on the $E_1$-page of the Beilinson spectral sequence. Which specific cohomology groups vanish in one convention but not necessarily in the other? -->
 ### Lemma {#ecag-0243}
 Let $\mathcal{E}$ be a torsion-free sheaf on $\Sigma_n$ that is trivial at infinity, meaning $\mathcal{E}|_E \cong \mathcal{O}_E^{\oplus r}$ where $E$ is the negative section. The triviality condition controls the fiberwise splitting type and forces cohomological vanishing in two complementary ranges:
