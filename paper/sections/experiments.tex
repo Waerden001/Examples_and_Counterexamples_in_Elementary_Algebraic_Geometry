@@ -6,20 +6,23 @@ We report results from a pilot evaluation designed to establish initial baseline
 \subsection{Evaluation Setup}
 
 \paragraph{Model.}
-We evaluate Claude Opus~4~\citep{anthropic2024claude}, a frontier language model from Anthropic, using the API with temperature~0 and a maximum output length of 4{,}096 tokens.
+We evaluate Claude Sonnet~4.6~\citep{anthropic2024claude}, a frontier language model from Anthropic, using the Claude Code CLI (\texttt{claude -p}) in print mode with default settings.
 We focus on a single strong model to enable deep qualitative analysis rather than superficial comparison across many models; multi-model evaluation is planned for future work.
 
 \paragraph{Subset selection.}
-From the full 332-problem benchmark, we select a stratified random subset of 50 problems.
-The stratification ensures proportional representation across chapter, difficulty level, and question type, with a minimum of 12 counterexample problems to provide statistical power for the examples-versus-counterexamples comparison.
-The resulting subset contains 36 examples, 12 counterexamples, 1 computation, and 1 proof, distributed as: 24 Basic Concepts, 10 Computations, 9 Moduli, 7 Cohomology; and 12 Level~1, 35 Level~2, 3 Level~3.
+From the full 332-problem benchmark, we select a stratified random subset of 100 problems.
+The stratification ensures proportional representation across chapter, difficulty level, and question type, with minimum constraints of 20 counterexample problems, 20 Level~1 problems, and 10 Level~3 problems (when available) to provide statistical power for key comparisons.
+The resulting subset contains 70 examples, 23 counterexamples, 4 computations, and 3 proofs, distributed as: 47 Basic Concepts, 21 Computations, 17 Moduli, 15 Cohomology; and 22 Level~1, 67 Level~2, 11 Level~3.
 
 \paragraph{Prompt.}
 Each problem is presented using the prompt template described in Section~\ref{sec:benchmark} (full prompt in Appendix~\ref{app:prompt}).
 
 \paragraph{Scoring.}
-All 50 responses were scored by a human expert in algebraic geometry using the 0/0.5/1 scale.
-Each incorrect or partially correct response was additionally tagged with a failure mode (F1--F6, defined in Section~\ref{sec:analysis}).
+Responses were scored using a two-stage pipeline.
+First, an automated LLM-based scorer evaluated each response against the known solution using the 0/0.5/1 scale.
+The scorer was presented with the problem, known solution, and model response, and asked to classify the response as correct (1.0), partially correct (0.5), or incorrect (0.0), along with a failure mode classification (F1--F6, defined in Section~\ref{sec:analysis}).
+Problems where the model timed out (no response within 600 seconds) were automatically scored as 0.0.
+We discuss the limitations of this scoring approach in Section~\ref{sec:conclusion}.
 
 \subsection{Pilot Results}
 
@@ -28,24 +31,29 @@ Table~\ref{tab:pilot-results} presents the pilot results by difficulty level.
 
 \begin{table}[h]
 \centering
-\caption{Pilot evaluation results: Claude Opus~4 on 50-problem stratified subset. Accuracy is the proportion of scores $= 1.0$; Partial includes scores $= 0.5$.}
+\caption{Pilot evaluation results: Claude Sonnet~4.6 on 100-problem stratified subset. Accuracy is the proportion of scores $= 1.0$; Partial includes scores $= 0.5$. Eighteen problems timed out (counted as Incorrect).}
 \label{tab:pilot-results}
 \begin{tabular}{lccccc}
 \toprule
 & \textbf{$n$} & \textbf{Correct} & \textbf{Partial} & \textbf{Incorrect} & \textbf{Accuracy} \\
 \midrule
-Overall & 50 & 17 & 8 & 25 & 0.34 \\
+Overall & 100 & 78 & 4 & 18 & 0.78 \\
 \midrule
-Level 1 (Routine) & 12 & 7 & 2 & 3 & 0.58 \\
-Level 2 (Non-trivial) & 35 & 10 & 5 & 20 & 0.29 \\
-Level 3 (Deep) & 3 & 0 & 1 & 2 & 0.00 \\
+Level 1 (Routine) & 22 & 21 & 0 & 1 & 0.95 \\
+Level 2 (Non-trivial) & 67 & 54 & 1 & 12 & 0.81 \\
+Level 3 (Deep) & 11 & 3 & 3 & 5 & 0.27 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The overall accuracy of 34\% confirms that constructive algebraic geometry reasoning is a significant challenge for frontier models.
-Performance degrades monotonically with difficulty: 58\% at Level~1, 29\% at Level~2, and 0\% at Level~3 (though the Level~3 sample is small).
-Including partial credit, the model achieves a score $\geq 0.5$ on 50\% of problems.
+The overall accuracy of 78\% masks a steep difficulty gradient: 95\% at Level~1, 81\% at Level~2, and 27\% at Level~3.
+The 68-percentage-point drop from Level~1 to Level~3 demonstrates that \ecagbench{} effectively discriminates between routine graduate-level constructions and deep problems requiring synthesis of multiple results.
+Including partial credit, the model achieves an average score of 80\%.
+
+\paragraph{Timeout analysis.}
+Of the 100 problems, 18 (18\%) timed out without producing a response within 600 seconds.
+The timeout rate increases steeply with difficulty: 4.5\% at Level~1, 17.9\% at Level~2, and 45.5\% at Level~3.
+Among the 82 problems that received responses, the accuracy is 95.1\% (78/82), suggesting that when the model can respond, it tends to produce correct constructions---but harder problems more frequently cause the model to fail silently.
 
 \paragraph{Performance by question type.}
 Table~\ref{tab:pilot-by-type} reveals a pronounced gap between examples and counterexamples.
@@ -58,17 +66,17 @@ Table~\ref{tab:pilot-by-type} reveals a pronounced gap between examples and coun
 \toprule
 \textbf{Question Type} & \textbf{$n$} & \textbf{Correct} & \textbf{Partial} & \textbf{Incorrect} & \textbf{Accuracy} \\
 \midrule
-Example & 36 & 14 & 6 & 16 & 0.39 \\
-Counterexample & 12 & 3 & 1 & 8 & 0.25 \\
-Computation & 1 & 0 & 1 & 0 & 0.00 \\
-Proof & 1 & 0 & 0 & 1 & 0.00 \\
+Example & 70 & 56 & 1 & 13 & 0.80 \\
+Counterexample & 23 & 15 & 3 & 5 & 0.65 \\
+Computation & 4 & 4 & 0 & 0 & 1.00 \\
+Proof & 3 & 3 & 0 & 0 & 1.00 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The model achieves 39\% accuracy on examples but only 25\% on counterexamples---a gap of 14 percentage points.
-This gap, while based on a small sample, is consistent with our hypothesis that counterexample construction requires deeper understanding of theorem boundaries (Section~\ref{sec:dual-structure}).
-On the 12 counterexample problems, the most common failure mode is F2 (property confusion, 5 of 8 incorrect responses): the model constructs a valid object but fails to correctly identify or verify the property that should be violated.
+The model achieves 80\% accuracy on examples but only 65\% on counterexamples---a gap of 15 percentage points.
+This gap is consistent with our hypothesis that counterexample construction requires deeper understanding of theorem boundaries (Section~\ref{sec:dual-structure}).
+Among the 4 partial-credit responses, 3 were on counterexample problems, further suggesting that counterexamples elicit more fragile reasoning.
 
 \paragraph{Performance by chapter.}
 Table~\ref{tab:pilot-by-chapter} shows results across the four represented chapters.
@@ -81,47 +89,46 @@ Table~\ref{tab:pilot-by-chapter} shows results across the four represented chapt
 \toprule
 \textbf{Chapter} & \textbf{$n$} & \textbf{Correct} & \textbf{Accuracy} & \textbf{Partial rate} \\
 \midrule
-Basic Concepts & 24 & 10 & 0.42 & 0.17 \\
-Computations & 10 & 3 & 0.30 & 0.20 \\
-Moduli & 9 & 2 & 0.22 & 0.11 \\
-Cohomology & 7 & 2 & 0.29 & 0.14 \\
+Cohomology & 15 & 14 & 0.93 & 0.00 \\
+Basic Concepts & 47 & 37 & 0.79 & 0.04 \\
+Computations & 21 & 16 & 0.76 & 0.00 \\
+Moduli & 17 & 11 & 0.65 & 0.12 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Basic Concepts has the highest accuracy (42\%), likely reflecting greater representation in training data and the more elementary nature of the constructions.
-Moduli \& Deformation has the lowest accuracy (22\%), consistent with its advanced standing in the algebraic geometry curriculum and the sophistication of the constructions required (e.g., describing tangent spaces to moduli functors, constructing versal deformations).
+Cohomology has the highest accuracy (93\%), possibly reflecting the structured and well-documented nature of cohomological computations.
+Moduli \& Deformation has the lowest accuracy (65\%) and the highest partial-credit rate (12\%), consistent with the more abstract and less standardized nature of the constructions required.
 
 \subsection{Case Studies}
 
-We present three case studies that illustrate representative model behaviors, from successful construction to characteristic failure modes.
+We present three case studies illustrating representative model behaviors.
 
-\paragraph{Case Study 1: Successful Level~1 construction.}
-\ecagid{0024} asks whether the scheme $\coprod_{i=1}^{\infty} \Spec(k)$ is affine, and to identify which property fails.
-The model correctly identified that this is a counterexample: an infinite disjoint union of affine schemes need not be affine.
-It correctly noted that $\coprod_{i=1}^{\infty} \Spec(k) = \Spec(\prod_{i=1}^{\infty} k)$ if it were affine, but $\prod_{i=1}^{\infty} k$ has the wrong spectrum (it is not discrete), and it correctly cited that affine schemes are quasi-compact while infinite disjoint unions are not.
-This demonstrates the model's ability to handle foundational counterexamples where the relevant property (quasi-compactness) is well-known.
+\paragraph{Case Study 1: Successful counterexample construction (\ecagid{0043}).}
+This Level~2 problem asks for the precise difference between ``locally of finite type'' and ``of finite type'' for morphisms of schemes, along with a separating example.
+The model correctly identified quasi-compactness as the distinguishing property and constructed $X = \coprod_{n=0}^{\infty} \mathbb{A}^n_k \to \Spec(k)$ as a morphism that is locally of finite type but not of finite type.
+The verification correctly showed that each affine piece is a finitely generated $k$-algebra but the source is not quasi-compact.
+This demonstrates the model's strength on well-established counterexamples in the graduate curriculum.
 
-\paragraph{Case Study 2: Counterexample failure (F2 -- property confusion).}
-Consider a problem asking the model to exhibit a reduced scheme over $\mathbf{F}_p(T)$ that is not geometrically reduced.
-The model correctly identified the key issue (purely inseparable extensions create nilpotents upon base change) and proposed $\Spec(\mathbf{F}_p(T^{1/p}))$ as the scheme.
-However, in the verification step, the model confused the property by attempting to show that $\Spec(\mathbf{F}_p(T^{1/p}))$ is itself non-reduced (which it is not---it is a field!) rather than showing that its base change $\Spec(\mathbf{F}_p(T^{1/p}) \otimes_{\mathbf{F}_p(T)} \mathbf{F}_p(T^{1/p}))$ is non-reduced.
-The construction was correct but the verification addressed the wrong property, a hallmark of F2 failures.
+\paragraph{Case Study 2: Property confusion on counterexample (\ecagid{0343}, F2).}
+This Level~3 problem concerns a $\mathbb{Z}/2\mathbb{Z}$-action on $\mathbb{P}^3$ and asks to verify geometric properties of the action and compute an invariant ring.
+The model substituted a different group action ($g \cdot [x:y:z:w] = [-x:-y:z:w]$) from the one specified in the problem setup, then verified properties for this substituted action.
+While the algebraic calculations for the substituted action were correct, the mismatch with the intended action constitutes a property confusion error: the construction is valid but answers a different question.
 
-\paragraph{Case Study 3: Deep problem failure (F5 -- hallucinated theorem).}
-On a Level~3 problem about constructing a smooth projective variety with specific Hodge numbers, the model produced a lengthy response invoking a ``generalized Lefschetz hyperplane theorem for Hodge filtrations'' that does not exist in the stated form.
-The claimed variety was described using this non-existent result, and no explicit equations or constructions were given.
-This exemplifies F5 (hallucinated theorem): when the model lacks the specific knowledge to construct a deep example, it fabricates a plausible-sounding theoretical justification rather than admitting uncertainty.
+\paragraph{Case Study 3: Timeout on deep problem (\ecagid{0363}).}
+This Level~3 problem asks to compute genus-0 Gromov--Witten invariants using Schubert calculus on Grassmannians.
+The model timed out after 600 seconds without producing any response.
+This pattern---where the model fails silently on problems requiring deep synthesis of advanced techniques (Gromov--Witten theory, Schubert calculus, quantum cohomology)---accounted for 45.5\% of Level~3 problems, making timeout the dominant failure mode at the highest difficulty level.
 
 \subsection{Comparison with Existing Benchmarks}
 
 Direct comparison with other benchmarks is difficult due to differences in domain and evaluation methodology.
-However, we note that the 34\% accuracy on \ecagbench{} is broadly consistent with reported difficulties of frontier models on research-level mathematics:
+However, we note several reference points:
 \begin{itemize}[nosep]
   \item FrontierMath~\citep{glazer2024frontiermath} reported that frontier models solve fewer than 2\% of their research-level problems, though their problems are designed to be at the frontier of mathematical knowledge.
   \item On the MATH benchmark~\citep{hendrycks2021measuring}, frontier models now achieve 90+\% accuracy, indicating that competition-level mathematics is largely solved.
   \item On PutnamBench~\citep{tsoukalas2024putnambench}, formal theorem proving success rates remain low for the hardest problems.
 \end{itemize}
 
-\ecagbench{} occupies an intermediate position: harder than competition math but more accessible than frontier research, targeting the ``working knowledge'' level of a graduate student in algebraic geometry.
-The 34\% accuracy suggests that current models have significant room for improvement in this regime.
+\ecagbench{} occupies an intermediate position: the 78\% overall accuracy and 27\% Level~3 accuracy suggest that routine constructive algebraic geometry is accessible to frontier models, but problems requiring deep synthesis of multiple advanced techniques remain challenging.
+The steep difficulty gradient (95\% $\to$ 81\% $\to$ 27\%) indicates that \ecagbench{} effectively spans this transition.

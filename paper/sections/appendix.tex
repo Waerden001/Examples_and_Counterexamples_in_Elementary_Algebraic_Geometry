@@ -165,7 +165,7 @@ FORMAT:
 
 \subsection*{C.1: JSON Schema}
 
-Each entry in the ECAG-Bench dataset (\texttt{benchmark/data/ecag\_bench.jsonl}) conforms to the following schema:
+Each entry in the \ecagbench{} dataset (\texttt{benchmark/data/ecag\_bench.jsonl}) conforms to the following schema:
 
 \begin{lstlisting}
 {
@@ -207,67 +207,58 @@ Difficulty levels: 1 = routine (follows from definitions), 2 = non-trivial (requ
 \section{Case Study Full Outputs}
 \label{app:case-studies}
 
-This appendix provides the complete model outputs for the three case studies discussed in Section~\ref{sec:experiments}.
+This appendix provides representative model outputs from the pilot evaluation discussed in Section~\ref{sec:experiments}.
+All outputs are from Claude Sonnet~4.6 via \texttt{claude -p}.
 
-\subsection*{D.1: Successful Construction (Case Study 1)}
+\subsection*{D.1: Successful Counterexample (\ecagid{0043})}
 
-\textbf{Problem (\ecagid{0024}):} Let $k$ be a field. Is the scheme $\coprod_{i=1}^{\infty} \Spec(k)$ affine?
+\textbf{Problem:} State the precise difference between ``locally of finite type'' and ``of finite type'' for a morphism of schemes. Give an example of a morphism that is locally of finite type but not of finite type, and identify which condition fails.
 
-\textbf{Model output (Claude Opus~4, abbreviated):}
-
-\begin{quote}
-\small
-\textbf{Answer:} No, $\coprod_{i=1}^{\infty} \Spec(k)$ is not affine.
-
-\textbf{Construction and justification:}
-
-The scheme $X = \coprod_{i=1}^{\infty} \Spec(k)$ is an infinite disjoint union of copies of $\Spec(k)$. I claim it fails to be affine because it is not quasi-compact.
-
-\emph{Quasi-compactness fails:} The open cover $\{U_i\}_{i=1}^{\infty}$ where $U_i$ is the $i$-th copy of $\Spec(k)$ is an open cover with no finite subcover, since each $U_i$ contains exactly one point. Since affine schemes are quasi-compact (a standard result, see Hartshorne II.2), $X$ cannot be affine.
-
-\emph{Alternative argument via global sections:} The ring of global sections is $\Gamma(X, \mathcal{O}_X) = \prod_{i=1}^{\infty} k$. If $X$ were affine, we would have $X \cong \Spec(\prod_{i=1}^{\infty} k)$. But $\Spec(\prod_{i=1}^{\infty} k)$ has the Zariski topology, which on an infinite product of fields is not discrete [...]
-
-\textbf{Key insight:} Affine schemes are quasi-compact, and infinite disjoint unions are not.
-\end{quote}
-
-\textbf{Score:} 1.0 \quad \textbf{Failure mode:} None
-
-\subsection*{D.2: Property Confusion (Case Study 2)}
-
-\textbf{Problem:} Exhibit a reduced scheme over $\mathbf{F}_p(T)$ that is not geometrically reduced.
+\textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~2 \quad \textbf{Score:} 1.0
 
 \textbf{Model output (abbreviated):}
 
 \begin{quote}
 \small
-\textbf{Answer:} Consider $\Spec(\mathbf{F}_p(T^{1/p}))$ over $\mathbf{F}_p(T)$.
+\textbf{Answer:} The precise difference lies in \textbf{quasi-compactness}: finite type = locally of finite type + quasi-compact.
 
-\textbf{Construction and justification:}
+\textbf{Counterexample:} Let $X = \coprod_{n=0}^{\infty} \mathbb{A}^n_k$, $Y = \Spec(k)$, $f: X \to Y$ the structure morphism. Then $f$ is locally of finite type but not of finite type; the failing condition is quasi-compactness.
 
-The field extension $\mathbf{F}_p(T^{1/p})/\mathbf{F}_p(T)$ is purely inseparable of degree $p$: the minimal polynomial of $T^{1/p}$ is $X^p - T$.
+\textbf{Verification --- locally of finite type:} Take the affine open cover $\{V = \Spec(k)\}$ of $Y$. Then $f^{-1}(V) = X = \coprod_{n \geq 0} \Spec(k[t_1,\ldots,t_n])$. Each $k[t_1,\ldots,t_n]$ is a finitely generated $k$-algebra, so $f$ is locally of finite type.
 
-\emph{Reduced:} $\Spec(\mathbf{F}_p(T^{1/p}))$ is a single point with residue field $\mathbf{F}_p(T^{1/p})$, which is a field and therefore has no nilpotents. So the scheme is reduced.
+\textbf{Verification --- not quasi-compact:} The open cover $\{U_n\}_{n \geq 0}$ where $U_n = \Spec(k[t_1,\ldots,t_n])$ has no finite subcover, since each $U_n$ is a distinct connected component.
 
-\emph{Not geometrically reduced:} $\mathbf{F}_p(T^{1/p})$ is not geometrically reduced because it contains the element $T^{1/p}$ which satisfies $(T^{1/p})^p = T$ and therefore $T^{1/p}$ is a $p$-th root, making the ring non-reduced over the algebraic closure [...]
+\textbf{Key insight:} The distinction between ``locally'' and ``globally'' properties of morphisms typically involves a quasi-compactness condition.
 \end{quote}
 
-\textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2 (property confusion)
+The model correctly identified quasi-compactness as the distinguishing property, constructed a standard separating example, and verified both the positive and negative conditions rigorously.
 
-The model correctly identified the right scheme but confused the verification: it attempted to argue that $\mathbf{F}_p(T^{1/p})$ is itself non-reduced (it is not---it is a field!) rather than computing the tensor product $\mathbf{F}_p(T^{1/p}) \otimes_{\mathbf{F}_p(T)} \overline{\mathbf{F}_p(T)}$ and showing it has nilpotents. Partial credit was awarded because the construction is correct.
+\subsection*{D.2: Property Confusion (\ecagid{0343}, F2)}
 
-\subsection*{D.3: Hallucinated Theorem (Case Study 3)}
+\textbf{Problem:} In the setup above, verify that $g \cdot P = Q$, $g \cdot C = D$, and that the fixed locus of the $G$-action on $\mathbb{P}^{3}$ is exactly $l_{1} \cup l_{2}$. Compute the invariant ring $k[x,y,z,w]^{G}$ and verify the relation $v_{0}v_{1} = v_{2}^{2}$.
 
-\textbf{Problem:} Construct a smooth projective variety with specific Hodge numbers [Level~3, details omitted for brevity].
+\textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~3 \quad \textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2
 
 \textbf{Model output (abbreviated):}
 
 \begin{quote}
 \small
-\textbf{Answer:} Consider the variety $X$ obtained by the following construction [...]
+\textbf{Setup:} Let $G = \mathbb{Z}/2\mathbb{Z} = \{e, g\}$, with $g$ acting on $\mathbb{P}^3_k$ by:
+$g \cdot [x:y:z:w] := [-x:-y:z:w]$
+corresponding to $\sigma = \operatorname{diag}(-1,-1,1,1)$.
 
-By the generalized Lefschetz hyperplane theorem for Hodge filtrations (Artin--Mumford--Deligne, 1972), the Hodge numbers of a smooth complete intersection satisfy [...] Therefore, choosing degrees $d_1, \ldots, d_r$ appropriately, we obtain a variety with the desired Hodge numbers.
+\textbf{Verification $g \cdot P = Q$:}
+$g \cdot P = g \cdot [1:0:-1:0] = [-1:0:-1:0] = [1:0:1:0] = Q$. $\checkmark$
+
+\textbf{Invariant ring:} The degree-$d$ invariants of $k[x,y,z,w]$ under this action consist of monomials $x^a y^b z^c w^d$ with $a+b$ even.  Setting $v_0 = x^2, v_1 = y^2, v_2 = xy, v_3 = z, v_4 = w$, the invariant ring is $k[v_0, v_1, v_2, v_3, v_4]/(v_0 v_1 - v_2^2)$. $\checkmark$
 \end{quote}
 
-\textbf{Score:} 0.0 \quad \textbf{Failure mode:} F5 (hallucinated theorem)
+\textbf{Analysis:} The model substituted a different group action ($g \cdot [x:y:z:w] = [-x:-y:z:w]$) from the one specified in the problem setup (which is $g \cdot [x:y:z:w] = [y:x:w:z]$, a transposition). While the algebraic computations for the substituted action were internally consistent, the mismatch with the intended construction means the results do not answer the stated question. This exemplifies F2 (property confusion): the model demonstrates algebraic competence but applies it to the wrong mathematical object.
 
-No theorem of this name exists in the stated form. The result attributed to ``Artin--Mumford--Deligne'' conflates several distinct results (Artin--Mumford's work on unirational varieties, Deligne's proof of the Weil conjectures, and the classical Lefschetz hyperplane theorem). The model produced a confident narrative with no valid mathematical content.
+\subsection*{D.3: Timeout on Deep Problem (\ecagid{0363})}
+
+\textbf{Problem:} Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i | H^j \rangle_{0,d}$ and verify the quantum product formula.
+
+\textbf{Type:} Example \quad \textbf{Difficulty:} Level~3 \quad \textbf{Score:} 0.0 (timeout)
+
+The model timed out after 600 seconds without producing any response. This problem requires synthesizing Gromov--Witten theory, Schubert calculus, and quantum cohomology---a combination of techniques at the frontier of the represented material. The timeout pattern was common at Level~3, where 45.5\% of problems caused the model to fail silently, suggesting that the model's inability to produce even a partial response on such problems reflects a fundamental gap in its ability to combine deep techniques from multiple areas of algebraic geometry.

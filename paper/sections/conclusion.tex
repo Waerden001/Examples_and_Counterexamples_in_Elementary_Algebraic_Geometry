@@ -4,33 +4,33 @@
 We have introduced \ecagbench{}, a benchmark of 332 constructive problems in algebraic geometry designed to evaluate a mode of mathematical reasoning---object construction---that is central to mathematical practice but underrepresented in existing LLM benchmarks.
 
 \paragraph{Key findings.}
-Our pilot evaluation of Claude Opus~4 on a stratified 50-problem subset reveals:
+Our pilot evaluation of Claude Sonnet~4.6 on a stratified 100-problem subset reveals:
 \begin{enumerate}[nosep]
-  \item \textbf{Constructive algebraic geometry is hard:} The model achieves 34\% accuracy overall, with strong difficulty dependence (58\% at Level~1, 29\% at Level~2, 0\% at Level~3).
-  \item \textbf{Counterexamples are harder than examples:} The 14-percentage-point gap (39\% vs.\ 25\%) confirms that understanding theorem boundaries requires deeper reasoning than applying theorems directly.
-  \item \textbf{Property confusion dominates counterexample failures:} 56\% of counterexample errors involve confusing which property should be satisfied versus violated (F2), suggesting that models lack precise ``boundary awareness.''
-  \item \textbf{CAS verification is essential:} In 46\% of CAS-verified problems, the CAS layer detected errors that would have been missed by rubric-only evaluation, preventing 16\% accuracy inflation.
-  \item \textbf{Failure modes are structured:} The six failure modes (F1--F6) provide actionable diagnostics for model improvement, with property confusion (F2) and computational errors (F3) being the most prevalent.
+  \item \textbf{A steep difficulty gradient:} The model achieves 78\% accuracy overall, but this masks a 68-percentage-point drop from Level~1 (95\%) to Level~3 (27\%), confirming that \ecagbench{} effectively discriminates between routine constructions and deep problems requiring synthesis of advanced techniques.
+  \item \textbf{Counterexamples are harder than examples:} The 15-percentage-point gap (80\% vs.\ 65\%) confirms that understanding theorem boundaries requires deeper reasoning than applying theorems directly.
+  \item \textbf{Timeouts as a failure mode:} 18\% of problems caused the model to time out (>600s), with the timeout rate reaching 45.5\% at Level~3, suggesting that the hardest problems cause the model to fail silently before producing any response.
+  \item \textbf{Chapter-dependent performance:} Accuracy ranges from 93\% (Cohomology) to 65\% (Moduli), reflecting the varying difficulty of constructive reasoning across algebraic geometry subfields.
+  \item \textbf{Failure modes are structured:} The six failure modes (F1--F6) provide a systematic taxonomy for characterizing model weaknesses, with property confusion (F2) and incomplete verification (F6) observed in the pilot.
 \end{enumerate}
 
 \paragraph{Limitations.}
 Our evaluation has several limitations that should be addressed in future work:
 \begin{itemize}[nosep]
-  \item \textbf{Single model:} We evaluate only Claude Opus~4. Multi-model comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}, Llemma~\citep{azerbayev2024llemma}) is needed to determine whether the observed patterns are model-specific or reflect fundamental limitations of current architectures.
-  \item \textbf{Small pilot:} The 50-problem subset provides preliminary results but limits statistical confidence, especially for subgroup analyses (Level~3, individual chapters).
+  \item \textbf{Single model:} We evaluate only Claude Sonnet~4.6. Multi-model comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}, Llemma~\citep{azerbayev2024llemma}) is needed to determine whether the observed patterns are model-specific.
+  \item \textbf{Self-evaluation bias:} Both the problem solver and the automated scorer are LLMs from the same model family, introducing potential concordance bias. Among the 82 problems that received responses, 95.1\% were scored as correct, which may reflect systematic overrating. Human expert scoring is needed to validate these results (see Section~\ref{sec:self-eval-limitations}).
   \item \textbf{Single-turn only:} Multi-turn interaction, where the model can refine constructions based on CAS feedback, may significantly improve performance and is an important evaluation modality to explore.
-  \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains (e.g., number theory, topology, analysis), though we expect similar example/counterexample patterns.
+  \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains, though we expect similar example/counterexample patterns.
   \item \textbf{CAS coverage:} While 93.1\% of problems use CAS verification, the CAS cannot verify all properties, and some verifications require specialized scripts that have not yet been fully implemented.
 \end{itemize}
 
 \paragraph{Future work.}
 We plan several extensions:
 \begin{enumerate}[nosep]
-  \item \textbf{Full-scale evaluation:} Evaluate multiple frontier models on the complete 332-problem benchmark with automated CAS verification scripts.
-  \item \textbf{Multi-turn interaction:} Evaluate models in an interactive setting where they receive CAS feedback and can revise their constructions, testing whether iterative refinement can overcome the failure modes we observe.
-  \item \textbf{Lean~4 integration:} Formalize a subset of problems in Lean~4, enabling formal verification as an additional evaluation layer and connecting to the formal theorem proving community.
+  \item \textbf{Full-scale evaluation with human scoring:} Evaluate multiple frontier models on the complete 332-problem benchmark with human expert scoring to establish unbiased baselines.
+  \item \textbf{Multi-turn interaction:} Evaluate models in an interactive setting where they receive CAS feedback and can revise their constructions.
+  \item \textbf{Lean~4 integration:} Formalize a subset of problems in Lean~4, enabling formal verification as an additional evaluation layer.
   \item \textbf{Fine-tuning studies:} Investigate whether fine-tuning on algebraic geometry textbooks~\citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} or the accompanying \ecagbench{} textbook improves constructive reasoning.
-  \item \textbf{Community contributions:} The open-source nature of the project (CC-BY-4.0 license) invites community contributions of new problems, verification scripts, and evaluation results via the project's GitHub repository.
+  \item \textbf{Community contributions:} The open-source nature of the project (CC-BY-4.0 license) invites community contributions of new problems, verification scripts, and evaluation results.
   \item \textbf{Cross-domain extension:} Develop analogous benchmarks for arithmetic geometry, algebraic topology, and commutative algebra to investigate whether the example/counterexample performance gap generalizes.
 \end{enumerate}
 

@@ -66,7 +66,11 @@
 
 \title{ECAG-Bench: A Benchmark for Constructive Algebraic Geometry Reasoning in Large Language Models}
 
-\author{Waerden}
+\author{
+  Waerden\thanks{Independent Researcher. Correspondence: \texttt{42280958+Waerden001@users.noreply.github.com}}
+  \and
+  Claude Code\thanks{Anthropic. This work was conducted using Claude Code as a research collaborator.}
+}
 
 \date{}
 
@@ -77,10 +81,10 @@
 \begin{abstract}
 We introduce \textsc{ECAG-Bench}, a benchmark for evaluating the ability of large language models to perform \emph{constructive reasoning} in algebraic geometry.
 Unlike existing mathematical benchmarks that focus on theorem proving or competition problems, \ecagbench{} requires models to construct concrete mathematical objects---schemes, sheaves, morphisms, and cohomology classes---satisfying specified properties.
-The benchmark comprises 332 problems derived from a curated collection of examples and counterexamples in algebraic geometry, organized across five chapters and three difficulty levels.
+The benchmark comprises 332 problems derived from a curated collection of examples and counterexamples in algebraic geometry, organized across four chapters and three difficulty levels.
 A distinctive feature is the dual emphasis on \emph{examples} (243 problems asking models to build objects with prescribed properties) and \emph{counterexamples} (66 problems requiring models to construct objects that violate plausible-sounding statements), testing whether models understand not only where theorems apply but also where they fail.
 Our four-layer verification pipeline---parsing, computer algebra system (CAS) verification, LLM-assisted judgment, and human expert sampling---validates properties of constructed objects rather than checking answer equivalence.
-We report results from a pilot evaluation of Claude Opus~4 on a stratified 50-problem subset, finding an overall accuracy of 34\% with a pronounced gap between example construction (38\%) and counterexample construction (23\%), suggesting that understanding theorem boundaries remains substantially harder than applying theorems directly.
+We report results from a pilot evaluation of Claude Sonnet~4.6 on a stratified 100-problem subset, finding an overall accuracy of 78\% with a pronounced gap between example construction (80\%) and counterexample construction (65\%), and a steep difficulty gradient from Level~1 (95\%) to Level~3 (27\%), suggesting that constructive reasoning at the frontier of algebraic geometry remains substantially beyond current model capabilities.
 We release the full dataset, evaluation code, and an accompanying open-source textbook at \url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}.
 \end{abstract}
 
