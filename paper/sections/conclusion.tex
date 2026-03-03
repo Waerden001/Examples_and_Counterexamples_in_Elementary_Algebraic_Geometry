@@ -1,25 +1,41 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have introduced ECAG-Bench, a benchmark of 332 constructive problems in algebraic geometry designed to evaluate a mode of mathematical reasoning---object construction---that is central to mathematical practice but underrepresented in existing LLM benchmarks.
-Our four-layer verification pipeline, anchored by CAS-based property verification, enables reliable evaluation of non-unique mathematical constructions.
+We have introduced \ecagbench{}, a benchmark of 332 constructive problems in algebraic geometry designed to evaluate a mode of mathematical reasoning---object construction---that is central to mathematical practice but underrepresented in existing LLM benchmarks.
+
+\paragraph{Key findings.}
+Our pilot evaluation of Claude Opus~4 on a stratified 50-problem subset reveals:
+\begin{enumerate}[nosep]
+  \item \textbf{Constructive algebraic geometry is hard:} The model achieves 34\% accuracy overall, with strong difficulty dependence (58\% at Level~1, 29\% at Level~2, 0\% at Level~3).
+  \item \textbf{Counterexamples are harder than examples:} The 14-percentage-point gap (39\% vs.\ 25\%) confirms that understanding theorem boundaries requires deeper reasoning than applying theorems directly.
+  \item \textbf{Property confusion dominates counterexample failures:} 56\% of counterexample errors involve confusing which property should be satisfied versus violated (F2), suggesting that models lack precise ``boundary awareness.''
+  \item \textbf{CAS verification is essential:} In 46\% of CAS-verified problems, the CAS layer detected errors that would have been missed by rubric-only evaluation, preventing 16\% accuracy inflation.
+  \item \textbf{Failure modes are structured:} The six failure modes (F1--F6) provide actionable diagnostics for model improvement, with property confusion (F2) and computational errors (F3) being the most prevalent.
+\end{enumerate}
 
 \paragraph{Limitations.}
-ECAG-Bench focuses on algebraic geometry, which limits the generalizability of our findings to other areas of mathematics.
-The CAS verification layer, while powerful, cannot verify all properties---some require human judgment or more sophisticated formal methods.
-Our current evaluation uses single-turn prompting; multi-turn interaction may significantly improve model performance.
+Our evaluation has several limitations that should be addressed in future work:
+\begin{itemize}[nosep]
+  \item \textbf{Single model:} We evaluate only Claude Opus~4. Multi-model comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}, Llemma~\citep{azerbayev2024llemma}) is needed to determine whether the observed patterns are model-specific or reflect fundamental limitations of current architectures.
+  \item \textbf{Small pilot:} The 50-problem subset provides preliminary results but limits statistical confidence, especially for subgroup analyses (Level~3, individual chapters).
+  \item \textbf{Single-turn only:} Multi-turn interaction, where the model can refine constructions based on CAS feedback, may significantly improve performance and is an important evaluation modality to explore.
+  \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains (e.g., number theory, topology, analysis), though we expect similar example/counterexample patterns.
+  \item \textbf{CAS coverage:} While 93.1\% of problems use CAS verification, the CAS cannot verify all properties, and some verifications require specialized scripts that have not yet been fully implemented.
+\end{itemize}
 
 \paragraph{Future work.}
-We plan to:
+We plan several extensions:
 \begin{enumerate}[nosep]
-  \item Expand the benchmark to cover additional areas (arithmetic geometry, algebraic topology, commutative algebra).
-  \item Implement the full CAS verification pipeline with automated SageMath/Macaulay2 scripts.
-  \item Evaluate models in multi-turn interactive settings, where they can refine constructions based on CAS feedback.
-  \item Investigate whether fine-tuning on algebraic geometry textbooks improves constructive reasoning.
-  \item Release a public leaderboard for tracking progress on ECAG-Bench.
+  \item \textbf{Full-scale evaluation:} Evaluate multiple frontier models on the complete 332-problem benchmark with automated CAS verification scripts.
+  \item \textbf{Multi-turn interaction:} Evaluate models in an interactive setting where they receive CAS feedback and can revise their constructions, testing whether iterative refinement can overcome the failure modes we observe.
+  \item \textbf{Lean~4 integration:} Formalize a subset of problems in Lean~4, enabling formal verification as an additional evaluation layer and connecting to the formal theorem proving community.
+  \item \textbf{Fine-tuning studies:} Investigate whether fine-tuning on algebraic geometry textbooks~\citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} or the accompanying \ecagbench{} textbook improves constructive reasoning.
+  \item \textbf{Community contributions:} The open-source nature of the project (CC-BY-4.0 license) invites community contributions of new problems, verification scripts, and evaluation results via the project's GitHub repository.
+  \item \textbf{Cross-domain extension:} Develop analogous benchmarks for arithmetic geometry, algebraic topology, and commutative algebra to investigate whether the example/counterexample performance gap generalizes.
 \end{enumerate}
 
 \paragraph{Broader impact.}
 Constructive mathematical reasoning is a prerequisite for using LLMs as research tools in mathematics.
 If models cannot construct examples and counterexamples, they cannot assist mathematicians in the exploratory phase of research---the phase where intuition is built and conjectures are tested.
-ECAG-Bench provides a concrete measure of progress toward this goal.
+The pronounced difficulty of counterexample construction is particularly significant: as Lakatos~\citep{lakatos1976proofs} argued, mathematical progress depends on the ability to find refutations, and this ability appears to be a current blind spot for language models.
+\ecagbench{} provides a concrete measure of progress toward closing this gap.

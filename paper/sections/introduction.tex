@@ -2,7 +2,7 @@
 \label{sec:introduction}
 
 Mathematical reasoning has emerged as a central testbed for evaluating the capabilities of large language models (LLMs).
-Existing benchmarks primarily assess two modes of mathematical reasoning: \emph{competition-style problem solving}~\citep{hendrycks2021measuring, zhong2023agieval} and \emph{formal theorem proving}~\citep{tsoukalas2024putnambench}.
+Existing benchmarks primarily assess two modes of mathematical reasoning: \emph{competition-style problem solving}~\citep{hendrycks2021measuring, zhong2023agieval} and \emph{formal theorem proving}~\citep{tsoukalas2024putnambench, zheng2022minif2f}.
 Both modes share a common structure: given a precisely stated problem, produce a proof or a unique numerical answer.
 
 We identify a third mode---\emph{constructive reasoning}---that is pervasive in mathematical practice yet largely absent from current benchmarks.
@@ -12,24 +12,51 @@ For example:
   \item Construct a smooth projective curve of genus $2$ whose Jacobian has complex multiplication.
   \item Give an example of a flat morphism that is not smooth.
   \item Find a coherent sheaf on $\mathbf{P}^2$ with prescribed Hilbert polynomial.
+  \item Exhibit a reduced scheme that is not geometrically reduced.
+  \item Give a counterexample to the statement: every coherent sheaf on a smooth variety is locally free.
 \end{itemize}
 
 This mode of reasoning is fundamentally different from verification.
 In verification, one checks whether a given object has a property; in construction, one must \emph{synthesize} an object from scratch.
 The answer space is typically infinite and non-unique: many different objects may satisfy the given constraints, and the ``difficulty'' lies not in finding \emph{the} answer but in finding \emph{any} valid answer.
 
+\paragraph{The role of counterexamples.}
+Constructive reasoning encompasses not only building objects that \emph{satisfy} a theorem's hypotheses, but also constructing objects that \emph{violate} plausible-sounding claims---that is, producing counterexamples.
+As Lakatos~\citep{lakatos1976proofs} argued in \emph{Proofs and Refutations}, the interplay between conjectures and their refutations is the engine of mathematical progress: a theorem is truly understood only when one also understands \emph{where it fails}.
+The history of algebraic geometry is rich with counterexamples that reshaped the field: Nagata's counterexample to Hilbert's fourteenth problem~\citep{nagata1959fourteenth}, Hironaka's example of a non-projective complete variety~\citep{hironaka1964resolution}, and the discovery of non-smoothable singularities all advanced the subject by delineating the precise boundaries of general theorems.
+Constructing a counterexample requires a deeper understanding than constructing a positive example: one must identify exactly which hypothesis of a theorem is violated and build an object that satisfies all other conditions while failing that specific one.
+This ``boundary awareness'' is precisely what we aim to test.
+
 Algebraic geometry provides an ideal domain for testing constructive reasoning.
 The field is characterized by a rich interplay between abstract theory and concrete computation: theorems about schemes, sheaves, and cohomology become meaningful only when instantiated on specific geometric objects.
-Standard references~\citep{hartshorne1977algebraic, vakil2017rising, stacks-project} develop the theory through carefully chosen examples that illustrate both the power and the limitations of general results.
+Standard references~\citep{hartshorne1977algebraic, vakil2017rising, stacks-project, eisenbud1995commutative, griffiths1978principles} develop the theory through carefully chosen examples that illustrate both the power and the limitations of general results.
 
-We introduce \textsc{ECAG-Bench} (\textbf{E}xamples and \textbf{C}ounterexamples in \textbf{A}lgebraic \textbf{G}eometry \textbf{Bench}mark), a dataset of 332 constructive problems in algebraic geometry.
+We introduce \ecagbench{} (\textbf{E}xamples and \textbf{C}ounterexamples in \textbf{A}lgebraic \textbf{G}eometry \textbf{Bench}mark), a dataset of 332 constructive problems in algebraic geometry.
 Each problem asks the model to construct a specific mathematical object---a scheme, a morphism, a sheaf, a cohomology class, or a numerical invariant---satisfying stated properties.
-The problems are drawn from a curated collection of examples and counterexamples that has been developed over several years as supplementary material for learners entering algebraic geometry.
+The problems are drawn from \emph{Examples and Counterexamples in Elementary Algebraic Geometry}, a curated collection developed over several years as supplementary material for learners entering the subject.
+A distinctive feature of \ecagbench{} is its dual structure: 243 problems ask for \emph{examples} (construct an object with prescribed properties) while 66 problems ask for \emph{counterexamples} (construct an object violating a plausible statement), with the remaining 23 problems involving computation or proof.
+This examples-versus-counterexamples dichotomy reflects the natural structure of algebraic geometry, where understanding a concept requires seeing both what it includes and what it excludes.
+
+\paragraph{Project ecosystem.}
+\ecagbench{} is part of an integrated open-source project comprising:
+(i)~a \LaTeX\ textbook of worked examples and counterexamples in algebraic geometry;
+(ii)~a GitHub Pages website providing searchable, MathJax-rendered content;
+(iii)~the benchmark dataset in JSONL format with full metadata and verification strategies; and
+(iv)~evaluation tooling for running and scoring LLM responses.
+All components are released under the CC-BY-4.0 license.
 
 Our key contributions are:
 \begin{enumerate}[nosep]
-  \item \textbf{A new benchmark} of 332 constructive algebraic geometry problems at three difficulty levels, covering five major areas of the subject.
+  \item \textbf{A new benchmark} of 332 constructive algebraic geometry problems at three difficulty levels, covering five major areas of the subject, with an explicit dual structure of examples (243) and counterexamples (66).
   \item \textbf{A four-layer verification pipeline} that validates properties of constructed objects rather than checking answer equivalence, using computer algebra systems (CAS) as the primary verification mechanism.
-  \item \textbf{Baseline evaluations} of frontier LLMs, revealing that constructive algebraic geometry reasoning remains a significant challenge even for the most capable models.
-  \item \textbf{A taxonomy of failure modes} specific to constructive mathematical reasoning, including fabricated objects, property confusion, and computational errors in invariant calculations.
+  \item \textbf{Pilot evaluation results} from Claude Opus~4 on a stratified 50-problem subset, establishing initial baselines and revealing a significant performance gap between example construction and counterexample construction.
+  \item \textbf{A taxonomy of six failure modes} specific to constructive mathematical reasoning, including fabricated objects (F1), property confusion (F2), computational errors (F3), trivial answers (F4), hallucinated theorems (F5), and incomplete verification (F6).
+  \item \textbf{An open-source collection} of 332 fully worked problems with an accompanying textbook and website, designed to support both LLM evaluation and algebraic geometry education.
 \end{enumerate}
+
+\paragraph{Paper structure.}
+Section~\ref{sec:related} reviews related work in mathematical benchmarks and positions \ecagbench{} relative to existing evaluations.
+Section~\ref{sec:dataset} describes the dataset, its sources, and the examples/counterexamples duality.
+Section~\ref{sec:benchmark} presents the benchmark design including the verification pipeline.
+Section~\ref{sec:experiments} reports our pilot evaluation results, and Section~\ref{sec:analysis} provides detailed analysis of failure modes and performance patterns.
+Section~\ref{sec:conclusion} concludes with limitations and future directions.

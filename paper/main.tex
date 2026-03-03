@@ -14,6 +14,33 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{natbib}
 \bibliographystyle{plainnat}
+\usepackage{tcolorbox}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+
+% tcolorbox configuration
+\tcbuselibrary{breakable,skins}
+\newtcolorbox{problembox}[1][]{
+  colback=blue!3,
+  colframe=blue!40!black,
+  fonttitle=\bfseries,
+  breakable,
+  #1
+}
+
+% listings configuration
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!5},
+  columns=fullflexible
+}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
@@ -31,9 +58,11 @@
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Hilb}{Hilb}
+\DeclareMathOperator{\chr}{char}
 
-% Colors for TODO notes
-\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+% Convenience macros
+\newcommand{\ecagbench}{\textsc{ECAG-Bench}}
+\newcommand{\ecagid}[1]{\texttt{ecag-#1}}
 
 \title{ECAG-Bench: A Benchmark for Constructive Algebraic Geometry Reasoning in Large Language Models}
 
@@ -47,9 +76,12 @@
 
 \begin{abstract}
 We introduce \textsc{ECAG-Bench}, a benchmark for evaluating the ability of large language models to perform \emph{constructive reasoning} in algebraic geometry.
-Unlike existing mathematical benchmarks that focus on theorem proving or competition problems, ECAG-Bench requires models to construct concrete mathematical objects---schemes, sheaves, morphisms, and cohomology classes---satisfying specified properties.
-The benchmark comprises 332 problems across five chapters of algebraic geometry, spanning three difficulty levels, with a four-layer verification pipeline that validates properties of constructed objects rather than checking answer equivalence.
-We establish baselines using frontier language models and analyze their failure modes, finding that constructive algebraic geometry reasoning remains a significant challenge even for the most capable models.
+Unlike existing mathematical benchmarks that focus on theorem proving or competition problems, \ecagbench{} requires models to construct concrete mathematical objects---schemes, sheaves, morphisms, and cohomology classes---satisfying specified properties.
+The benchmark comprises 332 problems derived from a curated collection of examples and counterexamples in algebraic geometry, organized across five chapters and three difficulty levels.
+A distinctive feature is the dual emphasis on \emph{examples} (243 problems asking models to build objects with prescribed properties) and \emph{counterexamples} (66 problems requiring models to construct objects that violate plausible-sounding statements), testing whether models understand not only where theorems apply but also where they fail.
+Our four-layer verification pipeline---parsing, computer algebra system (CAS) verification, LLM-assisted judgment, and human expert sampling---validates properties of constructed objects rather than checking answer equivalence.
+We report results from a pilot evaluation of Claude Opus~4 on a stratified 50-problem subset, finding an overall accuracy of 34\% with a pronounced gap between example construction (38\%) and counterexample construction (23\%), suggesting that understanding theorem boundaries remains substantially harder than applying theorems directly.
+We release the full dataset, evaluation code, and an accompanying open-source textbook at \url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}.
 \end{abstract}
 
 \section*{Keywords}
@@ -64,5 +96,8 @@ Large language models, mathematical reasoning, algebraic geometry, benchmark, co
 \input{sections/conclusion}
 
 \bibliography{references}
+
+\appendix
+\input{sections/appendix}
 
 \end{document}

@@ -1,0 +1,19 @@
+You are an expert algebraic geometer with deep knowledge of scheme theory, sheaf cohomology, moduli spaces, and computational algebraic geometry.
+
+PROBLEM:
+{problem}
+
+INSTRUCTIONS:
+Provide a CONCRETE construction with full mathematical justification. Your response should include:
+
+1. **The explicit mathematical object**: State the object clearly (e.g., a specific polynomial, ring, scheme, morphism, sheaf, or cohomology class).
+
+2. **Verification of all required properties**: For each property mentioned in the problem, provide a rigorous argument that your object satisfies (or, for counterexamples, violates) it.
+
+3. **Key insight or theorem used**: Identify the main mathematical idea underlying your construction.
+
+FORMAT:
+- State your answer at the very beginning, clearly labeled.
+- Then provide the detailed justification.
+- Use standard LaTeX notation for mathematical expressions.
+- If the problem asks for a counterexample, explicitly state which hypothesis fails and why.

@@ -1,27 +1,86 @@
 \section{Related Work}
 \label{sec:related}
 
-\paragraph{Mathematical reasoning benchmarks.}
+\subsection{Mathematical Reasoning Benchmarks}
+
+Table~\ref{tab:benchmark-comparison} provides a systematic comparison of \ecagbench{} with existing mathematical reasoning benchmarks.
+
+\begin{table*}[t]
+\centering
+\caption{Comparison of mathematical reasoning benchmarks. ``Constructive?'' indicates whether problems require constructing mathematical objects (as opposed to producing proofs or unique answers). ``Counterex.'' indicates whether counterexample construction is explicitly tested.}
+\label{tab:benchmark-comparison}
+\small
+\begin{tabular}{lrllccc}
+\toprule
+\textbf{Benchmark} & \textbf{Size} & \textbf{Domain} & \textbf{Verification} & \textbf{Construct.?} & \textbf{Counterex.?} & \textbf{Open?} \\
+\midrule
+MATH~\citep{hendrycks2021measuring} & 12{,}500 & Competition math & Exact match & \texttimes & \texttimes & \checkmark \\
+AGIEval~\citep{zhong2023agieval} & 8{,}062 & Standardized tests & Multiple choice & \texttimes & \texttimes & \checkmark \\
+miniF2F~\citep{zheng2022minif2f} & 488 & Olympiad math & Proof assistant & \texttimes & \texttimes & \checkmark \\
+PutnamBench~\citep{tsoukalas2024putnambench} & 1{,}697 & Putnam competition & Lean/Isabelle/Coq & \texttimes & \texttimes & \checkmark \\
+FrontierMath~\citep{glazer2024frontiermath} & 300+ & Research math & Custom scripts & Partial & \texttimes & \texttimes \\
+GHOSTS~\citep{zheng2024ghosts} & 700+ & Graduate science & Rubric & \texttimes & \texttimes & \checkmark \\
+AMBER~\citep{liu2025amber} & 500+ & Lean 4 math & Lean 4 & \checkmark & \texttimes & \checkmark \\
+MathArena~\citep{matharena2025} & Varies & Recent competitions & Dual grading & \texttimes & \texttimes & \checkmark \\
+\midrule
+\ecagbench{} (ours) & 332 & Algebraic geometry & CAS + rubric & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Competition and undergraduate mathematics.}
 The MATH dataset~\citep{hendrycks2021measuring} evaluates competition-level mathematics across seven subjects, with problems requiring numerical or symbolic answers.
 AGIEval~\citep{zhong2023agieval} includes math problems from standardized tests.
 These benchmarks test \emph{problem-solving} ability but focus on high-school and undergraduate competition mathematics, where problems have unique answers and standard solution techniques.
+\citet{frieder2023mathematical} systematically evaluated ChatGPT's mathematical capabilities, finding significant gaps in reasoning even on undergraduate-level problems.
 
 \paragraph{Research-level mathematics.}
 FrontierMath~\citep{glazer2024frontiermath} is the closest benchmark in spirit, comprising research-level mathematics problems with custom verification scripts.
 However, FrontierMath spans all areas of mathematics and does not specifically target constructive reasoning; many problems still ask for unique numerical answers.
 GHOSTS~\citep{zheng2024ghosts} evaluates graduate-level science tasks using rubric-based scoring, but covers mathematics only as one component of a broader scientific evaluation.
+Minerva~\citep{lewkowycz2022minerva} demonstrated that language models pretrained on scientific text could achieve strong performance on quantitative reasoning, spurring interest in more challenging mathematical benchmarks.
 
 \paragraph{Formal theorem proving.}
 PutnamBench~\citep{tsoukalas2024putnambench} formalizes Putnam competition problems in Lean, Isabelle, and Coq, testing whether LLMs can produce machine-verifiable proofs.
 AMBER~\citep{liu2025amber} combines construction and verification in Lean~4, requiring models to both state and prove lemmas.
+miniF2F~\citep{zheng2022minif2f} provides a cross-system benchmark for Olympiad-level formal mathematics.
+NaturalProver~\citep{welleck2022naturalprover} and ProofNet~\citep{azerbayev2023proofnet} explore the interface between informal and formal mathematical reasoning.
 These benchmarks operate in the formal verification paradigm, where correctness is checked by a proof assistant.
-ECAG-Bench differs by operating in the \emph{informal} mathematical setting, using CAS verification of object properties rather than formal proof checking.
+\ecagbench{} differs by operating in the \emph{informal} mathematical setting, using CAS verification of object properties rather than formal proof checking.
 
 \paragraph{Interactive and multi-turn evaluation.}
 \citet{collins2024evaluating} propose evaluating mathematical capabilities through multi-turn interactions.
 MathArena~\citep{matharena2025} uses recent competition problems with dual grading (automatic and human) to minimize contamination.
-ECAG-Bench currently uses single-turn evaluation but is designed to support multi-turn interaction in future work.
+\ecagbench{} currently uses single-turn evaluation but is designed to support multi-turn interaction in future work.
 
-\paragraph{Constructive vs.\ verificational reasoning.}
+\subsection{Domain-Specific Benchmarks}
+
+While general mathematical benchmarks span many areas, there is growing recognition that domain-specific evaluation is essential for measuring deep mathematical competence.
+AlphaGeometry~\citep{trinh2024alphageometry} demonstrated that combining neural language models with symbolic engines can solve Olympiad-level geometry problems, but geometry in the Euclidean sense is a substantially different domain from algebraic geometry over arbitrary fields and rings.
+To our knowledge, \ecagbench{} is the \emph{first} benchmark specifically targeting algebraic geometry---a field that sits at the intersection of algebra, geometry, and topology, requiring fluency with abstract categorical constructions alongside concrete polynomial computations.
+
+The domain specificity of \ecagbench{} is both a limitation and a strength.
+On one hand, results do not directly generalize to other mathematical domains.
+On the other hand, depth within a single domain allows us to calibrate difficulty levels against the actual pedagogical structure of algebraic geometry and to design verification strategies that exploit the domain's computational tools (SageMath~\citep{sagemath}, Macaulay2~\citep{macaulay2}, Singular~\citep{singular}).
+
+\subsection{Constructive Reasoning and Counterexamples}
+
 The distinction between constructive and verificational reasoning is well-established in mathematics~\citep{hartshorne1977algebraic} but has received limited attention in the LLM evaluation literature.
-To our knowledge, ECAG-Bench is the first benchmark to systematically evaluate constructive reasoning in a specific mathematical domain, with property-based verification as the primary evaluation mechanism.
+Lakatos~\citep{lakatos1976proofs} placed counterexamples at the center of mathematical methodology, arguing that mathematical concepts are refined through a dialectical process of conjecture, attempted proof, and refutation by counterexample.
+In algebraic geometry, this process is especially pronounced: many fundamental results (e.g., Zariski's Main Theorem, cohomological criteria for ampleness) are accompanied by canonical counterexamples that delineate their precise scope.
+
+\ecagbench{} explicitly tests both directions of this dialectic: 243 problems ask for examples (``construct an object satisfying\ldots'') and 66 ask for counterexamples (``construct an object violating\ldots'').
+This dual structure is, to our knowledge, unique among mathematical benchmarks.
+As we show in Section~\ref{sec:experiments}, the gap between model performance on examples versus counterexamples is substantial and informative.
+
+\subsection{Contamination Considerations}
+
+A persistent concern in LLM evaluation is \emph{data contamination}: test problems that appear in the training corpus.
+\ecagbench{} has several properties that mitigate this risk:
+\begin{enumerate}[nosep]
+  \item The source material is a custom-written collection of examples, not drawn from standard problem sets, competition archives, or widely-distributed textbooks.
+  \item Problems are embedded as structured annotations within the source material and extracted programmatically; the specific problem formulations do not exist as standalone documents on the web.
+  \item The content enhancement process that produced the final problem statements was performed using the Anthropic API, generating unique formulations that are unlikely to match any training data verbatim.
+  \item The source repository has been public for a limited period, reducing the probability that its content entered pre-training corpora for currently evaluated models.
+\end{enumerate}
+While no benchmark can guarantee zero contamination, these properties place \ecagbench{} at substantially lower contamination risk than benchmarks derived from competition archives or widely-used textbooks.

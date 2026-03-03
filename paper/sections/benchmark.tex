@@ -3,67 +3,164 @@
 
 \subsection{Problem Types}
 
-ECAG-Bench problems fall into four categories:
+\ecagbench{} problems fall into four categories:
 
 \begin{description}[nosep]
-  \item[Example:] Construct a mathematical object with specified properties. (``Give an example of a flat morphism that is not smooth.'')
-  \item[Counterexample:] Construct an object that violates a plausible-sounding statement. (``Give a counterexample to: every coherent sheaf on a smooth variety is locally free.'')
-  \item[Computation:] Compute a specific invariant of a given object. (``Compute the Picard group of $\Spec \mathbb{Z}[\sqrt{-5}]$.'')
-  \item[Proof:] Prove a statement about a specific object. (``Show that the Horrocks--Mumford bundle is stable.'')
+  \item[Example (243):] Construct a mathematical object with specified properties. (``Give an example of a flat morphism that is not smooth.'')
+  \item[Counterexample (66):] Construct an object that violates a plausible-sounding statement. (``Give a counterexample to: every coherent sheaf on a smooth variety is locally free.'')
+  \item[Computation (14):] Compute a specific invariant of a given object. (``Compute the Picard group of $\Spec \mathbb{Z}[\sqrt{-5}]$.'')
+  \item[Proof (9):] Prove a statement about a specific object. (``Show that the Horrocks--Mumford bundle is stable.'')
 \end{description}
+
+Figure~\ref{fig:example-problems} presents representative problems from each category.
+
+\begin{figure*}[t]
+\begin{problembox}[title={\textbf{Example} (\ecagid{0158}, Level 2, Basic Concepts)}]
+\textbf{Problem:} Let $k$ be an algebraically closed field with $\chr(k) \neq 2$, and let $Y = \Spec(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. Construct an \'etale cover $f: X \to Y$ by exhibiting an explicit morphism, and compute the degree of $f$ at the node and at a smooth point.
+
+\smallskip
+\noindent\textbf{Verification:} CAS checks that $f$ is \'etale at smooth points and computes fiber cardinalities. Key properties: $f$ is finite, locally of finite presentation, and unramified away from the node.
+\end{problembox}
+
+\begin{problembox}[title={\textbf{Counterexample} (\ecagid{0005}, Level 2, Basic Concepts)}]
+\textbf{Problem:} Let $k = \mathbf{F}_p(T)$ and $K = \mathbf{F}_p(T^{1/p})$. Explicitly exhibit a nonzero nilpotent element in $K \otimes_k K$ and prove that its $p$-th power is zero. What is the nilpotency index of this element?
+
+\smallskip
+\noindent\textbf{Verification:} CAS verifies $\alpha = 1 \otimes T^{1/p} - T^{1/p} \otimes 1 \neq 0$ and $\alpha^p = 0$ in $K[X]/(X-T^{1/p})^p$. This is a counterexample to ``reduced $\Rightarrow$ geometrically reduced'' over non-perfect fields.
+\end{problembox}
+
+\begin{problembox}[title={\textbf{Computation} (\ecagid{0230}, Level 2, Computations)}]
+\textbf{Problem:} Let $\mathscr{F}$ be the Horrocks--Mumford bundle on $\mathbf{P}^4$ with $c_1(\mathscr{F}) = 5h$ and $c_2(\mathscr{F}) = 10h^2$. Using the Hirzebruch--Riemann--Roch theorem, compute $\chi(\mathscr{F}(n-5))$ as a closed-form rational function of $n$.
+
+\smallskip
+\noindent\textbf{Verification:} Exact match against the closed-form expression. CAS independently computes the Euler characteristic via the Chern character and Todd class.
+\end{problembox}
+
+\begin{problembox}[title={\textbf{Proof} (\ecagid{0240}, Level 2, Computations)}]
+\textbf{Problem:} On the Hirzebruch surface $\Sigma_2$, determine all pairs $(p,q) \in \mathbf{Z}^2$ with $-3 \leq p \leq 3$ and $-5 \leq q \leq 5$ for which $H^1(\mathcal{O}_{\Sigma_2}(p,q)) \neq 0$.
+
+\smallskip
+\noindent\textbf{Verification:} Rubric-based scoring on (C1)~correct identification of non-vanishing pairs, (C2)~complete enumeration, (C3)~valid cohomological argument, (C4)~use of appropriate vanishing theorem.
+\end{problembox}
+\caption{Representative problems from each category of \ecagbench{}. Each problem requires constructing or computing a specific mathematical object, with verification tailored to the problem type.}
+\label{fig:example-problems}
+\end{figure*}
 
 \subsection{Four-Layer Verification Pipeline}
 \label{sec:verification}
 
 Since constructions in algebraic geometry are non-unique, standard answer-matching is insufficient.
-ECAG-Bench employs a four-layer verification pipeline:
+\ecagbench{} employs a four-layer verification pipeline, illustrated in Figure~\ref{fig:pipeline}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm and 1.5cm,
+  box/.style={rectangle, draw, rounded corners, minimum width=2.2cm, minimum height=0.8cm, align=center, font=\small},
+  decision/.style={diamond, draw, aspect=2, minimum width=1.5cm, align=center, font=\small},
+  arr/.style={-{Stealth[length=3mm]}, thick},
+  label/.style={font=\scriptsize, text=gray}
+]
+  \node[box, fill=blue!10] (input) {Model\\Output};
+  \node[box, fill=yellow!15, right=of input] (parse) {Layer 1:\\Parsing};
+  \node[box, fill=green!15, right=of parse] (cas) {Layer 2:\\CAS};
+  \node[box, fill=orange!15, below=1.2cm of cas] (llm) {Layer 3:\\LLM Judge};
+  \node[box, fill=red!10, left=of llm] (human) {Layer 4:\\Human};
+  \node[box, fill=gray!15, left=of human] (score) {Final\\Score};
+
+  \draw[arr] (input) -- (parse);
+  \draw[arr] (parse) -- node[above, label] {parsed obj.} (cas);
+  \draw[arr] (cas) -- node[right, label] {93.1\%} (cas |- llm) -- (llm);
+  \draw[arr] (cas.east) -- ++(0.8,0) node[right, label] {exact: 4.2\%} |- (score);
+  \draw[arr] (llm) -- node[above, label] {rubric} (human);
+  \draw[arr] (human) -- (score);
+\end{tikzpicture}
+\caption{The four-layer verification pipeline. Most problems (93.1\%) are verified by CAS at Layer~2; rubric-based problems pass through LLM judgment (Layer~3) and sampled human review (Layer~4).}
+\label{fig:pipeline}
+\end{figure}
 
 \paragraph{Layer 1: Parsing.}
 The model's output is parsed to extract the claimed mathematical object.
 This layer uses regex and SymPy to determine whether the output is a well-formed mathematical expression (a polynomial, a variety defined by equations, a morphism given by coordinate functions, etc.).
+Malformed outputs receive a score of 0 immediately.
 
 \paragraph{Layer 2: CAS Verification.}
-The extracted object is verified using computer algebra systems---primarily SageMath, with Singular and Macaulay2 for specialized computations.
+The extracted object is verified using computer algebra systems---primarily SageMath~\citep{sagemath}, with Singular~\citep{singular} and Macaulay2~\citep{macaulay2} for specialized computations.
 The CAS checks whether the constructed object actually satisfies the required properties: genus, smoothness, dimension, cohomology vanishing, etc.
 This is the \emph{core layer}: 309 of 332 problems (93.1\%) use CAS verification.
 
 \paragraph{Layer 3: LLM-Assisted Judgment.}
-For problems where CAS verification is insufficient (e.g., those requiring assessment of reasoning quality or non-triviality), a rubric-based LLM judge evaluates:
+For problems where CAS verification is insufficient (e.g., those requiring assessment of reasoning quality or non-triviality), a rubric-based LLM judge evaluates four criteria:
 \begin{itemize}[nosep]
-  \item (C1) Correctness: Is the constructed object valid?
-  \item (C2) Completeness: Are all required properties verified?
-  \item (C3) Non-triviality: Is the answer non-degenerate?
-  \item (C4) Reasoning: Is the justification sound?
+  \item (C1) \textbf{Correctness:} Is the constructed object valid?
+  \item (C2) \textbf{Completeness:} Are all required properties verified?
+  \item (C3) \textbf{Non-triviality:} Is the answer non-degenerate?
+  \item (C4) \textbf{Reasoning:} Is the justification sound?
 \end{itemize}
 
 \paragraph{Layer 4: Human Expert Sampling.}
 A random subset of model responses is reviewed by a human expert in algebraic geometry to calibrate the automated layers and catch systematic errors.
+In our pilot evaluation (Section~\ref{sec:experiments}), all 50 responses were human-reviewed.
 
 \subsection{Verification Strategies}
 
 Each problem is assigned one of three verification strategies:
 
 \begin{description}[nosep]
-  \item[Strategy A (Exact):] Problems with unique numeric or symbolic answers (e.g., ``Compute $\dim H^1(X, \mathcal{O}_X)$'').
-  Verified by exact match. 14 problems (4.2\%).
-  \item[Strategy B (CAS):] The model outputs a mathematical object; CAS verifies its properties deterministically.
-  This is the primary strategy. 309 problems (93.1\%).
-  \item[Strategy C (Rubric):] Structured scoring on correctness, completeness, non-triviality, and reasoning validity.
-  Used for proofs and complex constructions. 9 problems (2.7\%).
+  \item[Strategy A (Exact, 14 problems, 4.2\%):] Problems with unique numeric or symbolic answers (e.g., ``Compute $\dim H^1(X, \mathcal{O}_X)$'').
+  Verified by exact match after normalization.
+  \item[Strategy B (CAS, 309 problems, 93.1\%):] The model outputs a mathematical object; CAS verifies its properties deterministically.
+  This is the primary strategy.
+  For example, if the problem asks for a smooth curve of genus 2, the CAS checks that the given equations define a smooth curve and computes its genus.
+  \item[Strategy C (Rubric, 9 problems, 2.7\%):] Structured scoring on correctness, completeness, non-triviality, and reasoning validity.
+  Used for proofs and complex constructions where CAS alone is insufficient.
 \end{description}
+
+\subsection{Counterexample Verification Challenges}
+\label{sec:counterexample-verification}
+
+Verifying counterexamples presents unique challenges compared to verifying examples.
+A correct counterexample must satisfy two conditions simultaneously:
+\begin{enumerate}[nosep]
+  \item The constructed object must be \emph{valid}---it must be a well-defined mathematical object belonging to the appropriate category.
+  \item The object must \emph{violate} the target property---the specific property that the counterexample is meant to disprove.
+\end{enumerate}
+
+For instance, if the problem asks for a counterexample to ``every flat morphism is smooth,'' the model must produce:
+(a)~a specific morphism that is demonstrably flat (positive verification), and
+(b)~evidence that this morphism is not smooth (negative verification).
+The CAS must check both conditions, which typically requires running two separate verification scripts.
+
+This dual verification requirement makes counterexample problems inherently more complex to evaluate and may partially explain the performance gap we observe in Section~\ref{sec:experiments}.
 
 \subsection{Evaluation Protocol}
 
 Models are evaluated in a zero-shot, single-turn setting.
-Each problem is presented as a standalone prompt with the following format:
+Each problem is presented as a standalone prompt with the following structure:
 
-\begin{quote}
-\texttt{You are an expert in algebraic geometry. [Problem statement]. Provide a concrete construction with full justification.}
-\end{quote}
+\begin{lstlisting}[caption={Evaluation prompt template (abbreviated; full version in Appendix~\ref{app:prompt}).},label={lst:prompt}]
+You are an expert algebraic geometer.
 
-Responses are scored as:
+PROBLEM: {problem_statement}
+
+Provide a CONCRETE construction with full
+justification. Your response should include:
+1. The explicit mathematical object
+2. Verification that it satisfies all
+   required properties
+3. Key insight or theorem used
+
+Format your answer clearly with the
+mathematical object stated first.
+\end{lstlisting}
+
+\subsection{Scoring}
+
+Responses are scored on a three-point scale:
 \begin{itemize}[nosep]
-  \item \textbf{Correct (1.0):} The constructed object is valid and satisfies all stated properties.
-  \item \textbf{Partial (0.5):} The object is valid but missing some properties, or the justification is incomplete.
-  \item \textbf{Incorrect (0.0):} The object is invalid, does not exist, or does not satisfy the required properties.
+  \item \textbf{Correct (1.0):} The constructed object is valid and satisfies all stated properties. The justification is mathematically sound.
+  \item \textbf{Partial (0.5):} The object is valid but missing some properties, or the justification is incomplete but the construction is on the right track. For counterexamples, partial credit is awarded when the object is valid but the violation is not fully demonstrated.
+  \item \textbf{Incorrect (0.0):} The object is invalid, does not exist, or does not satisfy the required properties. Includes fabricated objects (F1), confused properties (F2), and hallucinated theorems (F5).
 \end{itemize}
+
+The scoring criteria are designed to distinguish between models that have genuine mathematical understanding (which may produce partially correct constructions) and models that produce superficially plausible but mathematically invalid outputs.

@@ -3,28 +3,51 @@
 
 \subsection{Source Material}
 
-ECAG-Bench is derived from \emph{Examples and Counterexamples in Elementary Algebraic Geometry}, a collection of worked examples originally written as supplementary material for learners entering algebraic geometry.
+\ecagbench{} is derived from \emph{Examples and Counterexamples in Elementary Algebraic Geometry}, a collection of worked examples originally written as supplementary material for learners entering algebraic geometry.
 The collection has been developed over several years and covers topics ranging from basic scheme theory to derived categories and moduli spaces.
 
-The original material was written in \LaTeX\ and subsequently converted to Markdown for web publication.
+The original material was written in \LaTeX\ using a rich set of custom macros and subsequently converted to Markdown for web publication (see Section~\ref{sec:introduction} for the project ecosystem).
 Each example was then enhanced to meet a uniform quality standard: a self-contained mathematical narrative with complete constructions, precise references, and explicit computational details.
+All custom macros were expanded to standard \LaTeX\ before inclusion in the benchmark, ensuring that problems are self-contained.
 
-\subsection{Content Enhancement}
+\subsection{Examples and Counterexamples: A Dual Structure}
+\label{sec:dual-structure}
 
-The content enhancement process involved restructuring each example into a natural mathematical exposition following a consistent quality standard:
-\begin{enumerate}[nosep]
-  \item \textbf{Narrative form:} Each example reads as a self-contained mathematical essay rather than a template with bullet points.
-  \item \textbf{Complete constructions:} All computational steps are shown explicitly, allowing independent verification.
-  \item \textbf{Benchmark problem extraction:} Each example is annotated with a structured benchmark problem specification, including the problem statement, expected answer type, difficulty level, and verification strategy.
-\end{enumerate}
+A distinctive feature of \ecagbench{} is its explicit dual structure of \emph{examples} and \emph{counterexamples}.
+This duality reflects a fundamental principle in mathematical pedagogy and research: understanding a concept requires seeing both what it includes and what it excludes.
 
-All 332 entries have been enhanced to this standard, with zero stubs remaining.
+\paragraph{Examples (243 problems, 73.2\%).}
+Example problems ask the model to construct a concrete mathematical object satisfying prescribed properties.
+These test \emph{forward reasoning}: given a definition or theorem, can the model instantiate it?
+For instance, \ecagid{0158} asks the model to construct an \'etale cover of the nodal cubic, requiring knowledge of \'etale morphisms, the structure of the nodal singularity, and how normalization provides such covers.
 
-\subsection{Statistics}
+\paragraph{Counterexamples (66 problems, 19.9\%).}
+Counterexample problems ask the model to construct an object that \emph{violates} a plausible-sounding statement.
+These test \emph{boundary reasoning}: can the model identify exactly which hypothesis of a theorem is essential?
+For instance, one problem asks the model to exhibit a reduced scheme that is not geometrically reduced---requiring the model to understand that reducedness is not preserved under base change for non-perfect fields, and to construct a specific counterexample over $\mathbf{F}_p(T)$.
+
+\paragraph{Why the 243:66 ratio?}
+The approximately 4:1 ratio of examples to counterexamples reflects the natural structure of algebraic geometry pedagogy.
+In standard textbooks~\citep{hartshorne1977algebraic, vakil2017rising}, the majority of illustrative material consists of positive examples that demonstrate how theories work.
+Counterexamples appear less frequently but are of outsized importance: they are the ``stress tests'' that delineate theorem boundaries.
+Our ratio mirrors this pedagogical reality while ensuring sufficient statistical power for comparing performance across the two types.
+
+\paragraph{Illustrative contrast.}
+Consider the concept of \emph{flatness} in algebraic geometry. An example problem might ask:
+\begin{quote}
+\emph{Give an example of a flat family of curves over $\mathbf{A}^1$ whose general fiber is smooth but whose special fiber is singular.}
+\end{quote}
+A counterexample problem on the same topic might ask:
+\begin{quote}
+\emph{Give an example of a morphism that is locally of finite type but not flat, and identify which property of the source or target is responsible.}
+\end{quote}
+The first tests whether the model can construct a standard degeneration (e.g., $y^2 = x^3 - t$); the second requires understanding that flatness can fail for specific geometric reasons and producing a witness.
+
+\subsection{Dataset Statistics}
 
 \begin{table}[h]
 \centering
-\caption{ECAG-Bench dataset statistics.}
+\caption{\ecagbench{} dataset statistics.}
 \label{tab:statistics}
 \begin{tabular}{lr}
 \toprule
@@ -63,14 +86,71 @@ Rubric & 9 \\
 \end{tabular}
 \end{table}
 
+Figure~\ref{fig:distribution} provides a visual overview of the dataset distribution.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/dataset_distribution.pdf}
+\caption{Distribution of \ecagbench{} problems. (a)~By chapter: Basic Concepts dominates, reflecting its foundational role. (b)~By difficulty: Level~2 is the majority, corresponding to graduate homework difficulty. (c)~Question type breakdown by chapter, showing that counterexamples are distributed across all chapters. (d)~Verification strategy: CAS verification covers 93.1\% of problems.}
+\label{fig:distribution}
+\end{figure*}
+
+\subsection{Topic Coverage}
+
+Beyond the chapter-level organization, \ecagbench{} covers a fine-grained set of topics within algebraic geometry.
+Table~\ref{tab:topics} shows the distribution across major topic areas.
+
+\begin{table}[h]
+\centering
+\caption{Distribution of problems by topic (top 10).}
+\label{tab:topics}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Topic} & \textbf{Count} \\
+\midrule
+Computations (intersection theory, Chern classes, etc.) & 58 \\
+Morphisms (flat, \'etale, proper, etc.) & 57 \\
+Basic concepts (schemes, spectra, etc.) & 52 \\
+Moduli spaces \& deformations & 34 \\
+Cohomology (sheaf, \'etale, de Rham) & 33 \\
+Sheaves \& bundles & 23 \\
+Curves (genus, Jacobian, etc.) & 22 \\
+Schemes (reduced, normal, regular) & 20 \\
+Divisors \& line bundles & 18 \\
+Other (functors, groups, invariants) & 15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The breadth of topic coverage ensures that \ecagbench{} tests algebraic geometry competence across the field rather than overweighting a single area.
+Problems involving \emph{morphisms} (57) span the full range from basic properties (locally of finite type, separated) to advanced topics (\'etale covers, resolution of singularities).
+\emph{Computations} (58) include intersection numbers, Chern classes, Hilbert polynomials, and cohomology dimensions.
+\emph{Moduli} problems (34) test understanding of parameter spaces, deformation theory, and the interplay between local and global structure.
+
 \subsection{Difficulty Levels}
 
 Problems are assigned one of three difficulty levels:
 \begin{description}[nosep]
-  \item[Level 1 (Routine):] The construction follows directly from definitions. A student who has read the relevant section of a standard textbook should be able to produce an answer.
-  \item[Level 2 (Non-trivial):] The construction requires applying a significant theorem or combining multiple standard results. This is the level of a good homework problem in a graduate course.
-  \item[Level 3 (Deep):] The construction requires either deep structural insight, the combination of results from different areas, or the knowledge of a specific ``trick'' that is not obvious from the problem statement.
+  \item[Level 1 (Routine, 77 problems):] The construction follows directly from definitions. A student who has read the relevant section of a standard textbook should be able to produce an answer. Example: ``Give an example of a non-reduced scheme.''
+  \item[Level 2 (Non-trivial, 237 problems):] The construction requires applying a significant theorem or combining multiple standard results. This is the level of a good homework problem in a graduate course. Example: ``Construct a flat family of curves whose special fiber has a node.''
+  \item[Level 3 (Deep, 18 problems):] The construction requires either deep structural insight, the combination of results from different areas, or the knowledge of a specific ``trick'' that is not obvious from the problem statement. Example: ``Exhibit a smooth projective threefold with trivial canonical bundle that is not a product of lower-dimensional varieties.''
 \end{description}
+
+The heavy concentration at Level~2 (71.4\%) reflects our intention to test \emph{working mathematical knowledge} rather than either elementary definitions or research-frontier results.
+
+\subsection{Content Enhancement Pipeline}
+
+The content enhancement process involved restructuring each example into a natural mathematical exposition following a consistent quality standard:
+\begin{enumerate}[nosep]
+  \item \textbf{Narrative form:} Each example reads as a self-contained mathematical essay rather than a template with bullet points.
+  \item \textbf{Complete constructions:} All computational steps are shown explicitly, allowing independent verification.
+  \item \textbf{Structured format:} Each entry follows a Statement $\to$ Construction/Proof $\to$ Key Insight $\to$ Prerequisites structure, facilitating both human review and automated extraction.
+  \item \textbf{Benchmark problem extraction:} Each example is annotated with a structured benchmark problem specification, including the problem statement, expected answer type, difficulty level, and verification strategy.
+\end{enumerate}
+
+The enhancement was performed using the Anthropic API (via a custom script, \texttt{enhance\_examples.py}), with each output reviewed for mathematical correctness.
+All 332 entries have been enhanced to this standard, with zero stubs remaining.
 
 \subsection{Quality Control}
 
@@ -81,4 +161,8 @@ Each entry has been reviewed for:
   \item Accuracy of the benchmark problem formulation
   \item Consistency of difficulty rating across the dataset
   \item Validity of the assigned verification strategy
+  \item Schema compliance (validated against a JSON Schema; see Appendix~\ref{app:schema})
+  \item Macro expansion correctness (all custom \LaTeX\ macros expanded to standard form)
 \end{itemize}
+
+The validation pipeline includes automated schema checking via \texttt{validate\_benchmark.py}, which verifies that every entry has all required fields, difficulty levels are in $\{1,2,3\}$, verification strategies are valid, and cross-references to source files resolve correctly.

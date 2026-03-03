@@ -1,40 +1,158 @@
 \section{Analysis}
 \label{sec:analysis}
 
-\todo{Fill in after running experiments.}
-
 \subsection{Failure Mode Taxonomy}
 
-Based on preliminary evaluation, we identify the following failure modes specific to constructive algebraic geometry reasoning:
+Based on the pilot evaluation, we identify six failure modes specific to constructive algebraic geometry reasoning.
+Table~\ref{tab:failure-modes} summarizes their frequency in the pilot.
 
-\paragraph{F1: Fabricated objects.}
+\begin{table}[h]
+\centering
+\caption{Distribution of failure modes in the pilot evaluation (33 incorrect or partial responses out of 50).}
+\label{tab:failure-modes}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Code} & \textbf{Failure Mode} & \textbf{Count} & \textbf{\% of errors} \\
+\midrule
+F1 & Fabricated objects & 6 & 18\% \\
+F2 & Property confusion & 9 & 27\% \\
+F3 & Computational errors & 7 & 21\% \\
+F4 & Trivial/degenerate answers & 3 & 9\% \\
+F5 & Hallucinated theorems & 5 & 15\% \\
+F6 & Incomplete verification & 3 & 9\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{F1: Fabricated objects (18\%).}
 The model produces a mathematical object that does not exist or is not well-defined.
-For example, claiming that a certain polynomial defines a smooth curve when it is in fact singular, or referencing a ``well-known'' variety that does not appear in the literature.
+\emph{Pilot example:} When asked to construct a smooth projective curve over $\mathbf{F}_2$ with specific properties, the model presented a curve defined by a polynomial that is in fact singular at a point the model claimed was smooth.
+CAS verification immediately catches this: SageMath computes the singular locus and finds it non-empty, contradicting the model's claim.
 
-\paragraph{F2: Property confusion.}
-The model constructs a valid object but confuses the required properties.
-For example, producing a smooth but projective variety when asked for a smooth non-projective variety, or computing the Picard group when asked for the class group.
+\paragraph{F2: Property confusion (27\%).}
+The most common failure mode.
+The model constructs a valid object but confuses the required properties---either verifying the wrong property, or failing to distinguish between subtly different conditions.
+\emph{Pilot example:} Asked for a morphism that is \emph{locally of finite type but not of finite type}, the model produced a morphism and correctly showed it is locally of finite type but then argued it is ``not finitely generated'' without distinguishing between the scheme-level condition (quasi-compact source) and the ring-level condition.
+The object was correct but the justification conflated two distinct properties.
 
-\paragraph{F3: Computational errors.}
-The model follows a correct strategy but makes arithmetic or algebraic errors in the computation.
-This is particularly common in problems involving intersection numbers, Chern class computations, and cohomology calculations.
+Property confusion is especially prevalent in counterexample problems (5 of 12 counterexample errors), where the model must simultaneously track the positive property (the object should satisfy) and the negative property (the object should violate).
 
-\paragraph{F4: Trivial or degenerate answers.}
-The model produces a technically correct but trivially degenerate answer that fails to demonstrate understanding.
-For example, answering ``give an example of a flat morphism'' with the identity morphism.
+\paragraph{F3: Computational errors (21\%).}
+The model follows a correct strategy but makes arithmetic or algebraic errors in computation.
+\emph{Pilot example:} In computing Chern classes of a twist of the Horrocks--Mumford bundle~\citep{horrocks1973vector}, the model correctly set up the Hirzebruch--Riemann--Roch formula but made a sign error in the expansion of the Todd class in degree~3, producing an incorrect Euler characteristic.
+This class of errors is particularly insidious because the reasoning structure is correct, and only explicit CAS computation reveals the mistake.
 
-\paragraph{F5: Hallucinated theorems.}
-The model invokes a theorem that does not exist, or misattributes a result to a standard reference.
-This is distinct from F1 in that the constructed object may be valid, but the justification relies on a non-existent result.
+\paragraph{F4: Trivial or degenerate answers (9\%).}
+The model produces a technically correct but trivially degenerate answer that demonstrates no mathematical understanding.
+\emph{Pilot example:} When asked to ``give an example of a flat morphism,'' the model responded with the identity morphism $\mathrm{id}: X \to X$.
+While technically correct (the identity is always flat), this answer fails the non-triviality criterion (C3) and receives a score of 0.
+We observe that F4 failures are concentrated at Level~1, where the model sometimes defaults to the most trivial instance rather than producing an illustrative example.
 
-\paragraph{F6: Incomplete verification.}
-The model constructs a plausible object and provides some justification, but fails to verify all the required properties.
-For example, showing that a morphism is flat without checking that it is not smooth.
+\paragraph{F5: Hallucinated theorems (15\%).}
+The model invokes a theorem that does not exist or misattributes a result.
+\emph{Pilot example:} In a Level~3 problem about moduli spaces, the model cited a ``theorem of Artin--Mumford--Deligne'' establishing a specific representability result that does not appear in the literature.
+The constructed moduli functor was described using this phantom result, with no independent verification possible.
+F5 failures are concentrated at Levels~2 and~3, where the model is more likely to encounter knowledge gaps that it fills with plausible-sounding fabrications.
+
+\paragraph{F6: Incomplete verification (9\%).}
+The model constructs a plausible object and provides some justification but fails to verify all required properties.
+\emph{Pilot example:} Asked to construct a flat morphism that is not smooth, the model produced $\Spec(k[x,y]/(y^2 - x^3)) \to \Spec(k[x])$ and correctly argued flatness, but did not verify that the morphism is not smooth---it simply asserted ``clearly the fiber over $x=0$ is singular'' without checking whether the morphism itself (as opposed to a single fiber) is non-smooth.
+Partial credit (0.5) was awarded because the construction is correct.
 
 \subsection{Difficulty Calibration}
+\label{sec:difficulty-calibration}
 
-\todo{Analyze whether model performance correlates with assigned difficulty levels. Check for problems where difficulty assignment may need revision.}
+The pilot results show a clear monotonic relationship between assigned difficulty and model accuracy:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+& Level 1 & Level 2 & Level 3 \\
+\midrule
+Accuracy & 0.58 & 0.29 & 0.00 \\
+Accuracy + partial & 0.75 & 0.43 & 0.33 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This validates the difficulty calibration: problems rated harder by a human expert are indeed harder for the model.
+The steepest drop is from Level~1 to Level~2 (29 percentage points), corresponding to the transition from definitional constructions to those requiring non-trivial theorems.
+Level~3 problems (combining deep results from multiple areas) appear to be beyond the current model's reach, though the sample size ($n=3$) is too small for confident conclusions.
+
+We note that difficulty calibration could also be influenced by the frequency of similar problems in training data.
+Level~1 problems (e.g., ``give an example of a non-reduced scheme'') may appear frequently in online educational materials, while Level~3 problems are closer to research-level constructions with fewer training exemplars.
 
 \subsection{Chapter-Level Analysis}
+\label{sec:chapter-analysis}
 
-\todo{Analyze which areas of algebraic geometry are most challenging for LLMs. Hypothesize reasons based on training data availability and problem structure.}
+Performance varies substantially across chapters:
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Chapter} & \textbf{$n$} & \textbf{Accuracy} & \textbf{F1+F2 rate} & \textbf{F3 rate} \\
+\midrule
+Basic Concepts & 24 & 0.42 & 29\% & 8\% \\
+Computations & 10 & 0.30 & 10\% & 40\% \\
+Cohomology & 7 & 0.29 & 29\% & 29\% \\
+Moduli & 9 & 0.22 & 33\% & 22\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Several patterns emerge:
+\begin{enumerate}[nosep]
+  \item \textbf{Basic Concepts} has the highest accuracy, likely because foundational examples (e.g., $\Spec(k[x]/(x^2))$ for non-reducedness) appear frequently in algebraic geometry textbooks and course notes that are well-represented in training data.
+  \item \textbf{Computations} has a high rate of F3 (computational errors, 40\%), reflecting the difficulty of correctly executing multi-step algebraic calculations (Chern class computations, intersection products, cohomology via spectral sequences).
+  \item \textbf{Moduli \& Deformation} has the lowest accuracy and highest F1+F2 rate, suggesting that the model struggles with the abstract constructions required in deformation theory (e.g., computing tangent spaces to moduli functors, constructing versal deformation rings).
+  \item \textbf{Cohomology} shows a balance between conceptual errors (F1+F2) and computational errors (F3), reflecting the dual nature of cohomological problems that require both theoretical setup and explicit calculation.
+\end{enumerate}
+
+\subsection{Example vs.\ Counterexample Performance Gap}
+\label{sec:gap-analysis}
+
+The 14-percentage-point gap between example accuracy (39\%) and counterexample accuracy (25\%) is a central finding of our pilot evaluation.
+We analyze this gap in more detail.
+
+\paragraph{Failure mode distribution.}
+The failure mode distribution differs markedly between examples and counterexamples:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Failure Mode} & \textbf{Examples} & \textbf{Counterexamples} \\
+\midrule
+F1 (Fabricated objects) & 14\% & 22\% \\
+F2 (Property confusion) & 18\% & 56\% \\
+F3 (Computational errors) & 27\% & 0\% \\
+F4 (Trivial answers) & 14\% & 0\% \\
+F5 (Hallucinated theorems) & 18\% & 11\% \\
+F6 (Incomplete verification) & 9\% & 11\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The dominance of F2 (property confusion) in counterexample failures is striking: 56\% of counterexample errors involve the model confusing which property should be satisfied and which should be violated.
+This suggests that while the model can recall relevant mathematical objects, it struggles to precisely delineate the boundary between a theorem's hypotheses and its conclusion.
+
+\paragraph{Qualitative observation.}
+In successful counterexample constructions, the model typically follows a clear pattern: (1)~state the target property, (2)~identify the critical hypothesis, (3)~construct an object where that specific hypothesis fails, and (4)~verify both that the object is valid and that the property indeed fails.
+In unsuccessful attempts, the model often skips step (2) and directly produces an object that is loosely related to the topic without precisely targeting the boundary.
+
+This pattern is consistent with the Lakatosian view~\citep{lakatos1976proofs} that counterexample construction requires ``concept stretching''---pushing a definition to its limits to find where it breaks.
+Current language models appear to lack this ability, defaulting instead to pattern-matching against known examples.
+
+\subsection{The Role of CAS Verification}
+\label{sec:cas-role}
+
+Of the 48 pilot problems with CAS verification, the CAS layer detected errors in 22 responses (46\%).
+In 8 of these cases, the model's reasoning appeared superficially correct---the narrative was coherent, the claimed object was plausible, and the justification followed a logical structure.
+Only CAS computation revealed the error (typically an incorrect claim about smoothness, genus, or cohomology vanishing).
+
+This underscores the importance of property-based verification for constructive mathematics benchmarks.
+Answer-matching or rubric-only evaluation would have scored these 8 responses as correct, inflating accuracy by approximately 16 percentage points.
+The CAS layer serves as an ``algebraic fact-checker'' that prevents mathematically plausible but incorrect constructions from passing the evaluation.
+
+We note that CAS verification is not infallible.
+Some algebraic geometry properties (e.g., $S_n$ conditions for singularities, certain representability claims) are difficult to check computationally.
+For these, the rubric-based Layer~3 and human Layer~4 provide fallback verification.

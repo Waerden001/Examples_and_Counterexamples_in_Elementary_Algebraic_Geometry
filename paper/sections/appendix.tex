@@ -1,0 +1,273 @@
+\section{Extended Problem Examples}
+\label{app:examples}
+
+We present six complete problem--solution pairs from \ecagbench{}, selected to illustrate the range of problem types, difficulty levels, and mathematical content.
+
+\subsection*{A.1: Counterexample --- Infinite Disjoint Union (Level 2)}
+
+\begin{problembox}[title={\ecagid{0024} --- Basic Concepts}]
+\textbf{Problem:} Let $k$ be a field. Is the scheme $\coprod_{i=1}^{\infty} \Spec(k)$ affine? Justify your answer by identifying which property of affine schemes it fails to satisfy.
+
+\medskip
+\textbf{Solution (abbreviated):}
+The scheme $X = \coprod_{i=1}^{\infty} \Spec(k)$ is not affine.
+The key property that fails is \emph{quasi-compactness}: affine schemes are quasi-compact, but $X$ has the discrete topology on an infinite set, so the cover $\{U_i = \Spec(k)\}$ has no finite subcover.
+
+Alternatively, if $X$ were affine, we would have $X \cong \Spec(R)$ for $R = \Gamma(X, \mathcal{O}_X) \cong \prod_{i=1}^{\infty} k$.
+But $\Spec(\prod_{i=1}^{\infty} k)$ is a connected scheme (it has no non-trivial idempotents besides those coming from finite products), contradicting the fact that $X$ is disconnected with infinitely many connected components.
+
+\medskip
+\textbf{Type:} Counterexample \quad \textbf{Difficulty:} 2 \quad \textbf{Verification:} CAS (check quasi-compactness of global sections ring)
+\end{problembox}
+
+\subsection*{A.2: Example --- Hopf Algebra Structures in Char $p$ (Level 1)}
+
+\begin{problembox}[title={\ecagid{0003} --- Basic Concepts}]
+\textbf{Problem:} Let $k$ be a field of characteristic $p > 0$. Write down explicitly the Hopf algebra structures (comultiplication, counit, antipode) on $k[x]/(x^p - 1)$ for $\mu_p$ and on $k[x]/(x^p)$ for $\alpha_p$. Using the substitution $u = x - 1$ to identify the underlying algebras as $k[u]/(u^p)$, show that $\mu_p \not\cong \alpha_p$ as group schemes.
+
+\medskip
+\textbf{Solution (abbreviated):}
+Under $u = x-1$, both algebras become $k[u]/(u^p)$, but the comultiplications differ:
+\begin{align*}
+\Delta_\mu(u) &= u \otimes 1 + 1 \otimes u + u \otimes u \quad (\text{from } \mu_p) \\
+\Delta_\alpha(u) &= u \otimes 1 + 1 \otimes u \quad (\text{from } \alpha_p)
+\end{align*}
+Any $k$-algebra automorphism of $k[u]/(u^p)$ has the form $u \mapsto \lambda u + (\text{higher terms})$ with $\lambda \neq 0$, but $\Delta_\mu$ has a quadratic term $u \otimes u$ that cannot be eliminated by any such automorphism.
+
+\medskip
+\textbf{Type:} Example \quad \textbf{Difficulty:} 1 \quad \textbf{Verification:} CAS (verify Hopf algebra axioms)
+\end{problembox}
+
+\subsection*{A.3: Counterexample --- Locally Finite Type vs.\ Finite Type (Level 2)}
+
+\begin{problembox}[title={\ecagid{0043} --- Basic Concepts}]
+\textbf{Problem:} State the precise difference between ``locally of finite type'' and ``of finite type'' for a morphism of schemes. Give an example of a morphism that is locally of finite type but not of finite type, and identify which condition fails.
+
+\medskip
+\textbf{Solution (abbreviated):}
+A morphism $f: X \to Y$ is \emph{locally of finite type} if for every $x \in X$, there exist affine neighborhoods $U = \Spec(A)$ of $f(x)$ and $V = \Spec(B) \subseteq f^{-1}(U)$ of $x$ such that $B$ is a finitely generated $A$-algebra. It is \emph{of finite type} if additionally $f$ is quasi-compact.
+
+The morphism $\coprod_{i \in I} \mathbf{A}^1_k \to \mathbf{A}^1_k$ (identity on each component, $I$ infinite) is locally of finite type but not of finite type, because the source is not quasi-compact.
+
+\medskip
+\textbf{Type:} Counterexample \quad \textbf{Difficulty:} 2 \quad \textbf{Verification:} CAS
+\end{problembox}
+
+\subsection*{A.4: Example --- \'Etale Cover of Nodal Cubic (Level 2)}
+
+\begin{problembox}[title={\ecagid{0158} --- Basic Concepts}]
+\textbf{Problem:} Let $k$ be an algebraically closed field with $\chr(k) \neq 2$, and let $Y = \Spec(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. Construct a degree-2 \'etale morphism $f: X \to Y$ and compute the fibers over the node and a smooth point.
+
+\medskip
+\textbf{Solution (abbreviated):}
+Define $X = \Spec(k[s,t]/(t^2 - (s^2-1)^2))$ with $f$ given by $x \mapsto s^2 - 1$, $y \mapsto st$.
+The fiber over the node $(0,0)$ is $\Spec(k[s,t]/(s^2-1, t^2-(s^2-1)^2, st)) = \{(1,0), (-1,0)\}$, a reduced scheme of two points.
+At smooth points, $f$ is \'etale of degree~2 (one checks that $\Omega_{X/Y} = 0$ away from the node).
+
+\medskip
+\textbf{Type:} Example \quad \textbf{Difficulty:} 2 \quad \textbf{Verification:} CAS (verify \'etale condition, compute fibers)
+\end{problembox}
+
+\subsection*{A.5: Computation --- Horrocks--Mumford Bundle (Level 2)}
+
+\begin{problembox}[title={\ecagid{0230} --- Computations}]
+\textbf{Problem:} Let $\mathscr{F}$ be the Horrocks--Mumford bundle on $\mathbf{P}^4$ with $c_1(\mathscr{F}) = 5h$ and $c_2(\mathscr{F}) = 10h^2$. Using HRR, compute $\chi(\mathscr{F}(n-5))$ as a closed-form polynomial in $n$.
+
+\medskip
+\textbf{Solution (abbreviated):}
+The Chern character of $\mathscr{F}(m)$ (where $m = n-5$) is computed from $c_1$ and $c_2$ using the splitting principle, then paired with the Todd class of $\mathbf{P}^4$.
+The result is a degree-4 polynomial in $n$, which at $n=5$ yields $\chi(\mathscr{F}) = h^0 - h^1 = 4 - 2 = 2$, consistent with known cohomology.
+
+\medskip
+\textbf{Type:} Computation \quad \textbf{Difficulty:} 2 \quad \textbf{Verification:} Exact match + CAS
+\end{problembox}
+
+\subsection*{A.6: Example --- Proper Birational to Normal (Level 2)}
+
+\begin{problembox}[title={\ecagid{0019} --- Basic Concepts}]
+\textbf{Problem:} Let $f: X \to Y$ be a proper birational morphism with $Y$ normal. Prove that $f_* \mathcal{O}_X \cong \mathcal{O}_Y$. Which property of normal schemes is used?
+
+\medskip
+\textbf{Solution (abbreviated):}
+The structure map $\mathcal{O}_Y \to f_* \mathcal{O}_X$ is injective (since $f$ is birational and dominant).
+For surjectivity, any section $s \in (f_* \mathcal{O}_X)(U) = \mathcal{O}_X(f^{-1}(U))$ restricts to a rational function on $U$ that is regular on the dense open $f^{-1}(U \cap V)$ where $f$ is an isomorphism.
+Since $Y$ is normal, the algebraic Hartogs lemma (Serre's $R_1 + S_2$ criterion) extends $s$ to a regular function on $U$.
+
+\medskip
+\textbf{Type:} Example \quad \textbf{Difficulty:} 2 \quad \textbf{Verification:} Rubric
+\end{problembox}
+
+\section{Evaluation Prompt and Scoring Rubric}
+\label{app:prompt}
+
+\subsection*{B.1: Full Evaluation Prompt}
+
+\begin{lstlisting}
+You are an expert algebraic geometer with deep
+knowledge of scheme theory, sheaf cohomology,
+moduli spaces, and computational algebraic geometry.
+
+PROBLEM:
+{problem}
+
+INSTRUCTIONS:
+Provide a CONCRETE construction with full
+mathematical justification. Your response should
+include:
+
+1. **The explicit mathematical object**: State the
+   object clearly (e.g., a specific polynomial,
+   ring, scheme, morphism, sheaf, or cohomology
+   class).
+
+2. **Verification of all required properties**: For
+   each property mentioned in the problem, provide
+   a rigorous argument that your object satisfies
+   (or, for counterexamples, violates) it.
+
+3. **Key insight or theorem used**: Identify the main
+   mathematical idea underlying your construction.
+
+FORMAT:
+- State your answer at the very beginning, clearly
+  labeled.
+- Then provide the detailed justification.
+- Use standard LaTeX notation for mathematical
+  expressions.
+- If the problem asks for a counterexample,
+  explicitly state which hypothesis fails and why.
+\end{lstlisting}
+
+\subsection*{B.2: Scoring Rubric}
+
+\begin{description}[nosep]
+  \item[Score 1.0 (Correct):] \hfill
+  \begin{itemize}[nosep]
+    \item (C1) The constructed object is well-defined and belongs to the correct mathematical category.
+    \item (C2) All properties stated in the problem are rigorously verified (or, for counterexamples, the target property is rigorously shown to fail).
+    \item (C3) The answer is non-trivial and non-degenerate.
+    \item (C4) The mathematical reasoning is sound and references to standard results are accurate.
+  \end{itemize}
+  \item[Score 0.5 (Partial):] \hfill
+  \begin{itemize}[nosep]
+    \item The object is valid (C1 satisfied) but one or more of C2--C4 is partially satisfied.
+    \item Typical cases: correct object with incomplete verification, or correct approach with a computational error that does not invalidate the construction.
+  \end{itemize}
+  \item[Score 0.0 (Incorrect):] \hfill
+  \begin{itemize}[nosep]
+    \item The object is invalid (C1 fails), or the properties are not satisfied (C2 fails fundamentally).
+    \item Includes fabricated objects (F1), reversed properties (F2), and reliance on non-existent theorems (F5).
+  \end{itemize}
+\end{description}
+
+\section{Dataset Schema and Access}
+\label{app:schema}
+
+\subsection*{C.1: JSON Schema}
+
+Each entry in the ECAG-Bench dataset (\texttt{benchmark/data/ecag\_bench.jsonl}) conforms to the following schema:
+
+\begin{lstlisting}
+{
+  "id": "ecag-XXXX",
+  "problem": "Problem statement in LaTeX",
+  "solution": "Full solution text",
+  "answer": "Closed-form answer or null",
+  "answer_type": "example|counterexample|
+                  closed_form|proof|true_false",
+  "difficulty": 1|2|3,
+  "chapter": "basic_concepts|cohomology|
+              computations|moduli|relative",
+  "topic": "...",
+  "subtopic": "...",
+  "question_type": "example|counterexample|
+                    computation|proof|true_false",
+  "tags": ["..."],
+  "source": "Original|Hartshorne X.Y.Z|...",
+  "prerequisites": ["..."],
+  "msc_codes": ["14XXX"],
+  "verification_strategy": "exact|cas|rubric|hybrid",
+  "verification_script": "path or null",
+  "accepts_multiple": true|false,
+  "is_stub": false,
+  "latex_source": "path to .tex file"
+}
+\end{lstlisting}
+
+Difficulty levels: 1 = routine (follows from definitions), 2 = non-trivial (requires significant theorem), 3 = deep (combines multiple areas or requires specialized knowledge).
+
+\subsection*{C.2: Access}
+
+\begin{itemize}[nosep]
+  \item \textbf{GitHub:} \url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}
+  \item \textbf{Website:} The accompanying textbook is available as a searchable website via GitHub Pages.
+  \item \textbf{License:} CC-BY-4.0
+\end{itemize}
+
+\section{Case Study Full Outputs}
+\label{app:case-studies}
+
+This appendix provides the complete model outputs for the three case studies discussed in Section~\ref{sec:experiments}.
+
+\subsection*{D.1: Successful Construction (Case Study 1)}
+
+\textbf{Problem (\ecagid{0024}):} Let $k$ be a field. Is the scheme $\coprod_{i=1}^{\infty} \Spec(k)$ affine?
+
+\textbf{Model output (Claude Opus~4, abbreviated):}
+
+\begin{quote}
+\small
+\textbf{Answer:} No, $\coprod_{i=1}^{\infty} \Spec(k)$ is not affine.
+
+\textbf{Construction and justification:}
+
+The scheme $X = \coprod_{i=1}^{\infty} \Spec(k)$ is an infinite disjoint union of copies of $\Spec(k)$. I claim it fails to be affine because it is not quasi-compact.
+
+\emph{Quasi-compactness fails:} The open cover $\{U_i\}_{i=1}^{\infty}$ where $U_i$ is the $i$-th copy of $\Spec(k)$ is an open cover with no finite subcover, since each $U_i$ contains exactly one point. Since affine schemes are quasi-compact (a standard result, see Hartshorne II.2), $X$ cannot be affine.
+
+\emph{Alternative argument via global sections:} The ring of global sections is $\Gamma(X, \mathcal{O}_X) = \prod_{i=1}^{\infty} k$. If $X$ were affine, we would have $X \cong \Spec(\prod_{i=1}^{\infty} k)$. But $\Spec(\prod_{i=1}^{\infty} k)$ has the Zariski topology, which on an infinite product of fields is not discrete [...]
+
+\textbf{Key insight:} Affine schemes are quasi-compact, and infinite disjoint unions are not.
+\end{quote}
+
+\textbf{Score:} 1.0 \quad \textbf{Failure mode:} None
+
+\subsection*{D.2: Property Confusion (Case Study 2)}
+
+\textbf{Problem:} Exhibit a reduced scheme over $\mathbf{F}_p(T)$ that is not geometrically reduced.
+
+\textbf{Model output (abbreviated):}
+
+\begin{quote}
+\small
+\textbf{Answer:} Consider $\Spec(\mathbf{F}_p(T^{1/p}))$ over $\mathbf{F}_p(T)$.
+
+\textbf{Construction and justification:}
+
+The field extension $\mathbf{F}_p(T^{1/p})/\mathbf{F}_p(T)$ is purely inseparable of degree $p$: the minimal polynomial of $T^{1/p}$ is $X^p - T$.
+
+\emph{Reduced:} $\Spec(\mathbf{F}_p(T^{1/p}))$ is a single point with residue field $\mathbf{F}_p(T^{1/p})$, which is a field and therefore has no nilpotents. So the scheme is reduced.
+
+\emph{Not geometrically reduced:} $\mathbf{F}_p(T^{1/p})$ is not geometrically reduced because it contains the element $T^{1/p}$ which satisfies $(T^{1/p})^p = T$ and therefore $T^{1/p}$ is a $p$-th root, making the ring non-reduced over the algebraic closure [...]
+\end{quote}
+
+\textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2 (property confusion)
+
+The model correctly identified the right scheme but confused the verification: it attempted to argue that $\mathbf{F}_p(T^{1/p})$ is itself non-reduced (it is not---it is a field!) rather than computing the tensor product $\mathbf{F}_p(T^{1/p}) \otimes_{\mathbf{F}_p(T)} \overline{\mathbf{F}_p(T)}$ and showing it has nilpotents. Partial credit was awarded because the construction is correct.
+
+\subsection*{D.3: Hallucinated Theorem (Case Study 3)}
+
+\textbf{Problem:} Construct a smooth projective variety with specific Hodge numbers [Level~3, details omitted for brevity].
+
+\textbf{Model output (abbreviated):}
+
+\begin{quote}
+\small
+\textbf{Answer:} Consider the variety $X$ obtained by the following construction [...]
+
+By the generalized Lefschetz hyperplane theorem for Hodge filtrations (Artin--Mumford--Deligne, 1972), the Hodge numbers of a smooth complete intersection satisfy [...] Therefore, choosing degrees $d_1, \ldots, d_r$ appropriately, we obtain a variety with the desired Hodge numbers.
+\end{quote}
+
+\textbf{Score:} 0.0 \quad \textbf{Failure mode:} F5 (hallucinated theorem)
+
+No theorem of this name exists in the stated form. The result attributed to ``Artin--Mumford--Deligne'' conflates several distinct results (Artin--Mumford's work on unirational varieties, Deligne's proof of the Weil conjectures, and the classical Lefschetz hyperplane theorem). The model produced a confident narrative with no valid mathematical content.
