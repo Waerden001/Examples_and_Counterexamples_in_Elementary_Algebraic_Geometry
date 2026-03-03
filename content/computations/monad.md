@@ -145,12 +145,17 @@ $$
 0 \rightarrow \mathrm{H}^{1}(\mathcal{E}(-1, -1))\otimes\mathcal{O}_{\Sigma_n}(1, -1)\rightarrow E_{1}^{-1, 1}\otimes \mathcal{O}_{\Sigma_{n}}(1, 0)\rightarrow \mathrm{H}^{1}(\mathcal{E}(-2, n))\otimes \mathcal{O}_{\Sigma_{n}}(0, 0)\rightarrow 0.
 $$
 
-**Vanishing on the $E_1$-page.** The key step is to apply the Beilinson spectral sequence not to $\mathcal{E}$ but to the twist $\mathcal{E}(-1,0)$. The $E_1$-page for $\mathcal{E}(-1,0)$ is a $3 \times 3$ grid:
-| $q\backslash p$ | $p=-2$ | $p=-1$ | $p=0$ |
-|---|---|---|---|
-| $q=2$ | $\mathrm{H}^{2}(\mathcal{E}(-2,n-1))\otimes\mathcal{O}(-1, -1)$ | $E_{1}^{-1,2}$ | $\mathrm{H}^2(\mathcal{E}(-1, 0))\otimes \mathcal{O}_{\Sigma_{n}}$ |
-| $q=1$ | $\mathrm{H}^{1}(\mathcal{E}(-2,n-1))\otimes \mathcal{O}_{\Sigma_{n}}(-1,-1)$ | $E_{1}^{-1,1}$ | $\mathrm{H}^{1}(\mathcal{E}(-1, 0))\otimes \mathcal{O}_{\Sigma_{n}}$ |
-| $q=0$ | $\mathrm{H}^{0}(\mathcal{E}(-2,n-1))\otimes \mathcal{O}_{\Sigma_{n}}(-1,-1)$ | $E_{1}^{-1,0}$ | $\mathrm{H}^{0}(\mathcal{E}(-1, 0))\otimes \mathcal{O}_{\Sigma_{n}}$ |
+**Vanishing on the $E_1$-page.** The key step is to apply the Beilinson spectral sequence not to $\mathcal{E}$ but to the twist $\mathcal{E}(-1,0)$. The $E_1$-page for $\mathcal{E}(-1,0)$ is a $3 \times 3$ grid ($q$ rows, $p$ columns):
+
+$$
+\begin{array}{c|ccc}
+q \backslash p & p=-2 & p=-1 & p=0 \\ \hline
+q=2 & \mathrm{H}^{2}(\mathcal{E}(-2,n\!-\!1))\otimes\mathcal{O}(-1,-1) & E_{1}^{-1,2} & \mathrm{H}^{2}(\mathcal{E}(-1,0))\otimes\mathcal{O}_{\Sigma_{n}} \\
+q=1 & \mathrm{H}^{1}(\mathcal{E}(-2,n\!-\!1))\otimes\mathcal{O}_{\Sigma_{n}}(-1,-1) & E_{1}^{-1,1} & \mathrm{H}^{1}(\mathcal{E}(-1,0))\otimes\mathcal{O}_{\Sigma_{n}} \\
+q=0 & \mathrm{H}^{0}(\mathcal{E}(-2,n\!-\!1))\otimes\mathcal{O}_{\Sigma_{n}}(-1,-1) & E_{1}^{-1,0} & \mathrm{H}^{0}(\mathcal{E}(-1,0))\otimes\mathcal{O}_{\Sigma_{n}}
+\end{array}
+$$
+
 We use the vanishing lemma to kill the four corner entries. For $\mathrm{H}^0$: the fiberwise degree of $\mathcal{E}(-2,n-1)$ is $n(-2) + (n-1) = -(n+1) \leq -1$, so $\mathrm{H}^0 = 0$; for $\mathcal{E}(-1,0)$, the fiberwise degree is $-n \leq -1$, so $\mathrm{H}^0 = 0$. For $\mathrm{H}^2$: the fiberwise degree of $\mathcal{E}(-2,n-1)$ is $-(n+1) \geq -(n+1)$, so $\mathrm{H}^2 = 0$; for $\mathcal{E}(-1,0)$, the fiberwise degree is $-n \geq -(n+1)$, so $\mathrm{H}^2 = 0$.
 **Degeneration to a monad.** With all four corner entries vanishing, convergence of the spectral sequence forces $E_1^{-1,2} = 0$ and $E_1^{-1,0} = 0$ as well, since these would contribute to total degrees $1$ and $-1$ respectively with no surviving terms to cancel them. Only the $q = 1$ row survives, and the spectral sequence degenerates at $E_1$, expressing $\mathcal{E}(-1,0)$ as the cohomology of
 

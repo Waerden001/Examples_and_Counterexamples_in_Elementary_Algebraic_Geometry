@@ -39,5 +39,13 @@ window.MathJax = {
 };
 
 document$.subscribe(() => {
-  MathJax.typesetPromise()
+  MathJax.typesetPromise().then(() => {
+    // Also typeset math in TOC sidebar and page header
+    const tocElements = document.querySelectorAll(
+      '.md-nav__link, .md-header__topic, .md-tabs__link, h1, h2, h3, h4'
+    );
+    if (tocElements.length > 0) {
+      MathJax.typesetPromise(Array.from(tocElements));
+    }
+  });
 })

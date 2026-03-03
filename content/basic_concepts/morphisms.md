@@ -4,9 +4,9 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 ---
 
 ## Morphisms
-### \'{Etale  related}
+### Étale related
 
-### Example: An \'{e}tale morphism, Hartshorne $\mathrm{III}.10.6$ {#ecag-0158}
+### Example: An étale morphism, Hartshorne $\mathrm{III}.10.6$ {#ecag-0158}
 
 Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$, and let $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. We construct a degree-2 etale morphism onto $Y$ from a smooth source by defining
 
