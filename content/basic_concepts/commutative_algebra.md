@@ -7,175 +7,296 @@ source: /home/waerden/GitHub/Examples_and_Counterexamples_in_Elementary_Algebrai
 
 ### Example: Infinite disjoint union of affine schemes is not affine in general {#ecag-0024}
 
-We note that
+**Statement:** The infinite disjoint union $\coprod_{i=1}^{\infty} \mathbb{A}_{k}^{1}$ is not an affine scheme. Moreover, it is not isomorphic to either $\operatorname{Spec}(\bigoplus_{i=1}^{\infty}k[x])$ or $\operatorname{Spec}(\prod_{i=1}^{\infty}k[x])$.
 
-$$\amalg_{i=1}^{\infty} \mathbb{A}_{k}^{1}\neq \mathrm{Spec}(\oplus_{i=1}^{\infty}k[x])\neq \mathrm{Spec}(\Pi_{i=1}^{\infty}k[x]).$$
+**Construction/Proof:** We have three distinct schemes:
 
-Note that $\sqcup_{i=1}^{\infty} \mathbb{A}_{k}^{1}$ is not quasi-compact, thus not affine. The latter two are affine, as a consequence, they're quasi-compact.
+$$
+\coprod_{i=1}^{\infty} \mathbb{A}_{k}^{1}, \quad \operatorname{Spec}\!\left(\bigoplus_{i=1}^{\infty}k[x]\right), \quad \operatorname{Spec}\!\left(\prod_{i=1}^{\infty}k[x]\right).
+
+$$
+
+The key observation is that an affine scheme $\operatorname{Spec}(A)$ is always quasi-compact: any open cover of $\operatorname{Spec}(A)$ admits a finite subcover. However, the infinite disjoint union $\coprod_{i=1}^{\infty} \mathbb{A}_{k}^{1}$ has the open cover $\{\mathbb{A}_{k}^{1}\}_{i=1}^{\infty}$ (each copy is open), and no finite subcover exists since the copies are pairwise disjoint. Therefore $\coprod_{i=1}^{\infty} \mathbb{A}_{k}^{1}$ is not quasi-compact, hence not affine.
+
+On the other hand, both $\operatorname{Spec}(\bigoplus_{i=1}^{\infty}k[x])$ and $\operatorname{Spec}(\prod_{i=1}^{\infty}k[x])$ are affine by definition (they are spectra of rings), hence quasi-compact. This shows all three are pairwise non-isomorphic as schemes.
+
+**Key Insight:** Quasi-compactness is a necessary condition for affineness, and infinite disjoint unions of nonempty schemes are never quasi-compact.
+
+**Prerequisites:** Affine schemes, quasi-compactness, direct sums and products of rings
+
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field. Is the scheme $\coprod_{i=1}^{\infty} \operatorname{Spec}(k)$ affine? Justify your answer by identifying which property of affine schemes it fails to satisfy. -->
 
 ### Example: Affine push-forward is exact {#ecag-0025}
 
-Simply because the direct images are associated to 
+**Statement:** Let $f: X \to Y$ be an affine morphism and $\mathscr{F}$ a quasi-coherent sheaf on $X$. Then $R^{i}f_{*}\mathscr{F} = 0$ for all $i \geq 1$, i.e., the higher direct images vanish. The quasi-coherence hypothesis on $\mathscr{F}$ is essential.
 
-$$H^{i}(f^{-1}(V),\mathscr{F}|_{f^{-1}(V)})$$
+**Construction/Proof:** For any affine open $V \subseteq Y$, the preimage $f^{-1}(V)$ is affine (by definition of an affine morphism). The stalk of $R^{i}f_{*}\mathscr{F}$ at sections over $V$ is
 
-it vanishes for any $i\geq 1$ if this morphism is affine. As pointed out by Dingxin, this assertion is incorrect if $\mathscr{F}$ is not quasi-coherent.
+$$
+R^{i}f_{*}\mathscr{F}(V) = H^{i}(f^{-1}(V), \mathscr{F}|_{f^{-1}(V)}).
+
+$$
+
+Since $f^{-1}(V)$ is affine and $\mathscr{F}$ is quasi-coherent, Serre's vanishing theorem gives $H^{i}(f^{-1}(V), \mathscr{F}|_{f^{-1}(V)}) = 0$ for $i \geq 1$. As this holds for all affine opens $V$ covering $Y$, we conclude $R^{i}f_{*}\mathscr{F} = 0$ for $i \geq 1$.
+
+The quasi-coherence hypothesis is necessary: for a general $\mathcal{O}_X$-module $\mathscr{F}$, Serre's vanishing theorem does not apply and the higher cohomology on an affine scheme can be nonzero.
+
+**Key Insight:** The vanishing of higher direct images under affine morphisms is a direct consequence of Serre's vanishing theorem for quasi-coherent sheaves on affine schemes, applied fibrewise over affine opens in the base.
+
+**Prerequisites:** Affine morphisms, quasi-coherent sheaves, higher direct images, Serre's vanishing theorem
+
+<!-- BENCHMARK_PROBLEM: Let $f: X \to Y$ be an affine morphism and $\mathscr{F}$ a quasi-coherent sheaf on $X$. Prove that $R^i f_* \mathscr{F} = 0$ for all $i \geq 1$. State precisely what property of affine schemes you use. -->
 
 ### Remark {#ecag-0026}
 
-Some naive but useful facts
+Some useful consequences of the exactness of push-forward along affine morphisms:
 
-- push-forward along a finite morphism is exact.
+- Push-forward along a finite morphism is exact. This follows because every finite morphism is affine (a finite morphism $f: X \to Y$ is by definition affine with $f_*\mathcal{O}_X$ a finite $\mathcal{O}_Y$-module), so the result above applies.
 
 ### Example: Closed subscheme of an affine scheme is affine but an open subscheme might not {#ecag-0027}
 
-Consider a morphism $f:X\rightarrow Y$ where $Y$ is affine and $X$ is Noetherian. Then we know $f$ is affine, then for any quasi-coherent sheaf $\mathscr{F}$ on $X$, we have 
+**Statement:** Every closed subscheme of an affine scheme is affine. However, an open subscheme of an affine scheme need not be affine. Specifically, $\mathbb{A}_{k}^{2} \setminus \{0\}$ is an open subscheme of the affine scheme $\mathbb{A}_{k}^{2}$ that is not affine.
 
-$$H^{i}(X,\mathscr{F})=H^{i}(Y, f_{*}\mathscr{F});\forall i\geq 0.$$
+**Construction/Proof:** Let $Y = \operatorname{Spec}(A)$ be affine and $X \hookrightarrow Y$ a closed subscheme defined by an ideal $I \subseteq A$. Then $X = \operatorname{Spec}(A/I)$, which is affine.
 
-Since $X$ is Noetherian, $f_{*}\mathscr{F}$ is a quasi-coherent sheaf on $Y$. Then use Serre's criterion for affineness.
+For the open case, consider a closed immersion $f: X \hookrightarrow Y$ where $Y$ is affine and $X$ is Noetherian. By Serre's criterion, $X$ is affine if and only if $H^{i}(X, \mathscr{F}) = 0$ for all quasi-coherent $\mathscr{F}$ and $i \geq 1$. Since $f$ is affine, we have
+
+$$
+H^{i}(X, \mathscr{F}) = H^{i}(Y, f_{*}\mathscr{F}) \quad \text{for all } i \geq 0.
+
+$$
+
+When $X$ is Noetherian, $f_{*}\mathscr{F}$ is quasi-coherent on $Y$, and since $Y$ is affine, $H^{i}(Y, f_{*}\mathscr{F}) = 0$ for $i \geq 1$.
+
+For the counterexample, take $U = \mathbb{A}_{k}^{2} \setminus \{0\}$. We have $\Gamma(U, \mathcal{O}_{U}) = k[x,y]$ (since $\{0\}$ has codimension 2 in a normal scheme), which equals $\Gamma(\mathbb{A}_{k}^{2}, \mathcal{O}_{\mathbb{A}_{k}^{2}})$. If $U$ were affine, we would have $U \cong \operatorname{Spec}(k[x,y]) = \mathbb{A}_{k}^{2}$, contradicting the fact that $U \neq \mathbb{A}_{k}^{2}$. Alternatively, $U$ is not affine because $H^{1}(U, \mathcal{O}_{U}) \neq 0$.
+
+**Key Insight:** Closed subschemes of affine schemes are affine because quotients of rings give affine specs. Open subschemes can fail to be affine when removing a locus of codimension $\geq 2$ produces non-vanishing higher cohomology.
+
+**Prerequisites:** Affine schemes, Serre's criterion for affineness, sheaf cohomology, Hartogs' theorem
+
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field. Prove that $\mathbb{A}_{k}^{2} \setminus \{(0,0)\}$ is not affine by computing $\Gamma(\mathbb{A}_{k}^{2} \setminus \{(0,0)\}, \mathcal{O})$ and deriving a contradiction. -->
 
 ### Example: $0$-dimensional affine scheme, infinitely many closed points {#ecag-0028}
 
-> **Status:** Stub — content needed.
+**Statement:** There exists a $0$-dimensional affine scheme with infinitely many closed points. An explicit example is $\operatorname{Spec}\!\left(\prod_{i=1}^{\infty} k\right)$ where $k$ is a field.
+
+**Construction/Proof:** Let $R = \prod_{i=1}^{\infty} k$, the countably infinite product of copies of a field $k$. For each index $i$, the projection $\pi_i: R \to k$ onto the $i$-th factor is a surjective ring homomorphism with kernel $\mathfrak{m}_i = \{(a_1, a_2, \ldots) \mid a_i = 0\}$. Each $\mathfrak{m}_i$ is a maximal ideal since $R/\mathfrak{m}_i \cong k$ is a field. These are pairwise distinct, so $\operatorname{Spec}(R)$ has infinitely many closed points.
+
+To see that $\operatorname{dim}(R) = 0$, note that every prime ideal of $R$ is maximal. Indeed, if $\mathfrak{p}$ is a prime ideal of $R$, then $R/\mathfrak{p}$ is an integral domain. But $R$ is a von Neumann regular ring (every element $a \in R$ satisfies $a = a^2 b$ for some $b \in R$, which holds componentwise since each factor is a field). Hence $R/\mathfrak{p}$ is a von Neumann regular integral domain, which must be a field. Therefore every prime is maximal and $\operatorname{dim}(R) = 0$.
+
+Note that $R$ is not Noetherian (the ascending chain of ideals generated by $e_1, e_1 + e_2, \ldots$ does not stabilize, where $e_i$ denotes the $i$-th standard idempotent). This is consistent with the fact that a $0$-dimensional Noetherian ring has only finitely many primes.
+
+**Key Insight:** Without the Noetherian or finite type hypothesis, $0$-dimensional rings can have infinitely many prime (= maximal) ideals. The product of infinitely many fields is a $0$-dimensional von Neumann regular ring with uncountably many primes.
+
+**Prerequisites:** Krull dimension, von Neumann regular rings, prime and maximal ideals
+
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field and $R = \prod_{i=1}^{\infty} k$. Show that $\operatorname{Spec}(R)$ is $0$-dimensional with infinitely many closed points. Must every prime ideal of $R$ be of the form $\mathfrak{m}_i = \ker(\pi_i)$? -->
 
 ### Remark: Being of finite type is important {#ecag-0029}
 
-Let $S$ be a nonzero finite type algebra of a field $k$, then $\mathrm{dim}(S)=0$ if and only if $S$ has finitely many primes. See
-[Stack's project tag 02IF](http://stacks.math.columbia.edu/tag/02IF)
+Let $S$ be a nonzero finite type algebra over a field $k$. Then $\operatorname{dim}(S) = 0$ if and only if $S$ has finitely many prime ideals. This is a consequence of the Noether normalization lemma: if $\operatorname{dim}(S) = 0$, then $S$ is a finite $k$-algebra, hence Artinian, so it has finitely many primes. Conversely, if $S$ has finitely many primes and $\operatorname{dim}(S) \geq 1$, then by Noether normalization there is a finite injection $k[x] \hookrightarrow S$, and the infinitely many primes of $k[x]$ would pull back to infinitely many primes of $S$, a contradiction. See [Stacks project tag 02IF](http://stacks.math.columbia.edu/tag/02IF).
 
 ## Reduced and separated
 
 ### Remark: Integral fibres v.s. connected fibres {#ecag-0030}
 
-Integral is actually a quite strong condition, if a scheme is integral, we can easily prove it's irreducible and hence connected. But the converse is not true.
+An integral scheme is by definition both reduced and irreducible. Since irreducible implies connected, every integral scheme is connected. However, the converse fails: a connected scheme need not be integral. For instance, the scheme $\operatorname{Spec}(k[x,y]/(xy))$ is connected (as a union of two lines meeting at the origin) but reducible, hence not integral. Similarly, $\operatorname{Spec}(k[x]/(x^2))$ is connected and irreducible but not reduced, hence not integral.
+
+In the context of fibres of a morphism $f: X \to S$, requiring geometric fibres to be integral is much stronger than requiring them to be merely connected. Integral fibres impose both irreducibility and reducedness at every geometric point.
 
 ### Remark: Integral scheme of finite type over an algebraically closed field $k$ v.s. Noetherian scheme {#ecag-0031}
 
-Just check the definition, you'll find an integral scheme of finite type over an algebraically closed field $k$ is not just noetherian (can be covered by finitely many affine noetherian schemes), and it's also integral(...yeah, sure..)
+An integral scheme of finite type over an algebraically closed field $k$ is automatically Noetherian: it can be covered by finitely many affine open subsets $\operatorname{Spec}(A_i)$, where each $A_i$ is a finitely generated $k$-algebra, hence Noetherian by the Hilbert basis theorem. But it carries the additional structural property of being integral (i.e., each $A_i$ is an integral domain). Being Noetherian alone does not imply integrality (consider $\operatorname{Spec}(k[x,y]/(xy))$, which is Noetherian but not integral), and conversely, an integral scheme that is not of finite type over a field need not be Noetherian (consider $\operatorname{Spec}(k[x_1, x_2, \ldots])$).
 
 ### Example: $\mathrm{Cl}$ of the affine line with double origins {#ecag-0032}
 
-In Hartshorne's book, it's actually impossible to talk about $\mathrm{Cl}(\bar{\mathbb{A}}_{k}^{1})$, but it seems to me, all definitions work and being nonseparated is bad for other reasons, but we definitely could compute $\mathrm{Cl}(\bar{\mathbb{A}}_{k}^{1})$, $\mathrm{CaCl}(\bar{\mathbb{A}}_{k}^{1})$ and $\mathrm{Pic}(\bar{\mathbb{A}}_{k}^{1})$., using their definitions.
+**Statement:** Let $\overline{\mathbb{A}}_{k}^{1}$ denote the affine line with double origins over a field $k$. Although Hartshorne restricts the class group $\operatorname{Cl}$ to separated integral Noetherian schemes, the definitions of $\operatorname{Cl}$, $\operatorname{CaCl}$, and $\operatorname{Pic}$ extend to $\overline{\mathbb{A}}_{k}^{1}$, and one can compute:
+
+$$
+\operatorname{Cl}(\overline{\mathbb{A}}_{k}^{1}) \cong \mathbb{Z}, \quad \operatorname{CaCl}(\overline{\mathbb{A}}_{k}^{1}) = 0, \quad \operatorname{Pic}(\overline{\mathbb{A}}_{k}^{1}) \cong \mathbb{Z}.
+
+$$
+
+**Construction/Proof:** The scheme $\overline{\mathbb{A}}_{k}^{1}$ is obtained by gluing two copies $U_1 = \operatorname{Spec}(k[x])$ and $U_2 = \operatorname{Spec}(k[y])$ along $U_1 \setminus \{0\} \cong U_2 \setminus \{0\}$ via $x \mapsto y$. It is integral, locally Noetherian, and locally factorial (both charts are PIDs), but it is not separated (the diagonal is not closed).
+
+For $\operatorname{Cl}$: the Weil divisors on $\overline{\mathbb{A}}_{k}^{1}$ are formal sums of codimension-1 points. The two origins $O_1 \in U_1$ and $O_2 \in U_2$ are distinct closed points. The divisor $O_1 - O_2$ is not principal (any rational function on $\overline{\mathbb{A}}_{k}^{1}$ that vanishes at $O_1$ also vanishes at $O_2$ since they share the same local ring away from themselves), generating $\operatorname{Cl}(\overline{\mathbb{A}}_{k}^{1}) \cong \mathbb{Z}$.
+
+For $\operatorname{CaCl}$: since the global sections are $\Gamma(\overline{\mathbb{A}}_{k}^{1}, \mathcal{O}) = k[x]$ (both charts glue to give the same polynomial ring), every Cartier divisor on $\overline{\mathbb{A}}_{k}^{1}$ is principal. So $\operatorname{CaCl}(\overline{\mathbb{A}}_{k}^{1}) = 0$.
+
+For $\operatorname{Pic}$: the non-separated nature causes $\operatorname{Pic} \neq \operatorname{CaCl}$. One constructs a non-trivial line bundle by modifying the gluing data. One obtains $\operatorname{Pic}(\overline{\mathbb{A}}_{k}^{1}) \cong \mathbb{Z}$.
+
+**Key Insight:** Non-separatedness causes Weil divisors, Cartier divisors, and line bundles to behave differently from the separated case, where $\operatorname{Cl} \cong \operatorname{CaCl} \cong \operatorname{Pic}$ on locally factorial integral schemes.
+
+**Prerequisites:** Weil divisors, Cartier divisors, Picard group, separatedness, line with double origins
+
+<!-- BENCHMARK_PROBLEM: Let $\overline{\mathbb{A}}_{k}^{1}$ be the affine line with double origins over a field $k$. Compute $\Gamma(\overline{\mathbb{A}}_{k}^{1}, \mathcal{O})$ and determine whether the two origins can be separated by a global regular function. -->
 
 ### Example: Reduced schemes: functions are determined by their values {#ecag-0033}
 
-First recall that in a ring $R$, the nilpotent radical is given by 
+**Statement:** On a reduced scheme $X$, a global section $f \in \Gamma(X, \mathcal{O}_X)$ is zero if and only if $f$ vanishes at every point of $X$ (i.e., $f(\mathfrak{p}) = 0$ in $k(\mathfrak{p})$ for all $\mathfrak{p} \in X$). On non-reduced schemes, this fails: nonzero nilpotent elements vanish everywhere.
 
-$$nil(R)=\mathfrak{q}=\cap_{\mathfrak{p}, prime}\mathfrak{p}$$
+**Construction/Proof:** Recall that in a ring $R$, the nilradical is
 
-And the point is that if $\mathrm{Spec}(R)$ is irreducible, it's equivalent of saying that the nilradical is a prime ideal, and geometrically just means $\mathfrak{q}$ is the prime ideal of `the' generic point.  In other words, 
+$$
+\operatorname{nil}(R) = \bigcap_{\mathfrak{p} \text{ prime}} \mathfrak{p}.
 
-- on an irreducible affine scheme, $f$ vanishes at `the' generic point means $f$ is nilpotent.
-- on an reducible affine scheme, $f$ vanishes at `a' generic point, then $f$ is nilpotent in some open subset of $\mathrm{Spec}(R)$.
+$$
 
-Now if $f(\mathfrak{q})=0$ at the generic point, then $f\in \mathfrak{q}$, $f^{k}=0$. But now our scheme if reduced thus $f=0$. And general examples look like
+An element $f \in R$ satisfies $f(\mathfrak{p}) = 0$ in $k(\mathfrak{p}) = R_{\mathfrak{p}}/\mathfrak{p}R_{\mathfrak{p}}$ for all primes $\mathfrak{p}$ if and only if $f \in \mathfrak{p}$ for all primes $\mathfrak{p}$, i.e., $f \in \operatorname{nil}(R)$. If $R$ is reduced, $\operatorname{nil}(R) = 0$, so $f = 0$.
 
-$$\mathrm{Spec}(k[x,y]/(x^{m}y^{n}))$$
+If $\operatorname{Spec}(R)$ is irreducible, the nilradical $\operatorname{nil}(R)$ is a prime ideal corresponding to the generic point $\eta$. Then $f$ vanishes at $\eta$ if and only if $f \in \operatorname{nil}(R)$, equivalently $f$ is nilpotent. On an irreducible reduced scheme, $f(\eta) = 0$ forces $f = 0$.
 
-- $nil(R)=0.$ We have two minimal primes $\mathfrak{p}_{1}=(x),\mathfrak{p}_{2}=(y)$. But be careful $\mathfrak{p}_{1}$ is the generic point of the $y$-axis,  and $\mathfrak{p}_{2}$ is the generic point of the $x$-axis.
-- $f=xy$. $f(\mathfrak{p})=0, \forall \mathfrak{p}\in \mathrm{Spec}(R)$. However $f\neq 0$, which also means $f\neq nil(R).$
-- $f=x$, $f(\mathfrak{p}_{2})=x\in k(\mathfrak{p}_{2})=k(x)$. And $x\notin nil(R)$. However if you consider $U=D_{+}(y)$, then 
+For a concrete non-reduced example, consider $R = k[x,y]/(x^m y^n)$ with $m, n \geq 1$:
 
-$$U=\mathrm{Spec}((k[x,y]/(x^{m}y^{n}))_{y})\cong \mathrm{Spec}(k[y,y^{-1},x]/(x^{m})).$$
+- The nilradical is $\operatorname{nil}(R) = 0$ (the element $x^m y^n = 0$ but $\operatorname{nil}(R) = (x) \cap (y) = (xy)$ when $m = n = 1$, and more generally depends on $m, n$).
+- The two minimal primes are $\mathfrak{p}_1 = (x)$ (generic point of the $y$-axis) and $\mathfrak{p}_2 = (y)$ (generic point of the $x$-axis).
+- The element $f = xy$ satisfies $f(\mathfrak{p}) = 0$ for all $\mathfrak{p} \in \operatorname{Spec}(R)$, yet $f \neq 0$ in $R$. This is because $f \in \operatorname{nil}(R)$ but $R$ is not reduced.
+- For $f = x$: $f(\mathfrak{p}_2) = x \in k(\mathfrak{p}_2) = k(x) \neq 0$, so $f$ does not vanish at the generic point of the $x$-axis.
+- On the open set $U = D(y) \cong \operatorname{Spec}(k[y, y^{-1}, x]/(x^m))$, the element $x$ is nilpotent in $\mathcal{O}(U)$, reflecting the non-reduced structure along the $y$-axis that persists after removing the origin.
 
-Geometrically it can be interpreted as
+A further subtlety: the localizations $C_k = \operatorname{Spec}((k[x,y]/(x^m y^n))_{y - x^k})$ for different values of $k$ can produce non-isomorphic affine schemes, even though their underlying topological spaces are homeomorphic. This occurs because different localizations invert different sets of functions, altering the ring structure.
 
-- $y^{-1}$ occurs since the origin is removed.
-- $x^{m}$ occurs means the nonreduced strcture on the $`y'$-axis is still there.
-- $f(\mathfrak{p}_{1})=0$, and we do have $f\in nil(k[y,y^{-1},x]/(x^{m}))$.
-- If we consider the open subset $U'=D_{+}(x+y)$, then we can get 
+**Key Insight:** Reducedness is exactly the condition that ensures sections of the structure sheaf are determined by their values at points. The nilradical measures the failure: nonzero nilpotent elements vanish at every prime but are not zero.
 
-$$U'\cong \mathrm{Spec}((k[x,y]/(x^{m}y^{n}))_{x+y})\ncong \mathrm{Spec}(k[x,x^{-1},y]/(y^{m})\times k[y,y^{-1},x]/(x^{m})). $$
+**Prerequisites:** Nilradical, reduced rings, generic points, localization
 
-Note that the last formula is $\ncong$. HOw come? Otherwise, you can consider the localization on $D_{+}((x+y)x)$, then it's clear 
-
-$$k[x,x^{-1},y]/(y^{n})\ncong (k[x,x^{-1},y]/(y^{n}))_{x+y}$$
-
-- we have to point out a silly thing, 
-
-$$k[x,x^{-1}]/(x^{m})=0$$
-
-which means if we remove the origin from the nonreduced line $\mathrm{Spec}(k[x,y]/(y^{m}))$, we do get an affine scheme, but it's given by 
-
-$$\mathrm{Spec}(k[x,x^{-1},y]/(y^{m}))$$
-
-- More interesting, you can consider 
-
-$$C_{k}=\mathrm{Spec}((k[x,y]/(x^{m}y^{n}))_{y-x^{k}})$$
-
-it's very surprising(for me, at least), that in general $C_{k}$'s are not isomorphic as affine schemes. Maybe I misunderstood something? The point is that although the underling topological spaces are the same, but some of them have more invertible functions than others.
+<!-- BENCHMARK_PROBLEM: Let $R = k[x,y]/(x^2 y)$ where $k$ is a field. Find an element $f \in R$, $f \neq 0$, such that $f(\mathfrak{p}) = 0$ for every prime ideal $\mathfrak{p} \in \operatorname{Spec}(R)$. What is $\operatorname{nil}(R)$? -->
 
 ### Remark: Integral = reduced+ irreducible {#ecag-0034}
 
-So, next time, when you see `integral', one thing you might think about is that the generic point is corresponding to the nilradical of the ring.
+A scheme $X$ is integral if and only if it is both reduced and irreducible. In the affine case $X = \operatorname{Spec}(R)$, this means $R$ is an integral domain: it has no zero divisors and no nilpotent elements. Equivalently, the nilradical $\operatorname{nil}(R) = (0)$ is a prime ideal. The unique generic point $\eta$ of an irreducible scheme $X$ corresponds to $\operatorname{nil}(R)$. So when encountering the term "integral," one should think: the scheme has a unique generic point, the nilradical is prime (in fact zero), and the ring of global sections on each affine open is a domain.
 
 ### Example: A projective scheme with many global sections {#ecag-0035}
 
-Let $d$ be a positive integer. Consider the projective scheme
+**Statement:** For each positive integer $d$, there exists a projective scheme $X$ over a field $k$ with $\dim H^{0}(X, \mathcal{O}_{X}) = d + 1$. Specifically, the projective "double line"
 
-$$X=\mathrm{Proj}(R), R=k[u,v,x,y]/(x^2,xy,y^2,u^{d}x-v^{d}y)$$
+$$
+X = \operatorname{Proj}(R), \quad R = k[u, v, x, y]/(x^2, xy, y^2, u^d x - v^d y)
 
-We shall show $\dim\mathrm{H}^{0}(X, \mathcal{O}_{X})=d+1$. Cover $X$ by 
+$$
 
-$$U=\operatorname{Spec\,}(R[u^{-1}]_{0}), V=\operatorname{Spec\,}(R[v^{-1}]_{0})$$
+satisfies $\dim H^{0}(X, \mathcal{O}_{X}) = d + 1$. Its arithmetic genus is $p_a(X) = -d$.
 
-Actually
+**Construction/Proof:** Cover $X$ by the two standard affine charts:
 
-$$R[u^{-1}]_{0}\cong k[\frac{v}{u}, \frac{y}{u}]/((\frac{y}{u})^{2}), R[v^{-1}]_{0}\cong k[\frac{u}{v},\frac{x}{v}]/((\frac{x}{v})^{2})$$
+$$
+U = \operatorname{Spec}(R[u^{-1}]_0), \quad V = \operatorname{Spec}(R[v^{-1}]_0).
 
-Then global sections are given by the intersection, i.e
+$$
 
-$$a(\frac{v}{u})+b(\frac{v}{u})\frac{y}{u}=f(\frac{u}{v})+g(\frac{u}{v})\frac{x}{v}.$$
+Computing the degree-zero parts:
 
-Note that 
+$$
+R[u^{-1}]_0 \cong k\!\left[\frac{v}{u}, \frac{y}{u}\right]\!\bigg/\!\left(\!\left(\frac{y}{u}\right)^{\!2}\right), \quad R[v^{-1}]_0 \cong k\!\left[\frac{u}{v}, \frac{x}{v}\right]\!\bigg/\!\left(\!\left(\frac{x}{v}\right)^{\!2}\right).
 
-$$\frac{x}{v}=\frac{y}{u}(\frac{v}{u})^{d-1}.$$
+$$
 
-Hence, the only possibility is that $f$ is a constant function and $g$ is a polynomial of degree less than or equals to $d-1$. In conclusion,
+A global section is a pair of elements, one from each chart, that agree on the overlap $U \cap V$:
 
-$$\dim \mathrm{H}^{0}(X, \mathcal{O}_{X})=d+1.$$
+$$
+a\!\left(\frac{v}{u}\right) + b\!\left(\frac{v}{u}\right)\frac{y}{u} = f\!\left(\frac{u}{v}\right) + g\!\left(\frac{u}{v}\right)\frac{x}{v}.
 
-The arithmetic genus of this double line is $-d$.
+$$
+
+The key relation from the defining ideal is
+
+$$
+\frac{x}{v} = \frac{y}{u} \cdot \left(\frac{v}{u}\right)^{d-1}.
+
+$$
+
+Substituting and comparing, the polynomial $f$ must be a constant (otherwise it would have negative powers of $v/u$), and $g$ must be a polynomial of degree at most $d - 1$ in $u/v$. This gives $1 + d = d + 1$ linearly independent global sections.
+
+**Key Insight:** Non-reduced projective schemes (here a double line) can have arbitrarily large spaces of global sections, unlike projective varieties where $H^0(X, \mathcal{O}_X) = k$. The non-reduced structure (the nilpotent direction $y/u$) creates extra degrees of freedom for global sections.
+
+**Prerequisites:** Proj construction, global sections, non-reduced schemes, arithmetic genus
+
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Proj}(k[u,v,x,y]/(x^2, xy, y^2, u^3 x - v^3 y))$ for a field $k$. Compute $\dim_k H^0(X, \mathcal{O}_X)$ and the arithmetic genus $p_a(X)$. -->
 
 ### Remark {#ecag-0036}
 
-Note that for a projective variety, $\mathrm{H}^{0}(X, \mathcal{O}_{X})=k$. Although in the example, we have many global sections on a projective double line, we still can't get any non-constant morphism from $X$ to any affine scheme simply because it's proper. Actually any homomorphism from $k[t]$ to $k[x,y]/(y^{2})$ factor through $k[t]/(t-a)^{2}$ for some $a\in k$.
+For a projective variety (integral projective scheme over $k$), we always have $H^{0}(X, \mathcal{O}_{X}) = k$. Although the double line in the example above has many global sections, it still cannot admit a non-constant morphism to any affine scheme because it is proper: any morphism from a proper scheme to an affine scheme factors through $\operatorname{Spec}$ of the ring of global sections, and since $X$ is proper, the image is a single closed point. More precisely, any $k$-algebra homomorphism $k[t] \to k[x,y]/(y^{2})$ factors through $k[t]/(t-a)^{2}$ for some $a \in k$, reflecting the non-reduced structure.
 
 ### Example: Differences: $\mathbb{A}_{k}^{1}-\{0\}\hookrightarrow \mathbb{A}_{k}^{1}$ and $\mathbb{A}_{k}^{2}-\{0\}\hookrightarrow \mathbb{A}_{k}^{2}$ {#ecag-0037}
 
-Cover $\mathbb{A}_{k}^{2}-\{0\}$ by $D_{+}(x)$ and $D_{+}(y)$, then we know  $\Gamma(\mathcal{O}_{\mathbb{A}_{k}^{2}-\{0\}})=k[x,y]$, it cannot be affine. Base on this, we can also prove $\overline{\mathbb{A}_{k}^{2}}$ the affine plane with two origins is not separated. Since the intersection of two affine charts is not affine.
+**Statement:** The punctured affine line $\mathbb{A}_{k}^{1} \setminus \{0\} = \operatorname{Spec}(k[x, x^{-1}])$ is affine, but the punctured affine plane $\mathbb{A}_{k}^{2} \setminus \{0\}$ is not affine. As a consequence, the affine plane with double origins $\overline{\mathbb{A}_{k}^{2}}$ is not separated.
+
+**Construction/Proof:** Cover $\mathbb{A}_{k}^{2} \setminus \{0\}$ by $D(x) = \operatorname{Spec}(k[x, x^{-1}, y])$ and $D(y) = \operatorname{Spec}(k[x, y, y^{-1}])$. By a Mayer-Vietoris / Cech cohomology computation:
+
+$$
+\Gamma(\mathbb{A}_{k}^{2} \setminus \{0\}, \mathcal{O}) = k[x, x^{-1}, y] \cap k[x, y, y^{-1}] = k[x, y].
+
+$$
+
+If $\mathbb{A}_{k}^{2} \setminus \{0\}$ were affine, it would be $\operatorname{Spec}(k[x, y]) = \mathbb{A}_{k}^{2}$, a contradiction since we removed the origin. Alternatively, one can show $H^{1}(\mathbb{A}_{k}^{2} \setminus \{0\}, \mathcal{O}) \neq 0$ by Cech cohomology.
+
+For separatedness of $\overline{\mathbb{A}_{k}^{2}}$: the affine plane with two origins has two affine charts $U_1, U_2$ each isomorphic to $\mathbb{A}_{k}^{2}$, with intersection $U_1 \cap U_2 = \mathbb{A}_{k}^{2} \setminus \{0\}$. For a separated scheme, the intersection of any two affine opens must be affine. Since $\mathbb{A}_{k}^{2} \setminus \{0\}$ is not affine, $\overline{\mathbb{A}_{k}^{2}}$ is not separated.
+
+In contrast, $\mathbb{A}_{k}^{1} \setminus \{0\} = \operatorname{Spec}(k[x, x^{-1}])$ is affine (removing a codimension-1 locus from $\mathbb{A}^1$ gives a localization), so the line with double origins has affine intersection of charts and the non-separatedness must be detected differently (the images of the two origins under the diagonal are not separated).
+
+**Key Insight:** Removing a closed subset of codimension $\geq 2$ from a normal affine scheme does not change the ring of global sections (by Hartogs' extension), which prevents the complement from being affine. Removing a codimension-1 subset corresponds to localization, preserving affineness.
+
+**Prerequisites:** Cech cohomology, separatedness, Hartogs' extension theorem, codimension
+
+<!-- BENCHMARK_PROBLEM: Compute $\Gamma(\mathbb{A}_{k}^{2} \setminus \{0\}, \mathcal{O})$ using the open cover $D(x) \cup D(y)$ and explain why $\mathbb{A}_{k}^{2} \setminus \{0\}$ is not affine while $\mathbb{A}_{k}^{1} \setminus \{0\}$ is. -->
 
 ### Example: Separateness: a translation {#ecag-0038}
 
-A scheme $X$ is separated if and only  if $\exists \{U_{i}\}$, an affine cover of $X$, such that 
+**Statement:** A scheme $X$ over an affine base $S$ is separated if and only if there exists an affine open cover $\{U_i\}$ of $X$ such that (1) each pairwise intersection $U_i \cap U_j$ is affine, and (2) the images of $\Gamma(\mathcal{O}_X, U_i)$ and $\Gamma(\mathcal{O}_X, U_j)$ generate $\Gamma(\mathcal{O}_X, U_i \cap U_j)$ as a ring.
 
-- each intersection is affine and
-- ${\Gamma(\mathcal{O}_X, U_i), \Gamma(\mathcal{O}_X,  U_j)}$ generate ${\Gamma(\mathcal{O}_X, U_i  \cap U_j)}$.
+**Construction/Proof:** If $X$ is separated over $S = \operatorname{Spec}(A)$, the diagonal $\Delta: X \to X \times_S X$ is a closed immersion. For affine opens $U_i, U_j \subseteq X$, we have $U_i \cap U_j = \Delta^{-1}(U_i \times_S U_j)$. Since $\Delta$ is a closed immersion and $U_i \times_S U_j$ is affine, the preimage $U_i \cap U_j$ is a closed subscheme of an affine scheme, hence affine. Moreover, the closed immersion $U_i \cap U_j \hookrightarrow U_i \times_S U_j \cong \operatorname{Spec}(\Gamma(U_i) \otimes_A \Gamma(U_j))$ exhibits $\Gamma(U_i \cap U_j)$ as a quotient of $\Gamma(U_i) \otimes_A \Gamma(U_j)$, so $\Gamma(U_i)$ and $\Gamma(U_j)$ generate $\Gamma(U_i \cap U_j)$.
 
-Thus it's obvious now 
+Applications:
 
-- $\mathbb{P}_{\mathbb{Z}}^{n}$ is separated.
+- **$\mathbb{P}_{\mathbb{Z}}^{n}$ is separated:** The standard affine cover $\{D_+(x_i)\}$ has pairwise intersections $D_+(x_i x_j)$, which are affine, and the coordinate rings generate the ring of sections on each intersection.
 
-And this also tells us how to prove a scheme is not separated, Since if $X$ is separated over an affine scheme, then $\forall U, V$ open affine subset of $X$, we have $U\cap V=U\times_{X}V$ is affine. The reason is that by restricting $\Delta:X\rightarrow X\times_{S}X$ to $U\cap V$, we have a closed immersion $\Delta: U\cap V\hookrightarrow U\times_{S}V$, however $U\times_{S}V$ is affine, we know $U\cap V=U\times_{X}V$ is affine, more over we know $\Gamma(\mathcal{O}_X, U_i), \Gamma(\mathcal{O}_X,  U_j)$ generate $\Gamma(\mathcal{O}_X, U_i\cap U_{j})$. To show some scheme is not affine, this property is easy to use, for example
+- **The affine line with double origins $\overline{\mathbb{A}_{k}^{1}}$ is not separated** can be verified directly: $\Gamma(U_1) = k[x]$ and $\Gamma(U_2) = k[y]$ generate $k[x, x^{-1}] = \Gamma(U_1 \cap U_2)$, and $U_1 \cap U_2$ is affine. However, the diagonal is not closed (the two origins cannot be separated), so it fails the diagonal criterion despite passing the affine cover criterion for this particular cover. More precisely, $\overline{\mathbb{A}_{k}^{1}}$ is actually separated by the affine cover criterion; the issue is with $\overline{\mathbb{A}_{k}^{2}}$.
 
-- $\overline{\mathbb{A}_{k}^{1}}$, $\Gamma(\mathcal{O}_X, U_1)=k[x], \Gamma(\mathcal{O}_X,  U_2)=k[y]$, they can generate $\Gamma(\mathcal{O}_X, U_1\cap U_{2})\cong k[x,x^{-1}]$.
-- the affine plane(or higher dimensions) with double origins is not separated, since the intersection $\mathbb{A}^{2}-\{0\}$ is not affine. Or we can easily show $\Gamma(\mathcal{O}_X, U_1), \Gamma(\mathcal{O}_X,  U_2)$ cannot generate $\Gamma(\mathcal{O}_X, U_1\cap U_{2})$.
+- **The affine plane with double origins $\overline{\mathbb{A}_{k}^{2}}$ is not separated:** The intersection $U_1 \cap U_2 = \mathbb{A}^{2} \setminus \{0\}$ is not affine. Alternatively, $\Gamma(U_1) = k[x,y]$ and $\Gamma(U_2) = k[x,y]$ cannot generate $\Gamma(U_1 \cap U_2) = k[x,y]$ in a way that recovers the punctured plane structure.
+
+**Key Insight:** The affine cover criterion for separatedness translates the global diagonal condition into concrete, checkable ring-theoretic conditions on affine charts and their overlaps.
+
+**Prerequisites:** Separated morphisms, diagonal morphism, affine schemes, fibre products
+
+<!-- BENCHMARK_PROBLEM: Using the criterion that intersections of affine opens must be affine for a separated scheme, prove that $\overline{\mathbb{A}_{k}^{n}}$ (the affine $n$-space with double origins) is not separated for $n \geq 2$. Does this argument work for $n = 1$? -->
 
 ### Example: Generically reduced subscheme of a normal scheme but not reduced {#ecag-0039}
 
-> **Status:** Stub — content needed.
+**Statement:** There exists a closed subscheme $Z$ of a normal scheme $X$ such that $Z$ is generically reduced (reduced at its generic points) but not globally reduced.
+
+**Construction/Proof:** Let $X = \mathbb{A}_{k}^{3} = \operatorname{Spec}(k[x, y, z])$, which is smooth and hence normal. Define the closed subscheme
+
+$$
+Z = \operatorname{Spec}(k[x, y, z]/(y^2, yz, xz - y)) = V(y^2, yz, xz - y).
+
+$$
+
+The irreducible components of $Z_{\mathrm{red}}$ are determined by the minimal primes of the ideal $I = (y^2, yz, xz - y)$. The primary decomposition gives $(y^2, yz, xz - y) = (y, z^2 - \ldots)$ up to analysis. More concretely, consider a simpler example: let $X = \mathbb{A}_{k}^{2} = \operatorname{Spec}(k[x, y])$ and
+
+$$
+Z = \operatorname{Spec}(k[x, y]/(y^2, xy)).
+
+$$
+
+The minimal primes of $(y^2, xy)$ are $(y)$ alone (since $y^2 \in (y)$ and $xy \in (y)$). At the generic point $\eta$ of $Z_{\mathrm{red}} = V(y)$, the local ring $\mathcal{O}_{Z, \eta}$ is $k(x)[y]/(y^2, xy) = k(x)[y]/(y) \cong k(x)$, which is reduced. However, at the origin $(x, y)$, the local ring $\mathcal{O}_{Z, (x,y)} = (k[x, y]/(y^2, xy))_{(x,y)}$ contains the nonzero nilpotent element $y$ (since $y^2 = 0$ but $y \neq 0$ at this point because $x$ is not invertible). So $Z$ is generically reduced but not reduced.
+
+**Key Insight:** Generic reducedness (being reduced at generic points of irreducible components) does not propagate to all points, even inside a normal ambient scheme. Embedded components or non-reduced structure at special points can coexist with generic reducedness.
+
+**Prerequisites:** Reduced schemes, generic points, primary decomposition, normal schemes
+
+<!-- BENCHMARK_PROBLEM: Let $Z = \operatorname{Spec}(k[x,y]/(y^2, xy)) \subset \mathbb{A}_k^2$. Show that $Z$ is generically reduced (reduced at its generic point) but not reduced at the origin. What is the nilradical of $k[x,y]/(y^2, xy)$? -->
 
 ### Remark {#ecag-0040}
 
-This example comes from the mathoverflow post [Is being reduced a generic property of schemes?](https://mathoverflow.net/questions/194296/is-being-reduced-a-generic-property-of-schemes/194299)
+This example is motivated by the MathOverflow post [Is being reduced a generic property of schemes?](https://mathoverflow.net/questions/194296/is-being-reduced-a-generic-property-of-schemes/194299). The key result discussed there is that for a Noetherian scheme, being reduced is equivalent to satisfying Serre's conditions $R_0$ (regular in codimension 0, i.e., generically reduced) and $S_1$ (no embedded primes). Thus a scheme can be generically reduced ($R_0$) but fail $S_1$, resulting in a non-reduced scheme.
 
 ### Remark: Some applications {#ecag-0041}
 
-Use this to prove that
+The criterion "generically reduced + $S_1$ implies reduced" (Serre's criterion) has useful applications in algebraic geometry and representation theory:
 
-- The space of pairs of matrices $(X,Y)$ such that $XY, YX$ are upper-triangular is reduced.
-- $T^{*}(\mathfrak{g}\times \mathbb{C}^{n})$ is reduced. First you should ask what's your realization of $T^{*}(\mathfrak{g}\times \mathbb{C}^{n})$ ?
+- **Matrix pairs with upper-triangular products:** The scheme parametrizing pairs of $n \times n$ matrices $(X, Y)$ such that both $XY$ and $YX$ are upper-triangular is reduced. One proves this by showing generic reducedness (exhibiting an open dense smooth locus) and the $S_1$ condition (no embedded components, which can be verified by dimension counts).
+
+- **Cotangent bundles in representation theory:** The scheme $T^{*}(\mathfrak{g} \times \mathbb{C}^{n})$ (where $\mathfrak{g}$ is a Lie algebra, realized as the space of triples $(X, v, w)$ with $X \in \mathfrak{g}$, $v \in \mathbb{C}^n$, $w \in (\mathbb{C}^n)^*$) is reduced. The first step is to identify the correct scheme-theoretic realization (e.g., as the zero fibre of a moment map), then verify generic smoothness and $S_1$.
 
 ## F-notions
 First recall some basic notations with "f":
@@ -190,1307 +311,1689 @@ First recall some basic notations with "f":
 
 ### Example: Quasi-finite,surjective, of finite type, but not finite {#ecag-0042}
 
-Consider
+**Statement:** The morphism $\operatorname{Spec}(k[x, x^{-1}] \oplus k) \to \operatorname{Spec}(k[x])$ induced by the ring map $k[x] \to k[x, x^{-1}] \oplus k$ is quasi-finite, surjective, and of finite type, but not finite.
 
-$$k[x]\rightarrow k[x,\frac{1}{x}]\oplus k.$$
+**Construction/Proof:** The ring map $\varphi: k[x] \to k[x, x^{-1}] \oplus k$ sends $x$ to $(x, 0)$. The target decomposes as a product of two $k[x]$-algebras:
 
-Then this map is of finite type, surjective, quasi-finite, however $k[x,\frac{1}{x}]\oplus k$ is not a finitely generated $k[x]$-module.
+- $k[x, x^{-1}] = k[x]_x$, the localization at $x$, which is of finite type over $k[x]$ (generated by $x^{-1}$).
+- $k \cong k[x]/(x)$, which is a finite (hence finitely generated) $k[x]$-algebra.
+
+The corresponding scheme map has source $\operatorname{Spec}(k[x, x^{-1}]) \sqcup \operatorname{Spec}(k)$. The first component is the inclusion $\mathbb{A}_{k}^{1} \setminus \{0\} \hookrightarrow \mathbb{A}_{k}^{1}$, and the second maps the point $\operatorname{Spec}(k)$ to the origin. Together, these give a surjective map.
+
+**Quasi-finiteness:** Each fibre is finite. Over a point $\mathfrak{p} = (x - a)$ with $a \neq 0$, the fibre consists of one point from each component: two points total. Over $\mathfrak{p} = (x)$, the first component contributes nothing (since $x$ is invertible in $k[x, x^{-1}]$) and the second contributes one point. Over the generic point $(0)$, only the first component contributes.
+
+**Not finite:** The $k[x]$-module $k[x, x^{-1}] \oplus k$ is not finitely generated as a $k[x]$-module. Indeed, $k[x, x^{-1}]$ is not a finitely generated $k[x]$-module since $\{x^{-n}\}_{n \geq 1}$ are linearly independent over $k[x]$.
+
+**Key Insight:** Finiteness requires the target ring to be a finitely generated module (not just algebra) over the source. Localization $k[x] \to k[x, x^{-1}]$ is of finite type as an algebra but not finite as a module.
+
+**Prerequisites:** Finite morphisms, quasi-finite morphisms, finite type morphisms, localization
+
+<!-- BENCHMARK_PROBLEM: Consider the ring map $k[x] \to k[x, x^{-1}] \oplus k$ sending $x \mapsto (x, 0)$. Verify that the induced morphism of schemes is quasi-finite, surjective, and of finite type, and prove that it is not finite by showing $k[x, x^{-1}]$ is not a finitely generated $k[x]$-module. -->
 
 ### Example: Locally of finite type but not of finite type {#ecag-0043}
 
-$$\amalg_{i\in I}\mathbb{A}_{k}^{1}\rightarrow \mathbb{A}_{k}^{1}$$
+**Statement:** The morphism $\coprod_{i \in I} \mathbb{A}_{k}^{1} \to \mathbb{A}_{k}^{1}$ (identity on each component), where $I$ is an infinite index set, is locally of finite type but not of finite type.
 
-where $I$ is an infinite index set.
+**Construction/Proof:** Each component $\mathbb{A}_{k}^{1} \to \mathbb{A}_{k}^{1}$ is the identity, which is of finite type. Hence the morphism is locally of finite type. However, a morphism of finite type must be quasi-compact. The source $\coprod_{i \in I} \mathbb{A}_{k}^{1}$ is not quasi-compact (the disjoint open cover by individual copies has no finite subcover), so the preimage of the quasi-compact open $\mathbb{A}_{k}^{1}$ in the target is $\coprod_{i \in I} \mathbb{A}_{k}^{1}$, which is not quasi-compact. Therefore the morphism is not quasi-compact, hence not of finite type.
+
+**Key Insight:** "Of finite type" = "locally of finite type" + "quasi-compact." Infinite disjoint unions destroy the quasi-compactness condition.
+
+**Prerequisites:** Finite type morphisms, locally of finite type, quasi-compactness
+
+<!-- BENCHMARK_PROBLEM: State the precise difference between "locally of finite type" and "of finite type" for a morphism of schemes. Give an example of a morphism that is locally of finite type but not of finite type, and identify which condition fails. -->
 
 ### Example: Quasi-finite (and fibre has same cardinality) but not flat {#ecag-0044}
 
-Consider the normalization of the cuspidal curve
+**Statement:** The normalization of the cuspidal cubic $\operatorname{Spec}(k[t^2, t^3]) \to \operatorname{Spec}(k[t])$ is quasi-finite with every fibre consisting of exactly one point, but it is not flat.
 
-$$k[t^{2},t^{3}]\rightarrow k[t].$$
+**Construction/Proof:** The inclusion $k[t^2, t^3] \hookrightarrow k[t]$ induces a morphism $\nu: \operatorname{Spec}(k[t]) \to \operatorname{Spec}(k[t^2, t^3])$. Geometrically, $\operatorname{Spec}(k[t^2, t^3])$ is the cuspidal cubic curve $y^2 = x^3$ (via $x = t^2, y = t^3$), and $\nu$ is the normalization.
 
-Then every fibre contains only one point, however $k[t]$ is not a flat module, since
+**Quasi-finiteness and fibre cardinality:** Every fibre has exactly one point. Indeed, $t \mapsto a$ determines $t^2 = a^2$ and $t^3 = a^3$ uniquely. More precisely, the map on closed points $\mathbb{A}^1 \to C$ is bijective.
 
-$$I=(t^{2},t^{3})\otimes_{k[t^{2},t^{3}]} k[t]\rightarrow k[t^{2},t^{3}]\otimes_{k[t^{2},t^{3}]}k[t]\cong k[t]$$
+**Not flat:** Flatness of $k[t]$ over $k[t^2, t^3]$ would require the functor $- \otimes_{k[t^2, t^3]} k[t]$ to be exact. Consider the ideal $I = (t^2, t^3) \subset k[t^2, t^3]$ and the inclusion $I \hookrightarrow k[t^2, t^3]$. After tensoring:
 
-is not injective, $t^{2}\otimes t\neq t^{3}\otimes 1$ on the left, but they have the same image.
+$$
+I \otimes_{k[t^2, t^3]} k[t] \to k[t^2, t^3] \otimes_{k[t^2, t^3]} k[t] \cong k[t]
+
+$$
+
+is not injective. In the tensor product $I \otimes_{k[t^2, t^3]} k[t]$, the element $t^2 \otimes t - t^3 \otimes 1$ is nonzero (it cannot be simplified since $t \notin k[t^2, t^3]$), but its image in $k[t]$ is $t^2 \cdot t - t^3 \cdot 1 = 0$. Hence $k[t]$ is not flat over $k[t^2, t^3]$.
+
+**Key Insight:** Even with bijective fibres, flatness can fail when the source and target have different singularity types. The cusp is not normal, and the normalization map fails to be flat because the local ring at the cusp has a non-trivial Tor.
+
+**Prerequisites:** Normalization, flatness, quasi-finite morphisms, tensor products
+
+<!-- BENCHMARK_PROBLEM: Prove that the normalization map $k[t^2, t^3] \hookrightarrow k[t]$ does not make $k[t]$ a flat $k[t^2, t^3]$-module by exhibiting an explicit failure of the flatness criterion (an injection that becomes non-injective after tensoring). -->
 
 ### Remark {#ecag-0045}
 
-Think about the `Miracle Flatness'.
+The miracle flatness theorem (Matsumura, Theorem 23.1) states: if $f: (A, \mathfrak{m}) \to (B, \mathfrak{n})$ is a local homomorphism of Noetherian local rings with $A$ regular, $B$ Cohen-Macaulay, and $\dim B = \dim A + \dim B/\mathfrak{m}B$, then $B$ is flat over $A$. In the example above, $k[t^2, t^3]_{(t^2, t^3)}$ has dimension 1 and is a domain but not regular (its maximal ideal requires 2 generators), so the miracle flatness theorem does not apply in the direction that would give flatness.
 
 ### Example: Of finite type but not of finite presentation {#ecag-0046}
 
-This is quite common for nonnoetherian schemes, 
+**Statement:** Over a non-Noetherian base ring, a morphism can be of finite type without being of finite presentation. The closed embedding $\operatorname{Spec}(k) \to \operatorname{Spec}(k[t_1, t_2, \ldots])$ is of finite type but not of finite presentation.
 
-$$\mathrm{Spec}(k)\rightarrow \mathrm{Spec}k[t_{1}, t_{2}\dots].$$
+**Construction/Proof:** Let $R = k[t_1, t_2, \ldots]$ be the polynomial ring in countably many variables and let $I = (t_1, t_2, \ldots)$. The quotient map $R \to R/I \cong k$ gives a closed embedding $\operatorname{Spec}(k) \hookrightarrow \operatorname{Spec}(R)$.
 
-This is of finite type because it's actually just a closed embedding of a single point, $R\rightarrow R/I$, wo do have a surjection $R[x_{1},\dots, x_{n}]\rightarrow R/I$, you can choose whatever $n$ you like, but the kernel is not finitely generated.
+**Of finite type:** We need $k$ to be a finitely generated $R$-algebra. Indeed, $k \cong R/I$, and $R$ surjects onto $k$ (so $k$ is generated by zero elements as an $R$-algebra). Alternatively, $k \cong R[x_1, \ldots, x_0]/J$ where $J$ maps to $I$.
+
+**Not of finite presentation:** A morphism $\operatorname{Spec}(R/I) \to \operatorname{Spec}(R)$ is of finite presentation if $I$ is a finitely generated ideal of $R$ (after possibly adding finitely many variables). But $I = (t_1, t_2, \ldots)$ is not finitely generated: any finite subset of generators spans only a proper sub-ideal.
+
+**Key Insight:** The distinction between "finite type" and "finite presentation" lies in whether the kernel of the presentation is finitely generated. Over Noetherian rings, this distinction vanishes (Hilbert basis theorem), but over non-Noetherian rings, it is genuine.
+
+**Prerequisites:** Finite type morphisms, finitely presented morphisms, Noetherian rings
+
+<!-- BENCHMARK_PROBLEM: Let $R = k[t_1, t_2, \ldots]$ and $I = (t_1, t_2, \ldots)$. Prove that the closed immersion $\operatorname{Spec}(R/I) \hookrightarrow \operatorname{Spec}(R)$ is of finite type but not of finite presentation. What changes if $R$ is Noetherian? -->
 
 ### Remark: What about noetherian scheme? {#ecag-0047}
 
-For a noetherian ring $R$, $R[x_{1},\dots, x_{n}]$ is also noetherian, thus any ideal is finitely genrated.
+For a Noetherian ring $R$, every finitely generated $R$-algebra $S$ is automatically of finite presentation. Indeed, if $S \cong R[x_1, \ldots, x_n]/I$, then $R[x_1, \ldots, x_n]$ is Noetherian by the Hilbert basis theorem, so $I$ is finitely generated. Therefore, over a Noetherian base, "of finite type" and "of finite presentation" are equivalent conditions.
 
 ### Remark: Formal power series ring is Noetherian {#ecag-0048}
 
-Hilbert basis theorem. Note that $R[[t]]$ and $R[t_{1},t_{2},\dots]$ are very different.
+If $R$ is a Noetherian ring, then the formal power series ring $R[[t]]$ is also Noetherian. This follows from a power series analogue of the Hilbert basis theorem. Note the crucial distinction: $R[[t]]$ (formal power series in one variable) is Noetherian when $R$ is, but $R[t_1, t_2, \ldots]$ (polynomial ring in countably many variables) is never Noetherian regardless of $R$. The former is a completion; the latter is a colimit. They have very different finiteness properties.
 
 ### Example: Of finite type but not finite {#ecag-0049}
 
-$$\mathbb{A}_{k}^{n}, \mathbb{P}_{k}^{n}; n\geq 1$$
+**Statement:** For $n \geq 1$, the affine $n$-space $\mathbb{A}_{k}^{n}$ and the projective $n$-space $\mathbb{P}_{k}^{n}$ are $k$-schemes of finite type that are not finite over $k$.
 
-are $k$-schemes of finite type, but not finite $k$-scheme, so you know, most schemes you know of finite type are not finite.
+**Construction/Proof:** The structure morphism $\mathbb{A}_{k}^{n} = \operatorname{Spec}(k[x_1, \ldots, x_n]) \to \operatorname{Spec}(k)$ is of finite type since $k[x_1, \ldots, x_n]$ is a finitely generated $k$-algebra. However, $k[x_1, \ldots, x_n]$ is not a finitely generated $k$-module (it is infinite-dimensional as a $k$-vector space), so the morphism is not finite.
+
+Similarly, $\mathbb{P}_{k}^{n} \to \operatorname{Spec}(k)$ is of finite type (each standard affine chart is $\operatorname{Spec}$ of a finitely generated $k$-algebra) but not finite (it is not even affine for $n \geq 1$, while finite morphisms are affine).
+
+In fact, most schemes of finite type encountered in practice are not finite. Finite $k$-schemes are precisely the spectra of finite-dimensional $k$-algebras, i.e., finite collections of (possibly fat) points.
+
+**Key Insight:** Finiteness is a much stronger condition than finite type: it requires the algebra to be a finitely generated module, not just a finitely generated algebra. Geometrically, finite schemes over a field are $0$-dimensional.
+
+**Prerequisites:** Finite morphisms, finite type morphisms, dimension
+
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field. Classify all finite $k$-schemes (as spectra of finite-dimensional $k$-algebras). Show that $\mathbb{A}_k^1$ is of finite type but not finite over $k$. -->
 
 ### Remark: Finite $\Rightarrow$ of finite type {#ecag-0050}
 
-> **Status:** Stub — content needed.
+A finite morphism $f: X \to Y$ is always of finite type. Recall: $f$ is finite if for every affine open $\operatorname{Spec}(A) \subseteq Y$, the preimage $f^{-1}(\operatorname{Spec}(A)) = \operatorname{Spec}(B)$ is affine with $B$ a finitely generated $A$-module. Since a finitely generated $A$-module is in particular a finitely generated $A$-algebra (the module generators also serve as algebra generators), every finite morphism is of finite type.
+
+More precisely, finite $\Rightarrow$ integral + of finite type, and also finite $\Rightarrow$ proper + affine + quasi-finite + of finite type.
 
 ### Example: Proper but not finite {#ecag-0051}
 
-$$\mathbb{P}_{k}^{1}\rightarrow \mathrm{Spec}(k).$$
+**Statement:** The structure morphism $\mathbb{P}_{k}^{1} \to \operatorname{Spec}(k)$ is proper but not finite.
+
+**Construction/Proof:** Properness of $\mathbb{P}_{k}^{1} \to \operatorname{Spec}(k)$ follows from the general fact that projective morphisms are proper. Alternatively, one checks directly: it is of finite type, separated, and universally closed (by the valuative criterion or because projective space is complete).
+
+It is not finite because $\mathbb{P}_{k}^{1}$ is not affine (it has $H^1(\mathbb{P}_{k}^{1}, \mathcal{O}(-2)) \neq 0$), while the source of any finite morphism over an affine base must be affine. Alternatively, finite morphisms have finite (discrete) fibres and are affine, but $\mathbb{P}_{k}^{1}$ is a $1$-dimensional connected projective scheme, hence not affine.
+
+**Key Insight:** Properness is a "compactness" condition (universally closed + separated + finite type), while finiteness additionally requires the morphism to be affine. Projective varieties of positive dimension are the prototypical examples of proper-but-not-finite schemes.
+
+**Prerequisites:** Proper morphisms, finite morphisms, projective schemes
+
+<!-- BENCHMARK_PROBLEM: Prove that $\mathbb{P}_{k}^{1} \to \operatorname{Spec}(k)$ is proper but not finite. What property of finite morphisms does $\mathbb{P}_k^1$ fail to satisfy? -->
 
 ### Remark: Finite v.s. proper {#ecag-0052}
 
-We have the following 
+The relationship between finite and proper morphisms is summarized by the following implications:
 
-- finite $\Rightarrow$ quasi-finite.
-- finite $\Rightarrow$ projective.
-- finite $\Rightarrow$ proper. We only need to prove it for $\mathrm{Spec}(B)\rightarrow \mathrm{Spec}(A)$, this follows form the valuation criterion
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-\begin{tikzcd}K& B\arrow{l}{v}\arrow{dl}{?}\\
-R\arrow{u}{i} & A\arrow{l}{u}\arrow{u}[swap]{f}\end{tikzcd}
-```
-```
-Since $B$ is finite hense integral over $A$, so $v(B)$ is integral over $u(A)$, however discrete valuation ring $R$ is integrally closed in its fractional field, thus $v(B)\subset R$, then by the valuation criterion, a finite morphism is always proper.
-- proper $+$ affine $\Rightarrow$ finite.
-- proper $+$ quasi-finite $\Rightarrow$ finite.
-- finite $\Rightarrow$ of finite type.
+- Finite $\Rightarrow$ quasi-finite. (Finite fibres are finite sets.)
+- Finite $\Rightarrow$ projective. (A finite morphism $\operatorname{Spec}(B) \to \operatorname{Spec}(A)$ with $B$ a finite $A$-module can be embedded into $\mathbb{P}_A^n$ via the symmetric algebra.)
+- Finite $\Rightarrow$ proper. For the affine case $f: \operatorname{Spec}(B) \to \operatorname{Spec}(A)$ with $B$ finite over $A$, properness follows from the valuative criterion: given a commutative diagram with a DVR $(R, K)$:
+
+$$
+\operatorname{Spec}(K) \xrightarrow{v} \operatorname{Spec}(B) \xrightarrow{f} \operatorname{Spec}(A) \xleftarrow{u} \operatorname{Spec}(R)
+
+$$
+
+we need a lift $\operatorname{Spec}(R) \to \operatorname{Spec}(B)$. Since $B$ is integral over $A$ (being a finite $A$-module), the image $v(B) \subset K$ is integral over $u(A) \subset R$. Since $R$ is integrally closed in $K$, we get $v(B) \subset R$, giving the required lift.
+
+- Proper + affine $\Rightarrow$ finite. (A proper affine morphism has finite fibres and the algebra of sections is finitely generated as a module.)
+- Proper + quasi-finite $\Rightarrow$ finite. (Zariski's Main Theorem.)
+- Finite $\Rightarrow$ of finite type.
 
 ### Example: An affine and projective morphism {#ecag-0053}
 
-> **Status:** Stub — content needed.
+**Statement:** A morphism $f: X \to Y$ that is both affine and projective is necessarily finite. Conversely, every finite morphism is both affine and projective. Thus "affine + projective = finite."
+
+**Construction/Proof:** If $f$ is affine and projective, then $f$ is proper (projective morphisms are proper) and affine. By the result "proper + affine $\Rightarrow$ finite," the morphism $f$ is finite.
+
+For an explicit example, consider any finite morphism such as $\operatorname{Spec}(k[x]/(x^n)) \to \operatorname{Spec}(k)$. The source is affine, and being finite over a point makes it projective (a finite scheme over a field is both affine and projective). Another example: the degree $d$ map $\mathbb{A}_{k}^{1} \to \mathbb{A}_{k}^{1}$ given by $x \mapsto x^d$ corresponds to $k[x] \hookrightarrow k[x]$ via $x \mapsto x^d$; equivalently $k[t] \to k[x]$, $t \mapsto x^d$, making $k[x]$ a free $k[t]$-module of rank $d$ with basis $1, x, \ldots, x^{d-1}$.
+
+**Key Insight:** The equivalence "affine + projective = finite" shows that finite morphisms are precisely the morphisms that are "compact" (projective) and "local" (affine) simultaneously.
+
+**Prerequisites:** Finite morphisms, affine morphisms, projective morphisms, proper morphisms
+
+<!-- BENCHMARK_PROBLEM: Prove that a morphism of Noetherian schemes that is both affine and projective must be finite. State which key property of proper and affine morphisms you combine. -->
 
 ### Example: affine morphism but not of finite type  {#ecag-0054}
 
-$$\mathrm{Spec}(k[x_{1},x_{2},\dots ])\rightarrow \mathrm{Spec}(k).$$
+**Statement:** The morphism $\operatorname{Spec}(k[x_1, x_2, \ldots]) \to \operatorname{Spec}(k)$ is affine but not of finite type.
+
+**Construction/Proof:** The morphism is affine because the source is an affine scheme and the preimage of the unique affine open $\operatorname{Spec}(k)$ in the target is affine. However, $k[x_1, x_2, \ldots]$ is not a finitely generated $k$-algebra (any finite set of generators involves only finitely many variables, hence cannot generate all of $k[x_1, x_2, \ldots]$). Therefore the morphism is not of finite type.
+
+**Key Insight:** Affine morphisms merely require preimages of affine opens to be affine, with no finiteness condition on the algebra. Finite type adds the requirement that the algebras be finitely generated.
+
+**Prerequisites:** Affine morphisms, finite type morphisms
+
+<!-- BENCHMARK_PROBLEM: Give an example of an affine morphism that is not of finite type. Explain why $\operatorname{Spec}(k[x_1, x_2, \ldots]) \to \operatorname{Spec}(k)$ is affine but fails to be of finite type. -->
 
 ### Example: morphism of finite type but not affine {#ecag-0055}
 
-$$\mathbb{P}_{k}^{1}\rightarrow \mathrm{Spec}(k).$$
+**Statement:** The structure morphism $\mathbb{P}_{k}^{1} \to \operatorname{Spec}(k)$ is of finite type but not affine.
+
+**Construction/Proof:** The morphism is of finite type: $\mathbb{P}_{k}^{1}$ is covered by two affine opens $\operatorname{Spec}(k[x])$ and $\operatorname{Spec}(k[x^{-1}])$, each of finite type over $k$, and $\mathbb{P}_{k}^{1}$ is quasi-compact.
+
+It is not affine because $\mathbb{P}_{k}^{1}$ is not an affine scheme. If it were, then by Serre's criterion, $H^{1}(\mathbb{P}_{k}^{1}, \mathcal{O}(-2)) = 0$, but this cohomology group is $1$-dimensional over $k$. Alternatively, the global sections $\Gamma(\mathbb{P}_{k}^{1}, \mathcal{O}) = k$ would imply $\mathbb{P}_{k}^{1} \cong \operatorname{Spec}(k)$, contradicting $\dim \mathbb{P}_{k}^{1} = 1$.
+
+**Key Insight:** Projective space of positive dimension is the fundamental example of a scheme of finite type that is not affine. The non-affineness is detected by non-vanishing higher cohomology or by the mismatch between the scheme's dimension and that of $\operatorname{Spec}$ of its global sections.
+
+**Prerequisites:** Finite type morphisms, affine morphisms, projective space, sheaf cohomology
+
+<!-- BENCHMARK_PROBLEM: Prove that $\mathbb{P}_k^1$ is not an affine scheme by computing $\Gamma(\mathbb{P}_k^1, \mathcal{O})$ and deriving a contradiction from the assumption that $\mathbb{P}_k^1 \cong \operatorname{Spec}(\Gamma(\mathbb{P}_k^1, \mathcal{O}))$. -->
 
 ### Example: Finite, dominant morphism between normal varieties but not flat {#ecag-0056}
 
-Consider
+**Statement:** Let $\operatorname{char}(k) \neq 2$. The morphism $f: X = \operatorname{Spec}(k[x,y]) \to Y = \operatorname{Spec}(k[x^2, xy, y^2])$ induced by the inclusion $k[x^2, xy, y^2] \hookrightarrow k[x,y]$ is finite and dominant between normal varieties, but not flat.
 
-$$X=\mathrm{Spec}(k[x,y]), Y=\mathrm{Spec}(k[x^2,xy,y^2])$$
+**Construction/Proof:** Both $X = \mathbb{A}_{k}^{2}$ and $Y = \operatorname{Spec}(k[x^2, xy, y^2])$ are normal: $X$ is smooth, and $Y$ is the quotient of $X$ by the involution $(x, y) \mapsto (-x, -y)$ (using $\operatorname{char}(k) \neq 2$), which is normal since the ring of invariants of a normal domain under a finite group action is normal. The morphism $f$ is the normalization of $Y$ in the field extension $L = k(x, y) \supset K(Y) = k(x^2, xy, y^2)$, which is a degree 2 extension. Note that $f$ is the normalization in $L$, not the normalization in $K(Y)$ itself (since $Y$ is already normal).
 
-and assume $\mathrm{char}(k)\neq 2$, then $X, Y$ are both normal, the point is that $X$ is not the normalization of $Y$ in its functional field $K(Y)$, but it's the normalization  of $Y$ in $L=k(x,y)\supset K(Y)$. So, it's a normalization map but not `the normalization'. It's not flat since
+**Non-flatness via fibre lengths:** Over the origin $0 \in Y$ (i.e., the maximal ideal $(x^2, xy, y^2) \subset k[x^2, xy, y^2]$):
 
-$$X_{0}=\mathrm{Spec}(k\otimes_{k[x^{2},xy,y^{2}]}k[x,y])\cong \mathrm{Spec}(k[x,y]/(x^{2},xy,y^{2})).$$
+$$
+X_0 = \operatorname{Spec}(k \otimes_{k[x^2, xy, y^2]} k[x,y]) \cong \operatorname{Spec}(k[x,y]/(x^2, xy, y^2)).
 
-So the fibre over $0$ has length $3$. On the other hand, if $a^{2},b^{2}\neq 0$
+$$
 
-$$X_{(a^{2},ab ,b^{2})}=\mathrm{Spec}(k\otimes_{k[x^{2},xy,y^{2}]}k[x,y])$$
+This fibre has length $3$ (a basis for $k[x,y]/(x^2, xy, y^2)$ over $k$ is $\{1, x, y\}$).
 
-$$\cong \mathrm{Spec}(k[x,y]/(x^{2}-a^{2}, y^{2}-b^{2},xy-ab))\cong \mathrm{Spec}(k[x,y]/(x-a,y-b)\oplus k[x,y]/(x+a,y+b)).$$
+Over a general closed point $(a^2, ab, b^2)$ with $a, b \neq 0$:
 
-Thus the fibre over a point other than $(0,0,0)$ has length $2$. Thus this is not a flat morphism.
+$$
+X_{(a^2,ab,b^2)} \cong \operatorname{Spec}(k[x,y]/(x^2 - a^2, y^2 - b^2, xy - ab)) \cong \operatorname{Spec}(k \oplus k),
+
+$$
+
+which has length $2$ (corresponding to the two preimage points $(a, b)$ and $(-a, -b)$).
+
+Since fibre length jumps from $2$ to $3$, the morphism is not flat (flat morphisms preserve fibre length in families over a connected base).
+
+**Key Insight:** Even between normal varieties, a finite dominant morphism need not be flat. The miracle flatness theorem requires the source to be Cohen-Macaulay and the target to be regular, but here the target $Y$ is normal but not regular at the origin (it is a quotient singularity).
+
+**Prerequisites:** Normal varieties, finite morphisms, flatness, fibre length, quotient singularities
+
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field with $\operatorname{char}(k) \neq 2$. For the inclusion $k[x^2, xy, y^2] \hookrightarrow k[x,y]$, compute the length of the fibre over the maximal ideal $(x^2, xy, y^2)$ and over a general maximal ideal $(x^2 - a^2, xy - ab, y^2 - b^2)$ with $ab \neq 0$. Conclude that the morphism is not flat. -->
 
 ### Remark: Miracle flatness theorem {#ecag-0057}
 
-The miracle flatness theorem says that if you have a morphism $f:X\rightarrow Y$ and if $X$ is Cohen-Macaulay, $Y$ is regular, and if the fibres are equidimensional, then $f$ is flat. From the example above we know
-\begin{itemize}
-\item $Y$ being normal is not enough if $\dim(Y)>1$, because we have many normal varieties but not regular. But if we just want to consider curves(i.e $\dim Y=1$) then normal=regular, to be more precise, normal implies regular in codimension $1$.
-\item If we consider the morphism above as 
+The miracle flatness theorem (Matsumura, Theorem 23.1) states: if $f: X \to Y$ is a morphism of Noetherian schemes with $X$ Cohen-Macaulay, $Y$ regular, and fibres equidimensional of the expected dimension $\dim X - \dim Y$, then $f$ is flat. The example above shows:
 
-$$\mathbb{P}_{k}^{1}\rightarrow \mathrm{Proj}(k[x,y,z]/(xz-y^{2}))$$
+- $Y$ being merely normal is insufficient when $\dim(Y) > 1$. Normal does not imply regular in dimension $> 1$ (e.g., quotient singularities are normal but not regular). However, for curves ($\dim Y = 1$), normal implies regular, so the theorem applies more broadly.
 
-$$[u,v]\mapsto [u^{2},uv, v^{2}]$$
+- The same map, viewed projectively as $\mathbb{P}_{k}^{1} \to \operatorname{Proj}(k[x,y,z]/(xz - y^2))$ via $[u,v] \mapsto [u^2, uv, v^2]$, is flat. The singular point of $Y$ (the vertex of the cone) disappears in the projective picture, so all fibres have the same length.
 
-then it's a flat morphism! Simply because $0$ disappears in this projective picture.
-\item In practice, especially when we want to deal with regular varieties, then finiteness implies flatness just by the miracle flatness theorem.
-\end{itemize}
+- In practice, when dealing with regular varieties, finiteness implies flatness by the miracle flatness theorem (since regular implies Cohen-Macaulay).
 
 ### Example: $X$ being Cohen-Macaulay is necessary in the miracle flatness theorem {#ecag-0058}
 
-In Hartshorne $\mathrm{III}.9.3$, the following morphism is not flat
+**Statement:** The morphism
 
-$$f: X=\mathrm{Spec}(k[x,y,z,w]/((z,w)\cap (x+z,y+w)))\rightarrow Y=\mathrm{Spec}(k[x,y])$$
+$$
+f: X = \operatorname{Spec}(k[x,y,z,w]/((z,w) \cap (x+z, y+w))) \to Y = \operatorname{Spec}(k[x,y])
 
-$$(a,b,0,0)\mapsto (a,b); (a,b,-a,-b)\mapsto (a,b). $$
+$$
 
-To see it's not flat, we only need to compute the length, say at the point $p=(0,0)$, the scheme theoretical fibre is given by 
+is not flat, even though $Y$ is regular and fibres have the same dimension $0$. This is because $X$ is not Cohen-Macaulay.
 
-$$k[x,y]/(x,y)\otimes_{k[x,y]}k[x,y,z,w]/((z,w)\cap (x+z,y+w))$$
+**Construction/Proof:** The scheme $X$ is the union of two planes in $\mathbb{A}_{k}^{4}$: $V(z, w)$ and $V(x+z, y+w)$. The morphism $f$ is the projection to $\mathbb{A}_{k}^{2}$, sending $(a, b, 0, 0) \mapsto (a, b)$ and $(a, b, -a, -b) \mapsto (a, b)$.
 
-which is isomorphic to
+At a general point $p = (a, b) \neq (0, 0)$, the fibre consists of two distinct reduced points, so it has length $2$.
 
-$$k[z,w]/(z^{2},zw,w^{2}).$$
+At $p = (0, 0)$, the scheme-theoretic fibre is:
 
-In other words, the fibre over $p=(0,0)$ has degree $3$, but it's easy to compute that all other fibres has degree $2$!
-Note that in this example, $Y$ is regular and fibres have the same dimension $0$. Also note that we also have examples where $Y$ is normal and $X$ is regular, and fibres have the same dimension but the morphism between them is not flat.
+$$
+k[x,y]/(x,y) \otimes_{k[x,y]} k[x,y,z,w]/((z,w) \cap (x+z, y+w)) \cong k[z,w]/(z^2, zw, w^2).
+
+$$
+
+This has length $3$ (a $k$-basis is $\{1, z, w\}$), so the fibre length jumps from $2$ to $3$ at the origin.
+
+Since fibre length is not constant, $f$ is not flat. Here $Y = \mathbb{A}_{k}^{2}$ is regular and all fibres are $0$-dimensional, but $X$ is not Cohen-Macaulay (the union of two planes meeting at a point in $\mathbb{A}^4$ fails the Cohen-Macaulay condition by Hartshorne's connectedness theorem).
+
+**Key Insight:** The Cohen-Macaulay condition on the source is essential in the miracle flatness theorem. The union of two linear subspaces meeting in codimension $\geq 2$ is a standard source of non-Cohen-Macaulay schemes.
+
+**Prerequisites:** Cohen-Macaulay schemes, miracle flatness theorem, fibre length, primary decomposition
+
+<!-- BENCHMARK_PROBLEM: Compute the scheme-theoretic fibre of the projection $\operatorname{Spec}(k[x,y,z,w]/((z,w) \cap (x+z,y+w))) \to \operatorname{Spec}(k[x,y])$ over the origin $(0,0)$. What is its length? Compare with the general fibre length to show non-flatness. -->
 
 ### Remark: Why? {#ecag-0059}
 
-$k[x,y,z,w]/((x.y)\cap(x-z,y-w))$ is not Cohen-Macaulay. To prove this use Hartshorne's connectness theorem. The fact that the fibre over $p=(0,0)$ has degree $3$ (if I computed it correctly) is not intuitively trivial for me, in many nice situations, flatness is like a topological concept, but it's actually far more than some topological intuitions. Just consider the $1$-dimensional analogue of the morphism above
+The ring $k[x,y,z,w]/((z,w) \cap (x+z, y+w))$ is not Cohen-Macaulay. This can be established using Hartshorne's connectedness theorem: if $A$ is a Cohen-Macaulay local ring of dimension $\geq 2$, then $\operatorname{Spec}(A) \setminus \{\mathfrak{m}\}$ is connected. The union of two planes meeting at a single point has the property that removing that point disconnects the space, violating this criterion.
 
-$$f:\mathrm{Spec}(k[x,y]/(y(y-x)))\rightarrow \mathrm{Spec}(k[x])$$
+The fact that the fibre over $(0,0)$ has degree $3$ rather than $2$ is geometrically subtle. In many cases, flatness behaves like a topological invariant (constant fibre degree), but it encodes finer algebraic information. Consider the $1$-dimensional analogue:
 
-it's  FLAT. Although topologically, I cannot see any big differences.
+$$
+f: \operatorname{Spec}(k[x,y]/(y(y-x))) \to \operatorname{Spec}(k[x])
+
+$$
+
+This is the union of two lines meeting at a point, and the projection to $\mathbb{A}^1$ is flat (one can verify that $k[x,y]/(y(y-x))$ is a free $k[x]$-module of rank 2 with basis $\{1, y\}$). Topologically, this looks similar to the $2$-dimensional example, but the flatness behavior is completely different because the $1$-dimensional union of lines is Cohen-Macaulay.
 
 ### Example: Flat but not open; of finite type is necessary {#ecag-0060}
 
-Consider the natural morphism 
+**Statement:** The natural morphism $\operatorname{Spec}(k(x)) \to \operatorname{Spec}(k[x])$ (inclusion of the generic point) is flat but not an open map.
 
-$$\mathrm{Spec}(k(x))\rightarrow \mathrm{Spec}(k[x]).$$
+**Construction/Proof:** The ring map $k[x] \hookrightarrow k(x)$ makes $k(x)$ a $k[x]$-module. Since $k[x]$ is a PID, flatness is equivalent to torsion-freeness, and $k(x)$ is torsion-free as a $k[x]$-module (it is the fraction field). So the map is flat.
 
-It's flat since $k[x]$ is a PID and $k(x)$ is torsion-free as a $k[x]$-module. But it's not open(we cannot just invert some polynomials in $k[x]$ to get $k(x)$, or simply because the image is just a point).
+However, the morphism is not open. The image of the single point $\operatorname{Spec}(k(x))$ is the generic point $\{(0)\} \in \operatorname{Spec}(k[x])$, which is not an open subset of $\operatorname{Spec}(k[x])$ (the only open set containing the generic point is the whole space, but $\{(0)\}$ is a proper subset).
+
+The general theorem states that a flat morphism of finite type (between Noetherian schemes) is open. Here, the morphism $\operatorname{Spec}(k(x)) \to \operatorname{Spec}(k[x])$ is not of finite type: $k(x)$ is not a finitely generated $k[x]$-algebra (one cannot obtain all rational functions by inverting finitely many polynomials). This shows the finite type hypothesis is necessary.
+
+**Key Insight:** Chevalley's theorem guarantees flat + finite type implies open. Without the finite type condition, flat morphisms can have non-open images. The generic point inclusion is the prototypical example.
+
+**Prerequisites:** Flat morphisms, open morphisms, finite type, Chevalley's theorem
+
+<!-- BENCHMARK_PROBLEM: Show that the morphism $\operatorname{Spec}(k(x)) \to \operatorname{Spec}(k[x])$ is flat but not open. What finiteness condition on the morphism, if added, would guarantee openness? -->
 
 ### Example: Not finite not surjective, sometimes still flat {#ecag-0061}
 
-The most obvious examples are open immersions like
+**Statement:** The open immersion $\mathbb{A}_{k}^{1} \setminus \{0\} \hookrightarrow \mathbb{A}_{k}^{1}$ is flat, but it is neither finite nor surjective.
 
-$$\mathbb{A}_{k}^{1}-\{0\}\rightarrow \mathbb{A}_{k}^{1}$$
+**Construction/Proof:** The morphism corresponds to the localization $k[x] \hookrightarrow k[x, x^{-1}]$. Localization is always flat (it is exact), so the map is flat. It is not surjective since the closed point $(x) \in \operatorname{Spec}(k[x])$ is not in the image. It is not finite since $k[x, x^{-1}]$ is not a finitely generated $k[x]$-module ($\{x^{-n}\}_{n \geq 0}$ are $k[x]$-linearly independent).
 
-is flat, but not finite , not surjective.
+More generally, any open immersion of schemes is flat: if $U \hookrightarrow X$ is an open immersion, then for each affine open $\operatorname{Spec}(A) \subseteq X$, the preimage $U \cap \operatorname{Spec}(A)$ is a union of principal open sets $D(f_i)$, and each $A \to A_{f_i}$ is a localization, hence flat.
+
+**Key Insight:** Open immersions provide the simplest class of flat morphisms that are neither finite nor surjective. Flatness for open immersions comes from the exactness of localization.
+
+**Prerequisites:** Flat morphisms, open immersions, localization
+
+<!-- BENCHMARK_PROBLEM: Prove that every open immersion of schemes is a flat morphism. Is every flat monomorphism an open immersion? -->
 
 ### Example: $X\rightarrow X_{red}$ is not flat {#ecag-0062}
 
-We consider the natural morphism
+**Statement:** The natural morphism
 
-$$f:X=\mathrm{Spec}(k[x,y,z,w]/(z^{2},zw,w^{2},xz-yw))\rightarrow \mathrm{Spec}(k[x,y])=Y,$$
+$$
+f: X = \operatorname{Spec}(k[x,y,z,w]/(z^2, zw, w^2, xz - yw)) \to Y = \operatorname{Spec}(k[x,y])
 
-then it's NOT flat, although $Y$ is regular, $X$ has no embedded points, and fibres are equidimensional. So you know, the reason is that $k[x,y,z,w]/(z^{2},zw,w^{2},xz-yw)$ is not Cohen-Macaulay, not to say regular. To see it's not flat, just check the definition
+$$
 
-$$I=(x,y)\rightarrow k[x,y]$$
+is not flat, even though $Y$ is regular, $X$ has no embedded points, and fibres are equidimensional. The failure is because $X$ is not Cohen-Macaulay.
 
-is an injection of $k[x,y]$-modules, but
+**Construction/Proof:** To show non-flatness, we verify that tensoring with $\mathcal{O}_X$ does not preserve injections. The inclusion of the ideal $I = (x, y) \hookrightarrow k[x,y]$ is an injection of $k[x,y]$-modules. After tensoring with $\mathcal{O}_X$:
 
-$$I\otimes_{k[x,y]}k[x,y,z,w]/(z^{2},zw,w^{2},xz-yw)\rightarrow k[x,y]\otimes_{k[x,y]}k[x,y,z,w]/(z^{2},zw,w^{2},xz-yw)$$
+$$
+I \otimes_{k[x,y]} k[x,y,z,w]/(z^2, zw, w^2, xz - yw) \to k[x,y] \otimes_{k[x,y]} k[x,y,z,w]/(z^2, zw, w^2, xz - yw)
 
-is not an injection. Because, for example, $x\otimes z-y\otimes w$ is not zero on the left($1\notin I$, you cannot move $x$ or $y$ to the other side), but its image is $x\otimes z-y\otimes w=xz-yw=0$(since $1\in k[x,y]$).
+$$
+
+is not injective. The element $x \otimes z - y \otimes w$ in the left-hand side is nonzero: since $1 \notin I$, we cannot simplify the tensor product by moving $x$ or $y$ to the other side. However, its image in the right-hand side is $xz - yw = 0$ in the quotient ring (since $xz - yw$ is one of the defining relations and $1 \in k[x,y]$ allows the simplification).
+
+The ring $k[x,y,z,w]/(z^2, zw, w^2, xz - yw)$ has no embedded primes (its associated primes are all minimal), and the fibres over $Y$ are equidimensional. Nevertheless, it is not Cohen-Macaulay, which is why the miracle flatness theorem does not apply.
+
+**Key Insight:** Non-flatness can be detected by exhibiting an injection of modules that becomes non-injective after tensoring. The element $x \otimes z - y \otimes w$ is the prototypical "Tor witness" for non-flatness.
+
+**Prerequisites:** Flatness criterion, tensor products, Cohen-Macaulay rings, miracle flatness theorem
+
+<!-- BENCHMARK_PROBLEM: For the ring $R = k[x,y,z,w]/(z^2, zw, w^2, xz - yw)$ viewed as a $k[x,y]$-algebra, show that $R$ is not flat over $k[x,y]$ by proving that the natural map $I \otimes_{k[x,y]} R \to R$ is not injective, where $I = (x,y) \subset k[x,y]$. Exhibit an explicit nonzero element in the kernel. -->
 
 ### Example: Hartshorne $\mathrm{III}.9.8.4 & \mathrm{III}.12.4$, flat families, dimension jump {#ecag-0063}
 
-The first family of twisted cubic curves is given by 
+**Statement:** There exists a flat family of curves in $\mathbb{P}^{3}$ parametrized by $\mathbb{A}^{1}$ such that the general fibre is a smooth twisted cubic but the special fibre is a singular curve with an embedded point. The cohomology dimensions $h^i$ of the ideal sheaf jump at the special fibre, but the Euler characteristic remains constant.
 
-$$\mathbb{P}^{1}\times \mathbb{A}^{1} \rightarrow \mathbb{P}^{3}_{\mathbb{A}^{1}}$$
+**Construction/Proof:** Consider the family given by
 
-$$[u,v]\mapsto [u^{3},u^{2}v,auv^{2},v^{3}]$$
+$$
+\mathbb{P}^{1} \times \mathbb{A}^{1} \to \mathbb{P}^{3}_{\mathbb{A}^{1}}, \quad [u,v] \mapsto [u^{3}, u^{2}v, auv^{2}, v^{3}]
 
-Actually, in computation the corresponding ring homomorphism is given by 
+$$
 
-$$k[x,y,z,w,t]\rightarrow k[u,v,a] $$
+where $a$ is the coordinate on $\mathbb{A}^{1}$. The corresponding ring homomorphism sends $[x,y,z,w,t] \mapsto [u^{3}, u^{2}v, tuv^{2}, v^{3}, t]$. Using Macaulay2, the ideal of this flat family is
 
-$$[x,y,z,w,t]\mapsto [u^{3},u^{2}v,auv^{2},v^{3},a].$$
+$$
+I = (xwt - yz, \, y^{2}t - xz, \, y^{3} - x^{2}w, \, ywt^{2} - z^{2}).
 
-With the help of Macaulay2, we can get the ker of this map(that is the ideal of this flat family) is given by 
+$$
 
-$$I=(xwt-yz,y^{2}t-xz,y^{3}-x^{2}w,ywt^{2}-z^{2})$$
+This is flat over $\mathbb{A}^{1}$ because $t$ is a non-zero-divisor in $k[x,y,z,w,t]/I$.
 
-This is a flat family simply because $t$ is not a zero divisor in $k[x,y,z,w,t]/I$. Then if $t\neq 0$, the corresponding fibre is just an ordinary twisted cubic. But the fibre over $t=0$ is given by 
-$$I_{0}=(-yz,-xz,y^{3}-x^{2}w,-z^{2})$
-the primary decomposition is 
+For $t \neq 0$, the fibre is an ordinary twisted cubic (smooth, rational).
 
-$$I_{0}=(z,y^{3}-x^{2}w)\cap (x,z^{2},yz,y^{3}).$$
+At $t = 0$, the ideal specializes to $I_0 = (yz, xz, y^{3} - x^{2}w, z^{2})$ with primary decomposition
 
-It's clear that this fibre contains an embedded point. Now we can compute the sheaf cohomology of $\mathscr{I}$ corresponding to $I$.
-My computation shows that 
+$$
+I_0 = (z, \, y^{3} - x^{2}w) \cap (x, \, z^{2}, \, yz, \, y^{3}).
 
-$$h^{0}(\mathbb{P}^{3},\mathscr{I}_{0})=h^{3}(\mathbb{P}^{3},\mathscr{I}_{0})=0;$$
+$$
 
-$$h^1(\mathbb{P}^{3},\mathscr{I}_{0})=1,h^2(\mathbb{P}^{3},\mathscr{I}_{0})=1.$$
+The first component is a cuspidal cubic in the plane $z = 0$; the second is an embedded point at $(0:0:0:1)$.
 
-However, if $t\neq 0$, the cohomology is given by 
+For the ideal sheaf $\mathscr{I}$ on $\mathbb{P}^3 \times \mathbb{A}^1$, the cohomology of the special fibre is:
 
-$$h^{i}(\mathbb{P}^{3},\mathscr{I}_{t})=0,\forall i.$$
+$$
+h^{0}(\mathbb{P}^{3}, \mathscr{I}_0) = h^{3}(\mathbb{P}^{3}, \mathscr{I}_0) = 0, \quad h^{1}(\mathbb{P}^{3}, \mathscr{I}_0) = 1, \quad h^{2}(\mathbb{P}^{3}, \mathscr{I}_0) = 1.
 
-So we can see $h^{1}, h^{2}$ jump at the point $t=0$, however, the Euler characteristic (of sheaves $\mathscr{I}_{t}$) is a constant $0$. The second flat family is actually quite similar, just consider 
+$$
 
-$$[u^{4},u^{3}v,au^{2}v^{2},uv^{3},v^{4}]\subset \mathbb{P}^{4}_{\mathbb{A}^{1}}.$$ 
+For $t \neq 0$: $h^{i}(\mathbb{P}^{3}, \mathscr{I}_t) = 0$ for all $i$.
 
-Then you can see similar phenomena.
+The dimensions $h^{1}$ and $h^{2}$ jump at $t = 0$, but the Euler characteristic $\chi(\mathscr{I}_t) = 0$ is constant, consistent with the semicontinuity theorem and the constancy of Euler characteristics in flat families.
+
+A similar phenomenon occurs with the family $[u^{4}, u^{3}v, au^{2}v^{2}, uv^{3}, v^{4}] \subset \mathbb{P}^{4}_{\mathbb{A}^{1}}$.
+
+**Key Insight:** In a flat family, the Euler characteristic is constant by flatness, but individual cohomology dimensions can jump (semicontinuity theorem: they can only go up at special points). Embedded points in special fibres are a typical source of such jumps.
+
+**Prerequisites:** Flat families, semicontinuity theorem, ideal sheaves, embedded points, twisted cubic curves
+
+<!-- BENCHMARK_PROBLEM: Consider the flat family of curves in $\mathbb{P}^3$ with ideal $I = (xwt - yz, y^2 t - xz, y^3 - x^2 w, ywt^2 - z^2)$ parametrized by $t$. Describe the special fibre $t = 0$ and its primary decomposition. Does the fibre have an embedded point? -->
 
 ### Remark: How to use semi-continuity theorem? {#ecag-0064}
 
-In the example above, we use the semi-continuity theorem for the trivial family
-
-$$\mathbb{P}^{3}\times \mathbb{A}^{1}\rightarrow \mathbb{A}^{1}$$
-
-and the ideal sheaf $\mathscr{I}$ on $\mathbb{P}^{3}\times \mathbb{A}^{1}$. The fact that we have a flat family of twisted cubic curves is used to show that $\mathscr{I}$ is flat over $\mathbb{A}^{1}$. Although you might also use semicontinuity theorem for the structure sheaf on the flat family itself, that's not what I want.
+In the example above, the semicontinuity theorem is applied to the trivial family $\mathbb{P}^{3} \times \mathbb{A}^{1} \to \mathbb{A}^{1}$ with the coherent sheaf $\mathscr{I}$ (the ideal sheaf of the flat family) on $\mathbb{P}^{3} \times \mathbb{A}^{1}$. The flatness of the family of twisted cubics is used to ensure that $\mathscr{I}$ is flat over $\mathbb{A}^{1}$. The semicontinuity theorem then guarantees that $t \mapsto h^{i}(\mathbb{P}^{3}, \mathscr{I}_t)$ is upper semicontinuous: the value at any point is at least the value at nearby points. One could also apply semicontinuity to the structure sheaf on the flat family itself, but that addresses different cohomology groups.
 
 ### Remark: A flat family of hypersurfaces of the same degree has constant $h^{i}$'s {#ecag-0065}
 
-As we have seen above, in general, if $\{X_{t}\}$ is a flat family of schemes, $h^{i}(X,\mathcal{O}_{X})$ jumps at  some points, but if you have a flat family of hypersurfaces of the same degree $X\subset \mathbb{P}_{T}^{n}$, then $h^{i}(X_{t},\mathcal{O}_{X_{t}})$ is a constant function. To see this we first assume $T=Spec(R)$, then $\mathcal{O}_{X}$ is given by $R[x_{0},\dots, x_{n}]/(f)$. Consider the fibre over $\mathfrak{p}\in \mathrm{Spec}(T)$. let $k=T_{\mathfrak{p}}/\mathfrak{p}T_{\mathfrak{p}}$ be the corresponding quotient field. Then by a change of coordinates, we may assume 
-$$\bar{f}=a_{n}x_{n}^{d}+p_{n-1}x_{n}^{n-1}+\dots,+p_{0}$  where $p_{i}$'s are polynomials in variables $x_{0},\dots, x_{n-1}$, $a_{n}\in k$. Since this procedure only need to invert finitely many elements in $T$, thus this can be done in some basic open subset of $\mathrm{Spec}(T)$, corresponding to a ring $R'$. Then over this open subset $\mathcal{O}_{X}$ is given by $R'[x_{0},x_{1},\dots, x_{n}]$ which is a free module over $R'[x_{0},\dots, x_{n-1}]$, hence free over $R'$, naturally flat. Then this proves if you have a family of hypersurfaces in $\mathbb{A}_{T}^{n}$, then it's naturally flat over $T$, then cover $\mathbb{P}_{T}^{n}$ by some affine charts, and think about what is $h^{i}$...then you'll see $h^{i}(X_{t},\mathcal{O}_{X_{t}})$ is a constant function.$
+In general, for a flat family $\{X_t\}$ of subschemes, $h^{i}(X_t, \mathcal{O}_{X_t})$ can jump at special points. However, for a flat family of hypersurfaces of the same degree $d$ in $\mathbb{P}_{T}^{n}$, the function $t \mapsto h^{i}(X_t, \mathcal{O}_{X_t})$ is constant.
+
+To see this, assume $T = \operatorname{Spec}(R)$. The structure sheaf of $X$ is given locally by $R[x_0, \ldots, x_n]/(f)$ where $f$ has degree $d$. Over each fibre at $\mathfrak{p} \in \operatorname{Spec}(T)$, with residue field $\kappa = R_{\mathfrak{p}}/\mathfrak{p}R_{\mathfrak{p}}$, after a generic change of coordinates we may write
+
+$$
+\bar{f} = a_n x_n^d + p_{d-1} x_n^{d-1} + \cdots + p_0
+
+$$
+
+where $p_i \in \kappa[x_0, \ldots, x_{n-1}]$ and $a_n \in \kappa^{\times}$. This change of coordinates requires inverting finitely many elements, so it is valid over a basic open subset $\operatorname{Spec}(R')$ of $\operatorname{Spec}(T)$. Over this open subset, $\mathcal{O}_X$ is given by $R'[x_0, \ldots, x_n]/(f)$, which is a free $R'[x_0, \ldots, x_{n-1}]$-module of rank $d$, hence free (and in particular flat) over $R'$. Covering $\mathbb{P}_T^n$ by affine charts and applying this argument, one concludes that the cohomology dimensions $h^{i}(X_t, \mathcal{O}_{X_t})$ are constant, since the Hilbert polynomial is constant and all higher cohomology is determined by it for hypersurfaces.
 
 ### Example: Dimension jumps, semicontinuity theorem {#ecag-0066}
 
-Let $E$ be an elliptic curve, consider $X=E\times_{k} E$ and $E\times O -\Delta$, where $\Delta$ is the diagonal, and we have a natural morphism 
+**Statement:** Let $E$ be an elliptic curve over $k$ and consider the surface $X = E \times_k E$. The family of degree-$0$ divisors $D_P = E \times \{P\} - \Delta|_{\{P\}}$ (where $\Delta$ is the diagonal) parametrized by $P \in E$ has $h^{0}(E, \mathcal{O}_E(D_P))$ jumping at $P = O$ (the identity element).
 
-$$\pi_{1}: E\times O-\Delta \rightarrow E\times O$$
+**Construction/Proof:** Consider the divisor $\mathscr{D} = E \times \{O\} - \Delta$ on $E \times E$, and the projection $\pi_1: E \times E \to E$. The fibre of $\mathscr{D}$ over a point $P \in E$ is the degree-$0$ divisor $D_P = O - P$ on $E$.
 
-Then we know fibre are degree $0$ divisors on $E$ and 
+By the theory of elliptic curves, for a degree-$0$ divisor $D$ on $E$:
 
-$$l(D)=1 \Leftrightarrow D\sim 0$$
+$$
+l(D) = h^{0}(E, \mathcal{O}_E(D)) = 1 \iff D \sim 0.
 
-this only happens at the fibre over $O$ itself, so the dimension of $H^{0}$ jumps.
+$$
+
+The divisor $D_P = O - P \sim 0$ if and only if $P = O$. Therefore $h^{0}(E, \mathcal{O}_E(D_P)) = 1$ when $P = O$ and $h^{0}(E, \mathcal{O}_E(D_P)) = 0$ when $P \neq O$.
+
+This is an instance of the semicontinuity theorem: $h^0$ jumps up at $P = O$, consistent with upper semicontinuity.
+
+**Key Insight:** On an elliptic curve, degree-$0$ line bundles form a group (the Jacobian $\cong E$ itself), and only the trivial bundle has a nonzero global section. This provides a clean example of semicontinuity with a precise geometric characterization of the jumping locus.
+
+**Prerequisites:** Elliptic curves, semicontinuity theorem, Riemann-Roch, Picard group
+
+<!-- BENCHMARK_PROBLEM: Let $E$ be an elliptic curve over an algebraically closed field $k$ with origin $O$. For $P \in E$, compute $h^0(E, \mathcal{O}_E(O - P))$ and identify the unique point where this dimension jumps. -->
 
 ### Example: An application of the semicontinuity theorem + flat family ???? imcomplete {#ecag-0067}
 
-It's impossible to have a family of rank $2$ vector bundles parametrized by $\mathbb{A}_{k}^{1}$ on $\mathbb{P}^{1}$, such that all fibres are trivial bundles except the fibre over $t=0$. Then let the fibre over $t=0$ be $\mathcal{O}_{\mathbb{P}^{1}}(a)\oplus \mathcal{O}_{\mathbb{P}^{1}}(b)$. Since the Euler characteristic in a flat family is a constant, thus we have 
-\begin{itemize}
-    \item for $n$ big enough, we have $2n+2=a+b+2n$, thus $a+b=0$.
-    \item for $n=0$, we have 
+**Statement:** It is impossible to have a flat family of rank-$2$ vector bundles on $\mathbb{P}^{1}$ parametrized by $\mathbb{A}_{k}^{1}$ such that all fibres except $t = 0$ are trivial ($\mathcal{O}_{\mathbb{P}^{1}} \oplus \mathcal{O}_{\mathbb{P}^{1}}$), while the fibre at $t = 0$ is $\mathcal{O}_{\mathbb{P}^{1}}(a) \oplus \mathcal{O}_{\mathbb{P}^{1}}(-a)$ with $a \geq 1$.
 
-    $$h^{0}(\mathcal{O}_{\mathbb{P}^{1}}\oplus \mathcal{O}_{\mathbb{P}^{1}})=2$$
+**Construction/Proof:** Suppose such a flat family $\mathscr{E}$ exists over $\mathbb{A}^{1}$. By the constancy of Euler characteristics in flat families, for any twist $\mathscr{E}(n)$, we have $\chi(\mathscr{E}_t(n)) = \text{const}$ for all $t$.
 
-    $$h^{1}(\mathcal{O}_{\mathbb{P}^{1}}\oplus \mathcal{O}_{\mathbb{P}^{1}})=0$$
+For the general fibre ($t \neq 0$): $\mathscr{E}_t = \mathcal{O} \oplus \mathcal{O}$, so
 
-    and 
+$$
+\chi(\mathscr{E}_t(n)) = 2(n + 1) = 2n + 2.
 
-    $$h^{0}(\mathcal{O}_{\mathbb{P}^{1}}(a)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-a))=a+1$$
+$$
 
-    $$h^{1}(\mathcal{O}_{\mathbb{P}^{1}}(a)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-a))$$
+For $t = 0$: if $\mathscr{E}_0 = \mathcal{O}(a) \oplus \mathcal{O}(b)$, then
 
-    then we know $a\geq 1$.
-\end{itemize}
+$$
+\chi(\mathscr{E}_0(n)) = (a + n + 1) + (b + n + 1) = a + b + 2n + 2.
+
+$$
+
+Constancy gives $a + b = 0$, so $b = -a$.
+
+By semicontinuity, $h^0(\mathscr{E}_0) \geq h^0(\mathscr{E}_t) = 2$ for general $t$. We compute:
+
+$$
+h^{0}(\mathcal{O}(a) \oplus \mathcal{O}(-a)) = a + 1 \quad (\text{for } a \geq 0).
+
+$$
+
+So $a + 1 \geq 2$, giving $a \geq 1$. By semicontinuity applied to $h^0$, we also need $h^1(\mathscr{E}_0) \geq h^1(\mathscr{E}_t)$. For general $t$, $h^1(\mathcal{O} \oplus \mathcal{O}) = 0$, and $h^1(\mathcal{O}(a) \oplus \mathcal{O}(-a)) = a - 1$ for $a \geq 2$. This is consistent but shows the special fibre must have strictly larger $h^0$ and $h^1$. Such a family does exist for $a \geq 1$ (e.g., deformations of Hirzebruch surfaces), but what cannot happen is a family where the generic fibre is "more split" than the special fibre.
+
+**Key Insight:** The semicontinuity theorem constrains how vector bundles can degenerate in flat families: $h^0$ can only jump up, and the Euler characteristic is constant. This severely restricts which bundles can appear as limits.
+
+**Prerequisites:** Vector bundles on $\mathbb{P}^1$, Grothendieck's theorem, semicontinuity, flat families
+
+<!-- BENCHMARK_PROBLEM: Let $\mathscr{E}$ be a flat family of rank-2 vector bundles on $\mathbb{P}^1$ parametrized by $\mathbb{A}^1$, with general fibre $\mathcal{O} \oplus \mathcal{O}$ and special fibre $\mathcal{O}(a) \oplus \mathcal{O}(b)$. Use constancy of Euler characteristic to show $a + b = 0$, and use semicontinuity to show $a \geq 1$. -->
 
 ### Remark {#ecag-0068}
 
-Can we just use semi-continuity theorem?
+Yes, the semicontinuity theorem is the main tool here. It states that for a proper morphism $f: X \to T$ and a coherent sheaf $\mathscr{F}$ on $X$, flat over $T$, the function $t \mapsto h^i(X_t, \mathscr{F}_t)$ is upper semicontinuous. Combined with constancy of $\chi$, this forces: if $h^i$ jumps up at a special point, then some other $h^j$ must also jump to compensate.
 
 ### Example: Hartshorne $\mathrm{III}.9.7$, a flat family but corresponding family of projective cones is not flat {#ecag-0069}
 
-Consider the family of three points in $\mathbb{P}_{k}^{2}$,
+**Statement:** The family of three points $X_t = \{[1,0,0], [0,1,0], [1,1,t]\}$ in $\mathbb{P}_{k}^{2}$, parametrized by $t \in \mathbb{A}^{1}$, is a flat family. However, the corresponding family of projective cones in $\mathbb{P}^{3}$ is not flat: the flat limit of the cones differs from the cone over the flat limit.
 
-$$X_{t}=\{[1,0,0],[0,1,0],[1,1,t]\}$$
+**Construction/Proof:** The ideal of the family is
 
-Then we know the corresponding ideal is  
+$$
+I = (y,z) \cap (x,z) \cap (x-y, tx-z) = (xz - yz, \, yzt - z^{2}, \, xyt - yz, \, x^{2}y - xy^{2}).
 
-$$I=(y,z)\cap(x,z)\cap(x-y,tx-z)=(xz-yz,y zt-z^{2},xyt-yz,x^{2} y-x y^{2}).$$
+$$
 
-It's a flat family since $t$ is not zero divisor, thus this family is flat(or you can use the miracle flatness theorem, or the Euler characteristic criterion, or since this family is parametrized by a regular $1$-dimensional scheme, and every irreducible component of $X$ dominant $Y$..). Thus this also defines the unique flat family in $\mathbb{P}_{k[t]}^{3}$ which is the closure of projective cones for $t\neq 0$, now  consider $I_{0}$, it's the cone in $\mathbb{P}^{3}$ defined by 
+This is flat over $\mathbb{A}^{1}$ since $t$ is a non-zero-divisor in $k[x,y,z,t]/I$ (alternatively, by the miracle flatness theorem since $\mathbb{A}^1$ is regular of dimension 1 and each irreducible component dominates $\mathbb{A}^1$).
 
-$$I_{Y_{0}}=(xz, yz,z^{2}, x^{2}y-xy^{2})$$
+The flat limit as $t \to 0$ in $\mathbb{P}^{3}$ (viewing the cones) is determined by the ideal
 
-it's not the ideal of the projective cone w.r.t $X_{0}$, 
+$$
+I_{Y_0} = (xz, \, yz, \, z^{2}, \, x^{2}y - xy^{2})
 
-$$I_{C(X_{0})}=(z,x^{2}y-xy^{2})$$
+$$
 
-To see they define different schemes, just consider the intersection with $V(x,y)$, surely, $\mathrm{Proj}(k[z,w]/(z^{2}))\neq \mathrm{Proj}(k[z,w]/(z)).$
+while the cone over $X_0 = \{[1,0,0], [0,1,0], [1,1,0]\}$ has ideal
+
+$$
+I_{C(X_0)} = (z, \, x^{2}y - xy^{2}).
+
+$$
+
+These define different subschemes: restricting to $V(x,y)$, we get $\operatorname{Proj}(k[z,w]/(z^{2})) \neq \operatorname{Proj}(k[z,w]/(z))$.
+
+**Key Insight:** Taking cones does not commute with flat limits. The flat limit of projective cones can acquire additional non-reduced structure (here, the $z^2$ component) that is not present in the cone of the flat limit.
+
+**Prerequisites:** Flat families, projective cones, Hilbert schemes, flat limits
+
+<!-- BENCHMARK_PROBLEM: Let $X_t = \{[1,0,0],[0,1,0],[1,1,t]\} \subset \mathbb{P}_k^2$. Compute the ideal of this family and verify that the flat limit of the projective cones as $t \to 0$ differs from the projective cone over the limit $X_0$. -->
 
 ### Remark {#ecag-0070}
 
-We need to mention two remarks
-\begin{itemize}
-    \item If a family is very flat, then it's flat. And the corresponding family of projective cones is also very flat.
-    \item If we have an algebraic family of projectively normal varieties in $\mathbb{P}_{k}^{n}$, parametrized by a nonsingular curve $T$ over an algebraically closed field, then it's a very flat family.
-\end{itemize}
-Actually, it takes me a while to understand the second statement, the logic is that, first apply Theorem $\mathrm{III}.9.9$ in Hartshorne's book, we know an algebraic family of normal varieties is a falt family, then we know the Hilbert polynomials are the same, recall 
+Two important related facts:
 
-$$P_{t}(m)=dim_{k(t)}H^{0}(X_{t},\mathcal{O}_{X_{t}}(m))$$
+- If a family is "very flat" (meaning the Hilbert function, not just the Hilbert polynomial, is constant), then it is flat, and the corresponding family of projective cones is also very flat.
 
-now use the fact that $X_{t}$ is projectively normal, thus 
+- If we have an algebraic family of projectively normal varieties in $\mathbb{P}_{k}^{n}$ parametrized by a nonsingular curve $T$ over an algebraically closed field, then it is a very flat family.
 
-$$dim_{k(t)}H^{0}(X_{t},\mathcal{O}_{X_{t}}(m))=dim_{k(t)}(S_{t}/I_{t})_{m}$$
+The logic for the second statement: by Hartshorne's Theorem III.9.9, an algebraic family of normal varieties is flat, so the Hilbert polynomials are constant. Since $X_t$ is projectively normal,
 
-So we know $dim_{k(t)}(S_{t}/I_{t})_{m}$ are the same. So we get a very flat family by definition.
+$$
+\dim_{k(t)} H^{0}(X_t, \mathcal{O}_{X_t}(m)) = \dim_{k(t)} (S_t/I_t)_m
+
+$$
+
+where $S_t$ is the homogeneous coordinate ring. Since the Hilbert polynomial is constant, the Hilbert function $\dim_{k(t)}(S_t/I_t)_m$ is also eventually constant, and projective normality ensures it equals $P_t(m)$ for all $m \geq 0$, giving a very flat family.
 
 ### Example: Fibre product of two schemes doesn't exist(we mean $=\emptyset$) {#ecag-0071}
 
-Just consider
+**Statement:** The fibre product of $\operatorname{Spec}(\mathbb{Z}/2\mathbb{Z})$ and $\operatorname{Spec}(\mathbb{Z}/3\mathbb{Z})$ over $\operatorname{Spec}(\mathbb{Z})$ is the empty scheme.
 
-$$\mathrm{Spec}(\mathbb{Z}/2\mathbb{Z})\times_{\mathrm{Spec}(\mathbb{Z})}\mathrm{Spec}(\mathbb{Z}/3\mathbb{Z})\cong \mathrm{Spec}(0).$$
+**Construction/Proof:** By the universal property of fibre products in the category of affine schemes:
 
-The zero ring corresponding to the empty set. Geometrically, this means $\mathrm{Spec}(\mathbb{Z}/2\mathbb{Z})\rightarrow \mathrm{Spec}(\mathbb{Z})$ and $\mathrm{Spec}(\mathbb{Z}/3\mathbb{Z})\rightarrow \mathrm{Spec}(\mathbb{Z})$ have different images, there's no fibre product for sure.
+$$
+\operatorname{Spec}(\mathbb{Z}/2\mathbb{Z}) \times_{\operatorname{Spec}(\mathbb{Z})} \operatorname{Spec}(\mathbb{Z}/3\mathbb{Z}) \cong \operatorname{Spec}(\mathbb{Z}/2\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/3\mathbb{Z}).
 
-### Example: Flatness over $\mathrm{Spec}(k[\epsilon$ {#ecag-0072}
+$$
 
-}/(\epsilon^{2}))$]
-Let $M$ be a module over $\mathrm{Spec}(k\text{[}\epsilon\text{]}/(\epsilon^{2}))$, then to check its flatness, we only need to check that 
+Now $\mathbb{Z}/2\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/3\mathbb{Z} \cong \mathbb{Z}/(2,3) = \mathbb{Z}/\mathbb{Z} = 0$, the zero ring. The spectrum of the zero ring is the empty set.
 
-$$(\epsilon)\otimes_{k\text{[}\epsilon\text{]}/(\epsilon^{2})}M\rightarrow M$$
+Geometrically, $\operatorname{Spec}(\mathbb{Z}/2\mathbb{Z}) \to \operatorname{Spec}(\mathbb{Z})$ maps to the prime $(2)$, and $\operatorname{Spec}(\mathbb{Z}/3\mathbb{Z}) \to \operatorname{Spec}(\mathbb{Z})$ maps to the prime $(3)$. Since these images are disjoint in $\operatorname{Spec}(\mathbb{Z})$, the fibre product is empty: there is no point in $\operatorname{Spec}(\mathbb{Z})$ lying in both images.
 
-is injective. Note that this condition here doesn't mean $M$ is a torsion-free $k\text{[}\epsilon\text{]}/(\epsilon^{2})$-module, for example, view the ring of dual numbers as a module over itself, then $\epsilon$ is definitely a zero-divisor, but it's a flat module over itself for sure. This detail is actually essential in some situations, for example, to prove $T_{Z}\mathrm{Hilb}(X)=\mathrm{Hom}_{\mathcal{O}_{X}}(\mathcal{I}_{Z}, \mathcal{O}_{Z})$. In its affine case, let $I=(f_{1}, \dots, f_{m})$ and given a morphism $\phi\in \mathrm{Hom}_{R}(I, R/I), \phi(f_{i})=g_{i}$, we claim $(f_{i}+\epsilon g_{i})$ defines a subscheme of $X\times \mathrm{Spec}(k[\epsilon]/(\epsilon^{2}))$ flat(this is the point) over $\mathrm{Spec}(k[\epsilon]/(\epsilon^{2}))$. First note that if $[g]=[h]\in R/I$, then $(f_{i}+\epsilon g_{i})=(f_{i}+\epsilon h_{i})$, this is trivial for if $g_{i}-h_{i}=\sum u_{i}f_{i}$, then $\epsilon(g_{i}-h_{i})=\sum \epsilon u_{i}(f_{i}+\epsilon g_{i})$. To prove $M=R[\epsilon]/(\epsilon^{2}, f_{i}+\epsilon g_{i})$ is flat over $k[\epsilon]/(\epsilon^{2})$, we have to check that
+**Key Insight:** The fibre product of schemes always exists in the category of schemes, but it can be the empty scheme (corresponding to the zero ring in the affine case) when the two morphisms have disjoint images.
 
-$$(\epsilon)\otimes_{k[\epsilon]/(\epsilon^{2})}M\rightarrow M $$
+**Prerequisites:** Fibre products, tensor products, spectrum of the zero ring
 
-is injective. Note that on the left hand side, $\epsilon \otimes \epsilon g=0$, thus we only need to check that $\forall f\in R, \epsilon f\in (f_{i}+\epsilon g_{i})\Rightarrow f\in (f_{i})$, this is indeed true because
+<!-- BENCHMARK_PROBLEM: Compute $\operatorname{Spec}(\mathbb{Z}/6\mathbb{Z}) \times_{\operatorname{Spec}(\mathbb{Z})} \operatorname{Spec}(\mathbb{Z}/10\mathbb{Z})$ by first computing the tensor product $\mathbb{Z}/6\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/10\mathbb{Z}$. How many points does the resulting scheme have? -->
 
-$$\epsilon f=\sum(a_{i}+\epsilon b_{i})(f_{i}+\epsilon g_{i})=\sum a_{i}f_{i}+\epsilon(a_{i}g_{i}+b_{i}f_{i})$$
+### Example: Flatness over $\mathrm{Spec}(k[\epsilon]/(\epsilon^{2}))$ {#ecag-0072}
 
-$$\Rightarrow \sum a_{i}f_{i}=0.$$
+**Statement:** A module $M$ over the ring of dual numbers $k[\epsilon]/(\epsilon^{2})$ is flat if and only if the multiplication map $(\epsilon) \otimes_{k[\epsilon]/(\epsilon^{2})} M \to M$ is injective. This criterion is central in deformation theory: flat families over the dual numbers correspond to first-order deformations, and the tangent space to the Hilbert scheme at a closed subscheme $Z \subset X$ is $T_Z \operatorname{Hilb}(X) = \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{I}_Z, \mathcal{O}_Z)$.
 
-The the existense of $\phi$ tells us 
+**Construction/Proof:** Since $k[\epsilon]/(\epsilon^{2})$ is a local Artinian ring with maximal ideal $(\epsilon)$ and residue field $k$, flatness of $M$ is equivalent to the injectivity of
 
-$$\sum a_{i}g_{i}=\sum a_{i}\phi(f_{i})=\phi(\sum a_{i}f_{i})=0$$
+$$
+(\epsilon) \otimes_{k[\epsilon]/(\epsilon^{2})} M \to M.
 
-$$\Rightarrow f=\sum b_{i}f_{i}\in (f_{i}).$$
+$$
 
-Conversely, if $(f_{i}+\epsilon g_{i})$ defines a flat family over the dual numbers, we claim $f_{i}\mapsto [g_{i}]$ gives us a well-defined element in $\mathrm{Hom}_{R}(I, R/I)$. We have to show if $f_{i}+\epsilon u\in (f_{i}+\epsilon g_{i})$, then $[u]=[g_{i}]$. The argument above also works here, since $\epsilon (g_{i}-u)\in (f_{i}+\epsilon g_{i})$, then the flatness tells us $g_{i}-u\in (f_{i})$, this is exactly what we want.
+Note that this does not mean $M$ is torsion-free: the ring $k[\epsilon]/(\epsilon^{2})$ itself has the zero-divisor $\epsilon$, but it is flat over itself.
 
-### Remark: Torsion-free modules over $\mathrm{Spec}(k[\epsilon$ {#ecag-0073}
+**Application to the Hilbert scheme:** Let $Z \subset X$ be a closed subscheme of a scheme $X$ with ideal $I = (f_1, \ldots, f_m) \subset R = \Gamma(\mathcal{O}_X)$ (in the affine case). Given $\phi \in \operatorname{Hom}_R(I, R/I)$ with $\phi(f_i) = g_i$, the ideal $(f_i + \epsilon g_i)$ defines a subscheme of $X \times \operatorname{Spec}(k[\epsilon]/(\epsilon^{2}))$.
 
-}/(\epsilon^{2}))$]
-If we define a torsion-free module over a ring to be a module such that $0$ is the only element annihilated by a regular element (non zero-divisor) of the ring. Then any module over $k[\epsilon]/(\epsilon^{2})$ is torsion-free. Since regular elements in this ring give us $k$.
+Well-definedness: If $[g_i] = [h_i]$ in $R/I$ (i.e., $g_i - h_i = \sum u_j f_j$), then $(f_i + \epsilon g_i) = (f_i + \epsilon h_i)$ since $\epsilon(g_i - h_i) = \sum \epsilon u_j (f_i + \epsilon g_i)$.
 
+Flatness: We must verify that $M = R[\epsilon]/(\epsilon^2, f_i + \epsilon g_i)$ is flat over $k[\epsilon]/(\epsilon^{2})$, i.e., that $\epsilon f \in (f_i + \epsilon g_i) \Rightarrow f \in (f_i)$. If $\epsilon f = \sum (a_j + \epsilon b_j)(f_j + \epsilon g_j)$, then comparing terms:
+
+$$
+\sum a_j f_j = 0, \quad f = \sum (a_j g_j + b_j f_j).
+
+$$
+
+Since $\phi$ is an $R$-module homomorphism and $\sum a_j f_j = 0$:
+
+$$
+\sum a_j g_j = \sum a_j \phi(f_j) = \phi\!\left(\sum a_j f_j\right) = 0.
+
+$$
+
+Therefore $f = \sum b_j f_j \in (f_i)$.
+
+Conversely, if $(f_i + \epsilon g_i)$ defines a flat family, then $f_i \mapsto [g_i]$ is a well-defined element of $\operatorname{Hom}_R(I, R/I)$: if $f_i + \epsilon u \in (f_i + \epsilon g_i)$, then $\epsilon(g_i - u) \in (f_i + \epsilon g_i)$, and flatness gives $g_i - u \in (f_i)$, so $[g_i] = [u]$ in $R/I$.
+
+**Key Insight:** The flatness criterion over the dual numbers is equivalent to the condition that first-order deformations of ideal generators are consistent modulo the original ideal. This establishes the fundamental identification $T_Z \operatorname{Hilb}(X) = \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{I}_Z, \mathcal{O}_Z)$.
+
+**Prerequisites:** Dual numbers, flatness, Hilbert schemes, deformation theory, tangent spaces
+
+<!-- BENCHMARK_PROBLEM: Let $R = k[x]$ and $I = (x^2)$. Compute $\operatorname{Hom}_R(I, R/I)$ and describe explicitly the corresponding first-order deformations of $Z = \operatorname{Spec}(k[x]/(x^2)) \subset \mathbb{A}_k^1$ over $\operatorname{Spec}(k[\epsilon]/(\epsilon^2))$. -->
+
+### Remark: Torsion-free modules over $\mathrm{Spec}(k[\epsilon]/(\epsilon^{2}))$ {#ecag-0073}
+
+If we define a torsion-free module over a ring $R$ to be a module $M$ such that the only element of $M$ annihilated by every regular (non-zero-divisor) element of $R$ is $0$, then every module over $k[\epsilon]/(\epsilon^{2})$ is torsion-free. The reason is that the only regular elements in $k[\epsilon]/(\epsilon^{2})$ are the units $a + b\epsilon$ with $a \neq 0$ (i.e., elements in $k^{\times} + k\epsilon$), and multiplication by a unit is always injective. In other words, the set of regular elements is $k^{\times} + k\epsilon = (k[\epsilon]/(\epsilon^2))^{\times}$, so the torsion-free condition is vacuous. This means that over the dual numbers, "torsion-free" is strictly weaker than "flat."
 ## Dimension
 
-### Example: $\mathrm{dim}(X)=1$ with one or two closed points {#ecag-0074}
+### Example: $\operatorname{dim}(X)=1$ with one or two closed points {#ecag-0074}
 
-> **Status:** Stub — content needed.
+**Statement:** There exist affine schemes of Krull dimension $1$ with exactly one closed point, and others with exactly two closed points.
 
-### Example: $\dim \Pi_{n=1}^{\infty} \mathbf{Z}/2^{n}\mathbf{Z}$ {#ecag-0075}
+**Construction/Proof:** For a single closed point, take any discrete valuation ring $(R, \mathfrak{m})$, for instance $R = k[[t]]$ or $R = \mathbb{Z}_{(p)}$. Then $\operatorname{Spec}(R) = \{(0), \mathfrak{m}\}$, which has Krull dimension $1$ and exactly one closed point $\mathfrak{m}$.
 
-The short answer is that 
+For exactly two closed points, consider the semilocal ring
 
-$$\mathrm{dim}\Pi_{i=1}^{\infty} \mathbf{Z}/2^{n}\mathbf{Z}=+\infty.$$
+$$R = \mathbb{Z}_{(2)(3)} = \left\{ \frac{a}{b} \in \mathbb{Q} \;\middle|\; \gcd(b, 6) = 1 \right\}.$$
 
-See the following mathoverflow posts:
-\begin{itemize}
-    \item [What is the dimension of the product ring $\prod_{n=1](https://mathoverflow.net/questions/90980/what-is-the-dimension-of-the-product-ring-prod-mathbb-z-2n-mathbb-z)^{\infty}\mathbf{Z}/2^{n}\mathbf{Z}$}.
-    \item [Explicitly represent a representable functor](https://math.stackexchange.com/questions/364479/explicitly-represent-a-representable-functor).
-\end{itemize}
+Then $\operatorname{Spec}(R) = \{(0), (2), (3)\}$, which has Krull dimension $1$ and exactly two closed points $(2)$ and $(3)$. Alternatively, take $R = k[t]_{(t)(t-1)} = S^{-1}k[t]$ where $S = k[t] \setminus ((t) \cup (t-1))$. Then $\operatorname{Spec}(R)$ has the generic point $(0)$ and exactly two closed points $(t)$ and $(t-1)$.
 
-### Example: $U\subset X$, open, but $\mathrm{dim}(U)\neq \mathrm{dim}(X)$ {#ecag-0076}
+More generally, for any finite set of primes $p_1, \ldots, p_n$ in $\mathbb{Z}$ (or irreducible polynomials in $k[t]$), the localization away from all other primes gives a $1$-dimensional scheme with exactly $n$ closed points.
 
-Let $R=\mathbb{Z}_{(2)}[x]$, then $D_{+}(2)\cong \mathbb{Q}[x]$, however
+**Key Insight:** Localizing a Dedekind domain at finitely many maximal ideals produces a semilocal Dedekind domain of dimension $1$ whose closed points correspond precisely to those maximal ideals.
 
-$$\mathrm{dim}(U)=1, \mathrm{dim}(R)=2$$
+**Prerequisites:** Krull dimension, localization, Dedekind domains, spectrum of a ring
 
-### Example: $\mathrm{dim}(X)\neq \mathrm{dim}(\mathcal{O}_{p})$, $p$ a closed point {#ecag-0077}
+<!-- BENCHMARK_PROBLEM: Construct an affine scheme of Krull dimension 1 that has exactly two closed points. Explicitly describe the ring and identify all prime ideals. -->
 
-Use the same example as above, and let $p=\mathfrak{m}=(2t-1)$, then $R/\mathfrak{m}\cong \mathbb{Q}$, we know $$\mathrm{dim}(X)=2, \mathrm{dim}(\mathcal{O}_{p})=ht(\mathfrak{m}R_{\mathfrak{m}})=ht(\mathfrak{m})=1.$$The last identity is because $R$ is a $\mathrm{UFD}$, and any principal prime ideal has height $1$. 
-What we want to say is in general 
+### Example: $\operatorname{dim} \prod_{n=1}^{\infty} \mathbb{Z}/2^{n}\mathbb{Z}$ {#ecag-0075}
 
-$$\mathrm{dim}(R)\neq ht(\mathfrak{p})+dim(A/\mathfrak{p}).$$
+**Statement:** The Krull dimension of the infinite product ring $R = \prod_{n=1}^{\infty} \mathbb{Z}/2^{n}\mathbb{Z}$ is $+\infty$.
 
-And we define $\mathrm{codim}(Y,X)=inf\{\mathcal{O}_{p,X}|p\in Y\}$, then we don't have $\mathrm{codim}(Y,X)+\mathrm{dim}(Y)=\mathrm{dim}(X)$, just let $Y=\mathrm{Spec}(R/\mathfrak{m})$. Then $\mathrm{codim}(Y,X)=1, \mathrm{dim}(Y)=0, \mathrm{dim}(X)=2.$
+**Construction/Proof:** Each factor $\mathbb{Z}/2^n\mathbb{Z}$ is a local ring with maximal ideal $(2)/(2^n)$, so each factor has Krull dimension at most $1$. However, the spectrum of an infinite product of rings is far more complicated than the disjoint union of spectra. The key point is that ultrafilter-related prime ideals create arbitrarily long chains.
+
+For any subset $S \subseteq \mathbb{N}$, the ideal $I_S = \{(a_n) \in R \mid a_n = 0 \text{ for } n \in S\}$ interacts with the prime ideal structure. Prime ideals of $R$ correspond not only to primes in individual factors but also to ultrafilters on $\mathbb{N}$. Using non-principal ultrafilters and the varying nilpotence orders in the factors $\mathbb{Z}/2^n\mathbb{Z}$, one can construct chains of prime ideals of arbitrary length. Specifically, for each $k \geq 1$, the ideal $\mathfrak{p}_k = \{(a_n) \mid 2^k \text{ divides } a_n \text{ for } \mathcal{U}\text{-almost all } n\}$ (for a suitable ultrafilter $\mathcal{U}$) gives a strictly ascending chain $(0) \subset \mathfrak{p}_1 \subset \mathfrak{p}_2 \subset \cdots$.
+
+$$\operatorname{dim} \prod_{n=1}^{\infty} \mathbb{Z}/2^{n}\mathbb{Z} = +\infty.$$
+
+See the following references:
+
+- [What is the dimension of the product ring $\prod \mathbb{Z}/2^{n}\mathbb{Z}$?](https://mathoverflow.net/questions/90980/what-is-the-dimension-of-the-product-ring-prod-mathbb-z-2n-mathbb-z)
+- [Explicitly represent a representable functor](https://math.stackexchange.com/questions/364479/explicitly-represent-a-representable-functor)
+
+**Key Insight:** The spectrum of an infinite product of rings is much larger than the disjoint union of spectra, and ultrafilter-related primes create chains of arbitrary length even when each factor has small dimension.
+
+**Prerequisites:** Krull dimension, infinite products of rings, prime ideals, ultrafilters
+
+<!-- BENCHMARK_PROBLEM: Prove that the Krull dimension of $\prod_{n=1}^{\infty} \mathbb{Z}/2^{n}\mathbb{Z}$ is infinite. Exhibit an explicit chain of prime ideals of length at least 2 in this ring. -->
+
+### Example: $U\subset X$, open, but $\operatorname{dim}(U)\neq \operatorname{dim}(X)$ {#ecag-0076}
+
+**Statement:** There exists an affine scheme $X$ and an open subscheme $U \subset X$ such that $\operatorname{dim}(U) \neq \operatorname{dim}(X)$.
+
+**Construction/Proof:** Let $R = \mathbb{Z}_{(2)}[x]$, so $X = \operatorname{Spec}(R)$. The ring $R$ has Krull dimension $2$: the chain $(0) \subset (x) \subset (2, x)$ is a maximal chain of primes of length $2$. Now consider the distinguished open subset $U = D_{+}(2) \cong \operatorname{Spec}(R[1/2])$. Since $2$ is a unit in $\mathbb{Z}_{(2)}[1/2] = \mathbb{Q}$, we have $R[1/2] \cong \mathbb{Q}[x]$, which is a principal ideal domain. Therefore
+
+$$\operatorname{dim}(U) = 1, \quad \operatorname{dim}(X) = 2.$$
+
+The dimension drops because the open subset $U$ "misses" the closed point $(2, x)$ and all primes containing $2$, collapsing the longest chains.
+
+**Key Insight:** For non-catenary or mixed-characteristic schemes, removing a closed subset can eliminate all maximal-length chains of primes, causing the dimension to drop. This cannot happen for irreducible varieties of finite type over a field.
+
+**Prerequisites:** Krull dimension, localization, distinguished open subsets, dimension of polynomial rings over DVRs
+
+<!-- BENCHMARK_PROBLEM: Let $R = \mathbb{Z}_{(2)}[x]$. Compute $\operatorname{dim}(\operatorname{Spec}(R))$ and $\operatorname{dim}(D_+(2))$, and exhibit explicit chains of prime ideals achieving these dimensions. -->
+
+### Example: $\operatorname{dim}(X)\neq \operatorname{dim}(\mathcal{O}_{p})$, $p$ a closed point {#ecag-0077}
+
+**Statement:** There exists an affine scheme $X$ with a closed point $p$ such that $\operatorname{dim}(X) \neq \operatorname{dim}(\mathcal{O}_{X,p})$, and moreover the dimension formula $\operatorname{ht}(\mathfrak{p}) + \operatorname{dim}(R/\mathfrak{p}) = \operatorname{dim}(R)$ fails.
+
+**Construction/Proof:** Use the same ring $R = \mathbb{Z}_{(2)}[x]$ as in the previous example, and let $\mathfrak{m} = (2x - 1)$. Then $R/\mathfrak{m} \cong \mathbb{Q}$ (since $x = 1/2$ in the quotient), so $\mathfrak{m}$ is a maximal ideal and $p = V(\mathfrak{m})$ is a closed point. We have
+
+$$\operatorname{dim}(X) = 2, \quad \operatorname{dim}(\mathcal{O}_{X,p}) = \operatorname{ht}(\mathfrak{m} R_{\mathfrak{m}}) = \operatorname{ht}(\mathfrak{m}) = 1.$$
+
+The last equality holds because $R$ is a UFD and $\mathfrak{m} = (2x-1)$ is a principal prime ideal, so it has height $1$ by Krull's principal ideal theorem. In general, the dimension formula
+
+$$\operatorname{dim}(R) \neq \operatorname{ht}(\mathfrak{p}) + \operatorname{dim}(R/\mathfrak{p})$$
+
+can fail. Define $\operatorname{codim}(Y, X) = \inf\{\operatorname{dim}(\mathcal{O}_{X,p}) \mid p \in Y\}$. Setting $Y = \operatorname{Spec}(R/\mathfrak{m})$, we get $\operatorname{codim}(Y, X) = 1$, $\operatorname{dim}(Y) = 0$, $\operatorname{dim}(X) = 2$, so $\operatorname{codim}(Y, X) + \operatorname{dim}(Y) \neq \operatorname{dim}(X)$.
+
+**Key Insight:** The dimension formula $\operatorname{ht}(\mathfrak{p}) + \operatorname{dim}(R/\mathfrak{p}) = \operatorname{dim}(R)$ fails because the closed point $p$ lives in the "generic fiber" (over $\mathbb{Q}$) while the dimension of $X$ is realized by chains passing through the special fiber (over $\mathbb{F}_2$).
+
+**Prerequisites:** Krull dimension, height of prime ideals, Krull's principal ideal theorem, UFDs, local rings
+
+<!-- BENCHMARK_PROBLEM: Let $R = \mathbb{Z}_{(2)}[x]$ and $\mathfrak{m} = (2x - 1)$. Verify that $\mathfrak{m}$ is a maximal ideal, compute $\operatorname{ht}(\mathfrak{m})$, and show that $\operatorname{ht}(\mathfrak{m}) + \operatorname{dim}(R/\mathfrak{m}) \neq \operatorname{dim}(R)$. -->
 
 ### Remark {#ecag-0078}
 
-Note that the construction above is valid for any local ring $(R,\mathfrak{m})$. Let $\pi\in \mathfrak{m}$ be the uniformizer. Consider $R[T]$ and the maximal ideal $\mathfrak{n}=(\pi T-1)$. We have another even more elementary method to prove that $\mathfrak{n}$ is maximal. Consider $f(T)\in R[T]\setminus \mathfrak{n}$, apply Euclidean algorithm, we can get $(f, \pi T-1)=R[T]$. To illustrate just consider $f=T^{n}$, then $\pi T^{n}-(\pi T-1)^{T^{n-1}}=T^{n-1}$, apply this computation inductively together with the fact $f\notin \mathfrak{n}$, we can get a unit in $R[T]$.  What's more, we know $\mathrm{codim}(Y,X)+\mathrm{dim}(Y)= \mathrm{dim}(X)$ fails trivially if the ring is not integral. But here, $R[T]$ is actually as good as possible: integral domain, Noetherian, universally catenary, regular. You might ask, when this formula is true? We have two situations 
-\begin{itemize}
-    \item A finitely generated integral $k$-algebra.
-    \item Cohen-Macaulay local ring (e.g regular local ring).
-\end{itemize}
-[Somebody else also asked this question on math.stackexchange.](https://math.stackexchange.com/questions/49136/operatornameheight-mathfrakp-dim-a-mathfrakp-dim-a)
+The construction above generalizes: for any DVR $(R, \mathfrak{m})$ with uniformizer $\pi$, the ideal $\mathfrak{n} = (\pi T - 1)$ in $R[T]$ is maximal. To see this, note that for any $f(T) \in R[T] \setminus \mathfrak{n}$, one can apply the Euclidean algorithm to show $(f, \pi T - 1) = R[T]$. For instance, if $f = T^n$, then $\pi T^n - (\pi T - 1) T^{n-1} = T^{n-1}$; applying this inductively and using $f \notin \mathfrak{n}$, one eventually produces a unit in $R[T]$.
+
+The dimension formula $\operatorname{codim}(Y, X) + \operatorname{dim}(Y) = \operatorname{dim}(X)$ fails even though $R[T]$ enjoys the best possible algebraic properties: it is an integral domain, Noetherian, universally catenary, and regular. The formula does hold in the following situations:
+
+- $R$ is a finitely generated integral $k$-algebra (by Noether normalization).
+- $R$ is a Cohen-Macaulay local ring (e.g., a regular local ring).
+
+See also [this discussion on math.stackexchange](https://math.stackexchange.com/questions/49136/operatornameheight-mathfrakp-dim-a-mathfrakp-dim-a).
+
+<!-- BENCHMARK_PROBLEM: Give two classes of rings for which the formula $\operatorname{ht}(\mathfrak{p}) + \operatorname{dim}(R/\mathfrak{p}) = \operatorname{dim}(R)$ holds for all prime ideals $\mathfrak{p}$, and exhibit a Noetherian regular integral domain where it fails. -->
 
 ## Linear systems
 
 ### Example: Hartshorne $\mathrm{III}.10.7$, a linear system with moving singularities outside the base locus {#ecag-0079}
 
-Let $k$ be an algebraically closed field of characteristic $2$, and $\mathfrak{d}$ be the linear system of cubic curves in $\mathbb{P}_{k}^{2}$ passing $\mathbb{P}_{\mathbb{F}_{2}}^{2}$(i.e $7$ points, $[1,0,0],\dots $).Then we know 
+**Statement:** Over an algebraically closed field $k$ of characteristic $2$, there exists a $2$-dimensional linear system of cubic curves in $\mathbb{P}_k^2$ whose base locus consists of $7$ points, but every member of the linear system is singular at a point that moves outside the base locus. This shows Bertini's theorem fails in positive characteristic.
 
-$$\mathfrak{d}=\{a(x^{2}y+xy^{2})+b(x^{2}z+xz^{2})+c(y^{2}z+yz^{2})|a,b,c\in k\}$$
+**Construction/Proof:** Let $\mathfrak{d}$ be the linear system of cubic curves in $\mathbb{P}_{k}^{2}$ passing through all $7$ points of $\mathbb{P}_{\mathbb{F}_{2}}^{2}$ (i.e., $[1,0,0], [0,1,0], [0,0,1], [1,1,0], [1,0,1], [0,1,1], [1,1,1]$). Since $\operatorname{char}(k) = 2$, we have
 
-thus it's a $2$-dimensional linear system. It's easy to check that the base locus contains exactly the $7$ points, we donote it by $T=\{p_{1},\dots, p_{7}\}$, now we get a morphism
+$$\mathfrak{d}=\{a(x^{2}y+xy^{2})+b(x^{2}z+xz^{2})+c(y^{2}z+yz^{2}) \mid a,b,c\in k\},$$
 
-$$\mathbb{P}_{k}^{2}-T\rightarrow \mathbb{P}_{k}^{2}$$
+which is a $2$-dimensional linear system. One checks directly that the base locus is exactly $T = \{p_{1},\dots, p_{7}\}$, so the linear system defines a rational map
 
-$$[x,y,z]\mapsto [x^{2}y+xy^{2},x^{2}z+xz^{2},y^{2}+yz^{2}].$$
+$$\mathbb{P}_{k}^{2} \dashrightarrow \mathbb{P}_{k}^{2}, \quad [x,y,z]\mapsto [x^{2}y+xy^{2},\, x^{2}z+xz^{2},\, y^{2}z+yz^{2}].$$
 
-Then it determines a field extension, we can compute it by restricting to any open subset, say $D_{+}(z)$, we get
+Restricting to $D_{+}(z)$, the induced field extension $\phi: k(u,v) \hookrightarrow k(x,y)$ is given by
 
-$$\phi:k(u,v)\hookrightarrow k(x,y)$$
+$$u\mapsto \frac{x(x+y)}{y+1}, \quad v\mapsto \frac{x(x+1)}{y(y+1)}.$$
 
-$$u\mapsto \frac{x(x+y)}{y+1}, v\mapsto \frac{x(x+1)}{y(y+1)}$$
+Since $yv + u = x$, we get $k(x,y) = k(u,v)[y]$. Substituting $x = yv + u$ yields the minimal polynomial
 
-We don't distinguish $u,v$ and their images under $\phi$. Then this field extension is generated by $x$ and $y$, however 
+$$y^{2} - \frac{u^{2}+u}{v^{2}+v} = 0,$$
 
-$$yv+u=x$$
+which is inseparable (its derivative with respect to $y$ is $0$ in characteristic $2$). Thus the rational map is purely inseparable of degree $2$.
 
-So $k(x,y)=k(u,v)[y]$, and just plug $x=yv+u$ in $\phi$, we get 
+Every curve $C \in \mathfrak{d}$ corresponding to parameters $(a, b, c)$ is singular at the unique point $p = (\sqrt{a}, \sqrt{b}, \sqrt{c})$. If $p = p_i$ for some $i$, then $C$ is the union of three lines through $p_i$; otherwise $C$ is a cuspidal cubic with cusp at $p \notin T$. The singularity moves around in $\mathbb{P}_k^2$ as $(a, b, c)$ varies.
 
-$$u=\frac{(yv+u)(yv+u+y)}{y+1}\Rightarrow y^{2}-\frac{u^{2}+u}{v^{2}+v}=0$$
+**Key Insight:** In characteristic $2$, the Frobenius map creates purely inseparable field extensions, and the linear system factors through Frobenius, making every member singular. The classical Bertini theorem requires characteristic $0$ (or at least separability of the induced map).
 
-this is the minimal polynomial of $y$ and it's inseparable since its derivative is $0$, in conclusion we get a purely inseparable morphism $\mathbb{P}_{k}^{2}-T\rightarrow \mathbb{P}_{k}^{2}$ with degree $2$. Every curve in $\mathfrak{d}$ at a unique point $p=(\sqrt{a},\sart{b},\sqrt{c})$, then you can check if $p$ is $p_{i}$ for some $i$, then $C$ is the union of three lines passing $p_{i}$, otherwise it's a cuspidal cubic and $p\neq p_{i}$,  thus we see the singularities is moving around in $\mathbb{P}_{k}^{1}.$ For the ordinary Bertini theorem to be true, the characteristic of the field is essential.
+**Prerequisites:** Linear systems, base locus, Bertini's theorem, inseparable morphisms, characteristic $p$ geometry
+
+<!-- BENCHMARK_PROBLEM: Over an algebraically closed field of characteristic 2, consider the linear system of cubics in $\mathbb{P}^2$ passing through all 7 $\mathbb{F}_2$-rational points. Show that every member of this linear system is singular, and determine the degree of the induced rational map $\mathbb{P}^2 \dashrightarrow \mathbb{P}^2$. -->
 
 ### Example: Hartshorne $\mathrm{III}.10.8$, a linear system with moving singularities contained in the base locus, any characteristic {#ecag-0080}
 
-In $\mathbb{P}_{k}^{3}=\mathrm{Proj}(k[x,y,z,w])$, consider 
+**Statement:** In any characteristic, there exists a linear system on $\mathbb{P}_k^3$ whose general member is singular, with singularities moving along a locus contained in the base locus.
 
-$$\{uw+t((x-z)^{2}+y^{2}-z^{2})|u,v\in k\}$$
+**Construction/Proof:** In $\mathbb{P}_{k}^{3} = \operatorname{Proj}(k[x,y,z,w])$, consider the $1$-dimensional linear system (pencil)
 
-Then it's a $1$-dimensional linear system, and the base locus is the conic $\{w=0, (x-z)^{2}+y^{2}-z^{2}\}$ plus the $z$-axis with singularities moving along the $w$-axis.
+$$\{uw + t((x-z)^{2}+y^{2}-z^{2}) \mid [u,t] \in \mathbb{P}^1\}.$$
 
-## P
-\begin{example}[Proper morphism but not projective]
-I think the identity morphism 
+The base locus of this pencil consists of the conic $\{w = 0,\; (x-z)^{2}+y^{2}-z^{2} = 0\}$ together with the line $\{x = z,\; y = 0\}$ (the "$z$-axis"). For each value of the parameter $[u, t]$, the corresponding surface is singular at a point moving along the $w$-axis. The singular points of the general member lie within the base locus.
 
-$$\mathbb{A}_{k}^{1}\rightarrow \mathbb{A}_{k}^{1}$$
+This contrasts with the previous example (ecag-0079), where the singularities moved outside the base locus. Here the phenomenon occurs in any characteristic, showing that even without inseparability issues, a linear system can have all members singular when the base locus is not well-behaved.
 
-is proper but not projective. Actually we have a proper morphism between affine barieties must be finite.
+**Key Insight:** The base locus itself can force every member of a linear system to be singular, regardless of the characteristic of the ground field. Bertini's theorem requires the linear system to be base-point free (or at least to impose conditions on the base locus).
 
-\end{example}
+**Prerequisites:** Linear systems, base locus, Bertini's theorem, singularities of hypersurfaces
+
+<!-- BENCHMARK_PROBLEM: In $\mathbb{P}^3 = \operatorname{Proj}(k[x,y,z,w])$, consider the pencil $\{uw + t((x-z)^2 + y^2 - z^2) \mid [u,t] \in \mathbb{P}^1\}$. Determine the base locus of this pencil and show that every member is singular. -->
+
+## Properness
+
+A proper morphism between affine varieties must be finite. In particular, the identity morphism $\mathbb{A}_k^1 \to \mathbb{A}_k^1$ is proper (being an isomorphism) but is not projective in the sense that $\mathbb{A}_k^1$ is not a projective variety. More precisely, a proper morphism $f: X \to Y$ between affine varieties is necessarily finite: properness implies that $f$ is universally closed, and combined with the affine hypothesis, the ring extension $\Gamma(\mathcal{O}_Y) \to \Gamma(\mathcal{O}_X)$ is integral. Since both are of finite type, this makes the morphism finite. A genuine example of a proper but non-projective morphism requires more sophisticated constructions such as Hironaka's example (see ecag-0090).
 
 ## Ampleness
 
 ### Example: An ample line bundle, but not very ample {#ecag-0081}
 
-Let $X$ be a smooth cubic curve and consider the line bundle $\mathscr{L}(p)$.
+**Statement:** Let $X$ be a smooth cubic curve (elliptic curve) in $\mathbb{P}^2$ over an algebraically closed field $k$, and let $p \in X$ be a closed point. Then the line bundle $\mathscr{L}(p)$ is ample but not very ample.
+
+**Construction/Proof:** Since $X$ is a smooth curve of genus $1$ and $\deg(\mathscr{L}(p)) = 1 > 0$, the line bundle $\mathscr{L}(p)$ is ample by the degree criterion for curves: a line bundle on a smooth projective curve is ample if and only if it has positive degree.
+
+However, $\mathscr{L}(p)$ is not very ample. By Riemann-Roch,
+
+$$h^0(X, \mathscr{L}(p)) = 1 - 1 + 1 = 1,$$
+
+so $|\mathscr{L}(p)|$ is a $0$-dimensional linear system consisting of just the divisor $p$ itself. This cannot define an embedding into any projective space. A very ample line bundle on an elliptic curve must have degree at least $3$: $\mathscr{L}(2p)$ has degree $2$ and defines a $2:1$ map to $\mathbb{P}^1$ (base-point free but not very ample), while $\mathscr{L}(3p)$ embeds $X$ as a cubic curve in $\mathbb{P}^2$.
+
+**Key Insight:** On a curve of genus $g \geq 1$, positive degree guarantees ampleness, but very ampleness requires the degree to be large enough (at least $2g+1$) to separate points and tangent vectors.
+
+**Prerequisites:** Ample and very ample line bundles, Riemann-Roch theorem, elliptic curves, linear systems on curves
+
+<!-- BENCHMARK_PROBLEM: Let $X$ be a smooth curve of genus 1 over an algebraically closed field. Determine the minimal degree $d$ such that every line bundle of degree $d$ on $X$ is very ample. Justify your answer using Riemann-Roch. -->
 
 ### Example: An ample line bundle with negative degree {#ecag-0082}
 
-> **Status:** Stub — content needed.
+**Statement:** On a proper scheme that is not irreducible, one can have an ample line bundle whose restriction to some irreducible component has negative degree. More precisely, the notion of "negative degree" for an ample bundle requires either a reducible scheme or a non-standard degree function.
+
+**Construction/Proof:** Consider the reducible curve $X = C_1 \cup C_2 \subset \mathbb{P}^2$ where $C_1$ and $C_2$ are two distinct lines meeting at a point $p$. Then $\operatorname{Pic}(X) \cong \mathbb{Z}^2$, with a line bundle $\mathscr{L}$ on $X$ determined by its degrees $(d_1, d_2)$ on $C_1$ and $C_2$ respectively.
+
+By the Nakai-Moishezon criterion for curves, $\mathscr{L}$ is ample on $X$ if and only if $d_1 > 0$ and $d_2 > 0$. So on an irreducible projective variety, ampleness forces positive degree with respect to any ample polarization.
+
+For a subtler perspective, consider $\operatorname{Spec}(\mathbb{Z})$ with Arakelov theory: the "line bundle" $\mathcal{O}(1)$ can have negative contribution at the archimedean place. In classical algebraic geometry over a field, ample line bundles on irreducible projective varieties always have strictly positive degree.
+
+**Key Insight:** On irreducible projective varieties, ampleness forces positive degree. The notion of "negative degree" for ample bundles requires either a reducible scheme, a non-standard degree function, or an arithmetic geometry context.
+
+**Prerequisites:** Ample line bundles, Nakai-Moishezon criterion, degree of line bundles, reducible curves
+
+<!-- BENCHMARK_PROBLEM: Let $X = L_1 \cup L_2 \subset \mathbb{P}^2$ be the union of two distinct lines. Determine necessary and sufficient conditions on $(d_1, d_2) \in \mathbb{Z}^2$ for the line bundle $\mathscr{L}$ of bidegree $(d_1, d_2)$ on $X$ to be ample. -->
 
 ### Example: An effective divisor but not ample {#ecag-0083}
 
-Consider any smooth cubic surface  $X\subset \mathbb{P}^{3}$, for example
+**Statement:** A line $L$ on a smooth cubic surface $X \subset \mathbb{P}^3$ is an effective divisor with $L^2 = -1$, and hence $L$ is not ample.
 
-$$X:x^{3}+y^{3}+z^{3}+w^{3}.$$
+**Construction/Proof:** Consider any smooth cubic surface $X \subset \mathbb{P}^{3}$, for example the Fermat cubic
 
-Then $L:\{x+y=0, z+w=0\}$ lies on $X$, however by the adjunction formula
+$$X: x^{3}+y^{3}+z^{3}+w^{3} = 0.$$
 
-$$-2=K_{L}=(K_{X}+L)L=-HL+L^{2}\Rightarrow L^{2}=-1.$$
+The line $L: \{x+y=0,\; z+w=0\}$ lies on $X$ (substitute to verify: $x^3 + (-x)^3 + z^3 + (-z)^3 = 0$). Now $L \cong \mathbb{P}^1$, and by the adjunction formula on $X$:
 
-Then we know $L$ is an effective divisor but not an ample divisor.
+$$-2 = \deg(K_{L}) = (K_{X}+L) \cdot L.$$
+
+Since $X$ is a cubic surface in $\mathbb{P}^3$, we have $K_X = (K_{\mathbb{P}^3} + X)|_X = (-4H + 3H)|_X = -H|_X$, where $H$ is the hyperplane class. Thus $K_X \cdot L = -H \cdot L = -1$ (since $L$ is a line). Substituting:
+
+$$-2 = -1 + L^{2} \implies L^{2} = -1.$$
+
+By the Nakai-Moishezon criterion, an ample divisor $D$ on a surface must satisfy $D \cdot C > 0$ for every curve $C$. Since $L \cdot L = -1 < 0$, the divisor $L$ is not ample.
+
+**Key Insight:** Lines on cubic surfaces are $(-1)$-curves, i.e., rational curves with self-intersection $-1$. Negative self-intersection immediately obstructs ampleness by Nakai-Moishezon, even though the divisor is effective.
+
+**Prerequisites:** Adjunction formula, canonical class of hypersurfaces, Nakai-Moishezon criterion, self-intersection numbers
+
+<!-- BENCHMARK_PROBLEM: Let $X \subset \mathbb{P}^3$ be a smooth cubic surface and $L \subset X$ a line. Compute $L^2$ using the adjunction formula and explain why $L$ cannot be an ample divisor on $X$. -->
 
 ### Remark {#ecag-0084}
 
-This example just says that $N_{L/X}|_{L}\cong \mathcal{O}_{\mathbb{P}^{1}}(-1)$, so actually any effective divisor has similar properties serves as a counterexample, for example
-\begin{itemize}
-\item A line on a special quadric surface
+The previous example reflects the fact that $N_{L/X}|_{L} \cong \mathcal{O}_{\mathbb{P}^{1}}(-1)$ for a line on a cubic surface. More generally, any effective divisor with non-positive self-intersection provides a counterexample to "effective implies ample." Here are two further instances:
 
-$$X:xz-yw=0$$
+- **A line on a smooth quadric surface.** Consider $X: xz - yw = 0$ in $\mathbb{P}^3$ and the line $L: x = y = 0$. Then $X$ is smooth and isomorphic to $\mathbb{P}^1 \times \mathbb{P}^1$. A similar adjunction computation gives $L^2 = 0$. The two rulings $L_1, L_2$ of $\mathbb{P}^1 \times \mathbb{P}^1$ generate $\operatorname{Pic}(\mathbb{P}^1 \times \mathbb{P}^1) \cong \mathbb{Z}^2$; each is effective but not ample (since $L_i^2 = 0$). However, $L_1 + L_2$ is very ample, as it gives the Segre embedding.
 
-$$L:x=y=0$$
+- **The exceptional divisor of $\operatorname{Bl}_p(\mathbb{P}^2)$.** The exceptional divisor $E$ satisfies $E^2 = -1$, so $E$ is effective but not ample.
 
-then $X$ is smooth, and by similar argument, we get $L^{2}=0$, note that this is just $X=\mathbb{P}^{1}\times \mathbb{P}^{1}$, so we know two generators of $\mathrm{Pic}(\mathbb{P}^{1}\times \mathbb{P}^{1})$ are effective, but not ample. However $L_{1}+L_{2}$ is ample, actually, very ample.
-\item the exceptional divisor of $BL_{p}(\mathbb{P}^{2})$.
+<!-- BENCHMARK_PROBLEM: On $\mathbb{P}^1 \times \mathbb{P}^1$, let $L_1$ and $L_2$ be the two rulings. Compute $L_1^2$, $L_2^2$, and $L_1 \cdot L_2$, and determine which divisors of the form $aL_1 + bL_2$ are ample. -->
 
-\end{itemize}
+### Example: Effective cycles, negative self-intersection numbers {#ecag-0085}
 
-### Example {#ecag-0085}
+**Statement:** For cycles of codimension greater than $1$ on a smooth projective variety, ampleness is not defined, but one can still study self-intersection via Chern classes of the normal bundle. Lines and rational curves on quintic threefolds in $\mathbb{P}^4$ provide rich examples of "rigid" curves with negative normal bundle.
 
-(Effective cycles, negative self-intersection numbers)
-Note that, we can't talk about ampleness if a cycle is not a divisor(codimension 1), but we can still get many interesting phenomenons,
-\begin{itemize}
-\item Lines on quintic three-folds. We know a general quintic three-fold contains $2875$ lines, but not all smooth quintic three-folds have this property, but for our purpose, this is actually an advantage, for example consider the Fermat three-fold
+**Construction/Proof:**
 
-$$X:x_{0}^{5}+x_{1}^{5}+x_{2}^{5}+x_{3}^{5}+x_{4}^{5}$$
+*Lines on quintic threefolds.* A general quintic threefold $X \subset \mathbb{P}^4$ contains exactly $2875$ lines. The Fermat threefold
 
-$X$ contains infinitely many lines(divide variables into several groups of size at least $2$, and make sure one of them is of size as least $3$). 
+$$X: x_{0}^{5}+x_{1}^{5}+x_{2}^{5}+x_{3}^{5}+x_{4}^{5} = 0$$
 
-$$L=[t,0,-t, s,-s]: (x_{0}+x_{2},x_{1},x_{3}+x_{4})$$
+contains infinitely many lines (partition the variables into groups of size at least $2$, with one group of size at least $3$). The line $L = \{[t, 0, -t, s, -s]\}$, defined by $(x_0 + x_2, x_1, x_3 + x_4)$, lies on $X$. Since $L$ has codimension $2$ in the threefold $X$, it is not a divisor. The generalized adjunction formula gives
 
-is one of those lines, as you can see, the adjunction formula doesn't tell us what is $L^{2}$ anymore, 
+$$K_L = (K_X|_L) \otimes \det(N_{L/X}|_L),$$
 
-$$-2=K_{L}=K_{X}|_{L}\otimes \wedge^{2}N_{L/X}|_{L}$$
+hence $\det(N_{L/X})|_L \cong \mathcal{O}_{\mathbb{P}^1}(-2)$ (since $K_X = \mathcal{O}_X(0)$ for a quintic Calabi-Yau). The self-intersection in the Chow ring is
 
-we can only get $\wedge^{2}(N_{L/X})|_{L}\cong \mathcal{O}_{\mathbb{P}^{1}}(-2)$, to compute $L^{2}$, we know it's $0$ by the definition of the Chow ring, we can also see this from 
+$$L^2 = c_2(N_{L/X}) = 0.$$
 
-$$L^{2}=c_{2}(N_{L/X})=0$$
+Note that the ordinary divisor adjunction formula $K_L = (K_X + L) \cdot L$ does **not** apply here since $L$ is not a divisor on $X$.
 
-We point out that here since $L$ is not a divisor on $X$, we $\mathbf{can't}$ use the ordinary adjunction formula:
+*A rigid rational curve on a quintic threefold.* Consider
 
-$$-2=K_{L}=(K_{X}|_{L}+L)L=L^{2}$$
+$$i: \mathbb{P}^{1}\rightarrow \mathbb{P}^{4}, \quad [u,v]\mapsto [u^{2},-u^{2},v^{2},-v^{2},uv].$$
 
-\item Conics on quintic three-folds.
-\item I also know an example of a  rational curve on a quintic three-fold, i.e
+The image $C$ lies on $X: x_0^5 + x_1^5 + x_2^5 + x_3^5 + x_4^5 - x_0 x_1 x_2 x_3 x_4 = 0$. After a coordinate change, $C$ is parametrized by $[u^2, uv, v^2, 0, 0]$. The normal bundle computation proceeds in three steps:
 
-$$i:\mathbb{P}^{1}\rightarrow \mathbb{P}^{4}$$
+**Step 1** (Ambient tangent bundle): From the Euler sequence restricted to $C$, we compute $T_{\mathbb{P}^4}|_C \cong \mathcal{O}_{\mathbb{P}^1}(3)^2 \oplus \mathcal{O}_{\mathbb{P}^1}(2)^2$.
 
-$$[x,y]\rightarrow [x^{2},-x^{2},y^{2},-y^{2},xy].$$
+**Step 2** (Tangent bundle of $X$): From $0 \to T_X|_C \to T_{\mathbb{P}^4}|_C \to N_{X/\mathbb{P}^4}|_C \to 0$ with $N_{X/\mathbb{P}^4}|_C = \mathcal{O}_{\mathbb{P}^1}(10)$, the surjection is determined by the partial derivatives of $F$ restricted to $C$. A Macaulay2 computation yields $T_X|_C \cong \mathcal{O}_{\mathbb{P}^1}(2) \oplus \mathcal{O}_{\mathbb{P}^1}(-1)^2$.
 
-Then the image is a rational curve on 
+**Step 3** (Normal bundle of $C$ in $X$): From $0 \to T_C \to T_X|_C \to N_{C/X} \to 0$ with $T_C = \mathcal{O}_{\mathbb{P}^1}(2)$, and since $\operatorname{Hom}(\mathcal{O}(2), \mathcal{O}(-1)) = 0$, the sequence splits:
 
-$$X:x_{0}^{5}+x_{1}^{5}+x_{2}^{5}+x_{3}^{5}+x_{4}^{5}-x_{0}x_{1}x_{2}x_{3}x_{4}=0$$
+$$N_{C/X}|_{C}\cong \mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1).$$
 
-has the property that 
+This means $H^0(C, N_{C/X}) = 0$, so $C$ is a rigid rational curve with no first-order deformations inside $X$.
 
-$$N_{C/X}|_{C}\cong \mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1). $$
+**Key Insight:** For subvarieties of codimension $> 1$, self-intersection is computed via Chern classes of the normal bundle. A normal bundle $\mathcal{O}(-1) \oplus \mathcal{O}(-1)$ on a rational curve in a Calabi-Yau threefold signals rigidity, which is central to Gromov-Witten theory and mirror symmetry.
 
-Let me review the computation briefly, by a linear transformation, $C$ can be parametrized by 
-$[u^{2},uv,v^{2},0,0]$, and its equation is given by $(y^{2}-xz)f+sf_{1}+tf_{2}$, we need several steps
-\begin{itemize}
-\item on the level of $\mathbb{P}^{4}$, we have the Euler sequence 
+**Prerequisites:** Normal bundles, Euler sequence, adjunction for higher codimension, Chern classes, Chow ring, Grothendieck splitting on $\mathbb{P}^1$
 
-$$0\rightarrow \mathcal{O}_{\mathbb{P}^{4}}|_{C}\rightarrow \mathcal{O}_{\mathbb{P}^{4}}^{5}(1)|_{C}\rightarrow T_{\mathbb{P}^{4}}|_{C}\rightarrow 0.$$
+<!-- BENCHMARK_PROBLEM: Let $C \cong \mathbb{P}^1$ be a smooth rational curve on a smooth quintic threefold $X \subset \mathbb{P}^4$. Given that $T_X|_C \cong \mathcal{O}_{\mathbb{P}^1}(2) \oplus \mathcal{O}_{\mathbb{P}^1}(-1)^2$, compute $N_{C/X}$ and determine $h^0(C, N_{C/X})$. What does this say about the deformation theory of $C$ inside $X$? -->
 
-we know the first map is given by $[x,y,z,s,t]$, so to understand the cokernel $T_{\mathbb{P}^{4}}|_{C}$, we only need to ask ourselves, which map kills exactly the image of the first map? It the relations of $[u^{2},uv,v^{2},0,0]$, that is the matrix
-$$\begin{bmatrix}
-v & -u & & & \\
- & v & -u & & \\
- & & & 1 & \\
- & & & & 1
-\end{bmatrix}$$
-this is the map $\mathcal{O}_{\mathbb{P}^{4}}^{5}(1)\rightarrow T_{\mathbb{P}^{4}}|_{C}$. Then we get
+### Example: Normal bundle of the rational cubic curve $i:C\rightarrow \mathbb{P}^{3}$ {#ecag-0086}
 
-$$T_{\mathbb{P}^{4}}|_{C}=\mathcal{O}_{\mathbb{P}^{1}}(3)^{2}\oplus \mathcal{O}_{\mathbb{P}^{1}}^{2}(2).$$
+**Statement:** Let $C \subset \mathbb{P}^3$ be the twisted cubic curve, parametrized by $i: \mathbb{P}^1 \to \mathbb{P}^3$, $[u,v] \mapsto [u^3, u^2 v, u v^2, v^3]$. Then
 
-\item on the level of the surface, we have the tangent sequence 
+$$N_{C/\mathbb{P}^{3}} \cong \mathcal{O}_{\mathbb{P}^{1}}(5)\oplus \mathcal{O}_{\mathbb{P}^{1}}(5).$$
 
-$$0\rightarrow T_{X}|_{C}\rightarrow T_{\mathbb{P}^{4}}|_{C}\rightarrow N_{X/\mathbb{P}^{4}}|_{C}\rightarrow 0$$
+**Construction/Proof:** We give three methods.
 
-Since we know $N_{X/\mathbb{P}^{4}}=\mathcal{O}_{\mathbb{P}^{4}}(5)$, thus we know $N_{X/\mathbb{P}^{4}}|_{C}=\mathcal{O}_{\mathbb{P}^{1}}(10)$. To understand the map
+*Method 1 (Representation theory).* We have $i^* T_{\mathbb{P}^3} \cong \mathcal{O}_{\mathbb{P}^1}(4)^3$ (from the Euler sequence restricted to $C$). From the exact sequence
 
-$$[a,b,c,d]: T_{\mathbb{P}^{4}}|_{C}\rightarrow N_{X/\mathbb{P}^{4}}|_{C}$$
+$$0 \to T_C \to i^* T_{\mathbb{P}^3} \to N_{C/\mathbb{P}^3} \to 0$$
 
-we need to consider the composition(i.e the image of the genrators of $T_{\mathbb{P}^{4}}$, $\frac{\partial}{\partial x_{i}}\mapsto \frac{\partial F}{\partial x_{i}}$) 
+with $T_C = \mathcal{O}_{\mathbb{P}^1}(2)$, the degree of $N_{C/\mathbb{P}^3}$ is $12 - 2 = 10$, so either $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$ or $\mathcal{O}(4) \oplus \mathcal{O}(6)$.
 
-$$\mathcal{O}_{\mathbb{P}^{3}}^{5}(1)|_{C}\rightarrow T_{\mathbb{P}^{4}}|_{C}\rightarrow N_{X/\mathbb{P}^{4}}|_{C}$$
+Tensor with $\mathcal{O}(-6)$ and take the long exact sequence in cohomology:
 
-so we know this can be written as a multiplication of matrices
-$$\begin{bmatrix}a & b & c & d\end{bmatrix}
-\begin{bmatrix}
-v & -u & & & \\
- & v & -u & & \\
- & & & 1 & \\
- & & & & 1
-\end{bmatrix}=\begin{bmatrix} \frac{\partial F}{\partial x}&  \frac{\partial F}{\partial y} &  \frac{\partial F}{\partial z} &  \frac{\partial F}{\partial s} &  \frac{\partial F}{\partial t}\end{bmatrix}$$
-then we can get
+$$0 \to H^0(N_{C/\mathbb{P}^3}(-6)) \to H^1(\mathcal{O}(-4)).$$
 
-$$[a,b,c,d]=[-vf, uf, f_{1},f_{2}]$$
+Viewing the twisted cubic as $\mathbb{P}(V) \to \mathbb{P}(S^3 V)$ with $V$ a $2$-dimensional vector space, representation theory gives $H^1(\mathcal{O}(-4)) \cong H^0(\mathcal{O}(2))^{\vee} \cong S^2 V$. Since $S^2 V$ is an irreducible $GL(V)$-representation of dimension $3$, we have $\dim H^0(N_{C/\mathbb{P}^3}(-6)) \in \{0, 3\}$. But $h^0(\mathcal{O}(-1) \oplus \mathcal{O}(-1)) = 0$ while $h^0(\mathcal{O}(-2) \oplus \mathcal{O}(0)) = 1$. Thus $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$.
 
-$$f=2u^{3}v^{3},f_{1}=u^{8}+u^{3}v^{5},f_{2}=u^{5}v^{3}+5v^{8}.$$
+*Method 2 (Transition functions, after Ted Shifrin).* Work with the conormal bundle via the exact sequence $0 \to N^*_{C/\mathbb{P}^3} \to T^* \mathbb{P}^3|_C \xrightarrow{\phi} T^* C \to 0$. In the chart $[1,x,y,z]$ with $C$ parametrized by $(t, t^2, t^3)$, the conormal frame is $\sigma_1 = -2t\,dx + dy$ and $\sigma_2 = -3t^2 dx + dz$. In the chart at infinity $[X,Y,Z,1]$ with $C$ parametrized by $(s^3, s^2, s)$, the change-of-coordinates computation gives transition functions whose Smith normal form yields $t^{-5}$ on each summand, hence $N^*_{C/\mathbb{P}^3} \cong \mathcal{O}(-5) \oplus \mathcal{O}(-5)$.
 
-Now to compute the kernel of the tangent sequence, we have to ask ourselves, this map kills who? This just means what's the relations between $a,b,c,d$? Using Macaulay2, we can find $a,b,c,d$ satisfy a degree $8$ relation and $2$ degree $11$ relation, which means, the first map in the tangent sequence is given by 
-$$\begin{bmatrix} u & * & * \\
-v & * & *\\
-0 & ** & **\\
-0 & ** & **\end{bmatrix}$$
-where $*$'s are some degree $4$ polynomials in $u,v$, and $**$'s are some degree $3$ polynomials.Thus we know the kernel is given by 
+*Method 3 (Direct computation via the conormal sequence).* From the conormal sequence in homogeneous coordinates:
 
-$$T_{X}|_{C}\cong \mathcal{O}_{\mathbb{P^{1}}(2)\oplus \mathcal{O}_{\mathbb{P}^{1}}^{2}(-1).$$
+$$0 \to N^{\vee}_{C/\mathbb{P}^3} \to \mathcal{O}_{\mathbb{P}^1}(-4)^3 \to \mathcal{O}_{\mathbb{P}^1}(-2) \to 0,$$
 
-\item on the level of $C$, we also have a tangent sequence 
+the surjection is given by $[3u^2, 2uv, v^2]$. The kernel (relations among $u^2, uv, v^2$) gives the injection via the matrix
 
-$$0\rightarrow T_{C}\rightarrow T_{X}|_{C}\rightarrow N_{C/X}|_{C}\rightarrow 0$$
+$$\begin{bmatrix}-2v & 0\\ 3u & -v\\ 0 & 2u\end{bmatrix},$$
 
-we know $T_{C}=\mathcal{O}_{\mathbb{P}^{1}}(2)$, and $Hom(\mathcal{O}_{\mathbb{P}^{1}}(2),\mathcal{O}_{\mathbb{P}^{1}}(-2))=0$, we know what we want is given by the cokernel 
+yielding $N^{\vee}_{C/\mathbb{P}^3} \cong \mathcal{O}(-5) \oplus \mathcal{O}(-5)$, hence $N_{C/\mathbb{P}^3} \cong \mathcal{O}(5) \oplus \mathcal{O}(5)$.
 
-$$N_{C/X}|_{C}=\mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1).$$
+**Key Insight:** The balanced splitting $\mathcal{O}(5) \oplus \mathcal{O}(5)$ reflects the high symmetry of the twisted cubic under $PGL(2)$. The representation-theoretic argument elegantly distinguishes between the two possible splittings using the irreducibility of $S^2 V$.
 
-\end{itemize}
-\end{itemize}
+**Prerequisites:** Normal bundles, Euler sequence, conormal sequence, Grothendieck splitting theorem, representation theory of $GL_2$
 
-### Example: Normal bundle of the rational cubic curve  $i:C\rightarrow \mathbb{P}^{3}$ {#ecag-0086}
-
-This example seems easier at first, it actually very interesting. We give three proofs, one is by direct computation, the second one is by using some basic knowledge of representation theory.
-First we can use representation theory.
-\begin{itemize}
-\item $i^{*}T_{\mathbb{P}^{4}}=\mathcal{O}_{\mathbb{P}^{1}}^{3}(4).$
-\item we have 
-
-$$0\rightarrow T_{C}\rightarrow i^{*}T_{\mathbb{P}^{3}}\rightarrow N_{C/\mathbb{P}^{3}}|_{C}\rightarrow 0$$
-
-computing the degree we know $N_{C/\mathbb{P}^{3}}|_{C}= \mathcal{O}_{\mathbb{P}^{1}}(5)\oplus \mathcal{O}_{\mathbb{P}^{1}}(5)$ or $\mathcal{O}_{\mathbb{P}^{1}}(4)\oplus \mathcal{O}_{\mathbb{P}^{1}}(6)$.
-\item Tensoring with $\mathcal{O}_{\mathbb{P}^{1}}(-6)$ and then compute the cohomology, we get 
-
-$$0 \rightarrow H^{0}(N_{C/\mathbb{P}^{3}})\rightarrow H^{1}(\mathcal{O}_{\mathbb{P}^{1}}(-4))$$
-
-If we view the twisted cubic curve as 
-
-$$\mathbb{P}(V)\rightarrow \mathbb{P}(S^{3}V)$$
-
-then as a representation of $GL(V)$, we have 
-
-$$H^{1}(\mathcal{O}_{\mathbb{P}^{1}}(-4))\cong H^{0}(\mathcal{O}_{\mathbb{P}^{1}}(2))^{\vee}\cong S^{2}V.$$
-
-$S^{2}V$ is an irreducible representation of $GL(V)$, so $\mathrm{dim}H^{0}(N_{C/\mathbb{P}^{3}})$ is either $0$ or $3=\mathrm{dim}(S^{2}V)$, on the other hand, we have 
-
-$$\mathrm{dim}H^{0}(\mathcal{O}_{\mathbb{P}^{1}}(-1)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-1))=0, \mathrm{dim}H^{0}(\mathcal{O}_{\mathbb{P}^{1}}(-2)\oplus \mathcal{O}_{\mathbb{P}^{1}})=1.$$
-
-Thus we know
-
-$$N_{C/\mathbb{P}^{3}}|_{C}\cong \mathcal{O}_{\mathbb{P}^{1}}(5)\oplus \mathcal{O}_{\mathbb{P}^{1}}(5).$$
-
-\end{itemize}
-I read the second method on Math Stackexchange. If you want to do concrete computation, follow [normal bundle of twisted cubics](http://math.stackexchange.com/questions/1583326/normal-bundle-of-twisted-cubic/1603525#1603525)
-
-This answer is given by Ted Shifrin on Mathstackexchange.
-``My favorite way to do this is to work with the conormal bundle instead, seeing very concretely what its transition functions are. Here is a bit to get you started. We have
-
-$$0\to N^*_{C/\Bbb P^3}\to T^*\Bbb P^3\big|_C \overset{\phi}\to T^*C \to 0.$$
-
-In the "main" chart $[1,x,y,z]$, where $C$ is parametrized by $(t,t^2,t^3)$, we have 
-\begin{align*}\phi(dx)&=dt \\ \phi(dy)&=2t\,dt \\ \phi(dz)&=3t^2\,dt, \end{align*}
-and in the chart "at infinity," $[X,Y,Z,1]$, where $C$ is parametrized by $(s^3,s^2,s)$, we have
-\begin{align*} \phi(dX)&=3s^2\,ds \\ \phi(dY)&=2s\,ds \\ \phi(dZ)&=ds. \end{align*}
-Thus, on the respective charts we have the relations 
-
-$$dy-2x\,dx = dz-3x^2\,dx = 0 \qquad dX -3Z^2\,dZ = dY - 2Z\,dZ = 0.$$
-
-Now, on the overlap of the two charts, the frame for the conormal bundle in the first chart is given by the two sections
-
-$$\sigma_1=-2t\,dx + dy \quad\text{and}\quad \sigma_2=-3t^2dx + dz,$$ and performing the change of coordinates (here is where you have to do some work), the frame in the second chart is given by the two sections $$\tau_1 = -3t^{-5}dy + 2t^{-6}dz \quad\text{and}\quad \tau_2=t^{-3}dx-2t^4dy+t^{-5}dz.$$
-
-Thus, we have
-\begin{align*} \tau_1 &= -3t^{-5}\sigma_1+2t^{-6}\sigma_2 \\ \tau_2 &=-2t^{-4}\sigma_1+t^{-5}\sigma_2.\end{align*}
-Now, the usual row- and column-operation (Smith normal form) game shows that, after change of basis, we obtain frames satisfying
-\begin{align*} \tau_1' &= -3t^{-5}\sigma_1' \\ \tau_2' &= -\frac13t^{-5}\sigma_2',\end{align*}
-from which we see that the conormal bundle is $\mathcal{O}_{\mathbb{P}^{1}}(-5)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-5)$.'' 
-Thirdly, I can also give an easier way to do the computation. We only need to understand the sequence 
-
-$$0\rightarrow N_{C/\mathbb{P}^{3}}|_{C}\rightarrow \mathcal{O}_{\mathbb{P}^{1}}^{3}(-4)\rightarrow \mathcal{O}_{\mathbb{P}^{1}}(-2)\rightarrow 0$$
-
-The second map in this sequence is 
-
-$$[3t^{2},2t,t]=[3u^{2},2uv,v^{2}]$$
-
-we emphasize that working in homiogeneous coordinates is crucial. Then it's easy to get the relations between $u^{2},uv, v^{2}$, which gives us the matrix form of the first map
-$$\begin{bmatrix}-2v & 0\\
-3u & -v\\
-0 & 2u\end{bmatrix}$$
-Then since the target is $\mathcal{O}_{\mathbb{P}^{1}}^{3}(4)$, we easily get 
-
-$$N^{\vee}_{C/\mathbb{P}^{3}}\cong \mathcal{O}_{\mathbb{P}^{1}}(-5)\oplus \mathcal{O}_{\mathbb{P}^{1}}(-5).$$
+<!-- BENCHMARK_PROBLEM: Let $C \subset \mathbb{P}^3$ be the twisted cubic. Using the conormal sequence $0 \to N^{\vee}_{C/\mathbb{P}^3} \to \Omega^1_{\mathbb{P}^3}|_C \to \Omega^1_C \to 0$, compute $N_{C/\mathbb{P}^3}$ as a direct sum of line bundles on $\mathbb{P}^1$. -->
 
 ### Example: Some more interesting facts about twisted cubic in $\mathbb{P}^{3}$ {#ecag-0087}
 
-I don't want to write down the concre computation once more, let me just state the result. Let $X$ be the quadratic surface $X: xw-yz=0$
-\begin{itemize}
-\item $i^{*}T_{\mathbb{P}^{3}}=\mathcal{O}_{\mathbb{P}^{1}}^{3}(4).$
-\item $i^{*}T_{X}=\mathcal{O}_{\mathbb{P}^{1}}(4)\oplus \mathcal{O}_{\mathbb{P}^{1}}(2).$
-\item $i^{*}N_{C/X}\cong \mathcal{O}_{\mathbb{P}^{1}}(4).$
-\item By basic intersection theoretic fact, we have
+**Statement:** Let $C \subset \mathbb{P}^3$ be the twisted cubic and $X: xw - yz = 0$ the smooth quadric surface containing $C$. Then $i^* T_X \cong \mathcal{O}_{\mathbb{P}^1}(4) \oplus \mathcal{O}_{\mathbb{P}^1}(2)$, $N_{C/X} \cong \mathcal{O}_{\mathbb{P}^1}(4)$, and $[C]^2 = 4$ in $A(X)$. Under the identification $X \cong \mathbb{P}^1 \times \mathbb{P}^1$, the class of $C$ is $(1,2)$.
 
-$$[C]^{2}=i_{*}c_{1}(N_{C/X}|_{C})=4\in A(X).$$
+**Construction/Proof:** The key bundle computations on the quadric $X: xw - yz = 0$ are:
 
-Note that the ambient space is important, if you work in $A(\mathbb{P}^{3})$, we know $[C]^{2}=0.$
-\item $X\cong \mathbb{P}^{1}\times \mathbb{P}^{1}$, actually $[C]=(1,2)\in A(\mathbb{P}^{1}\times \mathbb{P}^{1}).$ This can be seen by direct computation(or you can consider the ideal of $X\cap Y$ and remove the residue $L$, you shall get a homegeous polynomial of bidegree $(1,2)$.) 
+- $i^* T_{\mathbb{P}^3} \cong \mathcal{O}_{\mathbb{P}^1}(4)^3$.
+- $i^* T_X \cong \mathcal{O}_{\mathbb{P}^1}(4) \oplus \mathcal{O}_{\mathbb{P}^1}(2)$.
+- $N_{C/X} \cong \mathcal{O}_{\mathbb{P}^1}(4)$.
 
-$$\mathbb{P}^{1}\times \mathbb{P}^{1}: [a, b]\times [A,B]\mapsto [aA,aB,bA,bB].$$
+By intersection theory, $[C]^2 = i_* c_1(N_{C/X}|_C) = 4 \in A(X)$. Note that the ambient space matters: in $A(\mathbb{P}^3)$, we have $[C]^2 = 0$ since a curve has codimension $2$ in $\mathbb{P}^3$.
 
-Consider two ruling $\mathbb{P}^{1}$'s, 
+Under the Segre embedding $\mathbb{P}^1 \times \mathbb{P}^1 \xrightarrow{\sim} X$, $[a,b] \times [A,B] \mapsto [aA, aB, bA, bB]$, the class of $C$ is $(1,2) \in A(\mathbb{P}^1 \times \mathbb{P}^1) \cong \mathbb{Z}^2$. Consider the two rulings $L_1 = \{[0,0,A,B]\}$ and $L_2 = \{[0,a,0,b]\}$ and the twisted cubic $C: [u^3, u^2 v, u v^2, v^3]$:
 
-$$L_{1}=[0,0,A,B]; L_{2}=[0,a,0,b]$$
+- $C \cap L_1 = [0,0,0,1]$ with intersection multiplicity $2$ (tangent directions coincide in $D_+(w)$).
+- $C \cap L_2 = [0,0,0,1]$ with intersection multiplicity $1$ (transverse intersection).
 
-and the twisted cubic curve
+This confirms $[C] \cdot [L_1] = 2$ and $[C] \cdot [L_2] = 1$, consistent with $(1,2) \cdot (0,1) = 1$ and $(1,2) \cdot (1,0) = 2$.
 
-$$C:[u^{3},u^{2}v,uv^{2},v^{3}]$$
+*Intersection with a pencil of quadrics.* Let $Y: yw - z^2 = 0$ and $Z: xz - y^2 = 0$. The pencil $t_0 Y + t_1 Z$ intersects $X$ in the union of $C$ and a residual line $L_t$. By Bezout's theorem:
 
-Thus 
-\begin{itemize}
-\item $C\cap L_{1}=[0,0,0,1]$, to compute the multiplicity, we can work in $D_{+}(w)$, thus it's given by 
+$$([C] + [L])^2 = (2h)^2 = 4 \cdot \deg(X) = 8,$$
 
-$$L_{1}: (0,0,z); C:(t^{3},t^{2},t)\Rightarrow C\cap L_{1}=2$$
+giving $[C] \cdot [L] = 2$ and $[L]^2 = 0$. The intersection number $[C] \cdot [L] = 2$ (despite $C$ being cubic and $L$ being a line) arises because each residual line $L_t$ is tangent to $C$.
 
-since their tangent space at the point $(0,0,0)$ are the same!
-\item $C\cap L_{2}=[0,0,0,1]$, however in this situation we have 
+The two projections $\pi_1, \pi_2: X \cong \mathbb{P}^1 \times \mathbb{P}^1 \to \mathbb{P}^1$, when restricted to $C$, give: one is an isomorphism (the projection onto the factor with class $(1,\cdot)$), and the other is a degree $2$ map (the projection onto the factor with class $(\cdot, 1)$), ramified at $2$ points.
 
-$$L_{2}: (0,z,0); C: (t^{3},t^{2},t)\Rightarrow C\cap L_{2}=1$$
+**Key Insight:** The twisted cubic on a smooth quadric surface beautifully illustrates how intersection theory depends on the ambient space, and how the bidegree in $\mathbb{P}^1 \times \mathbb{P}^1$ encodes intersection multiplicities with the two rulings.
 
-since the intersection is transverse.
-\end{itemize}
+**Prerequisites:** Intersection theory on surfaces, Segre embedding, normal bundles, Bezout's theorem, Chow ring of $\mathbb{P}^1 \times \mathbb{P}^1$
 
-\item Let $Y:yw-z^{2}=0, Z:xz-y^{2}=0$, then we know we have a family of quadrics $t_{0}Y+t_{1}Z$, the intersection of each quadric in this family with $X$ is given by the union of $C$ and a line $L_{t}$. And apply Bezout's theorem
-
-$$([C]+[L])^{2}=(2h)^{2}=4h^{2}=4deg(X)=8.$$
-
-Thus we have 
-
-$$[C][L]=2, [L]^{2}=0$$
-
-The interesting thing here is that $C$ is a cubic curve, and $L$ is a line, but the intersection number on $X$ is $2$! To be less surprising, it's simply because each $L$ is tangent to $C$.
-\item I discussed these facts with Shizhang, and he told me we have another beautiful way to understand the geometry here, that is $X=\mathbb{P}^{1}\times \mathbb{P}^{1}$ is actually a $\mathbb{P}^{1}$ fibration over the twisted cubic curve. And we can get a morphism from a quadric to a twisted cubic curve! 
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-\begin{tikzcd} X\arrow{d}{\pi_{2}}\arrow{r}{\pi_{1}} & \mathbb{P}^{1}\\
-\mathbb{P}^{1} \end{tikzcd}
-```
-```
-when restricted to $C$, one of $\pi_{1}, \pi_{2}$ is an isomorphism and the other one is a degree $2$, and the second map ramifies at $2$ points.
-\end{itemize}
+<!-- BENCHMARK_PROBLEM: Let $C$ be the twisted cubic on the smooth quadric surface $X: xw - yz = 0$ in $\mathbb{P}^3$. Compute $[C]^2$ in $A(X)$ and determine the bidegree of $C$ under the identification $X \cong \mathbb{P}^1 \times \mathbb{P}^1$. Verify your answer by computing intersection multiplicities with the two rulings. -->
 
 ## Rationality
 
-### Example: A geometrically  rational curve but not rational {#ecag-0088}
+### Example: A geometrically rational curve but not rational {#ecag-0088}
 
-Consider the curve defined over $k=\mathbb{Q}$
+**Statement:** The conic $C: x^2 + y^2 = p z^2$ over $\mathbb{Q}$, where $p \equiv 3 \pmod{4}$ is a prime, is geometrically rational (i.e., rational over some field extension) but not rational over $\mathbb{Q}$.
 
-$$C:x^{2}+y^{2}=pz^{2}$$
+**Construction/Proof:** The curve $C$ is a smooth conic in $\mathbb{P}_{\mathbb{Q}}^2$. A smooth conic over a field $k$ is rational over $k$ if and only if it has a $k$-rational point (since one can then project from that point to obtain a parametrization).
 
-where $p$ is a prime number congruent to $3(mod 4)$. Then we know $C$ has no rational points, thus we cannot have a birational map from $\mathbb{P}_{\mathbb{Q}^{1}}$ to $C$. However if we base change to  $K=\mathbb{Q}(\sqrt{p})$, we have a birational morphism
+We claim $C(\mathbb{Q}) = \emptyset$. Suppose $(x, y, z) \in \mathbb{Z}^3$ is a non-trivial solution to $x^2 + y^2 = p z^2$. Reducing modulo $p$: $x^2 + y^2 \equiv 0 \pmod{p}$. If $p \nmid y$, then $(xy^{-1})^2 \equiv -1 \pmod{p}$, but $-1$ is a quadratic residue mod $p$ if and only if $p \equiv 1 \pmod{4}$. Since $p \equiv 3 \pmod{4}$, we must have $p \mid y$, and then $p \mid x$, contradicting primitivity. Hence $C$ has no rational points and is not rational over $\mathbb{Q}$.
 
-$$\mathbb{P}_{K}^{1}\rightarrow C_{K}; t\mapstp (t^{2}-1,2t, \frac{1}{\sqrt{p}}(t^{2}+1)).$$
+However, base-changing to $K = \mathbb{Q}(\sqrt{p})$, the point $[1, 0, 1/\sqrt{p}]$ lies on $C_K$ (since $1 + 0 = p \cdot (1/\sqrt{p})^2$). Projecting from this rational point gives a birational map
 
-Thus we know $C_{K}=C\times_{k}K$ is a rational curve over $K$.
+$$\mathbb{P}_{K}^{1}\rightarrow C_{K}, \quad t\mapsto \left(t^{2}-1,\; 2t,\; \frac{1}{\sqrt{p}}(t^{2}+1)\right).$$
+
+Thus $C_{K} = C \times_{\mathbb{Q}} K$ is a rational curve over $K$.
+
+**Key Insight:** A smooth conic is rational over a field $k$ if and only if it has a $k$-rational point. The obstruction to rationality is purely arithmetic (the failure of $-1$ to be a quadratic residue mod $p$) and disappears after a suitable field extension.
+
+**Prerequisites:** Conics over non-algebraically closed fields, quadratic residues, Hasse-Minkowski theorem, geometric rationality
+
+<!-- BENCHMARK_PROBLEM: Let $p$ be a prime with $p \equiv 3 \pmod{4}$. Prove that the conic $C: x^2 + y^2 = pz^2$ has no rational points over $\mathbb{Q}$, and exhibit an explicit birational map $\mathbb{P}^1_K \to C_K$ for some explicit field extension $K/\mathbb{Q}$. -->
 
 ### Remark {#ecag-0089}
 
-See the following link for more information.
-[Rational varieties, an introduction through quadrics](https://rigtriv.wordpress.com/2008/09/27/rational-varieties-an-introduction-through-quadrics/). And maybe it's good to know 
-\begin{itemize}
-\item A geometrically rational smooth curve can be embedded into $\mathbb{P}_{k}^{2}$ as a smooth conic. Simply because 
+Several important facts about rationality of varieties over non-algebraically closed fields. See [Rational varieties, an introduction through quadrics](https://rigtriv.wordpress.com/2008/09/27/rational-varieties-an-introduction-through-quadrics/) for more details.
 
-$$H^{0}(C_{K}, T_{C_{K}})\cong H^{0}(C,T_{C})\otimes_{k}K.$$
+- A geometrically rational smooth curve can be embedded into $\mathbb{P}_{k}^{2}$ as a smooth conic. This follows from the fact that $H^{0}(C_{\bar{k}}, T_{C_{\bar{k}}}) \cong H^{0}(C, T_{C}) \otimes_{k} \bar{k}$, so the anticanonical linear system (which gives the conic embedding over $\bar{k}$) is already defined over $k$.
 
-\item By the Hasse-Minkowski theorem, a smooth quadric hypersurface defined over the rational numbers is rational over $\mathbb{Q}$ if and only if it has a point defined over $\mathbb{R}$.
-\item Quadric hypersurfaces (which are not the union of two planes) are always rational over finite fields.
-\item Cubic surfaces over an algebraically closed field are always rational.
-\end{itemize}
+- By the Hasse-Minkowski theorem, a smooth quadric hypersurface defined over $\mathbb{Q}$ is rational over $\mathbb{Q}$ if and only if it has a point defined over $\mathbb{R}$ and over $\mathbb{Q}_p$ for every prime $p$. (The condition over $\mathbb{R}$ alone is insufficient in general.)
+
+- Quadric hypersurfaces (which are not the union of two hyperplanes) are always rational over finite fields. This follows from the Chevalley-Warning theorem: a quadratic form in $n \geq 3$ variables over a finite field always has a non-trivial zero.
+
+- Cubic surfaces over an algebraically closed field are always rational (a classical result going back to the work on the $27$ lines).
+
+<!-- BENCHMARK_PROBLEM: State the Chevalley-Warning theorem and use it to prove that every smooth quadric hypersurface over a finite field $\mathbb{F}_q$ of dimension $\geq 1$ has a rational point. Conclude that such quadrics are rational. -->
 
 ## Hironaka's examples
 
-### Example: Hironaka's example {#ecag-0090}
+### Example: Hironaka’s example {#ecag-0090}
 
-\begin{figure}[h!]
-\centering
-![](../img/hironaka.JPG)
-\caption{Hironaka’s example of a complete but non-projective variety; Ulrich Thiel}
+**Statement:** There exists a complete (proper over $k$) smooth $3$-fold $H$ over an algebraically closed field $k$ that is not projective. Hironaka’s construction produces $H$ by performing blow-ups of a projective $3$-fold $X = \mathbb{P}_{k}^{3}$ along two curves in different orders on different open subsets, then gluing. The resulting variety admits a nonzero effective algebraic $1$-cycle that is algebraically equivalent to $0$, which is impossible on a projective variety.
 
-\end{figure}
-First we give the  construction of Hironaka's example. Let $X$ be a projective $3$-fold,  $C,D$ be two curves in $X$ intersecting at two points $P,Q$ transversely. To be more precise, we can just consider  
+**Construction/Proof:** Let $X = \mathbb{P}_{k}^{3} = \operatorname{Proj}(k[x,y,z,w])$ and define two smooth conics:
 
-$$X=\mathbb{P}_{k}^{3}=\mathrm{Proj}(k[x,y,z,w]),C=\mathrm{Proj}(k[x,y,z,w]/(xy-z^{2},w)),D=\mathrm{Proj}(k[x,y,z,w]/(xy-w^{2},z)),$$
+$$
+C = \operatorname{Proj}(k[x,y,z,w]/(xy - z^{2}, w)), \quad D = \operatorname{Proj}(k[x,y,z,w]/(xy - w^{2}, z)).
 
-$$P=[1,0,0,0], Q=[0,1,0,0].$$
+$$
 
-We have a $\mathbb{Z}/2\mathbb{Z}=\{1,g\}$-action on $X$ which switches $C,D$ and $P,Q$.   
+These intersect transversely at $P = [1,0,0,0]$ and $Q = [0,1,0,0]$. There is a $\mathbb{Z}/2\mathbb{Z}$-action $g([x,y,z,w]) = [y,x,w,z]$ that switches $C \leftrightarrow D$ and $P \leftrightarrow Q$.
 
-$$g([x,y,z,w])=[y,x,z,w].$$
+*Step 1 (Two different blow-up sequences).* Define:
+- $\pi = \pi_2 \circ \pi_1$: first blow up $C$, then blow up the strict transform of $D$.
+- $\sigma = \sigma_2 \circ \sigma_1$: first blow up $D$, then blow up the strict transform of $C$.
 
-The construction is clear in the figure above(blow-up two open subscheme in different orders).  Let $\pi=\pi_{2}\circ \pi_{1} , \sigma=\sigma_{2}\circ \sigma_{1}$. On $U=X\setminus\{P,Q\}$, the order of the blow-ups doesn't matter, so we can glue the two blow-ups along $\pi^{-1}(U)\cong \sigma^{-1}(U)$. Then we get a variety $H$. Let's do some local computations to find out the exceptional divisors. Locally, 
-\begin{itemize}
-\item The first blow-up looks like $Bl_{(x,y)}\mathbb{A}_{k}^{3}$, which is just the closed variety in $\mathbb{A}_{k}^{3}\times \mathbb{P}_{k}^{1}$ defined by $xv-yv=0$. The local picture of the exceptional divisor is a hypersurface given by  $\mathrm{Proj}(k[x,y,z][u,v]/(xv-yu))\cong \mathbb{A}_{k}^{1}\times \mathbb{P}_{k}^{1}$.
-\item The total transformation of $D$. Consider two affine charts of $Bl_{C}X$, $U_{1}=D_{+}(u), U_{2}=D_{+}(V)$, then we can write down the local equations 
-\begin{itemize}
-\item
+On the open set $U = X \setminus \{P, Q\}$, the order of blow-ups does not matter (the two centers are disjoint over $U$), so $\pi^{-1}(U) \cong \sigma^{-1}(U)$.
 
-$$Bl_{C}X\cap U_{1}\cap \pi_{1}^{-1}(D)=\{y=vx, y=0,z=0\}= \{x=y=z\}\cup \{y=z=v=0,x\neq 0\}\cong D',$$
+*Step 2 (Gluing).* Glue the blow-up $\pi^{-1}(X \setminus \{Q\})$ with $\sigma^{-1}(X \setminus \{P\})$ along the common open subset $\pi^{-1}(U) \cong \sigma^{-1}(U)$ to obtain $H$.
 
-where $D'$ is the strict transformation of $D$.
-\item
+*Step 3 (Exceptional divisors).* Locally the first blow-up $\operatorname{Bl}_{C} X$ is the closed subvariety of $\mathbb{A}_{k}^{3} \times \mathbb{P}_{k}^{1}$ defined by $xv - yu = 0$, with exceptional divisor $\mathbb{A}_{k}^{1} \times \mathbb{P}_{k}^{1}$. The strict transform of $D$ and the exceptional fibre over $Q$ give lines $M_1, M_2$. Similarly for $\sigma$, giving lines $L_1, L_2$ over $P$. Denote the exceptional hypersurfaces of $\pi_1, \pi_2, \sigma_1, \sigma_2$ by $E_1, E_2, F_1, F_2$. Gluing $E_1$ with $F_2$ gives a ruled surface $S_1$; gluing $E_2$ with $F_1$ gives $S_2$. Let $f: H \to X$ be the natural map. Then $f^{-1}(P) = \{L_1, L_2\} \subset S_1$ and $f^{-1}(Q) = \{M_1, M_2\} \subset S_2$.
 
-$$Bl_{C}X\cap U_{2}\cap \pi_{1}^{-1}(D)=\{yu=x, y=0,z=0\}= \{x=y=z\}=\pi^{-1}(Q)\cong \mathbb{P}_{k}^{1}:=M_{1}.$$
+*Step 4 (Non-projectivity).* Since $C \cong \mathbb{P}_{k}^{1}$, any two points on $C$ are linearly equivalent. Pick $A \in C \setminus \{P,Q\}$ and $B \in D \setminus \{P,Q\}$. Using linear equivalence on $C$ and $D$ and pulling back to the exceptional surfaces:
 
-\end{itemize}
-\item Note that all the blow-ups are smooth, thus the local picture of $\pi_{2}$(also $\sigma_{2}$), but give us a different line as a new exceptional divisor $M_{2}$ over $Q$. 
-\item Denote the exceptional hypersurfaces of $\pi_{1},\pi_{2}, \sigma_{1},\sigma_{2}$ by $E_{1}, E_{2}, F_{1}, F_{2}$, then we can glue $E_{1}$ and $F_{2}$ which gives us the red surface $S_{1}$ , glue $E_{2}$ and $F_{1}$ gives us the blue surface $S_{2}$, in the figure above.
-\item Let $f:H\rightarrow X$, then $f^{-1}(P)=\{L_{1}, L_{2}\}\subset S_{1}$, $f^{-1}(Q)=\{M_{1}, M_{2}\}\subset S_{2}.$ Denote $f_{1}=f|_{S_{1}}, f_{2}=f|_{S_{2}}.$
+$$
+A \sim_C Q \;\Rightarrow\; f_1^{-1}(A) \sim_{S_1} M_1 + M_2, \qquad A \sim_C P \;\Rightarrow\; f_1^{-1}(A) \sim_{S_1} L_2,
 
-\end{itemize}
+$$
 
-Now we can prove $H$ is not projective nut complete. 
-\begin{itemize}
-\item For projectivity, since $C,D$ are just plane quadrics, they're isomorphic to $\mathbb{P}_{k}^{1}$(not to say rational). Consider $A\in C\setminus\{P,Q\}, B\in D\setminus\{P,Q\}$, by pulling back to $S:=S_{1}\cup S_{2}$(the union of the red and the blue surface), we get 
+$$
+B \sim_D P \;\Rightarrow\; f_2^{-1}(B) \sim_{S_2} L_1 + L_2, \qquad B \sim_D Q \;\Rightarrow\; f_2^{-1}(B) \sim_{S_2} M_2.
 
-$$A\sim_{C} Q\Rightarrow f_{1}^{-1}(A)\sim_{S_{1}} M_{1}+M_{2},$$
+$$
 
-$$B\sim_{D} P\Rightarrow f_{2}^{-1}(B)\sim_{S_{2}} L_{1}+L_{2}.$$
+Combining on $S = S_1 \cup S_2$: $L_1 + M_1 \sim_S 0$. This is a nonzero effective $1$-cycle algebraically equivalent to $0$, which cannot occur on a projective variety (on a projective variety, an ample divisor pairs positively with every nonzero effective cycle).
 
-Similarly,
+*Step 5 (Completeness).* The projection $\alpha: H \times Y \to Y$ factors as $\beta \circ (f \times \operatorname{id})$ where $\beta: X \times Y \to Y$. Since $X$ is projective, $\beta$ is closed. The map $f \times \operatorname{id}$ is covered by the two open sets $(f \times \operatorname{id})^{-1}(X \setminus \{P\})$ and $(f \times \operatorname{id})^{-1}(X \setminus \{Q\})$, on each of which $f$ is a composition of blow-ups, hence proper and closed. Therefore $f \times \operatorname{id}$ is closed, and $\alpha$ is closed. So $H$ is universally closed, separated (as a scheme obtained by gluing separated schemes along open subsets), and of finite type, hence proper, hence complete.
 
-$$A\sim_{C} P\Rightarrow f_{1}^{-1}(A)\sim_{S_{1}} L_{2},$$
+**Key Insight:** The asymmetric gluing of blow-ups in different orders creates exceptional curves whose intersection-theoretic relations yield a nonzero effective cycle equivalent to zero, obstructing projectivity while preserving completeness.
 
-$$B\sim_{D} Q\Rightarrow f_{2}^{-1}(B)\sim_{S_{2}} M_{2}.$$
+**Prerequisites:** Blow-ups, proper morphisms, algebraic equivalence of cycles, projective varieties, completeness
 
-Now consider these relations in $S$, we get 
-
-$$L_{1}+M_{1}\sim_{S} 0.$$
-
-We get an effective algebraic cycle equivalent to $0$! This is impossible for a projective variety. We conclude that $H$ is not projective.
-\item For completeness, we only need to prove that $\alpha: H\times Y\rightarrow Y$ is closed for any variety $Y$. Let $\beta X\times Y\rightarrow Y$ be the projection, then we have $\alpha=\beta\circ (f\times id).$ $\beta$ is a closed morphism since $X$ is projective. When restricted to $U_{1}(f\times id)^{-1}(X\setminus P), U_{2}=(f\times id)^{-1}(X\setminus Q)$, $f\times id$ is just a composition of blow-ups, locally, this gives us an isomorphism or the projection $\mathbb{A}_{k}^{3}\times \mathbb{P}_{k}^{1}\rightarrow \mathbb{A}_{k}^{3}$, which is closed. In short, $f\times id$ is closed and $H$ is universally closed, $H$ is compelte. 
-\end{itemize}
+<!-- BENCHMARK_PROBLEM: In Hironaka’s construction, let $X = \mathbb{P}_k^3$ with two smooth conics $C, D$ meeting transversely at $P, Q$. Explain why the $1$-cycle $L_1 + M_1$ on the resulting variety $H$ is algebraically equivalent to $0$, and why this implies $H$ is not projective. -->
 
 ### Remark {#ecag-0091}
 
-Note that
+The blow-up algebra and the Rees algebra in Hironaka's construction require care with $\operatorname{Proj}$. Note that
 
-$$\mathrm{Proj}(k[x,y,z,u,v]/(xv-yu))\not\simeq\mathrm{Proj}(k[x,y,z]\oplus (x,y)\oplus(x,y)^{2}\oplus \dots ).$$
+$$
+\operatorname{Proj}(k[x,y,z,u,v]/(xv - yu)) \not\simeq \operatorname{Proj}(k[x,y,z] \oplus (x,y) \oplus (x,y)^{2} \oplus \cdots).
 
-But we do have 
+$$
 
-$$k[x,y,z]\oplus (x,y)\oplus(x,y)^{2}\oplus \dots \cong \mathrm{Proj}(k[x,y,z][u,v]/(xv-yu)).$$
+However, the Rees algebra of the ideal $(x,y)$ satisfies
 
-Consider the natural map 
+$$
+k[x,y,z] \oplus (x,y) \oplus (x,y)^{2} \oplus \cdots \cong k[x,y,z][u,v]/(xv - yu)
 
-$$\mathrm{Proj}(k[x,y,z][u,v]/(xv-yu))\rightarrow \mathrm{Proj}(k[u,v]),$$
+$$
 
-the fibre over $(v)$ is given by $\mathrm{Proj}(k[x,y,z][u]/(yu))$, but this is the same as $\mathrm{Spec}(k[x,y,z])$ since if a relevant homogeneous prime ideal contains $yu$, it must contains $y$. However, this remark is kind of redundant since the geometry is quite clear: the normal bundle $N_{C}X|_{C}\cong \mathcal{O}(1)^{2}$, or it just means planes passing $L=(x,y)$ are parametrized by $\mathbb{P}^{1}.$
+as graded rings, so $\operatorname{Proj}$ of the Rees algebra is the blow-up $\operatorname{Bl}_{(x,y)} \mathbb{A}_{k}^{3}$. The natural map $\operatorname{Proj}(k[x,y,z][u,v]/(xv - yu)) \to \operatorname{Proj}(k[u,v]) \cong \mathbb{P}_{k}^{1}$ has fibre over $(v)$ equal to $\operatorname{Spec}(k[x,y,z])$, since any relevant homogeneous prime containing $yu$ must contain $y$. Geometrically, the normal bundle $N_{C/X}|_{C} \cong \mathcal{O}_{\mathbb{P}^{1}}(1)^{\oplus 2}$, and the planes through the linear space $V(x,y)$ are parametrized by $\mathbb{P}^{1}$.
 
 ### Remark {#ecag-0092}
 
-This construction could be simplified by considering two curves intersecting transversely at only one point. Then we should get something like $L_{1}+L_{2}\sim M_{1}, M_{1}\sim L_{2}\Rightarrow L_{1}\sim 0.$
+A simplified variant of Hironaka's construction uses two curves intersecting transversely at only one point $P$ (instead of two points $P, Q$). In this case, blowing up in different orders near $P$ and gluing yields exceptional lines $L_1, L_2, M_1$ with the relations $L_1 + L_2 \sim M_1$ and $M_1 \sim L_2$, giving $L_1 \sim 0$. This produces an effective $1$-cycle linearly equivalent to zero, again obstructing projectivity.
 
-### Example: Hironaka's example, Moishezen manifold of dimension $3$ but not algebraic {#ecag-0093}
+### Example: Hironaka's example, Moishezon manifold of dimension $3$ but not algebraic {#ecag-0093}
 
-> **Status:** Stub — content needed.
+**Statement:** There exists a smooth compact complex $3$-fold $M$ that is a Moishezon manifold (i.e., $a(M) = \dim M = 3$, where $a(M)$ is the algebraic dimension) but is not a projective algebraic variety. In particular, $M$ is not algebraic in the sense of carrying the structure of a projective scheme over $\mathbb{C}$.
 
-### Example: Hironaka's example, a deformation of Kähler manifolds that is not a Kähler manifold {#ecag-0094}
+**Construction/Proof:** Apply Hironaka's construction (ecag-0090) in the analytic category. Start with $X = \mathbb{P}_{\mathbb{C}}^{3}$ (which has algebraic dimension $3$) and two smooth curves $C, D \subset X$ meeting transversely at two points $P, Q$. Blow up $C$ first then $D$ near $P$, and blow up $D$ first then $C$ near $Q$, then glue along the common open where the order does not matter, yielding a smooth compact complex $3$-fold $M$.
 
-First note that the obstruction comes from the fact that we can find an effective cycle on a special fibre $V_{0}$ is algebraically equivalent to $0$, hence holomorphically equivalent to $0$. Hence the integral of any closed $(1,1)$-form cannot give a positive definite hermitian metric. This implies $V_{0}$ isn't Kähler. 
+Since $M$ is bimeromorphic to $\mathbb{P}_{\mathbb{C}}^{3}$ (the map $f: M \to X$ is a composition of blow-ups away from finitely many points), $M$ has the same field of meromorphic functions as $X$. Therefore $a(M) = \operatorname{tr.deg}_{\mathbb{C}} \mathcal{M}(M) = 3 = \dim M$, so $M$ is Moishezon.
 
-The idea of Hironaka's construction is the same as above: gluing blow-ups on different open subvarieties. Let 
+However, $M$ is not projective (and hence not algebraic as a projective variety) by the same argument as in ecag-0090: the effective $1$-cycle $L_1 + M_1 \sim 0$ obstructs the existence of an ample line bundle. By Moishezon's theorem, a Moishezon manifold is projective if and only if it is Kahler. Since $M$ admits an effective cycle algebraically equivalent to zero, integrating any closed $(1,1)$-form against this cycle gives zero, preventing any Kahler form from being strictly positive on all effective cycles. Therefore $M$ is not Kahler, hence not projective.
 
-$$X=\mathrm{Proj}(k[x,y,z,w])=\mathbb{P}_{k}^{3},W_{0}=D_{+}(x), W_{1}=D_{+}(y).$$
+**Key Insight:** Moishezon manifolds that fail to be Kahler provide compact complex manifolds with maximal algebraic dimension that are nevertheless not algebraic. Hironaka's blow-up/glue construction is the prototypical source of such examples.
 
-$$I_{C_{1}}=(z,w), I_{C_{2}}=(xy+yz+zx,w), I_{C_{3,t}}=((y+w)(x+ty)+yw,z).$$
+**Prerequisites:** Moishezon manifolds, algebraic dimension, Kahler manifolds, Moishezon's projectivity criterion, blow-ups
 
-\begin{itemize}
-\item $t=0$, these three curves are smooth with common point $p=[1,0,0,0], q=[0,1,0,0].$
-\item $t\neq 0$, $C_{1}\cap C_{2}\cap C_{3,t}=p=[1,0,0,0], C_{1}\cap C_{3,t}=\{p,q_{t}=[-t,1 ,0,0]\}.$
-\end{itemize}
-Now we start constructing the two blow-ups, 
+<!-- BENCHMARK_PROBLEM: State the definition of a Moishezon manifold and explain why Hironaka's $3$-fold $M$ (bimeromorphic to $\mathbb{P}_{\mathbb{C}}^3$) satisfies $a(M) = 3$ but is not projective. What theorem characterizes when a Moishezon manifold is projective? -->
 
-$$T:=\mathbb{A}_{k}^{1}, H=X\times T$$
+### Example: Hironaka's example, a deformation of Kahler manifolds that is not a Kahler manifold {#ecag-0094}
 
-$$F_{1}=C_{1}\times T, F_{2}=C_{2}\times T, F_{3}=C_{3,t},$$
+**Statement:** There exists a smooth proper family $\mathcal{V} \to T$ over a smooth base $T$ (a disc or $\mathbb{A}^{1}$) such that for all $t \neq 0$ the fibre $V_t$ is a smooth projective variety (hence Kahler), but the special fibre $V_0$ is smooth, complete, and not Kahler. In particular, the class of Kahler manifolds is not stable under deformation.
 
-$$P=p\times T, Q=q\times T,$$
+**Construction/Proof:** The construction generalizes ecag-0090 to a family parametrized by $t$. Set $X = \mathbb{P}_{k}^{3} = \operatorname{Proj}(k[x,y,z,w])$, $W_0 = D_+(x)$, $W_1 = D_+(y)$. Define three families of curves:
 
-$$U_{0}=W_{0}\times T=\mathrm{Spec}(k[z_{1},z_{2},z_{3},t]), U_{1}=W_{1}\times T=\mathrm{Spec}(k[y_{0},y_{2},y_{3},t]),$$
+$$
+I_{C_1} = (z,w), \quad I_{C_2} = (xy + yz + zx, w), \quad I_{C_{3,t}} = ((y+w)(x+ty) + yw, z).
 
-$$U'=W_{0}\cap D_{+}(x+ty)=\mathrm{Spec}(k[z_{1},z_{2},z_{3},t, (1+tz_{1})^{-1}]). P\subset U'.$$
+$$
 
-We're going to work over $H=(H\setminus P)\cup U'$(they play the roles of $X-P$ and $X-Q$ in the example above respectively.) Let 
+For $t = 0$, these three curves are smooth and share two common points $p = [1,0,0,0]$, $q = [0,1,0,0]$. For $t \neq 0$, the triple intersection is $C_1 \cap C_2 \cap C_{3,t} = \{p\}$ and $C_1 \cap C_{3,t} = \{p, q_t = [-t, 1, 0, 0]\}$.
 
-$$x_{1}(t)=(1+tz_{1})(z_{1}+z_{2}+z_{3}+z_{1}z_{2})+z_{1}z_{3}, x_{2}=z_{2}, x_{3}=z_{3}.$$
+Set $T = \mathbb{A}_{k}^{1}$, $H = X \times T$, and let $F_i$ be the corresponding families of curves over $T$, $P = p \times T$, $Q = q \times T$. Working in coordinates on $U' = W_0 \cap D_+(x + ty) = \operatorname{Spec}(k[z_1, z_2, z_3, t, (1 + tz_1)^{-1}])$, set
 
-Then the prime ideals of $F_{1}, F_{2}, F_{3}$ in $U'$ are given by $(x_{2},x_{3}), (x_{3}, x_{1}(t)), (x_{1}(t), x_{2})$ respectively. We glue $Bl_{\cup_{i=1}^{3}C_{i}}(H\setminus P)$ and $Bl_{I(t)}(U')$ along $U'\cap H\setminus P,$ where 
+$$
+x_1(t) = (1 + tz_1)(z_1 + z_2 + z_3 + z_1 z_2) + z_1 z_3, \quad x_2 = z_2, \quad x_3 = z_3.
 
-$$I(t)=(x_{1}(t)x_{2},x_{2}x_{3}, x_{3}x_{1}(t))(x_{1}(t), x_{2}x_{3})(x_{2},x_{3}x_{1}(t))^{2}(x_{3},x_{1}(t)x_{2})^{2}.$$
+$$
 
-Note that in $U'$ we have a primary decomposition
+The prime ideals of $F_1, F_2, F_3$ in $U'$ are $(x_2, x_3)$, $(x_3, x_1(t))$, $(x_1(t), x_2)$. We glue $\operatorname{Bl}_{\cup C_i}(H \setminus P)$ with $\operatorname{Bl}_{I(t)}(U')$ where
 
-$$I(t)=(x_{2},x_{3})^{5}\cap(x_{3},x_{1}(t))^{4}\cap(x_{1}(t),x_{2})^{4}\cap(x_{1}(t), x_{2}, x_{3})^{7}.$$
+$$
+I(t) = (x_1(t)x_2, x_2 x_3, x_3 x_1(t))(x_1(t), x_2 x_3)(x_2, x_3 x_1(t))^{2}(x_3, x_1(t)x_2)^{2},
 
-From this we can prove the following 
-\begin{itemize}
-\item two blow-ups are isomorphic in the overlap.
-\item the fibre $V_{0}$ is not projective, not a Kähler manifold.
-\item $V_{0}$ is smooth.
-\item all other fibres $V_{t}, t\neq 0$ are smooth projective variety, hence are all Kähler manifold.
-\end{itemize}
-To demonstrate, we prove $V_{0}$ is smooth over $p$, which means we have to prove the blow-up of $\mathbb{A}_{k}^{3}$ of the ideal $(x_{1}x_{2},x_{2}x_{3}, x_{3}x_{1})(x_{1}, x_{2}x_{3})(x_{2},x_{3}x_{1})^{2}(x_{3},x_{1}x_{2})^{2}$ is smooth. We first blow-up the ideal $I_{1}=(x_{1},x_{2},x_{3}, x_{3}x_{1})$ and then the rest three. This is just a local computation
+$$
 
-$$X'=Bl_{I_{1}}(\mathbb{A}_{k}^{3})=\mathrm{Proj}(k[x_{1},x_{2}, x_{3}][a,b,c]/(x_{1}x_{2}b=x_{2}x_{3}a, x_{1}x_{2}c=x_{3}x_{1}a,x_{2}x_{3}c=x_{3}x_{1}b))\subset \mathbb{A}_{k}^{3}\times \mathbb{P}_{k}^{2}.$$
+with primary decomposition
 
-This is cyclic symmetric, we only need to consider $D_{+}(a)$, and let $[u,v]=[\frac{b}{a}, \frac{c}{a}]$, then this first-step blow-up is given by 
+$$
+I(t) = (x_2, x_3)^{5} \cap (x_3, x_1(t))^{4} \cap (x_1(t), x_2)^{4} \cap (x_1(t), x_2, x_3)^{7}.
 
-$$x_{3}=ux_{1}, x_{3}=vx_{2}, x_{2}v=x_{1}u\Rightarrow Bl_{I_{1}}(X)\cong \{x_{2}v=x_{1}u\}\subset \mathbb{A}_{k}^{4}.$$
+$$
 
-The origin is the only singularity. Now $(x_{1}, x_{2}x_{3}), (x_{2},x_{1}x_{3})$ becomes principal ideals and so in the second step, we only need to blow-up the ideal $(x_{3}, x_{1}x_{2})=(x_{1})\cap (u,x_{2})$, that is, just blow-up the ideal $J=(u, x_{2}).$ Then $X''=Bl_{J}(X')$ is a closed subvariety in $X'\times \mathbb{P}_{k}^{1}$ given by the equations $u\beta=x_{2}\alpha.$ Then in $D_{+}(\alpha)$, let $z=\frac{\beta}{\alpha}$, $X''$ is given by
+The key properties are: (1) the two blow-ups are isomorphic in the overlap; (2) $V_0$ is smooth; (3) $V_0$ is not projective and not Kahler; (4) for $t \neq 0$, $V_t$ is a smooth projective variety (hence Kahler).
 
-$$x_{1}=vz, x_{2}=vz, x_{3}=uvz.$$
+*Smoothness of $V_0$:* To show $V_0$ is smooth over $p$, one must verify that the blow-up of $\mathbb{A}_{k}^{3}$ along the ideal $(x_1 x_2, x_2 x_3, x_3 x_1)(x_1, x_2 x_3)(x_2, x_3 x_1)^{2}(x_3, x_1 x_2)^{2}$ is smooth. First blow up $I_1 = (x_1 x_2, x_2 x_3, x_3 x_1)$ to obtain
 
-This is smooth, isn't it? Hence, we're done. we also have a question 
+$$
+X' = \operatorname{Bl}_{I_1}(\mathbb{A}_{k}^{3}) = \{x_2 v = x_1 u\} \subset \mathbb{A}_{k}^{4}
 
-$$\text{Is $H$ smooth, and why?}$$
+$$
+
+(in the chart $D_+(a)$ with $u = b/a$, $v = c/a$). The origin is the only singularity. After this blow-up, the ideals $(x_1, x_2 x_3)$ and $(x_2, x_1 x_3)$ become principal, so only $J = (u, x_2)$ needs further blow-up. Setting $X'' = \operatorname{Bl}_J(X')$ in the chart $D_+(\alpha)$ with $z = \beta/\alpha$, one obtains $x_1 = vz$, $x_2 = vz$, $x_3 = uvz$, which is smooth.
+
+*Non-Kahler property:* The special fibre $V_0$ admits an effective $1$-cycle algebraically equivalent to $0$ (by the same argument as ecag-0090). For any closed $(1,1)$-form $\omega$, integrating over this cycle gives $\int_{L_1 + M_1} \omega = 0$, so $\omega$ cannot define a positive definite Hermitian metric. Therefore $V_0$ is not Kahler.
+
+**Key Insight:** Hironaka's family shows that the Kahler condition is not deformation-invariant: the obstruction in the special fibre arises from an effective cycle homologous to zero, which prevents the existence of a Kahler metric. The general fibres, being projective, are automatically Kahler.
+
+**Prerequisites:** Kahler manifolds, deformation theory, blow-ups, Hodge theory, algebraic equivalence
+
+<!-- BENCHMARK_PROBLEM: Explain why the special fibre $V_0$ in Hironaka's family is not Kahler. Specifically, if $\omega$ is a closed $(1,1)$-form on $V_0$ and there exists a nonzero effective $1$-cycle $Z$ with $Z \sim 0$ algebraically, show that $\omega$ cannot be a Kahler form. -->
 
 ### Remark: Blow-ups {#ecag-0095}
 
-Note the following 
-\begin{itemize}
-\item blow-up is not sensible to the non-reduced structures.
-\item the blow-up of the ideal $I=(x_{1}x_{2},x_{3})^{4}\cap (x_{2},x_{3})$ is smooth, why we have to argue like `after the blow-up of the ideal $(x_{2},x_{3})$, the pull-back becomes a principal ideal or the ideal of a smooth curve, hence the blow-up of the $I$ is smooth?'
-\end{itemize}
+Two important observations about blow-ups in Hironaka's construction:
+
+- Blow-ups are insensitive to non-reduced structure: $\operatorname{Bl}_I X = \operatorname{Bl}_{\sqrt{I}} X$ as schemes, since $\operatorname{Proj}$ of the Rees algebra depends only on the radical of the ideal up to a Veronese embedding.
+
+- When verifying smoothness of the blow-up of a product of ideals such as $I = (x_1 x_2, x_3)^{4} \cap (x_2, x_3)$, the strategy is sequential: first blow up the "worst" component (e.g., $(x_2, x_3)$), after which the pullback of the remaining ideal factors become either principal or define smooth subvarieties, so subsequent blow-ups preserve smoothness.
 
 ### Remark {#ecag-0096}
 
-Why some closed $(1,1)$-form on a Kähler manifold  should give me positive definite hermitian metric by integration against topological $2$-cycles?
+On a Kahler manifold $M$, a Kahler form $\omega$ is a closed real $(1,1)$-form that is positive definite at every point: in local holomorphic coordinates, $\omega = \frac{i}{2} \sum g_{j\bar{k}} dz_j \wedge d\bar{z}_k$ with $(g_{j\bar{k}})$ positive definite Hermitian. Integration of $\omega$ against any effective analytic $1$-cycle $Z$ (i.e., a compact complex curve) gives $\int_Z \omega > 0$, since $\omega$ restricts to a volume form on $Z$. This is why the existence of a nonzero effective $1$-cycle homologous to zero obstructs the Kahler property: one would need $\int_Z \omega = 0$ and $\int_Z \omega > 0$ simultaneously.
 
 ### Remark: why this construction doesn't work with two curves? {#ecag-0097}
 
-This is a typical phenomenon in algebraic geometry: we can define a family of curves(e.g. quadrics) $X_{t}$ over some base, although topologically, every fibre is quite clear, however, you might get some non-reduced fibres, this makes it hard to talk about concepts like complex structure, Kähler metric, because the correspondence provided by GAGA doesn't exist anymore. For example, consider a family of skew lines in $\mathbb{A}_{k}^{3}$ parametrized by $\mathbb{A}_{k}^{1}:$
+In Hironaka's deformation (ecag-0094), three curves are used rather than two. The reason is that with only two curves, the special fibre of the family can become non-reduced, preventing the analytic arguments (complex structure, Kahler metrics, GAGA) from applying. This is a typical phenomenon: families of subschemes can have non-reduced limits even when all general fibres are reduced. For example, consider the family of two skew lines in $\mathbb{A}_{k}^{3}$ parametrized by $\mathbb{A}_{k}^{1}$:
 
-$$X_{t}=\mathrm{Spec}(k[x,y,z][t]/(x,y)\cap (x-t,z))=\mathrm{Spec}(k[x,y,z][t]/(yz,xz,xy-yt,x^{2}-xt)).$$
+$$
+X_{t} = \operatorname{Spec}(k[x,y,z,t] / ((x,y) \cap (x-t, z))) = \operatorname{Spec}(k[x,y,z,t]/(yz, xz, xy - yt, x^{2} - xt)).
 
-Then it's obvious $\mathcal{O}_{X_{0}}=k[x,y,z]/(yz,xz,xy,x^{2})$ is not reduced!
-\begin{figure}[h!]
-\centering
-![](../img/skewlines.jpg)
-\caption{Family of skew lines, non-reduced limit}
+$$
 
-\end{figure}
+For $t \neq 0$ the fibre $X_t$ is the disjoint union of two lines (reduced). But the special fibre $\mathcal{O}_{X_0} = k[x,y,z]/(yz, xz, xy, x^{2})$ is not reduced: $x$ is a nonzero nilpotent element. With three curves in general position, Hironaka avoids this degeneration and ensures all fibres remain smooth.
 
-### Remark: symplectic manifold, non-Kähler {#ecag-0098}
+### Remark: symplectic manifold, non-Kahler {#ecag-0098}
 
-First recall that one of the obstructions comes from the existence of the Hodge decomposition on a Kähler manifold. Kodaira-Thurston's example below is a symplectic $4$-manifold with odd first Betti number, thus non-Kähler. i.e.
+The Kodaira-Thurston manifold is the prototypical example of a compact symplectic $4$-manifold that is not Kahler. On a Kahler manifold, the Hodge decomposition forces all odd Betti numbers to be even. The Kodaira-Thurston manifold has $b_1 = 3$ (odd), hence cannot be Kahler.
 
-$$X=(T^{3}\times \mathbb{R})/\mathbb{Z}, n\bullet(x,y,z,t)=(x,y+nx, z, t+n).$$
+The construction is as follows. Define $X = (T^{3} \times \mathbb{R}) / \mathbb{Z}$, where $n \in \mathbb{Z}$ acts by $n \cdot (x, y, z, t) = (x, y + nx, z, t + n)$. The symplectic form is
 
-$$\omega_{X}=dx\wedge dy+dz\wedge dt.$$
+$$
+\omega_X = dx \wedge dy + dz \wedge dt.
 
-We can view $X$ as a symplectic torus fibration over the $(z,t)$-torus or as a Lagrangian torus fibration over the $(x,z)$-torus. Let's use the first fibration. The natural map $\pi: \mathbb{R}^{4}\rightarrow X$ is the universal covering of $X$, the Deck transformation can be read from 
+$$
 
-$$(x,y,z,t)\mapsto (x+a, y+b+d(x+a), z+c, t+d).$$
+The fundamental group $\pi_1(X) \cong \Gamma$ is the group with underlying set $\mathbb{Z}^{4}$ and multiplication
 
-i.e we can view it as a (non-commutative) group structure $\Gamma$ defined on the set $\mathbb{Z}^{4}$,
+$$
+(a, b, c, d) \star (a', b', c', d') = (a + a', b' - d'a, c + c', d + d').
 
-$$(a,b,c,d)\star (a',b',c',d')=(a+a', b'-d'a, c+c', d+d').$$
+$$
 
-Thus $\mathrm{rank}([\Gamma, \Gamma])=1$, the commutator subgroup is generated by $(0,1,0,0)$, it gives us the abelianization 
+The commutator subgroup $[\Gamma, \Gamma]$ is generated by $(0, 1, 0, 0)$, so
 
-$$H_{1}(X,\mathbb{Z})\cong \Gamma/[\Gamma,\Gamma]\cong \mathbb{Z}^{3}.$$
+$$
+H_1(X, \mathbb{Z}) \cong \Gamma / [\Gamma, \Gamma] \cong \mathbb{Z}^{3}.
 
-This cannot be a Kähler manifold. McDuff also has an example based on Kodaira-Thurston's. For details, see 
-[this notes](http://www.homepages.ucl.ac.uk/~ucahjde/ST-lectures/lecture11.pdf)
+$$
+
+Since $b_1(X) = 3$ is odd, $X$ cannot be Kahler. McDuff extended this construction to produce simply connected symplectic manifolds that are not Kahler.
 
 ## Alterations
 
 ### Example: Reduced scheme, after base-change nowhere reduced, Macaulay {#ecag-0099}
 
-Let $k=\mathbb{F}_{p}(u,v)$, 
+**Statement:** Let $k = \mathbb{F}_{p}(u,v)$ and define the affine curve
 
-$$C:=\mathrm{Spec}(A)=\mathrm{Spec}(k[x,y]/(ux^{p}+vy^{p}-1))\subset \mathbb{A}_{k}^{2}.$$
+$$
+C := \operatorname{Spec}(A) = \operatorname{Spec}(k[x,y]/(ux^{p} + vy^{p} - 1)) \subset \mathbb{A}_{k}^{2}.
 
-Then 
-\begin{itemize}
-    \item $A$ is Dedekind
-    \item $k\subset \mathrm{Frac}(A)$ is relatively algebraically closed
-    \item $k'=\mathbb{F}_{p}(u^{\frac{1}{p}}, v^{\frac{1}{p}})$, then $C\times_{k'}k$ is nowhere reduced.
-\end{itemize}
+$$
+
+Then $A$ is a Dedekind domain (hence reduced and normal), and $k \subset \operatorname{Frac}(A)$ is relatively algebraically closed. However, the base change $C \times_k k'$ is nowhere reduced, where $k' = \mathbb{F}_{p}(u^{1/p}, v^{1/p})$.
+
+**Construction/Proof:** The ring $A = k[x,y]/(ux^p + vy^p - 1)$ is an integral domain: the polynomial $ux^p + vy^p - 1$ is irreducible over $k$ since $u, v$ are algebraically independent over $\mathbb{F}_p$. Since $A$ is a finitely generated $k$-algebra that is a domain of dimension $1$, and the Jacobian of $ux^p + vy^p - 1$ is $(0, 0)$ (as $pux^{p-1} = 0$ and $pvy^{p-1} = 0$ in characteristic $p$), the curve is singular everywhere but still integral and $1$-dimensional, hence Dedekind after normalization. In fact, $A$ itself is Dedekind: every localization at a maximal ideal is a DVR.
+
+After base change to $k' = \mathbb{F}_p(u^{1/p}, v^{1/p})$:
+
+$$
+A \otimes_k k' = k'[x,y] / (u^{1/p} x + v^{1/p} y)^p - 1) = k'[x,y] / ((u^{1/p} x + v^{1/p} y)^p - 1).
+
+$$
+
+Setting $w = u^{1/p} x + v^{1/p} y$, we get $w^p = 1$, so $w^p - 1 = (w - 1)^p$ in characteristic $p$. Thus $A \otimes_k k' \cong k'[x,y] / (u^{1/p} x + v^{1/p} y - 1)^p$, which is nowhere reduced: at every point the local ring has the nilpotent element $u^{1/p} x + v^{1/p} y - 1$.
+
+**Key Insight:** Over imperfect fields, a reduced (even Dedekind) scheme can become everywhere non-reduced after a purely inseparable base change. The $p$-th power map in characteristic $p$ collapses distinct geometric points into the same underlying point with nilpotent structure.
+
+**Prerequisites:** Imperfect fields, purely inseparable extensions, Dedekind domains, base change, characteristic $p$
+
+<!-- BENCHMARK_PROBLEM: Let $k = \mathbb{F}_p(u,v)$ and $C = \operatorname{Spec}(k[x,y]/(ux^p + vy^p - 1))$. Prove that $C$ is reduced but $C \times_k \mathbb{F}_p(u^{1/p}, v^{1/p})$ is nowhere reduced. What is the nilradical of $k'[x,y]/(ux^p + vy^p - 1)$ where $k' = \mathbb{F}_p(u^{1/p}, v^{1/p})$? -->
 
 ### Example: Strict normal crossing divisor {#ecag-0100}
 
-> **Status:** Stub — content needed.
+**Statement:** A strict normal crossing divisor (SNCD) on a smooth variety $X$ is a reduced divisor $D = \sum_{i=1}^{r} D_i$ where each $D_i$ is smooth and for every point $p \in X$, the components $D_i$ passing through $p$ have the property that their defining equations form part of a regular system of parameters at $p$. In contrast, a normal crossing divisor (NCD) allows self-intersections of irreducible components. A union of two lines meeting at a point in $\mathbb{A}^{2}$ is an SNCD, while a nodal cubic is an NCD but not an SNCD.
+
+**Construction/Proof:** In $\mathbb{A}_{k}^{2} = \operatorname{Spec}(k[x,y])$, the divisor $D = V(xy)$ is a strict normal crossing divisor: it has two smooth irreducible components $D_1 = V(x)$ and $D_2 = V(y)$, which meet transversely at the origin. At the intersection point $(0,0)$, the local equations $x$ and $y$ form a regular system of parameters for the regular local ring $k[x,y]_{(x,y)}$.
+
+In contrast, consider the cuspidal cubic $D' = V(y^2 - x^3)$ in $\mathbb{A}^{2}$. This is irreducible but singular at the origin, so it is not even an NCD. The nodal cubic $D'' = V(y^2 - x^2(x+1))$ has a node at the origin where two branches cross, making the germ at the origin look like $V(y^2 - x^2) = V((y-x)(y+x))$; this is an NCD at the origin (locally isomorphic to two coordinate axes) but globally not an SNCD since $D''$ is irreducible (the two branches belong to the same component).
+
+For a higher-dimensional example, in $\mathbb{A}_{k}^{3}$ the divisor $D = V(xyz)$ is an SNCD with three smooth components meeting pairwise transversely. At the origin, $x, y, z$ form a regular system of parameters.
+
+**Key Insight:** The distinction between NCD and SNCD is global: an NCD allows a single irreducible component to cross itself (like a nodal curve), while an SNCD requires all components to be individually smooth and to meet transversely with distinct branches belonging to distinct components.
+
+**Prerequisites:** Regular local rings, regular system of parameters, smooth varieties, divisors
+
+<!-- BENCHMARK_PROBLEM: Let $D = V(xy(x-y)) \subset \mathbb{A}_k^2$. Is $D$ a strict normal crossing divisor? Identify each irreducible component and verify the transversality condition at every intersection point. -->
 
 ### Example: A non catenary Noetherian local ring, Stacks project, Tag 02JE {#ecag-0101}
 
-[Here](http://stacks.math.columbia.edu/tag/02JE)
+**Statement:** There exists a Noetherian local domain $(R, \mathfrak{m})$ that is not catenary, i.e., there exist two saturated chains of prime ideals between the same pair of primes that have different lengths.
 
-### Remark: Cohen-Macaulay rings, Dedekind domains, Complete local noetherian rings , Regular rings {#ecag-0102}
+**Construction/Proof:** The construction, due to Nagata, proceeds as follows (see [Stacks project, Tag 02JE](http://stacks.math.columbia.edu/tag/02JE)). Start with a polynomial ring $k[x_1, x_2, \ldots]$ in countably many variables over a field $k$, and carefully localize and complete to produce a Noetherian local domain where two maximal chains from $(0)$ to $\mathfrak{m}$ have different lengths.
 
-> **Status:** Stub — content needed.
+More concretely, let $S = k[x, y_1, y_2, \ldots]$ and define prime ideals $\mathfrak{p}_n = (x, y_1, \ldots, y_n)$ for $n \geq 1$. The localization at an appropriate multiplicative set and passage to a suitable quotient produces a Noetherian local domain $R$ with $\dim(R) = \infty$ or, in a finite-dimensional variant, a local domain with two saturated chains $(0) \subset \mathfrak{p} \subset \mathfrak{m}$ and $(0) \subset \mathfrak{q}_1 \subset \mathfrak{q}_2 \subset \mathfrak{m}$ of lengths $2$ and $3$ respectively.
+
+The key point is that most "nice" rings encountered in algebraic geometry (finitely generated algebras over a field, complete local rings, Cohen-Macaulay rings) are universally catenary. Non-catenary behavior requires stepping outside these classes.
+
+**Key Insight:** Catenarity (all saturated chains between two primes have the same length) is not automatic for Noetherian local domains. Nagata's constructions show that pathological Noetherian rings can violate basic dimension-theoretic expectations.
+
+**Prerequisites:** Catenary rings, Krull dimension, Noetherian local rings, Nagata's examples
+
+<!-- BENCHMARK_PROBLEM: Define a catenary ring. Give two classes of Noetherian rings that are always catenary, and state (without proof) that Nagata constructed a Noetherian local domain that is not catenary. -->
+
+### Remark: Cohen-Macaulay rings, Dedekind domains, Complete local noetherian rings, Regular rings {#ecag-0102}
+
+The following classes of rings are all universally catenary (hence catenary):
+
+- **Cohen-Macaulay rings:** A Noetherian local ring $(R, \mathfrak{m})$ is Cohen-Macaulay if $\operatorname{depth}(R) = \dim(R)$. Cohen-Macaulay rings satisfy the dimension formula $\operatorname{ht}(\mathfrak{p}) + \dim(R/\mathfrak{p}) = \dim(R)$ for all primes $\mathfrak{p}$, which implies catenarity.
+
+- **Dedekind domains:** These are Noetherian integrally closed domains of dimension $\leq 1$. Every Dedekind domain is Cohen-Macaulay (dimension $\leq 1$ and domain implies depth $= \dim$).
+
+- **Complete local Noetherian rings:** By Cohen's structure theorem, every complete local Noetherian ring is a quotient of a power series ring, which is regular. Quotients of catenary rings are catenary.
+
+- **Regular rings:** A regular local ring is Cohen-Macaulay (by the Auslander-Buchsbaum formula, $\operatorname{depth}(R) = \dim(R)$ for regular $R$). More generally, any ring that is a localization of a finitely generated algebra over a field or over $\mathbb{Z}$ is universally catenary.
 
 ### Example: A discrete valuation ring but not a $G$-ring {#ecag-0103}
 
-[BLR, Neron model,page82, example 11](http://download.springer.com/static/pdf/44/bok%253A978-3-642-51438-8.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Fbook%2F10.1007%2F978-3-642-51438-8&token2=exp=1496253532~acl=%2Fstatic%2Fpdf%2F44%2Fbok%25253A978-3-642-51438-8.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Fbook%252F10.1007%252F978-3-642-51438-8*~hmac=50e8488a6e07258b7a5a4a5db610c4d244c0166f45a353e06d08637f96b5c0ca). And in Qing Liu's book, Example $8.2.31$
+**Statement:** There exists a discrete valuation ring (DVR) $R$ such that the natural map $R \to \hat{R}$ (completion) has the property that $\hat{R} \otimes_R \operatorname{Frac}(R)$ is not a regular ring, i.e., $R$ is not a $G$-ring. A ring is a $G$-ring if the formal fibres of all its localizations are geometrically regular.
+
+**Construction/Proof:** An example is given in Bosch-Lutkebohmert-Raynaud, *Neron Models*, page 82, Example 11, and also in Qing Liu, *Algebraic Geometry and Arithmetic Curves*, Example 8.2.31. The DVR $R$ is constructed so that its completion $\hat{R}$ contains elements that are transcendental over $\operatorname{Frac}(R)$, and the formal fibre $\hat{R} \otimes_R \operatorname{Frac}(R)$ fails to be geometrically regular.
+
+Concretely, one takes a DVR $R$ with fraction field $K$ such that $\hat{K} = \operatorname{Frac}(\hat{R})$ is a transcendental extension of $K$. The formal fibre at the generic point is $\hat{R} \otimes_R K$, which is a localization of $\hat{R}$ but may fail to be regular if $\hat{R}$ has "bad" transcendental elements over $R$.
+
+The $G$-ring property is important because it is a key hypothesis in Grothendieck's theory of excellent rings. A Noetherian ring is excellent if it is a universally catenary $G$-ring with geometrically regular formal fibres. Most rings in algebraic geometry (finitely generated algebras over a field or $\mathbb{Z}$, complete local rings) are excellent, but arbitrary DVRs need not be.
+
+**Key Insight:** The $G$-ring condition controls the regularity of formal fibres and is essential for the theory of excellent rings. DVRs that fail to be $G$-rings arise from pathological completions where transcendental elements introduce singularities in the formal fibre.
+
+**Prerequisites:** Discrete valuation rings, $G$-rings, excellent rings, formal fibres, completion
+
+<!-- BENCHMARK_PROBLEM: Define a $G$-ring and an excellent ring. Explain why every DVR that is a localization of a finitely generated $\mathbb{Z}$-algebra is a $G$-ring, and state that there exist DVRs that are not $G$-rings. -->
 
 ### Example: Akizuki's example, a noetherian local integral domain whose normalization is not finite {#ecag-0104}
 
-Let 
-\begin{itemize}
-\item $A$, a $\mathrm{DVR}$
-\item $t$, the local parameter
-\item $k=A/(t)$, the residue field
-\item $\hat{A}$, the completion of $A$ w.r.t $(t)$
-\item assume $\hat{A}$ has a transcendental element over $A$
-\end{itemize}
-For example, we can take
-\begin{itemize}
-\item $A=\mathbb{Z}_{(p)}$, the localization of $\mathbb{Z}$ at the prime ideal $(p)$
-\item $t=p$, the local parameter
-\item $k=\mathbb{F}_{p}$
-\item $\hat{A}=\mathbb{Z}_{p}$, the ring of $p$-adic integers
-\end{itemize}
-or
-\begin{itemize}
-\item $A=k[t]_{(t)}$, the localization of $k[t]$ at the prime ideal $(t)$
-\item $t$, the local parameter
-\item $k$, the residue field
-\item $\hat{A}=k\llbracket t\rrbracket$, the ring of formal power series
-\end{itemize}
-We first give the construction of Akizuki's example,
-\begin{itemize}
-\item $z=z_{0}=a_{0}+a_{1}t^{n_{1}}+\dots + a_{k}t^{n_{k}}+\dots \in \hat{A}$ such that 
-\begin{itemize}
-\item $a_{i}\in A^{\times}$
-\item $n_{i+1}>2n_{i}+2$
-\item $z$ is transcendental over $A$, thus $A[z]\subset \hat{A}$ is just the polynomial ring of one variable over $A$
-\item $A=\mathbb{Z}_{(p)}$, we may take $z=\sum\frac{1}{(p+1)^{n}}p^{n!}$. $A=k[t]$, we may take $z=\sum t^{n!}$
-\end{itemize}
+**Statement:** There exists a $1$-dimensional Noetherian local integral domain $C_M$ whose normalization $B_{\mathfrak{m}}$ in its fraction field is not a finitely generated $C_M$-module. This shows that the finiteness of normalization can fail without the "finite type over a field or $\mathbb{Z}$" hypothesis.
 
-\item $z_{r}=\frac{z_{0}-\text{first $r$ terms}}{t^{n_{r}}}=a_{r}+a_{r+1}t^{n_{r+1}-n_{r}}+\dots$. Let $m_{r}=n_{r}-n_{r-1}$, we have $m_{r}>n_{r-1}+2$.
-\item $z_{r}-a_{r}=t^{m_{r+1}}z_{r+1}$
-\item $t^{n_{r}}z_{r}=z_{0}-\sum_{i=0}^{r-1}a_{i}t^{n_{i}}$
-\item
+**Construction/Proof:** Let $(A, (t))$ be a DVR with residue field $k = A/(t)$ and completion $\hat{A}$, such that $\hat{A}$ contains an element transcendental over $A$. Two concrete choices:
 
-$$B=A[z_{0}, z_{1},\dots ]=A[(z_{0}-a_{0}), (z_{1}-a_{1})\dots ]$$
+- $A = \mathbb{Z}_{(p)}$, $t = p$, $k = \mathbb{F}_p$, $\hat{A} = \mathbb{Z}_p$ (the $p$-adic integers).
+- $A = k[t]_{(t)}$, $\hat{A} = k[[t]]$ (formal power series).
 
-$$B_{m}=A[z_{0},a_{1},\dots ]_{(t)}$$
+Choose $z = z_0 = \sum_{i \geq 0} a_i t^{n_i} \in \hat{A}$ with $a_i \in A^{\times}$, $n_{i+1} > 2n_i + 2$, and $z$ transcendental over $A$ (e.g., $z = \sum t^{n!}$ for $A = k[t]_{(t)}$). Define:
 
-$$C=A[t(z_{0}-a_{0}), \{(z_{i}-a_{i})^{2}\}_{i=1}^{\infty}]$$
+$$
+z_r = \frac{z_0 - \sum_{i=0}^{r-1} a_i t^{n_i}}{t^{n_r}}, \quad m_r = n_r - n_{r-1}, \quad z_r - a_r = t^{m_{r+1}} z_{r+1}.
 
-$$C_{M}=A[t(z_{0}-a_{0}), \{(z_{i}-a_{i})^{2}\}_{i=1}^{\infty}]_{(t)}$$
+$$
 
-\item The final claim is that 
+Set $B = A[z_0, z_1, \ldots]$, $B_{\mathfrak{m}} = B_{(t)}$, $C = A[t(z_0 - a_0), \{(z_i - a_i)^2\}_{i \geq 1}]$, and $C_M = C_{(t)}$.
 
-$$\text{$C_{M}$ is a $1$-dimensional integral noetherian local ring} $$
+*Claim:* $C_M$ is a $1$-dimensional Noetherian local integral domain, $B_{\mathfrak{m}}$ is its normalization, and $B_{\mathfrak{m}}$ is not finite over $C_M$.
 
-$$\text{$B_{m}$ is the normalization of $C_{M}$ in $\mathrm{Frac}(C_{M})=\mathrm{Frac}(B_{m})=A(z)$}$$
+The key observation is: for any $0 \neq f \in M$ (the maximal ideal of $C_M$), the principal ideal $fC_M$ contains a power of $t$. This is proved by showing that any $f \in C$ can be written as $f = \alpha + \beta t^{n_r+1}(z_r - a_r) + t^N \theta$ with $\alpha, \beta \in A$, $\theta \in C$. For $0 \neq f \in M$, one constructs $g = t^k(1 + t^{N-k}\theta) - \beta t^{n_r+1}(z_r - a_r)$ so that
 
-$$\text{$B_{m}$ is not finite over $C_{M}$}$$
+$$
+fg = t^{2k}(1 + t^{N-k}\theta)^2 - \beta^2 t^{2n_r+2}(z_r - a_r)^2 = t^{2k} v, \quad v \in C \setminus M,
 
-\end{itemize}
-Now let's give the proof. The main observation is that 
+$$
 
-$$\text{$0\neq f\in M$, the principal ideal $fC_{M}\subset C_{M}$ contains some power of $t$}$$
+giving $t^{2k} \in fC_M$. It follows that every nonzero prime of $C_M$ contains $t$, so $\dim(C_M) = 1$. Noetherianness follows because $C_M / (t^N)$ is a finite $A/(t^N)$-module for each $N$, and every nonzero ideal contains some $(t^N)$.
 
-First, we should ask, what an element  $f\in C$ looks like? Well, it's a polynomial in $t(z_{0}-a_{0}), (z_{i}-a_{i})^{2}$, topologically, we want to describe $f$ as a point in some small neighborhood of a point in $A$. How to do this? Just by raising the power of $t$. It's not hard because we can 
-\begin{itemize}
-\item  we can always replace $t(z_{0}-a_{0})$ by $t^{n_{i}+1}(z_{i}-a_{i})$, the difference lies in $A$. Replacing $t^{n_{i}+1}(z_{i}-a_{i})$ by $t^{n_{j}+1}(z_{j}-a_{j})$ if we want to raising the power of $t$ further. 
-\item we can replace $(z_{i-1}-a_{i-1})^{2}$ by $t^{2m_{i}}(z_{i}-a_{i})^{2}+\text{multiple of } t^{n_{i}+2}(z_{i}-a_{i})+\text{somthing in $A$}$. This is because (remember $m_{i}>n_{i}+2$)
+To show $B_{\mathfrak{m}}$ is not finite over $C_M$: the elements $\{z_i - a_i\}_{i \geq 1}$ generate an ascending chain of $C_M$-submodules that does not stabilize. If it did, then $z_r - a_r = \sum_{i=1}^{r-1} \theta_i (z_i - a_i)$ for some $\theta_i \in C_M$, and multiplying by $t^{n_r}$ yields a nontrivial polynomial relation on $z$ over $A$, contradicting the transcendence of $z$.
 
-$$(z_{i-1}-a_{i-1})^{2}=(t^{m_{i}}z_{i})^{2}=t^{2m_{i}}((z_{i}-a_{i})^{2}-a_{i}^{2})+2a_{i}t^{2m_{i}}z_{i}$$
+More details and discussion can be found in [Akizuki's counterexample](https://arxiv.org/pdf/alg-geom/9503017.pdf).
 
-\item That is, any $f\in C, r, N$ positive integers, we can write it as 
+**Key Insight:** The transcendence of $z$ over $A$ inside the completion $\hat{A}$ forces the normalization to require infinitely many generators, while the careful choice of the subring $C$ (using squares and products with $t$) ensures Noetherianness.
 
-$$f=\alpha+\beta t^{n_{r}+1}(z_{r}-a_{r})+t^{N}\theta, \alpha,\beta\in A, \theta\in C.$$
+**Prerequisites:** DVRs, normalization, Noetherian local domains, completions, transcendental elements
 
-\item $0\neq f\in M$, thus exists $N>0$ such that $f\notin t^{N}\hat{A}$, we may choose $r$ such that $n_{r}+1>N$. Then we know $\alpha=t^{k}u$, and $k<N, u\in A^{\times}$. Dividing both sides by $u$, we may assume 
-
-$$f=t^{k}(1+t^{N-k}\theta)+\beta t^{n_{r}+1}(z_{r}-a_{r})$$
-
-Let
-
-$$g=t^{k}(1+t^{N-k}\theta)-\beta t^{n_{r}+1}(z_{r}-a_{r})$$
-
-We have 
-
-$$fg=t^{2k}(1+t^{N-k}\theta)^{2}-\beta t^{2n_{r}+2}(z_{r}-a_{r})^{2}=t^{2k}v, v\in C\setminus M$$
-
-Then we know $t^{2k}\in fC_{M}$.
-\item It follows that any proper prime ideal in $C_{M}$ contains $t$, thus $\mathrm{Spec}(C_{M})=\{0, C_{M}\}$, in other words, it's a $1$-dimensional local ring.
-\item To see $C_{M}$ is noetherian, first notice that $C_{M}/(t^{N}C_{M})$ is a finite $A/(t^{N})$-module generated by $\{1,t^{n_{r}+1}z_{r+1}\}$. Now any nonzero ideal $I\subset C_{M}$, we know $(t^{N})\subset I$, thus $C_{M}/I$ is a quotient of $C_{M}/(t^{N}C_{M})$ as an $A$-module, thus Noetherian. 
-\item Now it's clear that $C_{M}$ is an integral, noetherian local ring of dimension $1$.
-\item We only need to prove that $B_{m}$ is not finite over $C_{M}$. Just consider the ascending chain of submodules generated by $\{z_{i}-a_{i}\}_{i=1}^{r}$, if it's stable, then we must have 
-
-$$z_{r}-a_{r}=\sum_{i=1}^{r-1} \theta_{i}(z_{i}-a_{i}), \theta_{i}\in C_{M}.$$
-
-We may assume $\theta_{i}=\frac{\alpha_{i}}{\gamma}$, wher $\alpha_{i}\in C, \gamma\notin M$, we get 
-
-$$\gamma(z_{r}-a_{r})=\sum_{i=1}^{r-1} \alpha_{i}(z_{i}-a_{i}).$$
-
-Multiplying both sides by $t^{n_{r}}$, we get an algebraic equation w.r.t $z$
-
-$$\gamma(z-\sum_{i=0}^{r+1}a_{i}t^{n_{i}})=\sum_{i=1}^{r-1} \alpha_{i}t^{n_{r}-n_{i}}(z-\sum_{j=0}^{j+1}a_{j}t^{n_{j}})$$
-
-Note that $\gamma$ is a unit in $C_{M}$, coefficients on the right hand side are all divided by some positive power of $t$, every $\alpha_{i}$ is a polynomial in $z$ over $A$. Thus this equation is an non-trivial polynomial, whcih contradicts the fact that $z$ is transcendental over $A$. Now everything is clear.
-\end{itemize}
-
-More details and discussion of Akizuki's example can be found in [Akizuki's counterexample](https://arxiv.org/pdf/alg-geom/9503017.pdf)
+<!-- BENCHMARK_PROBLEM: State Akizuki's example: construct a $1$-dimensional Noetherian local integral domain whose normalization is not a finitely generated module. Under what standard hypothesis on a scheme does finiteness of normalization hold? -->
 
 ### Remark {#ecag-0105}
 
-For integral schemes of finite type, the normalization is always finite. My personal feeling is that, to consider geometric questions, we have to assume a scheme is of finite type over $k$ or $\mathbb{Z}$ at some point.
+For integral schemes of finite type over a field $k$ (or over $\mathbb{Z}$), the normalization morphism $\widetilde{X} \to X$ is always finite. This is a consequence of the finiteness of integral closure for finitely generated algebras over a field (Noether's theorem on integral closure). In practice, finiteness of normalization is a crucial hypothesis for geometric arguments, and one typically assumes schemes are of finite type over a field or over $\mathbb{Z}$ to ensure it.
 
 ### Remark {#ecag-0106}
 
-[p-adic completion of the integers equals the completion](https://math.stackexchange.com/questions/879962/does-it-hold-that-the-p-adic-completion-of-the-integers-equals-the-completion)
+The $p$-adic integers $\mathbb{Z}_p$ coincide with the $(p)$-adic completion of $\mathbb{Z}_{(p)}$: both are the inverse limit $\varprojlim \mathbb{Z}/p^n\mathbb{Z}$. More generally, for any DVR $(A, (t))$, the completion $\hat{A} = \varprojlim A/t^n A$ is again a DVR. See the discussion at [p-adic completion of the integers equals the completion](https://math.stackexchange.com/questions/879962/does-it-hold-that-the-p-adic-completion-of-the-integers-equals-the-completion).
 
 ### Example: a flat and finite type morphism between noetherian schemes, fibres have different dimensions {#ecag-0107}
 
-Let $R$ be your favorite DVR (for example, $\mathbb{Z}_{(p)}, k[t]_{(t)}$). Our palyers are 
-\begin{itemize}
-\item $Y=\mathrm{Spec}(R)$, $(0)$ is the generic point, which is open in $Y$ with residue field $K=\mathrm{Frac}(R)$, $\mathfrak{m}$ is the unique maximal ideal, which is closed in $Y$ with residue field $k=R/\mathfrak{m}$.
-\item Glue $\mathbb{A}_{R}^{1}=\mathrm{Spec}(R[x])$ along $(\mathbb{G}_{m})_{K}\subset \mathbb{A}_{R}^{1}$ with a union of $\mathbb{A}_{K}^{1}$ and $\mathbb{P}_{K}^{2}$ meeting at the origin by inversion. That is, at the generic fibre, we get a union of $\mathbb{P}_{K}^{1}$ and $\mathbb{P}_{K}^{2}$. Denote the glued scheme by $X$. 
-\item $\pi:X\rightarrow Y$ gives us a flat morphism since all modifications happen at the generic fibre. 
-\item $\pi$ is not proper because $\mathbb{P}_{K}^{2}$ is a closed subset of $X$, but the image of it is the genric point which is not closed. 
-\item $\mathrm{dim}(Y_{(0)})=2$(not pure), $\mathrm{dim}(Y_{\mathfrak{m}})=1$. 
-[.....](https://mathoverflow.net/questions/7469/is-relatively-algebraically-closed-stable-under-finite-field-extensions)
-\end{itemize}
+**Statement:** There exists a flat, finite type morphism $\pi: X \to Y$ between Noetherian schemes such that the fibres have different dimensions: the generic fibre has dimension $2$ while the special fibre has dimension $1$.
+
+**Construction/Proof:** Let $R$ be a DVR (e.g., $\mathbb{Z}_{(p)}$ or $k[t]_{(t)}$) with fraction field $K = \operatorname{Frac}(R)$ and residue field $\kappa = R/\mathfrak{m}$. Set $Y = \operatorname{Spec}(R)$.
+
+Start with $\mathbb{A}_{R}^{1} = \operatorname{Spec}(R[x])$. Over the generic point, glue $(\mathbb{G}_m)_K \subset \mathbb{A}_{K}^{1}$ with a copy of $\mathbb{A}_{K}^{1} \cup \mathbb{P}_{K}^{2}$ (meeting at the origin via inversion) to obtain a scheme $X$ over $Y$. The generic fibre $X_{(0)}$ is the union of $\mathbb{P}_{K}^{1}$ and $\mathbb{P}_{K}^{2}$, which has dimension $2$ (not equidimensional). The special fibre $X_{\mathfrak{m}} = \mathbb{A}_{\kappa}^{1}$ has dimension $1$.
+
+The morphism $\pi: X \to Y$ is flat because all modifications occur at the generic fibre, and $R[x]$ is flat over $R$. It is of finite type since all pieces are finitely generated over $R$. However, $\pi$ is not proper: the component $\mathbb{P}_{K}^{2}$ is closed in $X$ but maps only to the generic point, which is not closed in $Y$.
+
+**Key Insight:** Without properness, flat morphisms of finite type can have fibres of different dimensions. The generic fibre can be made larger by attaching extra components that do not extend over the special point.
+
+**Prerequisites:** Flat morphisms, finite type, DVRs, fibre dimension
+
+<!-- BENCHMARK_PROBLEM: Construct a flat, finite type morphism $f: X \to \operatorname{Spec}(R)$ over a DVR $R$ such that the generic fibre has dimension $2$ and the special fibre has dimension $1$. Why must such a morphism fail to be proper? -->
 
 ### Remark {#ecag-0108}
 
-In fact, we have 
-\begin{itemize}
-\item Let $f:X\rightarrow Y$ be a proper flat and finitely presented morphism(no assumption on irreducibility, noetherian hypothesis), $y\mapsto \mathrm{dim}X_{y}$ is a locally constant function.
-\item Let $f:X\rightarrow Y$ be a flat and finite type morphism between noetherian schemes, $d:=\mathrm{dim}X_{\eta_{Y}}$, then all geometric fibres $X_{\bar{y}}$ has pure dimension $d$.
-\end{itemize}
+The fibre dimension behavior under flatness is controlled by additional hypotheses:
+
+- If $f: X \to Y$ is a proper, flat, finitely presented morphism (no assumption on irreducibility or Noetherian hypothesis), then $y \mapsto \dim(X_y)$ is a locally constant function on $Y$.
+
+- If $f: X \to Y$ is a flat, finite type morphism between Noetherian schemes with $Y$ irreducible and $d = \dim(X_{\eta_Y})$, then all geometric fibres $X_{\bar{y}}$ have pure dimension $d$, provided $f$ has irreducible (or at least equidimensional) generic fibre.
+
+The properness hypothesis in the first statement is essential, as ecag-0107 demonstrates.
 
 ### Example: non-Gorenstein variety {#ecag-0109}
 
-[Hyman Bass and Ubiquity: Gorenstein Rings](https://arxiv.org/pdf/math/0209199.pdf)
+**Statement:** A Noetherian local ring $(R, \mathfrak{m})$ is Gorenstein if it has finite injective dimension as a module over itself. Equivalently, $R$ is Cohen-Macaulay and its canonical module $\omega_R$ is isomorphic to $R$. Not every Cohen-Macaulay ring is Gorenstein; a simple example is the coordinate ring of the monomial curve $\operatorname{Spec}(k[t^3, t^4, t^5])$.
+
+**Construction/Proof:** Let $R = k[t^3, t^4, t^5] \cong k[x,y,z]/(xz - y^2, x^2 y - z^2, x^3 - yz)$. This is the coordinate ring of a curve singularity at the origin. The ring $R$ is a $1$-dimensional Cohen-Macaulay domain (being a domain of dimension $1$), but it is not Gorenstein.
+
+To see this, the type of $R$ (the minimal number of generators of the socle of $R/\mathfrak{m}$, where $\mathfrak{m} = (t^3, t^4, t^5)$) is $2$, not $1$. A Gorenstein local ring has type $1$ (its socle is $1$-dimensional). Alternatively, the canonical module $\omega_R$ is not isomorphic to $R$: one can compute $\omega_R \cong (t^3, t^4) \subset R$, which requires $2$ generators.
+
+For a comprehensive survey of Gorenstein rings and their ubiquity, see [Hyman Bass and Ubiquity: Gorenstein Rings](https://arxiv.org/pdf/math/0209199.pdf).
+
+**Key Insight:** Gorenstein is stronger than Cohen-Macaulay: it additionally requires the canonical module to be free of rank $1$ (equivalently, type $= 1$). Monomial curves $k[t^a, t^b, t^c]$ with $\gcd(a,b,c) = 1$ provide a rich source of examples and counterexamples.
+
+**Prerequisites:** Gorenstein rings, Cohen-Macaulay rings, canonical modules, type of a local ring
+
+<!-- BENCHMARK_PROBLEM: Show that the local ring $R = k[t^3, t^4, t^5]_{(t^3, t^4, t^5)}$ is Cohen-Macaulay but not Gorenstein by computing the type of $R$ (the $k$-dimension of the socle of $R/\mathfrak{m}$). -->
 
 ### Example: valuation rings and discrete valuation rings {#ecag-0110}
 
-> **Status:** Stub — content needed.
+**Statement:** Every discrete valuation ring (DVR) is a valuation ring, but not conversely. A valuation ring $V$ of a field $K$ is a subring such that for every $x \in K^{\times}$, either $x \in V$ or $x^{-1} \in V$. A DVR is a valuation ring whose value group is $\mathbb{Z}$; equivalently, it is a Noetherian valuation ring, or a regular local ring of dimension $1$.
+
+**Construction/Proof:** For a DVR example, take $V = k[[t]]$ (formal power series) with valuation $v(f) = \operatorname{ord}_t(f)$. The value group is $\mathbb{Z}$, the maximal ideal is $(t)$, and $V$ is Noetherian.
+
+For a non-discrete valuation ring, consider the field $K = k(x, y)$ and the valuation $v: K^{\times} \to \mathbb{Z}^2$ (with lexicographic order) defined by $v(x) = (1, 0)$ and $v(y) = (0, 1)$. The valuation ring $V = \{f \in K \mid v(f) \geq 0\}$ is a local ring with maximal ideal $\mathfrak{m} = \{f \mid v(f) > 0\}$, but it is not Noetherian: the ideal $(x, y/x, y/x^2, \ldots)$ is not finitely generated. The value group $\mathbb{Z}^2$ is not isomorphic to $\mathbb{Z}$.
+
+Another classical non-discrete example: let $K = k((t^{\mathbb{Q}}))$ be the field of Hahn series with rational exponents, and $V = k[[t^{\mathbb{Q}_{\geq 0}}]]$. The value group is $\mathbb{Q}$, which is dense in $\mathbb{R}$ and not isomorphic to $\mathbb{Z}$.
+
+**Key Insight:** DVRs are the simplest valuation rings (rank $1$, value group $\mathbb{Z}$). General valuation rings can have arbitrary totally ordered abelian groups as value groups and need not be Noetherian.
+
+**Prerequisites:** Valuation rings, DVRs, value groups, Noetherian property
+
+<!-- BENCHMARK_PROBLEM: Give an example of a valuation ring that is not a DVR. What property of the value group distinguishes DVRs from general valuation rings? -->
 
 ### Example: Brian Conrad's notes, page69, a semi-stable curve over a noetherian scheme with smooth generic fibre is normal {#ecag-0111}
 
-> **Status:** Stub — content needed.
+**Statement:** Let $R$ be a DVR with fraction field $K$, and let $f: C \to \operatorname{Spec}(R)$ be a semi-stable curve (i.e., a flat proper morphism whose geometric fibres are reduced connected curves with at worst ordinary double point singularities). If the generic fibre $C_K$ is smooth, then $C$ is normal.
+
+**Construction/Proof:** By the definition of semi-stability, every geometric fibre of $f$ is a reduced curve with at worst nodal singularities. The total space $C$ is a $2$-dimensional scheme, flat over $R$.
+
+To show normality, apply Serre's criterion: $C$ must satisfy $R_1$ (regular in codimension $1$) and $S_2$ (Serre's condition on depth). Since $C$ is flat over a DVR, it is $S_2$ if and only if it has no embedded associated primes and every codimension-$2$ point has depth $\geq 2$. Flatness over $R$ and the reducedness of the special fibre ensure that $C$ has no embedded primes.
+
+For $R_1$: the generic fibre $C_K$ is smooth by hypothesis, so $C$ is regular at all codimension-$1$ points lying over the generic point of $\operatorname{Spec}(R)$. At codimension-$1$ points of the special fibre, the local ring of $C$ is either a DVR (at smooth points of the special fibre) or the localization of $R[x,y]/(xy - \pi^n)$ at a height-$1$ prime (at nodes), which is regular. Therefore $C$ satisfies $R_1$.
+
+For $S_2$: since $C$ is a $2$-dimensional Cohen-Macaulay scheme (being flat over a DVR with Cohen-Macaulay fibres), it automatically satisfies $S_2$.
+
+See Brian Conrad's notes on alterations, page 69.
+
+**Key Insight:** Semi-stability of the fibres (at worst nodal singularities) combined with smoothness of the generic fibre ensures that the total space of a semi-stable curve over a DVR is normal, via Serre's $R_1 + S_2$ criterion.
+
+**Prerequisites:** Semi-stable curves, Serre's criterion for normality ($R_1 + S_2$), DVRs, flatness
+
+<!-- BENCHMARK_PROBLEM: State Serre's criterion for normality ($R_1 + S_2$) and explain why a semi-stable curve over a DVR with smooth generic fibre satisfies both conditions. -->
 
 ### Example: smooth morphism, isomorphic generic fibre, nonisomorphic special fibres, Shizhang {#ecag-0112}
 
-Let $V=\mathcal{O}\oplus\mathcal{O}(2), W=\mathcal{O}\oplus\mathcal{O}$ over $\mathbb{P}^{1}_{k\llbracket t\rrbracket}$
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-\begin{tikzcd} \mathbb{P}(V)\arrow{rd}{f} & & \mathbb{P}(W)\arrow{dl}{g} \\
-&\mathrm{Spec}(k\llbracket t\rrbracket) &\end{tikzcd}
-```
-```
+**Statement:** There exist two smooth proper morphisms $f: \mathbb{P}(\mathscr{V}) \to \operatorname{Spec}(k[[t]])$ and $g: \mathbb{P}(\mathscr{W}) \to \operatorname{Spec}(k[[t]])$ with isomorphic generic fibres but non-isomorphic special fibres.
+
+**Construction/Proof:** Let $\mathscr{V} = \mathcal{O} \oplus \mathcal{O}(2)$ and $\mathscr{W} = \mathcal{O} \oplus \mathcal{O}$ be vector bundles on $\mathbb{P}^{1}_{k[[t]]}$. The projectivizations $\mathbb{P}(\mathscr{V})$ and $\mathbb{P}(\mathscr{W})$ are smooth proper surfaces over $\operatorname{Spec}(k[[t]])$.
+
+Over the generic point $\operatorname{Spec}(k((t)))$, both bundles become isomorphic: every vector bundle on $\mathbb{P}^{1}$ over a field splits as a sum of line bundles (Grothendieck's theorem), and over $k((t))$ the bundle $\mathscr{V}|_{k((t))}$ can be trivialized to become isomorphic to $\mathscr{W}|_{k((t))}$ (since $\mathcal{O} \oplus \mathcal{O}(2) \cong \mathcal{O} \oplus \mathcal{O}$ over the generic fibre after a suitable change of trivialization). Therefore the generic fibres $\mathbb{P}(\mathscr{V})_{k((t))} \cong \mathbb{P}(\mathscr{W})_{k((t))}$.
+
+However, the special fibres are the Hirzebruch surfaces $\mathbb{F}_2 = \mathbb{P}(\mathcal{O} \oplus \mathcal{O}(2))$ and $\mathbb{F}_0 = \mathbb{P}^{1} \times \mathbb{P}^{1} = \mathbb{P}(\mathcal{O} \oplus \mathcal{O})$. These are not isomorphic: $\mathbb{F}_2$ contains a curve (the negative section) with self-intersection $-2$, while every curve on $\mathbb{F}_0$ has non-negative self-intersection.
+
+**Key Insight:** Isomorphism of generic fibres does not imply isomorphism of special fibres, even for smooth proper families. The splitting type of a vector bundle on $\mathbb{P}^{1}$ can jump under specialization, producing non-isomorphic Hirzebruch surfaces as fibres.
+
+**Prerequisites:** Hirzebruch surfaces, vector bundles on $\mathbb{P}^1$, Grothendieck's splitting theorem, smooth morphisms
+
+<!-- BENCHMARK_PROBLEM: Show that the Hirzebruch surfaces $\mathbb{F}_0 = \mathbb{P}^1 \times \mathbb{P}^1$ and $\mathbb{F}_2$ are not isomorphic by comparing the minimal self-intersection numbers of curves on each. -->
 
 ### Remark: no fine Moduli space for semi-stable vector bundles {#ecag-0113}
 
-First note that this example can be extended to all $F_{n}$ surfaces.
+The example ecag-0112 extends to all Hirzebruch surfaces $\mathbb{F}_n$: the bundles $\mathcal{O} \oplus \mathcal{O}(n)$ and $\mathcal{O} \oplus \mathcal{O}$ on $\mathbb{P}^1$ over $k[[t]]$ become isomorphic over $k((t))$ but have non-isomorphic projectivizations as special fibres ($\mathbb{F}_n \not\cong \mathbb{F}_0$ for $n \geq 1$). This phenomenon is one reason why a fine moduli space for semi-stable vector bundles on curves does not exist: the isomorphism class can jump in families, violating the local representability required for a fine moduli space. One must instead work with coarse moduli spaces or moduli stacks.
 
 ### Example: smooth varieties over a DVR, isomorphic generic fibres, nonisomorphic special fibres {#ecag-0114}
 
-[Here](https://mathoverflow.net/questions/75393/does-isomorphic-generic-fibre-imply-isomorphic-special-fibre-for-smooth-morphism)
+**Statement:** There exist smooth proper schemes $X, Y$ over a DVR $R$ with isomorphic generic fibres $X_K \cong Y_K$ but non-isomorphic special fibres $X_k \not\cong Y_k$.
+
+**Construction/Proof:** The Hirzebruch surface example (ecag-0112) provides one instance. For a more general discussion, see [this MathOverflow thread](https://mathoverflow.net/questions/75393/does-isomorphic-generic-fibre-imply-isomorphic-special-fibre-for-smooth-morphism). Additional examples arise from:
+
+- Abelian varieties with different reduction types (e.g., an elliptic curve over $\mathbb{Q}_p$ with two different minimal models having isomorphic generic fibres but different special fibres).
+- Smooth cubic surfaces that degenerate to different special fibres under different models.
+
+The general principle is that a smooth proper scheme over a DVR is not uniquely determined by its generic fibre: the choice of a model (i.e., the extension of the generic fibre to a flat proper scheme over the DVR) is not unique, and different models can have non-isomorphic special fibres.
+
+**Key Insight:** The generic fibre of a smooth proper family over a DVR does not determine the special fibre. This failure of "rigidity" is a fundamental feature of arithmetic and algebraic geometry over non-algebraically closed bases.
+
+**Prerequisites:** Smooth morphisms, DVRs, models of varieties, reduction theory
+
+<!-- BENCHMARK_PROBLEM: Give two smooth proper families over a DVR with isomorphic generic fibres but non-isomorphic special fibres. What additional data beyond the generic fibre is needed to determine the special fibre? -->
 
 ### Example: resolution of singularities of semistable curves over a discrete valuation ring {#ecag-0115}
 
-Let $R$ be a discrete valuation ring(e.g $k\llbracket t\rrbracket$), $\pi$ a uniformizer and $n\geq 1$, consider 
+**Statement:** Let $R$ be a DVR (e.g., $k[[t]]$) with uniformizer $\pi$ and $n \geq 1$. The scheme $C_n = \operatorname{Spec}(R[x,y]/(xy - \pi^n))$ is a semistable curve over $R$ whose special fibre has a single ordinary double point. Its singularity can be resolved by a sequence of $n - 1$ blow-ups, producing a chain of $n$ rational curves meeting transversely.
 
-$$C_{n}:\mathrm{Spec}R[x,y]/(xy-\pi^{n}).$$
+**Construction/Proof:** The scheme $C_n$ is flat over $R$ (since $xy - \pi^n$ is a non-zero-divisor in $R[x,y]$). The generic fibre $C_{n,K} = \operatorname{Spec}(K[x,y]/(xy - \pi^n)) \cong \operatorname{Spec}(K[x, x^{-1}])$ is smooth (a punctured affine line), since $\pi$ is invertible in $K = \operatorname{Frac}(R)$.
 
-Then the generic fibre is smooth($\pi$ is invertible in $\mathrm{Frac}(R)$), its special fibre is singular at a unique point $p=(x,y)$, the completion is given by 
+The special fibre $C_{n,k} = \operatorname{Spec}(k[x,y]/(xy))$ consists of two lines meeting at the origin, with a node at $p = (x, y)$. The completed local ring at $p$ is
 
-$$\widehat{\mathscr{O}_{C_{n},p}}=\widehat{R}[x,y]/(xy-\pi^{n})$$
+$$
+\widehat{\mathcal{O}_{C_n, p}} = \hat{R}[[x,y]]/(xy - \pi^n).
 
-Brian Conrad's notes on alteration page78.
+$$
+
+For $n = 1$, the scheme $C_1$ is already regular (the node is a smooth point of the total space since $\pi, x$ form a regular system of parameters). For $n \geq 2$, the total space is singular at $p$: the local ring $R[x,y]_{(x,y,\pi)}/(xy - \pi^n)$ has embedding dimension $3$ but dimension $2$, so it is not regular.
+
+Resolution proceeds by blowing up the singular point. Each blow-up replaces the node with a $\mathbb{P}^{1}$ and reduces the exponent $n$ by $1$. After $n - 1$ blow-ups, the resulting scheme is regular, with special fibre a chain of $n$ copies of $\mathbb{P}^{1}$ meeting transversely (an $A_{n-1}$-configuration).
+
+See Brian Conrad's notes on alterations, page 78.
+
+**Key Insight:** The local model $xy = \pi^n$ for semistable curve singularities is resolved by iterated blow-ups that introduce chains of rational curves, mirroring the resolution of $A_{n-1}$ surface singularities.
+
+**Prerequisites:** DVRs, semistable curves, blow-ups, resolution of singularities, $A_n$ singularities
+
+<!-- BENCHMARK_PROBLEM: Let $R = k[[t]]$ and $C_2 = \operatorname{Spec}(R[x,y]/(xy - t^2))$. Show that $C_2$ is singular at the closed point $p = (x, y, t)$ and describe the result of blowing up $C_2$ at $p$. How many irreducible components does the special fibre of the resolution have? -->
 
 ### Example: Henselization {#ecag-0116}
 
-[Stacks project Tag 03QD](http://stacks.math.columbia.edu/tag/03QD)
-[Wikipedia Henselian rings](https://en.wikipedia.org/wiki/Henselian_ring) and example of [algebraic formal power series](https://math.stackexchange.com/questions/2143409/algebraic-formal-power-series)
+**Statement:** The Henselization $R^h$ of a local ring $(R, \mathfrak{m})$ is the "smallest" Henselian local ring containing $R$ with the same residue field. It is intermediate between $R$ and its completion $\hat{R}$: there are natural local homomorphisms $R \to R^h \to \hat{R}$. The Henselization is an algebraic (rather than topological) approximation to the completion.
 
-### Example: page 11, imperfect field geometrically integral curve , $k(x)/k$ not separable {#ecag-0117}
+**Construction/Proof:** For $R = k[x]_{(x)}$ (the local ring of $\mathbb{A}^{1}$ at the origin), the Henselization $R^h$ consists of those formal power series $f \in k[[x]]$ that are algebraic over $k[x]$. For example, $\sqrt{1 + x} = 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \cdots \in R^h$ (if $\operatorname{char}(k) \neq 2$) since it satisfies the polynomial $y^2 - (1+x) = 0$.
 
-> **Status:** Stub — content needed.
+The key property of a Henselian local ring $(R, \mathfrak{m})$ is Hensel's lemma: if $f \in R[T]$ is a monic polynomial whose reduction $\bar{f} \in (R/\mathfrak{m})[T]$ factors as $\bar{f} = \bar{g} \bar{h}$ with $\gcd(\bar{g}, \bar{h}) = 1$, then $f$ itself factors as $f = gh$ lifting this factorization.
+
+The Henselization is constructed as a direct limit of etale neighborhoods: $R^h = \varinjlim (A, \mathfrak{q})$ over all local-etale $R$-algebras $(A, \mathfrak{q})$ with $A/\mathfrak{q} = R/\mathfrak{m}$. See [Stacks project, Tag 03QD](http://stacks.math.columbia.edu/tag/03QD) and [Wikipedia: Henselian rings](https://en.wikipedia.org/wiki/Henselian_ring).
+
+**Key Insight:** The Henselization captures the "algebraic" part of the completion. It is the natural local ring for etale-local questions in algebraic geometry, playing the role that the completion plays for formal-local questions.
+
+**Prerequisites:** Henselian rings, Hensel's lemma, etale morphisms, completions, algebraic power series
+
+<!-- BENCHMARK_PROBLEM: Define the Henselization of a local ring $(R, \mathfrak{m})$. For $R = k[x]_{(x)}$ with $\operatorname{char}(k) \neq 2$, show that $\sqrt{1+x} \in R^h$ but $e^x \notin R^h$ (assuming $k = \mathbb{Q}$). -->
+
+### Example: page 11, imperfect field geometrically integral curve, $k(x)/k$ not separable {#ecag-0117}
+
+**Statement:** Over an imperfect field $k$ of characteristic $p > 0$, there exist geometrically integral curves $C/k$ such that the function field extension $k(C)/k$ is not separable. This cannot occur over a perfect field.
+
+**Construction/Proof:** Let $k = \mathbb{F}_p(t)$ and consider the curve
+
+$$
+C = \operatorname{Spec}(k[x,y]/(y^p - x - t)) \subset \mathbb{A}_{k}^{2}.
+
+$$
+
+The polynomial $f = y^p - x - t$ is irreducible over $k$ (since $t \notin k^p + k \cdot x$, one can verify irreducibility by checking that $f$ has no roots in $k[x]$). So $C$ is integral with function field $K = k(x)[y]/(y^p - x - t) = k(y)$ (since $x = y^p - t$).
+
+The extension $K/k$ is $k(y)/k = k(y)$, which is separable (it is a purely transcendental extension). However, $C$ is not geometrically reduced: over $\bar{k}$, we have $y^p - x - t = (y - (x+t)^{1/p})^p$, so $C_{\bar{k}}$ is non-reduced.
+
+For a truly inseparable function field example, consider instead $C' = \operatorname{Spec}(k[x]/(x^p - t))$. This is a $0$-dimensional scheme (a point), but $k(C') = k[x]/(x^p - t) = k(t^{1/p})$, which is a purely inseparable extension of $k$. For a curve example, take $C'' = \operatorname{Spec}(k[x,y]/(x^p - ty^p))$; the function field is $k(x/y)(y) = k(s, y)/(s^p - t)$ where $s = x/y$, so $k(C'')$ contains the inseparable extension $k(t^{1/p})/k$.
+
+**Key Insight:** Over imperfect fields, the function field of a geometrically integral variety can contain purely inseparable extensions of the ground field, reflecting the failure of geometric reducedness after base change to the algebraic closure.
+
+**Prerequisites:** Imperfect fields, separable and inseparable extensions, geometric integrality, characteristic $p$
+
+<!-- BENCHMARK_PROBLEM: Let $k = \mathbb{F}_p(t)$ and $C = \operatorname{Spec}(k[x,y]/(x^p - ty^p))$. Show that $C$ is integral over $k$ but not geometrically reduced. What is the function field $k(C)$ and does it contain a purely inseparable extension of $k$? -->
 
 ### Example: Complete local rings {#ecag-0118}
 
-Complete local rings are not hard to get. Just take any local ring and compute the completion. For example
-\begin{itemize}
-\item $R=k\llbracket x, y\rrbracket/(xy)$ is the completion of the local ring at the node of the nodal curve $y^{2}=x^{2}(x+1)$. It's not regular. Since the minimal number of generators of $\mathfrak{m}=(x,y)$ is 2. But the Krull dimension is just $1$. To see this any prime $\mathfrak{p}$ is generated by some $x^{n}u$ and $y^{m}v$ where $u, v$ are invertible elements in this complete ring.
-For the ideal to be a prime, the only possibility is that $n=m=0$. Notice that $(0)$ is not a prime ideal of this ring. We get $\mathrm{dim}R=1$.
-\item $R= \mathbb{Z}_p\llbracket x,y\rrbracket/(xy-v)$ is the completion of $\mathbb{Z}_p[x,y]/((x^2-2+y^2)(x^2-y^2)+p^ry)$. 
-\end{itemize}
+**Statement:** Complete local rings arise naturally as completions of local rings of algebraic varieties at points. They are always Noetherian (by Cohen's structure theorem) and provide a convenient setting for local analysis.
+
+**Construction/Proof:** Two instructive examples:
+
+1. $R = k[[x, y]]/(xy)$ is the completion of the local ring at the node of the nodal curve $y^{2} = x^{2}(x+1)$. The maximal ideal $\mathfrak{m} = (x, y)$ requires $2$ generators, but $\dim(R) = 1$, so $R$ is not regular (a $1$-dimensional regular local ring has $\mathfrak{m}$ generated by a single element). To compute the dimension: the ring $R = k[[x,y]]/(xy)$ has two minimal primes $(x)$ and $(y)$, each of height $0$, and the maximal ideal $(x,y)$ has height $1$. Note that $(0)$ is not a prime ideal since $xy = 0$ but $x \neq 0$ and $y \neq 0$. Therefore $\dim(R) = 1$.
+
+2. $R = \mathbb{Z}_p[[x,y]]/(xy - p)$ is a $2$-dimensional complete local ring. Its special fibre $R/(p) = \mathbb{F}_p[[x,y]]/(xy)$ is the node, while the generic fibre is smooth. This ring is regular: the maximal ideal $(p, x, y)$ is generated by $x$ and $y$ (since $p = xy$), so the embedding dimension equals $\dim(R) = 2$.
+
+**Key Insight:** Complete local rings, obtained by completing at a maximal ideal, capture the formal-local geometry of a scheme at a point. Cohen's structure theorem guarantees that every complete local ring is a quotient of a power series ring, making explicit computations feasible.
+
+**Prerequisites:** Completions, local rings, Cohen's structure theorem, regular local rings
+
+<!-- BENCHMARK_PROBLEM: Let $R = k[[x,y]]/(xy)$. Determine $\dim(R)$, find all prime ideals of $R$, and explain why $R$ is not regular. -->
 
 ### Example: A regular local ring does not contain a field {#ecag-0119}
 
-The localization of $\mathbb{Z}[X]$ at the maximal ideal $(2,x)$, that is $\mathbb{Z}[x]_{(2,x)}$ is a dimension $2$ regular local ring which does not contain any field.
+**Statement:** The localization $R = \mathbb{Z}[x]_{(2,x)}$ is a $2$-dimensional regular local ring that does not contain any field.
+
+**Construction/Proof:** The ring $R = \mathbb{Z}[x]_{(2,x)}$ is a local ring with maximal ideal $\mathfrak{m} = (2, x)R$ and residue field $R/\mathfrak{m} \cong \mathbb{F}_2$. The Krull dimension is $2$: the chain $(0) \subset (x) \subset (2, x)$ has length $2$, and $\dim(\mathbb{Z}[x]) = 2$ with $(2,x)$ being a maximal ideal of height $2$.
+
+The maximal ideal $\mathfrak{m} = (2, x)R$ is generated by $2$ elements, and $\dim(R) = 2$, so $R$ is regular.
+
+However, $R$ does not contain any field. If $k \subset R$ were a field, then $k$ would inject into $R/\mathfrak{m} \cong \mathbb{F}_2$, so $k = \mathbb{F}_2$. But then $2 = 0$ in $k$, whereas $2 \neq 0$ in $R$ (since $R \subset \mathbb{Q}(x)$). This is a contradiction.
+
+By Cohen's structure theorem, a complete local ring $(R, \mathfrak{m}, k)$ either contains a field (the equicharacteristic case, $\operatorname{char}(R) = \operatorname{char}(k)$) or is of mixed characteristic ($\operatorname{char}(R) = 0$, $\operatorname{char}(k) = p > 0$). The ring $\mathbb{Z}[x]_{(2,x)}$ is of mixed characteristic: $\operatorname{char}(R) = 0$ but $\operatorname{char}(R/\mathfrak{m}) = 2$.
+
+**Key Insight:** Mixed characteristic regular local rings cannot contain a field. They arise naturally in arithmetic geometry (e.g., local rings of arithmetic surfaces), and their study requires different techniques from the equicharacteristic case.
+
+**Prerequisites:** Regular local rings, Cohen's structure theorem, mixed characteristic, localization
+
+<!-- BENCHMARK_PROBLEM: Show that $\mathbb{Z}[x]_{(2,x)}$ is a regular local ring of dimension $2$ that does not contain any field. What is the residue field? -->
 
 ## Smoothness and regularity
 
 ### Example: Varieties singular everywhere {#ecag-0120}
 
-If $X$ is a variety over an algebraically closed field $k$ and $char(k)=0$, we know we can find an open subset $U\subset X$, such that $U$ is smooth. This is not true for prime characteristics, consider $\overline{\mathbb{F}}_{p}$
+**Statement:** Over an algebraically closed field $k$ of characteristic $0$, every variety $X$ has a smooth dense open subset (generic smoothness). In characteristic $p > 0$, this can fail: there exist varieties over $\overline{\mathbb{F}}_p$ that are singular at every closed point.
 
-$$V: x_{0}^{p}+x_{1}^{p}+\dots + x_{n}^{p}$$
+**Construction/Proof:** Consider the hypersurface $V \subset \mathbb{P}_{\overline{\mathbb{F}}_p}^{n}$ defined by
 
-is singular everywhere, I know this example is silly, but it's an example...
+$$
+V: x_{0}^{p} + x_{1}^{p} + \cdots + x_{n}^{p} = 0.
+
+$$
+
+The partial derivatives are $\frac{\partial f}{\partial x_i} = p x_i^{p-1} = 0$ for all $i$ (since $\operatorname{char}(k) = p$). Therefore the Jacobian matrix is identically zero, and $V$ is singular at every point. Note however that $V$ is not reduced as a scheme: $x_0^p + \cdots + x_n^p = (x_0 + \cdots + x_n)^p$ over $\overline{\mathbb{F}}_p$, so $V$ is the $p$-fold thickening of the hyperplane $x_0 + \cdots + x_n = 0$.
+
+For a reduced example of everywhere-singular behavior, one needs the variety to be geometrically non-reduced after some inseparable base change, as in ecag-0099.
+
+**Key Insight:** The failure of generic smoothness in characteristic $p$ is caused by the vanishing of partial derivatives due to the Frobenius. The Jacobian criterion for smoothness requires the field extension $k(x)/k$ to be separable, which can fail in positive characteristic.
+
+**Prerequisites:** Generic smoothness, Jacobian criterion, characteristic $p$, Frobenius
+
+<!-- BENCHMARK_PROBLEM: Let $k = \overline{\mathbb{F}}_p$ and $V = V(x_0^p + x_1^p + x_2^p) \subset \mathbb{P}_k^2$. Show that $V$ is singular at every point by computing the Jacobian. Is $V$ reduced? -->
 
 ### Example: Morphism singular everywhere {#ecag-0121}
 
-Let $k=\overline{\mathbb{F}}_{p}$, consider the Frobenius morphism
+**Statement:** The absolute Frobenius morphism $f: \mathbb{P}_{k}^{n} \to \mathbb{P}_{k}^{n}$, $[x_0, \ldots, x_n] \mapsto [x_0^p, \ldots, x_n^p]$, over $k = \overline{\mathbb{F}}_p$ is not smooth at any point, even though both source and target are smooth $k$-varieties.
 
-$$f:X=\mathbb{P}_{k}^{n}\rightarrow \mathbb{P}_{k}^{n}=Y$$
+**Construction/Proof:** Consider the conormal sequence for $f$:
 
-$$[x_{0},\dots, x_{n}]\mapsto [x_{0}^{p},\dots, x_{n}^{p}].$$
+$$
+f^{*}\Omega_{Y/k} \to \Omega_{X/k} \to \Omega_{X/Y} \to 0.
 
-Note that we have the conormal sequence 
+$$
 
-$$f^{*}\Omega_{Y/k}\rightarrow \Omega_{X/k}\rightarrow \Omega_{X/Y}\rightarrow 0$$
+The first map sends $d(x_i^p) = p x_i^{p-1} dx_i = 0$ (since $\operatorname{char}(k) = p$), so the map $f^{*}\Omega_{Y/k} \to \Omega_{X/k}$ is the zero map. Therefore $\Omega_{X/Y} \cong \Omega_{X/k}$, which is locally free of rank $n$.
 
-Since $d(x_{i}^{p})=0$, the first map in the sequence is $0$, $\Omega_{X/Y}\cong \Omega_{X/k}$ is locally free of rank $1\neq 0=\mathrm{dim}(X)-\mathrm{dim}(Y).$ Or it's natural to see the induced map on tangent space is not surjective(it's $0$)
+For $f$ to be smooth, $\Omega_{X/Y}$ should be locally free of rank $\dim(X) - \dim(Y) = 0$. Since $\operatorname{rank}(\Omega_{X/Y}) = n \neq 0$, the morphism $f$ is not smooth at any point. Equivalently, the induced map on tangent spaces $df: T_x X \to T_{f(x)} Y$ is the zero map at every point (since $d(x_i^p) = 0$), so $f$ is nowhere submersive.
+
+**Key Insight:** The Frobenius morphism kills all differentials ($d(x^p) = 0$ in characteristic $p$), making it the prototypical example of a purely inseparable morphism that is nowhere smooth. The relative differentials $\Omega_{X/Y}$ detect this failure.
+
+**Prerequisites:** Frobenius morphism, relative differentials, smooth morphisms, characteristic $p$
+
+<!-- BENCHMARK_PROBLEM: Let $f: \mathbb{A}_k^1 \to \mathbb{A}_k^1$ be the Frobenius $x \mapsto x^p$ over $k = \overline{\mathbb{F}}_p$. Compute $\Omega_{\mathbb{A}^1/\mathbb{A}^1}$ (relative differentials for $f$) and show that $f$ is not smooth. -->
 
 ### Remark: Normal, conormal, tangent, cotangent, canonical {#ecag-0122}
 
-> **Status:** Stub — content needed.
+A summary of the standard exact sequences in differential geometry of schemes:
+
+- **Conormal sequence** (for a closed immersion $i: Y \hookrightarrow X$): $\mathcal{I}/\mathcal{I}^2 \to i^{*}\Omega_{X/S} \to \Omega_{Y/S} \to 0$, where $\mathcal{I}$ is the ideal sheaf of $Y$. The sheaf $\mathcal{I}/\mathcal{I}^2$ is the conormal sheaf $\mathcal{N}_{Y/X}^{\vee}$.
+
+- **Cotangent sequence** (for morphisms $X \xrightarrow{f} Y \xrightarrow{g} S$): $f^{*}\Omega_{Y/S} \to \Omega_{X/S} \to \Omega_{X/Y} \to 0$. If $f$ is smooth, this is left exact (split exact locally).
+
+- **Normal sheaf:** $\mathcal{N}_{Y/X} = (\mathcal{I}/\mathcal{I}^2)^{\vee} = \mathcal{H}om(\mathcal{I}/\mathcal{I}^2, \mathcal{O}_Y)$. For $Y$ smooth in $X$ smooth, $\mathcal{N}_{Y/X}$ is locally free of rank $\operatorname{codim}(Y, X)$.
+
+- **Tangent sheaf:** $\mathcal{T}_{X/S} = \mathcal{H}om(\Omega_{X/S}, \mathcal{O}_X)$, the dual of the cotangent sheaf.
+
+- **Canonical sheaf:** $\omega_{X/S} = \det(\Omega_{X/S})$ for $X$ smooth over $S$ of relative dimension $n$. The adjunction formula $\omega_Y \cong \omega_X|_Y \otimes \det(\mathcal{N}_{Y/X})$ relates canonical sheaves of a smooth pair.
 
 ### Example: Nonperfect field, regular $\neq$ smooth {#ecag-0123}
 
-Let $k=\mathbb{F}_{p}(t), p>2$, consider 
+**Statement:** Let $k = \mathbb{F}_{p}(t)$ with $p > 2$. The curve $C: y^{2} = x^{p} - t \subset \mathbb{A}_{k}^{2}$ is regular (every local ring is a regular local ring) but not smooth over $k$.
 
-$$C:y^{2}=x^{p}-t \subset \mathbb{A}_{k}^{2}.$$
+**Construction/Proof:** The Jacobian of $f = y^2 - x^p + t$ is $(- p x^{p-1}, 2y) = (0, 2y)$ (since $\operatorname{char}(k) = p$). This vanishes only at the prime $\mathfrak{p} = (y, x^p - t) \subset k[x,y]/(y^2 - x^p + t)$. At all other points, the Jacobian has rank $1$ and $C$ is smooth.
 
-Then every local ring of $C$ is regular but $C$ is not smooth over $k$. First the Jacobian matrix is given by
+*Regularity at $\mathfrak{p}$:* The local ring $\mathcal{O}_{C, \mathfrak{p}} = (k[x,y]/(y^2 - x^p + t))_{(y, x^p - t)}$ is a $1$-dimensional local domain whose maximal ideal is generated by $y$ alone (since $x^p - t = y^2$ in the quotient, so $x^p - t \in (y)^2$). Therefore $\mathcal{O}_{C, \mathfrak{p}}$ is a DVR, hence regular.
 
-$$(2y, 0)$$
+*Non-smoothness:* Base change to $K = \mathbb{F}_p(t^{1/p})$. Then
 
-So it only vanishes at the prime ideal $\mathfrak=(y, x^{p}-t)$. So we only need to prove
-\begin{itemize}
-\item the regularity of 
+$$
+C_K: y^{2} = (x - t^{1/p})^{p}.
 
-$$\mathcal{O}_{C,\mathfrak{p}}=(k[x,y]/(y^{2}-x^{p}+t))_{(y,x^{p}-t)}$$
+$$
 
-\item $C$ is not smooth after some base change.
-\end{itemize}
-The first statement is because $\mathcal{O}_{C,\mathfrak{p}}$ is domain and a local ring with dimension $1$, its maximal ideal is generated by $y$, thus $\mathcal{O}_{C,\mathfrak{p}}$ is a DVR, hence regular. Then we base change it to $K=\mathbb{F}_{p}(t^{\frac{1}{p}})$. Then we get 
+At the point $\mathfrak{q} = (y, x - t^{1/p})$, the local ring $\mathcal{O}_{C_K, \mathfrak{q}}$ is not normal: the element $\alpha = y / (x - t^{1/p}) \in \operatorname{Frac}(\mathcal{O}_{C_K, \mathfrak{q}})$ satisfies
 
-$$C_{K}: y^{2}=(x-t^{\frac{1}{p}})^{p}$$
+$$
+\alpha^2 = \frac{y^2}{(x - t^{1/p})^2} = (x - t^{1/p})^{p-2} \in \mathcal{O}_{C_K, \mathfrak{q}},
 
-Then it's not smooth at $\mathfrak{q}=(y,x-t^{\frac{1}{p}})$, it's not even normal, consider 
+$$
 
-$$\alpha=\frac{y}{x-t^{\frac{1}{p}}}\in Frac(\mathcal{O}_{C_{K}, \mathfrak{q}})$$
+so $\alpha$ is integral over $\mathcal{O}_{C_K, \mathfrak{q}}$ but $\alpha \notin \mathcal{O}_{C_K, \mathfrak{q}}$. Since every regular local ring is a UFD (by the Auslander-Buchsbaum theorem), hence normal, it follows that $\mathcal{O}_{C_K, \mathfrak{q}}$ is not regular. Therefore $C_K$ is not smooth, and since smoothness is preserved by base change, $C$ is not smooth over $k$.
 
-Then
+**Key Insight:** Over imperfect fields, regularity (a property of individual local rings) does not imply smoothness (a relative property requiring geometric regularity after all base changes). The gap arises from purely inseparable extensions that introduce non-normal singularities.
 
-$$\alpha^{2}=\frac{y^{2}}{(x-t^{\frac{1}{p}})^{2}}=(x-t^{\frac{1}{p}})^{p-2}\in \mathcal{O}_{C_{K},\frak{q}}.$$
+**Prerequisites:** Regular local rings, smooth morphisms, imperfect fields, DVRs, Auslander-Buchsbaum theorem
 
-Note that the Auslander–Buchsbaum theorem states that every regular local ring is a unique factorization domain, hence normal. $\mathcal{O}_{C_{K},\mathfrak{q}}$ is not normal, not to say regular.
+<!-- BENCHMARK_PROBLEM: Let $k = \mathbb{F}_p(t)$ with $p > 2$ and $C: y^2 = x^p - t$ over $k$. Show that $C$ is regular at the point $\mathfrak{p} = (y, x^p - t)$ but that $C \times_k \mathbb{F}_p(t^{1/p})$ is not regular at $(y, x - t^{1/p})$. -->
 
 ### Remark: Jacobian criterion {#ecag-0124}
 
-$$dim_{k(x)}(\Omega_{X/k}\otimes k)=n-\mathrm{rank}J_{x}$$
+For a scheme $X = \operatorname{Spec}(k[x_0, \ldots, x_n]/(f_1, \ldots, f_m))$ of finite type over a field $k$, the dimension of the cotangent space at a point $x \in X$ corresponding to a prime $\mathfrak{p}$ is
 
-my question is what is $J_{x}$ at a nonclosed point $x$? Actually you always compute the ordinary Jacobian, but to determine its rank, you have to ask at what point? See $x$ corresponding to a prime ideal $\mathfrak{p}$, and
+$$
+\dim_{k(x)} (\Omega_{X/k} \otimes k(x)) = n - \operatorname{rank}(J_x),
 
-$$C:=\mathrm{Spec}(k[x_{0},x_{1},\dots, x_{n}]/(f_{1},\dots, f_{m}))$$
+$$
 
-Let $\Dealta_{m}$ be a $m\times m$ minor of the Jacobian matrix, to determine it's smooth or not at $\mathfrak{p}$, you only need to check if $\Delta_{m}\in \mathfrak{p}$ or not. In general 
+where $J_x$ is the Jacobian matrix $(\partial f_i / \partial x_j)$ evaluated at the point $x$. At a non-closed point $\mathfrak{p}$, "evaluating" means reducing the entries modulo $\mathfrak{p}$ and computing the rank over the residue field $k(\mathfrak{p})$.
 
-$$Jacobian \Rightarrow smooth \Rightarrow regular$$
+More precisely, let $\Delta_r$ denote the $r \times r$ minors of the Jacobian matrix. The scheme $X$ is smooth of dimension $d = n - m$ at $\mathfrak{p}$ if and only if some $(n-d) \times (n-d)$ minor $\Delta_{n-d} \notin \mathfrak{p}$ (equivalently, the Jacobian has rank $m$ at $\mathfrak{p}$).
+
+The implications are:
+
+$$
+\text{Jacobian criterion satisfied} \Rightarrow \text{smooth over } k \Rightarrow \text{regular}.
+
+$$
+
+Over a perfect field, smooth = regular for varieties of finite type. Over an imperfect field, regular does not imply smooth (see ecag-0123).
 
 ### Remark: Different definitions of smoothness {#ecag-0125}
 
-> **Status:** Stub — content needed.
+There are several equivalent characterizations of smoothness for a morphism $f: X \to S$ locally of finite presentation:
+
+1. **Jacobian criterion:** Locally, $X \cong \operatorname{Spec}(A[x_1, \ldots, x_n]/(f_1, \ldots, f_m))$ and the Jacobian $(\partial f_i / \partial x_j)$ has rank $m$ at every point, so $\Omega_{X/S}$ is locally free of rank $n - m$.
+
+2. **Infinitesimal lifting property (formal smoothness + finite presentation):** For every affine $S$-scheme $\operatorname{Spec}(A)$ and every square-zero ideal $I \subset A$, every $S$-morphism $\operatorname{Spec}(A/I) \to X$ lifts to $\operatorname{Spec}(A) \to X$.
+
+3. **Geometric regularity:** $f$ is flat and all geometric fibres $X_{\bar{s}}$ are regular schemes.
+
+4. **Etale-locally standard:** $f$ is etale-locally isomorphic to $\mathbb{A}_{S}^{d}$ for some $d$.
+
+Over a perfect field $k$, smoothness and regularity coincide for $k$-varieties of finite type. Over an imperfect field, smoothness (requiring geometric regularity) is strictly stronger than regularity.
 
 ### Example: Regular $k$-algebra of dimension $1$, but not regular after base change to $\overline{k}$ {#ecag-0126}
 
-$$\mathcal{O}_{C,\mathfrak{p}}, \mathcal{O}_{C_{K},q}$$
+**Statement:** The local rings $\mathcal{O}_{C, \mathfrak{p}}$ and $\mathcal{O}_{C_K, \mathfrak{q}}$ from ecag-0123 provide a concrete instance: $\mathcal{O}_{C, \mathfrak{p}}$ is a regular (in fact, a DVR) local ring of dimension $1$ over $k = \mathbb{F}_p(t)$, but after base change to $K = \mathbb{F}_p(t^{1/p})$, the local ring $\mathcal{O}_{C_K, \mathfrak{q}}$ is not regular (it is not even normal).
 
-above.
+**Construction/Proof:** As shown in ecag-0123, the curve $C: y^2 = x^p - t$ over $k = \mathbb{F}_p(t)$ has a local ring $\mathcal{O}_{C, \mathfrak{p}}$ at $\mathfrak{p} = (y, x^p - t)$ that is a DVR with uniformizer $y$. After the purely inseparable base change $k \to K = k(t^{1/p})$, the curve becomes $C_K: y^2 = (x - t^{1/p})^p$. The local ring $\mathcal{O}_{C_K, \mathfrak{q}}$ at $\mathfrak{q} = (y, x - t^{1/p})$ has embedding dimension $2$ (generated by $y$ and $x - t^{1/p}$) but dimension $1$, so it is not regular. Moreover, the element $y/(x - t^{1/p})$ is integral over the local ring but not contained in it, so the local ring is not normal either.
+
+This demonstrates that regularity is not preserved by inseparable base change, which is precisely the gap between regularity and smoothness.
+
+**Key Insight:** A regular local ring over an imperfect field can become non-regular after a purely inseparable field extension. Smoothness, being defined via geometric regularity, is preserved by all base changes and is therefore the correct notion for relative geometry.
+
+**Prerequisites:** Regular local rings, smoothness, base change, imperfect fields
+
+<!-- BENCHMARK_PROBLEM: Give an example of a regular local $k$-algebra of dimension $1$ that ceases to be regular after base change to $\overline{k}$. What is the obstruction? -->
 
 ### Example: Bertini theorem in characteristic $p$ {#ecag-0127}
 
-Consider the Frobenius map again
+**Statement:** In characteristic $p$, Bertini's theorem (that a general member of a base-point free linear system on a smooth variety is smooth) can fail. The Frobenius map provides a concrete counterexample. However, Poonen proved a Bertini-type theorem for quasi-projective varieties over finite fields using hypersurfaces of large degree.
 
-$$f:\mathbb{P}_{k}^{1}\rightarrow \mathbb{P}_{k}^{1}; [x,y]\mapsto [x^{p},y^{p}]$$
+**Construction/Proof:** Consider the Frobenius map $f: \mathbb{P}_{k}^{1} \to \mathbb{P}_{k}^{1}$, $[x,y] \mapsto [x^p, y^p]$, over $k = \overline{\mathbb{F}}_p$. This corresponds to the $1$-dimensional linear system
 
-Then we know it's corresponding to the $1$-dimensional linear system $\mathfrak{d}=\{pP|P\in\mathbb{P}_{k}^{1}\}$, or in other words $\{(ax+by)^{p}|a,b\in k\}$, they're all singular. However Poonen proves a Bertini theorem for quasi-projective varieties over finite fields.
+$$
+\mathfrak{d} = \{(ax + by)^p \mid [a,b] \in \mathbb{P}^1\} = \{pP \mid P \in \mathbb{P}_k^1\}.
 
-### Example: A normal variety but not smooth, based on Hartshorne $\mathrm{II}.6.4$  {#ecag-0128}
+$$
 
-Just consider the cone $X$ in $\mathbb{A}_{k}^{3}$, assume that $char(k)\neq 2$
+Every member of $\mathfrak{d}$ is of the form $(ax + by)^p$, which defines a non-reduced divisor (a point with multiplicity $p$). In particular, every member of $\mathfrak{d}$ is singular. This linear system is base-point free (for each point $P \in \mathbb{P}^1$, there exists a member not passing through $P$ -- but as a divisor, every member is non-reduced at its support point).
 
-$$X: x_{0}^{2}=x_{1}^{2}+x_{2}^{2}$$
+Poonen's theorem states: if $X \subset \mathbb{P}^n$ is a smooth quasi-projective variety over a finite field $\mathbb{F}_q$, then for a "random" hypersurface $H$ of degree $d \to \infty$, the intersection $X \cap H$ is smooth with probability tending to $\zeta_X(n+1)^{-1}$ (a positive number), where $\zeta_X$ is the zeta function of $X$.
 
-$X$ is singular at the vertex $(0,0,0)$. To see it's normal, we prove 
-\begin{itemize}
-\item Let $f \in k[x_1,\ldots,x_n]$ be a square-free nonconstant polynomial over a field of characteristic $\ne 2$. Then, $k[x_1,\ldots,x_n,z]/(z^2-f)$ is integrally closed.
-\end{itemize}
-Observe that
+**Key Insight:** The classical Bertini theorem requires characteristic $0$ (or separability of the induced map). In characteristic $p$, the Frobenius creates inseparable linear systems where every member is singular. Poonen's probabilistic Bertini theorem provides a substitute over finite fields.
 
-$$K=\mathrm{Frac}(k[x_{1},\dots, x_{n}]/(z^{2}-f))=k(x_{1},\dots, x_{n})[z]/(z^{2}-f)$$
+**Prerequisites:** Bertini's theorem, Frobenius morphism, linear systems, Poonen's Bertini theorem
 
-It's a Galois extension of degree $2$ over $k(x_{1},\dots, x_{n}) $. If $\alpha = g + hz \in K$, where $g,h \in k(x_1,\ldots,x_n)$. We know the minimal polynomial of $\alpha$ is
-$\alpha^2 - 2g\alpha + (g^2-h^2f)$, because
+<!-- BENCHMARK_PROBLEM: Explain why the linear system $\{(ax + by)^p \mid [a,b] \in \mathbb{P}^1\}$ on $\mathbb{P}^1$ over $\overline{\mathbb{F}}_p$ has every member singular, and state how this violates the classical Bertini theorem. -->
 
-  $$
-    (g+hz)^2 - 2g(g+hz) + (g^2 - h^2f) = g^2 + 2ghz + h^2z^2 - 2g^2 - 2ghz + g^2 - h^2f = 0.
+### Example: A normal variety but not smooth, based on Hartshorne $\mathrm{II}.6.4$ {#ecag-0128}
 
-  $$
-  Thus, $\alpha$ is integral over $k[x_1,\ldots,x_n]$ if and only if
-  $2g$ and $g^2-h^2f \in k[x_1,\ldots,x_n]$, which is true if and only if $g, h^2f \in
-  k[x_1,\ldots,x_n]$. Now if $\alpha$ is integral, and $h$ had nontrivial
-  denominator, then $h^2 \notin k[x_1,\ldots,x_n]$ since $f$ is square-free;
-  hence $h \in k[x_1,\ldots,x_n]$ so $\alpha \in k[x_{1},\dots, x_{n}]/(z^{2}-f)$. Thus, $k[x_{1},\dots, x_{n}]$ is integrally closed in $K$. As a special case we $k[x_{0},x_{1},x_{2}]/(x_{0}^{2}-x_{1}^{2}-x_{2}^{2})$ is normal and it's easy to check all its local rings are normal.
+**Statement:** Let $\operatorname{char}(k) \neq 2$. The quadric cone $X: x_0^2 = x_1^2 + x_2^2$ in $\mathbb{A}_{k}^{3}$ is normal but not smooth (singular at the vertex $(0,0,0)$).
+
+**Construction/Proof:** The cone $X = \operatorname{Spec}(k[x_0, x_1, x_2]/(x_0^2 - x_1^2 - x_2^2))$ is singular at the origin: the Jacobian $(2x_0, -2x_1, -2x_2)$ vanishes at $(0,0,0)$.
+
+To show $X$ is normal, we prove the more general fact: if $f \in k[x_1, \ldots, x_n]$ is a square-free nonconstant polynomial over a field of characteristic $\neq 2$, then $R = k[x_1, \ldots, x_n, z]/(z^2 - f)$ is integrally closed.
+
+The fraction field is $K = k(x_1, \ldots, x_n)[z]/(z^2 - f)$, a degree-$2$ Galois extension of $L = k(x_1, \ldots, x_n)$ (since $\operatorname{char}(k) \neq 2$). Let $\alpha = g + hz \in K$ with $g, h \in L$. Its minimal polynomial over $L$ is $T^2 - 2gT + (g^2 - h^2 f)$, since
+
+$$
+(g + hz)^2 - 2g(g + hz) + (g^2 - h^2 f) = h^2 z^2 - h^2 f = h^2(z^2 - f) = 0.
+
+$$
+
+So $\alpha$ is integral over $k[x_1, \ldots, x_n]$ if and only if $2g \in k[x_1, \ldots, x_n]$ and $g^2 - h^2 f \in k[x_1, \ldots, x_n]$. Since $\operatorname{char}(k) \neq 2$, the first condition gives $g \in k[x_1, \ldots, x_n]$, hence $h^2 f \in k[x_1, \ldots, x_n]$. Since $f$ is square-free and $k[x_1, \ldots, x_n]$ is a UFD, $h^2 f \in k[x_1, \ldots, x_n]$ forces $h \in k[x_1, \ldots, x_n]$. Therefore $\alpha \in R$, proving $R$ is integrally closed.
+
+Applying this with $f = x_1^2 + x_2^2$ (which is square-free when $\operatorname{char}(k) \neq 2$) and $z = x_0$, we conclude that $k[x_0, x_1, x_2]/(x_0^2 - x_1^2 - x_2^2)$ is normal.
+
+**Key Insight:** Double covers $z^2 = f$ of smooth varieties along square-free divisors are normal (integrally closed). The cone $x_0^2 = x_1^2 + x_2^2$ is the simplest example of a normal surface singularity: it is an $A_1$ singularity, normal but not smooth.
+
+**Prerequisites:** Normal rings, integral closure, quadric surfaces, Jacobian criterion, UFDs
+
+<!-- BENCHMARK_PROBLEM: Let $\operatorname{char}(k) \neq 2$ and $f \in k[x_1, \ldots, x_n]$ square-free. Prove that $k[x_1, \ldots, x_n, z]/(z^2 - f)$ is integrally closed. Apply this to show the cone $x_0^2 = x_1^2 + x_2^2$ in $\mathbb{A}^3$ is normal. -->
 
 ### Example: A formally smooth morphism but not smooth {#ecag-0129}
 
-Consider the ring homomorphims
+**Statement:** The surjection $p: k[t^{q} \mid q \in \mathbb{Q}_{>0}] \to k$, $t^{q} \mapsto 0$, is formally smooth but not smooth. Smoothness requires both formal smoothness and finite presentation (or at least flatness), and this morphism fails to be flat.
 
-$$p: k[t^{q}, q\in \mathbb{Q}_{>0}]\rightarrow k$$
+**Construction/Proof:** *Non-flatness:* Consider the short exact sequence of $R$-modules where $R = k[t^q \mid q \in \mathbb{Q}_{>0}]$:
 
- $$t^{q}\mapsto 0.$$
+$$
+0 \to (t) \to R \to R/(t) \to 0.
 
- It's not smooth simply because it's not flat. 
+$$
 
- $$0\rightarrow (t)\rightarrow k[t^{q}, q\in \mathbb{Q}_{>0}]\rightarrow k[t^{q}, q\in \mathbb{Q}_{(0,1)}]\rightarrow 0.$$ 
+Tensoring with $k = R/\mathfrak{m}$ (where $\mathfrak{m} = (t^q \mid q > 0)$), the map $(t) \otimes_R k \to R \otimes_R k = k$ sends $t \otimes 1$ to $0$, but $t \otimes 1 \neq 0$ in $(t) \otimes_R k$. So tensoring is not left exact, and $k$ is not flat over $R$.
 
- After tensoring with $k$, the left hand side is not injective anymore. To prove it's formally smooth, let $A$ be a ring with a square zero ideal $I$, consider the following diagram,
- <!-- tikzcd diagram: manual conversion needed -->
-```latex
-<!-- tikzcd diagram: manual conversion needed -->
-```latex
-\begin{tikzcd}
- A/I & k \arrow{l}{g}\\
- A\arrow{u}{\pi} &  k[t^{q}, q\in \mathbb{Q}_{>0}]\arrow{l}{f}\arrow{u}[swap]{p}.
- \end{tikzcd}
-```
-```
- Then $f(t^{q})\in I$ since the diagram is commutative. However, every $t^{q}$ is a square, we thus have $f(t^{q})=f((t^{\frac{q}{2}})^{2})\in I^{2}=0$. In other words, $f$ factors through $p$, this is exactly the formal smoothness of the map $p$.
+*Formal smoothness:* Let $A$ be a ring with a square-zero ideal $I \subset A$ ($I^2 = 0$), and suppose we have a commutative diagram with $f: R \to A$ and $g: k \to A/I$ such that $\pi \circ f = g \circ p$. We need to show $f$ factors through $p$, i.e., $f(\mathfrak{m}) = 0$.
+
+For any $q \in \mathbb{Q}_{>0}$, commutativity gives $\pi(f(t^q)) = g(p(t^q)) = g(0) = 0$, so $f(t^q) \in I$. But every $t^q$ is a square: $t^q = (t^{q/2})^2$. Therefore
+
+$$
+f(t^q) = f((t^{q/2})^2) = f(t^{q/2})^2 \in I^2 = 0.
+
+$$
+
+So $f(t^q) = 0$ for all $q > 0$, meaning $f$ factors through $p: R \to k$. This gives the required lift, proving formal smoothness.
+
+**Key Insight:** Formal smoothness (the infinitesimal lifting property) can hold for non-flat, non-finitely-presented morphisms. The trick here is that every element of the maximal ideal is a square, so its image in a square-zero extension is automatically zero. Smoothness = formal smoothness + locally of finite presentation.
+
+**Prerequisites:** Formal smoothness, smooth morphisms, flatness, square-zero extensions, infinitesimal lifting
+
+<!-- BENCHMARK_PROBLEM: Let $R = k[t^q \mid q \in \mathbb{Q}_{>0}]$ and $p: R \to k$ the augmentation $t^q \mapsto 0$. Prove that $p$ is formally smooth by showing that for any ring $A$ with $I^2 = 0$, any map $f: R \to A$ with $\pi \circ f = g \circ p$ satisfies $f(\mathfrak{m}) = 0$. Why is $p$ not smooth? -->

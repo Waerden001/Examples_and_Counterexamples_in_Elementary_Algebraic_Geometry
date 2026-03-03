@@ -171,10 +171,12 @@ def parse_markdown_file(filepath: str) -> List[Dict[str, Any]]:
                 source_file = line.split(':', 1)[1].strip()
 
     # Find all ### blocks (environments)
+    # Title may contain LaTeX braces (e.g., $\mathbb{Z}$), so we use a
+    # non-greedy match anchored by the {#ecag-XXXX} pattern.
     pattern = re.compile(
         r'### (Example|Remark|Theorem|Lemma|Proposition|Corollary|'
         r'Conjecture|Definition|Exercise|Warning)'
-        r'(?:: ([^\n{]*))?\s*'  # optional title
+        r'(?:: (.*?))?\s*'  # optional title (may contain LaTeX braces)
         r'\{#(ecag-\d{4})\}\s*\n'  # anchor
         r'(.*?)(?=\n### |\Z)',  # body until next ### or end
         re.DOTALL
@@ -193,14 +195,29 @@ def parse_markdown_file(filepath: str) -> List[Dict[str, Any]]:
         if env_type in ('remark', 'definition') and not title:
             continue
 
+        # Extract BENCHMARK_PROBLEM from enhanced content (HTML comment),
+        # falling back to title-based generation for non-enhanced entries
+        bm_match = re.search(
+            r'<!-- BENCHMARK_PROBLEM:\s*(.+?)\s*-->', body
+        )
+
         # Infer metadata
         question_type = infer_question_type(env_type, title)
         topic, subtopic = infer_topic_subtopic(title, chapter)
         difficulty = infer_difficulty(title, body, env_type)
-        problem = title_to_problem(title, env_type, question_type)
+
+        if bm_match:
+            problem = bm_match.group(1).strip()
+        else:
+            problem = title_to_problem(title, env_type, question_type)
 
         if not problem:
             continue
+
+        # Strip BENCHMARK_PROBLEM comments from the solution body
+        solution_body = re.sub(
+            r'\n*<!-- BENCHMARK_PROBLEM:.*?-->\n*', '', body
+        ).strip()
 
         # Determine verification strategy
         if question_type == 'computation':
@@ -213,7 +230,7 @@ def parse_markdown_file(filepath: str) -> List[Dict[str, Any]]:
         entry = {
             'id': ecag_id,
             'problem': problem,
-            'solution': body if not is_stub else '',
+            'solution': solution_body if not is_stub else '',
             'answer': None,
             'answer_type': question_type if question_type != 'computation' else 'closed_form',
             'difficulty': difficulty,
