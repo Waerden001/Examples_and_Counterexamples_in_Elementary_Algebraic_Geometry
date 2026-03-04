@@ -33,8 +33,8 @@ No F1 errors were observed in the Opus pilot, suggesting that Opus rarely invent
 \paragraph{F2: Property confusion (50\% of errors).}
 The most common failure mode.
 The model constructs a valid object but confuses the required properties.
-\emph{Example (\ecagid{0174}):} Asked to compute the class group of a specific scheme, the model produced a largely correct analysis but confused divisor class relations in the final step, yielding the wrong group.
-The construction strategy was sound, but the model failed to track which divisors generate the class group.
+\emph{Example (\ecagid{0174}):} Asked to prove that $\widetilde{\mathfrak{m}}$ is a reflexive non-locally-free sheaf on the quadric cone, the model correctly computed $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$ but discovered that $\widetilde{\mathfrak{m}}$ is not reflexive, contradicting the problem statement.
+The model then pivoted to the height-1 prime $\mathfrak{p} = (x,z)$, producing a correct analysis for a modified problem rather than the one posed.
 
 Property confusion was also the dominant failure mode in the Sonnet evaluation, consistent with its being a fundamental limitation of current LLMs on constructive mathematics.
 

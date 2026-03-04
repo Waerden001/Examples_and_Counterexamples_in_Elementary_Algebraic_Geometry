@@ -109,9 +109,9 @@ Opus produced a detailed 5{,}443-character response correctly reducing the invar
 Notably, Sonnet timed out on this same problem, illustrating the capability gap at the highest difficulty level.
 
 \paragraph{Case Study 2: Property confusion (\ecagid{0174}, F2).}
-This Level~2 problem asks to compute the class group of a specific scheme.
-Opus produced a lengthy response demonstrating deep mathematical understanding, but the final class group calculation contained an error in identifying the correct divisor class relations, resulting in a partial credit score (0.5).
-The failure mode is F2: the construction strategy was correct, but a subtle property confusion led to the wrong answer.
+This Level~2 problem asks to prove that $\widetilde{\mathfrak{m}}$ is a reflexive non-locally-free sheaf on the quadric cone $\Spec k[x,y,z]/(xy-z^2)$.
+Opus correctly computed $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$ but discovered that $\widetilde{\mathfrak{m}}$ is not reflexive, contradicting the problem's stated claim, and pivoted to the height-1 prime $\mathfrak{p} = (x,z)$ instead, resulting in a partial credit score (0.5).
+The failure mode is F2: the model addressed a modified version of the problem rather than the one posed.
 
 \paragraph{Case Study 3: Computational error (\ecagid{0256}, F3).}
 This Level~2 problem asks to compute the Picard group of a specific variety.
