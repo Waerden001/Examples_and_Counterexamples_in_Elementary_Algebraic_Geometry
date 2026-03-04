@@ -199,7 +199,7 @@ Difficulty levels: 1 = routine (follows from definitions), 2 = non-trivial (requ
 \subsection*{C.2: Access}
 
 \begin{itemize}[nosep]
-  \item \textbf{GitHub:} \url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}
+  \item \textbf{GitHub:} {\small\url{https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry}}
   \item \textbf{Website:} The accompanying textbook is available as a searchable website via GitHub Pages.
   \item \textbf{License:} CC-BY-4.0
 \end{itemize}
@@ -209,43 +209,53 @@ Difficulty levels: 1 = routine (follows from definitions), 2 = non-trivial (requ
 
 This appendix provides representative model outputs from the pilot evaluation discussed in Section~\ref{sec:experiments}.
 Outputs are from Claude Opus~4.6 unless otherwise noted.
+The complete raw outputs for all 100 problems---including both Opus and Sonnet responses with associated scores and failure mode annotations---are released as JSONL files in the project repository (\texttt{eval/results/}), enabling independent analysis by other researchers.
 
 \subsection*{D.1: Successful Level~3 Construction (\ecagid{0363})}
 
-\textbf{Problem:} Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i \mid H^j \rangle_{0,d}$ and verify the quantum product formula.
+\textbf{Problem (verbatim from JSONL):} Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i \mid H^j \mid H^k \rangle_{H^{n-1}}$ for $\mathbb{P}^n$ and derive the quantum cohomology ring $QH^*(\mathbb{P}^n, \mathbb{Z})$.
 
 \textbf{Type:} Example \quad \textbf{Difficulty:} Level~3 \quad \textbf{Opus Score:} 1.0 \quad \textbf{Sonnet:} Timeout
 
-\textbf{Model output (Opus, abbreviated):}
+\textbf{Model output (Opus, verbatim excerpt from Steps 2--4 of the 5{,}443-character response; Markdown headings and display math adapted to \LaTeX\ formatting):}
 
 \begin{quote}
 \small
-\textbf{Evaluation maps and tautological classes.}
-The three evaluation maps $\operatorname{ev}_a: \overline{M}_{0,3}(\mathbb{P}^n,1) \to \mathbb{P}^n$ project onto the $a$-th copy of $\mathcal{U}$.
-Setting $\xi = c_1(\mathcal{O}_{\mathbb{P}(\mathcal{S})}(1))$, we get $\operatorname{ev}_a^*(H^{a_i}) = \xi_a^{a_i}$.
+\textbf{Step 2 (continued). Evaluation maps and tautological classes}
 
-\textbf{Fiber integration via Segre classes.}
-Since $\xi_a$ lives on independent fiber factors, $\rho_*(\xi_1^{a_1}\cdot \xi_2^{a_2}\cdot \xi_3^{a_3}) = \pi_*(\xi^{a_1})\cdot \pi_*(\xi^{a_2})\cdot \pi_*(\xi^{a_3})$.
-By the projective bundle formula, $\pi_*(\xi^a) = s_{a-1}(\mathcal{S}) = c_{a-1}(\mathcal{Q}) = \sigma_{a-1}$,
-reducing the Gromov--Witten invariant to a triple Schubert intersection on $G$. [...]
+The three evaluation maps $\operatorname{ev}_a: \overline{M}_{0,3}(\mathbb{P}^n,1) \to \mathbb{P}^n$ project onto the $a$-th copy of $\mathcal{U}$, then compose with $\operatorname{ev}: \mathcal{U} \to \mathbb{P}^n$. Set
+$$\xi = c_1(\mathcal{O}_{\mathbb{P}(\mathcal{S})}(1)) \in H^2(\mathcal{U}).$$
+Since $\operatorname{ev}^*(H) = \xi$ (the tautological class on the projectivized bundle equals the pullback of the hyperplane class), we get $\operatorname{ev}_a^*(H^{a_i}) = \xi_a^{a_i}$, where $\xi_a$ denotes $\xi$ on the $a$-th fiber factor.
+
+\textbf{Step 3. Fiber integration via Segre classes}
+
+The projection $\rho: \mathcal{U}^3_G \to G$ has fiber $(\mathbb{P}^1)^3$. Since $\xi_a$ lives on independent fiber factors, fiber integration gives
+$$\rho_*(\xi_1^{a_1}\cdot \xi_2^{a_2}\cdot \xi_3^{a_3}) = \pi_*(\xi^{a_1})\cdot \pi_*(\xi^{a_2})\cdot \pi_*(\xi^{a_3}).$$
+By the projective bundle formula for the rank-2 bundle $\mathcal{S}$:
+$$\pi_*(\xi^a) = s_{a-1}(\mathcal{S})$$
+where $s_j(\mathcal{S}) = c_j(\mathcal{S})^{-1}$ is the $j$-th Segre class. Since $c(\mathcal{S})\cdot c(\mathcal{Q}) = 1$ (with $\mathcal{Q}$ the quotient bundle), we have $s(\mathcal{S}) = c(\mathcal{Q})$, and for $\operatorname{Gr}(2,n+1)$ the Chern classes of $\mathcal{Q}$ are the special Schubert classes:
+$$s_j(\mathcal{S}) = c_j(\mathcal{Q}) = \sigma_j, \qquad 0 \le j \le n-1.$$
+
+\textbf{Step 4. Reduction to Schubert calculus}
+
+Combining Steps 2--3:
+$$\langle H^i, H^j, H^k\rangle_1 = \int_G \rho_*(\xi_1^i\cdot\xi_2^j\cdot\xi_3^k) = \int_{\operatorname{Gr}(2,\,n+1)} \sigma_{i-1}\cdot\sigma_{j-1}\cdot\sigma_{k-1}.$$
 \end{quote}
 
 This Level~3 problem requires synthesizing Gromov--Witten theory, Schubert calculus, and quantum cohomology.
-Opus produced a correct 5{,}443-character response, while Sonnet timed out after 600 seconds---illustrating the capability gap at the highest difficulty level.
+Opus produced a correct 5{,}443-character response deriving $QH^*(\mathbb{P}^n, \mathbb{Z}) \cong \mathbb{Z}[H, q]/(H^{n+1} - q)$, while Sonnet timed out after 600 seconds---illustrating the capability gap at the highest difficulty level.
 
 \subsection*{D.2: Property Confusion (\ecagid{0174}, F2)}
 
-\textbf{Problem:} Exhibit a reflexive non-locally-free sheaf on the quadric cone and compute the class group.
+\textbf{Problem (verbatim from JSONL):} Let $R = k[x,y,z]/(xy - z^2)$ where $\operatorname{char}(k) \neq 2$, and let $\mathfrak{m} = (x,y,z)$. Prove that $\widetilde{\mathfrak{m}}$ is a reflexive sheaf on $\operatorname{Spec}(R)$ that is not locally free by showing $\mathfrak{m}$ corresponds to a Weil divisor that is not Cartier, and that $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$.
 
 \textbf{Type:} Counterexample \quad \textbf{Difficulty:} Level~2 \quad \textbf{Score:} 0.5 \quad \textbf{Failure mode:} F2
 
-\textbf{Model output (abbreviated):}
+\textbf{Model output (Opus, verbatim excerpt of the ``Answer'' section; bold markers from Markdown adapted to \LaTeX):}
 
 \begin{quote}
 \small
-\textbf{Answer:} The sheaf $\widetilde{\mathfrak{m}}$ on $X = \Spec(R)$, where $R = k[x,y,z]/(xy - z^2)$ and $\mathfrak{m} = (x,y,z)$, is reflexive of rank~1 but not locally free.
-It corresponds to the Weil divisor $D = V(x,z)$, which generates $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$.
-Since $D$ is not Cartier (so $\widetilde{\mathfrak{m}}$ is not locally free), but $2D = \operatorname{div}(x)$ is Cartier, $\widetilde{\mathfrak{m}}$ is reflexive. [...]
+The sheaf $\widetilde{\mathfrak{m}}$ on $X = \operatorname{Spec}(R)$, where $R = k[x,y,z]/(xy - z^2)$ and $\mathfrak{m} = (x,y,z)$, is a reflexive sheaf of rank 1 that is \textbf{not} locally free. It corresponds to the Weil divisor class of the ruling $D = V(x,z)$, which generates $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$. The divisor $D$ is not Cartier (so $\widetilde{\mathfrak{m}}$ is not locally free), but $2D$ is Cartier (cut out by $x$), so $\widetilde{\mathfrak{m}}$ is reflexive. [\ldots]
 \end{quote}
 
 \textbf{Analysis:} The model correctly identified the quadric cone, the maximal ideal sheaf, and the class group structure.
@@ -254,11 +264,11 @@ This exemplifies F2: the overall mathematical approach is sound, but a property 
 
 \subsection*{D.3: Cross-Model Comparison (\ecagid{0090})}
 
-\textbf{Problem:} In Hironaka's construction, let $X = \mathbb{P}_k^3$ with two smooth conics $C, D$ meeting transversely. Explain the two different blow-up orders and describe the resulting variety.
+\textbf{Problem (verbatim from JSONL):} In Hironaka's construction, let $X = \mathbb{P}_k^3$ with two smooth conics $C, D$ meeting transversely at $P, Q$. Explain why the $1$-cycle $L_1 + M_1$ on the resulting variety $H$ is algebraically equivalent to $0$, and why this implies $H$ is not projective.
 
 \textbf{Type:} Example \quad \textbf{Difficulty:} Level~3
 
-\textbf{Opus:} Score 0.5 (F6, incomplete verification). The model correctly set up the two blow-up orderings and the gluing construction, but did not fully verify that the resulting variety has the claimed pathological properties (non-projective, non-K\"ahler).
+\textbf{Opus:} Score 0.5 (F6, incomplete verification). The model correctly set up the two blow-up orderings and the gluing construction, and gave a correct non-projectivity argument (an ample divisor must pair positively with effective cycles, contradicting algebraic equivalence to~$0$). However, the derivation of $L_1 + M_1 \sim_{\mathrm{alg}} 0$ contained logical errors: the model's intermediate linear equivalence relations actually yield $L_1 + M_2 \sim 0$ rather than the required $L_1 + M_1 \sim 0$, and the model incorrectly deduced that $L_1 \sim 0$ and $M_1 \sim 0$ individually.
 
 \textbf{Sonnet:} Timeout. The model failed to produce any response within 600 seconds.
 

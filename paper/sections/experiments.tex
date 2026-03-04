@@ -17,7 +17,7 @@ The resulting subset contains 70 examples, 23 counterexamples, 4 computations, a
 
 \paragraph{Prompt and scoring.}
 Each problem is presented using the prompt template in Appendix~\ref{app:prompt}.
-Responses were scored using a two-stage pipeline: automated LLM-based scoring against the known solution using the 0/0.5/1 scale, followed by manual review of edge cases.
+Responses were scored using a hybrid pipeline: an LLM judge evaluated each response against the human-authored reference solution on the 0/0.5/1 scale, followed by manual review of all partial-credit and sampled full-credit cases.
 Problems where the model timed out (no response within 600 seconds) were scored as 0.0.
 We discuss limitations of this scoring approach in Section~\ref{sec:self-eval-limitations}.
 
@@ -104,8 +104,8 @@ Computations shows the smallest gap ($+$5pp), suggesting that multi-step algebra
 We present three case studies from the Opus evaluation illustrating representative behaviors.
 
 \paragraph{Case Study 1: Successful deep construction (\ecagid{0363}).}
-This Level~3 problem asks to compute genus-0 Gromov--Witten invariants using Schubert calculus on Grassmannians.
-Opus produced a detailed 5{,}443-character response correctly setting up the quantum cohomology ring, computing the relevant Schubert intersections, and verifying the quantum product formula.
+This Level~3 problem asks to compute genus-0 Gromov--Witten invariants $\langle H^i \mid H^j \mid H^k \rangle$ for $\mathbb{P}^n$ using Schubert calculus on $\operatorname{Gr}(2,n+1)$ and derive the quantum cohomology ring.
+Opus produced a detailed 5{,}443-character response correctly reducing the invariants to Schubert intersections via Segre classes, applying Pieri's rule, and deriving $QH^*(\mathbb{P}^n) \cong \mathbb{Z}[H,q]/(H^{n+1}-q)$.
 Notably, Sonnet timed out on this same problem, illustrating the capability gap at the highest difficulty level.
 
 \paragraph{Case Study 2: Property confusion (\ecagid{0174}, F2).}

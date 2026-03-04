@@ -85,7 +85,7 @@ This layer uses regex and SymPy to determine whether the output is a well-formed
 Malformed outputs receive a score of 0 immediately.
 
 \paragraph{Layer 2: CAS Verification.}
-The extracted object is verified using computer algebra systems---primarily SageMath~\citep{sagemath}, with Singular~\citep{singular} and Macaulay2~\citep{macaulay2} for specialized computations.
+The extracted object is verified using computer algebra systems---primarily SageMath~\citep{sagemath}, supplemented by Singular~\citep{singular} and Macaulay2~\citep{macaulay2} for specialized computations.
 The CAS checks whether the constructed object actually satisfies the required properties: genus, smoothness, dimension, cohomology vanishing, etc.
 This is the \emph{core layer}: 309 of 332 problems (93.1\%) use CAS verification.
 
@@ -100,7 +100,7 @@ For problems where CAS verification is insufficient (e.g., those requiring asses
 
 \paragraph{Layer 4: Human Expert Sampling.}
 A random subset of model responses is reviewed by a human expert in algebraic geometry to calibrate the automated layers and catch systematic errors.
-In our pilot evaluation (Section~\ref{sec:experiments}), automated LLM-based scoring was used for initial assessment, with human review of edge cases.
+In our pilot evaluation (Section~\ref{sec:experiments}), an LLM judge scored each response against the human-authored reference solution, with manual review of edge cases by the first author.
 
 \subsection{Verification Strategies}
 

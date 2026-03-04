@@ -105,7 +105,7 @@ Several patterns emerge:
   \item \textbf{Cohomology} achieves perfect accuracy for Opus, reflecting the structured, algorithm-like nature of cohomological computations (spectral sequences, long exact sequences).
   \item \textbf{Moduli} shows the largest cross-model improvement ($+$24pp), suggesting that reasoning about abstract moduli constructions benefits substantially from model scale.
   \item \textbf{Computations} shows the smallest improvement ($+$5pp) and the lowest Opus accuracy (81\%), confirming that multi-step algebraic calculations remain challenging regardless of scale.
-  Both partial-credit responses in this chapter involved arithmetic errors (F3) in otherwise correct approaches.
+  The two partial-credit responses in this chapter were classified as F3 (arithmetic error, \ecagid{0256}) and F2 (property confusion, \ecagid{0290}), both in otherwise correct approaches.
 \end{enumerate}
 
 \subsection{Example vs.\ Counterexample Performance Gap}
@@ -158,17 +158,21 @@ Several observations:
   \item Of the 16 problems where only Sonnet timed out, Opus scored 1.0 on 12 and 0.5 on 4, demonstrating that model scale substantially reduces the ``silent failure'' rate while maintaining high quality on the recovered problems.
 \end{itemize}
 
-\subsection{Limitations of LLM-Based Scoring}
+\subsection{Scoring Methodology and Limitations}
 \label{sec:self-eval-limitations}
 
-A significant limitation is that the automated scorer is an LLM from the same family as the solver.
-Among Opus's 96 non-timeout responses, 90 (93.8\%) were scored as correct, a rate that may reflect concordance bias.
+Our scoring pipeline is a \emph{hybrid} approach, not purely automated.
+Each model response is evaluated by an LLM judge against the \emph{human-authored reference solution}---a fully worked construction with explicit computations, written independently as part of the source textbook.
+The judge therefore has access to a detailed, human-verified ground truth, not merely an answer key.
+Edge cases (all partial-credit and a sample of full-credit responses) were additionally reviewed by the first author.
 
-Several factors warrant caution:
+Nevertheless, several factors warrant caution:
 \begin{itemize}[nosep]
-  \item The scorer may share the solver's blindspots, rating as correct constructions that a domain expert would flag.
-  \item The scorer was given the known solution, which may bias it toward confirming structurally similar responses.
-  \item With only 6 classified failures among 96 Opus responses, the failure mode taxonomy remains sparsely populated.
+  \item \textbf{Concordance bias.} The LLM judge is from the same model family as the solver (Claude).
+  Among Opus's 96 non-timeout responses, 90 (93.8\%) were scored as correct---a rate that may partly reflect shared blindspots between solver and judge.
+  \item \textbf{Reference solution quality.} The human-authored solutions, while carefully prepared, may themselves contain minor errors or suboptimal constructions. Any such errors propagate into the scoring, potentially penalizing valid alternative approaches or overlooking subtle flaws.
+  \item \textbf{Structural similarity bias.} The judge was given the known solution, which may bias it toward confirming structurally similar responses while under-rewarding correct but differently organized constructions.
+  \item \textbf{Sparse failure data.} With only 6 classified failures among 96 Opus responses, the failure mode taxonomy remains sparsely populated; a larger evaluation is needed to draw robust distributional conclusions.
 \end{itemize}
 
-Future work will address this through human expert scoring of the full 100-problem subset, cross-family evaluation (e.g., using GPT-4o to score Claude responses), and expanded CAS-based automated verification.
+Future work will address these limitations through: (i)~independent human expert scoring of the full 100-problem subset to calibrate automated scores, (ii)~cross-family evaluation (e.g., using GPT-4o to score Claude responses and vice versa), and (iii)~expanded CAS-based automated verification that checks mathematical properties directly rather than relying on textual comparison.

@@ -17,7 +17,7 @@ Our pilot evaluation of Claude Opus~4.6 and Claude Sonnet~4.6 on a stratified 10
 Our evaluation has several limitations:
 \begin{itemize}[nosep]
   \item \textbf{Same-family models:} Both models are from the Claude family. Cross-family comparison (GPT-4o, Gemini 2.5 Pro, DeepSeek-R1~\citep{deepseek2025r1}) is needed to assess generalizability.
-  \item \textbf{LLM-based scoring:} The automated scorer is from the same model family as the solver, introducing potential concordance bias. Among Opus's 96 non-timeout responses, 93.8\% were scored as correct, which may reflect systematic overrating (Section~\ref{sec:self-eval-limitations}). Human expert scoring is needed to validate these results.
+  \item \textbf{Hybrid scoring limitations:} Although the LLM judge scores against human-authored reference solutions (not just answer keys), the judge is from the same model family as the solver, introducing potential concordance bias. The reference solutions themselves may contain minor errors. Independent human expert scoring is needed to fully validate these results (Section~\ref{sec:self-eval-limitations}).
   \item \textbf{Single-turn only:} Multi-turn interaction with CAS feedback may substantially improve performance.
   \item \textbf{Domain specificity:} Results in algebraic geometry may not generalize to other mathematical domains.
   \item \textbf{CAS coverage:} While 93.1\% of problems use CAS verification, some verifications require specialized scripts not yet implemented.
@@ -27,11 +27,11 @@ Our evaluation has several limitations:
 We plan several extensions:
 \begin{enumerate}[nosep]
   \item \textbf{Human expert scoring:} Full human review of all 100 responses to establish unbiased baselines and validate the automated scoring.
-  \item \textbf{Cross-family evaluation:} Evaluate GPT-4o, Gemini 2.5 Pro, DeepSeek-R1, and Llemma~\citep{azerbayev2024llemma} to determine which patterns are model-specific vs.\ fundamental.
+  \item \textbf{Cross-family evaluation:} Evaluate GPT-4o, Gemini~2.5~Pro, DeepSeek-R1, and Llemma \citep{azerbayev2024llemma} to determine which patterns are model-specific vs.\ fundamental.
   \item \textbf{Full-scale evaluation:} Evaluate all 332 problems with automated CAS verification scripts.
   \item \textbf{Multi-turn interaction:} Enable models to refine constructions based on CAS feedback.
   \item \textbf{Lean~4 integration:} Formalize a subset of problems for formal verification.
-  \item \textbf{Fine-tuning studies:} Investigate whether training on algebraic geometry textbooks~\citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} improves constructive reasoning.
+  \item \textbf{Fine-tuning studies:} Investigate whether training on algebraic geometry textbooks \citep{hartshorne1977algebraic, vakil2017rising, eisenbud1995commutative} improves constructive reasoning.
 \end{enumerate}
 
 \paragraph{Broader impact.}

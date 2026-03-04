@@ -7,23 +7,24 @@ Table~\ref{tab:benchmark-comparison} provides a systematic comparison of \ecagbe
 
 \begin{table*}[t]
 \centering
-\caption{Comparison of mathematical reasoning benchmarks. ``Constructive?'' indicates whether problems require constructing mathematical objects (as opposed to producing proofs or unique answers). ``Counterex.'' indicates whether counterexample construction is explicitly tested.}
+\caption{Comparison of mathematical reasoning benchmarks. ``Constr.'' indicates whether problems require constructing mathematical objects (as opposed to producing proofs or unique answers). ``Ctrex.'' indicates whether counterexample construction is explicitly tested.}
 \label{tab:benchmark-comparison}
-\small
-\begin{tabular}{lrllccc}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrllccc@{}}
 \toprule
-\textbf{Benchmark} & \textbf{Size} & \textbf{Domain} & \textbf{Verification} & \textbf{Construct.?} & \textbf{Counterex.?} & \textbf{Open?} \\
+\textbf{Benchmark} & \textbf{Size} & \textbf{Domain} & \textbf{Verification} & \textbf{Constr.} & \textbf{Ctrex.} & \textbf{Open} \\
 \midrule
-MATH~\citep{hendrycks2021measuring} & 12{,}500 & Competition math & Exact match & \texttimes & \texttimes & \checkmark \\
-AGIEval~\citep{zhong2023agieval} & 8{,}062 & Standardized tests & Multiple choice & \texttimes & \texttimes & \checkmark \\
-miniF2F~\citep{zheng2022minif2f} & 488 & Olympiad math & Proof assistant & \texttimes & \texttimes & \checkmark \\
-PutnamBench~\citep{tsoukalas2024putnambench} & 1{,}697 & Putnam competition & Lean/Isabelle/Coq & \texttimes & \texttimes & \checkmark \\
-FrontierMath~\citep{glazer2024frontiermath} & 300+ & Research math & Custom scripts & Partial & \texttimes & \texttimes \\
-GHOSTS~\citep{zheng2024ghosts} & 700+ & Graduate science & Rubric & \texttimes & \texttimes & \checkmark \\
-AMBER~\citep{liu2025amber} & 500+ & Lean 4 math & Lean 4 & \checkmark & \texttimes & \checkmark \\
-MathArena~\citep{matharena2025} & Varies & Recent competitions & Dual grading & \texttimes & \texttimes & \checkmark \\
+MATH~\citep{hendrycks2021measuring} & 12{,}500 & Competition & Exact match & \texttimes & \texttimes & \checkmark \\
+AGIEval~\citep{zhong2023agieval} & 8{,}062 & Standardized & Multiple choice & \texttimes & \texttimes & \checkmark \\
+miniF2F~\citep{zheng2022minif2f} & 488 & Olympiad & Proof assistant & \texttimes & \texttimes & \checkmark \\
+PutnamBench~\citep{tsoukalas2024putnambench} & 1{,}697 & Putnam & Lean/Isabelle/Coq & \texttimes & \texttimes & \checkmark \\
+FrontierMath~\citep{glazer2024frontiermath} & 300+ & Research & Custom scripts & Partial & \texttimes & \texttimes \\
+GHOSTS~\citep{frieder2023mathematical} & 700+ & Graduate & Rubric & \texttimes & \texttimes & \checkmark \\
+AMBER~\citep{yang2026amber} & 500+ & Applied (Lean 4) & Lean 4 & \checkmark & \texttimes & \checkmark \\
+MathArena~\citep{matharena2025} & Varies & Competition & Dual grading & \texttimes & \texttimes & \checkmark \\
 \midrule
-\ecagbench{} (ours) & 332 & Algebraic geometry & CAS + rubric & \checkmark & \checkmark & \checkmark \\
+\ecagbench{} (ours) & 332 & Algebraic geom. & CAS + rubric & \checkmark & \checkmark & \checkmark \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -37,19 +38,19 @@ These benchmarks test \emph{problem-solving} ability but focus on high-school an
 \paragraph{Research-level mathematics.}
 FrontierMath~\citep{glazer2024frontiermath} is the closest benchmark in spirit, comprising research-level mathematics problems with custom verification scripts.
 However, FrontierMath spans all areas of mathematics and does not specifically target constructive reasoning; many problems still ask for unique numerical answers.
-GHOSTS~\citep{zheng2024ghosts} evaluates graduate-level science tasks using rubric-based scoring, but covers mathematics only as one component of a broader scientific evaluation.
+GHOSTS~\citep{frieder2023mathematical} is a graduate-level mathematics dataset introduced alongside a systematic evaluation of ChatGPT's mathematical capabilities, using rubric-based scoring across topics from calculus to algebraic topology.
 Minerva~\citep{lewkowycz2022minerva} demonstrated that language models pretrained on scientific text could achieve strong performance on quantitative reasoning, spurring interest in more challenging mathematical benchmarks.
 
 \paragraph{Formal theorem proving.}
 PutnamBench~\citep{tsoukalas2024putnambench} formalizes Putnam competition problems in Lean, Isabelle, and Coq, testing whether LLMs can produce machine-verifiable proofs.
-AMBER~\citep{liu2025amber} combines construction and verification in Lean~4, requiring models to both state and prove lemmas.
+AMBER~\citep{yang2026amber} introduces a construction-verification framework in Lean~4 for applied mathematics, requiring models to both construct explicit solutions and prove their correctness.
 miniF2F~\citep{zheng2022minif2f} provides a cross-system benchmark for Olympiad-level formal mathematics.
 NaturalProver~\citep{welleck2022naturalprover} and ProofNet~\citep{azerbayev2023proofnet} explore the interface between informal and formal mathematical reasoning.
 These benchmarks operate in the formal verification paradigm, where correctness is checked by a proof assistant.
 \ecagbench{} differs by operating in the \emph{informal} mathematical setting, using CAS verification of object properties rather than formal proof checking.
 
 \paragraph{Interactive and multi-turn evaluation.}
-\citet{collins2024evaluating} propose evaluating mathematical capabilities through multi-turn interactions.
+\citet{collins2023evaluating} propose evaluating mathematical capabilities through multi-turn interactions.
 MathArena~\citep{matharena2025} uses recent competition problems with dual grading (automatic and human) to minimize contamination.
 \ecagbench{} currently uses single-turn evaluation but is designed to support multi-turn interaction in future work.
 
