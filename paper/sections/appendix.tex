@@ -217,7 +217,7 @@ The complete raw outputs for all 100 problems---including both Opus and Sonnet r
 
 \textbf{Type:} Example \quad \textbf{Difficulty:} Level~3 \quad \textbf{Opus Score:} 1.0 \quad \textbf{Sonnet:} Timeout
 
-\textbf{Model output (Opus, verbatim excerpt from Steps 2--4 of the 5{,}443-character response; Markdown headings and display math adapted to \LaTeX\ formatting):}
+\textbf{Model output (Opus, verbatim excerpt from the 5{,}443-character response; Markdown headings and display math adapted to \LaTeX\ formatting):}
 
 \begin{quote}
 \small
@@ -240,6 +240,18 @@ $$s_j(\mathcal{S}) = c_j(\mathcal{Q}) = \sigma_j, \qquad 0 \le j \le n-1.$$
 
 Combining Steps 2--3:
 $$\langle H^i, H^j, H^k\rangle_1 = \int_G \rho_*(\xi_1^i\cdot\xi_2^j\cdot\xi_3^k) = \int_{\operatorname{Gr}(2,\,n+1)} \sigma_{i-1}\cdot\sigma_{j-1}\cdot\sigma_{k-1}.$$
+
+[\ldots Steps 5--6 apply Pieri's rule to evaluate the Schubert intersection, showing each admissible degree-1 invariant equals~1\ldots]
+
+\textbf{Step 7. The quantum cohomology ring}
+
+$$QH^*(\mathbb{P}^n, \mathbb{Z}) \;\cong\; \mathbb{Z}[H, q]\,\big/\,(H^{n+1} - q).$$
+
+As a $\mathbb{Z}[q]$-module, this is free of rank $n+1$ with basis $\{1, H, H^2, \ldots, H^n\}$, deforming the classical relation $H^{n+1} = 0$ to $H^{n+1} = q$.
+
+\textbf{Key insight}
+
+The critical bridge between Gromov--Witten theory and Schubert calculus is the identification of $\overline{M}_{0,3}(\mathbb{P}^n, 1)$ as the triple fiber product $\mathbb{P}(\mathcal{S})^3_G$ over the Grassmannian of lines. Fiber integration converts evaluation-map pullbacks $\operatorname{ev}_a^*(H^{a_i}) = \xi^{a_i}$ into Segre classes $\pi_*(\xi^{a_i}) = \sigma_{a_i - 1}$, reducing the enumerative GW computation to a classical Schubert intersection. The rigidity of lines (uniqueness of $\sigma_{(n-1,n-1)}$ as the point class) then forces every admissible degree-1 invariant to equal 1, yielding the single deformation $H^{n+1} = q$.
 \end{quote}
 
 This Level~3 problem requires synthesizing Gromov--Witten theory, Schubert calculus, and quantum cohomology.
