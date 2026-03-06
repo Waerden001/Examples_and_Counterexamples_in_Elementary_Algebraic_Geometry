@@ -4,11 +4,15 @@
 
 A curated collection of **concrete examples, counterexamples, constructions, and computations** in elementary algebraic geometry. Originally written as supplementary material for learners entering algebraic geometry, now being expanded into a multi-purpose open-source project.
 
+**Read the textbook online:** [waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry](https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/)
+
 ## What's Here
 
 - **`latex/`** — Original LaTeX source, compilable to PDF
-- **`content/`** — Markdown version for web browsing (WIP)
-- **`benchmark/`** — [ECAG-Bench](https://huggingface.co/datasets/Waerden001/ecag-bench): an LLM benchmark for testing the ability to construct algebraic geometry examples and counterexamples (WIP)
+- **`content/`** — Markdown version for [web browsing](https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/)
+- **`benchmark/`** — ECAG-Bench: an LLM benchmark for testing the ability to construct algebraic geometry examples and counterexamples
+- **`eval/`** — Evaluation framework and pilot results (Opus 4.6 / Sonnet 4.6)
+- **`paper/`** — Accompanying paper: *ECAG-Bench: A Benchmark for Constructive Algebraic Geometry Reasoning in Large Language Models*
 - **`scripts/`** — Tooling for LaTeX-to-Markdown conversion and benchmark generation
 
 ## Topics Covered
@@ -46,7 +50,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 **ECAG-Bench** (Examples & Counterexamples in Algebraic Geometry Benchmark) is an LLM evaluation dataset derived from this collection. It tests whether language models can construct concrete mathematical objects satisfying given properties — a capability distinct from theorem proving.
 
-<!-- Dataset link: https://huggingface.co/datasets/Waerden001/ecag-bench -->
+- **332 problems** across 4 chapters and 3 difficulty levels
+- **Dual structure**: 243 examples + 66 counterexamples
+- **Pilot results**: Claude Opus 4.6 achieves 90% overall accuracy (64% on Level 3)
+- Dataset: [`benchmark/data/ecag_bench.jsonl`](benchmark/data/ecag_bench.jsonl)
+- Raw model outputs: [`eval/results/`](eval/results/)
 
 ## License
 
