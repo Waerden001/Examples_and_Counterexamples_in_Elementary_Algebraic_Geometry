@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/basic_concepts/morphisms/">
+      
+      
+        <link rel="prev" href="../commutative_algebra/">
+      
+      
+        <link rel="next" href="../topology/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Morphisms - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#morphisms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Morphisms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computations/picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morphisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morphisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Morphisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etale-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étale related
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0158" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: An étale morphism, Hartshorne \(\mathrm{III}.10.6\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0159" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-frobenius-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Different Frobenius actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0160" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-l-functions-of-zero-dimensional-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global L-functions of zero-dimensional schemes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global L-functions of zero-dimensional schemes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0161" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Empty scheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0162" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0163" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Two points
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0164" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morphisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morphisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Morphisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etale-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étale related
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0158" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: An étale morphism, Hartshorne \(\mathrm{III}.10.6\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0159" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-frobenius-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Different Frobenius actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0160" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-l-functions-of-zero-dimensional-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global L-functions of zero-dimensional schemes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global L-functions of zero-dimensional schemes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0161" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Empty scheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0162" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0163" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Two points
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0164" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Morphisms</h1>
+
+<h2 id="morphisms">Morphisms<a class="headerlink" href="#morphisms" title="Permanent link">&para;</a></h2>
+<h3 id="etale-related">Étale related<a class="headerlink" href="#etale-related" title="Permanent link">&para;</a></h3>
+<h3 id="ecag-0158">Example: An étale morphism, Hartshorne <span class="arithmatex">\(\mathrm{III}.10.6\)</span><a class="headerlink" href="#ecag-0158" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k\)</span> be an algebraically closed field with <span class="arithmatex">\(\operatorname{char}(k) \neq 2\)</span>, and let <span class="arithmatex">\(Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))\)</span> be the nodal cubic. We construct a degree-2 etale morphism onto <span class="arithmatex">\(Y\)</span> from a smooth source by defining</p>
+<div class="arithmatex">\[
+f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2 - 1)^2)) \longrightarrow Y
+\]</div>
+<p>via the ring homomorphism <span class="arithmatex">\(\varphi: k[x,y]/(y^2 - x^2(x+1)) \to k[s,t]/(t^2 - (s^2-1)^2)\)</span> given by <span class="arithmatex">\(x \mapsto s^2 - 1\)</span> and <span class="arithmatex">\(y \mapsto st\)</span>.</p>
+<p><strong>Well-definedness.</strong> The map <span class="arithmatex">\(\varphi\)</span> must send the defining relation of <span class="arithmatex">\(\mathcal{O}(Y)\)</span> to zero in <span class="arithmatex">\(\mathcal{O}(X)\)</span>. We compute <span class="arithmatex">\(\varphi(y^2 - x^2(x+1)) = s^2 t^2 - (s^2-1)^2 \cdot s^2 = s^2(t^2 - (s^2-1)^2)\)</span>, which vanishes in <span class="arithmatex">\(\mathcal{O}(X)\)</span> as required.</p>
+<p><strong>The source scheme <span class="arithmatex">\(X\)</span>.</strong> The defining equation <span class="arithmatex">\(t^2 = (s^2 - 1)^2\)</span> factors as <span class="arithmatex">\((t - (s^2-1))(t + (s^2-1)) = 0\)</span>, so</p>
+<div class="arithmatex">\[
+X \cong \operatorname{Spec}(k[s,t]/(t - s^2 + 1)) \sqcup \operatorname{Spec}(k[s,t]/(t + s^2 - 1)) \cong \mathbb{A}^1_k \sqcup \mathbb{A}^1_k,
+\]</div>
+<p>a disjoint union of two copies of the affine line, each parametrized by <span class="arithmatex">\(s\)</span>. In particular, <span class="arithmatex">\(X\)</span> is smooth.</p>
+<p><strong>Fibre over the node.</strong> The node of <span class="arithmatex">\(Y\)</span> is the origin, corresponding to the maximal ideal <span class="arithmatex">\((x,y) \subset \mathcal{O}(Y)\)</span>. Setting <span class="arithmatex">\(x = s^2 - 1 = 0\)</span> and <span class="arithmatex">\(y = st = 0\)</span> in <span class="arithmatex">\(\mathcal{O}(X)\)</span> gives <span class="arithmatex">\(s = \pm 1\)</span> (using <span class="arithmatex">\(\operatorname{char}(k) \neq 2\)</span>) and, since <span class="arithmatex">\(s \neq 0\)</span>, forces <span class="arithmatex">\(t = 0\)</span>. The scheme-theoretic fibre is therefore</p>
+<div class="arithmatex">\[
+f^{-1}((0,0)) = \operatorname{Spec}(k[s]/(s^2 - 1)) \cong \operatorname{Spec}(k) \sqcup \operatorname{Spec}(k),
+\]</div>
+<p>consisting of two reduced <span class="arithmatex">\(k\)</span>-rational points at <span class="arithmatex">\(s = 1\)</span> and <span class="arithmatex">\(s = -1\)</span>.</p>
+<p><strong>Flatness.</strong> Since <span class="arithmatex">\(f\)</span> is a finite morphism between integral schemes and every fibre has the same degree 2 (two reduced points over every closed point of <span class="arithmatex">\(Y\)</span>, as one verifies by examining generic and special fibres), <span class="arithmatex">\(f\)</span> is flat by the local criterion: for a finite morphism of Noetherian integral schemes, flatness is equivalent to constancy of the fibre degree.</p>
+<p><strong>Etaleness.</strong> A morphism is etale if and only if it is flat and unramified. Flatness was established above. For unramifiedness at a point <span class="arithmatex">\(q \in X\)</span> lying over <span class="arithmatex">\(p \in Y\)</span>, we need two conditions: the residue field extension <span class="arithmatex">\(k(p) \hookrightarrow k(q)\)</span> is separable, and <span class="arithmatex">\(\mathfrak{m}_p \cdot \mathcal{O}_{X,q} = \mathfrak{m}_q\)</span>. Both hold at every point: the residue fields are all <span class="arithmatex">\(k\)</span> (since <span class="arithmatex">\(k\)</span> is algebraically closed and all fibres consist of <span class="arithmatex">\(k\)</span>-rational points), so the extension is trivially separable, and the fibre at each point is reduced, which gives <span class="arithmatex">\(\mathfrak{m}_p \cdot \mathcal{O}_{X,q} = \mathfrak{m}_q\)</span>. Therefore <span class="arithmatex">\(f\)</span> is a degree-2 etale morphism.</p>
+<p>The nodal cubic admits this etale cover by a smooth curve precisely because its singularity is an ordinary double point. The two branches of the node are separated in the cover, with each preimage point lying on a distinct component of <span class="arithmatex">\(X\)</span>. This illustrates that etale morphisms capture the local topology (the two branches) without resolving the singularity in the algebro-geometric sense.</p>
+<!-- BENCHMARK_PROBLEM: Let $k$ be an algebraically closed field with $\operatorname{char}(k) \neq 2$, and let $Y = \operatorname{Spec}(k[x,y]/(y^2 - x^2(x+1)))$ be the nodal cubic. Consider the morphism $f: X = \operatorname{Spec}(k[s,t]/(t^2 - (s^2-1)^2)) \to Y$ defined by $x \mapsto s^2 - 1$, $y \mapsto st$. Compute the scheme-theoretic fibre $f^{-1}((x,y))$ over the node and determine whether $f$ is etale. Justify your answer by verifying flatness and unramifiedness. -->
+
+<h3 id="ecag-0159">Remark<a class="headerlink" href="#ecag-0159" title="Permanent link">&para;</a></h3>
+<p>The flatness of the morphism <span class="arithmatex">\(f\)</span> in the previous example can also be verified directly by localization. Let <span class="arithmatex">\(\mathfrak{p} = (x,y) \subset \mathcal{O}(Y)\)</span> be the prime corresponding to the node, and let <span class="arithmatex">\(\mathfrak{q}_1 = (s-1, t)\)</span> and <span class="arithmatex">\(\mathfrak{q}_2 = (s+1, t)\)</span> be the two primes of <span class="arithmatex">\(\mathcal{O}(X)\)</span> lying over <span class="arithmatex">\(\mathfrak{p}\)</span>. One localizes the ring extension <span class="arithmatex">\(\mathcal{O}(Y) \hookrightarrow \mathcal{O}(X)\)</span> at <span class="arithmatex">\(\mathfrak{p}\)</span> and checks that each <span class="arithmatex">\(\mathcal{O}(X)_{\mathfrak{q}_i}\)</span> is a flat (equivalently, free) module over <span class="arithmatex">\(\mathcal{O}(Y)_{\mathfrak{p}}\)</span>.</p>
+<p>Since <span class="arithmatex">\(\mathcal{O}(Y)_{\mathfrak{p}}\)</span> is a one-dimensional local ring and each <span class="arithmatex">\(\mathcal{O}(X)_{\mathfrak{q}_i}\)</span> is a one-dimensional local domain, flatness reduces to two checkable conditions: the maximal ideal <span class="arithmatex">\(\mathfrak{m}_{\mathfrak{p}}\)</span> generates <span class="arithmatex">\(\mathfrak{m}_{\mathfrak{q}_i}\)</span> (which is precisely unramifiedness), and the module has no torsion (which holds automatically since <span class="arithmatex">\(\mathcal{O}(X)_{\mathfrak{q}_i}\)</span> is a domain and <span class="arithmatex">\(\mathcal{O}(Y)_{\mathfrak{p}}\)</span> is an integral domain).</p>
+<p>More generally, for a finite morphism between integral Noetherian schemes, flatness is equivalent to constancy of the fibre degree. This follows from Grothendieck's generic flatness theorem (which gives flatness on a dense open) combined with the local criterion of flatness (which promotes generic flatness to global flatness when the fibre degree is constant). This algebraic criterion is often more practical than the differential approach via Kahler differentials.</p>
+<!-- BENCHMARK_PROBLEM: Let $f: X \to Y$ be the degree-2 morphism from the etale cover of the nodal cubic constructed in ecag-0158. Let $\mathfrak{p} = (x,y) \subset \mathcal{O}(Y)$ be the node, and let $\mathfrak{q}_1 = (s-1,t)$, $\mathfrak{q}_2 = (s+1,t) \subset \mathcal{O}(X)$ be the primes lying over $\mathfrak{p}$. Verify flatness of $f$ at $\mathfrak{q}_1$ by showing that $\mathcal{O}(X)_{\mathfrak{q}_1}$ is a free module over $\mathcal{O}(Y)_{\mathfrak{p}}$. -->
+
+<h3 id="different-frobenius-actions">Different Frobenius actions<a class="headerlink" href="#different-frobenius-actions" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a scheme over <span class="arithmatex">\(k = \mathbb{F}_p\)</span> for a prime <span class="arithmatex">\(p\)</span>, and let <span class="arithmatex">\(\overline{X} = X \times_{\operatorname{Spec}(k)} \operatorname{Spec}(\overline{k})\)</span> be the base change to the algebraic closure. There are four distinct Frobenius morphisms associated to this situation, each playing a different role in arithmetic geometry.</p>
+<p>The <strong>absolute (global) Frobenius</strong> <span class="arithmatex">\(F_{\overline{X}}: \overline{X} \to \overline{X}\)</span> acts on the structure sheaf by <span class="arithmatex">\(f \mapsto f^p\)</span>, raising every section to its <span class="arithmatex">\(p\)</span>-th power. Over <span class="arithmatex">\(k = \mathbb{F}_p\)</span>, this is <span class="arithmatex">\(k\)</span>-linear since <span class="arithmatex">\(a^p = a\)</span> for all <span class="arithmatex">\(a \in \mathbb{F}_p\)</span> by Fermat's little theorem. This <span class="arithmatex">\(k\)</span>-linearity fails over <span class="arithmatex">\(\mathbb{F}_q\)</span> for <span class="arithmatex">\(q = p^r\)</span> with <span class="arithmatex">\(r &gt; 1\)</span>.</p>
+<p>The <strong>relative Frobenius</strong> <span class="arithmatex">\(F_{X/k}: \overline{X} \to \overline{X}^{(p)}\)</span> is defined as <span class="arithmatex">\(F_{X/k} = 1_{\operatorname{Spec}(\overline{k})} \times_k F_X\)</span>, where <span class="arithmatex">\(F_X: X \to X\)</span> is the absolute Frobenius of <span class="arithmatex">\(X\)</span>. When <span class="arithmatex">\(k = \mathbb{F}_p\)</span>, we have <span class="arithmatex">\(X^{(p)} \cong X\)</span> (since the Frobenius twist is trivial on <span class="arithmatex">\(\mathbb{F}_p\)</span>-schemes), so <span class="arithmatex">\(F_{X/k}\)</span> can be viewed as an endomorphism of <span class="arithmatex">\(\overline{X}\)</span>. It is <span class="arithmatex">\(\overline{k}\)</span>-linear because <span class="arithmatex">\(a^p = a\)</span> for <span class="arithmatex">\(a \in \mathbb{F}_p\)</span> on the structure side. Over <span class="arithmatex">\(\mathbb{F}_q\)</span> with <span class="arithmatex">\(q \neq p\)</span>, the Frobenius twist <span class="arithmatex">\(X^{(p)}\)</span> is genuinely different from <span class="arithmatex">\(X\)</span>.</p>
+<p>The <strong>arithmetic Frobenius</strong> is <span class="arithmatex">\(F_{\overline{k}} \times_k 1_X: \overline{X} \to \overline{X}\)</span>, which applies <span class="arithmatex">\(a \mapsto a^p\)</span> to the <span class="arithmatex">\(\overline{k}\)</span>-coefficients while fixing the <span class="arithmatex">\(X\)</span>-structure. The <strong>geometric Frobenius</strong> is <span class="arithmatex">\(F_{\overline{k}}^{-1} \times_k 1_X: \overline{X} \to \overline{X}\)</span>, applying the inverse Frobenius <span class="arithmatex">\(a \mapsto a^{1/p}\)</span> to the <span class="arithmatex">\(\overline{k}\)</span>-coefficients. The geometric Frobenius is the natural operator on etale cohomology and appears in the Grothendieck--Lefschetz trace formula.</p>
+<p><strong>Explicit formulas for <span class="arithmatex">\(X = \mathbb{A}^n_{\mathbb{F}_p}\)</span>.</strong> Writing elements of <span class="arithmatex">\(\mathcal{O}(\overline{X}) = \overline{k}[x_1, \ldots, x_n]\)</span> as polynomials <span class="arithmatex">\(\sum a_I x^I\)</span> with <span class="arithmatex">\(a_I \in \overline{k}\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Frobenius</th>
+<th>Action on <span class="arithmatex">\(\sum a_I x^I\)</span></th>
+<th>Effect on coefficients</th>
+<th>Effect on variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Absolute</td>
+<td><span class="arithmatex">\(\sum a_I^p x^{pI}\)</span></td>
+<td><span class="arithmatex">\(a_I \mapsto a_I^p\)</span></td>
+<td><span class="arithmatex">\(x_i \mapsto x_i^p\)</span></td>
+</tr>
+<tr>
+<td>Relative</td>
+<td><span class="arithmatex">\(\sum a_I x^{pI}\)</span></td>
+<td>unchanged</td>
+<td><span class="arithmatex">\(x_i \mapsto x_i^p\)</span></td>
+</tr>
+<tr>
+<td>Arithmetic</td>
+<td><span class="arithmatex">\(\sum a_I^p x^I\)</span></td>
+<td><span class="arithmatex">\(a_I \mapsto a_I^p\)</span></td>
+<td>unchanged</td>
+</tr>
+<tr>
+<td>Geometric</td>
+<td><span class="arithmatex">\(\sum a_I^{1/p} x^I\)</span></td>
+<td><span class="arithmatex">\(a_I \mapsto a_I^{1/p}\)</span></td>
+<td>unchanged</td>
+</tr>
+</tbody>
+</table>
+<p>The fundamental factorization is <span class="arithmatex">\(F_{\overline{X}} = F_{X/k} \circ (\text{arithmetic Frobenius})\)</span>: the absolute Frobenius decomposes as the relative Frobenius followed by the arithmetic Frobenius. This is immediate from the table: raising both coefficients and variables to the <span class="arithmatex">\(p\)</span>-th power is the same as first raising coefficients, then raising variables.</p>
+<p>On <span class="arithmatex">\(\overline{k}\)</span>-points, the absolute Frobenius acts as the identity on the underlying topological space (it is a morphism of locally ringed spaces that is a homeomorphism). The relative and geometric Frobenius both act as <span class="arithmatex">\((a_1, \ldots, a_n) \mapsto (a_1^p, \ldots, a_n^p)\)</span> on <span class="arithmatex">\(\overline{k}\)</span>-valued points. This is why the geometric Frobenius, rather than the arithmetic one, plays the central role in the Weil conjectures: its fixed points on <span class="arithmatex">\(\overline{X}(\overline{k})\)</span> are precisely the <span class="arithmatex">\(\mathbb{F}_p\)</span>-rational points of <span class="arithmatex">\(X\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{F}_p[x])$ and $\overline{X} = X \times_{\operatorname{Spec}(\mathbb{F}_p)} \operatorname{Spec}(\overline{\mathbb{F}_p})$. For the polynomial $f = \alpha x^2 + \beta x + \gamma \in \overline{\mathbb{F}_p}[x]$ where $\alpha, \beta, \gamma \in \overline{\mathbb{F}_p}$, write down explicitly the image of $f$ under each of the four Frobenius morphisms (absolute, relative, arithmetic, geometric). Verify that the absolute Frobenius equals the composition of the relative and arithmetic Frobenius. -->
+
+<h3 id="ecag-0160">Remark<a class="headerlink" href="#ecag-0160" title="Permanent link">&para;</a></h3>
+<p>The geometric Frobenius, rather than the arithmetic Frobenius, is the natural operator on <span class="arithmatex">\(\ell\)</span>-adic cohomology <span class="arithmatex">\(H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)\)</span>. Its eigenvalues satisfy the weight bounds predicted by the Weil conjectures (proved by Deligne): on <span class="arithmatex">\(H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)\)</span> for a smooth projective variety <span class="arithmatex">\(X\)</span> of dimension <span class="arithmatex">\(d\)</span> over <span class="arithmatex">\(\mathbb{F}_q\)</span>, the eigenvalues of the geometric Frobenius are algebraic numbers of absolute value <span class="arithmatex">\(q^{i/2}\)</span> under every complex embedding.</p>
+<p>The connection to point counting is through the Grothendieck--Lefschetz trace formula:</p>
+<div class="arithmatex">\[
+\# X(\mathbb{F}_{q^n}) = \sum_{i=0}^{2d} (-1)^i \operatorname{Tr}(\operatorname{Frob}_q^n \mid H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)),
+\]</div>
+<p>where <span class="arithmatex">\(\operatorname{Frob}_q\)</span> denotes the geometric Frobenius. On <span class="arithmatex">\(\overline{\mathbb{F}_q}\)</span>-points, the geometric Frobenius acts as <span class="arithmatex">\((x_1, \ldots, x_n) \mapsto (x_1^q, \ldots, x_n^q)\)</span>, and its fixed points are precisely the <span class="arithmatex">\(\mathbb{F}_q\)</span>-rational points of <span class="arithmatex">\(X\)</span>. This is the scheme-theoretic formulation of Weil's original insight connecting point counts to cohomological data. For a detailed treatment, see Goren, <em>Some remarks on Frobenius and Lefschetz in etale cohomology</em>.</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a smooth projective curve of genus $g$ over $\mathbb{F}_q$. Using the Grothendieck--Lefschetz trace formula, express $\# X(\mathbb{F}_{q^n})$ in terms of the eigenvalues of the geometric Frobenius on $H^i_{\text{et}}(\overline{X}, \mathbb{Q}_\ell)$ for $i = 0, 1, 2$. State the Riemann hypothesis for curves (Weil's theorem) as a constraint on these eigenvalues. -->
+
+<h2 id="global-l-functions-of-zero-dimensional-schemes">Global L-functions of zero-dimensional schemes<a class="headerlink" href="#global-l-functions-of-zero-dimensional-schemes" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(X \rightarrow \operatorname{Spec}(\mathbb{Z})\)</span> be a <span class="arithmatex">\(0\)</span>-dimensional scheme over <span class="arithmatex">\(\mathbb{Z}\)</span>. Since zero-dimensional schemes do not have the complication of bad reduction in the usual sense, the global zeta function of <span class="arithmatex">\(X\)</span> can be defined as</p>
+<div class="arithmatex">\[
+\zeta(X, s) := \prod_{p} Z(X_p, p^{-s}),
+\]</div>
+<p>where <span class="arithmatex">\(X_p = X \times_{\operatorname{Spec}(\mathbb{Z})} \operatorname{Spec}(\mathbb{F}_p)\)</span> is the reduction of <span class="arithmatex">\(X\)</span> modulo <span class="arithmatex">\(p\)</span>, and <span class="arithmatex">\(Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{\# X_p(\mathbb{F}_{p^n})}{n} t^n \right)\)</span> is the local zeta function.</p>
+<h3 id="ecag-0161">Example: Empty scheme<a class="headerlink" href="#ecag-0161" title="Permanent link">&para;</a></h3>
+<p>The empty scheme <span class="arithmatex">\(X = \emptyset = \operatorname{Spec}(0)\)</span> over <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Z})\)</span> has the simplest possible zeta function. For any prime <span class="arithmatex">\(p\)</span>, the reduction modulo <span class="arithmatex">\(p\)</span> is</p>
+<div class="arithmatex">\[
+X_p = \operatorname{Spec}(0 \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(0) = \emptyset,
+\]</div>
+<p>which has no points over any field extension: <span class="arithmatex">\(\# X_p(\mathbb{F}_{p^n}) = 0\)</span> for all <span class="arithmatex">\(n \geq 1\)</span>. The local zeta function is therefore</p>
+<div class="arithmatex">\[
+Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{0}{n} t^n\right) = e^0 = 1,
+\]</div>
+<p>and the global zeta function is</p>
+<div class="arithmatex">\[
+\zeta(\emptyset, s) = \prod_p 1 = 1.
+\]</div>
+<p>This is consistent with the multiplicativity of the zeta function under disjoint union: <span class="arithmatex">\(\zeta(X \sqcup \emptyset, s) = \zeta(X, s) \cdot \zeta(\emptyset, s) = \zeta(X, s)\)</span>. The empty scheme is the identity element for the monoid of isomorphism classes of schemes over <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Z})\)</span> under disjoint union, and <span class="arithmatex">\(\zeta(\emptyset, s) = 1\)</span> is the corresponding identity in the multiplicative group of Dirichlet series.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \emptyset$ be the empty scheme over $\operatorname{Spec}(\mathbb{Z})$. Compute the local zeta function $Z(X_p, t)$ for every prime $p$ and the global zeta function $\zeta(X, s)$. Express your answers in closed form. -->
+
+<h3 id="ecag-0162">Example<a class="headerlink" href="#ecag-0162" title="Permanent link">&para;</a></h3>
+<p>The scheme <span class="arithmatex">\(X = \operatorname{Spec}(\mathbb{Z})\)</span> over itself (via the identity morphism) has zeta function equal to the Riemann zeta function. For each prime <span class="arithmatex">\(p\)</span>, the fibre is</p>
+<div class="arithmatex">\[
+X_p = \operatorname{Spec}(\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{F}_p) = \operatorname{Spec}(\mathbb{F}_p),
+\]</div>
+<p>a single closed point with residue field <span class="arithmatex">\(\mathbb{F}_p\)</span>. For every <span class="arithmatex">\(n \geq 1\)</span>, there is exactly one <span class="arithmatex">\(\mathbb{F}_p\)</span>-algebra homomorphism <span class="arithmatex">\(\mathbb{F}_p \to \mathbb{F}_{p^n}\)</span> (the canonical inclusion), so <span class="arithmatex">\(\# X_p(\mathbb{F}_{p^n}) = 1\)</span>.</p>
+<p>The local zeta function is</p>
+<div class="arithmatex">\[
+Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{t^n}{n}\right) = \exp(-\ln(1 - t)) = \frac{1}{1 - t},
+\]</div>
+<p>using the Taylor series <span class="arithmatex">\(-\ln(1 - t) = \sum_{n=1}^{\infty} t^n/n\)</span> for <span class="arithmatex">\(|t| &lt; 1\)</span>. The global zeta function is</p>
+<div class="arithmatex">\[
+\zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}}.
+\]</div>
+<p>By the Euler product formula, this equals the Riemann zeta function:</p>
+<div class="arithmatex">\[
+\prod_p \frac{1}{1 - p^{-s}} = \sum_{n=1}^{\infty} \frac{1}{n^s} = \zeta(s),
+\]</div>
+<p>converging for <span class="arithmatex">\(\operatorname{Re}(s) &gt; 1\)</span>. The Euler product identity follows from unique factorization in <span class="arithmatex">\(\mathbb{Z}\)</span>: expanding each geometric series <span class="arithmatex">\(\frac{1}{1-p^{-s}} = \sum_{k=0}^{\infty} p^{-ks}\)</span> and multiplying over all primes recovers every positive integer <span class="arithmatex">\(n = \prod p_i^{k_i}\)</span> exactly once.</p>
+<p>The scheme <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Z})\)</span> is the terminal object in the category of schemes, and the fact that its zeta function recovers the Riemann zeta function shows that the scheme-theoretic zeta function is a direct generalization of the most fundamental object of analytic number theory.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z})$. Compute the local zeta function $Z(X_p, t)$ for each prime $p$ by first determining $\# X_p(\mathbb{F}_{p^n})$ for all $n \geq 1$, and then show that the global zeta function $\zeta(X, s) = \prod_p Z(X_p, p^{-s})$ equals the Riemann zeta function $\sum_{n=1}^{\infty} n^{-s}$. -->
+
+<h3 id="ecag-0163">Example: Two points<a class="headerlink" href="#ecag-0163" title="Permanent link">&para;</a></h3>
+<p>Consider <span class="arithmatex">\(X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))\)</span>, which by the Chinese Remainder Theorem decomposes as</p>
+<div class="arithmatex">\[
+X = \operatorname{Spec}(\mathbb{Z}[x]/(x) \times \mathbb{Z}[x]/(x-1)) \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z}),
+\]</div>
+<p>a disjoint union of two copies of <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Z})\)</span>. (The CRT applies because <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(x - 1\)</span> generate the unit ideal in <span class="arithmatex">\(\mathbb{Z}[x]\)</span>: they satisfy <span class="arithmatex">\(1 = x - (x-1)\)</span>.)</p>
+<p>For any prime <span class="arithmatex">\(p\)</span>, the elements <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(1\)</span> remain distinct in <span class="arithmatex">\(\mathbb{F}_p\)</span>, so <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(x-1\)</span> remain coprime in <span class="arithmatex">\(\mathbb{F}_p[x]\)</span>, giving</p>
+<div class="arithmatex">\[
+X_p = \operatorname{Spec}(\mathbb{F}_p[x]/(x(x-1))) \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p).
+\]</div>
+<p>Each component contributes one point over every extension, so <span class="arithmatex">\(\# X_p(\mathbb{F}_{p^n}) = 2\)</span> for all <span class="arithmatex">\(n \geq 1\)</span>. The local zeta function is</p>
+<div class="arithmatex">\[
+Z(X_p, t) = \exp\left(\sum_{n=1}^{\infty} \frac{2}{n} t^n\right) = \exp(-2\ln(1-t)) = \frac{1}{(1-t)^2}.
+\]</div>
+<p>The global zeta function is therefore</p>
+<div class="arithmatex">\[
+\zeta(X, s) = \prod_p \frac{1}{(1-p^{-s})^2} = \left(\prod_p \frac{1}{1-p^{-s}}\right)^2 = \zeta(s)^2.
+\]</div>
+<p>This illustrates the multiplicativity of the zeta function under disjoint union: since <span class="arithmatex">\(X \cong \operatorname{Spec}(\mathbb{Z}) \sqcup \operatorname{Spec}(\mathbb{Z})\)</span>, we get <span class="arithmatex">\(\zeta(X, s) = \zeta(\operatorname{Spec}(\mathbb{Z}), s)^2 = \zeta(s)^2\)</span>. Point counts add under disjoint union, exponents in the local zeta function add, and the global zeta function multiplies.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z}[x]/(x(x-1)))$ viewed as a scheme over $\operatorname{Spec}(\mathbb{Z})$. Compute $\# X_p(\mathbb{F}_{p^n})$ for all primes $p$ and all $n \geq 1$, determine the local zeta function $Z(X_p, t)$, and express the global zeta function $\zeta(X, s)$ in terms of the Riemann zeta function. -->
+
+<h3 id="ecag-0164">Example<a class="headerlink" href="#ecag-0164" title="Permanent link">&para;</a></h3>
+<p>The scheme <span class="arithmatex">\(X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))\)</span> provides the simplest nontrivial instance of the Dedekind zeta function factorization. The polynomial <span class="arithmatex">\(x^2 - x - 1\)</span> has discriminant <span class="arithmatex">\(\Delta = 1 + 4 = 5\)</span>, its splitting field is <span class="arithmatex">\(\mathbb{Q}(\sqrt{5})\)</span>, and <span class="arithmatex">\(\mathbb{Z}[x]/(x^2 - x - 1) \cong \mathbb{Z}\left[\frac{1+\sqrt{5}}{2}\right] = \mathcal{O}_{\mathbb{Q}(\sqrt{5})}\)</span> is the ring of integers of <span class="arithmatex">\(\mathbb{Q}(\sqrt{5})\)</span>.</p>
+<p><strong>Splitting behavior of primes.</strong> The structure of the fibre <span class="arithmatex">\(X_p\)</span> is governed by the factorization of <span class="arithmatex">\(x^2 - x - 1\)</span> modulo <span class="arithmatex">\(p\)</span>. By quadratic reciprocity (applicable since <span class="arithmatex">\(5 \equiv 1 \pmod{4}\)</span>, so <span class="arithmatex">\(\left(\frac{5}{p}\right) = \left(\frac{p}{5}\right)\)</span>), there are three cases:</p>
+<ul>
+<li>
+<p><strong>Ramified</strong> (<span class="arithmatex">\(p = 5\)</span>): We have <span class="arithmatex">\(x^2 - x - 1 \equiv (x - 3)^2 \pmod{5}\)</span>, so <span class="arithmatex">\(X_5 = \operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)\)</span>, a fat point supported at <span class="arithmatex">\(x = 3\)</span>.</p>
+</li>
+<li>
+<p><strong>Split</strong> (<span class="arithmatex">\(\left(\frac{p}{5}\right) = 1\)</span>, i.e., <span class="arithmatex">\(p \equiv \pm 1 \pmod{5}\)</span>): The polynomial <span class="arithmatex">\(x^2 - x - 1\)</span> has two distinct roots in <span class="arithmatex">\(\mathbb{F}_p\)</span>, so <span class="arithmatex">\(X_p \cong \operatorname{Spec}(\mathbb{F}_p) \sqcup \operatorname{Spec}(\mathbb{F}_p)\)</span>.</p>
+</li>
+<li>
+<p><strong>Inert</strong> (<span class="arithmatex">\(\left(\frac{p}{5}\right) = -1\)</span>, i.e., <span class="arithmatex">\(p \equiv \pm 2 \pmod{5}\)</span>): The polynomial <span class="arithmatex">\(x^2 - x - 1\)</span> is irreducible over <span class="arithmatex">\(\mathbb{F}_p\)</span>, so <span class="arithmatex">\(X_p \cong \operatorname{Spec}(\mathbb{F}_{p^2})\)</span>, a single closed point with residue field <span class="arithmatex">\(\mathbb{F}_{p^2}\)</span>.</p>
+</li>
+</ul>
+<p><strong>Local zeta functions.</strong> For <span class="arithmatex">\(p = 5\)</span>: a ring homomorphism <span class="arithmatex">\(\mathbb{F}_5[x]/(x-3)^2 \to \mathbb{F}_{5^n}\)</span> must send <span class="arithmatex">\(x\)</span> to an element satisfying <span class="arithmatex">\((x-3)^2 = 0\)</span>; since <span class="arithmatex">\(\mathbb{F}_{5^n}\)</span> is reduced, this forces <span class="arithmatex">\(x = 3\)</span>, so <span class="arithmatex">\(\# X_5(\mathbb{F}_{5^n}) = 1\)</span> and <span class="arithmatex">\(Z(X_5, t) = \frac{1}{1 - t}\)</span>.</p>
+<p>For split primes: <span class="arithmatex">\(\# X_p(\mathbb{F}_{p^n}) = 2\)</span> for all <span class="arithmatex">\(n \geq 1\)</span>, giving <span class="arithmatex">\(Z(X_p, t) = \frac{1}{(1-t)^2}\)</span>.</p>
+<p>For inert primes: an <span class="arithmatex">\(\mathbb{F}_{p^n}\)</span>-point of <span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_{p^2})\)</span> is a homomorphism <span class="arithmatex">\(\mathbb{F}_{p^2} \to \mathbb{F}_{p^n}\)</span>, which exists if and only if <span class="arithmatex">\(2 \mid n\)</span>. So <span class="arithmatex">\(\# X_p(\mathbb{F}_{p^n}) = 1\)</span> if <span class="arithmatex">\(2 \mid n\)</span> and <span class="arithmatex">\(0\)</span> otherwise, giving</p>
+<div class="arithmatex">\[
+Z(X_p, t) = \exp\left(\sum_{m=1}^{\infty} \frac{t^{2m}}{m}\right) = \frac{1}{1 - t^2} = \frac{1}{(1-t)(1+t)}.
+\]</div>
+<p><strong>Global zeta function.</strong> Assembling the Euler product:</p>
+<div class="arithmatex">\[
+\zeta(X, s) = \frac{1}{1 - 5^{-s}} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = 1}} \frac{1}{(1 - p^{-s})^2} \cdot \prod_{\substack{p \neq 5 \\ \left(\frac{p}{5}\right) = -1}} \frac{1}{(1 - p^{-s})(1 + p^{-s})}.
+\]</div>
+<p>Each local factor can be rewritten uniformly. For split primes, <span class="arithmatex">\(\frac{1}{(1-p^{-s})^2} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}\)</span> since <span class="arithmatex">\(\left(\frac{p}{5}\right) = 1\)</span>. For inert primes, <span class="arithmatex">\(\frac{1}{(1-p^{-s})(1+p^{-s})} = \frac{1}{1-p^{-s}} \cdot \frac{1}{1-\left(\frac{p}{5}\right)p^{-s}}\)</span> since <span class="arithmatex">\(\left(\frac{p}{5}\right) = -1\)</span>. Therefore</p>
+<div class="arithmatex">\[
+\zeta(X, s) = \prod_p \frac{1}{1 - p^{-s}} \cdot \prod_{p \neq 5} \frac{1}{1 - \left(\frac{p}{5}\right) p^{-s}} = \zeta(s) \cdot L(\chi, s),
+\]</div>
+<p>where <span class="arithmatex">\(\chi = \left(\frac{\cdot}{5}\right)\)</span> is the Legendre symbol character modulo 5, and</p>
+<div class="arithmatex">\[
+L(\chi, s) = \prod_{p \neq 5} \frac{1}{1 - \chi(p) p^{-s}} = \sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}
+\]</div>
+<p>is the associated Dirichlet <span class="arithmatex">\(L\)</span>-function (with the convention <span class="arithmatex">\(\chi(5) = 0\)</span>, so the factor at <span class="arithmatex">\(p = 5\)</span> is absorbed).</p>
+<p><strong>Verification.</strong> We check the first few primes:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(p\)</span></th>
+<th><span class="arithmatex">\(p \bmod 5\)</span></th>
+<th><span class="arithmatex">\(\left(\frac{p}{5}\right)\)</span></th>
+<th>Type</th>
+<th><span class="arithmatex">\(X_p\)</span></th>
+<th><span class="arithmatex">\(Z(X_p, t)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td>inert</td>
+<td><span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_4)\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{1-t^2}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td>inert</td>
+<td><span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_9)\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{1-t^2}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(5\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td>ramified</td>
+<td><span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_5[x]/(x-3)^2)\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{1-t}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(7\)</span></td>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td>inert</td>
+<td><span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_{49})\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{1-t^2}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(11\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td>split</td>
+<td><span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_{11})^{\sqcup 2}\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{(1-t)^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For <span class="arithmatex">\(p = 11\)</span>: we verify that <span class="arithmatex">\(x^2 - x - 1 \equiv 0 \pmod{11}\)</span> has roots <span class="arithmatex">\(x = \frac{1 \pm \sqrt{5}}{2}\)</span>. Since <span class="arithmatex">\(4 \cdot 5 = 20 \equiv 9 \pmod{11}\)</span> and <span class="arithmatex">\(\sqrt{9} = \pm 3\)</span> in <span class="arithmatex">\(\mathbb{F}_{11}\)</span>, the discriminant <span class="arithmatex">\(\sqrt{5}\)</span> equals <span class="arithmatex">\(\pm 3 \cdot 2^{-1} \cdot 2 = \pm 3\)</span> (more directly, <span class="arithmatex">\(4^2 = 16 \equiv 5\)</span>, so <span class="arithmatex">\(\sqrt{5} = \pm 4\)</span>), giving roots <span class="arithmatex">\(x = \frac{1 \pm 4}{2} \equiv \frac{5}{2}, \frac{-3}{2} \equiv 8, 4 \pmod{11}\)</span>. Indeed <span class="arithmatex">\(8^2 - 8 - 1 = 55 \equiv 0\)</span> and <span class="arithmatex">\(4^2 - 4 - 1 = 11 \equiv 0 \pmod{11}\)</span>.</p>
+<p>This factorization <span class="arithmatex">\(\zeta_{\mathbb{Q}(\sqrt{5})}(s) = \zeta(s) \cdot L(\chi, s)\)</span> is a special case of the general result that the Dedekind zeta function of an abelian extension <span class="arithmatex">\(K/\mathbb{Q}\)</span> factors as a product of Dirichlet <span class="arithmatex">\(L\)</span>-functions, one for each character of <span class="arithmatex">\(\operatorname{Gal}(K/\mathbb{Q})\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Spec}(\mathbb{Z}[x]/(x^2 - x - 1))$ over $\operatorname{Spec}(\mathbb{Z})$. (a) Determine the structure of the fibre $X_p$ for $p = 2, 3, 5, 7, 11$, specifying whether $p$ is split, inert, or ramified in $\mathbb{Q}(\sqrt{5})$. (b) Compute the local zeta function $Z(X_p, t)$ for each of these primes. (c) Show that the global zeta function satisfies $\zeta(X, s) = \zeta(s) \cdot L(\chi, s)$ where $\chi$ is the quadratic character modulo $5$. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

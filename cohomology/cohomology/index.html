@@ -1,0 +1,2605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/cohomology/cohomology/">
+      
+      
+        <link rel="prev" href="../../basic_concepts/algebraic_groups/">
+      
+      
+        <link rel="next" href="../etale/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Cohomology - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cohomology-and-homological-algebra" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cohomology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computations/picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cohomology-and-homological-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cohomology and homological algebra
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cohomology and homological algebra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0184" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Serre's computation of sheaf cohomology on projective space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0185" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Serre vanishing for coherent sheaves on projective schemes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0186" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Local cohomology and regularity for \(k[x,y]/(x^2, xy)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0187" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Local duality theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0188" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Projective normality and the integral closure of \(S(X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0189" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: The rational quartic and failure of projective normality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0190" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(S(X)\) versus \(\Gamma_*(X, \mathcal{O}_X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0191" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Local cohomology, Cech complex, and Castelnuovo--Mumford regularity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0192" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Regularity cannot be bounded by Hilbert polynomial for arbitrary sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0193" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Mumford's regularity theorem for ideal sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0194" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Relations between (co)homology theories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0195" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Borel--Moore homology of \(\mathbb{R}\) and \(\mathbb{R}^2 \setminus \{0\}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0196" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Properties and pathologies of Borel--Moore homology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0197" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Poincare duality and Poincare--Lefschetz duality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0198" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Intersection homology reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0199" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Intersection cohomology via the IC complex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Intersection cohomology and the decomposition theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0202" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Catalog of (co)homology theories related to perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0203" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Operations in the theory of perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: The functors \(j_*\) and \(j_!\) across categorical contexts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0205" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Non-degeneration of the Leray spectral sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0206" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Deligne's degeneration theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0207" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pathologies of non-abelian categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0208" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exactness in sheaves versus presheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0209" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Derived functors and derived categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Non-isomorphic abelian categories with equivalent derived categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Derived global sections and derived pushforward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0212" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Derived functors, spectral sequences, and hypercohomology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Perverse truncation on smooth and two-stratum varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0214" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Normal sheaf versus restricted normal sheaf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cohomology-and-homological-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cohomology and homological algebra
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cohomology and homological algebra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0184" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Serre's computation of sheaf cohomology on projective space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0185" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Serre vanishing for coherent sheaves on projective schemes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0186" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Local cohomology and regularity for \(k[x,y]/(x^2, xy)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0187" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Local duality theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0188" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Projective normality and the integral closure of \(S(X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0189" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: The rational quartic and failure of projective normality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0190" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(S(X)\) versus \(\Gamma_*(X, \mathcal{O}_X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0191" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Local cohomology, Cech complex, and Castelnuovo--Mumford regularity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0192" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Regularity cannot be bounded by Hilbert polynomial for arbitrary sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0193" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Mumford's regularity theorem for ideal sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0194" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Relations between (co)homology theories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0195" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Borel--Moore homology of \(\mathbb{R}\) and \(\mathbb{R}^2 \setminus \{0\}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0196" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Properties and pathologies of Borel--Moore homology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0197" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Poincare duality and Poincare--Lefschetz duality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0198" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Intersection homology reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0199" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Intersection cohomology via the IC complex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Intersection cohomology and the decomposition theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0202" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Catalog of (co)homology theories related to perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0203" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Operations in the theory of perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: The functors \(j_*\) and \(j_!\) across categorical contexts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0205" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Non-degeneration of the Leray spectral sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0206" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Deligne's degeneration theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0207" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pathologies of non-abelian categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0208" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exactness in sheaves versus presheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0209" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Derived functors and derived categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0210" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Non-isomorphic abelian categories with equivalent derived categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Derived global sections and derived pushforward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0212" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Derived functors, spectral sequences, and hypercohomology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Perverse truncation on smooth and two-stratum varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0214" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Normal sheaf versus restricted normal sheaf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Cohomology</h1>
+
+<h2 id="cohomology-and-homological-algebra">Cohomology and homological algebra<a class="headerlink" href="#cohomology-and-homological-algebra" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0184">Example: Serre's computation of sheaf cohomology on projective space<a class="headerlink" href="#ecag-0184" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X = \mathbb{P}^n_k\)</span> and consider the standard affine cover <span class="arithmatex">\(\mathfrak{U} = \{U_i = D_+(x_i)\}_{i=0}^{n}\)</span>. Since each finite intersection <span class="arithmatex">\(U_{i_0} \cap \cdots \cap U_{i_p} = \operatorname{Spec}(k[x_0/x_{i_0}, \ldots, x_n/x_{i_0}]_{x_{i_1}/x_{i_0} \cdots x_{i_p}/x_{i_0}})\)</span> is affine, and higher sheaf cohomology of quasi-coherent sheaves on affine schemes vanishes, the Leray theorem for acyclic covers gives</p>
+<div class="arithmatex">\[
+\check{H}^i(\mathfrak{U}, \mathcal{F}) \cong H^i(X, \mathcal{F})
+\]</div>
+<p>for any quasi-coherent sheaf <span class="arithmatex">\(\mathcal{F}\)</span> on <span class="arithmatex">\(\mathbb{P}^n_k\)</span>.</p>
+<p>For <span class="arithmatex">\(\mathcal{F} = \mathcal{O}(m)\)</span>, the Cech complex on this cover is</p>
+<div class="arithmatex">\[
+0 \rightarrow \bigoplus_{i} (S_{x_i})_m \rightarrow \bigoplus_{i &lt; j} (S_{x_i x_j})_m \rightarrow \cdots \rightarrow (S_{x_0 x_1 \cdots x_n})_m \rightarrow 0
+\]</div>
+<p>where <span class="arithmatex">\(S = k[x_0, \ldots, x_n]\)</span> and the subscript <span class="arithmatex">\(m\)</span> denotes the degree-<span class="arithmatex">\(m\)</span> graded piece. Computing the cohomology of this complex yields Serre's result:</p>
+<div class="arithmatex">\[
+H^i(\mathbb{P}^n_k, \mathcal{O}(m)) = \begin{cases} S_m &amp; \text{if } i = 0, \\ 0 &amp; \text{if } 0 &lt; i &lt; n, \\ S_{-m-n-1}^{\vee} &amp; \text{if } i = n. \end{cases}
+\]</div>
+<p><strong><span class="arithmatex">\(H^0\)</span>: global sections.</strong> A degree-<span class="arithmatex">\(m\)</span> element of <span class="arithmatex">\(S_{x_i}\)</span> is a fraction <span class="arithmatex">\(f/x_i^N\)</span> with <span class="arithmatex">\(\deg f = m + N\)</span>. An element lies in <span class="arithmatex">\(\bigcap_i (S_{x_i})_m\)</span> if and only if it is a polynomial of degree <span class="arithmatex">\(m\)</span> (no denominators needed), so <span class="arithmatex">\(H^0 = S_m\)</span>. For <span class="arithmatex">\(m &lt; 0\)</span>, no monomial of negative degree exists, giving <span class="arithmatex">\(H^0 = 0\)</span>.</p>
+<p><strong><span class="arithmatex">\(H^n\)</span>: top cohomology.</strong> An element of <span class="arithmatex">\((S_{x_0 \cdots x_n})_m\)</span> is a Laurent monomial <span class="arithmatex">\(x_0^{a_0} \cdots x_n^{a_n}\)</span> with <span class="arithmatex">\(\sum a_i = m\)</span> and each <span class="arithmatex">\(a_i \in \mathbb{Z}\)</span>. A monomial lies in the image of the Cech differential if and only if at least one exponent <span class="arithmatex">\(a_i \geq 0\)</span>. Therefore <span class="arithmatex">\(H^n\)</span> is spanned by monomials with all <span class="arithmatex">\(a_i \leq -1\)</span>. The substitution <span class="arithmatex">\(a_i = -1 - b_i\)</span> with <span class="arithmatex">\(b_i \geq 0\)</span> gives <span class="arithmatex">\(\sum b_i = -m - n - 1\)</span>, so <span class="arithmatex">\(H^n \cong (S_{-m-n-1})^\vee\)</span>. This vanishes when <span class="arithmatex">\(-m - n - 1 &lt; 0\)</span>, i.e., <span class="arithmatex">\(m &gt; -n - 1\)</span>.</p>
+<p><strong>Dimensions.</strong> In particular, <span class="arithmatex">\(\dim_k H^0(\mathbb{P}^n, \mathcal{O}(m)) = \binom{m+n}{n}\)</span> for <span class="arithmatex">\(m \geq 0\)</span> and <span class="arithmatex">\(\dim_k H^n(\mathbb{P}^n, \mathcal{O}(m)) = \binom{-m-1}{n}\)</span> for <span class="arithmatex">\(m \leq -n-1\)</span>.</p>
+<p><strong>Verification on <span class="arithmatex">\(\mathbb{P}^2\)</span>.</strong> For <span class="arithmatex">\(\mathcal{O}(2)\)</span>: <span class="arithmatex">\(h^0 = \binom{4}{2} = 6\)</span>, with basis <span class="arithmatex">\(\{x_0^2, x_0 x_1, x_0 x_2, x_1^2, x_1 x_2, x_2^2\}\)</span>. For <span class="arithmatex">\(\mathcal{O}(-4)\)</span>: <span class="arithmatex">\(h^2 = \binom{3}{2} = 3\)</span>, with basis <span class="arithmatex">\(\{x_0^{-1}x_1^{-1}x_2^{-2}, x_0^{-1}x_1^{-2}x_2^{-1}, x_0^{-2}x_1^{-1}x_2^{-1}\}\)</span> in the Cech picture. These are consistent with the Euler characteristic <span class="arithmatex">\(\chi(\mathcal{O}(m)) = \binom{m+n}{n}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \mathbb{P}^2_k$ with the standard affine cover $\{U_0, U_1, U_2\}$. Using the Cech complex, compute $H^0(\mathbb{P}^2, \mathcal{O}(2))$ and $H^2(\mathbb{P}^2, \mathcal{O}(-4))$ as $k$-vector spaces, giving explicit bases in terms of monomials. What are their dimensions? -->
+
+<h3 id="ecag-0185">Example: Serre vanishing for coherent sheaves on projective schemes<a class="headerlink" href="#ecag-0185" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a projective scheme over a noetherian ring <span class="arithmatex">\(A\)</span>, let <span class="arithmatex">\(\mathcal{O}_X(1)\)</span> be a very ample invertible sheaf on <span class="arithmatex">\(X\)</span> over <span class="arithmatex">\(\operatorname{Spec}(A)\)</span>, and let <span class="arithmatex">\(\mathscr{F}\)</span> be a coherent sheaf on <span class="arithmatex">\(X\)</span>. Serre's theorem asserts:</p>
+<ol>
+<li>For all <span class="arithmatex">\(i \geq 0\)</span>, <span class="arithmatex">\(H^i(X, \mathscr{F})\)</span> is a finitely generated <span class="arithmatex">\(A\)</span>-module.</li>
+<li>For all <span class="arithmatex">\(i \geq 1\)</span>, there exists <span class="arithmatex">\(n_0 = n_0(i, \mathscr{F})\)</span> such that <span class="arithmatex">\(H^i(X, \mathscr{F}(n)) = 0\)</span> for all <span class="arithmatex">\(n \geq n_0\)</span>.</li>
+</ol>
+<p>The mechanism is transparent from the explicit computation on projective space. Consider <span class="arithmatex">\(H^n(\mathbb{P}^n, \mathcal{O}(m))\)</span>: this is spanned by Laurent monomials <span class="arithmatex">\(x_0^{a_0} \cdots x_n^{a_n}\)</span> of total degree <span class="arithmatex">\(m\)</span> with all <span class="arithmatex">\(a_i \leq -1\)</span>. For such a monomial to exist, we need <span class="arithmatex">\(\sum a_i = m\)</span> with each <span class="arithmatex">\(a_i \leq -1\)</span>, forcing <span class="arithmatex">\(m \leq -n-1\)</span>. Hence <span class="arithmatex">\(H^n(\mathbb{P}^n, \mathcal{O}(m)) = 0\)</span> for all <span class="arithmatex">\(m \geq -n\)</span>. Twisting by <span class="arithmatex">\(\mathcal{O}(n)\)</span> shifts <span class="arithmatex">\(m \mapsto m + n\)</span>, so sufficiently large twist eliminates the top cohomology.</p>
+<p><strong>Application to base change.</strong> One important consequence is the simplification of derived pushforwards. For a proper morphism <span class="arithmatex">\(f: X \to Y\)</span> and a coherent sheaf <span class="arithmatex">\(\mathscr{F}\)</span>, the derived pushforward <span class="arithmatex">\(\mathbf{R}f_*\mathscr{F}\)</span> involves all <span class="arithmatex">\(R^i f_*\mathscr{F}\)</span>. After sufficient twist, only <span class="arithmatex">\(f_*\mathscr{F}(n)\)</span> survives, reducing the derived pushforward to an ordinary pushforward. Concretely, for a morphism <span class="arithmatex">\(\phi: T \to S\)</span> of noetherian schemes, <span class="arithmatex">\(\mathscr{F}\)</span> coherent on <span class="arithmatex">\(\mathbb{P}^n_S\)</span>, and projections <span class="arithmatex">\(\pi_S, \pi_T\)</span>, there exists <span class="arithmatex">\(r_0\)</span> such that the base-change homomorphism</p>
+<div class="arithmatex">\[
+\phi^* \pi_{S,*}\mathscr{F}(r) \xrightarrow{\;\sim\;} \pi_{T,*}\mathscr{F}_T(r)
+\]</div>
+<p>is an isomorphism for all <span class="arithmatex">\(r \geq r_0\)</span>. Without twisting, the correct statement involves derived categories: <span class="arithmatex">\(L\phi^* \mathbf{R}\pi_{S,*}\mathscr{F} \xrightarrow{\sim} \mathbf{R}\pi_{T,*}\mathscr{F}_T\)</span> under appropriate flatness hypotheses (flat base change theorem).</p>
+<!-- BENCHMARK_PROBLEM: Let $\mathcal{F} = \mathcal{O}(m)$ on $\mathbb{P}^n_k$. Determine precisely for which values of $m$ the group $H^n(\mathbb{P}^n, \mathcal{O}(m))$ vanishes. Express your answer as an inequality in $m$ and $n$, and explain why the result follows from the Laurent monomial description of the Cech cohomology. -->
+
+<h3 id="ecag-0186">Example: Local cohomology and regularity for <span class="arithmatex">\(k[x,y]/(x^2, xy)\)</span><a class="headerlink" href="#ecag-0186" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(S = k[x, y]\)</span> with irrelevant ideal <span class="arithmatex">\(\mathfrak{m} = (x, y)\)</span>, and let <span class="arithmatex">\(R = S/(x^2, xy)\)</span>. We compute the local cohomology modules <span class="arithmatex">\(H^i_{\mathfrak{m}}(R)\)</span>, the Hilbert polynomial, and the Castelnuovo--Mumford regularity of <span class="arithmatex">\(R\)</span>.</p>
+<p><strong>The module <span class="arithmatex">\(R\)</span> as a graded vector space.</strong> A <span class="arithmatex">\(k\)</span>-basis of <span class="arithmatex">\(R\)</span> is <span class="arithmatex">\(\{1, x, y, y^2, y^3, \ldots\}\)</span>. The element <span class="arithmatex">\(x\)</span> satisfies <span class="arithmatex">\(x^2 = xy = 0\)</span> in <span class="arithmatex">\(R\)</span>, so <span class="arithmatex">\(x\)</span> spans a 1-dimensional submodule annihilated by <span class="arithmatex">\(\mathfrak{m}\)</span>.</p>
+<p><strong>The Cech complex.</strong> Local cohomology is computed by the Cech complex on the generators <span class="arithmatex">\(x, y\)</span> of <span class="arithmatex">\(\mathfrak{m}\)</span>:</p>
+<div class="arithmatex">\[
+0 \rightarrow R \xrightarrow{\binom{1}{1}} R[x^{-1}] \oplus R[y^{-1}] \rightarrow R[x^{-1}y^{-1}] \rightarrow 0.
+\]</div>
+<p>Since <span class="arithmatex">\(x^2 = 0\)</span> in <span class="arithmatex">\(R\)</span>, the localization <span class="arithmatex">\(R[x^{-1}]\)</span> contains <span class="arithmatex">\(1 = x^2 \cdot x^{-2} = 0\)</span>, so <span class="arithmatex">\(R[x^{-1}] = 0\)</span>. Similarly <span class="arithmatex">\(R[x^{-1}y^{-1}] = 0\)</span> (localizing at <span class="arithmatex">\(x\)</span> already kills everything). The complex collapses to</p>
+<div class="arithmatex">\[
+0 \rightarrow R \xrightarrow{\iota} R[y^{-1}] \rightarrow 0.
+\]</div>
+<p><strong><span class="arithmatex">\(H^0_{\mathfrak{m}}(R)\)</span>.</strong> This is <span class="arithmatex">\(\ker(\iota) = \{r \in R \mid y^N r = 0 \text{ for some } N\}\)</span>. Since <span class="arithmatex">\(xy = 0\)</span> and <span class="arithmatex">\(y^n \cdot 1 = y^n \neq 0\)</span> for all <span class="arithmatex">\(n\)</span>, we have <span class="arithmatex">\(H^0_{\mathfrak{m}}(R) = (x) \cong k\)</span>, concentrated in graded degree 1.</p>
+<p><strong><span class="arithmatex">\(H^1_{\mathfrak{m}}(R)\)</span>.</strong> In <span class="arithmatex">\(R[y^{-1}]\)</span>, the element <span class="arithmatex">\(x\)</span> vanishes: <span class="arithmatex">\(x = xy \cdot y^{-1} = 0\)</span>. So <span class="arithmatex">\(R[y^{-1}] \cong k[y, y^{-1}]\)</span>. The cokernel of <span class="arithmatex">\(\iota\)</span> is <span class="arithmatex">\(k[y, y^{-1}] / k[y] \cong \bigoplus_{j \geq 1} k \cdot y^{-j}\)</span>, giving <span class="arithmatex">\(H^1_{\mathfrak{m}}(R) \cong k[y^{-1}] \cdot y^{-1}\)</span> with nonzero graded pieces in degrees <span class="arithmatex">\(\leq -1\)</span>.</p>
+<p><strong>Hilbert function and polynomial.</strong> We have <span class="arithmatex">\(\dim_k R_d = 1\)</span> for <span class="arithmatex">\(d = 0\)</span>, <span class="arithmatex">\(\dim_k R_d = 2\)</span> for <span class="arithmatex">\(d = 1\)</span> (spanned by <span class="arithmatex">\(x, y\)</span>), and <span class="arithmatex">\(\dim_k R_d = 1\)</span> for <span class="arithmatex">\(d \geq 2\)</span> (spanned by <span class="arithmatex">\(y^d\)</span>). Thus the Hilbert polynomial is <span class="arithmatex">\(\chi_R(t) = 1\)</span> for <span class="arithmatex">\(t \gg 0\)</span>.</p>
+<p><strong>Castelnuovo--Mumford regularity.</strong> By definition, <span class="arithmatex">\(\operatorname{reg}(R) = \max\{d + i \mid H^i_{\mathfrak{m}}(R)_d \neq 0\}\)</span>. From the computation above:</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Nonzero degrees <span class="arithmatex">\(d\)</span></th>
+<th>Contributing <span class="arithmatex">\(d + i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(H^0_{\mathfrak{m}}(R)\)</span> (<span class="arithmatex">\(i = 0\)</span>)</td>
+<td><span class="arithmatex">\(d = 1\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(H^1_{\mathfrak{m}}(R)\)</span> (<span class="arithmatex">\(i = 1\)</span>)</td>
+<td><span class="arithmatex">\(d = -1, -2, \ldots\)</span></td>
+<td><span class="arithmatex">\(0, -1, \ldots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Therefore <span class="arithmatex">\(\operatorname{reg}(R) = 1\)</span>.</p>
+<p><strong>Verification via local duality.</strong> With <span class="arithmatex">\(S = k[x,y]\)</span> of Krull dimension 2, local duality gives <span class="arithmatex">\(H^i_{\mathfrak{m}}(R) \cong (\operatorname{Ext}_S^{2-i}(R, S(-2)))^\vee\)</span>. For <span class="arithmatex">\(i = 0\)</span>: <span class="arithmatex">\(\operatorname{Ext}^2_S(R, S(-2))^\vee \cong k^\vee = k\)</span>, consistent with <span class="arithmatex">\(H^0_{\mathfrak{m}}(R) \cong k\)</span>. For <span class="arithmatex">\(i = 1\)</span>: <span class="arithmatex">\(\operatorname{Ext}^1_S(R, S(-2))^\vee\)</span> can be computed from the free resolution <span class="arithmatex">\(0 \to S(-3) \xrightarrow{\binom{y}{-x}} S(-2)^2 \xrightarrow{(x^2, xy)} S \to R \to 0\)</span>, confirming the result.</p>
+<!-- BENCHMARK_PROBLEM: Let $S = k[x,y]$, $\mathfrak{m} = (x,y)$, and $R = S/(x^2, xy)$. Compute $H^0_{\mathfrak{m}}(R)$ and $H^1_{\mathfrak{m}}(R)$ as graded $k$-vector spaces by analyzing the Cech complex. Determine the Castelnuovo--Mumford regularity $\operatorname{reg}(R)$. -->
+
+<h3 id="ecag-0187">Remark: Local duality theorem<a class="headerlink" href="#ecag-0187" title="Permanent link">&para;</a></h3>
+<p>The preceding example illustrates the local duality theorem in its general form (cf. Eisenbud, <em>The Geometry of Syzygies</em>, Springer 2005). For a polynomial ring <span class="arithmatex">\(S = k[x_0, \ldots, x_r]\)</span> with irrelevant ideal <span class="arithmatex">\(\mathfrak{m}\)</span> and a finitely generated graded <span class="arithmatex">\(S\)</span>-module <span class="arithmatex">\(M\)</span>, there is a natural isomorphism of graded modules</p>
+<div class="arithmatex">\[
+H^i_{\mathfrak{m}}(M) \cong \left(\operatorname{Ext}_S^{r+1-i}(M, S(-r-1))\right)^{\vee}
+\]</div>
+<p>where <span class="arithmatex">\((-)^\vee\)</span> denotes the graded <span class="arithmatex">\(k\)</span>-dual. This is a graded local analogue of Serre duality: the local cohomology at the irrelevant ideal plays the role of sheaf cohomology, and <span class="arithmatex">\(S(-r-1)\)</span> plays the role of the dualizing module <span class="arithmatex">\(\omega_S\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: State the local duality theorem for a polynomial ring $S = k[x_0, \ldots, x_r]$ with irrelevant ideal $\mathfrak{m}$, and verify it for the module $M = S/(x_0)$ by computing both $H^i_{\mathfrak{m}}(M)$ and $\operatorname{Ext}_S^{r+1-i}(M, S(-r-1))$. -->
+
+<h3 id="ecag-0188">Example: Projective normality and the integral closure of <span class="arithmatex">\(S(X)\)</span><a class="headerlink" href="#ecag-0188" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a connected, normal closed subscheme of <span class="arithmatex">\(\mathbb{P}^r_A\)</span>, where <span class="arithmatex">\(A\)</span> is a finitely generated <span class="arithmatex">\(k\)</span>-algebra. Write <span class="arithmatex">\(S = S(X) = A[x_0, \ldots, x_r]/I\)</span> for the homogeneous coordinate ring and <span class="arithmatex">\(\Gamma = \Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} \Gamma(X, \mathcal{O}_X(n))\)</span> for the saturated graded ring of global sections. The main assertions (Hartshorne II.5.14) are:</p>
+<ol>
+<li><span class="arithmatex">\(\Gamma\)</span> is integral over <span class="arithmatex">\(S\)</span>.</li>
+<li><span class="arithmatex">\(\Gamma\)</span> is integrally closed.</li>
+<li><span class="arithmatex">\(\Gamma_d = S_d\)</span> for <span class="arithmatex">\(d \gg 0\)</span>.</li>
+<li>The Veronese subring <span class="arithmatex">\(S^{(d)} = \bigoplus_{n \geq 0} S_{nd}\)</span> is integrally closed for all <span class="arithmatex">\(d\)</span>; in particular, the <span class="arithmatex">\(d\)</span>-uple embedding is projectively normal for <span class="arithmatex">\(d \gg 0\)</span>.</li>
+</ol>
+<p><strong>Proof of (1).</strong> Since <span class="arithmatex">\(X\)</span> is integral (connected and normal implies irreducible), <span class="arithmatex">\(S\)</span> is a domain. We have <span class="arithmatex">\(\Gamma = \bigcap_{i=0}^r S_{x_i}\)</span>, where each <span class="arithmatex">\(S_{x_i}\)</span> is a localization of <span class="arithmatex">\(S\)</span>. For any <span class="arithmatex">\(y \in \Gamma\)</span>, there exists <span class="arithmatex">\(N\)</span> such that <span class="arithmatex">\(x_i^N y \in S\)</span> for all <span class="arithmatex">\(i\)</span>, so <span class="arithmatex">\(y\)</span> is integral over <span class="arithmatex">\(S\)</span> (it lies in the finitely generated <span class="arithmatex">\(S\)</span>-module <span class="arithmatex">\(S \cdot x_i^{-N}\)</span>).</p>
+<p><strong>Proof of (2).</strong> The degree-zero part <span class="arithmatex">\(S_{((x_i))}\)</span> of <span class="arithmatex">\(S_{x_i}\)</span> is the coordinate ring of the affine open <span class="arithmatex">\(X \cap D_+(x_i)\)</span>, which is normal since <span class="arithmatex">\(X\)</span> is. Setting <span class="arithmatex">\(\Gamma^{(i)} = \{z \in S_{x_i} \mid \deg(z) \geq 0\} \cong S_{((x_i))}[x_i]\)</span>, we get <span class="arithmatex">\(\Gamma = \bigcap_i \Gamma^{(i)}\)</span>. Since each <span class="arithmatex">\(S_{((x_i))}\)</span> is integrally closed, so is the polynomial ring <span class="arithmatex">\(\Gamma^{(i)}\)</span>, and an intersection of integrally closed subrings of a common fraction field is integrally closed. Therefore <span class="arithmatex">\(\Gamma\)</span> is the integral closure of <span class="arithmatex">\(S\)</span>.</p>
+<p><strong>Proof of (3).</strong> Since <span class="arithmatex">\(S\)</span> is a finitely generated domain over a field, its integral closure <span class="arithmatex">\(\Gamma\)</span> is a finite <span class="arithmatex">\(S\)</span>-module. Let <span class="arithmatex">\(y_1, \ldots, y_m\)</span> generate <span class="arithmatex">\(\Gamma\)</span> over <span class="arithmatex">\(S\)</span>. For each <span class="arithmatex">\(y_j\)</span> there exists <span class="arithmatex">\(N_j\)</span> with <span class="arithmatex">\(x_i^{N_j} y_j \in S\)</span> for all <span class="arithmatex">\(i\)</span>, so <span class="arithmatex">\(\Gamma_d \subset S_d\)</span> for <span class="arithmatex">\(d \geq \max_j \deg(y_j) + \max_j N_j\)</span>. Combined with <span class="arithmatex">\(S \subset \Gamma\)</span>, this gives <span class="arithmatex">\(S_d = \Gamma_d\)</span> for <span class="arithmatex">\(d \gg 0\)</span>.</p>
+<p><strong>Proof of (4).</strong> If <span class="arithmatex">\(y \in \operatorname{Frac}(\Gamma^{(d)})\)</span> is integral over <span class="arithmatex">\(\Gamma^{(d)}\)</span>, then <span class="arithmatex">\(y \in \Gamma\)</span> since <span class="arithmatex">\(\Gamma\)</span> is integrally closed. The degree of <span class="arithmatex">\(y\)</span> must be divisible by <span class="arithmatex">\(d\)</span> (it lies in <span class="arithmatex">\(\operatorname{Frac}(\Gamma^{(d)})\)</span>), so <span class="arithmatex">\(y \in \Gamma^{(d)}\)</span>. For <span class="arithmatex">\(d \gg 0\)</span>, <span class="arithmatex">\(S^{(d)} = \Gamma^{(d)}\)</span> by (3), so <span class="arithmatex">\(S^{(d)}\)</span> is integrally closed.</p>
+<p>As a consequence, <span class="arithmatex">\(X\)</span> is projectively normal if and only if <span class="arithmatex">\(\Gamma(X, \mathcal{O}_X(n)) = S(X)_n\)</span> for all <span class="arithmatex">\(n \geq 0\)</span>, equivalently, the restriction map <span class="arithmatex">\(H^0(\mathbb{P}^r_A, \mathcal{O}(n)) \to H^0(X, \mathcal{O}_X(n))\)</span> is surjective for all <span class="arithmatex">\(n\)</span>. Any nonsingular hypersurface in <span class="arithmatex">\(\mathbb{P}^r\)</span> is projectively normal (the ideal sheaf sequence and the vanishing <span class="arithmatex">\(H^1(\mathbb{P}^r, \mathcal{O}(n-d)) = 0\)</span> for <span class="arithmatex">\(n \geq d\)</span> give the surjectivity).</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a normal projective variety over a field $k$ embedded in $\mathbb{P}^r$. Prove that the Veronese $d$-uple embedding of $X$ is projectively normal for $d$ sufficiently large. Identify the key algebraic fact that guarantees $\Gamma_d = S(X)_d$ for large $d$. -->
+
+<h3 id="ecag-0189">Example: The rational quartic and failure of projective normality<a class="headerlink" href="#ecag-0189" title="Permanent link">&para;</a></h3>
+<p>Consider the map <span class="arithmatex">\(\varphi: \mathbb{P}^1 \to \mathbb{P}^3\)</span> defined by</p>
+<div class="arithmatex">\[
+[u, v] \mapsto [u^4,\; u^3 v,\; uv^3,\; v^4].
+\]</div>
+<p>Let <span class="arithmatex">\(C = \varphi(\mathbb{P}^1)\)</span>, a rational quartic curve. The linear system used is the span of <span class="arithmatex">\(\{u^4, u^3v, uv^3, v^4\} \subset H^0(\mathbb{P}^1, \mathcal{O}(4))\)</span>, which is incomplete: the monomial <span class="arithmatex">\(u^2v^2\)</span> is missing.</p>
+<p>Since <span class="arithmatex">\(\mathcal{O}_C(1) \cong \varphi^*\mathcal{O}_{\mathbb{P}^3}(1) \cong \mathcal{O}_{\mathbb{P}^1}(4)\)</span>, we have <span class="arithmatex">\(h^0(C, \mathcal{O}_C(1)) = h^0(\mathbb{P}^1, \mathcal{O}(4)) = 5\)</span>. On the other hand, <span class="arithmatex">\(h^0(\mathbb{P}^3, \mathcal{O}(1)) = 4\)</span>. The restriction map <span class="arithmatex">\(H^0(\mathbb{P}^3, \mathcal{O}(1)) \to H^0(C, \mathcal{O}_C(1))\)</span> has image spanned by the four coordinate monomials, with <span class="arithmatex">\(u^2v^2\)</span> generating the 1-dimensional cokernel.</p>
+<p><strong>The section <span class="arithmatex">\(u^2v^2\)</span> is regular on each affine open.</strong> Writing <span class="arithmatex">\([x, y, z, w]\)</span> for coordinates on <span class="arithmatex">\(\mathbb{P}^3\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Affine open</th>
+<th>Expression for <span class="arithmatex">\(u^2v^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(D_+(x)\)</span></td>
+<td><span class="arithmatex">\((y/x)^2 \cdot x\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D_+(y)\)</span></td>
+<td><span class="arithmatex">\((x/y)(z/y) \cdot y\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D_+(z)\)</span></td>
+<td><span class="arithmatex">\((y/z)(w/z) \cdot z\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(D_+(w)\)</span></td>
+<td><span class="arithmatex">\((z/w)^2 \cdot w\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Each expression is a regular function times a degree-1 element, confirming <span class="arithmatex">\(u^2v^2 \in \Gamma(C, \mathcal{O}_C(1)) \setminus S(C)_1\)</span>.</p>
+<p>From the ideal sheaf sequence <span class="arithmatex">\(0 \to \mathscr{I}_C \to \mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_C \to 0\)</span> twisted by <span class="arithmatex">\(\mathcal{O}(1)\)</span>, the non-surjectivity of the restriction map gives <span class="arithmatex">\(H^1(\mathbb{P}^3, \mathscr{I}_C(1)) \cong k\)</span>. Thus <span class="arithmatex">\(C\)</span> is not projectively normal, and <span class="arithmatex">\(\Gamma_*(C, \mathcal{O}_C) \supsetneq S(C)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $C$ be the image of the map $\mathbb{P}^1 \to \mathbb{P}^3$ given by $[u,v] \mapsto [u^4, u^3v, uv^3, v^4]$. Compute $h^0(C, \mathcal{O}_C(1))$ and $h^0(\mathbb{P}^3, \mathcal{O}(1))$, identify the missing section explicitly, and explain why $C$ is not projectively normal. -->
+
+<h3 id="ecag-0190">Remark: <span class="arithmatex">\(S(X)\)</span> versus <span class="arithmatex">\(\Gamma_*(X, \mathcal{O}_X)\)</span><a class="headerlink" href="#ecag-0190" title="Permanent link">&para;</a></h3>
+<p>For a projective scheme <span class="arithmatex">\(X = \operatorname{Proj}(S)\)</span>, several related but distinct objects must be carefully distinguished:</p>
+<ul>
+<li>
+<p>The scheme <span class="arithmatex">\(X\)</span> does not determine <span class="arithmatex">\(S\)</span> uniquely. Different graded rings can give isomorphic <span class="arithmatex">\(\operatorname{Proj}\)</span>'s; for instance <span class="arithmatex">\(\operatorname{Proj}(S) \cong \operatorname{Proj}(S^{(d)})\)</span> for any <span class="arithmatex">\(d \geq 1\)</span>.</p>
+</li>
+<li>
+<p>The homogeneous coordinate ring <span class="arithmatex">\(S(X)\)</span> depends on the specific embedding <span class="arithmatex">\(X \hookrightarrow \mathbb{P}^r\)</span>, not just the abstract scheme <span class="arithmatex">\(X\)</span>.</p>
+</li>
+<li>
+<p>The saturated ring <span class="arithmatex">\(\Gamma_*(X, \mathcal{O}_X) = \bigoplus_{n \geq 0} H^0(X, \mathcal{O}_X(n))\)</span> is an intrinsic invariant of the pair <span class="arithmatex">\((X, \mathcal{O}_X(1))\)</span>. There is always a natural map <span class="arithmatex">\(S(X) \to \Gamma_*(X, \mathcal{O}_X)\)</span>, which is an isomorphism in large degrees (by the finiteness of the integral closure), but it can fail to be surjective in small degrees (as the rational quartic example shows).</p>
+</li>
+<li>
+<p>The associated sheaves <span class="arithmatex">\(\widetilde{S}\)</span> and <span class="arithmatex">\(\widetilde{\Gamma_*}\)</span> are isomorphic on <span class="arithmatex">\(X\)</span>; the distinction lives entirely in graded module theory, not in sheaf theory.</p>
+</li>
+<li>
+<p>An isomorphism <span class="arithmatex">\(X \cong Y\)</span> of abstract schemes does not imply <span class="arithmatex">\(\mathcal{O}_X(1) \cong f^*\mathcal{O}_Y(1)\)</span>, since <span class="arithmatex">\(\mathcal{O}(1)\)</span> depends on the embedding.</p>
+</li>
+</ul>
+<!-- BENCHMARK_PROBLEM: Give an example of two non-isomorphic graded rings $S$ and $S'$ with $\operatorname{Proj}(S) \cong \operatorname{Proj}(S')$, and explain why $\operatorname{Proj}$ does not determine the graded ring. -->
+
+<h3 id="ecag-0191">Remark: Local cohomology, Cech complex, and Castelnuovo--Mumford regularity<a class="headerlink" href="#ecag-0191" title="Permanent link">&para;</a></h3>
+<p>For a noetherian ring <span class="arithmatex">\(R\)</span> and an ideal <span class="arithmatex">\(Q = (x_1, \ldots, x_t)\)</span>, the local cohomology <span class="arithmatex">\(H^i_Q(M)\)</span> of an <span class="arithmatex">\(R\)</span>-module <span class="arithmatex">\(M\)</span> is the <span class="arithmatex">\(i\)</span>-th right derived functor of the <span class="arithmatex">\(Q\)</span>-torsion functor <span class="arithmatex">\(\Gamma_Q(M) = \{m \in M \mid Q^d m = 0 \text{ for some } d \geq 1\}\)</span>. It can be computed as the <span class="arithmatex">\(i\)</span>-th cohomology of the Cech complex</p>
+<div class="arithmatex">\[
+C(x_1, \ldots, x_t; M): \quad 0 \to M \xrightarrow{d} \bigoplus_{i=1}^{t} M[x_i^{-1}] \xrightarrow{d} \cdots \to \bigoplus_{|J|=k} M[x_J^{-1}] \to \cdots \to M[x_{1 \cdots t}^{-1}] \to 0
+\]</div>
+<p>with differential <span class="arithmatex">\(d(m_J) = \sum_{k \notin J} (-1)^{|\{i \in J : i &lt; k\}|} m_{J \cup \{k\}}\)</span>, where <span class="arithmatex">\(m_{J \cup \{k\}}\)</span> denotes the natural image of <span class="arithmatex">\(m_J\)</span> under localization.</p>
+<p>For the polynomial ring <span class="arithmatex">\(S = k[x_0, \ldots, x_r]\)</span> with <span class="arithmatex">\(\mathfrak{m} = (x_0, \ldots, x_r)\)</span>, the <strong>Castelnuovo--Mumford regularity</strong> of a finitely generated graded <span class="arithmatex">\(S\)</span>-module <span class="arithmatex">\(M\)</span> is</p>
+<div class="arithmatex">\[
+\operatorname{reg}(M) = \max\{d + i \mid H^i_{\mathfrak{m}}(M)_d \neq 0\}.
+\]</div>
+<p>This invariant controls the degree from which the Hilbert function agrees with the Hilbert polynomial, and it bounds the degrees of generators and syzygies of <span class="arithmatex">\(M\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $S = k[x,y,z]$, $\mathfrak{m} = (x,y,z)$, and $M = S/(x,y)$. Compute $H^i_{\mathfrak{m}}(M)$ for all $i$ using the Cech complex on $x, y, z$, and determine $\operatorname{reg}(M)$. -->
+
+<h3 id="ecag-0192">Example: Regularity cannot be bounded by Hilbert polynomial for arbitrary sheaves<a class="headerlink" href="#ecag-0192" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(\mathscr{F} = \mathcal{O}_{\mathbb{P}^1}(k) \oplus \mathcal{O}_{\mathbb{P}^1}(-k)\)</span> for <span class="arithmatex">\(k \geq 0\)</span>. The Hilbert polynomial of <span class="arithmatex">\(\mathscr{F}\)</span> is independent of <span class="arithmatex">\(k\)</span>, yet its Castelnuovo--Mumford regularity grows without bound.</p>
+<p><strong>Euler characteristic.</strong> By additivity,</p>
+<div class="arithmatex">\[
+\chi(\mathscr{F}(m)) = \chi(\mathcal{O}(m+k)) + \chi(\mathcal{O}(m-k)) = (m+k+1) + (m-k+1) = 2m + 2.
+\]</div>
+<p>The Hilbert polynomial <span class="arithmatex">\(2m + 2 = 2\binom{m+1}{1}\)</span> is independent of <span class="arithmatex">\(k\)</span>.</p>
+<p><strong>Regularity.</strong> The sheaf <span class="arithmatex">\(\mathscr{F}\)</span> is <span class="arithmatex">\(m\)</span>-regular if <span class="arithmatex">\(H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = 0\)</span>. We have</p>
+<div class="arithmatex">\[
+H^1(\mathbb{P}^1, \mathscr{F}(m-1)) = H^1(\mathcal{O}(m-1+k)) \oplus H^1(\mathcal{O}(m-1-k)).
+\]</div>
+<p>Since <span class="arithmatex">\(H^1(\mathbb{P}^1, \mathcal{O}(j)) = 0\)</span> if and only if <span class="arithmatex">\(j \geq -1\)</span> (by Serre duality, <span class="arithmatex">\(H^1(\mathcal{O}(j)) \cong H^0(\mathcal{O}(-j-2))^\vee\)</span>), the second summand vanishes if and only if <span class="arithmatex">\(m - 1 - k \geq -1\)</span>, i.e., <span class="arithmatex">\(m \geq k\)</span>. The first summand vanishes for all <span class="arithmatex">\(m \geq 0\)</span>. Therefore <span class="arithmatex">\(\operatorname{reg}(\mathscr{F}) = k\)</span>.</p>
+<p>Since the Hilbert polynomial is <span class="arithmatex">\(2m + 2\)</span> regardless of <span class="arithmatex">\(k\)</span>, no function of the Hilbert polynomial coefficients can bound <span class="arithmatex">\(\operatorname{reg}(\mathscr{F})\)</span>. This contrasts with Mumford's theorem for ideal sheaves <span class="arithmatex">\(\mathscr{I}_X \subset \mathcal{O}_{\mathbb{P}^n}\)</span>, where the regularity is bounded by a function of the Hilbert polynomial.</p>
+<!-- BENCHMARK_PROBLEM: Let $\mathscr{F} = \mathcal{O}_{\mathbb{P}^1}(k) \oplus \mathcal{O}_{\mathbb{P}^1}(-k)$ for $k \geq 0$. Show that $\operatorname{reg}(\mathscr{F}) = k$ while the Hilbert polynomial of $\mathscr{F}$ is $2m + 2$, independent of $k$. What does this imply about bounding regularity solely in terms of Hilbert polynomial coefficients for arbitrary coherent sheaves? -->
+
+<h3 id="ecag-0193">Remark: Mumford's regularity theorem for ideal sheaves<a class="headerlink" href="#ecag-0193" title="Permanent link">&para;</a></h3>
+<p>Mumford proved (in <em>Lectures on Curves on an Algebraic Surface</em>, Annals of Mathematics Studies No. 59, Lectures 14--15) that for an ideal sheaf <span class="arithmatex">\(\mathscr{I}_X\)</span> of a subvariety <span class="arithmatex">\(X \subset \mathbb{P}^n\)</span>, the Castelnuovo--Mumford regularity can be bounded in terms of the Hilbert polynomial of <span class="arithmatex">\(X\)</span>. The preceding example shows this bound fails for arbitrary coherent sheaves: the family <span class="arithmatex">\(\mathcal{O}(k) \oplus \mathcal{O}(-k)\)</span> on <span class="arithmatex">\(\mathbb{P}^1\)</span> has constant Hilbert polynomial but unbounded regularity.</p>
+<!-- BENCHMARK_PROBLEM: State the distinction between Mumford's regularity theorem for ideal sheaves and the behavior of regularity for arbitrary coherent sheaves. Give an explicit family of sheaves on $\mathbb{P}^1$ demonstrating the failure. -->
+
+<h3 id="ecag-0194">Example: Relations between (co)homology theories<a class="headerlink" href="#ecag-0194" title="Permanent link">&para;</a></h3>
+<p>Three fundamental isomorphisms relate Borel--Moore homology to singular and relative homology:</p>
+<p><strong>(1)</strong> <span class="arithmatex">\(H_i^{BM}(X) \cong H_i(\hat{X}, \{*\})\)</span>, where <span class="arithmatex">\(\hat{X} = X \cup \{*\}\)</span> is the one-point compactification of the locally compact Hausdorff space <span class="arithmatex">\(X\)</span>. Borel--Moore homology uses locally finite chains; a locally finite chain on <span class="arithmatex">\(X\)</span> extends to a chain on <span class="arithmatex">\(\hat{X}\)</span> by declaring it to be finite relative to <span class="arithmatex">\(*\)</span>, and this identification is exact.</p>
+<p><strong>(2)</strong> <span class="arithmatex">\(H_i^{BM}(X) \cong H_i(\overline{X}, \overline{X} \setminus X)\)</span> for any compactification <span class="arithmatex">\(\overline{X}\)</span> of <span class="arithmatex">\(X\)</span>. By excision, <span class="arithmatex">\(H_i(\overline{X}, \overline{X} \setminus X) \cong H_i(\hat{X}, \{*\})\)</span>, since collapsing the complement <span class="arithmatex">\(\overline{X} \setminus X\)</span> to a point recovers the one-point compactification (up to homotopy equivalence of pairs).</p>
+<p><strong>(3)</strong> <span class="arithmatex">\(H_i(X, A) \cong \widetilde{H}_i(X/A)\)</span> whenever <span class="arithmatex">\((X, A)\)</span> is a good pair, meaning <span class="arithmatex">\(A\)</span> is a closed subspace that is a deformation retract of some open neighborhood in <span class="arithmatex">\(X\)</span>. This is the standard excision/quotient theorem: the quotient map <span class="arithmatex">\((X, A) \to (X/A, A/A)\)</span> induces an isomorphism on relative homology, and <span class="arithmatex">\(H_i(X/A, A/A) = \widetilde{H}_i(X/A)\)</span> by definition.</p>
+<!-- BENCHMARK_PROBLEM: Compute $H_i^{BM}(\mathbb{R}^n)$ for all $i$ using the one-point compactification $(\mathbb{R}^n)^+ = S^n$ and the isomorphism $H_i^{BM}(X) \cong \widetilde{H}_i(\hat{X})$. Express your answer in terms of $n$. -->
+
+<h3 id="ecag-0195">Example: Borel--Moore homology of <span class="arithmatex">\(\mathbb{R}\)</span> and <span class="arithmatex">\(\mathbb{R}^2 \setminus \{0\}\)</span><a class="headerlink" href="#ecag-0195" title="Permanent link">&para;</a></h3>
+<p><strong>Computation for <span class="arithmatex">\(\mathbb{R}\)</span>.</strong> The one-point compactification of <span class="arithmatex">\(\mathbb{R}\)</span> is <span class="arithmatex">\(S^1\)</span>, so</p>
+<div class="arithmatex">\[
+H_i^{BM}(\mathbb{R}) = H_i(S^1, \{*\}) = \widetilde{H}_i(S^1) = \begin{cases} \mathbb{Z} &amp; i = 1, \\ 0 &amp; \text{otherwise.} \end{cases}
+\]</div>
+<p><strong>Computation for <span class="arithmatex">\(\mathbb{R}^2 \setminus \{0\}\)</span>.</strong> Take the compactification <span class="arithmatex">\(\overline{X} = S^2\)</span> (the one-point compactification of <span class="arithmatex">\(\mathbb{R}^2\)</span>). The complement <span class="arithmatex">\(S^2 \setminus (\mathbb{R}^2 \setminus \{0\}) = \{0, \infty\}\)</span> consists of two points, so</p>
+<div class="arithmatex">\[
+H_i^{BM}(\mathbb{R}^2 \setminus \{0\}) = H_i(S^2, \{0, \infty\}) \cong \widetilde{H}_i(S^2 / \{0, \infty\}).
+\]</div>
+<p>Identifying the north and south poles of <span class="arithmatex">\(S^2\)</span> produces the wedge <span class="arithmatex">\(S^2 \vee S^1\)</span> (a sphere with a circle attached at the identified point). Hence</p>
+<div class="arithmatex">\[
+H_i^{BM}(\mathbb{R}^2 \setminus \{0\}) = \widetilde{H}_i(S^2 \vee S^1) = \begin{cases} \mathbb{Z} &amp; i = 1, 2, \\ 0 &amp; \text{otherwise.} \end{cases}
+\]</div>
+<p><strong>Comparison with ordinary homology.</strong> The ordinary homology <span class="arithmatex">\(H_1(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}\)</span> is generated by a circle around the origin. In the Borel--Moore setting, this circle bounds the locally finite 2-chain given by either half-plane it separates, so it maps to zero in <span class="arithmatex">\(H_1^{BM}\)</span>. Instead, <span class="arithmatex">\(H_1^{BM}(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{Z}\)</span> is generated by a ray from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(\infty\)</span> -- a locally finite 1-chain that has no compact analogue. Thus the natural map <span class="arithmatex">\(H_i(\mathbb{R}^2 \setminus \{0\}) \to H_i^{BM}(\mathbb{R}^2 \setminus \{0\})\)</span> is the zero map for all <span class="arithmatex">\(i\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Compute $H_i^{BM}(\mathbb{R}^2 \setminus \{0\})$ for all $i$ using a compactification argument. Identify a generator of $H_1^{BM}$ as a locally finite chain, and explain why the circle generating $H_1(\mathbb{R}^2 \setminus \{0\})$ maps to zero in Borel--Moore homology. -->
+
+<h3 id="ecag-0196">Remark: Properties and pathologies of Borel--Moore homology<a class="headerlink" href="#ecag-0196" title="Permanent link">&para;</a></h3>
+<p>Borel--Moore homology differs from ordinary singular homology in several important ways:</p>
+<p><strong>Not homotopy invariant.</strong> We have <span class="arithmatex">\(H_1^{BM}(\mathbb{R}) \cong \mathbb{Z}\)</span> but <span class="arithmatex">\(H_1^{BM}(\{pt\}) = 0\)</span>, even though <span class="arithmatex">\(\mathbb{R}\)</span> is contractible.</p>
+<p><strong>Poincare duality for non-compact manifolds.</strong> For an oriented <span class="arithmatex">\(n\)</span>-manifold <span class="arithmatex">\(M\)</span>, the correct duality is <span class="arithmatex">\(H_i^{BM}(M) \cong H^{n-i}(M)\)</span>, not <span class="arithmatex">\(H_i(M) \cong H^{n-i}(M)\)</span> (which fails for non-compact <span class="arithmatex">\(M\)</span>).</p>
+<p><strong>Proper pushforward only.</strong> A continuous map <span class="arithmatex">\(f: X \to Y\)</span> does not generally induce <span class="arithmatex">\(f_*: H_i^{BM}(X) \to H_i^{BM}(Y)\)</span>, because images of locally finite chains need not be locally finite. For example, the inclusion <span class="arithmatex">\(\mathbb{R} \setminus \{0\} \hookrightarrow \mathbb{R}\)</span> sends the locally finite chain <span class="arithmatex">\(\sum_{j \geq 0} [2^{-j-1}, 2^{-j}]\)</span> (locally finite on <span class="arithmatex">\(\mathbb{R} \setminus \{0\}\)</span>) to a chain that is not locally finite at <span class="arithmatex">\(0 \in \mathbb{R}\)</span>. Proper maps do induce pushforwards.</p>
+<p><strong>Localization sequence.</strong> For <span class="arithmatex">\(Y \subset X\)</span> closed in a locally compact space and <span class="arithmatex">\(U = X \setminus Y\)</span>, there is a long exact sequence</p>
+<div class="arithmatex">\[
+\cdots \to H_k^{BM}(Y) \to H_k^{BM}(X) \to H_k^{BM}(U) \to H_{k-1}^{BM}(Y) \to \cdots
+\]</div>
+<p>arising from the long exact sequence of the pair <span class="arithmatex">\((\overline{X}, \overline{X} \setminus U)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Using the localization long exact sequence for Borel--Moore homology applied to $Y = \{0\} \subset X = \mathbb{R}$ with $U = \mathbb{R} \setminus \{0\}$, compute $H_i^{BM}(\mathbb{R} \setminus \{0\})$ for all $i$. -->
+
+<h3 id="ecag-0197">Example: Poincare duality and Poincare--Lefschetz duality<a class="headerlink" href="#ecag-0197" title="Permanent link">&para;</a></h3>
+<p><strong>Poincare--Lefschetz duality.</strong> Let <span class="arithmatex">\(X\)</span> be a closed subset of a smooth oriented manifold <span class="arithmatex">\(M\)</span> of real dimension <span class="arithmatex">\(n\)</span>. Then</p>
+<div class="arithmatex">\[
+H_i^{BM}(X) \cong H^{n-i}(M, M \setminus X).
+\]</div>
+<p>The isomorphism is given by the cap product with the fundamental class. When <span class="arithmatex">\(X = M\)</span> is compact, <span class="arithmatex">\(H_i^{BM}(M) = H_i(M)\)</span> and <span class="arithmatex">\(M \setminus M = \varnothing\)</span>, recovering classical Poincare duality <span class="arithmatex">\(H_i(M) \cong H^{n-i}(M)\)</span>.</p>
+<p>When <span class="arithmatex">\(X\)</span> is open in <span class="arithmatex">\(M\)</span> (so <span class="arithmatex">\(M\)</span> is a compactification of <span class="arithmatex">\(X\)</span>), combining Poincare--Lefschetz duality with the Borel--Moore definition <span class="arithmatex">\(H_i^{BM}(X) = H_i(M, M \setminus X)\)</span> gives the self-duality <span class="arithmatex">\(H^{n-i}(M, M \setminus X) \cong H_i(M, M \setminus X)\)</span>.</p>
+<p><strong>Lefschetz duality for manifolds with boundary.</strong> For a compact oriented <span class="arithmatex">\(n\)</span>-manifold <span class="arithmatex">\(M\)</span> with boundary <span class="arithmatex">\(\partial M\)</span>:</p>
+<div class="arithmatex">\[
+H^k(M, \partial M) \cong H_{n-k}(M), \qquad H_k(M) \cong H^{n-k}(M, \partial M).
+\]</div>
+<p>The proof uses the fundamental class <span class="arithmatex">\([M, \partial M] \in H_n(M, \partial M)\)</span> and the cap product. This differs from the Borel--Moore setting: here <span class="arithmatex">\(\partial M\)</span> is closed in <span class="arithmatex">\(M\)</span>, whereas Borel--Moore theory involves the complement <span class="arithmatex">\(M \setminus X\)</span>, which is open.</p>
+<!-- BENCHMARK_PROBLEM: Let $M$ be a smooth compact oriented $n$-manifold without boundary, and let $X = M \setminus \{p\}$ for a point $p$. Using Poincare--Lefschetz duality $H_i^{BM}(X) \cong H^{n-i}(M, M \setminus X)$, compute $H_i^{BM}(M \setminus \{p\})$ in terms of the cohomology of $M$ and the local cohomology at $p$. -->
+
+<h3 id="ecag-0198">Remark: Intersection homology reference<a class="headerlink" href="#ecag-0198" title="Permanent link">&para;</a></h3>
+<p>A comprehensive treatment of intersection homology, including the construction of allowable chains with perversity conditions and the proof of generalized Poincare duality for singular spaces, is given in Maxim's lecture notes (<em>Intersection Homology</em>, University of Wisconsin). Intersection homology, introduced by Goresky and MacPherson (1980), recovers Poincare duality for singular algebraic varieties by restricting chains according to a perversity function that controls how chains interact with the singular strata.</p>
+<!-- BENCHMARK_PROBLEM: State the perversity condition for a chain to be $\overline{p}$-allowable in intersection homology, and explain why the middle perversity is the unique self-dual perversity for even-dimensional strata. -->
+
+<h3 id="ecag-0199">Example: Perverse sheaves<a class="headerlink" href="#ecag-0199" title="Permanent link">&para;</a></h3>
+<p>A perverse sheaf on a complex algebraic variety <span class="arithmatex">\(X\)</span> (with a fixed stratification <span class="arithmatex">\(X = \bigsqcup_\alpha S_\alpha\)</span>) is an object <span class="arithmatex">\(\mathcal{F}^\bullet \in D^b_c(X, \mathbb{Q})\)</span> satisfying:</p>
+<ul>
+<li><strong>(Support)</strong> <span class="arithmatex">\(\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j\)</span> for all <span class="arithmatex">\(j\)</span>.</li>
+<li><strong>(Cosupport)</strong> <span class="arithmatex">\(\dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j\)</span> for all <span class="arithmatex">\(j\)</span>, where <span class="arithmatex">\(\mathbb{D}\)</span> is Verdier duality.</li>
+</ul>
+<p>The category <span class="arithmatex">\(\operatorname{Perv}(X)\)</span> of perverse sheaves is the heart of the perverse <span class="arithmatex">\(t\)</span>-structure on <span class="arithmatex">\(D^b_c(X)\)</span>, defined by</p>
+<div class="arithmatex">\[
+{}^p D^{\leq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathcal{F}^\bullet) \leq -j \;\forall\; j\}, \quad {}^p D^{\geq 0} = \{\mathcal{F}^\bullet \mid \dim_\mathbb{C} \operatorname{supp} \mathcal{H}^j(\mathbb{D}\mathcal{F}^\bullet) \leq -j \;\forall\; j\}.
+\]</div>
+<p>Despite the name, perverse sheaves are not sheaves but complexes of sheaves satisfying these dimensional conditions.</p>
+<p><strong>Fundamental example: shifted local systems.</strong> If <span class="arithmatex">\(X\)</span> is smooth of pure dimension <span class="arithmatex">\(d\)</span> and <span class="arithmatex">\(\mathcal{L}\)</span> is a local system on <span class="arithmatex">\(X\)</span>, then <span class="arithmatex">\(\mathcal{L}[d]\)</span> is a perverse sheaf. The support condition is satisfied because <span class="arithmatex">\(\mathcal{H}^j(\mathcal{L}[d]) = 0\)</span> for <span class="arithmatex">\(j \neq -d\)</span>, and <span class="arithmatex">\(\operatorname{supp} \mathcal{H}^{-d}(\mathcal{L}[d]) = X\)</span> has dimension <span class="arithmatex">\(d = -(-d)\)</span>. The cosupport condition follows by Verdier duality: <span class="arithmatex">\(\mathbb{D}(\mathcal{L}[d]) \cong \mathcal{L}^\vee[d]\)</span> (up to twist), and the same dimension count applies.</p>
+<p><strong>Intersection cohomology complex.</strong> For a singular variety with smooth locus <span class="arithmatex">\(j: U \hookrightarrow X\)</span> and a local system <span class="arithmatex">\(\mathcal{L}\)</span> on <span class="arithmatex">\(U\)</span>, the intersection cohomology complex <span class="arithmatex">\(\operatorname{IC}(X, \mathcal{L})\)</span> is the unique extension of <span class="arithmatex">\(\mathcal{L}[\dim X]\)</span> to a perverse sheaf on <span class="arithmatex">\(X\)</span> having no nontrivial sub-objects or quotient-objects supported on <span class="arithmatex">\(X \setminus U\)</span>.</p>
+<p>The perverse cohomology functors <span class="arithmatex">\({}^p H^i: D^b_c(X) \to \operatorname{Perv}(X)\)</span> are the cohomology functors of the perverse <span class="arithmatex">\(t\)</span>-structure, analogous to ordinary cohomology sheaves <span class="arithmatex">\(\mathcal{H}^i\)</span> for the standard <span class="arithmatex">\(t\)</span>-structure.</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a smooth complex variety of dimension $d$ and $\mathcal{L}$ a local system on $X$. Verify that $\mathcal{L}[d]$ satisfies the support and cosupport conditions to be a perverse sheaf. Determine ${}^p H^0(\mathcal{L}[d])$. -->
+
+<h3 id="ecag-0200">Example: Intersection cohomology via the IC complex<a class="headerlink" href="#ecag-0200" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a (possibly singular) complex algebraic variety of pure dimension <span class="arithmatex">\(n\)</span>, and let <span class="arithmatex">\(\mathcal{L}\)</span> be a local system on a smooth dense open <span class="arithmatex">\(U \subset X\)</span>. The intersection cohomology groups are</p>
+<div class="arithmatex">\[
+IH^k(X, \mathcal{L}) := H^{k-n}(X, \operatorname{IC}(X, \mathcal{L}))
+\]</div>
+<p>where <span class="arithmatex">\(\operatorname{IC}(X, \mathcal{L})\)</span> is the intersection cohomology complex extending <span class="arithmatex">\(\mathcal{L}[n]\)</span>. The shift ensures that when <span class="arithmatex">\(X\)</span> is smooth and <span class="arithmatex">\(\mathcal{L}\)</span> is constant, <span class="arithmatex">\(IH^k(X, \mathbb{Q}) = H^k(X, \mathbb{Q})\)</span>.</p>
+<p><strong>Construction of IC by iterated truncation.</strong> Fix a Whitney stratification <span class="arithmatex">\(X = \bigsqcup_\alpha S_\alpha\)</span> with open stratum <span class="arithmatex">\(U = S_0\)</span>. Let <span class="arithmatex">\(U_k = \bigsqcup_{\dim S_\alpha \geq n-k} S_\alpha\)</span> with inclusions <span class="arithmatex">\(j_k: U_k \hookrightarrow U_{k+1}\)</span>. Then</p>
+<div class="arithmatex">\[
+\operatorname{IC}(X, \mathcal{L}) = \tau_{\leq -1} R(j_{n-1})_* \cdots \tau_{\leq -n+1} R(j_1)_* (\mathcal{L}[n]).
+\]</div>
+<p>Each truncation enforces the support condition stratum by stratum. The result is independent of the stratification and is Verdier self-dual (up to twist by <span class="arithmatex">\(\mathcal{L}^\vee\)</span>), yielding generalized Poincare duality:</p>
+<div class="arithmatex">\[
+IH^k(X, \mathcal{L}) \cong IH^{2n-k}(X, \mathcal{L}^\vee)^\vee.
+\]</div>
+<p><strong>Concrete example: nodal curve.</strong> Let <span class="arithmatex">\(X\)</span> be a curve with a single node <span class="arithmatex">\(p\)</span>, and set <span class="arithmatex">\(U = X \setminus \{p\}\)</span>, <span class="arithmatex">\(\mathcal{L} = \mathbb{Q}_U\)</span>. The constant sheaf <span class="arithmatex">\(\mathbb{Q}_X[1]\)</span> fails to be a perverse sheaf at <span class="arithmatex">\(p\)</span> because the stalk <span class="arithmatex">\(\mathcal{H}^0(\mathbb{Q}_X[1])_p = 0\)</span> but the cosupport condition is violated (the local <span class="arithmatex">\(H^0\)</span> of the Verdier dual is too large). The IC complex corrects this: <span class="arithmatex">\(\mathcal{H}^{-1}(\operatorname{IC}(X))_p \cong \mathbb{Q}\)</span> and <span class="arithmatex">\(\mathcal{H}^0(\operatorname{IC}(X))_p = 0\)</span>. In terms of the Cech picture, the vanishing cycle at the node is killed by the truncation.</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a projective curve with a single node $p$, and let $U = X \setminus \{p\}$. Describe the stalk cohomology $\mathcal{H}^j(\operatorname{IC}(X, \mathbb{Q}))_p$ at the node for all $j$, and explain how it differs from $\mathcal{H}^j(\mathbb{Q}_X[1])_p$. -->
+
+<h3 id="ecag-0201">Example: Intersection cohomology and the decomposition theorem<a class="headerlink" href="#ecag-0201" title="Permanent link">&para;</a></h3>
+<p>For a complex variety <span class="arithmatex">\(Y\)</span> of pure dimension <span class="arithmatex">\(n\)</span> with smooth dense open <span class="arithmatex">\(U \subset Y\)</span> carrying a local system <span class="arithmatex">\(L\)</span>, the intersection cohomology groups</p>
+<div class="arithmatex">\[
+IH^{n+k}(Y, L) := H^k(Y, \operatorname{IC}(Y, L))
+\]</div>
+<p>are defined so that <span class="arithmatex">\(\operatorname{IC}(Y, L)\)</span>, which lives in cohomological degrees <span class="arithmatex">\([-n, 0]\)</span>, normalizes the indexing: for smooth <span class="arithmatex">\(Y\)</span> with <span class="arithmatex">\(L\)</span> constant, <span class="arithmatex">\(IH^k(Y, \mathbb{Q}) = H^k(Y, \mathbb{Q})\)</span>. The key structural results are:</p>
+<p><strong>Poincare duality.</strong> <span class="arithmatex">\(IH^k(Y, L) \cong IH^{2n-k}(Y, L^\vee)^\vee\)</span>.</p>
+<p><strong>Hard Lefschetz.</strong> If <span class="arithmatex">\(Y\)</span> is projective with hyperplane class <span class="arithmatex">\(\eta\)</span>, then <span class="arithmatex">\(\eta^j: IH^{n-j}(Y) \xrightarrow{\sim} IH^{n+j}(Y)\)</span> for all <span class="arithmatex">\(j \geq 0\)</span>.</p>
+<p><strong>Decomposition theorem</strong> (Beilinson--Bernstein--Deligne--Gabber). For a proper morphism <span class="arithmatex">\(f: X \to Y\)</span> with <span class="arithmatex">\(X\)</span> smooth of dimension <span class="arithmatex">\(n\)</span>, the derived pushforward <span class="arithmatex">\(\mathbf{R}f_*\mathbb{Q}_X[n]\)</span> decomposes in <span class="arithmatex">\(D^b_c(Y)\)</span> as a direct sum of shifted IC complexes of semisimple local systems on strata of <span class="arithmatex">\(Y\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{R}f_*\mathbb{Q}_X[n] \cong \bigoplus_{i} \operatorname{IC}(\overline{S_i}, \mathcal{L}_i)[n_i]
+\]</div>
+<p>where each <span class="arithmatex">\(\mathcal{L}_i\)</span> is a semisimple local system on a stratum <span class="arithmatex">\(S_i\)</span> of <span class="arithmatex">\(Y\)</span>. This is one of the deepest results in the theory, subsuming Deligne's degeneration theorem and the semisimplicity of monodromy for algebraic families.</p>
+<!-- BENCHMARK_PROBLEM: Let $Y$ be a projective variety of dimension $n$ with a single isolated singularity $p$, smooth elsewhere. If the link of $p$ is a rational homology sphere, show that $IH^k(Y, \mathbb{Q}) \cong H^k(Y, \mathbb{Q})$ for all $k$. -->
+
+<h3 id="ecag-0202">Example: Catalog of (co)homology theories related to perverse sheaves<a class="headerlink" href="#ecag-0202" title="Permanent link">&para;</a></h3>
+<p>The following theories arise naturally in the study of the decomposition theorem and perverse sheaves. We list their definitions and interrelationships.</p>
+<ol>
+<li>
+<p><strong>Ordinary cohomology</strong> <span class="arithmatex">\(H^i(X, \mathbb{Z})\)</span>: singular cohomology, computed as <span class="arithmatex">\(H^i(\mathbf{R}\Gamma(X, \mathbb{Z}_X))\)</span>.</p>
+</li>
+<li>
+<p><strong>Cohomology with support</strong> <span class="arithmatex">\(H^i_Y(X, \mathscr{F})\)</span>: for <span class="arithmatex">\(Y \subset X\)</span> closed, <span class="arithmatex">\(H^i_Y = R^i\Gamma_Y\)</span> where <span class="arithmatex">\(\Gamma_Y\)</span> is sections supported in <span class="arithmatex">\(Y\)</span>. Fits into the exact sequence <span class="arithmatex">\(\cdots \to H^i_Y(X, \mathscr{F}) \to H^i(X, \mathscr{F}) \to H^i(X \setminus Y, \mathscr{F}) \to \cdots\)</span>.</p>
+</li>
+<li>
+<p><strong>Borel--Moore homology</strong> <span class="arithmatex">\(H_i^{BM}(X)\)</span>: homology via locally finite chains. For an oriented <span class="arithmatex">\(n\)</span>-manifold, <span class="arithmatex">\(H_i^{BM}(X) \cong H^{n-i}(X)\)</span>. For complex varieties, <span class="arithmatex">\(H_i^{BM}(X) \cong H_c^{2n-i}(X)^\vee\)</span>.</p>
+</li>
+<li>
+<p><strong>Compactly supported cohomology</strong> <span class="arithmatex">\(H^i_c(X, \mathscr{L})\)</span>: defined as <span class="arithmatex">\(H^i(\overline{X}, j_!\mathscr{L})\)</span> for any compactification <span class="arithmatex">\(j: X \hookrightarrow \overline{X}\)</span>. Satisfies <span class="arithmatex">\(H^i_c(X) \cong H^{2n-i}(X)^\vee\)</span> for smooth <span class="arithmatex">\(X\)</span> of complex dimension <span class="arithmatex">\(n\)</span>.</p>
+</li>
+<li>
+<p><strong>Stalk cohomology</strong> <span class="arithmatex">\(\mathcal{H}^i_x(A^\bullet) = H^i(A^\bullet_x)\)</span>: the local invariant controlling support and cosupport conditions for perverse sheaves.</p>
+</li>
+<li>
+<p><strong>Cohomology sheaf</strong> <span class="arithmatex">\(\mathcal{H}^i(A^\bullet)\)</span>: sheafification of <span class="arithmatex">\(U \mapsto H^i(\Gamma(U, A^\bullet))\)</span>, always constructible for constructible complexes.</p>
+</li>
+<li>
+<p><strong>Hypercohomology</strong> <span class="arithmatex">\(\mathbb{H}^i(X, A^\bullet) = H^i(\mathbf{R}\Gamma(X, A^\bullet))\)</span>: derived functor cohomology of a complex of sheaves.</p>
+</li>
+<li>
+<p><strong>Perverse cohomology</strong> <span class="arithmatex">\({}^p H^i(A^\bullet)\)</span>: cohomology functors of the perverse <span class="arithmatex">\(t\)</span>-structure. These are perverse sheaves, not classical sheaves.</p>
+</li>
+<li>
+<p><strong>Intersection homology</strong> <span class="arithmatex">\(IH_i^{\overline{p}}(X)\)</span>: homology using only <span class="arithmatex">\(\overline{p}\)</span>-allowable chains, where the perversity controls interaction with singular strata. The middle perversity <span class="arithmatex">\(\overline{m}\)</span> gives <span class="arithmatex">\(\operatorname{IC}(X)\)</span>.</p>
+</li>
+<li>
+<p><strong>Local intersection homology</strong> <span class="arithmatex">\(IH_i^{\overline{p}}(X, X \setminus \{x\}; \mathscr{L})\)</span>: computes the stalk of IC and is determined by the topology of the link of <span class="arithmatex">\(x\)</span>.</p>
+</li>
+</ol>
+<p>These form a hierarchy: stalk cohomology is the local invariant, cohomology sheaves assemble stalks into a global sheaf, hypercohomology globalizes further, and perverse cohomology replaces the standard <span class="arithmatex">\(t\)</span>-structure with one adapted to singularities.</p>
+<!-- BENCHMARK_PROBLEM: For a smooth complex variety $X$ of dimension $n$, express $H^i_c(X, \mathbb{Q})$, $H_i^{BM}(X, \mathbb{Q})$, and $IH^i(X, \mathbb{Q})$ in terms of ordinary cohomology $H^j(X, \mathbb{Q})$. Which of these theories are homotopy invariant? -->
+
+<h3 id="ecag-0203">Example: Operations in the theory of perverse sheaves<a class="headerlink" href="#ecag-0203" title="Permanent link">&para;</a></h3>
+<p>The theory of perverse sheaves requires several key constructions, which we catalog with precise definitions.</p>
+<p><strong>Perversity.</strong> A perversity is a function <span class="arithmatex">\(\overline{p}: \{2, 3, \ldots\} \to \mathbb{Z}_{\geq 0}\)</span> with <span class="arithmatex">\(\overline{p}(2) = 0\)</span> and <span class="arithmatex">\(\overline{p}(k+1) \in \{\overline{p}(k), \overline{p}(k)+1\}\)</span>. The middle perversity is <span class="arithmatex">\(\overline{m}(2s) = \overline{m}(2s+1) = s-1\)</span>. In the BBD (Beilinson--Bernstein--Deligne) convention, the perversity is absorbed into the <span class="arithmatex">\(t\)</span>-structure definition.</p>
+<p><strong>Mapping cone.</strong> For <span class="arithmatex">\(f: A^\bullet \to B^\bullet\)</span> in <span class="arithmatex">\(D^b(X)\)</span>, the mapping cone <span class="arithmatex">\(\operatorname{Cone}(f)\)</span> fits in a distinguished triangle <span class="arithmatex">\(A^\bullet \xrightarrow{f} B^\bullet \to \operatorname{Cone}(f) \xrightarrow{[1]} A^\bullet[1]\)</span>.</p>
+<p><strong>Link.</strong> For a point <span class="arithmatex">\(x\)</span> in a stratified space <span class="arithmatex">\(X\)</span> belonging to a stratum <span class="arithmatex">\(S_\alpha\)</span> of dimension <span class="arithmatex">\(d\)</span>, the link <span class="arithmatex">\(L_x\)</span> is the boundary of a small normal slice to <span class="arithmatex">\(S_\alpha\)</span> through <span class="arithmatex">\(x\)</span>. The local topology is modeled on <span class="arithmatex">\(\operatorname{cone}(L_x) \times \mathbb{R}^d\)</span>.</p>
+<p><strong>Perverse truncation.</strong> The functors <span class="arithmatex">\({}^p\tau_{\leq n}, {}^p\tau_{\geq n}\)</span> are the truncation functors for the perverse <span class="arithmatex">\(t\)</span>-structure. For <span class="arithmatex">\(A^\bullet \in D^b_c(X)\)</span>, there is a distinguished triangle <span class="arithmatex">\({}^p\tau_{\leq n} A^\bullet \to A^\bullet \to {}^p\tau_{\geq n+1} A^\bullet \xrightarrow{[1]}\)</span>, and <span class="arithmatex">\({}^p H^n(A^\bullet) = {}^p\tau_{\leq n}\, {}^p\tau_{\geq n} A^\bullet\)</span>.</p>
+<p><strong>Derived pushforward.</strong> For <span class="arithmatex">\(j: U \hookrightarrow X\)</span> open and <span class="arithmatex">\(\mathscr{L}\)</span> a local system on <span class="arithmatex">\(U\)</span>, the stalk cohomology of <span class="arithmatex">\(Rj_*\mathscr{L}\)</span> at <span class="arithmatex">\(x \in X \setminus U\)</span> computes <span class="arithmatex">\(H^*(L_x, \mathscr{L})\)</span>, the cohomology of the local system restricted to the link.</p>
+<p><strong>Intermediate extension.</strong> For <span class="arithmatex">\(\mathcal{F} \in \operatorname{Perv}(U)\)</span>, the intermediate extension is <span class="arithmatex">\(j_{!*}\mathcal{F} = \operatorname{Im}({}^p H^0(j_!\mathcal{F}) \to {}^p H^0(Rj_*\mathcal{F}))\)</span>. The IC complex is <span class="arithmatex">\(\operatorname{IC}(X, \mathscr{L}) = j_{!*}(\mathscr{L}[\dim X])\)</span>, characterized as the unique perverse extension with no sub- or quotient-objects supported on <span class="arithmatex">\(X \setminus U\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $j: U \to X$ be the inclusion of the smooth locus of a variety $X$. Define the intermediate extension functor $j_{!*}$ and prove that $\operatorname{IC}(X, \mathcal{L}) = j_{!*}(\mathcal{L}[\dim X])$ has no nontrivial sub-objects or quotient-objects supported on $X \setminus U$ in $\operatorname{Perv}(X)$. -->
+
+<h3 id="ecag-0204">Example: The functors <span class="arithmatex">\(j_*\)</span> and <span class="arithmatex">\(j_!\)</span> across categorical contexts<a class="headerlink" href="#ecag-0204" title="Permanent link">&para;</a></h3>
+<p>The functors <span class="arithmatex">\(j_*\)</span> (direct image) and <span class="arithmatex">\(j_!\)</span> (extension by zero / proper direct image) appear in several settings with related but distinct meanings.</p>
+<p><strong>Ordinary sheaf theory.</strong> For an open immersion <span class="arithmatex">\(j: U \hookrightarrow X\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(j_*\mathscr{F}\)</span> is the direct image: <span class="arithmatex">\((j_*\mathscr{F})(V) = \mathscr{F}(V \cap U)\)</span>.</li>
+<li><span class="arithmatex">\(j_!\mathscr{F}\)</span> is extension by zero: <span class="arithmatex">\((j_!\mathscr{F})(V) = \{s \in \mathscr{F}(V \cap U) \mid \operatorname{supp}(s) \text{ is closed in } V\}\)</span>.</li>
+<li>There is a natural inclusion <span class="arithmatex">\(j_!\mathscr{F} \hookrightarrow j_*\mathscr{F}\)</span>.</li>
+</ul>
+<p><strong>Higher derived functors.</strong> <span class="arithmatex">\(R^k j_*\mathscr{F}\)</span> is the sheafification of <span class="arithmatex">\(V \mapsto H^k(V \cap U, \mathscr{F})\)</span>. Since <span class="arithmatex">\(j_!\)</span> is exact for open immersions, <span class="arithmatex">\(R^k j_! = 0\)</span> for <span class="arithmatex">\(k &gt; 0\)</span>.</p>
+<p><strong>Derived category.</strong> For <span class="arithmatex">\(A^\bullet \in D^b_c(U)\)</span>, <span class="arithmatex">\(Rj_*\)</span> and <span class="arithmatex">\(j_! = Rj_!\)</span> (for open <span class="arithmatex">\(j\)</span>) are related by Verdier duality: <span class="arithmatex">\(\mathbb{D}(Rj_* A^\bullet) \cong j_!(\mathbb{D}A^\bullet)\)</span>.</p>
+<p><strong>Recollement triangles.</strong> For <span class="arithmatex">\(j: U \hookrightarrow X\)</span> open with closed complement <span class="arithmatex">\(i: Z \hookrightarrow X\)</span>, any sheaf <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span> fits in the short exact sequence <span class="arithmatex">\(0 \to j_!j^*\mathscr{F} \to \mathscr{F} \to i_*i^*\mathscr{F} \to 0\)</span>. In the derived category, the corresponding distinguished triangles are:</p>
+<div class="arithmatex">\[
+j_! j^* A^\bullet \to A^\bullet \to Ri_* i^* A^\bullet \xrightarrow{[1]}
+\]</div>
+<div class="arithmatex">\[
+i_* i^! A^\bullet \to A^\bullet \to Rj_* j^* A^\bullet \xrightarrow{[1]}.
+\]</div>
+<p>These are dual to each other under Verdier duality: applying <span class="arithmatex">\(\mathbb{D}\)</span> to the first yields the second (using <span class="arithmatex">\(\mathbb{D} \circ j_! \cong Rj_* \circ \mathbb{D}\)</span> and <span class="arithmatex">\(\mathbb{D} \circ i_* \cong i_* \circ \mathbb{D}\)</span>, <span class="arithmatex">\(i^! \cong \mathbb{D} \circ i^* \circ \mathbb{D}\)</span>).</p>
+<p><strong><span class="arithmatex">\(K\)</span>-theory.</strong> For a proper morphism <span class="arithmatex">\(f: X \to Y\)</span>, the <span class="arithmatex">\(K\)</span>-theoretic pushforward <span class="arithmatex">\(f_!: K_0(X) \to K_0(Y)\)</span> is <span class="arithmatex">\(f_!([\mathscr{F}]) = \sum_i (-1)^i [R^i f_*\mathscr{F}]\)</span>. Properness ensures the higher direct images are coherent.</p>
+<!-- BENCHMARK_PROBLEM: Let $j: U \to X$ be an open immersion with closed complement $i: Z \to X$. Write down the two distinguished triangles relating $j_!, j^*, Rj_*, i_*, i^*, Ri_*, i^!$ in $D^b_c(X)$, and verify they are interchanged by Verdier duality. -->
+
+<h3 id="ecag-0205">Example: Non-degeneration of the Leray spectral sequence<a class="headerlink" href="#ecag-0205" title="Permanent link">&para;</a></h3>
+<p>The Leray spectral sequence <span class="arithmatex">\(E_2^{p,q} = H^p(Y, R^q f_*\mathbb{Q}) \Rightarrow H^{p+q}(X, \mathbb{Q})\)</span> for a smooth proper morphism <span class="arithmatex">\(f: X \to Y\)</span> does not always degenerate at <span class="arithmatex">\(E_2\)</span>, contrary to what one might expect from the algebraic setting.</p>
+<p><strong>The Hopf surface.</strong> Let <span class="arithmatex">\(X = (\mathbb{C}^2 \setminus \{0\})/\langle z \mapsto 2z \rangle\)</span>. This compact complex surface fibers over <span class="arithmatex">\(\mathbb{P}^1\)</span> via <span class="arithmatex">\(f: X \to \mathbb{P}^1\)</span>, with elliptic curve fibers. The fundamental group is <span class="arithmatex">\(\pi_1(X) \cong \mathbb{Z}\)</span> (generated by the contracting loop), so <span class="arithmatex">\(b_1(X) = 1\)</span>.</p>
+<p>Since <span class="arithmatex">\(b_1\)</span> is odd, <span class="arithmatex">\(X\)</span> cannot be Kahler (for compact Kahler manifolds, <span class="arithmatex">\(b_1\)</span> is even by the Hodge decomposition <span class="arithmatex">\(H^1 \cong H^{1,0} \oplus H^{0,1}\)</span> with <span class="arithmatex">\(h^{1,0} = h^{0,1}\)</span>).</p>
+<p>If the Leray spectral sequence for <span class="arithmatex">\(f\)</span> degenerated at <span class="arithmatex">\(E_2\)</span>, then <span class="arithmatex">\(H^1(X, \mathbb{Q})\)</span> would be a quotient of <span class="arithmatex">\(E_2^{1,0} \oplus E_2^{0,1} = H^1(\mathbb{P}^1, f_*\mathbb{Q}) \oplus H^0(\mathbb{P}^1, R^1 f_*\mathbb{Q})\)</span>. We have <span class="arithmatex">\(H^1(\mathbb{P}^1, \mathbb{Q}) \cong \mathbb{Q}^2\)</span> and <span class="arithmatex">\(R^1 f_*\mathbb{Q}\)</span> is a local system of rank 2 on <span class="arithmatex">\(\mathbb{P}^1\)</span>. The dimension count from degeneration is incompatible with <span class="arithmatex">\(b_1(X) = 1\)</span>.</p>
+<p>The essential point is that Deligne's degeneration theorem requires the morphism to be algebraic (or at least that the total space admits a Kahler metric). The Hopf surface is a purely holomorphic, non-algebraic example where degeneration fails.</p>
+<!-- BENCHMARK_PROBLEM: The Hopf surface $X = (\mathbb{C}^2 \setminus \{0\})/\langle z \mapsto 2z \rangle$ fibers over $\mathbb{P}^1$ with elliptic curve fibers. Compute $b_1(X)$, explain why $X$ is not Kahler, and use this to argue that the Leray spectral sequence for $f: X \to \mathbb{P}^1$ does not degenerate at $E_2$. -->
+
+<h3 id="ecag-0206">Remark: Deligne's degeneration theorem<a class="headerlink" href="#ecag-0206" title="Permanent link">&para;</a></h3>
+<p>Deligne's theorem (1968) states that for a smooth projective morphism <span class="arithmatex">\(f: X \to Y\)</span> of algebraic varieties over <span class="arithmatex">\(\mathbb{C}\)</span>, the Leray spectral sequence</p>
+<div class="arithmatex">\[
+E_2^{p,q} = H^p(Y, R^q f_*\mathbb{Q}) \Rightarrow H^{p+q}(X, \mathbb{Q})
+\]</div>
+<p>degenerates at <span class="arithmatex">\(E_2\)</span>. The proof uses the Hard Lefschetz theorem on the fibers: a relative ample class <span class="arithmatex">\(\eta \in H^2(X, \mathbb{Q})\)</span> acts on <span class="arithmatex">\(R^q f_*\mathbb{Q}\)</span> via the Lefschetz operator, and the resulting decomposition into primitive parts gives a splitting of the spectral sequence. This was vastly generalized by the decomposition theorem of Beilinson--Bernstein--Deligne--Gabber (1982), which handles arbitrary proper morphisms (allowing singular fibers) using perverse sheaves and intersection cohomology.</p>
+<!-- BENCHMARK_PROBLEM: State Deligne's degeneration theorem for smooth projective morphisms. Explain the role of the Hard Lefschetz theorem on fibers in the proof, and state how the BBDG decomposition theorem generalizes it to proper morphisms with singular fibers. -->
+
+<h3 id="ecag-0207">Example: Pathologies of non-abelian categories<a class="headerlink" href="#ecag-0207" title="Permanent link">&para;</a></h3>
+<p>Several basic properties of abelian categories fail in additive categories that are not abelian. Three illustrative pathologies:</p>
+<p><strong>Kernels may not exist.</strong> In the category of finitely generated modules over <span class="arithmatex">\(R = k[x_1, x_2, \ldots]\)</span> (polynomial ring in infinitely many variables), the projection <span class="arithmatex">\(\pi: R \to k = R/(x_1, x_2, \ldots)\)</span> has kernel <span class="arithmatex">\((x_1, x_2, \ldots)\)</span>, which is not finitely generated. So <span class="arithmatex">\(\ker(\pi)\)</span> does not exist in the category of finitely generated <span class="arithmatex">\(R\)</span>-modules.</p>
+<p><strong>Cokernels may not exist.</strong> In the category of free abelian groups, the map <span class="arithmatex">\(\mathbb{Z} \xrightarrow{\times 2} \mathbb{Z}\)</span> has cokernel <span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z}\)</span> in <span class="arithmatex">\(\operatorname{Ab}\)</span>, but <span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z}\)</span> is not free. No free abelian group satisfies the universal property: if <span class="arithmatex">\(G\)</span> is free and <span class="arithmatex">\(\varphi: \mathbb{Z} \to G\)</span> satisfies <span class="arithmatex">\(\varphi(2n) = 0\)</span> for all <span class="arithmatex">\(n\)</span>, then <span class="arithmatex">\(2\varphi(1) = 0\)</span>, forcing <span class="arithmatex">\(\varphi(1) = 0\)</span> since <span class="arithmatex">\(G\)</span> is torsion-free. So the only map <span class="arithmatex">\(\mathbb{Z} \to G\)</span> annihilating the image of <span class="arithmatex">\(\times 2\)</span> is zero, but the zero group fails the universal property (the quotient map <span class="arithmatex">\(\mathbb{Z} \to \mathbb{Z}/2\)</span> is nonzero).</p>
+<p><strong>Zero kernel and cokernel do not imply isomorphism.</strong> In the category of filtered vector spaces, let <span class="arithmatex">\(V = k\)</span> with <span class="arithmatex">\(F^0 V = V, F^1 V = 0\)</span>, and <span class="arithmatex">\(W = k\)</span> with <span class="arithmatex">\(F^0 W = W, F^1 W = W\)</span>. The identity map <span class="arithmatex">\(\operatorname{id}: V \to W\)</span> has trivial kernel and cokernel (as filtered spaces), but it is not an isomorphism: its inverse <span class="arithmatex">\(W \to V\)</span> does not preserve the filtration (it would need <span class="arithmatex">\(F^1 V \supseteq F^1 W = W\)</span>, but <span class="arithmatex">\(F^1 V = 0\)</span>).</p>
+<p>These pathologies show why the axioms of an abelian category -- existence of all kernels and cokernels, and the condition that every monic is a kernel and every epic is a cokernel -- are precisely what is needed for homological algebra.</p>
+<!-- BENCHMARK_PROBLEM: In the category of free abelian groups, prove that the map $\mathbb{Z} \xrightarrow{\times 2} \mathbb{Z}$ has no cokernel by showing that no free abelian group satisfies the universal property. -->
+
+<h3 id="ecag-0208">Example: Exactness in sheaves versus presheaves<a class="headerlink" href="#ecag-0208" title="Permanent link">&para;</a></h3>
+<p>The Euler sequence on <span class="arithmatex">\(\mathbb{P}^1\)</span>, twisted by <span class="arithmatex">\(\mathcal{O}(-1)\)</span>:</p>
+<div class="arithmatex">\[
+0 \to \mathcal{O}(-2) \to \mathcal{O}(-1) \oplus \mathcal{O}(-1) \to \mathcal{O} \to 0
+\]</div>
+<p>is exact as a sequence of sheaves (checked on stalks) but not exact as a sequence of presheaves.</p>
+<p>For presheaf exactness, the sequence of sections over every open set <span class="arithmatex">\(U\)</span> would need to be exact. Taking <span class="arithmatex">\(U = \mathbb{P}^1\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Sheaf</th>
+<th><span class="arithmatex">\(H^0(\mathbb{P}^1, -)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathcal{O}(-2)\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathcal{O}(-1) \oplus \mathcal{O}(-1)\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathcal{O}\)</span></td>
+<td><span class="arithmatex">\(k\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The global sections sequence <span class="arithmatex">\(0 \to 0 \to 0 \to k \to 0\)</span> fails to be exact at the last nonzero term: the surjection <span class="arithmatex">\(\mathcal{O}(-1)^2 \to \mathcal{O}\)</span> induces the zero map <span class="arithmatex">\(0 \to k\)</span> on global sections, which is not surjective.</p>
+<p>The discrepancy is resolved by sheafification: the map <span class="arithmatex">\(\mathcal{O}(-1)^2 \to \mathcal{O}\)</span> is surjective on stalks (equivalently, every point has a neighborhood where the map is surjective), but global surjectivity fails because <span class="arithmatex">\(H^1(\mathbb{P}^1, \mathcal{O}(-2)) \cong k \neq 0\)</span>. The long exact sequence in cohomology gives <span class="arithmatex">\(H^0(\mathcal{O}(-1)^2) \to H^0(\mathcal{O}) \to H^1(\mathcal{O}(-2)) \to \cdots\)</span>, and the obstruction to surjectivity on global sections is precisely <span class="arithmatex">\(H^1\)</span> of the kernel.</p>
+<!-- BENCHMARK_PROBLEM: Show that the surjection $\mathcal{O}(-1)^2 \to \mathcal{O}$ on $\mathbb{P}^1$ is not surjective as a map of presheaves by computing global sections. Identify the cohomological obstruction to global surjectivity using the long exact sequence. -->
+
+<h3 id="ecag-0209">Example: Derived functors and derived categories<a class="headerlink" href="#ecag-0209" title="Permanent link">&para;</a></h3>
+<p>The derived category <span class="arithmatex">\(D^b(\mathcal{A})\)</span> of an abelian category <span class="arithmatex">\(\mathcal{A}\)</span> is constructed in two steps: first, form the homotopy category <span class="arithmatex">\(K^b(\mathcal{A})\)</span> by identifying chain-homotopic morphisms; second, formally invert quasi-isomorphisms.</p>
+<p>A left-exact functor <span class="arithmatex">\(F: \mathcal{A} \to \mathcal{B}\)</span> (with <span class="arithmatex">\(\mathcal{A}\)</span> having enough injectives) has a total right derived functor <span class="arithmatex">\(\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})\)</span>, computed by replacing an object by an injective resolution and applying <span class="arithmatex">\(F\)</span> termwise. The classical derived functors are recovered as <span class="arithmatex">\(R^i F(A) = H^i(\mathbf{R}F(A))\)</span>.</p>
+<p><strong>Example: sheaf cohomology.</strong> For the global sections functor <span class="arithmatex">\(\Gamma(X, -)\)</span>, the derived functor <span class="arithmatex">\(\mathbf{R}\Gamma(X, \mathcal{F})\)</span> is a complex whose <span class="arithmatex">\(i\)</span>-th cohomology is <span class="arithmatex">\(H^i(X, \mathcal{F})\)</span>.</p>
+<p><strong>Tilting and derived equivalence.</strong> For a finite-dimensional algebra <span class="arithmatex">\(A\)</span> and a tilting module <span class="arithmatex">\(T\)</span> (i.e., <span class="arithmatex">\(\operatorname{pd}(T) \leq 1\)</span>, <span class="arithmatex">\(\operatorname{Ext}^1_A(T, T) = 0\)</span>, and <span class="arithmatex">\(T\)</span> generates <span class="arithmatex">\(K^b(\operatorname{proj}(A))\)</span>), the tilting theorem gives an equivalence <span class="arithmatex">\(D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(\operatorname{End}_A(T)))\)</span>. This provides explicit equivalences between derived categories of different abelian categories, showing that the derived category retains strictly less information than the abelian category.</p>
+<!-- BENCHMARK_PROBLEM: Let $A = k[x]/(x^2)$. Describe the bounded derived category $D^b(\operatorname{mod}(A))$ by listing the indecomposable objects (up to shift) and the morphism spaces between them. -->
+
+<h3 id="ecag-0210">Example: Non-isomorphic abelian categories with equivalent derived categories<a class="headerlink" href="#ecag-0210" title="Permanent link">&para;</a></h3>
+<p><strong>Quiver example.</strong> Let <span class="arithmatex">\(A\)</span> be the path algebra of <span class="arithmatex">\(1 \to 2\)</span> over <span class="arithmatex">\(k\)</span>. The category <span class="arithmatex">\(\operatorname{mod}(A)\)</span> has two simple modules <span class="arithmatex">\(S_1, S_2\)</span> and one non-simple indecomposable <span class="arithmatex">\(P_1 = \begin{smallmatrix} k \\ \downarrow \\ k \end{smallmatrix}\)</span> (the projective cover of <span class="arithmatex">\(S_1\)</span>). Let <span class="arithmatex">\(B\)</span> be the path algebra of the opposite quiver <span class="arithmatex">\(2 \to 1\)</span>.</p>
+<p>The module <span class="arithmatex">\(T = S_2 \oplus P_1\)</span> is a tilting module for <span class="arithmatex">\(A\)</span>: it has projective dimension <span class="arithmatex">\(\leq 1\)</span> (since <span class="arithmatex">\(S_2\)</span> has a projective resolution <span class="arithmatex">\(0 \to P_1 \to P_2 \to S_2 \to 0\)</span>), <span class="arithmatex">\(\operatorname{Ext}^1_A(T, T) = 0\)</span>, and the number of non-isomorphic indecomposable summands equals the number of simples. One verifies <span class="arithmatex">\(\operatorname{End}_A(T) \cong B\)</span>. The Rickard--Happel theorem then gives <span class="arithmatex">\(D^b(\operatorname{mod}(A)) \cong D^b(\operatorname{mod}(B))\)</span>, even though <span class="arithmatex">\(\operatorname{mod}(A) \not\cong \operatorname{mod}(B)\)</span> as abelian categories (their Auslander--Reiten quivers differ).</p>
+<p><strong>Geometric example.</strong> Mukai showed that for an abelian variety <span class="arithmatex">\(A\)</span> over <span class="arithmatex">\(\mathbb{C}\)</span>, there is an equivalence <span class="arithmatex">\(D^b(\operatorname{Coh}(A)) \cong D^b(\operatorname{Coh}(\hat{A}))\)</span>, where <span class="arithmatex">\(\hat{A} = \operatorname{Pic}^0(A)\)</span> is the dual abelian variety. The equivalence is given by the Fourier--Mukai transform with kernel the Poincare line bundle <span class="arithmatex">\(\mathcal{P}\)</span> on <span class="arithmatex">\(A \times \hat{A}\)</span>:</p>
+<div class="arithmatex">\[
+\Phi_\mathcal{P}: D^b(\operatorname{Coh}(A)) \xrightarrow{\sim} D^b(\operatorname{Coh}(\hat{A})), \quad \mathscr{F} \mapsto \mathbf{R}p_{2,*}(p_1^*\mathscr{F} \otimes^L \mathcal{P}).
+\]</div>
+<p>For a generic abelian variety, <span class="arithmatex">\(A \not\cong \hat{A}\)</span>, so <span class="arithmatex">\(\operatorname{Coh}(A) \not\cong \operatorname{Coh}(\hat{A})\)</span>, yet the derived categories are equivalent. This shows that derived equivalence is strictly weaker than equivalence of abelian categories.</p>
+<!-- BENCHMARK_PROBLEM: Let $A$ be the path algebra of $1 \to 2$ over a field $k$. Construct a tilting module $T \in \operatorname{mod}(A)$ with $\operatorname{End}_A(T)$ isomorphic to the path algebra $B$ of $2 \to 1$. Verify that $T$ satisfies the three conditions for a tilting module. -->
+
+<h3 id="ecag-0211">Example: Derived global sections and derived pushforward<a class="headerlink" href="#ecag-0211" title="Permanent link">&para;</a></h3>
+<p>The two fundamental derived functors in sheaf theory are derived global sections <span class="arithmatex">\(\mathbf{R}\Gamma\)</span> and derived pushforward <span class="arithmatex">\(\mathbf{R}f_*\)</span>.</p>
+<p><strong>For a single sheaf <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span>:</strong> choose an injective resolution <span class="arithmatex">\(\mathscr{F} \xrightarrow{\sim} I^\bullet\)</span>. Then <span class="arithmatex">\(\mathbf{R}\Gamma(X, \mathscr{F}) = \Gamma(X, I^\bullet)\)</span> with <span class="arithmatex">\(H^i(\mathbf{R}\Gamma(X, \mathscr{F})) = H^i(X, \mathscr{F})\)</span>.</p>
+<p><strong>For a complex <span class="arithmatex">\(A^\bullet \in D^b(X)\)</span>:</strong> replace by an injective complex <span class="arithmatex">\(A^\bullet \xrightarrow{\sim} I^\bullet\)</span> (via Cartan--Eilenberg resolution). Then <span class="arithmatex">\(\mathbf{R}\Gamma(X, A^\bullet) = \Gamma(X, I^\bullet)\)</span> with <span class="arithmatex">\(H^i(\mathbf{R}\Gamma(X, A^\bullet)) = \mathbb{H}^i(X, A^\bullet)\)</span> (hypercohomology).</p>
+<p><strong>Derived pushforward:</strong> for <span class="arithmatex">\(f: X \to Y\)</span> and <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(\mathbf{R}f_*\mathscr{F} = f_*(I^\bullet)\)</span> with cohomology sheaves <span class="arithmatex">\(\mathcal{H}^i(\mathbf{R}f_*\mathscr{F}) = R^i f_*\mathscr{F}\)</span>.</p>
+<p><strong>Composition and the Leray spectral sequence.</strong> The isomorphism <span class="arithmatex">\(\mathbf{R}\Gamma(Y, -) \circ \mathbf{R}f_* \cong \mathbf{R}\Gamma(X, -)\)</span> recovers the Leray spectral sequence <span class="arithmatex">\(E_2^{p,q} = H^p(Y, R^q f_*\mathscr{F}) \Rightarrow H^{p+q}(X, \mathscr{F})\)</span> upon passage to cohomology.</p>
+<p><strong>Projection formula.</strong> For <span class="arithmatex">\(f: X \to Y\)</span> proper, <span class="arithmatex">\(\mathscr{F} \in D^b(X)\)</span>, <span class="arithmatex">\(\mathscr{G} \in D^b(Y)\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{R}f_*(\mathscr{F} \otimes^L f^*\mathscr{G}) \cong \mathbf{R}f_*\mathscr{F} \otimes^L \mathscr{G}.
+\]</div>
+<p><strong>Base change.</strong> For <span class="arithmatex">\(f: X \to Y\)</span> proper with <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span> flat over <span class="arithmatex">\(Y\)</span>, the base change map <span class="arithmatex">\((R^i f_*\mathscr{F})_y \otimes k(y) \to H^i(X_y, \mathscr{F}|_{X_y})\)</span> is an isomorphism when <span class="arithmatex">\(R^i f_*\mathscr{F}\)</span> is locally free, or more generally when <span class="arithmatex">\(h^i(X_y, \mathscr{F}|_{X_y})\)</span> is constant as a function of <span class="arithmatex">\(y\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f: X \to Y$ be a proper morphism of smooth projective varieties and $\mathscr{F}$ a coherent sheaf on $X$ flat over $Y$. State the base change theorem relating $(R^i f_*\mathscr{F})_y$ to $H^i(X_y, \mathscr{F}|_{X_y})$, and give a sufficient condition for the base change map to be an isomorphism. -->
+
+<h3 id="ecag-0212">Remark: Derived functors, spectral sequences, and hypercohomology<a class="headerlink" href="#ecag-0212" title="Permanent link">&para;</a></h3>
+<p>Given a left-exact functor <span class="arithmatex">\(F: \mathcal{A} \to \mathcal{B}\)</span> (with <span class="arithmatex">\(\mathcal{A}\)</span> having enough injectives), the derived functor <span class="arithmatex">\(\mathbf{R}F: D^+(\mathcal{A}) \to D^+(\mathcal{B})\)</span> produces a complex in <span class="arithmatex">\(D^+(\mathcal{B})\)</span>. The classical derived functors are <span class="arithmatex">\(R^i F(A) = H^i(\mathbf{R}F(A))\)</span>.</p>
+<p>When applied to a complex <span class="arithmatex">\(A^\bullet\)</span> rather than a single object, two spectral sequences arise:</p>
+<div class="arithmatex">\[
+{}^{I}E_2^{p,q} = R^p F(\mathcal{H}^q(A^\bullet)) \Rightarrow H^{p+q}(\mathbf{R}F(A^\bullet))
+\]</div>
+<div class="arithmatex">\[
+{}^{II}E_2^{p,q} = \mathcal{H}^p(\mathbf{R}F(A^q)) \Rightarrow H^{p+q}(\mathbf{R}F(A^\bullet))
+\]</div>
+<p>The target <span class="arithmatex">\(H^n(\mathbf{R}F(A^\bullet))\)</span> is the <strong>hypercohomology</strong> <span class="arithmatex">\(\mathbb{H}^n(A^\bullet)\)</span> when <span class="arithmatex">\(F = \Gamma(X, -)\)</span>. The first spectral sequence is the Grothendieck spectral sequence for composition of derived functors; the second comes from the double complex obtained by applying <span class="arithmatex">\(F\)</span> to an injective Cartan--Eilenberg resolution of <span class="arithmatex">\(A^\bullet\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $A^\bullet = [\mathscr{F} \xrightarrow{d} \mathscr{G}]$ be a two-term complex of coherent sheaves on a projective variety $X$ (with $\mathscr{F}$ in degree 0). Write out the first spectral sequence converging to $\mathbb{H}^n(X, A^\bullet)$, identifying the $E_2$ terms in terms of $H^i(X, \ker d)$, $H^i(X, \operatorname{im} d)$, and $H^i(X, \operatorname{coker} d)$. -->
+
+<h3 id="ecag-0213">Example: Perverse truncation on smooth and two-stratum varieties<a class="headerlink" href="#ecag-0213" title="Permanent link">&para;</a></h3>
+<p><strong>Smooth case.</strong> On a smooth variety <span class="arithmatex">\(X\)</span> of dimension <span class="arithmatex">\(d\)</span>, a constructible complex <span class="arithmatex">\(A^\bullet\)</span> lies in <span class="arithmatex">\({}^p D^{\leq 0}\)</span> if and only if <span class="arithmatex">\(\mathcal{H}^j(A^\bullet) = 0\)</span> for <span class="arithmatex">\(j &gt; -d\)</span>, i.e., <span class="arithmatex">\(A^\bullet[-d] \in D^{\leq 0}\)</span> in the standard <span class="arithmatex">\(t\)</span>-structure. Thus the perverse <span class="arithmatex">\(t\)</span>-structure is the standard <span class="arithmatex">\(t\)</span>-structure shifted by <span class="arithmatex">\(\dim X\)</span>, and perverse sheaves on a smooth variety are simply local systems placed in degree <span class="arithmatex">\(-d\)</span>.</p>
+<p><strong>Two-stratum case.</strong> Let <span class="arithmatex">\(X = U \sqcup Z\)</span> with <span class="arithmatex">\(j: U \hookrightarrow X\)</span> open of dimension <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(i: Z \hookrightarrow X\)</span> closed of dimension <span class="arithmatex">\(m\)</span>. The perverse <span class="arithmatex">\(t\)</span>-structure is obtained by gluing the shifted standard <span class="arithmatex">\(t\)</span>-structures on each stratum: <span class="arithmatex">\(A^\bullet \in {}^p D^{\leq 0}\)</span> if and only if</p>
+<ul>
+<li><span class="arithmatex">\(\mathcal{H}^k(j^* A^\bullet) = 0\)</span> for <span class="arithmatex">\(k &gt; -n\)</span>, and</li>
+<li><span class="arithmatex">\(\mathcal{H}^k(i^* A^\bullet) = 0\)</span> for <span class="arithmatex">\(k &gt; -m\)</span>.</li>
+</ul>
+<p>The perverse truncation <span class="arithmatex">\({}^p\tau_{\leq 0} A^\bullet\)</span> is constructed via the distinguished triangle <span class="arithmatex">\({}^p\tau_{\leq 0} A^\bullet \to A^\bullet \to {}^p\tau_{\geq 1} A^\bullet \xrightarrow{[1]}\)</span>. In the two-stratum setting, this can be computed explicitly: first take the standard truncation <span class="arithmatex">\(\tau_{\leq -n}(j^* A^\bullet)\)</span> on <span class="arithmatex">\(U\)</span>, then glue with the appropriate truncation on <span class="arithmatex">\(Z\)</span> using the recollement formalism.</p>
+<p>The perverse cohomology <span class="arithmatex">\({}^p H^0(A^\bullet) = {}^p\tau_{\leq 0}\, {}^p\tau_{\geq 0} A^\bullet\)</span> is a perverse sheaf encoding how the cohomology of <span class="arithmatex">\(A^\bullet|_U\)</span> extends across <span class="arithmatex">\(Z\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a variety with stratification $X = U \cup Z$ where $U$ is smooth open of dimension 2 and $Z$ is a smooth closed point. For the constant sheaf complex $\mathbb{Q}_X[2]$, check whether it satisfies the support and cosupport conditions. Is $\mathbb{Q}_X[2]$ a perverse sheaf? Compute ${}^p H^0(\mathbb{Q}_X[2])$. -->
+
+<h3 id="ecag-0214">Example: Normal sheaf versus restricted normal sheaf<a class="headerlink" href="#ecag-0214" title="Permanent link">&para;</a></h3>
+<p>For a closed subscheme <span class="arithmatex">\(Z \subset X\)</span> with ideal sheaf <span class="arithmatex">\(\mathcal{I}_Z\)</span>, the normal sheaf <span class="arithmatex">\(\mathcal{N}_{Z/X} = \mathcal{H}om_{\mathcal{O}_X}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_X)\)</span> and the restricted normal sheaf <span class="arithmatex">\(\mathcal{N}_{Z/X}|_Z = \mathcal{H}om_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z)\)</span> can have very different global sections. The latter computes the Zariski tangent space to the Hilbert scheme.</p>
+<p><strong>Basic example.</strong> Let <span class="arithmatex">\(R = \mathbb{C}[x]\)</span> and <span class="arithmatex">\(I = (x)\)</span>, so <span class="arithmatex">\(Z = \{0\} \subset \mathbb{A}^1\)</span>. Then <span class="arithmatex">\(I/I^2 \cong R/I \cong \mathbb{C}\)</span> as an <span class="arithmatex">\(R\)</span>-module (generated by <span class="arithmatex">\(\bar{x}\)</span>). For any <span class="arithmatex">\(f \in \operatorname{Hom}_R(I/I^2, R)\)</span>, the element <span class="arithmatex">\(f(\bar{x}) \in R\)</span> must satisfy <span class="arithmatex">\(xf(\bar{x}) = f(x\bar{x}) = f(\overline{x^2}) = 0\)</span> (since <span class="arithmatex">\(x^2 \in I^2\)</span>). Since <span class="arithmatex">\(R\)</span> is a domain, <span class="arithmatex">\(f(\bar{x}) = 0\)</span>. Therefore</p>
+<div class="arithmatex">\[
+\operatorname{Hom}_R(I/I^2, R) = 0.
+\]</div>
+<p>However, restricting to <span class="arithmatex">\(R/I\)</span>:</p>
+<div class="arithmatex">\[
+\operatorname{Hom}_{R/I}(I/I^2, R/I) = \operatorname{Hom}_\mathbb{C}(\mathbb{C}, \mathbb{C}) \cong \mathbb{C}.
+\]</div>
+<p><strong>Hilbert scheme tangent space.</strong> The Zariski tangent space to <span class="arithmatex">\(\operatorname{Hilb}(X)\)</span> at <span class="arithmatex">\([Z]\)</span> is</p>
+<div class="arithmatex">\[
+T_{[Z]} \operatorname{Hilb}(X) = \operatorname{Hom}_{\mathcal{O}_Z}(\mathcal{I}_Z/\mathcal{I}_Z^2, \mathcal{O}_Z) = H^0(\mathcal{N}_{Z/X}|_Z)
+\]</div>
+<p>-- note the <span class="arithmatex">\(\operatorname{Hom}\)</span> is over <span class="arithmatex">\(\mathcal{O}_Z\)</span>, not <span class="arithmatex">\(\mathcal{O}_X\)</span>.</p>
+<p><strong>Torus action on <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C})\)</span>.</strong> For <span class="arithmatex">\(I = (x^n) \subset \mathbb{C}[x]\)</span>, the module <span class="arithmatex">\(I/I^2 \cong \mathbb{C}[x]/(x^n)\)</span> has <span class="arithmatex">\(\operatorname{Hom}_{\mathbb{C}[x]/(x^n)}(I/I^2, \mathbb{C}[x]/(x^n)) \cong \mathbb{C}[x]/(x^n)\)</span> as a vector space. Under the <span class="arithmatex">\(\mathbb{C}^*\)</span>-action <span class="arithmatex">\(x \mapsto tx\)</span>, the tangent space decomposes as</p>
+<div class="arithmatex">\[
+T_{(x^n)} \operatorname{Hilb}^n(\mathbb{C}) = t \oplus t^2 \oplus \cdots \oplus t^n
+\]</div>
+<p>as a representation of <span class="arithmatex">\(\mathbb{C}^*\)</span>. This matches the global coordinates on <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C}) \cong \mathbb{C}^n\)</span>: each ideal <span class="arithmatex">\(I = (f)\)</span> with <span class="arithmatex">\(f = x^n + a_1 x^{n-1} + \cdots + a_n\)</span> is parametrized by <span class="arithmatex">\((a_1, \ldots, a_n)\)</span>, and the weight of <span class="arithmatex">\(a_i\)</span> under <span class="arithmatex">\(x \mapsto tx\)</span> is <span class="arithmatex">\(t^i\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $R = \mathbb{C}[x]$ and $I = (x^n)$. Compute $\operatorname{Hom}_R(I/I^2, R)$ and $\operatorname{Hom}_{R/I}(I/I^2, R/I)$. Use the latter to determine $\dim T_{(x^n)} \operatorname{Hilb}^n(\mathbb{C})$, and describe the $\mathbb{C}^*$-weight decomposition of the tangent space. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

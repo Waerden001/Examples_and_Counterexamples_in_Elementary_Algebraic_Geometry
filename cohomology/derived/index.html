@@ -1,0 +1,1943 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/cohomology/derived/">
+      
+      
+        <link rel="prev" href="../etale/">
+      
+      
+        <link rel="next" href="../homological/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Derived Categories - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#derived-categories" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Derived Categories
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computations/picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#derived-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Derived categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0215" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Dualizing complex of a projective variety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0216" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complexes with the same homology but not quasi-isomorphic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derived-pushforward-and-higher-direct-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived pushforward and higher direct images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Derived pushforward and higher direct images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0217" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Semismall maps and perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-mukai-transforms-on-elliptic-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fourier--Mukai transforms on elliptic curves
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier--Mukai transforms on elliptic curves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Theorem: Mukai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lemma: Divisor class identity on \(E \times E\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0220" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lemma: Convolution identity for the Poincare bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#six-functors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Six functors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Six functors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Adjoint functors from poset inclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Six functors for an open-closed decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\mathcal{O}\)-modules vs. constructible sheaves under \(j^*i_*\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Why \(\mathcal{O}\)-modules and local systems differ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#derived-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Derived categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0215" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Dualizing complex of a projective variety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0216" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complexes with the same homology but not quasi-isomorphic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derived-pushforward-and-higher-direct-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived pushforward and higher direct images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Derived pushforward and higher direct images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0217" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Semismall maps and perverse sheaves
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-mukai-transforms-on-elliptic-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fourier--Mukai transforms on elliptic curves
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier--Mukai transforms on elliptic curves">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Theorem: Mukai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0219" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lemma: Divisor class identity on \(E \times E\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0220" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lemma: Convolution identity for the Poincare bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#six-functors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Six functors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Six functors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0221" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Adjoint functors from poset inclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Six functors for an open-closed decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0223" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\mathcal{O}\)-modules vs. constructible sheaves under \(j^*i_*\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0224" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Why \(\mathcal{O}\)-modules and local systems differ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Derived Categories</h1>
+
+<h2 id="derived-categories">Derived categories<a class="headerlink" href="#derived-categories" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0215">Example: Dualizing complex of a projective variety<a class="headerlink" href="#ecag-0215" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X = \operatorname{Proj}(k[x,y,z,w]/(xy, xz)) \subset \mathbb{P}^3\)</span> be the union of the plane <span class="arithmatex">\(V(x) \cong \mathbb{P}^2\)</span> and the line <span class="arithmatex">\(V(y,z) \cong \mathbb{P}^1\)</span>. We compute the dualizing complex <span class="arithmatex">\(\omega_X^\bullet = \mathbf{R}\mathcal{H}om_{\mathcal{O}_{\mathbb{P}^3}}(\mathcal{O}_X, \omega_{\mathbb{P}^3}[3])\)</span> and show that <span class="arithmatex">\(X\)</span> is not Cohen--Macaulay.</p>
+<p><strong>Minimal free resolution.</strong> The ideal <span class="arithmatex">\((xy, xz) = (x) \cap (y,z)\)</span> has two generators with a single syzygy <span class="arithmatex">\(z \cdot (xy) - y \cdot (xz) = 0\)</span>, giving the minimal resolution</p>
+<div class="arithmatex">\[
+0 \to \mathcal{O}(-3) \xrightarrow{\begin{bmatrix} z \\ -y \end{bmatrix}} \mathcal{O}(-2)^{\oplus 2} \xrightarrow{\begin{bmatrix} xy &amp; xz \end{bmatrix}} \mathcal{O}_{\mathbb{P}^3} \to \mathcal{O}_X \to 0.
+\]</div>
+<p>Exactness at the middle term: the kernel of <span class="arithmatex">\(\begin{bmatrix} xy &amp; xz \end{bmatrix}\)</span> consists of pairs <span class="arithmatex">\((a,b)\)</span> with <span class="arithmatex">\(x(ay + bz) = 0\)</span>. Since <span class="arithmatex">\(x\)</span> is not a zero divisor in <span class="arithmatex">\(k[x,y,z,w]\)</span>, we need <span class="arithmatex">\(ay + bz = 0\)</span>, whose syzygies in <span class="arithmatex">\(k[y,z]\)</span> are generated by <span class="arithmatex">\((z, -y)\)</span>.</p>
+<p><strong>Dualizing.</strong> Since <span class="arithmatex">\(\omega_{\mathbb{P}^3} = \mathcal{O}(-4)\)</span> and the resolution <span class="arithmatex">\(\mathcal{L}^\bullet \xrightarrow{\sim} \mathcal{O}_X\)</span> consists of locally free sheaves, we compute <span class="arithmatex">\(\mathbf{R}\mathcal{H}om(\mathcal{O}_X, \mathcal{O}(-4)[3])\)</span> by applying <span class="arithmatex">\(\mathcal{H}om(-, \mathcal{O}(-4))\)</span> to <span class="arithmatex">\(\mathcal{L}^\bullet\)</span> and shifting by <span class="arithmatex">\([3]\)</span>. Dualizing reverses arrows and transposes matrices:</p>
+<div class="arithmatex">\[
+\omega_X^\bullet \cong \left[ \mathcal{O}(-4) \xrightarrow{\begin{bmatrix} xy \\ xz \end{bmatrix}} \mathcal{O}(-2)^{\oplus 2} \xrightarrow{\begin{bmatrix} z &amp; -y \end{bmatrix}} \mathcal{O}(-1) \right],
+\]</div>
+<p>placed in cohomological degrees <span class="arithmatex">\(-3, -2, -1\)</span> (after the shift by <span class="arithmatex">\([3]\)</span>, the term <span class="arithmatex">\(\mathcal{O}(-4) = \mathcal{H}om(\mathcal{O}, \mathcal{O}(-4))\)</span> lands in degree <span class="arithmatex">\(-3\)</span>).</p>
+<p><strong>Non-Cohen--Macaulay detection.</strong> The dualizing complex <span class="arithmatex">\(\omega_X^\bullet\)</span> is a genuine complex spanning three cohomological degrees, rather than a single sheaf concentrated in one degree. For a Cohen--Macaulay scheme of pure dimension <span class="arithmatex">\(d\)</span>, the dualizing complex would be a single sheaf <span class="arithmatex">\(\omega_X\)</span> in degree <span class="arithmatex">\(-d\)</span>. Here <span class="arithmatex">\(X\)</span> has components of dimensions 2 and 1, so it is not equidimensional, hence not Cohen--Macaulay. Each component individually is Cohen--Macaulay (<span class="arithmatex">\(\mathbb{P}^2\)</span> and <span class="arithmatex">\(\mathbb{P}^1\)</span> are smooth), but their union fails the condition.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Proj}(k[x,y,z,w]/(xy, xz)) \subset \mathbf{P}^3$. Compute the dualizing complex $\omega_X^{\bullet} = \mathbf{R}\operatorname{Hom}_{\mathcal{O}_{\mathbf{P}^3}}(\mathcal{O}_X, \omega_{\mathbf{P}^3}[3])$ explicitly as a complex of twisted structure sheaves on $\mathbf{P}^3$. Is $X$ Cohen-Macaulay? -->
+
+<h3 id="ecag-0216">Example: Complexes with the same homology but not quasi-isomorphic<a class="headerlink" href="#ecag-0216" title="Permanent link">&para;</a></h3>
+<p>Over the polynomial ring <span class="arithmatex">\(R = \mathbb{C}[x,y]\)</span>, the two complexes</p>
+<div class="arithmatex">\[
+\mathcal{L}^\bullet: \quad R^{\oplus 2} \xrightarrow{\begin{bmatrix} x &amp; y \end{bmatrix}} R, \qquad \mathcal{M}^\bullet: \quad R \xrightarrow{0} \mathbb{C},
+\]</div>
+<p>with rightmost term in degree 0, have isomorphic cohomology in every degree yet represent distinct objects in <span class="arithmatex">\(D(\operatorname{Mod}_R)\)</span>.</p>
+<p><strong>Cohomology.</strong> For <span class="arithmatex">\(\mathcal{L}^\bullet\)</span>: the cokernel of <span class="arithmatex">\(\begin{bmatrix} x &amp; y \end{bmatrix}\)</span> is <span class="arithmatex">\(R/(x,y) \cong \mathbb{C}\)</span>, so <span class="arithmatex">\(H^0(\mathcal{L}^\bullet) = \mathbb{C}\)</span>. The kernel consists of syzygies <span class="arithmatex">\((a,b)\)</span> with <span class="arithmatex">\(ax + by = 0\)</span>; the syzygy module of <span class="arithmatex">\((x,y)\)</span> in <span class="arithmatex">\(R\)</span> is generated by <span class="arithmatex">\((y,-x)\)</span>, giving <span class="arithmatex">\(H^{-1}(\mathcal{L}^\bullet) \cong R\)</span>. For <span class="arithmatex">\(\mathcal{M}^\bullet\)</span>: the zero differential gives <span class="arithmatex">\(H^0(\mathcal{M}^\bullet) = \mathbb{C}\)</span> and <span class="arithmatex">\(H^{-1}(\mathcal{M}^\bullet) = R\)</span>.</p>
+<p><strong>Non-quasi-isomorphism via splitting.</strong> The complex <span class="arithmatex">\(\mathcal{M}^\bullet\)</span> has zero differential, so it splits in the derived category as a direct sum <span class="arithmatex">\(\mathcal{M}^\bullet \cong R[-1] \oplus \mathbb{C}[0]\)</span>. If <span class="arithmatex">\(\mathcal{L}^\bullet\)</span> were quasi-isomorphic to <span class="arithmatex">\(\mathcal{M}^\bullet\)</span>, it would also split as <span class="arithmatex">\(R[-1] \oplus \mathbb{C}[0]\)</span> in <span class="arithmatex">\(D(R)\)</span>. Such a splitting would correspond to a section <span class="arithmatex">\(\mathbb{C} \to \mathcal{L}^\bullet\)</span> in the derived category, or equivalently, the vanishing of the extension class in <span class="arithmatex">\(\operatorname{Ext}_R^1(\mathbb{C}, R)\)</span> that <span class="arithmatex">\(\mathcal{L}^\bullet\)</span> represents.</p>
+<p>We compute this Ext group via the Koszul resolution of <span class="arithmatex">\(\mathbb{C} = R/(x,y)\)</span>:</p>
+<div class="arithmatex">\[
+0 \to R \xrightarrow{\begin{bmatrix} -y \\ x \end{bmatrix}} R^{\oplus 2} \xrightarrow{\begin{bmatrix} x &amp; y \end{bmatrix}} R \to \mathbb{C} \to 0.
+\]</div>
+<p>Applying <span class="arithmatex">\(\operatorname{Hom}_R(-, R)\)</span>: the complex <span class="arithmatex">\(R \xleftarrow{\begin{bmatrix} x \\ y \end{bmatrix}} R^{\oplus 2} \xleftarrow{\begin{bmatrix} -y &amp; x \end{bmatrix}} R\)</span> has <span class="arithmatex">\(H^1 = \operatorname{Ext}_R^1(\mathbb{C}, R) \cong R/(x,y) \cong \mathbb{C} \neq 0\)</span>. (More generally, by local duality, <span class="arithmatex">\(\operatorname{Ext}_R^i(\mathbb{C}, R) = 0\)</span> for <span class="arithmatex">\(i &lt; 2\)</span> and <span class="arithmatex">\(\operatorname{Ext}_R^2(\mathbb{C}, R) \cong \mathbb{C}\)</span> when <span class="arithmatex">\(R\)</span> has dimension 2. But here we need <span class="arithmatex">\(\operatorname{Ext}^1\)</span> in the derived category sense between <span class="arithmatex">\(H^0 = \mathbb{C}\)</span> and <span class="arithmatex">\(H^{-1}[1] = R\)</span>, which is <span class="arithmatex">\(\operatorname{Ext}_R^1(\mathbb{C}, R)\)</span>.)</p>
+<p>In fact, <span class="arithmatex">\(\operatorname{Hom}_{D(R)}(\mathcal{L}^\bullet, \mathcal{L}^\bullet) \not\cong \operatorname{Hom}_{D(R)}(\mathcal{M}^\bullet, \mathcal{M}^\bullet)\)</span> since the latter decomposes (via the splitting) into four summands <span class="arithmatex">\(\operatorname{Ext}^*(R, R) \oplus \operatorname{Ext}^*(\mathbb{C}, \mathbb{C}) \oplus \operatorname{Ext}^*(\mathbb{C}, R) \oplus \operatorname{Ext}^*(R, \mathbb{C})\)</span>, while <span class="arithmatex">\(\mathcal{L}^\bullet\)</span> carries a nontrivial extension class preventing such a decomposition. The derived category remembers not just cohomology objects but also the extension data connecting them.</p>
+<!-- BENCHMARK_PROBLEM: Let $\mathcal{L}^{\bullet}: \mathbf{C}[x,y]^{\oplus 2} \xrightarrow{\begin{bmatrix} x & y \end{bmatrix}} \mathbf{C}[x,y]$ and $\mathcal{M}^{\bullet}: \mathbf{C}[x,y] \xrightarrow{0} \mathbf{C}$, with the rightmost term in degree 0. Compute $H^{-1}$ and $H^0$ of both complexes and prove they are not quasi-isomorphic despite having isomorphic homology. -->
+
+<h2 id="derived-pushforward-and-higher-direct-images">Derived pushforward and higher direct images<a class="headerlink" href="#derived-pushforward-and-higher-direct-images" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0217">Remark: Semismall maps and perverse sheaves<a class="headerlink" href="#ecag-0217" title="Permanent link">&para;</a></h3>
+<p>Consider the simplest Springer resolution <span class="arithmatex">\(f: X = T^*\mathbb{P}^1 \to Y = \operatorname{Spec}(k[x,y,z]/(xy - z^2))\)</span>, where <span class="arithmatex">\(Y\)</span> is the <span class="arithmatex">\(A_1\)</span>-surface singularity (the quadric cone). We verify that <span class="arithmatex">\(f\)</span> is semismall and explain why <span class="arithmatex">\(\mathbf{R}f_*(\mathbb{Q}_X[2])\)</span> is a perverse sheaf but does not decompose as the direct sum of its cohomology sheaves.</p>
+<p><strong>Semismallness.</strong> A proper morphism <span class="arithmatex">\(f: X \to Y\)</span> between irreducible varieties is semismall if <span class="arithmatex">\(2k + \dim Y_k \leq \dim X\)</span> for all <span class="arithmatex">\(k \geq 0\)</span>, where <span class="arithmatex">\(Y_k = \{y \in Y \mid \dim f^{-1}(y) \geq k\}\)</span>. It is small if strict inequality holds for <span class="arithmatex">\(k \geq 1\)</span>. For the Springer resolution: <span class="arithmatex">\(\dim X = 2\)</span>, the generic fibre is a point (<span class="arithmatex">\(k = 0\)</span>, <span class="arithmatex">\(Y_0 = Y\)</span>, <span class="arithmatex">\(\dim Y_0 = 2\)</span>, check: <span class="arithmatex">\(0 + 2 \leq 2\)</span>), and the fibre over the singular point <span class="arithmatex">\(0 \in Y\)</span> is <span class="arithmatex">\(\mathbb{P}^1\)</span> (<span class="arithmatex">\(k = 1\)</span>, <span class="arithmatex">\(Y_1 = \{0\}\)</span>, <span class="arithmatex">\(\dim Y_1 = 0\)</span>, check: <span class="arithmatex">\(2 + 0 = 2 \leq 2\)</span>). Since equality holds at <span class="arithmatex">\(k = 1\)</span>, the map <span class="arithmatex">\(f\)</span> is semismall but not small.</p>
+<p><strong>Perversity.</strong> For a semismall map, <span class="arithmatex">\(\mathbf{R}f_*(\mathbb{Q}_X[\dim X])\)</span> is a perverse sheaf. This is a much stronger constraint than being merely an object of <span class="arithmatex">\(D^b_c(Y)\)</span>: perverse sheaves form an abelian subcategory, and their simple objects (intersection cohomology complexes) carry deep topological information.</p>
+<p><strong>Non-splitting.</strong> We claim <span class="arithmatex">\(\mathbf{R}f_*(\mathbb{Q}_X[2])\)</span> does not decompose as <span class="arithmatex">\(\bigoplus_i R^i f_*(\mathbb{Q}_X)[2-i]\)</span> (the naive direct sum of shifted higher direct images). The higher direct images are: <span class="arithmatex">\(R^0 f_*(\mathbb{Q}_X) = \mathbb{Q}_Y\)</span> (since <span class="arithmatex">\(f\)</span> is birational with connected fibres), and <span class="arithmatex">\(R^2 f_*(\mathbb{Q}_X) = \mathbb{Q}_{\{0\}}\)</span> (the skyscraper at the singular point, recording <span class="arithmatex">\(H^2(\mathbb{P}^1) = \mathbb{Q}\)</span>). If the decomposition held, <span class="arithmatex">\(\mathbf{R}f_*(\mathbb{Q}_X[2])\)</span> would be <span class="arithmatex">\(\mathbb{Q}_Y[2] \oplus \mathbb{Q}_{\{0\}}\)</span>, which is not a perverse sheaf (the summand <span class="arithmatex">\(\mathbb{Q}_Y[2]\)</span> is not perverse on the singular space <span class="arithmatex">\(Y\)</span>). The actual perverse sheaf <span class="arithmatex">\(\mathbf{R}f_*(\mathbb{Q}_X[2]) = IC(Y, \mathbb{Q})\)</span> is the intersection cohomology complex, an indecomposable object encoding the nontrivial extension between the regular and singular strata.</p>
+<!-- BENCHMARK_PROBLEM: Let $f: T^*\mathbf{P}^1 \to \operatorname{Spec}(k[x,y,z]/(xy - z^2))$ be the Springer resolution. Verify explicitly that $f$ is semismall by computing $Y_k = \{y \mid \dim f^{-1}(y) \geq k\}$ and checking the inequality $2k + \dim Y_k \leq \dim X$ for all $k$. Is $f$ small? -->
+
+<h2 id="fourier-mukai-transforms-on-elliptic-curves">Fourier--Mukai transforms on elliptic curves<a class="headerlink" href="#fourier-mukai-transforms-on-elliptic-curves" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(E\)</span> be an elliptic curve over <span class="arithmatex">\(\mathbb{C}\)</span> with origin <span class="arithmatex">\(p_0\)</span>. The normalized Poincare bundle on <span class="arithmatex">\(E \times E\)</span> is</p>
+<div class="arithmatex">\[
+\mathscr{P} = \pi_1^*\mathcal{O}_E(-p_0) \otimes \pi_2^*\mathcal{O}_E(-p_0) \otimes \mathcal{O}_{E \times E}(\Delta),
+\]</div>
+<p>satisfying <span class="arithmatex">\(\mathscr{P}|_{p \times E} = \mathcal{O}_E(p - p_0)\)</span> and <span class="arithmatex">\(\mathscr{P}|_{E \times p} = \mathcal{O}_E(p - p_0)\)</span>. The Fourier--Mukai transform is</p>
+<div class="arithmatex">\[
+\Phi = \Phi_\mathscr{P}: D^b(E) \to D^b(E), \qquad \mathscr{E} \mapsto \mathbf{R}\pi_{2,*}(\pi_1^*\mathscr{E} \otimes \mathscr{P}).
+\]</div>
+<h3 id="ecag-0218">Theorem: Mukai<a class="headerlink" href="#ecag-0218" title="Permanent link">&para;</a></h3>
+<p>The Fourier--Mukai transform satisfies <span class="arithmatex">\(\Phi \circ \Phi = \iota^* \circ [-1]\)</span>, where <span class="arithmatex">\(\iota: E \to E\)</span> is the negation map <span class="arithmatex">\(p \mapsto -p\)</span> and <span class="arithmatex">\([-1]\)</span> is the homological shift. In particular, <span class="arithmatex">\(\Phi\)</span> is an autoequivalence of <span class="arithmatex">\(D^b(E)\)</span> with <span class="arithmatex">\(\Phi^4 = [-2]\)</span>.</p>
+<p>The proof computes the convolution kernel <span class="arithmatex">\(\mathscr{P} \circ \mathscr{P} = \mathbf{R}\pi_{13,*}(\pi_{12}^*\mathscr{P} \otimes \pi_{23}^*\mathscr{P})\)</span> on <span class="arithmatex">\(E \times E \times E\)</span> in four steps.</p>
+<p><strong>Step 1: Reducing the convolution.</strong> By Lemma ecag-0220, <span class="arithmatex">\(\pi_{12}^*\mathscr{P} \otimes \pi_{23}^*\mathscr{P} \cong f^*\mathscr{P}\)</span> where <span class="arithmatex">\(f: E \times E \times E \to E \times E\)</span> is <span class="arithmatex">\((x,y,z) \mapsto (x+z, y)\)</span>.</p>
+<p><strong>Step 2: Flat base change.</strong> The diagram</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+E \times E \times E &amp; \xrightarrow{f} &amp; E \times E \\
+\downarrow^{\pi_{13}} &amp; &amp; \downarrow^{\pi_1} \\
+E \times E &amp; \xrightarrow{m} &amp; E
+\end{array}
+\]</div>
+<p>is cartesian, where <span class="arithmatex">\(m(x,z) = x + z\)</span>. Since <span class="arithmatex">\(\pi_1\)</span> is flat (a projection), flat base change gives <span class="arithmatex">\(\mathbf{R}\pi_{13,*}(f^*\mathscr{P}) = m^*(\mathbf{R}\pi_{1,*}\mathscr{P})\)</span>.</p>
+<p><strong>Step 3: Computing <span class="arithmatex">\(\mathbf{R}\pi_{1,*}\mathscr{P}\)</span>.</strong> For <span class="arithmatex">\(p \neq p_0\)</span>, the restriction <span class="arithmatex">\(\mathscr{P}|_{p \times E} = \mathcal{O}_E(p - p_0)\)</span> is a nontrivial degree-zero line bundle, so <span class="arithmatex">\(H^0 = H^1 = 0\)</span> by Riemann--Roch (<span class="arithmatex">\(\chi = 0\)</span> and <span class="arithmatex">\(H^0 = 0\)</span> for a nontrivial degree-0 bundle on a genus-1 curve forces <span class="arithmatex">\(H^1 = 0\)</span>). At <span class="arithmatex">\(p = p_0\)</span>, <span class="arithmatex">\(\mathscr{P}|_{p_0 \times E} = \mathcal{O}_E\)</span> has <span class="arithmatex">\(H^0 = H^1 = k\)</span>. Cohomology and base change (applicable since <span class="arithmatex">\(\mathscr{P}\)</span> is flat over <span class="arithmatex">\(E\)</span> via <span class="arithmatex">\(\pi_1\)</span>) gives:</p>
+<div class="arithmatex">\[
+R^0\pi_{1,*}\mathscr{P} = 0, \qquad R^1\pi_{1,*}\mathscr{P} = \mathcal{O}_{p_0}.
+\]</div>
+<p>Therefore <span class="arithmatex">\(\mathbf{R}\pi_{1,*}\mathscr{P} = \mathcal{O}_{p_0}[-1]\)</span>.</p>
+<p><strong>Step 4: Pulling back.</strong> The fibre <span class="arithmatex">\(m^{-1}(p_0) = \{(x,z) \mid x + z = p_0\} = \{(x, -x)\} = \Gamma_\iota\)</span> is the graph of the negation map. So</p>
+<div class="arithmatex">\[
+\mathscr{P} \circ \mathscr{P} = m^*(\mathcal{O}_{p_0}[-1]) = \mathcal{O}_{\Gamma_\iota}[-1].
+\]</div>
+<p>The Fourier--Mukai transform with kernel <span class="arithmatex">\(\mathcal{O}_{\Gamma_\iota}\)</span> is <span class="arithmatex">\(\iota^*\)</span>, so <span class="arithmatex">\(\Phi^2 = \iota^* \circ [-1]\)</span>.</p>
+<p><strong>Verification.</strong> Since <span class="arithmatex">\(\iota^2 = \operatorname{id}\)</span> and <span class="arithmatex">\([-1]\)</span> commutes with pullback, <span class="arithmatex">\(\Phi^4 = (\iota^* \circ [-1])^2 = [-2]\)</span>. A quasi-inverse is <span class="arithmatex">\(\Phi^{-1} = \iota^* \circ [1] \circ \Phi\)</span>.</p>
+<p>Alternatively, <span class="arithmatex">\(\Phi\)</span> can be shown to be an equivalence by verifying that it sends the "orthonormal basis" <span class="arithmatex">\(\{\mathcal{O}_p\}_{p \in E}\)</span> of skyscraper sheaves to the family <span class="arithmatex">\(\{\mathcal{O}_E(p - p_0)\}\)</span> of line bundles, preserving Ext groups (<span class="arithmatex">\(\operatorname{Ext}^i(\mathcal{O}_E(p'-p_0), \mathcal{O}_E(p-p_0)) = H^i(\mathcal{O}_E(p-p')) = 0\)</span> for <span class="arithmatex">\(p \neq p'\)</span> and <span class="arithmatex">\(i \neq 0,1\)</span>) and commuting with the Serre functor (<span class="arithmatex">\(\mathscr{P}_x \otimes \omega_E = \mathscr{P}_x\)</span> since <span class="arithmatex">\(\omega_E = \mathcal{O}_E\)</span>).</p>
+<!-- BENCHMARK_PROBLEM: Let $E$ be an elliptic curve with origin $p_0$ and $\Phi: \mathrm{D}^b(E) \to \mathrm{D}^b(E)$ the Fourier-Mukai transform with kernel the normalized Poincare bundle. Compute $\mathbf{R}\pi_{1,*}\mathscr{P}$ where $\mathscr{P}|_{p \times E} = \mathcal{O}_E(p - p_0)$, and use it to determine the Fourier-Mukai kernel of $\Phi \circ \Phi$. Express your answer in terms of the graph of a map $E \to E$ and a shift. -->
+
+<h3 id="ecag-0219">Lemma: Divisor class identity on <span class="arithmatex">\(E \times E\)</span><a class="headerlink" href="#ecag-0219" title="Permanent link">&para;</a></h3>
+<p>For any closed point <span class="arithmatex">\(p \in E\)</span>, let <span class="arithmatex">\(D_p = \{(x,y) \in E \times E \mid x + y = p\}\)</span> be the fibre of the addition map <span class="arithmatex">\(m: E \times E \to E\)</span> over <span class="arithmatex">\(p\)</span>. Then</p>
+<div class="arithmatex">\[
+\mathcal{O}_{E \times E}(D_p - D_{p_0}) \cong \pi_1^*\mathcal{O}_E(p - p_0) \otimes \pi_2^*\mathcal{O}_E(p - p_0).
+\]</div>
+<p>We verify this by the see-saw principle. On a product <span class="arithmatex">\(A \times B\)</span> of complete varieties, two line bundles are isomorphic if their restrictions agree on all fibres <span class="arithmatex">\(\{a\} \times B\)</span> and on at least one fibre <span class="arithmatex">\(A \times \{b_0\}\)</span>.</p>
+<p><strong>Restriction to <span class="arithmatex">\(\{q\} \times E\)</span>.</strong> The right side restricts to <span class="arithmatex">\(\mathcal{O}_E(p - p_0)\)</span>. For the left side: <span class="arithmatex">\(D_p \cap (\{q\} \times E) = \{(q, p-q)\}\)</span> and <span class="arithmatex">\(D_{p_0} \cap (\{q\} \times E) = \{(q, p_0 - q)\}\)</span>, so</p>
+<div class="arithmatex">\[
+\mathcal{O}(D_p - D_{p_0})|_{\{q\} \times E} = \mathcal{O}_E((p-q) - (p_0-q)) = \mathcal{O}_E(p - p_0).
+\]</div>
+<p><strong>Restriction to <span class="arithmatex">\(E \times \{q\}\)</span>.</strong> Both sides restrict to <span class="arithmatex">\(\mathcal{O}_E(p - p_0)\)</span> by the same computation with roles exchanged.</p>
+<p>The see-saw principle gives the desired isomorphism.</p>
+<!-- BENCHMARK_PROBLEM: Let $E$ be an elliptic curve with origin $p_0$ and $D_p = \{(x,y) \in E \times E \mid x + y = p\}$. Prove that $\mathcal{O}_{E \times E}(D_p - D_{p_0}) \cong \pi_1^*\mathcal{O}_E(p - p_0) \otimes \pi_2^*\mathcal{O}_E(p - p_0)$ using the see-saw principle. What are the restrictions of both sides to $\{q\} \times E$? -->
+
+<h3 id="ecag-0220">Lemma: Convolution identity for the Poincare bundle<a class="headerlink" href="#ecag-0220" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f: E \times E \times E \to E \times E\)</span> be <span class="arithmatex">\((x,y,z) \mapsto (x+z, y)\)</span>. Then <span class="arithmatex">\(\pi_{12}^*\mathscr{P} \otimes \pi_{23}^*\mathscr{P} \cong f^*\mathscr{P}\)</span> on <span class="arithmatex">\(E \times E \times E\)</span>.</p>
+<p>We apply the see-saw principle on <span class="arithmatex">\(E \times E \times E\)</span> viewed as a family over the second factor.</p>
+<p><strong>Restriction to <span class="arithmatex">\(E \times \{p\} \times E\)</span>.</strong> The bundle <span class="arithmatex">\(\pi_{12}^*\mathscr{P}\)</span> restricts to <span class="arithmatex">\(\mathscr{P}|_{E \times p}\)</span> pulled back via the first coordinate, which is <span class="arithmatex">\(\pi_1^*\mathcal{O}_E(p - p_0)\)</span>. Similarly <span class="arithmatex">\(\pi_{23}^*\mathscr{P}\)</span> restricts to <span class="arithmatex">\(\pi_2^*\mathcal{O}_E(p - p_0)\)</span> (where <span class="arithmatex">\(\pi_1, \pi_2\)</span> now denote projections on the slice <span class="arithmatex">\(E \times E\)</span>). The product is <span class="arithmatex">\(\pi_1^*\mathcal{O}_E(p-p_0) \otimes \pi_2^*\mathcal{O}_E(p-p_0)\)</span>.</p>
+<p>For <span class="arithmatex">\(f^*\mathscr{P}\)</span>: the restricted map sends <span class="arithmatex">\((x,z) \mapsto (x+z, p)\)</span>, so</p>
+<div class="arithmatex">\[
+f^*\mathscr{P}|_{E \times \{p\} \times E} = f^*(\pi_1^*\mathcal{O}_E(-p_0) \otimes \pi_2^*\mathcal{O}_E(-p_0) \otimes \mathcal{O}(\Delta))|_{E \times \{p\} \times E}.
+\]</div>
+<p>The key identifications are: <span class="arithmatex">\(f^*\mathcal{O}(\Delta)|_{E \times \{p\} \times E} = \mathcal{O}(D_p)\)</span> (since <span class="arithmatex">\(\Delta = \{a = b\}\)</span> pulls back under <span class="arithmatex">\((x,z) \mapsto (x+z, p)\)</span> to <span class="arithmatex">\(\{x+z = p\}\)</span>), and <span class="arithmatex">\(f^*\pi_1^*\mathcal{O}_E(-p_0)|_{E \times \{p\} \times E} = \mathcal{O}(-D_{p_0})\)</span> (via <span class="arithmatex">\(\pi_1 \circ f = m\)</span>). The factor <span class="arithmatex">\(f^*\pi_2^*\mathcal{O}_E(-p_0)\)</span> restricts to <span class="arithmatex">\(\mathcal{O}_E(-p_0)\)</span> pulled back from the constant map to <span class="arithmatex">\(p\)</span>, contributing trivially to the slice. Therefore <span class="arithmatex">\(f^*\mathscr{P}|_{E \times \{p\} \times E} = \mathcal{O}(D_p - D_{p_0})\)</span>, which equals <span class="arithmatex">\(\pi_1^*\mathcal{O}_E(p-p_0) \otimes \pi_2^*\mathcal{O}_E(p-p_0)\)</span> by Lemma ecag-0219.</p>
+<p><strong>Restriction to <span class="arithmatex">\(\{p_0\} \times E \times \{p_0\}\)</span>.</strong> All three bundles <span class="arithmatex">\(\pi_{12}^*\mathscr{P}\)</span>, <span class="arithmatex">\(\pi_{23}^*\mathscr{P}\)</span>, and <span class="arithmatex">\(f^*\mathscr{P}\)</span> restrict to <span class="arithmatex">\(\mathcal{O}_E\)</span>, since <span class="arithmatex">\(\mathscr{P}|_{p_0 \times E} = \mathscr{P}|_{E \times p_0} = \mathcal{O}_E\)</span> and <span class="arithmatex">\(f(p_0, y, p_0) = (p_0, y)\)</span>.</p>
+<p>The see-saw principle gives <span class="arithmatex">\(\pi_{12}^*\mathscr{P} \otimes \pi_{23}^*\mathscr{P} \cong f^*\mathscr{P}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f: E \times E \times E \to E \times E$ be defined by $f(x,y,z) = (x+z,y)$. Compute the restriction of $f^*\mathscr{P}$ to $E \times \{p\} \times E$ where $\mathscr{P}$ is the normalized Poincare bundle, and verify it equals $(\pi_{12}^*\mathscr{P} \otimes \pi_{23}^*\mathscr{P})|_{E \times \{p\} \times E}$. -->
+
+<h2 id="six-functors">Six functors<a class="headerlink" href="#six-functors" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0221">Example: Adjoint functors from poset inclusions<a class="headerlink" href="#ecag-0221" title="Permanent link">&para;</a></h3>
+<p>The inclusion of posets <span class="arithmatex">\(i: (\mathbb{Z}, \leq) \hookrightarrow (\mathbb{R}, \leq)\)</span>, viewed as a functor between thin categories, admits both a right adjoint (the floor function) and a left adjoint (the ceiling function).</p>
+<p>For the right adjunction <span class="arithmatex">\(i \dashv \lfloor \cdot \rfloor\)</span>: in a poset category, <span class="arithmatex">\(\operatorname{Hom}(a,b)\)</span> is a singleton when <span class="arithmatex">\(a \leq b\)</span> and empty otherwise. The adjunction <span class="arithmatex">\(\operatorname{Hom}_{\mathbb{R}}(i(n), r) \cong \operatorname{Hom}_{\mathbb{Z}}(n, \lfloor r \rfloor)\)</span> translates to</p>
+<div class="arithmatex">\[
+n \leq r \iff n \leq \lfloor r \rfloor,
+\]</div>
+<p>which is precisely the defining property of the floor function. For the left adjunction <span class="arithmatex">\(\lceil \cdot \rceil \dashv i\)</span>: the condition <span class="arithmatex">\(\operatorname{Hom}_{\mathbb{Z}}(\lceil r \rceil, n) \cong \operatorname{Hom}_{\mathbb{R}}(r, i(n))\)</span> becomes</p>
+<div class="arithmatex">\[
+\lceil r \rceil \leq n \iff r \leq n,
+\]</div>
+<p>which defines the ceiling function.</p>
+<p>This example exhibits the "best approximation" principle underlying adjunctions: <span class="arithmatex">\(\lfloor r \rfloor\)</span> is the best integer approximation to <span class="arithmatex">\(r\)</span> from below, while <span class="arithmatex">\(\lceil r \rceil\)</span> is the best from above. In the six-functor formalism, the adjunctions <span class="arithmatex">\((f^*, f_*)\)</span> and <span class="arithmatex">\((f_!, f^!)\)</span> encode analogous approximation relationships between categories of sheaves on different spaces: <span class="arithmatex">\(f^*\)</span> is the "closest pullback" to a given pushforward, and <span class="arithmatex">\(f^!\)</span> is the "closest exceptional pullback" to a given proper pushforward.</p>
+<!-- BENCHMARK_PROBLEM: View $(\mathbf{Z}, \leq)$ and $(\mathbf{R}, \leq)$ as categories with a unique morphism $a \to b$ iff $a \leq b$. Prove that the inclusion $i: \mathbf{Z} \hookrightarrow \mathbf{R}$ has a right adjoint and identify it explicitly. Does $i$ also have a left adjoint? -->
+
+<h3 id="ecag-0222">Example: Six functors for an open-closed decomposition<a class="headerlink" href="#ecag-0222" title="Permanent link">&para;</a></h3>
+<p>Consider the stratification of <span class="arithmatex">\(\mathbb{C}\)</span> (analytic topology) into the open complement <span class="arithmatex">\(\mathbb{C}^\times\)</span> and the closed point <span class="arithmatex">\(\{0\}\)</span>:</p>
+<div class="arithmatex">\[
+\mathbb{C}^\times \xhookrightarrow{i} \mathbb{C} \xhookleftarrow{j} \{0\}.
+\]</div>
+<p>The six-functor formalism on this complementary pair exhibits fundamental asymmetries between proper and non-proper embeddings.</p>
+<p><strong>Properness.</strong> The closed embedding <span class="arithmatex">\(j\)</span> is proper (every closed immersion of finite type is proper), so <span class="arithmatex">\(j_* = j_!\)</span>. The open embedding <span class="arithmatex">\(i\)</span> is not proper: the map <span class="arithmatex">\(\operatorname{Spec}(\mathbb{C}((t))) \to \mathbb{C}^\times\)</span> defined by <span class="arithmatex">\(t \mapsto t\)</span> extends to <span class="arithmatex">\(\operatorname{Spec}(\mathbb{C}[[t]]) \to \mathbb{C}\)</span> (the closed point maps to <span class="arithmatex">\(0 \notin \mathbb{C}^\times\)</span>), violating the valuative criterion. Geometrically, the sequence <span class="arithmatex">\(1/n \in \mathbb{C}^\times\)</span> converges to <span class="arithmatex">\(0 \notin \mathbb{C}^\times\)</span>. For a non-proper open embedding, <span class="arithmatex">\(i_* \neq i_!\)</span>: the functor <span class="arithmatex">\(i_*\)</span> extends by nearby sections while <span class="arithmatex">\(i_!\)</span> extends by zero (compact support).</p>
+<p><strong>Vanishing identities.</strong> For a complementary open-closed pair, the exact triangles <span class="arithmatex">\(j_!j^! \to \operatorname{id} \to i_*i^*\)</span> and <span class="arithmatex">\(i_!i^! \to \operatorname{id} \to j_*j^*\)</span> yield:</p>
+<ul>
+<li><span class="arithmatex">\(j^*i_! = 0\)</span> and <span class="arithmatex">\(j^!i_* = 0\)</span>: extending from the open stratum and restricting to the closed stratum gives zero.</li>
+<li><span class="arithmatex">\(i^*j_! = 0\)</span> and <span class="arithmatex">\(i^!j_* = 0\)</span>: extending from the closed stratum and restricting to the open stratum gives zero.</li>
+</ul>
+<p><strong>Etale morphisms.</strong> For an open embedding <span class="arithmatex">\(i\)</span>, we have <span class="arithmatex">\(i^* = i^!\)</span>: both are restriction to the open subset. This holds because <span class="arithmatex">\(i\)</span> is etale, so the relative dualizing sheaf <span class="arithmatex">\(\omega_{i}\)</span> is trivial, and <span class="arithmatex">\(i^!(-) = i^*(-) \otimes \omega_i = i^*(-)\)</span>.</p>
+<p><strong>Summary.</strong> The identities and non-identities for this pair:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Holds?</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(j_* = j_!\)</span></td>
+<td>Yes</td>
+<td><span class="arithmatex">\(j\)</span> is proper</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i_* = i_!\)</span></td>
+<td>No</td>
+<td><span class="arithmatex">\(i\)</span> is not proper</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i^* = i^!\)</span></td>
+<td>Yes</td>
+<td><span class="arithmatex">\(i\)</span> is etale</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(j^*i_! = 0\)</span></td>
+<td>Yes</td>
+<td>open-closed vanishing</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i^*j_* = 0\)</span></td>
+<td>No</td>
+<td><span class="arithmatex">\(i^*j_* \neq 0\)</span> in general</td>
+</tr>
+</tbody>
+</table>
+<p>The last entry deserves comment: <span class="arithmatex">\(i^*j_*\mathcal{F}\)</span> is nonzero whenever the sections of <span class="arithmatex">\(j_*\mathcal{F}\)</span> on open subsets meeting <span class="arithmatex">\(\{0\}\)</span> restrict nontrivially to <span class="arithmatex">\(\mathbb{C}^\times\)</span>. The distinction between <span class="arithmatex">\(i^*j_! = 0\)</span> and <span class="arithmatex">\(i^*j_* \neq 0\)</span> reflects the difference between extension by zero and extension by sections from the closed stratum.</p>
+<!-- BENCHMARK_PROBLEM: For the stratification $\mathbf{C}^{\times} \xhookrightarrow{i} \mathbf{C} \xhookleftarrow{j} \{0\}$, determine which of the following equalities hold and which do not: (a) $j_* = j_!$, (b) $i_* = i_!$, (c) $i^* = i^!$, (d) $j^*i_! = 0$, (e) $i^*j_* = 0$. Justify each answer. -->
+
+<h3 id="ecag-0223">Remark: <span class="arithmatex">\(\mathcal{O}\)</span>-modules vs. constructible sheaves under <span class="arithmatex">\(j^*i_*\)</span><a class="headerlink" href="#ecag-0223" title="Permanent link">&para;</a></h3>
+<p>For the open-closed pair <span class="arithmatex">\(\mathbb{C}^\times \xhookrightarrow{i} \mathbb{C} \xhookleftarrow{j} \{0\}\)</span>, the behavior of <span class="arithmatex">\(j^*i_*\)</span> differs sharply depending on whether we work with <span class="arithmatex">\(\mathcal{O}\)</span>-modules or constructible sheaves.</p>
+<p>In the algebraic category, <span class="arithmatex">\(j^*i_*\mathcal{O}_{\mathbb{C}^\times} = 0\)</span>. The computation reduces to a tensor product of <span class="arithmatex">\(k[t]\)</span>-modules:</p>
+<div class="arithmatex">\[
+j^*i_*\mathcal{O}_{\mathbb{C}^\times} = k[t]/(t) \otimes_{k[t]} k[t, t^{-1}] = 0,
+\]</div>
+<p>since <span class="arithmatex">\(t\)</span> acts as zero in <span class="arithmatex">\(k[t]/(t)\)</span> and as a unit in <span class="arithmatex">\(k[t, t^{-1}]\)</span>: the localization <span class="arithmatex">\((k[t]/(t))_t = 0\)</span> because the element <span class="arithmatex">\(1 \in k[t]/(t)\)</span> satisfies <span class="arithmatex">\(t \cdot 1 = 0\)</span>, and inverting <span class="arithmatex">\(t\)</span> forces <span class="arithmatex">\(1 = 0\)</span>.</p>
+<p>In contrast, for the constant sheaf <span class="arithmatex">\(\mathbb{Q}_{\mathbb{C}^\times}\)</span>, the stalk <span class="arithmatex">\((i_*\mathbb{Q}_{\mathbb{C}^\times})_0 = H^0(D^\times, \mathbb{Q}) = \mathbb{Q} \neq 0\)</span> (sections on a punctured disk are constant), so <span class="arithmatex">\(j^*i_*\mathbb{Q}_{\mathbb{C}^\times} \neq 0\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Compute $j^*i_*\mathcal{O}_{\mathbf{C}^{\times}}$ for the open embedding $i: \mathbf{C}^{\times} \hookrightarrow \mathbf{C}$ and closed embedding $j: \{0\} \hookrightarrow \mathbf{C}$ in the algebraic category. Express the computation as a tensor product of $k[t]$-modules and evaluate it. -->
+
+<h3 id="ecag-0224">Remark: Why <span class="arithmatex">\(\mathcal{O}\)</span>-modules and local systems differ<a class="headerlink" href="#ecag-0224" title="Permanent link">&para;</a></h3>
+<p>The discrepancy between <span class="arithmatex">\(j^*i_*\mathcal{O}_{\mathbb{C}^\times} = 0\)</span> and <span class="arithmatex">\(j^*i_*\mathbb{Q}_{\mathbb{C}^\times} \neq 0\)</span> reflects a fundamental divide between algebraic and topological information.</p>
+<p>Local systems and constructible sheaves are governed by the topology of the underlying space: they encode monodromy, nearby cycles, and the fundamental group. The stalk <span class="arithmatex">\((i_*\mathscr{L})_0\)</span> for a local system <span class="arithmatex">\(\mathscr{L}\)</span> on <span class="arithmatex">\(\mathbb{C}^\times\)</span> involves sections on a small punctured disk, which can be nontrivial because <span class="arithmatex">\(\pi_1(\mathbb{C}^\times) \cong \mathbb{Z}\)</span>.</p>
+<p>The structure sheaf <span class="arithmatex">\(\mathcal{O}\)</span> imposes algebraic regularity: <span class="arithmatex">\(\mathcal{O}_{\mathbb{C}^\times} = \mathcal{O}_{\mathbb{C}}[t^{-1}]\)</span> is obtained by inverting <span class="arithmatex">\(t\)</span>, and pulling back to <span class="arithmatex">\(\{0\}\)</span> via <span class="arithmatex">\(j^*\)</span> tensors with <span class="arithmatex">\(k[t]/(t)\)</span>, which annihilates every element because <span class="arithmatex">\(t\)</span> simultaneously acts as a unit (in <span class="arithmatex">\(k[t, t^{-1}]\)</span>) and as zero (in <span class="arithmatex">\(k[t]/(t)\)</span>). The <span class="arithmatex">\(\mathcal{O}\)</span>-module functor <span class="arithmatex">\(j^*i_*\)</span> detects the scheme-theoretic structure of the closed point (the maximal ideal and its powers), while the constructible functor detects the topological complement.</p>
+<p>D-modules and the Riemann--Hilbert correspondence bridge these two worlds: a D-module on <span class="arithmatex">\(\mathbb{C}\)</span> encodes both the algebraic differential equation structure and the topological monodromy of its solutions, reconciling the vanishing of <span class="arithmatex">\(j^*i_*\mathcal{O}_{\mathbb{C}^\times}\)</span> with the nonvanishing of <span class="arithmatex">\(j^*i_*\mathbb{Q}_{\mathbb{C}^\times}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Explain why $j^*i_*\mathcal{O}_{\mathbb{C}^\times} = 0$ in the algebraic category but $j^*i_*\mathbb{Q}_{\mathbb{C}^\times} \neq 0$ in the analytic/topological category, for the open-closed pair $\mathbb{C}^\times \hookrightarrow \mathbb{C} \hookleftarrow \{0\}$. What role does the fundamental group $\pi_1(\mathbb{C}^\times)$ play? -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

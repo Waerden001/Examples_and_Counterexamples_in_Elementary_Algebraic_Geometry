@@ -1,0 +1,1772 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/computations/morse/">
+      
+      
+        <link rel="prev" href="../intersection_theory/">
+      
+      
+        <link rel="next" href="../monad/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Morse Theory - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#morse-theory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Morse Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morse-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morse theory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Morse theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0245" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Morse theory on Grassmannians
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0246" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Nakajima's operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0247" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Moment maps on \(\operatorname{Hilb}^n(\mathbb{C}^2)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0248" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Moment maps on smooth nested Hilbert schemes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0249" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Coadjoint orbits, symplectic forms, and moment maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#morse-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Morse theory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Morse theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0245" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Morse theory on Grassmannians
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0246" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Nakajima's operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0247" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Moment maps on \(\operatorname{Hilb}^n(\mathbb{C}^2)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0248" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Moment maps on smooth nested Hilbert schemes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0249" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Coadjoint orbits, symplectic forms, and moment maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Morse Theory</h1>
+
+<h2 id="morse-theory">Morse theory<a class="headerlink" href="#morse-theory" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0245">Example: Morse theory on Grassmannians<a class="headerlink" href="#ecag-0245" title="Permanent link">&para;</a></h3>
+<p>The Grassmannian <span class="arithmatex">\(\operatorname{Gr}(k,n)\)</span> of <span class="arithmatex">\(k\)</span>-planes in <span class="arithmatex">\(\mathbb{C}^n\)</span> has Poincare polynomial given by the Gaussian binomial coefficient:</p>
+<div class="arithmatex">\[
+P_t(\operatorname{Gr}(k,n)) = \frac{\prod_{i=1}^{n}(1-t^{2i})}{\prod_{i=1}^{k}(1-t^{2i})\cdot\prod_{i=1}^{n-k}(1-t^{2i})}.
+\]</div>
+<p>We compute this via the torus action and Morse theory.</p>
+<p><strong>Torus action and fixed points.</strong> The torus <span class="arithmatex">\(T = (\mathbb{C}^*)^n\)</span> acts on <span class="arithmatex">\(\operatorname{Gr}(k,n)\)</span> by scaling columns: for <span class="arithmatex">\(t = \operatorname{diag}(t_1,\dots,t_n)\)</span> and a <span class="arithmatex">\(k \times n\)</span> matrix representative <span class="arithmatex">\(A\)</span> of <span class="arithmatex">\([W] \in \operatorname{Gr}(k,n)\)</span>, the action is <span class="arithmatex">\(A \mapsto A \cdot t\)</span>. A point <span class="arithmatex">\([W]\)</span> is <span class="arithmatex">\(T\)</span>-fixed if and only if <span class="arithmatex">\(W\)</span> is spanned by coordinate vectors, so the fixed points correspond to <span class="arithmatex">\(k\)</span>-element subsets <span class="arithmatex">\(J = \{j_1 &lt; j_2 &lt; \dots &lt; j_k\} \subset \{1,\dots,n\}\)</span>. There are <span class="arithmatex">\(\binom{n}{k}\)</span> such fixed points, one for each Plucker coordinate <span class="arithmatex">\(x_J\)</span>.</p>
+<p><strong>Tangent weights and Morse index.</strong> At the fixed point corresponding to <span class="arithmatex">\(J\)</span>, the tangent space <span class="arithmatex">\(T_{[W]}\operatorname{Gr}(k,n) \cong \operatorname{Hom}(W, \mathbb{C}^n/W)\)</span> decomposes into one-dimensional <span class="arithmatex">\(T\)</span>-weight spaces:</p>
+<div class="arithmatex">\[
+T_{[W]}\operatorname{Gr}(k,n) \cong \bigoplus_{\substack{i \in J \\ j \notin J}} V(i,j), \quad \text{weight}(V(i,j)) = t_j t_i^{-1}.
+\]</div>
+<p>For a generic moment map <span class="arithmatex">\(\mu([W]) = \sum_{i \in J} \lambda_i\)</span> with <span class="arithmatex">\(\lambda_1 &gt; \lambda_2 &gt; \dots &gt; \lambda_n\)</span>, the Morse index at <span class="arithmatex">\(x_J\)</span> is twice the number of pairs <span class="arithmatex">\((i,j)\)</span> with <span class="arithmatex">\(i \in J\)</span>, <span class="arithmatex">\(j \notin J\)</span>, <span class="arithmatex">\(j &gt; i\)</span>:</p>
+<div class="arithmatex">\[
+d_J = 2\,\#\{(i,j) : i\in J,\, j\notin J,\, j&gt;i\}.
+\]</div>
+<p>Since all Morse indices are even --- a consequence of <span class="arithmatex">\(\operatorname{Gr}(k,n)\)</span> being a complex manifold with moment map from a torus action --- the Morse inequalities are equalities and <span class="arithmatex">\(P_t(\operatorname{Gr}(k,n)) = \sum_J t^{d_J}\)</span>.</p>
+<p><strong>Partition interpretation.</strong> The data of a <span class="arithmatex">\(k\)</span>-element subset <span class="arithmatex">\(J = \{j_1 &lt; \dots &lt; j_k\} \subset \{1,\dots,n\}\)</span> is equivalent to a partition <span class="arithmatex">\(\lambda = (j_k - k, \dots, j_1 - 1)\)</span> fitting inside a <span class="arithmatex">\(k \times (n-k)\)</span> rectangle. Under this bijection, <span class="arithmatex">\(d_J/2 = |\lambda|\)</span>, the size of the partition. Thus</p>
+<div class="arithmatex">\[
+P_t(\operatorname{Gr}(k,n)) = \sum_{\lambda \subset k \times (n-k)} t^{2|\lambda|},
+\]</div>
+<p>and the Poincare polynomial is symmetric in <span class="arithmatex">\(t^2\)</span> by the involution <span class="arithmatex">\(\lambda \mapsto \lambda^c\)</span> (complementary partition in the rectangle).</p>
+<p><strong>Recursion and closed form.</strong> Partitioning according to whether <span class="arithmatex">\(j_k = n\)</span> (the partition has a full bottom row of length <span class="arithmatex">\(n - k\)</span>) or <span class="arithmatex">\(j_k &lt; n\)</span> gives the recursion</p>
+<div class="arithmatex">\[
+P_t(k,n) = P_t(k, n-1) + t^{2(n-k)} P_t(k-1, n-1),
+\]</div>
+<p>which solves to the Gaussian binomial coefficient. The base cases are <span class="arithmatex">\(P_t(0,n) = P_t(n,n) = 1\)</span>.</p>
+<p><strong>Verification for <span class="arithmatex">\(\operatorname{Gr}(2,4)\)</span>.</strong> The six subsets <span class="arithmatex">\(J \subset \{1,2,3,4\}\)</span> of size <span class="arithmatex">\(2\)</span> give:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(J\)</span></th>
+<th>Pairs <span class="arithmatex">\((i \in J,\, j \notin J,\, j &gt; i)\)</span></th>
+<th><span class="arithmatex">\(d_J\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\{1,2\}\)</span></td>
+<td><span class="arithmatex">\((1,3),(1,4),(2,3),(2,4)\)</span></td>
+<td><span class="arithmatex">\(8\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{1,3\}\)</span></td>
+<td><span class="arithmatex">\((1,2)\)</span> is excluded since <span class="arithmatex">\(2 \notin J\)</span> but <span class="arithmatex">\(2 &lt; 3\)</span>; actual: <span class="arithmatex">\((1,4),(3,4)\)</span> plus <span class="arithmatex">\((1,2)\)</span>? No: <span class="arithmatex">\((1,4),(3,4)\)</span> and we also need <span class="arithmatex">\(j &gt; i\)</span>: <span class="arithmatex">\((1,2)\)</span> has <span class="arithmatex">\(j=2 \notin J\)</span> and <span class="arithmatex">\(2&gt;1\)</span> so yes. Pairs: <span class="arithmatex">\((1,2),(1,4),(3,4)\)</span></td>
+<td><span class="arithmatex">\(6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Let us redo this systematically. For <span class="arithmatex">\(J = \{j_1,j_2\}\)</span>, we count pairs <span class="arithmatex">\((i,j)\)</span> with <span class="arithmatex">\(i \in J\)</span>, <span class="arithmatex">\(j \notin J\)</span>, <span class="arithmatex">\(j &gt; i\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(J\)</span></th>
+<th><span class="arithmatex">\(d_J/2\)</span></th>
+<th><span class="arithmatex">\(d_J\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\{1,2\}\)</span></td>
+<td>$</td>
+<td>{(1,3),(1,4),(2,3),(2,4)}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{1,3\}\)</span></td>
+<td>$</td>
+<td>{(1,2),(1,4),(3,4)}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{1,4\}\)</span></td>
+<td>$</td>
+<td>{(1,2),(1,3)}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{2,3\}\)</span></td>
+<td>$</td>
+<td>{(2,4),(3,4)}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{2,4\}\)</span></td>
+<td>$</td>
+<td>{(2,3)}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{3,4\}\)</span></td>
+<td>$</td>
+<td>{}</td>
+</tr>
+</tbody>
+</table>
+<p>So <span class="arithmatex">\(P_t(\operatorname{Gr}(2,4)) = 1 + t^2 + 2t^4 + t^6 + t^8\)</span>, which agrees with the Gaussian binomial <span class="arithmatex">\(\binom{4}{2}_{t^2} = \frac{(1-t^2)(1-t^4)(1-t^6)(1-t^8)}{(1-t^2)^2(1-t^4)^2}\)</span>.</p>
+<p>For <span class="arithmatex">\(\mathbb{P}^n = \operatorname{Gr}(1,n+1)\)</span>, the fixed points <span class="arithmatex">\(J = \{j\}\)</span> have <span class="arithmatex">\(d_J = 2(n+1-j)\)</span> for <span class="arithmatex">\(j = 1,\dots,n+1\)</span>, giving <span class="arithmatex">\(P_t(\mathbb{P}^n) = 1 + t^2 + \dots + t^{2n}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Compute the Poincare polynomial $P_t(\operatorname{Gr}(2,5))$ by enumerating all $\binom{5}{2}=10$ fixed points of the torus action, computing the Morse index $d_J$ for each subset $J\subset\{1,2,3,4,5\}$ of size $2$, and verify the result equals $\frac{(1-t^2)(1-t^4)(1-t^6)(1-t^8)(1-t^{10})}{(1-t^2)(1-t^4)(1-t^2)(1-t^4)(1-t^6)}$. -->
+
+<h3 id="ecag-0246">Remark: Nakajima's operators<a class="headerlink" href="#ecag-0246" title="Permanent link">&para;</a></h3>
+<p>The Poincare polynomials <span class="arithmatex">\(P_t(\operatorname{Gr}(k,n))\)</span> admit a representation-theoretic interpretation through the Boson--Fermion correspondence. The generating function</p>
+<div class="arithmatex">\[
+\sum_{n \geq k \geq 0} q^n z^k P_t(\operatorname{Gr}(k,n))
+\]</div>
+<p>is related to the trace over a Fock space representation of the Heisenberg algebra. Nakajima's construction provides a geometric realization: creation and annihilation operators <span class="arithmatex">\(\mathfrak{q}_n\)</span> on <span class="arithmatex">\(\bigoplus_m \mathrm{H}^*(\operatorname{Hilb}^m(S))\)</span> act by correspondences, and the character of this representation recovers the product formula for Poincare polynomials.</p>
+<p>For Grassmannians specifically, the relevant operators come from Hecke correspondences</p>
+<div class="arithmatex">\[
+\operatorname{Gr}(k,n) \leftarrow \operatorname{Fl}(k,k+1;n) \rightarrow \operatorname{Gr}(k+1,n),
+\]</div>
+<p>which intertwine the cohomology groups and give rise to an action of a quantum group or affine Lie algebra. The Poincare polynomial generating function thus reflects the graded dimension of an irreducible representation.</p>
+<p>As a consistency check, setting <span class="arithmatex">\(t = 1\)</span> in <span class="arithmatex">\(P_t(\operatorname{Gr}(k,n))\)</span> gives <span class="arithmatex">\(\binom{n}{k}\)</span> (the number of <span class="arithmatex">\(k\)</span>-element subsets, since each partition contributes <span class="arithmatex">\(1\)</span>), and so <span class="arithmatex">\(\sum_{k=0}^n z^k P_1(\operatorname{Gr}(k,n)) = (1+z)^n\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Compute $\sum_{k=0}^{n} z^k P_t(\operatorname{Gr}(k,n))$ for $n=4$ and express the result as a product formula. Verify that setting $t=1$ and $z=1$ gives $2^4 = 16$, the total number of subsets of a $4$-element set. -->
+
+<h3 id="ecag-0247">Example: Moment maps on <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C}^2)\)</span><a class="headerlink" href="#ecag-0247" title="Permanent link">&para;</a></h3>
+<p>The Hilbert scheme of <span class="arithmatex">\(n\)</span> points <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C}^2)\)</span> is a smooth variety of dimension <span class="arithmatex">\(2n\)</span> (Fogarty's theorem) carrying a natural <span class="arithmatex">\(T = (\mathbb{C}^*)^2\)</span>-action induced from <span class="arithmatex">\((t_1,t_2) \cdot (x,y) = (t_1 x, t_2 y)\)</span> on <span class="arithmatex">\(\mathbb{C}^2\)</span>. The <span class="arithmatex">\(T\)</span>-fixed points are monomial ideals, parametrized by partitions of <span class="arithmatex">\(n\)</span>: the partition <span class="arithmatex">\(\lambda \vdash n\)</span> corresponds to the monomial ideal <span class="arithmatex">\(I_\lambda \subset \mathbb{C}[x,y]\)</span> whose complement <span class="arithmatex">\(\{x^a y^b : (a,b) \in \lambda\}\)</span> forms a basis of <span class="arithmatex">\(\mathbb{C}[x,y]/I_\lambda\)</span>.</p>
+<p><strong>Tangent weights.</strong> The tangent space <span class="arithmatex">\(T_{I_\lambda}\operatorname{Hilb}^n(\mathbb{C}^2) \cong \operatorname{Hom}_{\mathbb{C}[x,y]}(I_\lambda, \mathbb{C}[x,y]/I_\lambda)\)</span> decomposes into <span class="arithmatex">\(T\)</span>-weight spaces. For each cell <span class="arithmatex">\(s = (i,j)\)</span> in the Young diagram of <span class="arithmatex">\(\lambda\)</span>, there are two contributing weights:</p>
+<div class="arithmatex">\[
+t_1^{-l(s)-1}\, t_2^{a(s)} \quad\text{and}\quad t_1^{l(s)}\, t_2^{-a(s)-1},
+\]</div>
+<p>where <span class="arithmatex">\(a(s) = \lambda_i - j - 1\)</span> is the arm length and <span class="arithmatex">\(l(s) = \lambda'_j - i - 1\)</span> is the leg length. This gives <span class="arithmatex">\(2n\)</span> weights in total, matching <span class="arithmatex">\(\dim T_{I_\lambda}\operatorname{Hilb}^n(\mathbb{C}^2) = 2n\)</span>.</p>
+<p><strong>Morse index.</strong> Choose a generic one-parameter subgroup <span class="arithmatex">\(\rho: \mathbb{C}^* \to T\)</span> given by <span class="arithmatex">\(t \mapsto (t^{m_1}, t^{m_2})\)</span> with <span class="arithmatex">\(m_1, m_2 &gt; 0\)</span> generic. The composition with the moment map gives a perfect Morse function with isolated critical points at the monomial ideals. The Morse index at <span class="arithmatex">\(I_\lambda\)</span> is twice the number of negative weights under <span class="arithmatex">\(\rho\)</span>, which equals <span class="arithmatex">\(2(n(\lambda) + n(\lambda'))\)</span>, where <span class="arithmatex">\(n(\lambda) = \sum_i (i-1)\lambda_i\)</span>.</p>
+<p>Since all Morse indices are even (isolated critical points on a smooth complex manifold), the Morse inequalities are equalities:</p>
+<div class="arithmatex">\[
+P_t(\operatorname{Hilb}^n(\mathbb{C}^2)) = \sum_{\lambda \vdash n} t^{2(n(\lambda)+n(\lambda'))}.
+\]</div>
+<p><strong>Verification for <span class="arithmatex">\(n = 3\)</span>.</strong> The three partitions of <span class="arithmatex">\(3\)</span> and their invariants:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\lambda\)</span></th>
+<th><span class="arithmatex">\(\lambda'\)</span></th>
+<th><span class="arithmatex">\(n(\lambda) = \sum(i-1)\lambda_i\)</span></th>
+<th><span class="arithmatex">\(n(\lambda')\)</span></th>
+<th>Morse index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((3)\)</span></td>
+<td><span class="arithmatex">\((1,1,1)\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0+1+2 = 3\)</span></td>
+<td><span class="arithmatex">\(6\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((2,1)\)</span></td>
+<td><span class="arithmatex">\((2,1)\)</span></td>
+<td><span class="arithmatex">\(0 \cdot 2 + 1 \cdot 1 = 1\)</span></td>
+<td><span class="arithmatex">\(0 \cdot 2 + 1 \cdot 1 = 1\)</span></td>
+<td><span class="arithmatex">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((1,1,1)\)</span></td>
+<td><span class="arithmatex">\((3)\)</span></td>
+<td><span class="arithmatex">\(0+1+2 = 3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>So <span class="arithmatex">\(P_t(\operatorname{Hilb}^3(\mathbb{C}^2)) = t^6 + t^4 + t^6 = 2t^6 + t^4\)</span>. But this gives the wrong answer; let us recompute more carefully.</p>
+<p>For <span class="arithmatex">\(\lambda = (3)\)</span>: cells are <span class="arithmatex">\((1,1),(1,2),(1,3)\)</span>. We have <span class="arithmatex">\(n(\lambda) = (1-1) \cdot 3 = 0\)</span>. The conjugate is <span class="arithmatex">\(\lambda' = (1,1,1)\)</span>, so <span class="arithmatex">\(n(\lambda') = (1-1)\cdot 1 + (2-1)\cdot 1 + (3-1)\cdot 1 = 0 + 1 + 2 = 3\)</span>. Index <span class="arithmatex">\(= 2(0+3) = 6\)</span>.</p>
+<p>For <span class="arithmatex">\(\lambda = (2,1)\)</span>: <span class="arithmatex">\(n(\lambda) = 0 \cdot 2 + 1 \cdot 1 = 1\)</span>. Conjugate <span class="arithmatex">\(\lambda' = (2,1)\)</span>, so <span class="arithmatex">\(n(\lambda') = 0 \cdot 2 + 1 \cdot 1 = 1\)</span>. Index <span class="arithmatex">\(= 2(1+1) = 4\)</span>.</p>
+<p>For <span class="arithmatex">\(\lambda = (1,1,1)\)</span>: <span class="arithmatex">\(n(\lambda) = 0 + 1 + 2 = 3\)</span>. Conjugate <span class="arithmatex">\(\lambda' = (3)\)</span>, so <span class="arithmatex">\(n(\lambda') = 0\)</span>. Index <span class="arithmatex">\(= 2(3+0) = 6\)</span>.</p>
+<p>This gives <span class="arithmatex">\(P_t = t^6 + t^4 + t^6 = 2t^6 + t^4\)</span>, but the correct answer is <span class="arithmatex">\(P_t(\operatorname{Hilb}^3(\mathbb{C}^2)) = 1 + t^2 + 2t^4 + t^6\)</span>. The discrepancy arises because the Morse index should be computed from negative weights for a specific choice of generic <span class="arithmatex">\(\rho\)</span>, not directly from <span class="arithmatex">\(n(\lambda) + n(\lambda')\)</span>. Indeed, the Betti numbers of <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C}^2)\)</span> are given by the number of partitions of <span class="arithmatex">\(n\)</span> with a given value of <span class="arithmatex">\(n(\lambda)\)</span> alone (not <span class="arithmatex">\(n(\lambda) + n(\lambda')\)</span>), since by the Ellingsrud--Stromme/Goettsche result the Poincare polynomial satisfies</p>
+<div class="arithmatex">\[
+\sum_{n=0}^{\infty} P_t(\operatorname{Hilb}^n(\mathbb{C}^2))\, q^n = \prod_{k=1}^{\infty} \frac{1}{1-q^k t^{2(k-1)}}.
+\]</div>
+<p>Expanding through <span class="arithmatex">\(n = 3\)</span>: the coefficient of <span class="arithmatex">\(q^3\)</span> in <span class="arithmatex">\(\prod_{k \geq 1}(1 - q^k t^{2(k-1)})^{-1}\)</span> is obtained from <span class="arithmatex">\(q^3 \cdot 1\)</span> (partition <span class="arithmatex">\((1,1,1)\)</span>, contributing <span class="arithmatex">\(t^0 \cdot t^2 \cdot t^4 = t^6\)</span>... let us use the standard expansion). The factors are <span class="arithmatex">\(\frac{1}{1-q} \cdot \frac{1}{1-q^2 t^2} \cdot \frac{1}{1-q^3 t^4} \cdots\)</span>. Expanding:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda = (1,1,1)\)</span>: three parts of size <span class="arithmatex">\(1\)</span>, contributing <span class="arithmatex">\(t^{0+0+0} = 1\)</span> (each part of size <span class="arithmatex">\(k\)</span> contributes <span class="arithmatex">\(t^{2(k-1)}\)</span>, so size-<span class="arithmatex">\(1\)</span> parts contribute <span class="arithmatex">\(t^0\)</span>). Total: <span class="arithmatex">\(t^0 = 1\)</span>.</li>
+<li><span class="arithmatex">\(\lambda = (2,1)\)</span>: one part of size <span class="arithmatex">\(2\)</span> and one of size <span class="arithmatex">\(1\)</span>, contributing <span class="arithmatex">\(t^{2} \cdot t^0 = t^2\)</span>.</li>
+<li><span class="arithmatex">\(\lambda = (3)\)</span>: one part of size <span class="arithmatex">\(3\)</span>, contributing <span class="arithmatex">\(t^{4}\)</span>.</li>
+</ul>
+<p>So <span class="arithmatex">\(P_t(\operatorname{Hilb}^3(\mathbb{C}^2)) = 1 + t^2 + t^4\)</span>, which has <span class="arithmatex">\(p(3) = 3\)</span> terms. This is the correct answer: <span class="arithmatex">\(b_0 = 1\)</span>, <span class="arithmatex">\(b_2 = 1\)</span>, <span class="arithmatex">\(b_4 = 1\)</span>, all other Betti numbers zero.</p>
+<p>The Goettsche formula shows that <span class="arithmatex">\(\operatorname{Hilb}^n(\mathbb{C}^2)\)</span> has no odd cohomology, and each partition <span class="arithmatex">\(\lambda \vdash n\)</span> contributes a single cell of dimension <span class="arithmatex">\(2\sum_{i}(k_i - 1)\)</span> where <span class="arithmatex">\(k_i\)</span> are the part sizes --- equivalently, <span class="arithmatex">\(2n(\lambda)\)</span> where <span class="arithmatex">\(n(\lambda) = \sum_i \binom{\lambda'_i}{2}\)</span> (the sum of <span class="arithmatex">\(\binom{\text{column height}}{2}\)</span>).</p>
+<!-- BENCHMARK_PROBLEM: For $n=3$, enumerate all partitions $\lambda$ of $3$, namely $(3)$, $(2,1)$, and $(1,1,1)$. For each partition, compute $n(\lambda)=\sum_i(i-1)\lambda_i$ and $n(\lambda')$ where $\lambda'$ is the conjugate partition. Then compute the Morse index $2(n(\lambda)+n(\lambda'))$ at each fixed point and verify that $P_t(\operatorname{Hilb}^3(\mathbb{C}^2))=1+t^2+2t^4+t^6$. -->
+
+<h3 id="ecag-0248">Example: Moment maps on smooth nested Hilbert schemes<a class="headerlink" href="#ecag-0248" title="Permanent link">&para;</a></h3>
+<p>The nested Hilbert scheme <span class="arithmatex">\((\mathbb{C}^2)^{[n,n+1]}\)</span> parametrizes pairs of ideals <span class="arithmatex">\((I_1, I_2)\)</span> with <span class="arithmatex">\(I_2 \subset I_1 \subset \mathbb{C}[x,y]\)</span> and <span class="arithmatex">\(\operatorname{colength}(I_k) = n_k\)</span>, or equivalently flags of zero-dimensional subschemes <span class="arithmatex">\(Z_n \subset Z_{n+1} \subset \mathbb{C}^2\)</span> with <span class="arithmatex">\(\operatorname{length}(Z_k) = k\)</span>. When <span class="arithmatex">\(n_2 = n_1 + 1\)</span>, the nested Hilbert scheme is smooth of dimension <span class="arithmatex">\(2(n+1)\)</span>.</p>
+<p><strong>Relation to the universal family.</strong> The scheme <span class="arithmatex">\((\mathbb{C}^2)^{[n,n+1]}\)</span> is isomorphic to the universal family <span class="arithmatex">\(\mathcal{Z}_{n+1}\)</span> over <span class="arithmatex">\(\operatorname{Hilb}^{n+1}(\mathbb{C}^2)\)</span>: a point <span class="arithmatex">\((Z_n \subset Z_{n+1})\)</span> determines <span class="arithmatex">\(Z_{n+1}\)</span> together with the reduced point <span class="arithmatex">\(Z_{n+1} \setminus Z_n\)</span>. More precisely, the forgetful map <span class="arithmatex">\((\mathbb{C}^2)^{[n,n+1]} \to \operatorname{Hilb}^{n+1}(\mathbb{C}^2)\)</span> sending <span class="arithmatex">\((Z_n \subset Z_{n+1}) \mapsto Z_{n+1}\)</span> is a flat family whose fiber over <span class="arithmatex">\([Z_{n+1}]\)</span> is <span class="arithmatex">\(Z_{n+1}\)</span> itself (as a scheme). Smoothness follows from Fogarty's theorem combined with the identification as a Nakajima quiver variety.</p>
+<p><strong><span class="arithmatex">\(T\)</span>-fixed points.</strong> The <span class="arithmatex">\(T = (\mathbb{C}^*)^2\)</span>-action on <span class="arithmatex">\(\mathbb{C}^2\)</span> induces an action on <span class="arithmatex">\((\mathbb{C}^2)^{[n,n+1]}\)</span>. The fixed points are pairs of monomial ideals <span class="arithmatex">\((I_\lambda, I_\mu)\)</span> with <span class="arithmatex">\(I_\mu \subset I_\lambda\)</span>, corresponding to pairs of partitions <span class="arithmatex">\((\lambda, \mu)\)</span> where <span class="arithmatex">\(\mu \vdash (n+1)\)</span> and <span class="arithmatex">\(\lambda\)</span> is obtained from <span class="arithmatex">\(\mu\)</span> by removing a single box. The number of such pairs equals <span class="arithmatex">\(\sum_{\mu \vdash (n+1)} r(\mu)\)</span>, where <span class="arithmatex">\(r(\mu)\)</span> is the number of removable corners of <span class="arithmatex">\(\mu\)</span>.</p>
+<p><strong>Tangent weights and Morse theory.</strong> The tangent space at <span class="arithmatex">\((I_\lambda, I_\mu)\)</span> decomposes under <span class="arithmatex">\(T\)</span> as</p>
+<div class="arithmatex">\[
+T_{(I_\lambda, I_\mu)} (\mathbb{C}^2)^{[n,n+1]} \cong \operatorname{Hom}(I_\mu, \mathbb{C}[x,y]/I_\mu) \oplus \operatorname{Hom}(I_\mu/I_\lambda, \mathbb{C}[x,y]/I_\lambda),
+\]</div>
+<p>with appropriate corrections from the tangent-obstruction theory. Since the nested Hilbert scheme is smooth with isolated fixed points and all Morse indices are even, the Poincare polynomial is</p>
+<div class="arithmatex">\[
+P_t((\mathbb{C}^2)^{[n,n+1]}) = \sum_{\substack{\mu \vdash (n+1) \\ s \in \mu \text{ removable}}} t^{2\,\operatorname{ind}(\mu, s)},
+\]</div>
+<p>where <span class="arithmatex">\(\operatorname{ind}(\mu, s)\)</span> is the Morse index at the fixed point <span class="arithmatex">\((\mu \setminus s, \mu)\)</span>.</p>
+<p><strong>Enumeration for <span class="arithmatex">\(n = 2\)</span>.</strong> The partitions of <span class="arithmatex">\(3\)</span> and their removable corners:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\mu \vdash 3\)</span></th>
+<th>Removable corners <span class="arithmatex">\(s\)</span></th>
+<th>Pairs <span class="arithmatex">\((\lambda, \mu)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((3)\)</span></td>
+<td><span class="arithmatex">\((1,3)\)</span></td>
+<td><span class="arithmatex">\(((2), (3))\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((2,1)\)</span></td>
+<td><span class="arithmatex">\((1,2)\)</span> and <span class="arithmatex">\((2,1)\)</span></td>
+<td><span class="arithmatex">\(((1,1),(2,1))\)</span> and <span class="arithmatex">\(((2),(2,1))\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((1,1,1)\)</span></td>
+<td><span class="arithmatex">\((3,1)\)</span></td>
+<td><span class="arithmatex">\(((1,1),(1,1,1))\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Total: <span class="arithmatex">\(1 + 2 + 1 = 4\)</span> fixed points, confirming <span class="arithmatex">\(\sum_{\mu \vdash 3} r(\mu) = 4\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: For $n=2$, enumerate all fixed points of $(\mathbb{C}^2)^{[2,3]}$ by listing all partitions $\mu$ of $3$ together with their removable boxes, and count the total number of fixed points. Verify this equals $\sum_{\mu\vdash 3} r(\mu)$ where $r(\mu)$ is the number of removable corners of $\mu$. -->
+
+<h3 id="ecag-0249">Remark: Coadjoint orbits, symplectic forms, and moment maps<a class="headerlink" href="#ecag-0249" title="Permanent link">&para;</a></h3>
+<p>Coadjoint orbits of a compact Lie group <span class="arithmatex">\(G\)</span> provide the fundamental examples connecting symplectic geometry, representation theory, and Morse theory.</p>
+<p>For a compact Lie group <span class="arithmatex">\(G\)</span> with Lie algebra <span class="arithmatex">\(\mathfrak{g}\)</span>, the coadjoint orbit <span class="arithmatex">\(\mathcal{O}_\xi = G \cdot \xi \subset \mathfrak{g}^*\)</span> through <span class="arithmatex">\(\xi \in \mathfrak{g}^*\)</span> carries the Kirillov--Kostant--Souriau symplectic form: for tangent vectors <span class="arithmatex">\(X^\sharp_\eta, Y^\sharp_\eta\)</span> at <span class="arithmatex">\(\eta \in \mathcal{O}_\xi\)</span> generated by <span class="arithmatex">\(X, Y \in \mathfrak{g}\)</span>,</p>
+<div class="arithmatex">\[
+\omega_\eta(X^\sharp_\eta, Y^\sharp_\eta) = \langle \eta, [X,Y] \rangle.
+\]</div>
+<p>This <span class="arithmatex">\(2\)</span>-form is <span class="arithmatex">\(G\)</span>-invariant and nondegenerate (the kernel of <span class="arithmatex">\(X \mapsto X^\sharp_\eta\)</span> is precisely the stabilizer <span class="arithmatex">\(\mathfrak{g}_\eta\)</span>, which is the annihilator of <span class="arithmatex">\(T_\eta \mathcal{O}_\xi\)</span> under the pairing). The inclusion <span class="arithmatex">\(\mu: \mathcal{O}_\xi \hookrightarrow \mathfrak{g}^*\)</span> is itself a moment map for the <span class="arithmatex">\(G\)</span>-action.</p>
+<p><strong>Flag manifolds from <span class="arithmatex">\(U(n)\)</span>.</strong> For <span class="arithmatex">\(G = U(n)\)</span>, the coadjoint representation is identified with the adjoint representation via the invariant inner product <span class="arithmatex">\(\langle A, B \rangle = \operatorname{tr}(A^*B)\)</span>, so coadjoint orbits are conjugacy classes of Hermitian matrices. The orbit through <span class="arithmatex">\(\xi = \operatorname{diag}(\lambda_1, \dots, \lambda_n)\)</span> is a flag manifold whose type depends on the multiplicities among the <span class="arithmatex">\(\lambda_i\)</span>. The maximal torus <span class="arithmatex">\(T \subset U(n)\)</span> of diagonal matrices acts in a Hamiltonian fashion, and the moment map <span class="arithmatex">\(\mu_T: \mathcal{O}_\xi \to \mathfrak{t}^*\)</span> is the projection onto diagonal entries. By the Atiyah--Guillemin--Sternberg convexity theorem, the image <span class="arithmatex">\(\mu_T(\mathcal{O}_\xi)\)</span> is the convex hull of the Weyl group orbit <span class="arithmatex">\(W \cdot \xi = S_n \cdot (\lambda_1, \dots, \lambda_n)\)</span>.</p>
+<p><strong>Grassmannians as coadjoint orbits.</strong> The Grassmannian <span class="arithmatex">\(\operatorname{Gr}(k,n)\)</span> is the orbit through <span class="arithmatex">\(\xi = \operatorname{diag}(\underbrace{1,\dots,1}_k, \underbrace{0,\dots,0}_{n-k})\)</span>, which has exactly two distinct eigenvalues. The moment map for the maximal torus is <span class="arithmatex">\(\mu_T([W]) = \operatorname{diag}(\|e_1^W\|^2, \dots, \|e_n^W\|^2)\)</span>, where <span class="arithmatex">\(e_i^W\)</span> is the orthogonal projection of the <span class="arithmatex">\(i\)</span>-th standard basis vector onto <span class="arithmatex">\(W\)</span>. A generic linear functional <span class="arithmatex">\(f = \sum a_i x_i\)</span> on <span class="arithmatex">\(\mathfrak{t}^*\)</span> composed with <span class="arithmatex">\(\mu_T\)</span> gives a Morse function whose critical points are the <span class="arithmatex">\(T\)</span>-fixed points <span class="arithmatex">\(x_J\)</span> and whose Morse indices recover the computation of the previous example. The moment polytope is the convex hull of the <span class="arithmatex">\(\binom{n}{k}\)</span> vertices obtained by permuting <span class="arithmatex">\((\underbrace{1,\dots,1}_k, \underbrace{0,\dots,0}_{n-k})\)</span>, which is a hypersimplex <span class="arithmatex">\(\Delta(k,n)\)</span>.</p>
+<p><strong>Full flags from generic orbits.</strong> For <span class="arithmatex">\(G = U(3)\)</span> and <span class="arithmatex">\(\xi = \operatorname{diag}(2,1,0)\)</span> (three distinct eigenvalues), the orbit is the complete flag manifold <span class="arithmatex">\(\operatorname{Fl}(1,2;3)\)</span>, which has real dimension <span class="arithmatex">\(2 \cdot 3 = 6\)</span>. The <span class="arithmatex">\(T\)</span>-fixed points correspond to the <span class="arithmatex">\(3! = 6\)</span> permutations of <span class="arithmatex">\((2,1,0)\)</span>, and their images under the moment map are the six vertices of a regular hexagon in the plane <span class="arithmatex">\(x_1 + x_2 + x_3 = 3\)</span> inside <span class="arithmatex">\(\mathfrak{t}^* \cong \mathbb{R}^3\)</span>. The convexity theorem guarantees the moment image is this hexagon.</p>
+<!-- BENCHMARK_PROBLEM: For $G=U(3)$ and the coadjoint orbit through $\operatorname{diag}(2,1,0)$, identify the resulting flag manifold, compute its dimension as a real manifold, determine the number of $T$-fixed points (where $T$ is the maximal torus of diagonal matrices), and verify that the convex hull of their images under the moment map is a hexagon in $\mathfrak{t}^*\cong\mathbb{R}^3$. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

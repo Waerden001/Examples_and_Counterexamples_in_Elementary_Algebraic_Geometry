@@ -1,0 +1,2859 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/computations/weight/">
+      
+      
+        <link rel="prev" href="../monad/">
+      
+      
+        <link rel="next" href="../../moduli/deformation_theory/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Weight Filtrations - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#weights-nearby-and-vanishing-cycles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Weight Filtrations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weights-nearby-and-vanishing-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weights, nearby and vanishing cycles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weights, nearby and vanishing cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0278" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(X=\mathbb{C}^{\times}\hookrightarrow\mathbb{P}_{\mathbb{C}}^{1}=\overline{X}\), weight filtration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0279" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Weight filtration, reference, Joana Cirici
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Gysin map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0281" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: punctured Riemann surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0282" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: complement of three intersecting lines in \(\mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0283" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: complement of three concurrent lines in \(\mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0284" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(X=\mathbb{C}^{2}\setminus\{0\}\subset \mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0285" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: cubical hyperresolution, It's our guess, we didn't check the precise definition carefully!!!!!!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0286" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Nodal curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0287" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: weight spectral sequence for singular varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0288" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Mayer-Vietoris exact sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0289" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: cubical hyperresolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: cuspidal singularity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0291" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: de Rham-Witt complex
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nearby-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nearby cycles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nearby cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0292" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Tate twist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0293" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: inertia group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0294" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Frobenius morphisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0295" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: monodromy operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0296" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Milnor fibration, nearby cycles of a family \(X\rightarrow D\), reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0297" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Dwork family of elliptic curves, need 'monodromy formula'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0298" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weights-nearby-and-vanishing-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weights, nearby and vanishing cycles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weights, nearby and vanishing cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0278" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(X=\mathbb{C}^{\times}\hookrightarrow\mathbb{P}_{\mathbb{C}}^{1}=\overline{X}\), weight filtration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0279" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Weight filtration, reference, Joana Cirici
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0280" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Gysin map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0281" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: punctured Riemann surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0282" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: complement of three intersecting lines in \(\mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0283" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: complement of three concurrent lines in \(\mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0284" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(X=\mathbb{C}^{2}\setminus\{0\}\subset \mathbb{P}^{2}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0285" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: cubical hyperresolution, It's our guess, we didn't check the precise definition carefully!!!!!!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0286" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Nodal curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0287" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: weight spectral sequence for singular varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0288" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Mayer-Vietoris exact sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0289" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: cubical hyperresolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: cuspidal singularity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0291" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: de Rham-Witt complex
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nearby-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nearby cycles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nearby cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0292" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Tate twist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0293" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: inertia group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0294" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Frobenius morphisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0295" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: monodromy operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0296" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Milnor fibration, nearby cycles of a family \(X\rightarrow D\), reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0297" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Dwork family of elliptic curves, need 'monodromy formula'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0298" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Weight Filtrations</h1>
+
+<h2 id="weights-nearby-and-vanishing-cycles">Weights, nearby and vanishing cycles<a class="headerlink" href="#weights-nearby-and-vanishing-cycles" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0278">Example: <span class="arithmatex">\(X=\mathbb{C}^{\times}\hookrightarrow\mathbb{P}_{\mathbb{C}}^{1}=\overline{X}\)</span>, weight filtration<a class="headerlink" href="#ecag-0278" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X = \mathbb{C}^{\times}\)</span> embedded in <span class="arithmatex">\(\overline{X} = \mathbb{P}^{1}_{\mathbb{C}}\)</span> as the complement of two points. The boundary divisor is <span class="arithmatex">\(D = \overline{X} \setminus X = \{0, \infty\}\)</span>, a union of two points. Since <span class="arithmatex">\(D\)</span> is already a normal crossing divisor (vacuously, since <span class="arithmatex">\(\dim \overline{X} = 1\)</span>), we may apply the weight spectral sequence directly with <span class="arithmatex">\(D^{(0)} = \overline{X} = \mathbb{P}^{1}\)</span> and <span class="arithmatex">\(D^{(1)} = \{0, \infty\}\)</span>.</p>
+<p>The <span class="arithmatex">\(E_1\)</span>-page of the weight spectral sequence, with formula <span class="arithmatex">\(E_1^{-p,q} = H^{q-2p}(D^{(p)}; \mathbb{Q})\)</span>, is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(1)}) = \mathbb{Q}^2\)</span></td>
+<td><span class="arithmatex">\(H^2(\mathbb{P}^1) = \mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(\mathbb{P}^1) = 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(\mathbb{P}^1) = \mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The sole nontrivial differential is <span class="arithmatex">\(d_1 : E_1^{-1,2} \to E_1^{0,2}\)</span>, the Gysin map <span class="arithmatex">\(H^0(D^{(1)}) \to H^2(\overline{X})\)</span>. Each point class maps to the fundamental class of <span class="arithmatex">\(\mathbb{P}^1\)</span>, so this is the map <span class="arithmatex">\(\mathbb{Q}^2 \to \mathbb{Q}\)</span> sending <span class="arithmatex">\((a,b) \mapsto a + b\)</span>, which is surjective with kernel <span class="arithmatex">\(\mathbb{Q} \cdot (1, -1)\)</span>.</p>
+<p>Surjectivity also follows from convergence: the spectral sequence converges to <span class="arithmatex">\(H^{p+q}(X; \mathbb{Q})\)</span>, and <span class="arithmatex">\(X = \mathbb{C}^{\times} \simeq S^1\)</span> has <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^1(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^k(X) = 0\)</span> for <span class="arithmatex">\(k \geq 2\)</span>. Vanishing of <span class="arithmatex">\(H^2(X)\)</span> forces <span class="arithmatex">\(d_1\)</span> to kill all of <span class="arithmatex">\(E_1^{0,2}\)</span>.</p>
+<p>The <span class="arithmatex">\(E_2\)</span>-page is therefore:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The spectral sequence degenerates at <span class="arithmatex">\(E_2\)</span>, and the position <span class="arithmatex">\((-1, 2)\)</span> contributes to <span class="arithmatex">\(H^{-1+2}(X) = H^1(X)\)</span>. The weight filtration on <span class="arithmatex">\(H^1(X; \mathbb{Q})\)</span> reads</p>
+<div class="arithmatex">\[
+0 = W_0 H^1(X; \mathbb{Q}) = W_1 H^1(X; \mathbb{Q}) \subset W_2 H^1(X; \mathbb{Q}) = H^1(X; \mathbb{Q}) = \mathbb{Q},
+\]</div>
+<p>so <span class="arithmatex">\(\operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}\)</span>. The generator of <span class="arithmatex">\(H^1(\mathbb{C}^{\times})\)</span> has pure weight 2, not weight 1, because it arises from the boundary <span class="arithmatex">\(D\)</span> via the Gysin map rather than from the compact part <span class="arithmatex">\(\overline{X}\)</span>. This is characteristic of non-compact smooth varieties: the missing compactness shifts the weight upward.</p>
+<!-- BENCHMARK_PROBLEM: Let X = C^* embedded in P^1_C as the complement of {0, infty}. Compute the weight filtration on H^1(X; Q). What is Gr_2^W H^1(X; Q)? -->
+
+<h3 id="ecag-0279">Remark: Weight filtration, <a href="http://userpage.fu-berlin.de/jcirici/computeweight.pdf">reference, Joana Cirici</a><a class="headerlink" href="#ecag-0279" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a smooth complex variety of dimension <span class="arithmatex">\(n\)</span>. Choose a smooth compactification <span class="arithmatex">\(j : X \hookrightarrow \overline{X}\)</span> such that <span class="arithmatex">\(D = \overline{X} \setminus X\)</span> is a normal crossing divisor with irreducible components <span class="arithmatex">\(D = \bigcup_{i=1}^{N} D_i\)</span>. Define <span class="arithmatex">\(D^{(0)} = \overline{X}\)</span> and, for <span class="arithmatex">\(p \geq 1\)</span>,</p>
+<div class="arithmatex">\[
+D^{(p)} = \coprod_{\{i_1, \dots, i_p\} \subset \{1, 2, \dots, N\}} D_{i_1} \cap \cdots \cap D_{i_p}.
+\]</div>
+<p>Since <span class="arithmatex">\(D\)</span> is normal crossing, each connected component of <span class="arithmatex">\(D^{(p)}\)</span> is a smooth projective variety of dimension <span class="arithmatex">\(n - p\)</span>.</p>
+<p>The weight spectral sequence takes the form</p>
+<div class="arithmatex">\[
+E_1^{-p,q} = H^{q-2p}(D^{(p)}; \mathbb{Q}) \Rightarrow H^{q-p}(X; \mathbb{Q}),
+\]</div>
+<p>with <span class="arithmatex">\(E_1\)</span>-differential <span class="arithmatex">\(d_1 : E_1^{-p,q} \to E_1^{-p+1,q}\)</span> given by the alternating sum of Gysin maps</p>
+<div class="arithmatex">\[
+i_* : H^{q-2p}(D_{i_1} \cap \cdots \cap D_{i_p}) \to H^{q-2p+2}(D_{i_1} \cap \cdots \cap \widehat{D_{i_k}} \cap \cdots \cap D_{i_p}),
+\]</div>
+<p>where <span class="arithmatex">\(\widehat{D_{i_k}}\)</span> denotes omission of the <span class="arithmatex">\(k\)</span>-th component.</p>
+<p>The spectral sequence degenerates at <span class="arithmatex">\(E_2\)</span> (a theorem of Deligne), yielding the weight filtration</p>
+<div class="arithmatex">\[
+0 = W_{n-1} H^n(X; \mathbb{Q}) \subset W_n H^n(X; \mathbb{Q}) \subset \cdots \subset W_{2n} H^n(X; \mathbb{Q}) = H^n(X; \mathbb{Q}),
+\]</div>
+<p>with graded pieces <span class="arithmatex">\(\operatorname{Gr}_q^W H^{q-p}(X; \mathbb{Q}) = E_2^{-p,q}\)</span>.</p>
+<p>For concreteness, the <span class="arithmatex">\(E_1\)</span>-page for a surface (<span class="arithmatex">\(n = 2\)</span>) is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(5\)</span></td>
+<td><span class="arithmatex">\(H^1(D^{(2)})\)</span></td>
+<td><span class="arithmatex">\(H^3(D^{(1)})\)</span></td>
+<td><span class="arithmatex">\(H^5(\overline{X})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(2)})\)</span></td>
+<td><span class="arithmatex">\(H^2(D^{(1)})\)</span></td>
+<td><span class="arithmatex">\(H^4(\overline{X})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(D^{(1)})\)</span></td>
+<td><span class="arithmatex">\(H^3(\overline{X})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(1)})\)</span></td>
+<td><span class="arithmatex">\(H^2(\overline{X})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(\overline{X})\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(\overline{X})\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="arithmatex">\(E_2\)</span>-page reads off the graded pieces of the weight filtration: the entry at position <span class="arithmatex">\((-p, q)\)</span> gives <span class="arithmatex">\(\operatorname{Gr}_q^W H^{q-p}(X; \mathbb{Q})\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(5\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_5^W H^3\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_5^W H^4\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_5^W H^5\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_4^W H^2\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_4^W H^3\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_4^W H^4\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_3^W H^2\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_3^W H^3\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_2^W H^1\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_2^W H^2\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_1^W H^1\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\operatorname{Gr}_0^W H^0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Each anti-diagonal (entries with <span class="arithmatex">\(q - p = n\)</span> constant) assembles into the weight filtration of <span class="arithmatex">\(H^n(X; \mathbb{Q})\)</span>. The key constraint is that for a smooth variety of dimension <span class="arithmatex">\(n\)</span>, the weights on <span class="arithmatex">\(H^m(X; \mathbb{Q})\)</span> range from <span class="arithmatex">\(\max(0, m)\)</span> to <span class="arithmatex">\(\min(2m, 2n)\)</span>, with the lower bound <span class="arithmatex">\(m\)</span> realized by the compact part <span class="arithmatex">\(H^m(\overline{X})\)</span> and the upper bound achieved by the deepest boundary stratum contributions.</p>
+<!-- BENCHMARK_PROBLEM: For a smooth complex variety X of dimension n with smooth compactification j: X -> X_bar where D = X_bar \ X is a normal crossing divisor, what is the range of the weight filtration on H^n(X; Q)? That is, what are the smallest and largest indices k such that W_k H^n(X; Q) can be nontrivial? -->
+
+<h3 id="ecag-0280">Remark: Gysin map<a class="headerlink" href="#ecag-0280" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(i : Z \hookrightarrow X\)</span> be a closed embedding of smooth complex varieties with <span class="arithmatex">\(Z\)</span> of codimension <span class="arithmatex">\(c\)</span> in <span class="arithmatex">\(X\)</span>. The Gysin map (or pushforward in cohomology) is</p>
+<div class="arithmatex">\[
+i_* : H^k(Z; \mathbb{Q}) \to H^{k+2c}(X; \mathbb{Q}),
+\]</div>
+<p>defined as the composition</p>
+<div class="arithmatex">\[
+H^k(Z; \mathbb{Q}) \xrightarrow{\;\sim\;} H^{k+2c}_Z(X; \mathbb{Q}) \to H^{k+2c}(X; \mathbb{Q}),
+\]</div>
+<p>where the first map is the Thom isomorphism (using the orientation of the normal bundle <span class="arithmatex">\(\mathcal{N}_{Z/X}\)</span>) and the second is the forgetful map from cohomology with supports to ordinary cohomology.</p>
+<p>The essential properties are:</p>
+<ol>
+<li><strong>Degree shift.</strong> The map <span class="arithmatex">\(i_*\)</span> shifts cohomological degree by <span class="arithmatex">\(2c\)</span>, where <span class="arithmatex">\(c = \operatorname{codim}(Z, X)\)</span>.</li>
+<li><strong>Projection formula.</strong> For <span class="arithmatex">\(\alpha \in H^*(X)\)</span> and <span class="arithmatex">\(\beta \in H^*(Z)\)</span>, we have <span class="arithmatex">\(i_*(i^*(\alpha) \cup \beta) = \alpha \cup i_*(\beta)\)</span>.</li>
+<li><strong>Functoriality.</strong> For composable closed embeddings <span class="arithmatex">\(Z \xrightarrow{j} Y \xrightarrow{i} X\)</span> of smooth varieties, <span class="arithmatex">\((i \circ j)_* = i_* \circ j_*\)</span>.</li>
+<li><strong>Self-intersection.</strong> <span class="arithmatex">\(i^* \circ i_*(1_Z) = c_c(\mathcal{N}_{Z/X})\)</span>, the top Chern class of the normal bundle.</li>
+</ol>
+<p>In the weight spectral sequence, the <span class="arithmatex">\(d_1\)</span> differentials <span class="arithmatex">\(E_1^{-p,q} \to E_1^{-p+1,q}\)</span> are alternating sums of Gysin maps <span class="arithmatex">\(i_* : H^{q-2p}(D^{(p)}) \to H^{q-2p+2}(D^{(p-1)})\)</span>, connecting the cohomology of deeper boundary strata to shallower ones. The degree shift of <span class="arithmatex">\(2\)</span> per step in depth accounts for the codimension-1 nature of each boundary component.</p>
+<!-- BENCHMARK_PROBLEM: Let i: Z -> X be a closed embedding of smooth complex varieties where Z has codimension c in X. By how many degrees does the Gysin map i_* shift cohomological degree? -->
+
+<h3 id="ecag-0281">Example: punctured Riemann surface<a class="headerlink" href="#ecag-0281" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(\overline{X}\)</span> be a compact Riemann surface of genus <span class="arithmatex">\(g\)</span>, and let <span class="arithmatex">\(D\)</span> consist of <span class="arithmatex">\(p\)</span> distinct points. Set <span class="arithmatex">\(X = \overline{X} \setminus D\)</span>. We compute the weight filtration on <span class="arithmatex">\(H^*(X; \mathbb{Q})\)</span>.</p>
+<p>The boundary strata are <span class="arithmatex">\(D^{(0)} = \overline{X}\)</span> (a smooth projective curve of genus <span class="arithmatex">\(g\)</span>) and <span class="arithmatex">\(D^{(1)} = D\)</span> (a disjoint union of <span class="arithmatex">\(p\)</span> points). The <span class="arithmatex">\(E_1\)</span>-page is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(1)}) = \mathbb{Q}^p\)</span></td>
+<td><span class="arithmatex">\(H^2(\overline{X}) = \mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(\overline{X}) = \mathbb{Q}^{2g}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(\overline{X}) = \mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The only nontrivial differential is <span class="arithmatex">\(d_1 : E_1^{-1,2} = \mathbb{Q}^p \to E_1^{0,2} = \mathbb{Q}\)</span>, the Gysin map sending each point class to the fundamental class of <span class="arithmatex">\(\overline{X}\)</span>. This is the map <span class="arithmatex">\((a_1, \ldots, a_p) \mapsto a_1 + \cdots + a_p\)</span>, which is surjective with <span class="arithmatex">\((p-1)\)</span>-dimensional kernel.</p>
+<p>Surjectivity also follows from convergence. Topologically, <span class="arithmatex">\(X\)</span> is a genus-<span class="arithmatex">\(g\)</span> surface with <span class="arithmatex">\(p\)</span> punctures, hence homotopy equivalent to a wedge of <span class="arithmatex">\(2g + p - 1\)</span> circles, so <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^1(X) = \mathbb{Q}^{2g+p-1}\)</span>, and <span class="arithmatex">\(H^k(X) = 0\)</span> for <span class="arithmatex">\(k \geq 2\)</span>. The vanishing of <span class="arithmatex">\(H^2(X)\)</span> forces <span class="arithmatex">\(d_1\)</span> to be surjective.</p>
+<p>The <span class="arithmatex">\(E_2\)</span>-page is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^{p-1}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^{2g}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Reading off the weight filtration on <span class="arithmatex">\(H^1(X; \mathbb{Q})\)</span> from the anti-diagonal <span class="arithmatex">\(q - p = 1\)</span>:</p>
+<div class="arithmatex">\[
+0 = W_0 H^1(X; \mathbb{Q}) \subset W_1 H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g} \subset W_2 H^1(X; \mathbb{Q}) = H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g + p - 1},
+\]</div>
+<p>with graded pieces</p>
+<div class="arithmatex">\[
+\operatorname{Gr}_1^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{2g}, \quad \operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^{p-1}.
+\]</div>
+<p>The weight-1 part <span class="arithmatex">\(W_1 H^1(X) \cong \mathbb{Q}^{2g}\)</span> is the image of <span class="arithmatex">\(H^1(\overline{X})\)</span>, carrying a pure Hodge structure of weight 1 from the compact surface. The weight-2 part <span class="arithmatex">\(\operatorname{Gr}_2^W H^1(X) \cong \mathbb{Q}^{p-1}\)</span> arises from the boundary and has dimension <span class="arithmatex">\(p-1\)</span> (not <span class="arithmatex">\(p\)</span>) because the sum of all puncture classes vanishes in <span class="arithmatex">\(H^2(\overline{X})/\operatorname{im}(d_1)\)</span>.</p>
+<p><strong>Verification.</strong> For <span class="arithmatex">\(g = 0\)</span>, <span class="arithmatex">\(p = 2\)</span>: this recovers the case <span class="arithmatex">\(X = \mathbb{C}^{\times}\)</span> from the previous example, with <span class="arithmatex">\(\operatorname{Gr}_1^W = 0\)</span> and <span class="arithmatex">\(\operatorname{Gr}_2^W = \mathbb{Q}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let X be a Riemann surface of genus 3 with 5 punctures. What is the dimension of Gr_1^W H^1(X; Q) and of Gr_2^W H^1(X; Q)? -->
+
+<h3 id="ecag-0282">Example: complement of three intersecting lines in <span class="arithmatex">\(\mathbb{P}^{2}\)</span><a class="headerlink" href="#ecag-0282" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(\overline{X} = \mathbb{P}^2\)</span> and let <span class="arithmatex">\(D\)</span> be the union of three lines <span class="arithmatex">\(L_1, L_2, L_3\)</span> in general position (pairwise intersections are three distinct points). Set <span class="arithmatex">\(X = \mathbb{P}^2 \setminus D\)</span>. The three lines form a normal crossing divisor, so we apply the weight spectral sequence directly.</p>
+<p>The boundary strata are <span class="arithmatex">\(D^{(0)} = \mathbb{P}^2\)</span>, <span class="arithmatex">\(D^{(1)} = L_1 \sqcup L_2 \sqcup L_3 \cong (\mathbb{P}^1)^{\sqcup 3}\)</span>, and <span class="arithmatex">\(D^{(2)} = \{P_1, P_2, P_3\}\)</span> (the three pairwise intersection points). The <span class="arithmatex">\(E_1\)</span>-page is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(2)}) = \mathbb{Q}^3\)</span></td>
+<td><span class="arithmatex">\(H^2(D^{(1)}) = \mathbb{Q}^3\)</span></td>
+<td><span class="arithmatex">\(H^4(\mathbb{P}^2) = \mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(D^{(1)}) = 0\)</span></td>
+<td><span class="arithmatex">\(H^3(\mathbb{P}^2) = 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(D^{(1)}) = \mathbb{Q}^3\)</span></td>
+<td><span class="arithmatex">\(H^2(\mathbb{P}^2) = \mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^1(\mathbb{P}^2) = 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(H^0(\mathbb{P}^2) = \mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>To determine the <span class="arithmatex">\(E_2\)</span>-page, we identify the topology of <span class="arithmatex">\(X\)</span>. Removing one line from <span class="arithmatex">\(\mathbb{P}^2\)</span> yields <span class="arithmatex">\(\mathbb{C}^2\)</span>; the remaining two lines become two lines in <span class="arithmatex">\(\mathbb{C}^2\)</span> intersecting in one point. After a linear change of coordinates, these are the coordinate axes, so</p>
+<div class="arithmatex">\[
+X \simeq \mathbb{C}^2 \setminus \{\text{two lines through origin}\} \cong (\mathbb{C} \setminus \{0\}) \times (\mathbb{C} \setminus \{0\}) \simeq S^1 \times S^1 = T^2.
+\]</div>
+<p>Hence <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^1(X) = \mathbb{Q}^2\)</span>, <span class="arithmatex">\(H^2(X) = \mathbb{Q}\)</span>, and <span class="arithmatex">\(H^k(X) = 0\)</span> for <span class="arithmatex">\(k \geq 3\)</span>.</p>
+<p><strong>The differentials at row <span class="arithmatex">\(q = 2\)</span>.</strong> The map <span class="arithmatex">\(d_1 : E_1^{-1,2} = \mathbb{Q}^3 \to E_1^{0,2} = \mathbb{Q}\)</span> sends each line class <span class="arithmatex">\([L_i]\)</span> to the hyperplane class in <span class="arithmatex">\(H^2(\mathbb{P}^2)\)</span>. This is the map <span class="arithmatex">\((a_1, a_2, a_3) \mapsto a_1 + a_2 + a_3\)</span>, surjective with 2-dimensional kernel.</p>
+<p><strong>The differentials at row <span class="arithmatex">\(q = 4\)</span>.</strong> The map <span class="arithmatex">\(d_1 : E_1^{-2,4} = \mathbb{Q}^3 \to E_1^{-1,4} = \mathbb{Q}^3\)</span> sends the class of each intersection point <span class="arithmatex">\(P_k = L_i \cap L_j\)</span> to the fundamental classes of the two lines it lies on, with appropriate signs. The subsequent map <span class="arithmatex">\(d_1 : E_1^{-1,4} = \mathbb{Q}^3 \to E_1^{0,4} = \mathbb{Q}\)</span> sends each <span class="arithmatex">\([L_i] \in H^2(L_i)\)</span> to <span class="arithmatex">\([\mathbb{P}^2] \in H^4(\mathbb{P}^2)\)</span>. Convergence to <span class="arithmatex">\(H^*(X)\)</span> forces the <span class="arithmatex">\(E_2\)</span>-page to be:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The weight filtration is therefore:</p>
+<ul>
+<li><span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, pure of weight 0.</li>
+<li><span class="arithmatex">\(H^1(X) = \mathbb{Q}^2\)</span>, pure of weight 2: <span class="arithmatex">\(\operatorname{Gr}_2^W H^1(X) = \mathbb{Q}^2\)</span>.</li>
+<li><span class="arithmatex">\(H^2(X) = \mathbb{Q}\)</span>, pure of weight 4: <span class="arithmatex">\(\operatorname{Gr}_4^W H^2(X) = \mathbb{Q}\)</span>.</li>
+</ul>
+<p>Although <span class="arithmatex">\(X \simeq T^2\)</span> as a topological space, the weight filtration reveals that all cohomology classes originate from the boundary strata. In particular, <span class="arithmatex">\(H^1(X)\)</span> is pure of weight 2 rather than weight 1. This distinguishes the algebraic structure of the complement from a genuine compact torus, whose <span class="arithmatex">\(H^1\)</span> would be pure of weight 1.</p>
+<!-- BENCHMARK_PROBLEM: Let X = P^2 \ D where D is the union of three lines in general position in P^2_C. What is the weight of H^1(X; Q)? That is, for which k is Gr_k^W H^1(X; Q) nonzero? -->
+
+<h3 id="ecag-0283">Example: complement of three concurrent lines in <span class="arithmatex">\(\mathbb{P}^{2}\)</span><a class="headerlink" href="#ecag-0283" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(D\)</span> be the union of three concurrent lines in <span class="arithmatex">\(\mathbb{P}^2\)</span>, all passing through a single point <span class="arithmatex">\(p\)</span>. Set <span class="arithmatex">\(X = \mathbb{P}^2 \setminus D\)</span>. Since three concurrent lines fail to form a normal crossing divisor (they share a triple point), we must resolve the singularity before applying the weight spectral sequence.</p>
+<p><strong>Resolution.</strong> Blow up <span class="arithmatex">\(\mathbb{P}^2\)</span> at <span class="arithmatex">\(p\)</span> to obtain <span class="arithmatex">\(\overline{X} = \operatorname{Bl}_p(\mathbb{P}^2)\)</span> with exceptional divisor <span class="arithmatex">\(E \cong \mathbb{P}^1\)</span>. The strict transforms <span class="arithmatex">\(\widetilde{L}_1, \widetilde{L}_2, \widetilde{L}_3\)</span> of the three lines are disjoint from each other (they only met at <span class="arithmatex">\(p\)</span>, which has been separated by the blow-up), and each meets <span class="arithmatex">\(E\)</span> transversally in one point. The divisor <span class="arithmatex">\(D' = \widetilde{L}_1 \cup \widetilde{L}_2 \cup \widetilde{L}_3 \cup E\)</span> is normal crossing in <span class="arithmatex">\(\overline{X}\)</span>, and <span class="arithmatex">\(\overline{X} \setminus D' \cong X\)</span>.</p>
+<p>The boundary strata are <span class="arithmatex">\(D'^{(0)} = \overline{X}\)</span> with <span class="arithmatex">\(H^*(\overline{X}) = H^*(\mathbb{P}^2) \oplus \mathbb{Q}[-2]\)</span> (the blow-up adds a class in degree 2 from <span class="arithmatex">\(E\)</span>, so <span class="arithmatex">\(H^2(\overline{X}) = \mathbb{Q}^2\)</span>), <span class="arithmatex">\(D'^{(1)} = \widetilde{L}_1 \sqcup \widetilde{L}_2 \sqcup \widetilde{L}_3 \sqcup E\)</span> (four copies of <span class="arithmatex">\(\mathbb{P}^1\)</span>), and <span class="arithmatex">\(D'^{(2)} = \{Q_1, Q_2, Q_3\}\)</span> (three points, one on each <span class="arithmatex">\(\widetilde{L}_i \cap E\)</span>). The <span class="arithmatex">\(E_1\)</span>-page is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^3\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^4\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^4\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^2\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Topology of <span class="arithmatex">\(X\)</span>.</strong> Removing one line from <span class="arithmatex">\(\mathbb{P}^2\)</span> gives <span class="arithmatex">\(\mathbb{C}^2\)</span>. The remaining two lines pass through the origin in <span class="arithmatex">\(\mathbb{C}^2\)</span> and are distinct. Removing them yields <span class="arithmatex">\(\mathbb{C}^2 \setminus \{\text{two lines through } 0\}\)</span>, which retracts onto <span class="arithmatex">\(S^3 \setminus \{\text{two circles}\}\)</span> (each complex line through the origin meets <span class="arithmatex">\(S^3 \subset \mathbb{C}^2\)</span> in a great circle). The complement of two disjoint circles in <span class="arithmatex">\(S^3\)</span> is homotopy equivalent to <span class="arithmatex">\(S^1 \vee S^1\)</span>. Therefore <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^1(X) = \mathbb{Q}^2\)</span>, <span class="arithmatex">\(H^k(X) = 0\)</span> for <span class="arithmatex">\(k \geq 2\)</span>.</p>
+<p>Using convergence, the <span class="arithmatex">\(E_2\)</span>-page must be:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(-2\)</span></th>
+<th><span class="arithmatex">\(-1\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The weight filtration gives <span class="arithmatex">\(H^1(X; \mathbb{Q}) \cong \mathbb{Q}^2\)</span> pure of weight 2:</p>
+<div class="arithmatex">\[
+\operatorname{Gr}_2^W H^1(X; \mathbb{Q}) \cong \mathbb{Q}^2.
+\]</div>
+<p>The extra generator in <span class="arithmatex">\(H^2(\overline{X})\)</span> from the exceptional divisor <span class="arithmatex">\(E\)</span> (compared to <span class="arithmatex">\(H^2(\mathbb{P}^2) = \mathbb{Q}\)</span>) changes the rank of the <span class="arithmatex">\(d_1\)</span> differentials. Concretely, <span class="arithmatex">\(d_1 : \mathbb{Q}^4 \to \mathbb{Q}^2\)</span> at row <span class="arithmatex">\(q = 2\)</span> has kernel of dimension 2 (contributing to <span class="arithmatex">\(\operatorname{Gr}_2^W H^1\)</span>), and the maps at row <span class="arithmatex">\(q = 4\)</span> are exact (killing all of <span class="arithmatex">\(H^2(X)\)</span>).</p>
+<p>Comparing with the general-position case (ecag-0282): both complements have <span class="arithmatex">\(H^1\)</span> pure of weight 2 and of dimension 2, but the topologies differ -- <span class="arithmatex">\(T^2\)</span> for general position versus <span class="arithmatex">\(S^1 \vee S^1\)</span> for concurrent lines. The difference is visible in <span class="arithmatex">\(H^2\)</span>: the general-position complement has <span class="arithmatex">\(H^2 = \mathbb{Q}\)</span> (from the cup product on the torus), while the concurrent complement has <span class="arithmatex">\(H^2 = 0\)</span> (the wedge has no top-dimensional cohomology).</p>
+<!-- BENCHMARK_PROBLEM: Let X = P^2_C minus three concurrent lines. What is the homotopy type of X, and what is the dimension of H^1(X; Q)? -->
+
+<h3 id="ecag-0284">Remark: <span class="arithmatex">\(X=\mathbb{C}^{2}\setminus\{0\}\subset \mathbb{P}^{2}\)</span><a class="headerlink" href="#ecag-0284" title="Permanent link">&para;</a></h3>
+<p>Consider <span class="arithmatex">\(X = \mathbb{C}^2 \setminus \{0\}\)</span>. The standard embedding <span class="arithmatex">\(\mathbb{C}^2 \subset \mathbb{P}^2\)</span> has boundary <span class="arithmatex">\(\mathbb{P}^2 \setminus \mathbb{C}^2 = \mathbb{P}^1_\infty\)</span> (the line at infinity), but <span class="arithmatex">\(X\)</span> also excludes the origin, which lies in the interior. The complement <span class="arithmatex">\(\mathbb{P}^2 \setminus X\)</span> consists of <span class="arithmatex">\(\mathbb{P}^1_\infty\)</span> together with the point <span class="arithmatex">\(0 \in \mathbb{C}^2\)</span>, and this is not a normal crossing divisor.</p>
+<p>To resolve, blow up <span class="arithmatex">\(\mathbb{P}^2\)</span> at the origin. Let <span class="arithmatex">\(\overline{X} = \operatorname{Bl}_0(\mathbb{P}^2)\)</span> with exceptional divisor <span class="arithmatex">\(E \cong \mathbb{P}^1\)</span> and strict transform <span class="arithmatex">\(L_\infty\)</span> of the line at infinity. Since <span class="arithmatex">\(0 \notin \mathbb{P}^1_\infty\)</span>, the divisors <span class="arithmatex">\(E\)</span> and <span class="arithmatex">\(L_\infty\)</span> are disjoint, so <span class="arithmatex">\(D = E \cup L_\infty\)</span> is a normal crossing divisor in <span class="arithmatex">\(\overline{X}\)</span> with <span class="arithmatex">\(\overline{X} \setminus D \cong X\)</span>.</p>
+<p>The boundary strata are <span class="arithmatex">\(D^{(1)} = E \sqcup L_\infty\)</span> (two disjoint copies of <span class="arithmatex">\(\mathbb{P}^1\)</span>) and <span class="arithmatex">\(D^{(2)} = \emptyset\)</span> (since <span class="arithmatex">\(E \cap L_\infty = \emptyset\)</span>). Topologically, <span class="arithmatex">\(X = \mathbb{C}^2 \setminus \{0\} \simeq S^3\)</span>, so <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^3(X) = \mathbb{Q}\)</span>, and all other cohomology vanishes.</p>
+<p>The <span class="arithmatex">\(E_1\)</span>-page (for a surface, <span class="arithmatex">\(n=2\)</span>) has entries only in columns <span class="arithmatex">\(p = -1\)</span> and <span class="arithmatex">\(p = 0\)</span>. Row <span class="arithmatex">\(q=2\)</span> gives <span class="arithmatex">\(d_1 : H^0(D^{(1)}) = \mathbb{Q}^2 \to H^2(\overline{X}) = \mathbb{Q}^2\)</span>, and the other differentials are determined by the known cohomology of <span class="arithmatex">\(X\)</span>. After degenerating at <span class="arithmatex">\(E_2\)</span>, the weight filtration gives:</p>
+<ul>
+<li><span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, pure of weight 0.</li>
+<li><span class="arithmatex">\(H^3(X) = \mathbb{Q}\)</span>, pure of weight 4: <span class="arithmatex">\(\operatorname{Gr}_4^W H^3(X) = \mathbb{Q}\)</span>.</li>
+</ul>
+<p>The appearance of weight 4 on <span class="arithmatex">\(H^3\)</span> (rather than weight 3, which would occur for a smooth compact 3-fold) reflects the codimension-2 nature of the removed point: deleting a codimension-<span class="arithmatex">\(c\)</span> subvariety creates cohomology shifted by <span class="arithmatex">\(2c\)</span> in weight. Here <span class="arithmatex">\(c = 2\)</span> (a point in a surface), and the weight shift <span class="arithmatex">\(2c = 4\)</span> accounts for the gap between the cohomological degree 3 and the weight 4.</p>
+<!-- BENCHMARK_PROBLEM: What is the homotopy type of C^2 \ {0}? Using this, determine H^k(C^2 \ {0}; Q) for all k. -->
+
+<h3 id="ecag-0285">Example: cubical hyperresolution, It's our guess, we didn't check the precise definition carefully!!!!!!<a class="headerlink" href="#ecag-0285" title="Permanent link">&para;</a></h3>
+<p>A cubical hyperresolution of a singular variety <span class="arithmatex">\(X\)</span> is a proper augmented cubical diagram of smooth varieties that resolves <span class="arithmatex">\(X\)</span> in a cohomological sense, enabling the construction of mixed Hodge structures even when <span class="arithmatex">\(X\)</span> is singular.</p>
+<p>For a variety <span class="arithmatex">\(X\)</span> with singular locus <span class="arithmatex">\(Y \subset X\)</span>, the simplest case is a 1-cubical hyperresolution (a square diagram). Let <span class="arithmatex">\(f : \widetilde{X} \to X\)</span> be a resolution of singularities, and let <span class="arithmatex">\(\widetilde{Y} = f^{-1}(Y)\)</span> be the preimage of the singular locus. The resolution square is:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+\widetilde{Y} &amp; \longrightarrow &amp; \widetilde{X} \\
+\downarrow &amp; &amp; \downarrow \, f \\
+Y &amp; \longrightarrow &amp; X
+\end{array}
+\]</div>
+<p>All four corners are varieties, but the upper row consists of smooth varieties: <span class="arithmatex">\(\widetilde{X}\)</span> is smooth by construction of the resolution, and <span class="arithmatex">\(\widetilde{Y}\)</span> can be arranged to be smooth (after further blow-ups if necessary). The horizontal maps are closed embeddings, and the vertical maps are proper and surjective.</p>
+<p>For a concrete instance, consider a nodal curve <span class="arithmatex">\(X\)</span> with a single node at <span class="arithmatex">\(Y = \{p\}\)</span>. Taking the normalization <span class="arithmatex">\(\widetilde{X} = X^{\nu}\)</span> (a smooth curve), the preimage is <span class="arithmatex">\(\widetilde{Y} = f^{-1}(p) = \{q_1, q_2\}\)</span> (the two branches above the node). The square becomes:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+\{q_1, q_2\} &amp; \longrightarrow &amp; X^{\nu} \\
+\downarrow &amp; &amp; \downarrow \\
+\{p\} &amp; \longrightarrow &amp; X
+\end{array}
+\]</div>
+<p>The cohomology of <span class="arithmatex">\(X\)</span> is then recovered from the Mayer--Vietoris-type exact sequence associated to this square:</p>
+<div class="arithmatex">\[
+\cdots \to H^k(X) \to H^k(\widetilde{X}) \oplus H^k(Y) \to H^k(\widetilde{Y}) \to H^{k+1}(X) \to \cdots
+\]</div>
+<p>For deeper singularities (e.g., a variety whose singular locus is itself singular), one iterates: resolve <span class="arithmatex">\(Y\)</span>, form the fiber product, resolve its singular locus, and so on. This produces a cubical diagram indexed by subsets of <span class="arithmatex">\(\{0, 1, \ldots, d\}\)</span> where <span class="arithmatex">\(d\)</span> is the depth of the stratification. The general construction, due to Guillen--Navarro Aznar--Pascual-Gainza--Puerta, ensures that at each vertex the variety is smooth, and the resulting weight spectral sequence is independent of the choices made.</p>
+<!-- BENCHMARK_PROBLEM: In a 1-cubical hyperresolution of a singular variety X with singular locus Y, what are the four terms of the square diagram? Describe them in terms of X, Y, and a resolution of singularities. -->
+
+<h3 id="ecag-0286">Example: Nodal curve<a class="headerlink" href="#ecag-0286" title="Permanent link">&para;</a></h3>
+<p>Consider the nodal cubic <span class="arithmatex">\(X = \{(x:y:z) \in \mathbb{P}^2 \mid y^2 z = x^2(x+z)\}\)</span>, which has a single node at <span class="arithmatex">\(P = (0:0:1)\)</span>. We compute the mixed Hodge structure on <span class="arithmatex">\(H^*(X; \mathbb{Q})\)</span> using the normalization as a cubical hyperresolution.</p>
+<p>The normalization <span class="arithmatex">\(f : \widetilde{X} \to X\)</span> satisfies <span class="arithmatex">\(\widetilde{X} \cong \mathbb{P}^1\)</span> (since <span class="arithmatex">\(X\)</span> is a rational curve with one node). The preimage of the node consists of two points: <span class="arithmatex">\(\widetilde{Y} = f^{-1}(P) = \{Q_1, Q_2\}\)</span>. Setting <span class="arithmatex">\(Y = \{P\}\)</span>, the resolution square is:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+\{Q_1, Q_2\} &amp; \longrightarrow &amp; \mathbb{P}^1 \\
+\downarrow &amp; &amp; \downarrow \, f \\
+\{P\} &amp; \longrightarrow &amp; X
+\end{array}
+\]</div>
+<p>The associated Mayer--Vietoris exact sequence is</p>
+<div class="arithmatex">\[
+0 \to H^0(X) \to H^0(\widetilde{X}) \oplus H^0(Y) \to H^0(\widetilde{Y}) \to H^1(X) \to H^1(\widetilde{X}) \oplus H^1(Y) \to \cdots
+\]</div>
+<p>Substituting the known cohomology groups:</p>
+<table>
+<thead>
+<tr>
+<th>Space</th>
+<th><span class="arithmatex">\(H^0\)</span></th>
+<th><span class="arithmatex">\(H^1\)</span></th>
+<th><span class="arithmatex">\(H^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\widetilde{X} = \mathbb{P}^1\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(Y = \{P\}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\widetilde{Y} = \{Q_1, Q_2\}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}^2\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The exact sequence becomes</p>
+<div class="arithmatex">\[
+0 \to H^0(X) \to \mathbb{Q}^2 \xrightarrow{\;\delta\;} \mathbb{Q}^2 \to H^1(X) \to 0 \to 0 \to H^2(X) \to \mathbb{Q} \to 0.
+\]</div>
+<p>The map <span class="arithmatex">\(\delta : H^0(\widetilde{X}) \oplus H^0(Y) \to H^0(\widetilde{Y})\)</span> sends <span class="arithmatex">\((a, b) \mapsto (a - b, \, a - b)\)</span>, since both points <span class="arithmatex">\(Q_1, Q_2\)</span> lie over <span class="arithmatex">\(P\)</span> and both map to the same connected component of <span class="arithmatex">\(\widetilde{X}\)</span>. This map has kernel <span class="arithmatex">\(\{a = b\} \cong \mathbb{Q}\)</span> and cokernel <span class="arithmatex">\(\mathbb{Q}\)</span>.</p>
+<p>Therefore: <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^1(X) = \mathbb{Q}\)</span>, <span class="arithmatex">\(H^2(X) = \mathbb{Q}\)</span>.</p>
+<p>The generator of <span class="arithmatex">\(H^1(X) \cong \mathbb{Q}\)</span> comes from the cokernel of <span class="arithmatex">\(\delta\)</span>, which involves only <span class="arithmatex">\(H^0\)</span> groups -- all of which carry pure Hodge structures of weight 0. Hence <span class="arithmatex">\(H^1(X)\)</span> carries weight 0:</p>
+<div class="arithmatex">\[
+\operatorname{Gr}_0^W H^1(X; \mathbb{Q}) = \mathbb{Q}.
+\]</div>
+<p>This is markedly different from a smooth projective curve of genus 1, where <span class="arithmatex">\(H^1\)</span> is pure of weight 1. The node "pinches" a handle, creating a loop that arises from the failure of the normalization map to be injective (it identifies <span class="arithmatex">\(Q_1\)</span> with <span class="arithmatex">\(Q_2\)</span>), and this purely topological origin places the resulting class at weight 0 rather than weight 1.</p>
+<p><strong>Verification.</strong> The nodal cubic has geometric genus <span class="arithmatex">\(p_g = 0\)</span> (it is rational) and arithmetic genus <span class="arithmatex">\(p_a = 1\)</span> (by the degree-genus formula). The discrepancy <span class="arithmatex">\(p_a - p_g = 1\)</span> accounts for the extra <span class="arithmatex">\(H^1\)</span> class. If we smooth the node (deforming to an elliptic curve), the weight-0 class in <span class="arithmatex">\(H^1\)</span> would be "promoted" to weight 1, recovering the pure Hodge structure of a smooth genus-1 curve.</p>
+<!-- BENCHMARK_PROBLEM: Consider the nodal cubic X = {y^2 z = x^2(x+z)} in P^2. What is H^1(X; Q), and what is its weight in the mixed Hodge structure? Compare with the case of a smooth elliptic curve. -->
+
+<h3 id="ecag-0287">Remark: weight spectral sequence for singular varieties<a class="headerlink" href="#ecag-0287" title="Permanent link">&para;</a></h3>
+<p>For singular varieties, the weight spectral sequence is constructed via cubical hyperresolutions rather than smooth compactifications with normal crossing boundary. Given a singular variety <span class="arithmatex">\(X\)</span>, one chooses a cubical hyperresolution <span class="arithmatex">\(a_\bullet : X_\bullet \to X\)</span>, where each <span class="arithmatex">\(X_I\)</span> (indexed by subsets <span class="arithmatex">\(I\)</span> of a finite set) is a smooth variety. The weight spectral sequence takes the form</p>
+<div class="arithmatex">\[
+E_1^{p,q} = \bigoplus_{|I|=p} H^q(X_I; \mathbb{Q}) \Rightarrow H^{p+q}(X; \mathbb{Q}).
+\]</div>
+<p>The fundamental results, due to Deligne in the smooth case and extended by Guillen--Navarro Aznar--Pascual-Gainza--Puerta to the singular case via cubical methods, are:</p>
+<ol>
+<li>The resulting mixed Hodge structure on <span class="arithmatex">\(H^n(X; \mathbb{Q})\)</span> is independent of the choice of cubical hyperresolution.</li>
+<li>The weight filtration on <span class="arithmatex">\(H^n(X; \mathbb{Q})\)</span> satisfies <span class="arithmatex">\(W_{-1} H^n = 0\)</span> and <span class="arithmatex">\(W_{2n} H^n = H^n\)</span>.</li>
+</ol>
+<p>The weight ranges depend on the geometric nature of <span class="arithmatex">\(X\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Type of <span class="arithmatex">\(X\)</span></th>
+<th>Weights on <span class="arithmatex">\(H^n(X)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smooth projective</td>
+<td>pure weight <span class="arithmatex">\(n\)</span></td>
+</tr>
+<tr>
+<td>Smooth, not necessarily proper</td>
+<td><span class="arithmatex">\(n \leq k \leq 2n\)</span></td>
+</tr>
+<tr>
+<td>Projective, not necessarily smooth</td>
+<td><span class="arithmatex">\(0 \leq k \leq n\)</span></td>
+</tr>
+<tr>
+<td>General (singular, non-proper)</td>
+<td><span class="arithmatex">\(0 \leq k \leq 2n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The smooth non-compact and singular projective cases are dual: removing a boundary divisor pushes weights up (toward <span class="arithmatex">\(2n\)</span>), while introducing singularities pushes weights down (toward <span class="arithmatex">\(0\)</span>). For a general variety that is both singular and non-compact, the full range <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(2n\)</span> is possible.</p>
+<!-- BENCHMARK_PROBLEM: For a singular projective variety X, what is the range of weights that can appear in the mixed Hodge structure on H^n(X; Q)? How does this differ from a smooth projective variety? -->
+
+<h3 id="ecag-0288">Remark: Mayer-Vietoris exact sequence<a class="headerlink" href="#ecag-0288" title="Permanent link">&para;</a></h3>
+<p>In the context of cubical hyperresolutions and mixed Hodge theory, the Mayer--Vietoris exact sequence serves as the primary computational tool. For the simplest cubical hyperresolution (the normalization square of a singular variety), the associated long exact sequence is</p>
+<div class="arithmatex">\[
+\cdots \to H^k(X) \to H^k(\widetilde{X}) \oplus H^k(Y) \to H^k(\widetilde{Y}) \to H^{k+1}(X) \to \cdots
+\]</div>
+<p>where <span class="arithmatex">\(\widetilde{X} \to X\)</span> is the resolution, <span class="arithmatex">\(Y\)</span> is the singular locus, and <span class="arithmatex">\(\widetilde{Y} = \widetilde{X} \times_X Y\)</span>.</p>
+<p>More generally, for a variety <span class="arithmatex">\(X = U \cup V\)</span> covered by two open subvarieties, the classical Mayer--Vietoris sequence</p>
+<div class="arithmatex">\[
+\cdots \to H^k(X) \to H^k(U) \oplus H^k(V) \to H^k(U \cap V) \to H^{k+1}(X) \to \cdots
+\]</div>
+<p>is a morphism of mixed Hodge structures. The crucial consequence is <strong>strictness</strong>: every map in the sequence is strict with respect to the weight filtration, meaning <span class="arithmatex">\(f(W_k) = f(\text{source}) \cap W_k(\text{target})\)</span> for each <span class="arithmatex">\(k\)</span>. Strictness implies that the long exact sequence splits into short exact sequences on each graded piece:</p>
+<div class="arithmatex">\[
+\cdots \to \operatorname{Gr}_m^W H^k(X) \to \operatorname{Gr}_m^W H^k(U) \oplus \operatorname{Gr}_m^W H^k(V) \to \operatorname{Gr}_m^W H^k(U \cap V) \to \operatorname{Gr}_m^W H^{k+1}(X) \to \cdots
+\]</div>
+<p>This is an exact sequence of pure Hodge structures (each <span class="arithmatex">\(\operatorname{Gr}_m^W\)</span> carries a pure Hodge structure of weight <span class="arithmatex">\(m\)</span>), reducing mixed Hodge theory computations to manipulations of pure Hodge structures at each weight level. Without strictness, one could not separately track the weight-<span class="arithmatex">\(m\)</span> contributions through the exact sequence, and the bookkeeping would become intractable.</p>
+<!-- BENCHMARK_PROBLEM: In the Mayer-Vietoris sequence for mixed Hodge structures, what special property do the maps have with respect to the weight filtration, and why is this property useful for computations? -->
+
+<h3 id="ecag-0289">Remark: cubical hyperresolution<a class="headerlink" href="#ecag-0289" title="Permanent link">&para;</a></h3>
+<p>A cubical hyperresolution of a variety <span class="arithmatex">\(X\)</span> is a proper augmented cubical variety <span class="arithmatex">\(a_\bullet : X_\bullet \to X\)</span>, indexed by the partially ordered set of subsets of <span class="arithmatex">\(\{0, 1, \ldots, n\}\)</span>, satisfying:</p>
+<ol>
+<li>Each <span class="arithmatex">\(X_I\)</span> is a smooth variety.</li>
+<li>The augmentation <span class="arithmatex">\(X_\emptyset \to X\)</span> is a proper surjective map (typically a resolution of singularities).</li>
+<li>For each <span class="arithmatex">\(I\)</span> and <span class="arithmatex">\(i \in I\)</span>, the induced map <span class="arithmatex">\(X_I \to X_{I \setminus \{i\}}\)</span> is proper.</li>
+<li>The diagram computes the correct cohomology of <span class="arithmatex">\(X\)</span>: the augmented complex is acyclic (i.e., the natural map from <span class="arithmatex">\(H^*(X)\)</span> to the cohomological descent spectral sequence of the diagram is an isomorphism).</li>
+</ol>
+<p>The existence of cubical hyperresolutions in characteristic zero follows from Hironaka's resolution of singularities. The construction is inductive: starting from a resolution <span class="arithmatex">\(\widetilde{X} \to X\)</span> with exceptional locus mapping to the singular locus <span class="arithmatex">\(Y\)</span>, one resolves <span class="arithmatex">\(Y\)</span> and the fiber product <span class="arithmatex">\(\widetilde{Y} = \widetilde{X} \times_X Y\)</span> to produce the 1-cube. If <span class="arithmatex">\(\widetilde{Y}\)</span> is still singular, one repeats to obtain a 2-cube, and so on. For a variety with a stratification of depth <span class="arithmatex">\(d\)</span>, a <span class="arithmatex">\(d\)</span>-cubical hyperresolution suffices.</p>
+<p>The advantage of cubical hyperresolutions over simplicial ones is economy: a <span class="arithmatex">\(d\)</span>-cubical hyperresolution has <span class="arithmatex">\(2^{d+1} - 1\)</span> terms (indexed by nonempty subsets of <span class="arithmatex">\(\{0, \ldots, d\}\)</span>), compared to the potentially larger number of terms in a simplicial resolution. The cubical structure is also more natural for iterated fiber products.</p>
+<p>References: Guillen--Navarro Aznar--Pascual-Gainza--Puerta, <em>Hyperresolutions cubiques et descente cohomologique</em> (Springer LNM 1335); see also the expository notes by <a href="https://www.math.utah.edu/~schwede/Notes/NotesOnCubicalHyperresolutions.pdf">Schwede</a> and <a href="https://link.springer.com/content/pdf/10.1007/978-3-319-28829-1_15.pdf">Steenbrink</a>.</p>
+<!-- BENCHMARK_PROBLEM: What is the key property that each term X_I in a cubical hyperresolution must satisfy, and what foundational result guarantees the existence of cubical hyperresolutions in characteristic zero? -->
+
+<h3 id="ecag-0290">Example: cuspidal singularity<a class="headerlink" href="#ecag-0290" title="Permanent link">&para;</a></h3>
+<p>Consider the cuspidal cubic <span class="arithmatex">\(X = \{(x:y:z) \in \mathbb{P}^2 \mid y^2 z = x^3\}\)</span>, which has a cusp at <span class="arithmatex">\(P = (0:0:1)\)</span>. Unlike the node, the cusp is a unibranch singularity: the normalization <span class="arithmatex">\(f : \widetilde{X} \to X\)</span> satisfies <span class="arithmatex">\(\widetilde{X} \cong \mathbb{P}^1\)</span>, and the preimage of the cusp is a single point <span class="arithmatex">\(\widetilde{Y} = f^{-1}(P) = \{Q\}\)</span>. Setting <span class="arithmatex">\(Y = \{P\}\)</span>, the resolution square is:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+\{Q\} &amp; \longrightarrow &amp; \mathbb{P}^1 \\
+\downarrow &amp; &amp; \downarrow \, f \\
+\{P\} &amp; \longrightarrow &amp; X
+\end{array}
+\]</div>
+<p>The Mayer--Vietoris exact sequence gives</p>
+<div class="arithmatex">\[
+0 \to H^0(X) \to H^0(\mathbb{P}^1) \oplus H^0(\{P\}) \to H^0(\{Q\}) \to H^1(X) \to H^1(\mathbb{P}^1) \to \cdots
+\]</div>
+<div class="arithmatex">\[
+0 \to H^0(X) \to \mathbb{Q}^2 \xrightarrow{\;\delta\;} \mathbb{Q} \to H^1(X) \to 0 \to 0 \to H^2(X) \to \mathbb{Q} \to 0.
+\]</div>
+<p>The map <span class="arithmatex">\(\delta : (a, b) \mapsto a - b\)</span> is surjective (from <span class="arithmatex">\(\mathbb{Q}^2\)</span> to <span class="arithmatex">\(\mathbb{Q}\)</span>). Therefore: <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span> (kernel of <span class="arithmatex">\(\delta\)</span> restricted to the image of <span class="arithmatex">\(H^0(X) \to \mathbb{Q}^2\)</span>, which is the diagonal), <span class="arithmatex">\(H^1(X) = 0\)</span> (cokernel of <span class="arithmatex">\(\delta\)</span> is zero), and <span class="arithmatex">\(H^2(X) = \mathbb{Q}\)</span>.</p>
+<p>The cuspidal cubic thus has the same Betti numbers as <span class="arithmatex">\(\mathbb{P}^1\)</span>: this is no coincidence, since the normalization <span class="arithmatex">\(f\)</span> is a homeomorphism for a unibranch singularity. The cusp is topologically a continuous bijection that fails to be an isomorphism of varieties only because the local ring at the cusp is not integrally closed. On the level of underlying topological spaces, no new loop is created.</p>
+<p>The mixed Hodge structure is: <span class="arithmatex">\(H^0(X) = \mathbb{Q}\)</span> pure of weight 0, and <span class="arithmatex">\(H^2(X) = \mathbb{Q}\)</span> pure of weight 2.</p>
+<p><strong>Comparison with the nodal cubic.</strong> The following table summarizes the contrast:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nodal cubic (<span class="arithmatex">\(y^2z = x^2(x+z)\)</span>)</th>
+<th>Cuspidal cubic (<span class="arithmatex">\(y^2z = x^3\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singularity type</td>
+<td>node (two branches)</td>
+<td>cusp (one branch)</td>
+</tr>
+<tr>
+<td>Normalization preimage</td>
+<td><span class="arithmatex">\(\{Q_1, Q_2\}\)</span></td>
+<td><span class="arithmatex">\(\{Q\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(H^1(X; \mathbb{Q})\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Q}\)</span>, weight 0</td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td>Topological effect</td>
+<td>pinched handle creates loop</td>
+<td>no new topology</td>
+</tr>
+</tbody>
+</table>
+<p>The node creates a weight-0 class in <span class="arithmatex">\(H^1\)</span> because the normalization identifies two distinct points, forming a topological loop. The cusp, being unibranch, identifies nothing, and <span class="arithmatex">\(H^1\)</span> vanishes.</p>
+<!-- BENCHMARK_PROBLEM: Compare the mixed Hodge structures of the nodal cubic y^2z = x^2(x+z) and the cuspidal cubic y^2z = x^3 in P^2. In particular, what is H^1 for each, and why do they differ? -->
+
+<h3 id="ecag-0291">Example: de Rham-Witt complex<a class="headerlink" href="#ecag-0291" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a smooth variety over a perfect field <span class="arithmatex">\(k\)</span> of characteristic <span class="arithmatex">\(p &gt; 0\)</span>. The de Rham--Witt complex <span class="arithmatex">\(W_n \Omega^*_X\)</span>, introduced by Bloch and developed systematically by Illusie, is a sheaf of differential graded algebras on <span class="arithmatex">\(X\)</span> that provides a purely algebraic construction of crystalline cohomology.</p>
+<p>For each <span class="arithmatex">\(n \geq 1\)</span>, the complex <span class="arithmatex">\(W_n \Omega^*_X\)</span> is equipped with four structural maps:</p>
+<ul>
+<li><strong>Restriction</strong> <span class="arithmatex">\(R : W_{n+1} \Omega^q_X \to W_n \Omega^q_X\)</span> (surjective, truncates the "top Witt component").</li>
+<li><strong>Frobenius</strong> <span class="arithmatex">\(F : W_{n+1} \Omega^q_X \to W_n \Omega^q_X\)</span> (the Frobenius lift).</li>
+<li><strong>Verschiebung</strong> <span class="arithmatex">\(V : W_n \Omega^q_X \to W_{n+1} \Omega^q_X\)</span> (the "shift" or transfer map).</li>
+<li><strong>Differential</strong> <span class="arithmatex">\(d : W_n \Omega^q_X \to W_n \Omega^{q+1}_X\)</span> (extending the de Rham differential).</li>
+</ul>
+<p>These satisfy the fundamental relations <span class="arithmatex">\(FV = p\)</span> (multiplication by <span class="arithmatex">\(p\)</span>), <span class="arithmatex">\(FdV = d\)</span>, and <span class="arithmatex">\(Fd[a] = [a]^{p-1} d[a]\)</span> for a Teichmuller representative <span class="arithmatex">\([a] \in W_n \mathcal{O}_X\)</span>.</p>
+<p>In low degrees: <span class="arithmatex">\(W_n \Omega^0_X = W_n \mathcal{O}_X\)</span> is the sheaf of length-<span class="arithmatex">\(n\)</span> Witt vectors, and <span class="arithmatex">\(W_n \Omega^1_X\)</span> is generated over <span class="arithmatex">\(W_n \mathcal{O}_X\)</span> by symbols <span class="arithmatex">\(d[a]\)</span> and <span class="arithmatex">\(V^i(d[b])\)</span> subject to the relations above.</p>
+<p>The inverse limit <span class="arithmatex">\(W\Omega^*_X = \varprojlim_n W_n \Omega^*_X\)</span> computes crystalline cohomology:</p>
+<div class="arithmatex">\[
+H^n_{\operatorname{cris}}(X/W(k)) \cong \mathbb{H}^n(X, W\Omega^*_X),
+\]</div>
+<p>where <span class="arithmatex">\(W(k) = \varprojlim_n W_n(k)\)</span> is the ring of <span class="arithmatex">\(p\)</span>-typical Witt vectors of <span class="arithmatex">\(k\)</span>. This is a <span class="arithmatex">\(p\)</span>-adic cohomology theory: for <span class="arithmatex">\(k = \mathbb{F}_p\)</span>, <span class="arithmatex">\(W(k) = \mathbb{Z}_p\)</span>, and crystalline cohomology is a free <span class="arithmatex">\(\mathbb{Z}_p\)</span>-module whose rank equals the corresponding Betti number (for "good" varieties, i.e., those that lift to characteristic 0).</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li><span class="arithmatex">\(X = \operatorname{Spec}(k)\)</span>: <span class="arithmatex">\(W_n \Omega^0 = W_n(k)\)</span> and all higher forms vanish. For <span class="arithmatex">\(k = \mathbb{F}_p\)</span>, <span class="arithmatex">\(W(\mathbb{F}_p) = \mathbb{Z}_p\)</span>.</li>
+<li><span class="arithmatex">\(X = \mathbb{A}^1_k\)</span>: <span class="arithmatex">\(W_n \Omega^0 = W_n(k[t])\)</span> and <span class="arithmatex">\(W_n \Omega^1\)</span> is generated by <span class="arithmatex">\(d[t], V(d[t]), V^2(d[t]), \ldots\)</span> The relation <span class="arithmatex">\(Fd[t] = [t]^{p-1} d[t]\)</span> encodes how the Frobenius interacts with the differential.</li>
+</ul>
+<p>The operators <span class="arithmatex">\(F\)</span>, <span class="arithmatex">\(V\)</span>, and <span class="arithmatex">\(R\)</span> encode the arithmetic structure (Frobenius action, <span class="arithmatex">\(p\)</span>-divisibility) that is invisible in ordinary de Rham cohomology, making the de Rham--Witt complex the natural home for <span class="arithmatex">\(p\)</span>-adic Hodge-theoretic information in positive characteristic.</p>
+<p>Reference: <a href="https://www3.nd.edu/~mbehren1/TAGS/Davis_notes.pdf">Davis, Notes on the de Rham--Witt complex</a>.</p>
+<!-- BENCHMARK_PROBLEM: What cohomology theory does the hypercohomology of the de Rham-Witt complex W Omega^*_X compute for a smooth variety X over a perfect field k of characteristic p > 0? -->
+
+<h2 id="nearby-cycles">Nearby cycles<a class="headerlink" href="#nearby-cycles" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0292">Example: Tate twist<a class="headerlink" href="#ecag-0292" title="Permanent link">&para;</a></h3>
+<p>The Tate twist <span class="arithmatex">\(\mathbb{Z}(n)\)</span> is a fundamental bookkeeping device in cohomology that accounts for the discrepancy between cohomological degree and motivic weight. Its definition varies by context.</p>
+<p><strong>Betti cohomology.</strong> Over <span class="arithmatex">\(\mathbb{C}\)</span>, set <span class="arithmatex">\(\mathbb{Z}(1) = 2\pi i \cdot \mathbb{Z} \subset \mathbb{C}\)</span> and <span class="arithmatex">\(\mathbb{Z}(n) = (2\pi i)^n \cdot \mathbb{Z}\)</span>. As an abelian group, <span class="arithmatex">\(\mathbb{Q}(n) \cong \mathbb{Q}\)</span>, but as a Hodge structure it is pure of type <span class="arithmatex">\((-n, -n)\)</span>. The Tate twist <span class="arithmatex">\(\mathbb{Q}(n)\)</span> shifts the Hodge filtration: if <span class="arithmatex">\(V\)</span> is a pure Hodge structure of weight <span class="arithmatex">\(k\)</span>, then <span class="arithmatex">\(V(n) = V \otimes \mathbb{Q}(n)\)</span> is pure of weight <span class="arithmatex">\(k - 2n\)</span>, with <span class="arithmatex">\(F^p V(n) = F^{p+n} V\)</span>.</p>
+<p><strong>Etale cohomology.</strong> For a scheme over a field <span class="arithmatex">\(k\)</span> with <span class="arithmatex">\(\ell\)</span> invertible in <span class="arithmatex">\(k\)</span>, set <span class="arithmatex">\(\mathbb{Z}/\ell^n(1) = \mu_{\ell^n}\)</span> (the sheaf of <span class="arithmatex">\(\ell^n\)</span>-th roots of unity) and</p>
+<div class="arithmatex">\[
+\mathbb{Z}_\ell(1) = \varprojlim_n \mu_{\ell^n}, \qquad \mathbb{Z}_\ell(m) = \mathbb{Z}_\ell(1)^{\otimes m}.
+\]</div>
+<p>The absolute Galois group <span class="arithmatex">\(\operatorname{Gal}(\overline{k}/k)\)</span> acts on <span class="arithmatex">\(\mathbb{Z}_\ell(1)\)</span> via the cyclotomic character <span class="arithmatex">\(\chi_\ell : \operatorname{Gal}(\overline{k}/k) \to \mathbb{Z}_\ell^{\times}\)</span>. For <span class="arithmatex">\(k = \mathbb{F}_q\)</span>, the geometric Frobenius acts on <span class="arithmatex">\(\mathbb{Z}_\ell(1)\)</span> as multiplication by <span class="arithmatex">\(q^{-1}\)</span>, so tensoring with <span class="arithmatex">\(\mathbb{Q}_\ell(n)\)</span> multiplies all Frobenius eigenvalues by <span class="arithmatex">\(q^{-n}\)</span>.</p>
+<p><strong><span class="arithmatex">\(p\)</span>-adic cohomology.</strong> The <span class="arithmatex">\(p\)</span>-adic Tate twist <span class="arithmatex">\(\mathbb{Z}_p(n)\)</span> in mixed characteristic <span class="arithmatex">\((0,p)\)</span> is more subtle. Constructions by Sato and others produce sheaves <span class="arithmatex">\(\mathbb{Z}/p^r(n)\)</span> on the etale site related to logarithmic de Rham--Witt sheaves <span class="arithmatex">\(W_r \Omega^n_{\log}\)</span>.</p>
+<p><strong>Role in nearby cycles.</strong> For a family <span class="arithmatex">\(f : X \to S\)</span> degenerating over <span class="arithmatex">\(0 \in S\)</span>, the monodromy operator on nearby cycles satisfies</p>
+<div class="arithmatex">\[
+N : \operatorname{Gr}_k^W R^n \Psi \mathbb{Q} \to \operatorname{Gr}_{k-2}^W R^n \Psi \mathbb{Q}(-1).
+\]</div>
+<p>The Tate twist <span class="arithmatex">\((-1)\)</span> accounts for the weight shift of <span class="arithmatex">\(-2\)</span>: since <span class="arithmatex">\(\mathbb{Q}(-1)\)</span> has weight <span class="arithmatex">\(2\)</span>, tensoring with it compensates, making <span class="arithmatex">\(N\)</span> a morphism between objects of the same weight. Without the Tate twist, the graded pieces of the weight filtration would not carry pure Hodge structures of the correct weight, and the formalism of mixed Hodge modules would break down.</p>
+<!-- BENCHMARK_PROBLEM: In etale cohomology with l-adic coefficients, how is the Tate twist Z_l(1) defined? What Galois representation does it correspond to? -->
+
+<h3 id="ecag-0293">Example: inertia group<a class="headerlink" href="#ecag-0293" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(K\)</span> be a complete discretely valued field with valuation ring <span class="arithmatex">\(\mathcal{O}_K\)</span>, maximal ideal <span class="arithmatex">\(\mathfrak{m}\)</span>, and residue field <span class="arithmatex">\(k = \mathcal{O}_K / \mathfrak{m}\)</span>. Fix an algebraic closure <span class="arithmatex">\(\overline{K}\)</span> and let <span class="arithmatex">\(\overline{k}\)</span> be the corresponding residue field. The <strong>inertia group</strong> <span class="arithmatex">\(I\)</span> is defined as the kernel</p>
+<div class="arithmatex">\[
+1 \to I \to \operatorname{Gal}(\overline{K}/K) \to \operatorname{Gal}(\overline{k}/k) \to 1,
+\]</div>
+<p>so <span class="arithmatex">\(I\)</span> consists of those automorphisms of <span class="arithmatex">\(\overline{K}\)</span> that act trivially on the residue field.</p>
+<p>The inertia group admits a further filtration by ramification. The <strong>wild inertia</strong> (or <strong><span class="arithmatex">\(p\)</span>-part</strong>) <span class="arithmatex">\(P \subset I\)</span> is the pro-<span class="arithmatex">\(p\)</span>-Sylow subgroup, where <span class="arithmatex">\(p = \operatorname{char}(k)\)</span>. The <strong>tame inertia</strong> is the quotient <span class="arithmatex">\(I^t = I/P\)</span>, which is a profinite group isomorphic to <span class="arithmatex">\(\prod_{\ell \neq p} \mathbb{Z}_\ell\)</span>. When <span class="arithmatex">\(\operatorname{char}(k) = 0\)</span>, there is no wild ramification and <span class="arithmatex">\(I = I^t\)</span>.</p>
+<p>In the complex-analytic setting (<span class="arithmatex">\(K = \mathbb{C}(\!(t)\!)\)</span>, <span class="arithmatex">\(k = \mathbb{C}\)</span>), the absolute Galois group is the profinite completion <span class="arithmatex">\(\widehat{\mathbb{Z}}\)</span> of <span class="arithmatex">\(\pi_1(D^*) \cong \mathbb{Z}\)</span>, and the inertia group is all of <span class="arithmatex">\(\operatorname{Gal}(\overline{K}/K) \cong \widehat{\mathbb{Z}}\)</span> (since <span class="arithmatex">\(\operatorname{Gal}(\overline{\mathbb{C}}/\mathbb{C}) = 1\)</span>). The monodromy transformation <span class="arithmatex">\(T\)</span> is the image of the topological generator.</p>
+<p><strong>Role in nearby cycles.</strong> For a proper family <span class="arithmatex">\(f : X \to \operatorname{Spec}(\mathcal{O}_K)\)</span>, the nearby cycles functor <span class="arithmatex">\(R\Psi\)</span> produces sheaves on the special fiber <span class="arithmatex">\(X_s\)</span> equipped with a continuous action of <span class="arithmatex">\(\operatorname{Gal}(\overline{K}/K)\)</span>. The structure theorems are:</p>
+<ol>
+<li><strong>Grothendieck's monodromy theorem.</strong> The action of <span class="arithmatex">\(I\)</span> on <span class="arithmatex">\(R^n \Psi \mathbb{Q}_\ell\)</span> is quasi-unipotent: after a finite extension of <span class="arithmatex">\(K\)</span> (i.e., passing to a finite-index subgroup of <span class="arithmatex">\(I\)</span>), the action becomes unipotent.</li>
+<li><strong>Tame quotient.</strong> The tame inertia <span class="arithmatex">\(I^t \cong \prod_{\ell \neq p} \mathbb{Z}_\ell\)</span> acts through a single topological generator, whose action gives the monodromy operator.</li>
+<li><strong>Wild part.</strong> The wild inertia <span class="arithmatex">\(P\)</span> acts through a finite quotient on <span class="arithmatex">\(R^n \Psi \mathbb{Q}_\ell\)</span> (this is the content of quasi-unipotence restricted to the <span class="arithmatex">\(p\)</span>-part).</li>
+</ol>
+<p>The inertia group thus captures the "local monodromy" at a place of bad reduction, and its structure (tame vs. wild) dictates the complexity of the degeneration.</p>
+<!-- BENCHMARK_PROBLEM: Define the inertia group I for a complete discretely valued field K with residue field k. What is the relationship between I and the Galois groups of K and k? -->
+
+<h3 id="ecag-0294">Example: Frobenius morphisms<a class="headerlink" href="#ecag-0294" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(X\)</span> be a scheme over <span class="arithmatex">\(\mathbb{F}_p\)</span>.</p>
+<p><strong>Absolute Frobenius.</strong> The absolute Frobenius <span class="arithmatex">\(F_{\mathrm{abs}} : X \to X\)</span> is the identity on the underlying topological space and the <span class="arithmatex">\(p\)</span>-th power map <span class="arithmatex">\(a \mapsto a^p\)</span> on <span class="arithmatex">\(\mathcal{O}_X\)</span>. It is functorial in <span class="arithmatex">\(X\)</span> but is not a morphism of <span class="arithmatex">\(\mathbb{F}_p\)</span>-schemes (it does not commute with the structure map to <span class="arithmatex">\(\operatorname{Spec}(\mathbb{F}_p)\)</span> unless <span class="arithmatex">\(X = \operatorname{Spec}(\mathbb{F}_p)\)</span>).</p>
+<p><strong>Relative Frobenius.</strong> If <span class="arithmatex">\(X\)</span> is an <span class="arithmatex">\(S\)</span>-scheme with <span class="arithmatex">\(S\)</span> an <span class="arithmatex">\(\mathbb{F}_p\)</span>-scheme, define the Frobenius twist <span class="arithmatex">\(X^{(p)} = X \times_{S, F_S} S\)</span>. The relative Frobenius <span class="arithmatex">\(F_{X/S} : X \to X^{(p)}\)</span> is the unique morphism making the diagram</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+X &amp; \xrightarrow{F_{X/S}} &amp; X^{(p)} \\
+&amp; \searrow &amp; \downarrow \\
+&amp; &amp; S
+\end{array}
+\]</div>
+<p>commute, where <span class="arithmatex">\(X \to S\)</span> is the structure map and <span class="arithmatex">\(X^{(p)} \to S\)</span> is the base-changed structure map. The relative Frobenius is a morphism of <span class="arithmatex">\(S\)</span>-schemes and is a purely inseparable morphism of degree <span class="arithmatex">\(p^{\dim X}\)</span>.</p>
+<p><strong>Arithmetic and geometric Frobenius.</strong> For <span class="arithmatex">\(X\)</span> over <span class="arithmatex">\(\mathbb{F}_q\)</span> (with <span class="arithmatex">\(q = p^r\)</span>), the arithmetic Frobenius <span class="arithmatex">\(\operatorname{Frob}_q \in \operatorname{Gal}(\overline{\mathbb{F}_q}/\mathbb{F}_q)\)</span> acts by <span class="arithmatex">\(x \mapsto x^q\)</span>. It acts on <span class="arithmatex">\(\ell\)</span>-adic cohomology <span class="arithmatex">\(H^n_{\mathrm{et}}(X_{\overline{\mathbb{F}_q}}, \mathbb{Q}_\ell)\)</span> by functoriality. The geometric Frobenius <span class="arithmatex">\(\operatorname{Frob}_q^{-1}\)</span> is its inverse. Deligne's theorem (the Weil conjectures) states: for <span class="arithmatex">\(X\)</span> smooth and projective over <span class="arithmatex">\(\mathbb{F}_q\)</span>, the eigenvalues <span class="arithmatex">\(\alpha\)</span> of geometric Frobenius on <span class="arithmatex">\(H^n_{\mathrm{et}}(X_{\overline{\mathbb{F}_q}}, \mathbb{Q}_\ell)\)</span> are algebraic numbers satisfying</p>
+<div class="arithmatex">\[
+|\alpha| = q^{n/2}
+\]</div>
+<p>under every complex embedding. This is the "Riemann hypothesis over finite fields."</p>
+<p><strong>Interaction with nearby cycles.</strong> For a family <span class="arithmatex">\(f : X \to S\)</span> over a trait <span class="arithmatex">\(S = \operatorname{Spec}(\mathcal{O}_K)\)</span> with residue characteristic <span class="arithmatex">\(p\)</span>, the nearby cycles <span class="arithmatex">\(R\Psi\)</span> carry commuting actions of the inertia group <span class="arithmatex">\(I\)</span> (monodromy) and the Frobenius on the special fiber. The <strong>weight-monodromy conjecture</strong> asserts that the monodromy filtration <span class="arithmatex">\(M_\bullet\)</span> and the weight filtration <span class="arithmatex">\(W_\bullet\)</span> (defined via Frobenius eigenvalues) are related by <span class="arithmatex">\(M_k = W_{k+n}\)</span> on <span class="arithmatex">\(R^n \Psi \mathbb{Q}_\ell\)</span>. This conjecture, proved by Deligne for <span class="arithmatex">\(\ell\)</span>-adic cohomology over equal-characteristic local fields, unifies the arithmetic notion of weight (Frobenius eigenvalue magnitude) with the geometric notion (the weight filtration from mixed Hodge theory).</p>
+<!-- BENCHMARK_PROBLEM: For a smooth projective variety X over F_q, what does the Weil conjecture (Riemann hypothesis, proved by Deligne) say about the eigenvalues of geometric Frobenius acting on H^n_et(X_{F_q-bar}, Q_l)? -->
+
+<h3 id="ecag-0295">Example: monodromy operators<a class="headerlink" href="#ecag-0295" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f : X \to D\)</span> be a proper morphism from a smooth variety to a disk <span class="arithmatex">\(D\)</span> with smooth generic fiber. The fundamental group <span class="arithmatex">\(\pi_1(D^*) \cong \mathbb{Z}\)</span> of the punctured disk acts on the cohomology of the generic fiber <span class="arithmatex">\(X_t\)</span>, producing the monodromy transformation <span class="arithmatex">\(T \in \operatorname{Aut}(H^n(X_t; \mathbb{Q}))\)</span>.</p>
+<p>By the monodromy theorem, <span class="arithmatex">\(T\)</span> is quasi-unipotent: there exist positive integers <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(k\)</span> such that <span class="arithmatex">\((T^m - \operatorname{Id})^k = 0\)</span>. After the base change <span class="arithmatex">\(s \mapsto s^m\)</span> (which replaces <span class="arithmatex">\(T\)</span> by <span class="arithmatex">\(T^m\)</span>), we may assume <span class="arithmatex">\(T\)</span> is unipotent: <span class="arithmatex">\((T - \operatorname{Id})^k = 0\)</span> for some <span class="arithmatex">\(k\)</span>. The <strong>monodromy operator</strong> (or <strong>log monodromy</strong>) is the nilpotent endomorphism</p>
+<div class="arithmatex">\[
+N = \log(T) = \sum_{j=1}^{k-1} \frac{(-1)^{j+1}}{j}(T - \operatorname{Id})^j,
+\]</div>
+<p>which is a finite sum since <span class="arithmatex">\(T\)</span> is unipotent.</p>
+<p>The operator <span class="arithmatex">\(N\)</span> determines a unique increasing filtration <span class="arithmatex">\(M_\bullet\)</span> on <span class="arithmatex">\(H^n(X_t; \mathbb{Q})\)</span>, called the <strong>monodromy filtration</strong>, characterized by two properties:</p>
+<ol>
+<li><span class="arithmatex">\(N(M_j) \subset M_{j-2}\)</span> (the operator <span class="arithmatex">\(N\)</span> shifts the filtration by <span class="arithmatex">\(-2\)</span>).</li>
+<li><span class="arithmatex">\(N^j : \operatorname{Gr}_j^M \xrightarrow{\;\sim\;} \operatorname{Gr}_{-j}^M\)</span> is an isomorphism for all <span class="arithmatex">\(j \geq 0\)</span>.</li>
+</ol>
+<p>These two conditions determine <span class="arithmatex">\(M_\bullet\)</span> uniquely from <span class="arithmatex">\(N\)</span>. Concretely, the filtration is built from the kernels and images of powers of <span class="arithmatex">\(N\)</span>:</p>
+<div class="arithmatex">\[
+M_j = \sum_{i \geq 0} \ker(N^{i+1}) \cap \operatorname{im}(N^{\max(i-j, 0)}).
+\]</div>
+<p>The <strong>monodromy weight conjecture</strong> (or weight-monodromy conjecture) asserts that the monodromy filtration <span class="arithmatex">\(M_\bullet\)</span>, centered at weight <span class="arithmatex">\(n\)</span>, coincides with the weight filtration from mixed Hodge theory. That is, on <span class="arithmatex">\(H^n(X_t; \mathbb{Q})\)</span>:</p>
+<div class="arithmatex">\[
+W_{n+j} = M_j.
+\]</div>
+<p>This has been proved in several important cases (by Deligne in equal characteristic, by Scholze for complete intersections in toric varieties).</p>
+<p>At the sheaf level, <span class="arithmatex">\(N\)</span> acts as <span class="arithmatex">\(N : R^n \Psi \mathbb{Q} \to R^n \Psi \mathbb{Q}(-1)\)</span>, where the Tate twist <span class="arithmatex">\((-1)\)</span> accounts for the weight shift: <span class="arithmatex">\(N\)</span> maps weight <span class="arithmatex">\(k\)</span> to weight <span class="arithmatex">\(k - 2\)</span>, and tensoring with <span class="arithmatex">\(\mathbb{Q}(-1)\)</span> (which has weight 2) restores the balance.</p>
+<!-- BENCHMARK_PROBLEM: Given a unipotent monodromy transformation T acting on H^n(X_t; Q), define the monodromy operator N. What are the two defining properties of the monodromy filtration M_* associated to N? -->
+
+<h3 id="ecag-0296">Example: Milnor fibration, nearby cycles of a family <span class="arithmatex">\(X\rightarrow D\)</span>, <a href="http://achinger.impan.pl/thesis.pdf">reference</a><a class="headerlink" href="#ecag-0296" title="Permanent link">&para;</a></h3>
+<p>Consider the family <span class="arithmatex">\(f : X \to D\)</span> defined by <span class="arithmatex">\(X = \{(x_1, x_2, t) \in \mathbb{C}^2 \times D \mid x_1 x_2 = t\}\)</span> with projection <span class="arithmatex">\((x_1, x_2, t) \mapsto t\)</span>. The special fiber <span class="arithmatex">\(X_0 = \{x_1 x_2 = 0\}\)</span> consists of the two coordinate axes meeting at the origin, and each generic fiber <span class="arithmatex">\(X_t \cong \{x_1 x_2 = t\} \cong \mathbb{C}^{\times}\)</span> for <span class="arithmatex">\(t \neq 0\)</span> is a smooth hyperbola.</p>
+<p><strong>Milnor fiber at the singular point.</strong> The Milnor fiber <span class="arithmatex">\(F_{\mathrm{pt}}\)</span> at the origin <span class="arithmatex">\((0,0,0) \in X_0\)</span> captures the local topology of the degeneration. Concretely, <span class="arithmatex">\(F_{\mathrm{pt}}\)</span> is the intersection of the generic fiber <span class="arithmatex">\(\{x_1 x_2 = \epsilon\}\)</span> with a small ball around the origin. For small <span class="arithmatex">\(\epsilon \neq 0\)</span>, this set <span class="arithmatex">\(\{(a, \epsilon/a) : a \in \mathbb{C}^{\times},\, |a|^2 + |\epsilon/a|^2 &lt; r^2\}\)</span> retracts onto the circle <span class="arithmatex">\(|a| = |\epsilon|^{1/2}\)</span>. Therefore</p>
+<div class="arithmatex">\[
+F_{\mathrm{pt}} \simeq S^1.
+\]</div>
+<p><strong>Milnor fiber at smooth points.</strong> At any point <span class="arithmatex">\(q \in X_0\)</span> away from the origin, the family <span class="arithmatex">\(f\)</span> is a submersion (the singular locus of <span class="arithmatex">\(f\)</span> is precisely the origin), so the Milnor fiber is contractible: <span class="arithmatex">\(F_q \simeq \{*\}\)</span>.</p>
+<p><strong>Nearby cycles sheaves.</strong> The stalk of <span class="arithmatex">\(R^k \Psi \mathbb{Z}\)</span> at a point <span class="arithmatex">\(q \in X_0\)</span> is <span class="arithmatex">\(H^k(F_q; \mathbb{Z})\)</span>. This gives:</p>
+<table>
+<thead>
+<tr>
+<th>Point <span class="arithmatex">\(q \in X_0\)</span></th>
+<th><span class="arithmatex">\(F_q\)</span></th>
+<th><span class="arithmatex">\((R^0\Psi\mathbb{Z})_q\)</span></th>
+<th><span class="arithmatex">\((R^1\Psi\mathbb{Z})_q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>smooth point</td>
+<td><span class="arithmatex">\(\{*\}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td>origin</td>
+<td><span class="arithmatex">\(S^1\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>As sheaves on <span class="arithmatex">\(X_0\)</span>:</p>
+<div class="arithmatex">\[
+R^0 \Psi \mathbb{Z} \cong \mathbb{Z}_{X_0}, \qquad R^1 \Psi \mathbb{Z} \cong \mathbb{Z}_{\mathrm{pt}},
+\]</div>
+<p>where <span class="arithmatex">\(\mathbb{Z}_{X_0}\)</span> is the constant sheaf and <span class="arithmatex">\(\mathbb{Z}_{\mathrm{pt}}\)</span> is the skyscraper sheaf supported at the origin.</p>
+<p>The single nontrivial cycle in <span class="arithmatex">\(H^1(F_{\mathrm{pt}}) = H^1(S^1) = \mathbb{Z}\)</span> is the <strong>vanishing cycle</strong>: it is the homology class in the generic fiber that collapses to a point as <span class="arithmatex">\(t \to 0\)</span>. This is the prototypical example of the Picard--Lefschetz theory of vanishing cycles for ordinary double points (nodes of type <span class="arithmatex">\(A_1\)</span>).</p>
+<!-- BENCHMARK_PROBLEM: For the family x_1 x_2 = t over a disk, what is the Milnor fiber over the singular point (0,0,0)? What are the nearby cycles sheaves R^0 Psi Z and R^1 Psi Z on the special fiber? -->
+
+<h3 id="ecag-0297">Example: Dwork family of elliptic curves, need 'monodromy formula'<a class="headerlink" href="#ecag-0297" title="Permanent link">&para;</a></h3>
+<p>We compute the monodromy action on <span class="arithmatex">\(H^1(X_t; \mathbb{Z})\)</span> for the Dwork family</p>
+<div class="arithmatex">\[
+f : X = \{(\epsilon, [x:y:z]) \in D \times \mathbb{P}^2 \mid \epsilon(x^3 + y^3 + z^3) = 3xyz\} \to D, \quad (\epsilon, [x:y:z]) \mapsto \epsilon.
+\]</div>
+<p><strong>The special fiber.</strong> At <span class="arithmatex">\(\epsilon = 0\)</span>, the equation becomes <span class="arithmatex">\(3xyz = 0\)</span>, giving the union of three coordinate lines <span class="arithmatex">\(L_1 = \{x=0\}\)</span>, <span class="arithmatex">\(L_2 = \{y=0\}\)</span>, <span class="arithmatex">\(L_3 = \{z=0\}\)</span> in <span class="arithmatex">\(\mathbb{P}^2\)</span>. These form a triangle with vertices</p>
+<div class="arithmatex">\[
+P_1 = [1:0:0], \quad P_2 = [0:1:0], \quad P_3 = [0:0:1].
+\]</div>
+<p>For generic <span class="arithmatex">\(\epsilon \neq 0\)</span>, the fiber <span class="arithmatex">\(X_\epsilon\)</span> is a smooth elliptic curve with <span class="arithmatex">\(H^1(X_\epsilon; \mathbb{Z}) \cong \mathbb{Z}^2\)</span>.</p>
+<p><strong>Step 1: Nearby cycles sheaves.</strong> At each vertex <span class="arithmatex">\(P_i\)</span>, the singularity of <span class="arithmatex">\(f\)</span> is locally of the form <span class="arithmatex">\(x_1 x_2 = t\)</span> (an ordinary double point), so the Milnor fiber is <span class="arithmatex">\(S^1\)</span> and <span class="arithmatex">\(R^1 \Psi \mathbb{Z}\)</span> has stalk <span class="arithmatex">\(\mathbb{Z}\)</span> at each <span class="arithmatex">\(P_i\)</span>. At smooth points of <span class="arithmatex">\(X_0\)</span>, the family is locally trivial. Therefore:</p>
+<div class="arithmatex">\[
+R^0 \Psi \mathbb{Z} \cong \mathbb{Z}_{X_0}, \qquad R^1 \Psi \mathbb{Z} \cong \bigoplus_{i=1}^{3} \mathbb{Z}_{P_i}.
+\]</div>
+<p><strong>Step 2: The nearby cycles spectral sequence.</strong> The <span class="arithmatex">\(E_2\)</span>-page of <span class="arithmatex">\(H^p(X_0, R^q \Psi \mathbb{Z}) \Rightarrow H^{p+q}(X_t; \mathbb{Z})\)</span> is:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(q \setminus p\)</span></th>
+<th><span class="arithmatex">\(0\)</span></th>
+<th><span class="arithmatex">\(1\)</span></th>
+<th><span class="arithmatex">\(2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}^3\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}^3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here <span class="arithmatex">\(H^1(X_0, \mathbb{Z}) = \mathbb{Z}\)</span>: the triangle of three <span class="arithmatex">\(\mathbb{P}^1\)</span>'s has first homology generated by the loop around the triangle. And <span class="arithmatex">\(H^2(X_0, \mathbb{Z}) = \mathbb{Z}^3\)</span>: each irreducible component <span class="arithmatex">\(L_i \cong \mathbb{P}^1\)</span> contributes a fundamental class.</p>
+<p>The differential <span class="arithmatex">\(d_2 : E_2^{0,1} = \mathbb{Z}^3 \to E_2^{2,0} = \mathbb{Z}^3\)</span> must be compatible with convergence to <span class="arithmatex">\(H^*(X_t)\)</span> with <span class="arithmatex">\(H^0 = \mathbb{Z}\)</span>, <span class="arithmatex">\(H^1 = \mathbb{Z}^2\)</span>, <span class="arithmatex">\(H^2 = \mathbb{Z}\)</span>. The resulting exact sequence is:</p>
+<div class="arithmatex">\[
+0 \to H^1(X_0, \mathbb{Z}) \xrightarrow{\;i\;} H^1(X_t, \mathbb{Z}) \xrightarrow{\;p\;} H^0(X_0, R^1\Psi\mathbb{Z}) \xrightarrow{\;d_2\;} H^2(X_0, \mathbb{Z}) \to H^2(X_t, \mathbb{Z}) \to 0,
+\]</div>
+<div class="arithmatex">\[
+0 \to \mathbb{Z} \xrightarrow{\;i\;} \mathbb{Z}^2 \xrightarrow{\;p\;} \mathbb{Z}^3 \xrightarrow{\;d_2\;} \mathbb{Z}^3 \to \mathbb{Z} \to 0.
+\]</div>
+<p>Since <span class="arithmatex">\(\operatorname{im}(p) = \ker(d_2)\)</span> has rank <span class="arithmatex">\(2 - 1 = 1\)</span>, the map <span class="arithmatex">\(d_2\)</span> has rank 2.</p>
+<p><strong>Step 3: Monodromy form.</strong> Choose a basis <span class="arithmatex">\(\{e_1, e_2\}\)</span> of <span class="arithmatex">\(H^1(X_t; \mathbb{Z})\)</span> where <span class="arithmatex">\(e_1 = i(\text{generator of } H^1(X_0))\)</span> and <span class="arithmatex">\(e_2\)</span> maps to a generator of <span class="arithmatex">\(\ker(d_2) \subset H^0(X_0, R^1 \Psi \mathbb{Z})\)</span>. The monodromy <span class="arithmatex">\(T\)</span> acts trivially on <span class="arithmatex">\(H^1(X_0)\)</span> and on the stalks of <span class="arithmatex">\(R^1 \Psi \mathbb{Z}\)</span>, so it has the form</p>
+<div class="arithmatex">\[
+T = \begin{pmatrix} 1 &amp; m \\ 0 &amp; 1 \end{pmatrix}
+\]</div>
+<p>for some integer <span class="arithmatex">\(m\)</span>.</p>
+<p><strong>Step 4: The monodromy formula.</strong> There is a commutative diagram relating the two filtration steps of <span class="arithmatex">\(H^1(X_t)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+H^1(X_t, \mathbb{Z}) &amp; \xrightarrow{\;p\;} &amp; H^0(X_0, R^1\Psi\mathbb{Z}) \\
+\downarrow\, {1-T} &amp; &amp; \downarrow\, \overline{\alpha} \\
+H^1(X_t, \mathbb{Z}) &amp; \xleftarrow{\;i\;} &amp; H^1(X_0, \mathbb{Z})
+\end{array}
+\]</div>
+<p>where <span class="arithmatex">\(\overline{\alpha}\)</span> is the connecting homomorphism from the short exact sequence</p>
+<div class="arithmatex">\[
+0 \to \mathbb{Z}_{X_0} \to \bigoplus_{i=1}^{3} \mathbb{Z}_{L_i} \to \bigoplus_{i=1}^{3} \mathbb{Z}_{P_i} \to 0.
+\]</div>
+<p>A Cech cohomology computation shows <span class="arithmatex">\(\overline{\alpha}([P_i])\)</span> equals the generator of <span class="arithmatex">\(H^1(X_0, \mathbb{Z}) = \mathbb{Z}\)</span> for each <span class="arithmatex">\(i\)</span>.</p>
+<p><strong>Step 5: Exploiting the <span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span>-symmetry.</strong> The cyclic permutation <span class="arithmatex">\((x,y,z) \mapsto (y,z,x)\)</span> acts on the Dwork family, permuting <span class="arithmatex">\(P_1, P_2, P_3\)</span> cyclically. Since <span class="arithmatex">\(p\)</span> is equivariant and <span class="arithmatex">\(\operatorname{coker}(p) \cong \mathbb{Z}^2\)</span> is torsion-free, the image <span class="arithmatex">\(\operatorname{im}(p) \subset \mathbb{Z}^3\)</span> is generated by the invariant element <span class="arithmatex">\([P_1] + [P_2] + [P_3]\)</span>. Therefore:</p>
+<div class="arithmatex">\[
+\overline{\alpha}([P_1] + [P_2] + [P_3]) = 3 \in H^1(X_0, \mathbb{Z}) \cong \mathbb{Z}.
+\]</div>
+<p>From the commutative diagram, <span class="arithmatex">\((1-T)(e_2) = i(\overline{\alpha}(p(e_2))) = \pm 3 \cdot e_1\)</span>. Fixing orientations, the monodromy matrix is:</p>
+<div class="arithmatex">\[
+T = \begin{pmatrix} 1 &amp; 3 \\ 0 &amp; 1 \end{pmatrix}.
+\]</div>
+<p>The monodromy index <span class="arithmatex">\(m = 3\)</span> equals the number of nodes in the special fiber. This is a general phenomenon for semistable degenerations of elliptic curves: the monodromy is unipotent with <span class="arithmatex">\(m\)</span> equal to the number of irreducible components in the Neron polygon of the special fiber.</p>
+<!-- BENCHMARK_PROBLEM: For the Dwork family of elliptic curves epsilon(x^3+y^3+z^3) = 3xyz, what is the monodromy matrix T acting on H^1(X_t; Z) with respect to a suitable basis? What integer m appears in the upper-right entry? -->
+
+<h3 id="ecag-0298">Remark<a class="headerlink" href="#ecag-0298" title="Permanent link">&para;</a></h3>
+<p>Every irreducible complex representation of an abelian group is 1-dimensional. This follows from Schur's lemma: if <span class="arithmatex">\(\rho : G \to \operatorname{GL}(V)\)</span> is an irreducible representation and <span class="arithmatex">\(G\)</span> is abelian, then <span class="arithmatex">\(\rho(g)\)</span> commutes with <span class="arithmatex">\(\rho(h)\)</span> for all <span class="arithmatex">\(g, h \in G\)</span>, hence every <span class="arithmatex">\(\rho(g)\)</span> is an intertwining operator for <span class="arithmatex">\(\rho\)</span>. Schur's lemma then forces <span class="arithmatex">\(\rho(g)\)</span> to be a scalar multiple of the identity, so every subspace of <span class="arithmatex">\(V\)</span> is <span class="arithmatex">\(G\)</span>-invariant. Irreducibility then requires <span class="arithmatex">\(\dim V = 1\)</span>.</p>
+<p>However, representations of abelian groups need not be semisimple (i.e., decompose as direct sums of irreducibles) unless the group is compact. The key example is <span class="arithmatex">\(G = \mathbb{Z}\)</span> with the representation</p>
+<div class="arithmatex">\[
+\rho : \mathbb{Z} \to \operatorname{GL}_2(\mathbb{C}), \qquad 1 \mapsto \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}.
+\]</div>
+<p>The subspace <span class="arithmatex">\(\mathbb{C} \cdot \binom{1}{0}\)</span> is invariant, but there is no complementary invariant subspace: if <span class="arithmatex">\(\binom{a}{b}\)</span> with <span class="arithmatex">\(b \neq 0\)</span> spanned a second invariant line, then <span class="arithmatex">\(\rho(1) \binom{a}{b} = \binom{a+b}{b}\)</span> would need to be a scalar multiple of <span class="arithmatex">\(\binom{a}{b}\)</span>, forcing <span class="arithmatex">\(b = 0\)</span>. So <span class="arithmatex">\(\rho\)</span> is indecomposable but reducible.</p>
+<p>This is precisely the situation encountered with monodromy. The monodromy representation of <span class="arithmatex">\(\pi_1(D^*) \cong \mathbb{Z}\)</span> on <span class="arithmatex">\(H^n(X_t; \mathbb{Q})\)</span> is typically not semisimple when the special fiber is singular. The Jordan block structure of the monodromy transformation <span class="arithmatex">\(T\)</span> is encoded by the nilpotent operator <span class="arithmatex">\(N = \log(T)\)</span>, and the monodromy filtration extracts this structure in a canonical way.</p>
+<p>For compact groups the situation is different: every continuous finite-dimensional representation is semisimple, by Maschke's theorem (finite groups) or the Peter--Weyl theorem (compact groups). The existence of a Haar measure on compact groups allows averaging to construct invariant complements, which fails for <span class="arithmatex">\(\mathbb{Z}\)</span> or other non-compact groups. This algebraic distinction -- semisimple vs. non-semisimple monodromy -- is the representation-theoretic core of the theory of degenerations.</p>
+<!-- BENCHMARK_PROBLEM: Give an example of a 2-dimensional representation of Z over C that is indecomposable but not irreducible. Why does this not contradict the fact that every irreducible representation of an abelian group is 1-dimensional? -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

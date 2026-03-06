@@ -1,0 +1,2067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/computations/intersection_theory/">
+      
+      
+        <link rel="prev" href="../hodge/">
+      
+      
+        <link rel="next" href="../morse/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Intersection Theory - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chow-rings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intersection Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chow-rings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chow rings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chow rings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Chow ring of \(\overline{\mathrm{M}}_{0,n}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0234" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Keel, Chow ring of \(\overline{\mathrm{M}}_{0,n}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0235" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Blow-ups of \(\mathbb{P}^2\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-conics-problem-via-fundamental-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Five conics problem via fundamental class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five conics problem via fundamental class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0362" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: 3264 conics via excess intersection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cohomology-of-projective-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum cohomology of projective spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum cohomology of projective spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0363" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Quantum cohomology ring of \(\mathbb{P}^n\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cohomology-of-the-flag-variety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum cohomology of the flag variety
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum cohomology of the flag variety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0364" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Quantum cohomology of \(F_{1,2}(\mathbb{C}^3)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivariant-cohomology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivariant cohomology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equivariant cohomology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0236" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(G = (\mathbb{C}^\times)^n\), \(X = \operatorname{pt}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(G = (\mathbb{C}^\times)^n\), \(X = \operatorname{Gr}(k,n)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0238" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\mathcal{O}(-1)\) or \(\mathcal{O}(1)\)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0239" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chow-rings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chow rings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chow rings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0233" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Chow ring of \(\overline{\mathrm{M}}_{0,n}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0234" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Keel, Chow ring of \(\overline{\mathrm{M}}_{0,n}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0235" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Blow-ups of \(\mathbb{P}^2\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-conics-problem-via-fundamental-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Five conics problem via fundamental class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five conics problem via fundamental class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0362" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: 3264 conics via excess intersection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cohomology-of-projective-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum cohomology of projective spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum cohomology of projective spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0363" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Quantum cohomology ring of \(\mathbb{P}^n\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantum-cohomology-of-the-flag-variety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quantum cohomology of the flag variety
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantum cohomology of the flag variety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0364" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Quantum cohomology of \(F_{1,2}(\mathbb{C}^3)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivariant-cohomology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivariant cohomology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equivariant cohomology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0236" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(G = (\mathbb{C}^\times)^n\), \(X = \operatorname{pt}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0237" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(G = (\mathbb{C}^\times)^n\), \(X = \operatorname{Gr}(k,n)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0238" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\mathcal{O}(-1)\) or \(\mathcal{O}(1)\)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0239" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Intersection Theory</h1>
+
+<h2 id="chow-rings">Chow rings<a class="headerlink" href="#chow-rings" title="Permanent link">&para;</a></h2>
+<p><img alt="Chow ring computation tables" src="../../img/matrix.JPG" /></p>
+<p><img alt="Chow ring computation tables (continued)" src="../../img/matrix2.JPG" /></p>
+<h3 id="ecag-0233">Example: Chow ring of <span class="arithmatex">\(\overline{\mathrm{M}}_{0,n}\)</span><a class="headerlink" href="#ecag-0233" title="Permanent link">&para;</a></h3>
+<p>The moduli space <span class="arithmatex">\(\overline{\mathrm{M}}_{0,n}\)</span> of stable <span class="arithmatex">\(n\)</span>-pointed rational curves admits an explicit Chow ring description via Keel's generators-and-relations theorem. For small <span class="arithmatex">\(n\)</span>, these rings can be computed completely and matched against classical geometric models.</p>
+<p><strong>The case <span class="arithmatex">\(n = 4\)</span>.</strong> Since <span class="arithmatex">\(\overline{\mathrm{M}}_{0,4} \cong \mathbb{P}^1\)</span>, the Chow ring is immediate. In Keel's framework, the three boundary divisors satisfy <span class="arithmatex">\(\delta_{12} = \delta_{13} = \delta_{14}\)</span> (a single class <span class="arithmatex">\(\delta\)</span>) and <span class="arithmatex">\(\delta_{12} \cdot \delta_{13} = 0\)</span>, recovering</p>
+<div class="arithmatex">\[
+\operatorname{CH}^*(\overline{\mathrm{M}}_{0,4}) \cong \mathbb{Z}[\delta]/(\delta^2).
+\]</div>
+<p><strong>The case <span class="arithmatex">\(n = 5\)</span>, linear relations.</strong> There are <span class="arithmatex">\(\binom{5}{2} = 10\)</span> boundary divisor generators <span class="arithmatex">\(\delta_{ij}\)</span> (before applying symmetry <span class="arithmatex">\(\delta_S = \delta_{S^c}\)</span>). Keel's linear equivalences, arising from pulling back <span class="arithmatex">\([0] = [1] = [\infty]\)</span> in <span class="arithmatex">\(\operatorname{CH}^1(\mathbb{P}^1)\)</span> via the forgetful maps <span class="arithmatex">\(\overline{\mathrm{M}}_{0,5} \to \overline{\mathrm{M}}_{0,4}\)</span>, give for each quadruple <span class="arithmatex">\(\{i,j,k,l\}\)</span>:</p>
+<div class="arithmatex">\[
+\delta_{ij} + \delta_{kl} = \delta_{ik} + \delta_{jl} = \delta_{il} + \delta_{jk}.
+\]</div>
+<p>Row-reducing the system of linear relations among the ten generators reveals five free generators. Taking <span class="arithmatex">\(\delta_{15}, \delta_{25}, \delta_{34}, \delta_{35}, \delta_{45}\)</span> as a basis, the dependent generators are:</p>
+<div class="arithmatex">\[
+\delta_{14} = \delta_{15} + \delta_{34} - \delta_{35}, \quad \delta_{23} = \delta_{25} + \delta_{34} - \delta_{45}, \quad \delta_{24} = \delta_{25} + \delta_{34} - \delta_{35},
+\]</div>
+<p>and <span class="arithmatex">\(\delta_{13}\)</span>, <span class="arithmatex">\(\delta_{12}\)</span> follow by further substitution. Hence <span class="arithmatex">\(\operatorname{rank}(\operatorname{Pic}(\overline{\mathrm{M}}_{0,5})) = 5\)</span>.</p>
+<p><strong>Product relations.</strong> Keel's disjointness condition states <span class="arithmatex">\(\delta_S \cdot \delta_T = 0\)</span> unless one of <span class="arithmatex">\(S \subset T\)</span>, <span class="arithmatex">\(S \subset T^c\)</span>, <span class="arithmatex">\(S^c \subset T\)</span>, <span class="arithmatex">\(S^c \subset T^c\)</span> holds. For non-nested pairs, this forces <span class="arithmatex">\(\delta_{ab} \cdot \delta_{cd} = 0\)</span> when <span class="arithmatex">\(\{a,b\}\)</span> and <span class="arithmatex">\(\{c,d\}\)</span> separate all five points. Multiplying the linear equivalence <span class="arithmatex">\(\delta_{ij} + \delta_{kl} = \delta_{ik} + \delta_{jl}\)</span> by <span class="arithmatex">\(\delta_{ij}\)</span> and applying disjointness yields</p>
+<div class="arithmatex">\[
+\delta_{ij}^2 = -\delta_{ab}\delta_{cd}
+\]</div>
+<p>for any partition <span class="arithmatex">\(\{a,b\} \cup \{c,d\} = \{1,\ldots,5\} \setminus \{m\}\)</span>. All triple products vanish by dimension since <span class="arithmatex">\(\dim \overline{\mathrm{M}}_{0,5} = 2\)</span>.</p>
+<p><strong>Geometric identification as a del Pezzo surface.</strong> The space <span class="arithmatex">\(\overline{\mathrm{M}}_{0,5}\)</span> admits a realization as a blow-up. The universal curve structure gives <span class="arithmatex">\(\overline{\mathrm{M}}_{0,5} \cong \operatorname{Bl}_{3\text{ pts on }\Delta}(\mathbb{P}^1 \times \mathbb{P}^1)\)</span>, where the blown-up points lie on the diagonal. Now <span class="arithmatex">\(\operatorname{Bl}_{2\text{ pts}}(\mathbb{P}^2) \cong \operatorname{Bl}_{1\text{ pt}}(\mathbb{P}^1 \times \mathbb{P}^1)\)</span>: the divisor <span class="arithmatex">\(2H - E_1 - E_2\)</span> on <span class="arithmatex">\(\operatorname{Bl}_{2\text{ pts}}(\mathbb{P}^2)\)</span> maps to conics through the two points, embedding the surface as a smooth quadric in <span class="arithmatex">\(\mathbb{P}^3\)</span>, which is <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span>. The embedding contracts the strict transform <span class="arithmatex">\(H - E_1 - E_2\)</span>, and reversing this contraction (blowing up the image point) recovers <span class="arithmatex">\(\operatorname{Bl}_{2\text{ pts}}(\mathbb{P}^2)\)</span>. Iterating gives <span class="arithmatex">\(\overline{\mathrm{M}}_{0,5} \cong \operatorname{Bl}_{4\text{ general pts}}(\mathbb{P}^2)\)</span>, a del Pezzo surface of degree 5.</p>
+<p>The blow-up formula immediately yields the Chow ring:</p>
+<div class="arithmatex">\[
+\operatorname{CH}^*(\overline{\mathrm{M}}_{0,5}) \cong \mathbb{Z}[H, E_1, E_2, E_3, E_4]/(H^2 - 1,\; HE_i,\; E_i^2 + 1,\; E_iE_j \text{ for } i \neq j).
+\]</div>
+<p>The dictionary between Keel's boundary divisors <span class="arithmatex">\(\delta_{ij}\)</span> and the blow-up generators <span class="arithmatex">\(H, E_1, \ldots, E_4\)</span> can be determined by matching intersection numbers.</p>
+<!-- BENCHMARK_PROBLEM: Compute the rank of $\operatorname{Pic}(\overline{\mathrm{M}}_{0,5})$ using Keel's presentation by boundary divisors $\delta_{S}$. Express the answer as a single integer. -->
+
+<h3 id="ecag-0234">Remark: Keel, Chow ring of <span class="arithmatex">\(\overline{\mathrm{M}}_{0,n}\)</span><a class="headerlink" href="#ecag-0234" title="Permanent link">&para;</a></h3>
+<p>Sean Keel's theorem (<em>Intersection theory of moduli space of stable <span class="arithmatex">\(n\)</span>-pointed curves of genus <span class="arithmatex">\(0\)</span></em>) provides a complete presentation of <span class="arithmatex">\(\operatorname{CH}^*(\overline{\mathrm{M}}_{0,n})\)</span>. The generators are boundary divisors <span class="arithmatex">\(\delta_S\)</span> indexed by subsets <span class="arithmatex">\(S \subset \{1, \ldots, n\}\)</span> with <span class="arithmatex">\(\#S \geq 2\)</span> and <span class="arithmatex">\(\#S^c \geq 2\)</span>, subject to three families of relations:</p>
+<ol>
+<li>
+<p><strong>Symmetry.</strong> <span class="arithmatex">\(\delta_S = \delta_{S^c}\)</span>, reflecting that a partition into <span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(S^c\)</span> defines the same boundary stratum regardless of labeling.</p>
+</li>
+<li>
+<p><strong>Linear equivalences.</strong> For any four distinct elements <span class="arithmatex">\(i,j,k,l \in \{1,\ldots,n\}\)</span>,</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\sum_{\substack{i,j \in S \\ k,l \in S^c}} \delta_S = \sum_{\substack{i,k \in S \\ j,l \in S^c}} \delta_S = \sum_{\substack{i,l \in S \\ j,k \in S^c}} \delta_S.
+\]</div>
+<p>These arise from pulling back <span class="arithmatex">\([0] = [1] = [\infty]\)</span> in <span class="arithmatex">\(\operatorname{CH}^1(\mathbb{P}^1)\)</span> via the forgetful morphisms <span class="arithmatex">\(\overline{\mathrm{M}}_{0,n} \to \overline{\mathrm{M}}_{0,4} \cong \mathbb{P}^1\)</span> that remember only the four marked points <span class="arithmatex">\(i,j,k,l\)</span>.</p>
+<ol>
+<li><strong>Disjointness.</strong> <span class="arithmatex">\(\delta_S \cdot \delta_T = 0\)</span> unless one of the four containments <span class="arithmatex">\(S \subset T\)</span>, <span class="arithmatex">\(S \subset T^c\)</span>, <span class="arithmatex">\(S^c \subset T\)</span>, <span class="arithmatex">\(S^c \subset T^c\)</span> holds. This reflects the geometric fact that two boundary divisors parametrizing non-nested partitions have empty intersection in <span class="arithmatex">\(\overline{\mathrm{M}}_{0,n}\)</span>.</li>
+</ol>
+<p>These relations are complete: they generate the full ideal of relations. The number of distinct generators (after identifying <span class="arithmatex">\(\delta_S = \delta_{S^c}\)</span>) is <span class="arithmatex">\(\frac{1}{2}(2^n - 2) - n\)</span>, since we exclude <span class="arithmatex">\(\#S &lt; 2\)</span> and <span class="arithmatex">\(\#S^c &lt; 2\)</span>, and identify complementary subsets. For <span class="arithmatex">\(n = 6\)</span>, this gives <span class="arithmatex">\(\frac{1}{2}(62) - 6 = 25\)</span> generators.</p>
+<!-- BENCHMARK_PROBLEM: In Keel's presentation of $\operatorname{CH}^{*}(\overline{\mathrm{M}}_{0,6})$, how many distinct boundary divisor generators $\delta_{S}$ are there (after identifying $\delta_{S} = \delta_{S^{c}}$)? Express the answer as a single integer. -->
+
+<h3 id="ecag-0235">Remark: Blow-ups of <span class="arithmatex">\(\mathbb{P}^2\)</span><a class="headerlink" href="#ecag-0235" title="Permanent link">&para;</a></h3>
+<p>The relationship between blow-ups of <span class="arithmatex">\(\mathbb{P}^2\)</span> and <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span> involves several identities and non-identities that require careful attention to the positions of the blown-up points.</p>
+<p><span class="arithmatex">\(\operatorname{Bl}_{2\text{ pts}}(\mathbb{P}^2) \cong \operatorname{Bl}_{1\text{ pt}}(\mathbb{P}^1 \times \mathbb{P}^1)\)</span>. Both surfaces are del Pezzo surfaces of degree 7. The first is also the Hirzebruch surface <span class="arithmatex">\(\mathbb{F}_1 = \mathbb{P}(\mathcal{O} \oplus \mathcal{O}(1))\)</span> blown up once. Note <span class="arithmatex">\(\mathbb{F}_1 \cong \operatorname{Bl}_{1\text{ pt}}(\mathbb{P}^2) \not\cong \mathbb{P}^1 \times \mathbb{P}^1\)</span>: the surface <span class="arithmatex">\(\mathbb{F}_1\)</span> contains a <span class="arithmatex">\((-1)\)</span>-curve (the exceptional section), while <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span> has no curves of negative self-intersection. This also shows <span class="arithmatex">\(\mathbb{F}_1\)</span> is not minimal, whereas all other Hirzebruch surfaces <span class="arithmatex">\(\mathbb{F}_n\)</span> (<span class="arithmatex">\(n \neq 1\)</span>) are.</p>
+<p><span class="arithmatex">\(\operatorname{Bl}_{3\text{ pts on }\Delta}(\mathbb{P}^1 \times \mathbb{P}^1) \cong \operatorname{Bl}_{4\text{ general pts}}(\mathbb{P}^2)\)</span>. This follows from iterating the identity <span class="arithmatex">\(\operatorname{Bl}_{2\text{ pts}}(\mathbb{P}^2) \cong \operatorname{Bl}_{1\text{ pt}}(\mathbb{P}^1 \times \mathbb{P}^1)\)</span>. In <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span>, any three distinct points in general position (no two sharing a fibre of either projection) can be moved to the diagonal by an automorphism.</p>
+<p><span class="arithmatex">\(\operatorname{Bl}_{4\text{ general pts}}(\mathbb{P}^2) \not\cong \operatorname{Bl}_{4\text{ pts, 3 collinear}}(\mathbb{P}^2)\)</span>. If three of the four blown-up points <span class="arithmatex">\(p_1, p_2, p_3\)</span> lie on a line <span class="arithmatex">\(L \subset \mathbb{P}^2\)</span>, the strict transform <span class="arithmatex">\(\widetilde{L}\)</span> has class <span class="arithmatex">\(H - E_1 - E_2 - E_3\)</span>, so</p>
+<div class="arithmatex">\[
+\widetilde{L}^2 = H^2 - E_1^2 - E_2^2 - E_3^2 = 1 - 3 = -2.
+\]</div>
+<p>This produces a <span class="arithmatex">\((-2)\)</span>-curve, which cannot exist when the four points are in general position. In that case, the <span class="arithmatex">\((-1)\)</span>-curves are exactly the ten classes <span class="arithmatex">\(E_i\)</span>, <span class="arithmatex">\(H - E_i - E_j\)</span> (<span class="arithmatex">\(i &lt; j\)</span>), and <span class="arithmatex">\(2H - E_1 - E_2 - E_3 - E_4\)</span> (the conic through all four), each with self-intersection <span class="arithmatex">\(-1\)</span>. A <span class="arithmatex">\((-2)\)</span>-curve would create an ADE singularity upon contraction, changing the deformation type of the surface.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \operatorname{Bl}_{p_1, p_2, p_3, p_4}(\mathbb{P}^2)$ where $p_1, p_2, p_3$ are collinear and $p_4$ is in general position. Compute the self-intersection number of the strict transform of the line through $p_1, p_2, p_3$. Express the answer as a single integer. -->
+
+<h2 id="five-conics-problem-via-fundamental-class">Five conics problem via fundamental class<a class="headerlink" href="#five-conics-problem-via-fundamental-class" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0362">Example: 3264 conics via excess intersection<a class="headerlink" href="#ecag-0362" title="Permanent link">&para;</a></h3>
+<p>The classical enumerative problem asks: how many smooth conics are tangent to five general conics in <span class="arithmatex">\(\mathbb{P}^2\)</span>? The answer is 3264. We derive this by computing the virtual fundamental class of the tangency locus and separating its contribution from the embedded component supported on double lines.</p>
+<p><strong>Setup.</strong> The space of conics in <span class="arithmatex">\(\mathbb{P}^2\)</span> is <span class="arithmatex">\(\mathbb{P}^5 = \mathbb{P}(H^0(\mathcal{O}_{\mathbb{P}^2}(2)))\)</span>. The locus <span class="arithmatex">\(Z_i \subset \mathbb{P}^5\)</span> of conics tangent to a fixed smooth conic <span class="arithmatex">\(C_i\)</span> is a hypersurface of degree 6 (the discriminant of the pencil spanned by the conic and its dual). Each <span class="arithmatex">\(Z_i\)</span> is the zero locus of a section <span class="arithmatex">\(f_i \in H^0(\mathcal{O}_{\mathbb{P}^5}(6))\)</span>. The intersection <span class="arithmatex">\(\mathcal{M} = \bigcap_{i=1}^{5} Z_i\)</span> parametrizes conics simultaneously tangent to all five.</p>
+<p>If <span class="arithmatex">\(\mathcal{M}\)</span> were a proper complete intersection, Bezout's theorem would give <span class="arithmatex">\(\deg \mathcal{M} = 6^5 = 7776\)</span>. However, <span class="arithmatex">\(\mathcal{M}\)</span> is not a complete intersection: the degree-2 Veronese surface <span class="arithmatex">\(S \subset \mathbb{P}^5\)</span>, parametrizing double lines <span class="arithmatex">\(\ell^2\)</span>, is contained in every <span class="arithmatex">\(Z_i\)</span> with multiplicity 2 (a double line is "tangent" to any conic in a degenerate sense). We must account for this embedded component using excess intersection theory.</p>
+<p><strong>Virtual fundamental class.</strong> We view the five sections <span class="arithmatex">\(f_1, \ldots, f_5\)</span> as defining a section of the rank-5 bundle <span class="arithmatex">\(E = \mathcal{O}_{\mathbb{P}^5}(6)^{\oplus 5}\)</span>. The deformation-to-the-normal-cone construction scales <span class="arithmatex">\(f_i \mapsto tf_i\)</span> and takes <span class="arithmatex">\(t \to \infty\)</span>, producing the normal cone <span class="arithmatex">\(C_{\mathcal{M}/\mathbb{P}^5}\)</span> inside <span class="arithmatex">\(E|_{\mathcal{M}}\)</span>. The virtual fundamental class is defined via the Gysin map:</p>
+<div class="arithmatex">\[
+[\mathcal{M}]^{\mathrm{vir}} = 0^![C_{\mathcal{M}/\mathbb{P}^5}] = \{c(E|_{\mathcal{M}}) \cdot s(\mathcal{M}, C_{\mathcal{M}/\mathbb{P}^5})\}_0.
+\]</div>
+<p><strong>Segre class of the Veronese component.</strong> Let <span class="arithmatex">\(h = c_1(\mathcal{O}_S(1))\)</span> denote the hyperplane class on <span class="arithmatex">\(S \cong \mathbb{P}^2\)</span>, so <span class="arithmatex">\(H|_S = 2h\)</span> (the Veronese embedding has degree 2). The multiplicity of each <span class="arithmatex">\(Z_i\)</span> along <span class="arithmatex">\(S\)</span> is 2 (see Eisenbud--Harris, <em>3264 and All That</em>, p. 463), so the Segre class of <span class="arithmatex">\(\mathcal{M}\)</span> along the Veronese component picks up a factor of <span class="arithmatex">\(2^{k+3}\)</span> in degree <span class="arithmatex">\(k\)</span>:</p>
+<div class="arithmatex">\[
+s_k(\mathcal{M}, C_{\mathcal{M}/\mathbb{P}^5})|_T = 2^{k+3} \cdot s_k(S, N_{S/\mathbb{P}^5}).
+\]</div>
+<p>We compute the normal bundle Segre class via the tangent bundle sequence. The Veronese embedding <span class="arithmatex">\(\nu: \mathbb{P}^2 \hookrightarrow \mathbb{P}^5\)</span> gives <span class="arithmatex">\(c(T_{\mathbb{P}^5})|_S = (1+H)^6|_S = (1+2h)^6\)</span> and <span class="arithmatex">\(c(T_S) = (1+h)^3\)</span>, so</p>
+<div class="arithmatex">\[
+c(N_{S/\mathbb{P}^5}) = \frac{(1+2h)^6}{(1+h)^3} = 1 + 9h + 30h^2.
+\]</div>
+<p>Inverting: <span class="arithmatex">\(s(S, N_{S/\mathbb{P}^5}) = 1 - 9h + 51h^2\)</span>. With the multiplicity factors:</p>
+<div class="arithmatex">\[
+s(\mathcal{M}, C_{\mathcal{M}/\mathbb{P}^5})|_T = 8 - 144h + 1632h^2.
+\]</div>
+<p><strong>Chern class of <span class="arithmatex">\(E\)</span>.</strong> On <span class="arithmatex">\(\mathcal{M}\)</span>, the bundle <span class="arithmatex">\(E = \mathcal{O}(6)^{\oplus 5}\)</span> has <span class="arithmatex">\(c(E|_S) = (1+6H|_S)^5 = (1+12h)^5\)</span>.</p>
+<p><strong>Degree of the Veronese contribution.</strong> We extract the degree-0 piece (i.e., the degree in <span class="arithmatex">\(A_0(S) \cong \mathbb{Z}\)</span>):</p>
+<div class="arithmatex">\[
+\deg_T [\mathcal{M}]^{\mathrm{vir}} = \int_S (1+12h)^5 \cdot (8 - 144h + 1632h^2).
+\]</div>
+<p>Expanding <span class="arithmatex">\((1+12h)^5 = 1 + 60h + 1440h^2 + \cdots\)</span> (only terms up to <span class="arithmatex">\(h^2\)</span> matter on <span class="arithmatex">\(\mathbb{P}^2\)</span>), and collecting the <span class="arithmatex">\(h^2\)</span>-coefficient:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th><span class="arithmatex">\(h^2\)</span>-coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(8 \cdot 1440\)</span></td>
+<td><span class="arithmatex">\(11520\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(-144 \cdot 60\)</span></td>
+<td><span class="arithmatex">\(-8640\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1632 \cdot 1\)</span></td>
+<td><span class="arithmatex">\(1632\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Total: <span class="arithmatex">\(11520 - 8640 + 1632 = 4512\)</span>. Since <span class="arithmatex">\(\int_S h^2 = \deg S = 1\)</span> (a single point on <span class="arithmatex">\(\mathbb{P}^2\)</span>), the Veronese component contributes <span class="arithmatex">\(4512\)</span> to the virtual degree.</p>
+<p><strong>Extracting the answer.</strong> The total virtual degree equals the top Chern class:</p>
+<div class="arithmatex">\[
+\int_{\mathbb{P}^5} c_5(E) = \int_{\mathbb{P}^5} (6H)^5 = 6^5 = 7776.
+\]</div>
+<p>The zero-dimensional component of <span class="arithmatex">\(\mathcal{M}\)</span> (the smooth conics tangent to all five) contributes the remainder:</p>
+<div class="arithmatex">\[
+7776 - 4512 = 3264.
+\]</div>
+<p>From the perspective of virtual fundamental classes, the essential content is not just the answer <span class="arithmatex">\(3264\)</span> but the decomposition <span class="arithmatex">\([\mathcal{M}]^{\mathrm{vir}} = 4512[\text{pt on }T] + 3264[\text{reduced points}]\)</span>, which exhibits how the virtual class distributes between the embedded and isolated components.</p>
+<!-- BENCHMARK_PROBLEM: Let $S \subset \mathbb{P}^5$ be the degree-2 Veronese surface parametrizing double lines, and let $E = \mathcal{O}_{\mathbb{P}^5}(6)^{\oplus 5}$. Compute $\int_S c(E|_S) \cdot s(S, N_{S/\mathbb{P}^5})$ and use the result to determine the number of smooth conics tangent to five general conics in $\mathbb{P}^2$. -->
+
+<h2 id="quantum-cohomology-of-projective-spaces">Quantum cohomology of projective spaces<a class="headerlink" href="#quantum-cohomology-of-projective-spaces" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0363">Example: Quantum cohomology ring of <span class="arithmatex">\(\mathbb{P}^n\)</span><a class="headerlink" href="#ecag-0363" title="Permanent link">&para;</a></h3>
+<p>The (small) quantum cohomology ring of <span class="arithmatex">\(\mathbb{P}^n\)</span> is</p>
+<div class="arithmatex">\[
+QH^*(\mathbb{P}^n, \mathbb{Z}) = \mathbb{Z}[h_1, q]/(h_1^{n+1} - q),
+\]</div>
+<p>where <span class="arithmatex">\(h_1 \in H^2(\mathbb{P}^n)\)</span> is the hyperplane class and <span class="arithmatex">\(q\)</span> is the Novikov variable tracking degree. The proof combines classical intersection theory with a single Schubert calculus computation on <span class="arithmatex">\(\operatorname{Gr}(2, n+1)\)</span>.</p>
+<p><strong>Notation.</strong> We write <span class="arithmatex">\(H^k\)</span> for the class of a linear subspace <span class="arithmatex">\(\mathbb{P}^{n-k} \subset \mathbb{P}^n\)</span> in homology <span class="arithmatex">\(H_{2(n-k)}(\mathbb{P}^n)\)</span>, and <span class="arithmatex">\(h_k\)</span> for the corresponding cohomology class in <span class="arithmatex">\(H^{2k}(\mathbb{P}^n)\)</span>, so <span class="arithmatex">\(h_k = h_1^k\)</span>. The second homology <span class="arithmatex">\(H_2(\mathbb{P}^n, \mathbb{Z}) = \mathbb{Z} \cdot H^{n-1}\)</span> is generated by the class of a line. The Novikov variable satisfies <span class="arithmatex">\(q^{rH^{n-1}} = q^r\)</span>.</p>
+<p><strong>Dimension count.</strong> The moduli space <span class="arithmatex">\(\mathcal{M}_{0,3}(\mathbb{P}^n, r H^{n-1})\)</span> of degree-<span class="arithmatex">\(r\)</span> genus-0 stable maps with 3 marked points has dimension</p>
+<div class="arithmatex">\[
+\dim \mathcal{M}_{0,3}(\mathbb{P}^n, r H^{n-1}) = n - 3 + 3 + r(n+1) = n + r(n+1).
+\]</div>
+<p>The quantum product is</p>
+<div class="arithmatex">\[
+h_i \circ h_j = \sum_{r \geq 0} \sum_k \langle H^i | H^j | H^k \rangle_{rH^{n-1}} \, h_k \, q^r,
+\]</div>
+<p>where <span class="arithmatex">\(\langle H^i | H^j | H^k \rangle_{rH^{n-1}}\)</span> is the genus-0, 3-point, degree-<span class="arithmatex">\(r\)</span> Gromov--Witten invariant. The three evaluation maps <span class="arithmatex">\(\operatorname{ev}_1^*(H^i) \cup \operatorname{ev}_2^*(H^j) \cup \operatorname{ev}_3^*(H^k)\)</span> impose <span class="arithmatex">\(i + j + k\)</span> conditions on a space of dimension <span class="arithmatex">\(n + r(n+1)\)</span>. For the invariant to be nonzero, we need <span class="arithmatex">\(i + j + k = n + r(n+1)\)</span>, which forces <span class="arithmatex">\(r = 0\)</span> or <span class="arithmatex">\(r = 1\)</span> (since <span class="arithmatex">\(i, j, k \leq n\)</span>, we have <span class="arithmatex">\(i+j+k \leq 3n\)</span>, so <span class="arithmatex">\(r(n+1) \leq 2n\)</span>, giving <span class="arithmatex">\(r \leq 1\)</span> for <span class="arithmatex">\(n \geq 1\)</span>).</p>
+<p><strong>The <span class="arithmatex">\(r = 0\)</span> contribution.</strong> These are the classical intersection numbers:</p>
+<div class="arithmatex">\[
+\langle H^i | H^j | H^k \rangle_0 = \begin{cases} 1 &amp; \text{if } i + j + k = n, \\ 0 &amp; \text{otherwise.} \end{cases}
+\]</div>
+<p>This recovers the ordinary cup product <span class="arithmatex">\(h_i \cup h_j = h_{i+j}\)</span> when <span class="arithmatex">\(i + j \leq n\)</span>.</p>
+<p><strong>The <span class="arithmatex">\(r = 1\)</span> contribution via Schubert calculus.</strong> The invariant <span class="arithmatex">\(\langle H^i | H^j | H^k \rangle_{H^{n-1}}\)</span> counts lines in <span class="arithmatex">\(\mathbb{P}^n\)</span> meeting three general linear subspaces <span class="arithmatex">\(\mathbb{P}^{n-i}\)</span>, <span class="arithmatex">\(\mathbb{P}^{n-j}\)</span>, <span class="arithmatex">\(\mathbb{P}^{n-k}\)</span>. A line in <span class="arithmatex">\(\mathbb{P}^n\)</span> corresponds to a 2-plane in <span class="arithmatex">\(\mathbb{C}^{n+1}\)</span>, and the condition that this 2-plane meets a linear subspace of dimension <span class="arithmatex">\(n+1-i\)</span> nontrivially is the Schubert condition <span class="arithmatex">\(\sigma_{i-1}\)</span> in <span class="arithmatex">\(\operatorname{Gr}(2, n+1)\)</span>. So</p>
+<div class="arithmatex">\[
+\langle H^i | H^j | H^k \rangle_{H^{n-1}} = \int_{\operatorname{Gr}(2,n+1)} \sigma_{i-1} \cdot \sigma_{j-1} \cdot \sigma_{k-1}.
+\]</div>
+<p>Since <span class="arithmatex">\(\sigma_{i-1}\)</span>, <span class="arithmatex">\(\sigma_{j-1}\)</span>, <span class="arithmatex">\(\sigma_{k-1}\)</span> are all special Schubert classes (single-row partitions), we can apply Pieri's rule iteratively. The dimension of <span class="arithmatex">\(\operatorname{Gr}(2, n+1)\)</span> is <span class="arithmatex">\(2(n-1)\)</span>, so the product is nonzero only when <span class="arithmatex">\((i-1) + (j-1) + (k-1) = 2(n-1)\)</span>, i.e., <span class="arithmatex">\(i + j + k = 2n + 1\)</span>. In that case, Pieri's rule gives exactly one way to fill the <span class="arithmatex">\(2 \times (n-1)\)</span> Young diagram, so</p>
+<div class="arithmatex">\[
+\langle H^i | H^j | H^k \rangle_{H^{n-1}} = \begin{cases} 1 &amp; \text{if } i + j + k = 2n+1, \\ 0 &amp; \text{otherwise.} \end{cases}
+\]</div>
+<p><strong>Assembling the ring.</strong> For <span class="arithmatex">\(i + j \leq n\)</span>, the quantum product agrees with the classical product: <span class="arithmatex">\(h_i \circ h_j = h_{i+j}\)</span>. The only new relation appears when <span class="arithmatex">\(i + j = n + 1\)</span> (the first case where the classical product vanishes). Setting <span class="arithmatex">\(i = 1\)</span>, <span class="arithmatex">\(j = n\)</span>:</p>
+<div class="arithmatex">\[
+h_1 \circ h_n = \langle H^1 | H^n | H^k \rangle_{H^{n-1}} h_k \, q = h_0 \cdot q = q,
+\]</div>
+<p>since <span class="arithmatex">\(1 + n + k = 2n+1\)</span> forces <span class="arithmatex">\(k = 0\)</span>. Since <span class="arithmatex">\(h_n = h_1^n\)</span> classically, we obtain <span class="arithmatex">\(h_1^{n+1} = q\)</span> in the quantum ring, giving the presentation <span class="arithmatex">\(QH^*(\mathbb{P}^n) = \mathbb{Z}[h_1, q]/(h_1^{n+1} - q)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Using genus-0 Gromov--Witten invariants and Schubert calculus on $\operatorname{Gr}(2, n+1)$, compute $\langle H^i | H^j | H^k \rangle_{H^{n-1}}$ for $\mathbb{P}^n$ and derive the quantum cohomology ring $QH^*(\mathbb{P}^n, \mathbb{Z})$. -->
+
+<h2 id="quantum-cohomology-of-the-flag-variety">Quantum cohomology of the flag variety<a class="headerlink" href="#quantum-cohomology-of-the-flag-variety" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0364">Example: Quantum cohomology of <span class="arithmatex">\(F_{1,2}(\mathbb{C}^3)\)</span><a class="headerlink" href="#ecag-0364" title="Permanent link">&para;</a></h3>
+<p>The complete flag variety <span class="arithmatex">\(F_3 = F_{1,2}(\mathbb{C}^3) = \{(L, V) \in \operatorname{Gr}(1, \mathbb{C}^3) \times \operatorname{Gr}(2, \mathbb{C}^3) \mid L \subset V\}\)</span> is diffeomorphic to <span class="arithmatex">\(U_3/(U_1 \times U_1 \times U_1)\)</span>. We compute its quantum cohomology ring</p>
+<div class="arithmatex">\[
+QH^*(F_3, \mathbb{Z}) = \mathbb{Z}[\alpha, \zeta, q_1, q_2] / (\zeta^2 - \alpha\zeta + \alpha^2 - q_1 - q_2, \; \alpha^3 - \alpha q_1 - \zeta q_1).
+\]</div>
+<p><strong>Classical Chow ring.</strong> The flag variety <span class="arithmatex">\(F_3 = \mathbb{P}(\mathcal{V})\)</span>, the projectivization of the tautological rank-2 bundle <span class="arithmatex">\(\mathcal{V}\)</span> on <span class="arithmatex">\(\operatorname{Gr}(2, \mathbb{C}^3) = \mathbb{P}^2\)</span>. Let <span class="arithmatex">\(\alpha = c_1(\mathcal{O}_{\mathbb{P}^2}(1))\)</span> be the hyperplane class on the base and <span class="arithmatex">\(\zeta = c_1(\mathcal{O}_{\mathbb{P}(\mathcal{V})}(1))\)</span> the tautological class of the projectivization. The Chern classes of the tautological bundle are <span class="arithmatex">\(c(\mathcal{V}) = 1 - \sigma_1 + \sigma_{1,1} = 1 - \alpha + \alpha^2\)</span> (identifying <span class="arithmatex">\(\sigma_1 = \alpha\)</span> and <span class="arithmatex">\(\sigma_{1,1} = \alpha^2\)</span> on <span class="arithmatex">\(\mathbb{P}^2 = \operatorname{Gr}(2,3)\)</span>). By the projective bundle formula:</p>
+<div class="arithmatex">\[
+A^*(\mathbb{P}(\mathcal{V})) = \mathbb{Z}[\alpha, \zeta] / (\zeta^2 - \alpha\zeta + \alpha^2, \; \alpha^3).
+\]</div>
+<p>The variety <span class="arithmatex">\(\mathbb{P}(\mathcal{V})\)</span> has dimension 3, and the Schubert cell decomposition gives the following intersection pairing. Writing <span class="arithmatex">\(F\)</span> and <span class="arithmatex">\(L\)</span> for the fibre class and a line class in <span class="arithmatex">\(H_2\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Cycle</th>
+<th>Homology</th>
+<th>Cohomology</th>
+<th>Degree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\([\text{pt}]\)</span></td>
+<td><span class="arithmatex">\(H_0\)</span></td>
+<td><span class="arithmatex">\(\alpha^2\zeta\)</span></td>
+<td>6</td>
+</tr>
+<tr>
+<td>fibre, <span class="arithmatex">\(\mathbb{P}^1\)</span></td>
+<td><span class="arithmatex">\(H_2\)</span>; <span class="arithmatex">\(F\)</span>, <span class="arithmatex">\(L\)</span></td>
+<td><span class="arithmatex">\(\zeta\)</span>, <span class="arithmatex">\(\alpha\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\pi^{-1}(\text{pt})\)</span>, section</td>
+<td><span class="arithmatex">\(H_4\)</span>; <span class="arithmatex">\(f\)</span>, <span class="arithmatex">\(l\)</span></td>
+<td><span class="arithmatex">\(\alpha^2\)</span>, <span class="arithmatex">\(\zeta^2\)</span></td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\([\mathbb{P}(\mathcal{V})]\)</span></td>
+<td><span class="arithmatex">\(H_6\)</span></td>
+<td><span class="arithmatex">\(1\)</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The pairings are <span class="arithmatex">\(\alpha^2 \zeta = \alpha \zeta^2 = [\text{pt}]\)</span>, and <span class="arithmatex">\(\alpha^3 = 0\)</span> (by the relation).</p>
+<p><strong>Quantum parameters.</strong> The second homology is <span class="arithmatex">\(H_2(\mathbb{P}(\mathcal{V})) = \mathbb{Z} F \oplus \mathbb{Z} L\)</span>, with Novikov variables <span class="arithmatex">\(q_1^r q_2^s\)</span> for the class <span class="arithmatex">\(rF + sL\)</span>. The first Chern class of the tangent bundle satisfies <span class="arithmatex">\(c_1(T_{\mathbb{P}(\mathcal{V})}) = 2\zeta + 2\alpha\)</span> (from the relative tangent sequence and the base), giving</p>
+<div class="arithmatex">\[
+\dim \mathcal{M}_{0,3}(\mathbb{P}(\mathcal{V}), rF + sL) = 3 + 2r + 2s.
+\]</div>
+<p><strong>Computing <span class="arithmatex">\(\alpha \circ \alpha\)</span>.</strong> We expand</p>
+<div class="arithmatex">\[
+\alpha \circ \alpha = \sum_{(r,s)} \sum_{\gamma} \langle l | l | \gamma \rangle_{rF + sL} \, \gamma^{\vee} \, q_1^r q_2^s,
+\]</div>
+<p>where <span class="arithmatex">\(l = \alpha\)</span> is the Poincare dual of the line class. The classical terms (<span class="arithmatex">\(r = s = 0\)</span>) are <span class="arithmatex">\(\langle l, l, l \rangle_0 = \alpha^3 = 0\)</span> and <span class="arithmatex">\(\langle l, l, f \rangle_0 = \alpha^2 \zeta = 1\)</span>, with <span class="arithmatex">\(f^{\vee} = \alpha^2\)</span>. For degree <span class="arithmatex">\((1,0)\)</span>: <span class="arithmatex">\(\langle l | l | [\text{pt}] \rangle_{(1,0)}\)</span> counts degree-1 curves in the fibre class meeting two copies of <span class="arithmatex">\(l\)</span>. There is exactly one fibre through any point of the base, giving <span class="arithmatex">\(\langle l | l | [\text{pt}] \rangle_{(1,0)} = 1\)</span>. For degree <span class="arithmatex">\((0,1)\)</span>: <span class="arithmatex">\(\langle l | l | [\text{pt}] \rangle_{(0,1)}\)</span> counts lines in the base <span class="arithmatex">\(\mathbb{P}^2\)</span> meeting two "line conditions," but the moduli space of such maps has positive fibre dimension, giving Gromov--Witten invariant 0. Therefore:</p>
+<div class="arithmatex">\[
+\alpha \circ \alpha = \alpha^2 + q_1.
+\]</div>
+<p><strong>Computing <span class="arithmatex">\(\zeta \circ \zeta\)</span>.</strong> A parallel argument yields <span class="arithmatex">\(\zeta \circ \zeta = \zeta^2 + q_2\)</span>.</p>
+<p><strong>The quantum ring.</strong> The classical relations <span class="arithmatex">\(\zeta^2 - \alpha\zeta + \alpha^2 = 0\)</span> and <span class="arithmatex">\(\alpha^3 = 0\)</span> are deformed to</p>
+<div class="arithmatex">\[
+\zeta^2 - \alpha\zeta + \alpha^2 - q_1 - q_2 = 0, \qquad \alpha^3 - \alpha q_1 - \zeta q_1 = 0.
+\]</div>
+<p>The second quantum relation follows from the first: multiplying <span class="arithmatex">\(\zeta^2 - \alpha\zeta + \alpha^2 - q_1 - q_2 = 0\)</span> by <span class="arithmatex">\(\alpha\)</span> and using <span class="arithmatex">\(\alpha \circ (\zeta^2 - \alpha\zeta + \alpha^2 - q_1 - q_2) = 0\)</span> gives the stated relation, since</p>
+<div class="arithmatex">\[
+\alpha(\zeta^2 - \alpha\zeta + \alpha^2 - q_1 - q_2) - (\alpha^3 - \alpha q_1 - \zeta q_1) = \alpha\zeta^2 - \alpha^2\zeta - \alpha q_2 + \zeta q_1 = 0
+\]</div>
+<p>is the additional relation that closes the ideal.</p>
+<p><strong>Comparison.</strong> In Guest's notation (<em>From cohomology to integrable systems</em>, Example 2.6), with generators <span class="arithmatex">\(a = \alpha\)</span>, <span class="arithmatex">\(b = \zeta\)</span>:</p>
+<div class="arithmatex">\[
+QH^*(F_3) = \mathbb{Z}[a, b, q_1, q_2]/(a^2 + b^2 - ab - q_1 - q_2, \; ab^2 - a^2b - aq_2 - bq_1),
+\]</div>
+<p>which is manifestly the same ring.</p>
+<!-- BENCHMARK_PROBLEM: Let $F_3 = F_{1,2}(\mathbb{C}^3) \cong \mathbb{P}(\mathcal{V})$ where $\mathcal{V}$ is the tautological bundle on $\operatorname{Gr}(2,\mathbb{C}^3)$. Compute the classical Chow ring $A^*(\mathbb{P}(\mathcal{V}))$ and then determine the quantum cohomology ring $QH^*(F_3, \mathbb{Z})$ by computing the quantum products $\alpha \circ \alpha$ and $\zeta \circ \zeta$. -->
+
+<h2 id="equivariant-cohomology">Equivariant cohomology<a class="headerlink" href="#equivariant-cohomology" title="Permanent link">&para;</a></h2>
+<p>By the approximation theorem, equivariant cohomology <span class="arithmatex">\(H_G^*(X) := H^*(EG \times_G X)\)</span> can be computed from finite-dimensional approximations: if <span class="arithmatex">\(\mathbb{E}_m\)</span> is a connected space with free <span class="arithmatex">\(G\)</span>-action and <span class="arithmatex">\(H^i(\mathbb{E}_m) = 0\)</span> for <span class="arithmatex">\(0 &lt; i &lt; k(m)\)</span>, then <span class="arithmatex">\(H_G^*(X) = H^*(\mathbb{E}_m \times_G X)\)</span> for <span class="arithmatex">\(* &lt; k(m)\)</span>.</p>
+<h3 id="ecag-0236">Example: <span class="arithmatex">\(G = (\mathbb{C}^\times)^n\)</span>, <span class="arithmatex">\(X = \operatorname{pt}\)</span><a class="headerlink" href="#ecag-0236" title="Permanent link">&para;</a></h3>
+<p>For the algebraic torus <span class="arithmatex">\(G = (\mathbb{C}^\times)^n\)</span> acting on a point, the equivariant cohomology ring is a polynomial ring:</p>
+<div class="arithmatex">\[
+H_G^*(\operatorname{pt}) = \mathbb{Z}[t_1, \ldots, t_n], \qquad \deg t_i = 2.
+\]</div>
+<p>The approximation spaces <span class="arithmatex">\(\mathbb{E}_m = (\mathbb{C}^m \setminus \{0\})^n\)</span> carry a free diagonal torus action, and the quotient is <span class="arithmatex">\(\operatorname{pt} \times_G \mathbb{E}_m = (\mathbb{P}^{m-1})^n\)</span>. These fit into a tower of closed embeddings</p>
+<div class="arithmatex">\[
+(\mathbb{P}^0)^n \hookrightarrow (\mathbb{P}^1)^n \hookrightarrow \cdots \hookrightarrow (\mathbb{P}^{m-1})^n \hookrightarrow \cdots
+\]</div>
+<p>By the Kunneth formula, <span class="arithmatex">\(H^*((\mathbb{P}^{m-1})^n) = \mathbb{Z}[t_1, \ldots, t_n]/(t_1^m, \ldots, t_n^m)\)</span>, where <span class="arithmatex">\(t_i = c_1(\mathcal{O}(1))\)</span> on the <span class="arithmatex">\(i\)</span>-th factor. Passing to the inverse limit in cohomology removes the truncations, yielding <span class="arithmatex">\(H^*((\mathbb{P}^\infty)^n) = \mathbb{Z}[t_1, \ldots, t_n]\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Compute $\mathrm{H}^{*}_{(\mathbf{C}^{\times})^3}(\operatorname{pt})$ as a graded ring. Express the answer as a quotient of a polynomial ring (or a polynomial ring itself). -->
+
+<h3 id="ecag-0237">Example: <span class="arithmatex">\(G = (\mathbb{C}^\times)^n\)</span>, <span class="arithmatex">\(X = \operatorname{Gr}(k,n)\)</span><a class="headerlink" href="#ecag-0237" title="Permanent link">&para;</a></h3>
+<p>The <span class="arithmatex">\((\mathbb{C}^\times)^n\)</span>-equivariant cohomology of the Grassmannian is</p>
+<div class="arithmatex">\[
+H_G^*(\operatorname{Gr}(k,n)) = \frac{\mathbb{Z}[t_1, \ldots, t_n][c_1, \ldots, c_k, c_1', \ldots, c_{n-k}']}{((1+c_1+\cdots+c_k)(1+c_1'+\cdots+c_{n-k}') = \prod_{i=1}^n (1+t_i))},
+\]</div>
+<p>where <span class="arithmatex">\(c_j\)</span> and <span class="arithmatex">\(c_j'\)</span> are the equivariant Chern classes of the tautological and quotient bundles.</p>
+<p><strong>The Borel construction.</strong> Let <span class="arithmatex">\(E = \mathbb{C}^n\)</span> with the standard torus action (the <span class="arithmatex">\(i\)</span>-th factor scales the <span class="arithmatex">\(i\)</span>-th coordinate). The mixed quotient <span class="arithmatex">\(V_m := E \times_G (\mathbb{C}^m \setminus \{0\})^n = \bigoplus_{i=1}^n \mathcal{O}_i(-1)\)</span> is a rank-<span class="arithmatex">\(n\)</span> vector bundle over <span class="arithmatex">\((\mathbb{P}^{m-1})^n\)</span>, where <span class="arithmatex">\(\mathcal{O}_i(-1)\)</span> is the tautological line bundle on the <span class="arithmatex">\(i\)</span>-th projective space factor. The Borel quotient for the Grassmannian is then</p>
+<div class="arithmatex">\[
+\operatorname{Gr}(k,n) \times_G (\mathbb{C}^m \setminus \{0\})^n = \operatorname{Gr}(V_m, k),
+\]</div>
+<p>the Grassmannian bundle of <span class="arithmatex">\(k\)</span>-planes in the fibres of <span class="arithmatex">\(V_m\)</span>.</p>
+<p><strong>Taking the limit.</strong> The cohomology of a Grassmannian bundle <span class="arithmatex">\(\operatorname{Gr}(V_m, k)\)</span> over a base <span class="arithmatex">\(B\)</span> is generated over <span class="arithmatex">\(H^*(B)\)</span> by the Chern classes of the tautological and quotient bundles, subject to the Whitney sum relation <span class="arithmatex">\(c(\mathcal{S}) \cdot c(\mathcal{Q}) = c(V_m)\)</span>. As <span class="arithmatex">\(m \to \infty\)</span>, the base cohomology <span class="arithmatex">\(H^*((\mathbb{P}^{m-1})^n) \to \mathbb{Z}[t_1, \ldots, t_n]\)</span> and the total Chern class of <span class="arithmatex">\(V_m\)</span> becomes <span class="arithmatex">\(c(V) = \prod_{i=1}^n (1+t_i)\)</span>, yielding the stated presentation.</p>
+<p><strong>The projective space case.</strong> For <span class="arithmatex">\(k = 1\)</span>, the tautological bundle on <span class="arithmatex">\(\operatorname{Gr}(1,n) = \mathbb{P}^{n-1}\)</span> is a line bundle with <span class="arithmatex">\(c_1 = -\zeta\)</span> (where <span class="arithmatex">\(\zeta = c_1(\mathcal{O}(1))\)</span>). Eliminating the quotient bundle Chern classes from the Whitney sum relation reduces to a single equation:</p>
+<div class="arithmatex">\[
+H_G^*(\mathbb{P}^{n-1}) = \mathbb{Z}[t_1, \ldots, t_n][\zeta] \Big/ \prod_{i=1}^n (\zeta + t_i).
+\]</div>
+<p>The fixed points of the torus action on <span class="arithmatex">\(\mathbb{P}^{n-1}\)</span> are the coordinate points <span class="arithmatex">\(e_i\)</span>, and the relation <span class="arithmatex">\(\prod(\zeta + t_i) = 0\)</span> factors over these fixed points: at the fixed point <span class="arithmatex">\(e_j\)</span>, the equivariant hyperplane class evaluates to <span class="arithmatex">\(\zeta = -t_j\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Write down the equivariant cohomology ring $\mathrm{H}^{*}_{(\mathbf{C}^{\times})^3}(\mathbf{P}^{2})$ explicitly as a quotient of a polynomial ring $\mathbf{Z}[t_1, t_2, t_3][\zeta]$. What is the single defining relation? -->
+
+<h3 id="ecag-0238">Remark: <span class="arithmatex">\(\mathcal{O}(-1)\)</span> or <span class="arithmatex">\(\mathcal{O}(1)\)</span>?<a class="headerlink" href="#ecag-0238" title="Permanent link">&para;</a></h3>
+<p>In the Borel construction for a torus action, the mixed quotient <span class="arithmatex">\(E \times_G (\mathbb{C}^m \setminus \{0\})^n\)</span> yields <span class="arithmatex">\(\mathcal{O}(-1)\)</span> (not <span class="arithmatex">\(\mathcal{O}(1)\)</span>) when the fibre and base carry the same weight. The reason is direct: the tautological line bundle on <span class="arithmatex">\(\mathbb{P}^{m-1}\)</span> is the sub-line-bundle of <span class="arithmatex">\(\mathbb{C}^m\)</span> whose fibre over <span class="arithmatex">\([\ell]\)</span> is the line <span class="arithmatex">\(\ell\)</span> itself. This is precisely the bundle produced by the Borel construction when the representation <span class="arithmatex">\(E = \mathbb{C}\)</span> has the same weight as the standard scaling action on <span class="arithmatex">\(\mathbb{C}^m \setminus \{0\}\)</span>. Since the tautological bundle has no nonzero global sections (a section would be a linear form vanishing on every line through the origin, which is impossible), it must be <span class="arithmatex">\(\mathcal{O}(-1)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: In the Borel construction for $G = \mathbf{C}^{\times}$ acting on $E = \mathbf{C}$ with weight $1$, is the resulting line bundle on $\mathbf{P}^{m-1} = (\mathbf{C}^m \setminus \{0\})/G$ isomorphic to $\mathcal{O}(-1)$ or $\mathcal{O}(1)$? Justify your answer. -->
+
+<h3 id="ecag-0239">Remark<a class="headerlink" href="#ecag-0239" title="Permanent link">&para;</a></h3>
+<p>For a comprehensive treatment of equivariant cohomology in algebraic geometry, including the localization theorem and applications to enumerative geometry, see D. Anderson's <em>Introduction to Equivariant Cohomology in Algebraic Geometry</em> (IMPAN lecture notes). These notes develop the Borel construction, approximation theorem, equivariant Chern classes, and the Atiyah--Bott localization formula, with detailed examples on flag varieties and Grassmannians.</p>
+<!-- BENCHMARK_PROBLEM: State the Atiyah--Bott localization formula for a torus $T$ acting on a smooth projective variety $X$ with isolated fixed points $X^T = \{p_1, \ldots, p_r\}$. Express $\int_X \alpha$ for $\alpha \in H_T^*(X)$ as a sum over the fixed points. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

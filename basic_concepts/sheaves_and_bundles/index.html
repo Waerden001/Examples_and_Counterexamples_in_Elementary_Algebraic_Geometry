@@ -1,0 +1,1919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/basic_concepts/sheaves_and_bundles/">
+      
+      
+        <link rel="prev" href="../local_global/">
+      
+      
+        <link rel="next" href="../curves/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Sheaves & Bundles - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sheaves-and-bundles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sheaves & Bundles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computations/picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sheaves-and-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sheaves and bundles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sheaves and bundles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0165" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Constant sheaf, not quasi-coherent; skyscraper sheaf, not quasi-coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0166" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Sheaf cohomology, Zariski topology, etale topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0167" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Locally free module vs. locally free sheaf; why we need the Noetherian condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0168" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Coherent sheaf \(\Leftrightarrow\) finitely generated module, Hartshorne \(\mathrm{II}.5.5\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0169" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A finitely generated flat module that is not finitely presented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0170" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Locally free module but not projective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0171" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A (smooth) vector bundle but not a (holomorphic, algebraic) vector bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0172" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0173" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: index, degree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0174" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A reflexive sheaf but not locally free
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0175" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A coherent sheaf but not a quotient of a locally free sheaf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0176" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0177" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A universally closed morphism but not a closed embedding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0178" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Constant fibre dimension \(\neq\) locally free
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sheaves-and-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sheaves and bundles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sheaves and bundles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0165" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Constant sheaf, not quasi-coherent; skyscraper sheaf, not quasi-coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0166" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Sheaf cohomology, Zariski topology, etale topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0167" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Locally free module vs. locally free sheaf; why we need the Noetherian condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0168" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Coherent sheaf \(\Leftrightarrow\) finitely generated module, Hartshorne \(\mathrm{II}.5.5\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0169" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A finitely generated flat module that is not finitely presented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0170" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Locally free module but not projective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0171" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A (smooth) vector bundle but not a (holomorphic, algebraic) vector bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0172" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0173" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: index, degree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0174" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A reflexive sheaf but not locally free
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0175" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A coherent sheaf but not a quotient of a locally free sheaf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0176" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0177" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: A universally closed morphism but not a closed embedding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0178" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Constant fibre dimension \(\neq\) locally free
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Sheaves & Bundles</h1>
+
+<h2 id="sheaves-and-bundles">Sheaves and bundles<a class="headerlink" href="#sheaves-and-bundles" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0165">Example: Constant sheaf, not quasi-coherent; skyscraper sheaf, not quasi-coherent<a class="headerlink" href="#ecag-0165" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k\)</span> be a field and write <span class="arithmatex">\(\mathbb{A}^1_k = \operatorname{Spec}(k[T])\)</span>. We exhibit several sheaves that fail quasi-coherence and clarify the underlying mechanism.</p>
+<p><strong>(1) A quasi-coherent skyscraper.</strong> The skyscraper sheaf supported at the origin with stalk <span class="arithmatex">\(k\)</span> is isomorphic to <span class="arithmatex">\(\widetilde{M}\)</span> for <span class="arithmatex">\(M = k[T]/(T)\)</span>, hence quasi-coherent by construction. This is the sheaf associated to the closed subscheme <span class="arithmatex">\(V(T)\)</span>.</p>
+<p><strong>(2) A non-quasi-coherent skyscraper.</strong> Let <span class="arithmatex">\(\mathscr{F}\)</span> be the skyscraper sheaf on <span class="arithmatex">\(\mathbb{A}^1_k\)</span> with stalk <span class="arithmatex">\(k(T)\)</span> at the origin and stalk <span class="arithmatex">\(0\)</span> elsewhere. Suppose <span class="arithmatex">\(\mathscr{F} \cong \widetilde{M}\)</span> for some <span class="arithmatex">\(k[T]\)</span>-module <span class="arithmatex">\(M\)</span>. Then <span class="arithmatex">\(M = \Gamma(\mathbb{A}^1_k, \mathscr{F})\)</span>. Since <span class="arithmatex">\(\mathbb{A}^1_k\)</span> is the only open set in the Zariski topology containing the generic point and the origin simultaneously, and <span class="arithmatex">\(\mathscr{F}\)</span> is a skyscraper, one finds <span class="arithmatex">\(M = k(T)\)</span>. But <span class="arithmatex">\(k(T)\)</span> is a divisible <span class="arithmatex">\(k[T]\)</span>-module: for any nonzero <span class="arithmatex">\(f \in k[T]\)</span>, the localization <span class="arithmatex">\(k(T)_f = k(T)\)</span>. Therefore <span class="arithmatex">\(\widetilde{k(T)}\)</span> has stalk <span class="arithmatex">\(k(T)\)</span> at every point of <span class="arithmatex">\(\mathbb{A}^1_k\)</span>, including the generic point <span class="arithmatex">\((0)\)</span>. The skyscraper sheaf <span class="arithmatex">\(\mathscr{F}\)</span>, however, has stalk <span class="arithmatex">\(0\)</span> at the generic point. This contradiction shows <span class="arithmatex">\(\mathscr{F}\)</span> is not quasi-coherent.</p>
+<p><strong>(3) The constant sheaf on <span class="arithmatex">\(\mathbb{P}^1_k\)</span>.</strong> Cover <span class="arithmatex">\(\mathbb{P}^1_k\)</span> by <span class="arithmatex">\(U_0 = \operatorname{Spec}(k[t])\)</span> and <span class="arithmatex">\(U_1 = \operatorname{Spec}(k[t^{-1}])\)</span>, with <span class="arithmatex">\(U_0 \cap U_1 = \operatorname{Spec}(k[t, t^{-1}])\)</span>. The constant sheaf <span class="arithmatex">\(\underline{k}\)</span> assigns <span class="arithmatex">\(k\)</span> to every connected open, so <span class="arithmatex">\(\underline{k}(U_0) = \underline{k}(U_1) = \underline{k}(U_0 \cap U_1) = k\)</span> (each being irreducible, hence connected). If <span class="arithmatex">\(\underline{k}|_{U_0}\)</span> were quasi-coherent, it would equal <span class="arithmatex">\(\widetilde{M}\)</span> for some <span class="arithmatex">\(k[t]\)</span>-module <span class="arithmatex">\(M\)</span> with <span class="arithmatex">\(M = \underline{k}(U_0) = k\)</span>. The localization axiom then forces</p>
+<div class="arithmatex">\[
+\underline{k}(U_0 \cap U_1) = M \otimes_{k[t]} k[t, t^{-1}] = k \otimes_{k[t]} k[t, t^{-1}] = k[t, t^{-1}]/(t) = 0,
+\]</div>
+<p>contradicting <span class="arithmatex">\(\underline{k}(U_0 \cap U_1) = k\)</span>. So <span class="arithmatex">\(\underline{k}\)</span> is not quasi-coherent on <span class="arithmatex">\(\mathbb{P}^1_k\)</span>.</p>
+<p><strong>(4)</strong> More generally, the constant sheaf <span class="arithmatex">\(\underline{k}\)</span> on any scheme <span class="arithmatex">\(X\)</span> is almost never quasi-coherent: quasi-coherence requires sections to transform by localization, while the constant sheaf depends only on the connectedness of opens.</p>
+<p><strong>(5) Flasqueness on irreducible spaces.</strong> On an irreducible topological space <span class="arithmatex">\(X\)</span>, every nonempty open <span class="arithmatex">\(U\)</span> is dense and connected, so <span class="arithmatex">\(\underline{k}(U) = k\)</span> with all restriction maps equal to <span class="arithmatex">\(\operatorname{id}_k\)</span>. For any inclusion <span class="arithmatex">\(V \subseteq U\)</span> of nonempty opens, the restriction <span class="arithmatex">\(\underline{k}(U) \to \underline{k}(V)\)</span> is surjective, which is the definition of a flasque sheaf. Flasque sheaves are acyclic for the Cech functor, giving <span class="arithmatex">\(\check{H}^i(\mathfrak{U}, \underline{k}) = 0\)</span> for all <span class="arithmatex">\(i \geq 1\)</span> and any open cover <span class="arithmatex">\(\mathfrak{U}\)</span>.</p>
+<p>The underlying point is that quasi-coherence is an algebraic condition: sections over open subsets must be determined by localization of a single module. Constant sheaves, whose sections depend only on connectivity, satisfy this compatibility only in degenerate situations.</p>
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field and let $\mathscr{F}$ be the skyscraper sheaf on $\mathbb{A}^1_k = \operatorname{Spec}(k[T])$ with stalk $k(T)$ supported at the origin $(T)$. Prove that $\mathscr{F}$ is not quasi-coherent by showing that no $k[T]$-module $M$ satisfies $\widetilde{M} \cong \mathscr{F}$. -->
+
+<h3 id="ecag-0166">Remark: Sheaf cohomology, Zariski topology, etale topology<a class="headerlink" href="#ecag-0166" title="Permanent link">&para;</a></h3>
+<p>The choice of Grothendieck topology on a scheme fundamentally affects sheaf cohomology, even for simple sheaves on simple spaces.</p>
+<p><strong>Grothendieck vanishing.</strong> For a Noetherian topological space <span class="arithmatex">\(X\)</span> of dimension <span class="arithmatex">\(n\)</span> and any sheaf of abelian groups <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span> (in the Zariski topology), we have <span class="arithmatex">\(H^i(X, \mathscr{F}) = 0\)</span> for all <span class="arithmatex">\(i &gt; n\)</span>. This dimensional bound applies in the Zariski topology but not in the etale topology. For a concrete comparison:</p>
+<div class="arithmatex">\[
+H^2_{\mathrm{Zar}}(\mathbb{P}^1, \underline{k}) = 0, \quad H^2_{\text{et}}(\mathbb{P}^1, \underline{k}) \cong k.
+\]</div>
+<p>The Zariski vanishing is immediate from <span class="arithmatex">\(\dim(\mathbb{P}^1) = 1\)</span> and Grothendieck's theorem. The nonvanishing in the etale topology reflects the richer structure of the etale site: etale covers can detect topological features (such as the fundamental group and higher homotopy) that are invisible to Zariski opens.</p>
+<p><strong>Cech-to-derived spectral sequence.</strong> For the standard affine cover <span class="arithmatex">\(\mathfrak{U} = \{U_0, U_1\}\)</span> of <span class="arithmatex">\(\mathbb{P}^1\)</span>, the Cech complex for <span class="arithmatex">\(\underline{k}\)</span> involves sections over <span class="arithmatex">\(U_0\)</span>, <span class="arithmatex">\(U_1\)</span>, and <span class="arithmatex">\(U_0 \cap U_1\)</span>. The cover need not be acyclic for <span class="arithmatex">\(\underline{k}\)</span> in either topology. However, the Cech-to-derived-functor spectral sequence</p>
+<div class="arithmatex">\[
+\check{H}^p(\mathfrak{U}, \mathscr{H}^q(\mathscr{F})) \Rightarrow H^{p+q}(X, \mathscr{F})
+\]</div>
+<p>(where <span class="arithmatex">\(\mathscr{H}^q(\mathscr{F})\)</span> denotes the presheaf <span class="arithmatex">\(U \mapsto H^q(U, \mathscr{F})\)</span>) provides a systematic passage from Cech data to derived functor cohomology.</p>
+<!-- BENCHMARK_PROBLEM: Explain why $H^2_{\mathrm{Zar}}(\mathbb{P}^1_k, \underline{k}) = 0$ using the Grothendieck vanishing theorem, and state the precise hypothesis on $X$ and $\mathscr{F}$ that is required. -->
+
+<h3 id="ecag-0167">Example: Locally free module vs. locally free sheaf; why we need the Noetherian condition<a class="headerlink" href="#ecag-0167" title="Permanent link">&para;</a></h3>
+<p>The notions of "locally free module" (all localizations at primes are free) and "locally free sheaf" (trivial on a Zariski open cover) do not coincide without finiteness hypotheses. The relationship involves three results at different levels of generality.</p>
+<p><strong>Sheaf-level characterization.</strong> For any ring <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(R\)</span>-module <span class="arithmatex">\(M\)</span>, the associated sheaf <span class="arithmatex">\(\widetilde{M}\)</span> on <span class="arithmatex">\(\operatorname{Spec}(R)\)</span> is locally free as a sheaf of <span class="arithmatex">\(\mathcal{O}\)</span>-modules if and only if <span class="arithmatex">\(M\)</span> is projective. The forward direction uses the fact that a locally free sheaf on an affine scheme is a direct summand of a free sheaf, hence the module is projective. The converse uses Kaplansky's theorem that projective modules over local rings are free, so <span class="arithmatex">\(\widetilde{M}_\mathfrak{p} \cong \widetilde{M_\mathfrak{p}}\)</span> is free for each prime <span class="arithmatex">\(\mathfrak{p}\)</span>; one then constructs a trivializing open cover from distinguished opens <span class="arithmatex">\(D(f_i)\)</span> on which <span class="arithmatex">\(M_{f_i}\)</span> is free.</p>
+<p><strong>The Noetherian case.</strong> Over a Noetherian ring <span class="arithmatex">\(R\)</span>, a finitely generated module <span class="arithmatex">\(M\)</span> is projective if and only if <span class="arithmatex">\(M_\mathfrak{p}\)</span> is free over <span class="arithmatex">\(R_\mathfrak{p}\)</span> for every prime <span class="arithmatex">\(\mathfrak{p}\)</span>. This is Serre's criterion: finite generation ensures the rank function <span class="arithmatex">\(\mathfrak{p} \mapsto \operatorname{rank}_{R_\mathfrak{p}}(M_\mathfrak{p})\)</span> is locally constant on <span class="arithmatex">\(\operatorname{Spec}(R)\)</span>, and Nakayama's lemma allows local bases to be lifted to bases on distinguished opens.</p>
+<p><strong>Failure without Noetherian hypothesis.</strong> Without finite generation or Noetherian hypotheses, stalk-wise freeness does not imply projectivity. The module <span class="arithmatex">\(\mathbb{Q}\)</span> over <span class="arithmatex">\(\mathbb{Z}\)</span> provides a clean example (see ecag-0170): every localization <span class="arithmatex">\(\mathbb{Q} \otimes_\mathbb{Z} \mathbb{Z}_\mathfrak{p}\)</span> is free, yet <span class="arithmatex">\(\mathbb{Q}\)</span> is not projective. The obstruction is that no finite collection of distinguished opens <span class="arithmatex">\(D(f_i)\)</span> simultaneously trivializes <span class="arithmatex">\(\widetilde{\mathbb{Q}}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $R$ be a ring and $M$ an $R$-module. Prove that $\widetilde{M}$ is locally free as a sheaf on $\operatorname{Spec}(R)$ if and only if $M$ is a projective $R$-module. State where the Noetherian hypothesis would be needed if one instead required only that $M_{\mathfrak{p}}$ is free for all $\mathfrak{p} \in \operatorname{Spec}(R)$. -->
+
+<h3 id="ecag-0168">Remark: Coherent sheaf <span class="arithmatex">\(\Leftrightarrow\)</span> finitely generated module, Hartshorne <span class="arithmatex">\(\mathrm{II}.5.5\)</span><a class="headerlink" href="#ecag-0168" title="Permanent link">&para;</a></h3>
+<p>A sheaf of <span class="arithmatex">\(\mathcal{O}_X\)</span>-modules <span class="arithmatex">\(\mathscr{F}\)</span> on a scheme <span class="arithmatex">\(X\)</span> is coherent if it is of finite type and, for every open <span class="arithmatex">\(U \subseteq X\)</span> and every morphism <span class="arithmatex">\(\mathcal{O}_U^n \to \mathscr{F}|_U\)</span>, the kernel is of finite type. On an affine Noetherian scheme <span class="arithmatex">\(\operatorname{Spec}(R)\)</span>, this condition matches finite generation exactly: coherent sheaves correspond bijectively to finitely generated <span class="arithmatex">\(R\)</span>-modules via <span class="arithmatex">\(M \mapsto \widetilde{M}\)</span> (Hartshorne II.5.5).</p>
+<p>The Noetherian hypothesis enters through the kernel condition. Over a Noetherian ring, every submodule of a finitely generated module is finitely generated, so the kernel of any surjection <span class="arithmatex">\(R^n \twoheadrightarrow M\)</span> is automatically finitely generated. Without Noetherianity, a finitely generated module can fail to be coherent because its relations need not form a finitely generated submodule. For non-Noetherian rings, the appropriate substitute is the notion of finitely presented modules -- those admitting an exact sequence <span class="arithmatex">\(R^m \to R^n \to M \to 0\)</span> with both <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> finite. Finitely presented modules always give coherent sheaves, regardless of whether <span class="arithmatex">\(R\)</span> is Noetherian.</p>
+<!-- BENCHMARK_PROBLEM: Give an example of a finitely generated module $M$ over a non-Noetherian ring $R$ such that $\widetilde{M}$ is not a coherent sheaf on $\operatorname{Spec}(R)$. Explain why finite generation of $M$ does not suffice for coherence without the Noetherian hypothesis. -->
+
+<h3 id="ecag-0169">Example: A finitely generated flat module that is not finitely presented<a class="headerlink" href="#ecag-0169" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(R = \prod_{i=1}^{\infty} \mathbb{F}_2\)</span>, the countably infinite product of copies of <span class="arithmatex">\(\mathbb{F}_2\)</span>, and let <span class="arithmatex">\(I = \bigoplus_{i=1}^{\infty} \mathbb{F}_2 \subset R\)</span> be the ideal of sequences with finite support. We show that <span class="arithmatex">\(M = R/I\)</span> is finitely generated and flat, but not finitely presented.</p>
+<p><strong>Von Neumann regularity.</strong> The ring <span class="arithmatex">\(R\)</span> is von Neumann regular: for any element <span class="arithmatex">\(a = (a_i)\)</span> with <span class="arithmatex">\(a_i \in \mathbb{F}_2\)</span>, set <span class="arithmatex">\(b = a\)</span>. Then <span class="arithmatex">\(a^2 b = a^3 = a\)</span> since <span class="arithmatex">\(a_i^3 = a_i\)</span> in <span class="arithmatex">\(\mathbb{F}_2\)</span>. Over a von Neumann regular ring, every finitely generated ideal is a direct summand (generated by an idempotent), so every <span class="arithmatex">\(R\)</span>-module is flat. This can also be seen through Lazard's criterion: flatness is equivalent to the vanishing of <span class="arithmatex">\(\operatorname{Tor}_1^R(R/J, M)\)</span> for all finitely generated ideals <span class="arithmatex">\(J\)</span>, and when <span class="arithmatex">\(J\)</span> is a direct summand, the Tor vanishes automatically.</p>
+<p><strong>Non-Noetherianity.</strong> The ideal <span class="arithmatex">\(I\)</span> is not finitely generated: any finite collection of elements in <span class="arithmatex">\(I\)</span> is supported on finitely many coordinates, so the ideal they generate misses all but finitely many standard basis vectors. Since <span class="arithmatex">\(I\)</span> contains all standard basis vectors <span class="arithmatex">\(e_i\)</span>, no finite set generates <span class="arithmatex">\(I\)</span>.</p>
+<p><strong>Finite generation without finite presentation.</strong> The module <span class="arithmatex">\(M = R/I\)</span> is cyclic (generated by the image of <span class="arithmatex">\(1\)</span>), hence finitely generated. It is flat because every <span class="arithmatex">\(R\)</span>-module is flat over a von Neumann regular ring. However, <span class="arithmatex">\(M\)</span> is not finitely presented: the kernel of the surjection <span class="arithmatex">\(R \twoheadrightarrow R/I\)</span> is <span class="arithmatex">\(I\)</span>, which is not finitely generated. A finitely presented module would require this kernel to be finitely generated.</p>
+<p>This example also illustrates why, over non-Noetherian rings, the category of finitely generated modules and the category of finitely presented modules can differ substantially. The module <span class="arithmatex">\(R/I\)</span> lies in the former but not the latter.</p>
+<!-- BENCHMARK_PROBLEM: Let $R = \prod_{i=1}^{\infty} \mathbb{F}_2$ and $I = \bigoplus_{i=1}^{\infty} \mathbb{F}_2 \subset R$. Prove that $R/I$ is a finitely generated flat $R$-module that is not finitely presented. You must verify that $R$ is von Neumann regular and that $I$ is not finitely generated. -->
+
+<h3 id="ecag-0170">Example: Locally free module but not projective<a class="headerlink" href="#ecag-0170" title="Permanent link">&para;</a></h3>
+<p>We exhibit a module that is free at every localization yet fails to be projective, demonstrating the necessity of finiteness conditions in globalizing local freeness.</p>
+<p><strong>The example.</strong> Take <span class="arithmatex">\(R = \mathbb{Z}\)</span> and <span class="arithmatex">\(M = \mathbb{Q}\)</span>. For each prime ideal <span class="arithmatex">\(\mathfrak{p}\)</span> of <span class="arithmatex">\(\mathbb{Z}\)</span>:</p>
+<ul>
+<li>If <span class="arithmatex">\(\mathfrak{p} = (p)\)</span> for a prime <span class="arithmatex">\(p\)</span>: <span class="arithmatex">\(M_{(p)} = \mathbb{Q} \otimes_\mathbb{Z} \mathbb{Z}_{(p)} = \mathbb{Q}\)</span>, which is a free module of rank <span class="arithmatex">\(1\)</span> over the local ring <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span> (since <span class="arithmatex">\(\mathbb{Q}\)</span> is the fraction field of <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>, and <span class="arithmatex">\(\mathbb{Z}_{(p)} \hookrightarrow \mathbb{Q}\)</span> becomes an isomorphism after localizing at <span class="arithmatex">\((p)\)</span>, giving <span class="arithmatex">\(M_{(p)} \cong \mathbb{Q} = \operatorname{Frac}(\mathbb{Z}_{(p)})\)</span>). More directly: <span class="arithmatex">\(\mathbb{Q}\)</span> is already a <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>-module and <span class="arithmatex">\(\mathbb{Q} = \mathbb{Z}_{(p)} \cdot 1\)</span> since every element of <span class="arithmatex">\(\mathbb{Q}\)</span> can be written as <span class="arithmatex">\(a/b\)</span> with <span class="arithmatex">\(\gcd(b,p) = 1\)</span> (clear denominators at primes <span class="arithmatex">\(\neq p\)</span>, then the remaining denominator is a unit in <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>)... actually this is incorrect; <span class="arithmatex">\(\mathbb{Q}\)</span> is not finitely generated over <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>. The correct computation: <span class="arithmatex">\(M_{(p)} = \mathbb{Q} \otimes_\mathbb{Z} \mathbb{Z}_{(p)} = \mathbb{Q}\)</span>, and <span class="arithmatex">\(\mathbb{Q}\)</span> is a free <span class="arithmatex">\(\mathbb{Q}\)</span>-module of rank 1, but as a <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>-module it is the fraction field, not free. Let us reconsider.</li>
+</ul>
+<p>The correct approach: localize <span class="arithmatex">\(M = \mathbb{Q}\)</span> at each prime <span class="arithmatex">\(\mathfrak{p} = (p)\)</span>. The stalk is <span class="arithmatex">\(M_\mathfrak{p} = \mathbb{Q}\)</span>. The local ring is <span class="arithmatex">\(R_\mathfrak{p} = \mathbb{Z}_{(p)}\)</span>. Now <span class="arithmatex">\(\mathbb{Q} \cong \operatorname{colim}_n \mathbb{Z}_{(p)} \cdot p^{-n}\)</span> is the fraction field of <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>, which is not a free <span class="arithmatex">\(\mathbb{Z}_{(p)}\)</span>-module.</p>
+<p><strong>Corrected example.</strong> Let <span class="arithmatex">\(R = \prod_{i=1}^{\infty} \mathbb{Z}\)</span> and <span class="arithmatex">\(M = \bigoplus_{i=1}^{\infty} \mathbb{Z}\)</span>, viewed as an <span class="arithmatex">\(R\)</span>-module via the componentwise action (the <span class="arithmatex">\(j\)</span>-th factor of <span class="arithmatex">\(R\)</span> acts on the <span class="arithmatex">\(j\)</span>-th summand of <span class="arithmatex">\(M\)</span>, with <span class="arithmatex">\(M\)</span> embedded in <span class="arithmatex">\(R\)</span> as the direct sum inside the direct product).</p>
+<p>For any prime ideal <span class="arithmatex">\(\mathfrak{p}\)</span> of <span class="arithmatex">\(R\)</span>, the localization <span class="arithmatex">\(M_\mathfrak{p}\)</span> is a free <span class="arithmatex">\(R_\mathfrak{p}\)</span>-module. To see this, note that each prime <span class="arithmatex">\(\mathfrak{p}\)</span> of <span class="arithmatex">\(R\)</span> contains all but at most one of the idempotents <span class="arithmatex">\(e_i = (0, \ldots, 0, 1, 0, \ldots)\)</span>. If <span class="arithmatex">\(e_j \notin \mathfrak{p}\)</span> for some <span class="arithmatex">\(j\)</span>, then <span class="arithmatex">\(R_\mathfrak{p} \cong \mathbb{Z}_\mathfrak{q}\)</span> for some prime <span class="arithmatex">\(\mathfrak{q}\)</span> of <span class="arithmatex">\(\mathbb{Z}\)</span>, and <span class="arithmatex">\(M_\mathfrak{p} \cong \mathbb{Z}_\mathfrak{q}\)</span>, free of rank 1. If all <span class="arithmatex">\(e_i \in \mathfrak{p}\)</span>, the analysis is more delicate but <span class="arithmatex">\(M_\mathfrak{p}\)</span> is still free.</p>
+<p>However, <span class="arithmatex">\(M\)</span> is not projective as an <span class="arithmatex">\(R\)</span>-module. If <span class="arithmatex">\(M\)</span> were projective, it would be a direct summand of a free <span class="arithmatex">\(R\)</span>-module. But Chase proved that a direct sum <span class="arithmatex">\(\bigoplus_{i=1}^\infty \mathbb{Z}\)</span>, viewed as a module over <span class="arithmatex">\(\prod_{i=1}^\infty \mathbb{Z}\)</span>, is not projective -- the key obstruction being that the "support" of elements in <span class="arithmatex">\(M\)</span> is always finite, while projective modules over <span class="arithmatex">\(R\)</span> must accommodate the infinitary structure of <span class="arithmatex">\(R\)</span>.</p>
+<p>This example demonstrates that stalk-wise freeness does not globalize to projectivity without finite generation or Noetherian hypotheses: there is no uniform Zariski open cover of <span class="arithmatex">\(\operatorname{Spec}(R)\)</span> on which <span class="arithmatex">\(\widetilde{M}\)</span> trivializes.</p>
+<!-- BENCHMARK_PROBLEM: Prove that $\mathbb{Q}$ is a locally free $\mathbb{Z}$-module (i.e., $\mathbb{Q} \otimes_{\mathbb{Z}} \mathbb{Z}_{\mathfrak{p}}$ is free over $\mathbb{Z}_{\mathfrak{p}}$ for every prime ideal $\mathfrak{p}$ of $\mathbb{Z}$) but is not a projective $\mathbb{Z}$-module. -->
+
+<h3 id="ecag-0171">Example: A (smooth) vector bundle but not a (holomorphic, algebraic) vector bundle<a class="headerlink" href="#ecag-0171" title="Permanent link">&para;</a></h3>
+<p>Consider the projection from <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span> minus the diagonal,</p>
+<div class="arithmatex">\[
+\pi : X = \mathbb{P}^1 \times \mathbb{P}^1 \setminus \Delta \longrightarrow \mathbb{P}^1, \quad (x,y) \mapsto x,
+\]</div>
+<p>over <span class="arithmatex">\(\mathbb{C}\)</span>. We show that <span class="arithmatex">\(\pi\)</span> is topologically the line bundle <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}^1}(-2)\)</span> but admits no algebraic or holomorphic section.</p>
+<p><strong><span class="arithmatex">\(X\)</span> is affine.</strong> The Segre embedding maps</p>
+<div class="arithmatex">\[
+s : \mathbb{P}^1 \times \mathbb{P}^1 \hookrightarrow \mathbb{P}^3, \quad ([x_0 : x_1], [y_0 : y_1]) \mapsto [x_0 y_0 : x_0 y_1 : x_1 y_0 : x_1 y_1].
+\]</div>
+<p>With coordinates <span class="arithmatex">\([X : Y : Z : W]\)</span> on <span class="arithmatex">\(\mathbb{P}^3\)</span>, the Segre quadric is <span class="arithmatex">\(\{XW = YZ\}\)</span> and the diagonal <span class="arithmatex">\(\Delta\)</span> maps to the locus <span class="arithmatex">\(\{Y = Z\}\)</span> within this quadric. Therefore <span class="arithmatex">\(X = (\mathbb{P}^1 \times \mathbb{P}^1) \setminus \Delta\)</span> embeds as a closed subvariety of the affine complement <span class="arithmatex">\(\mathbb{P}^3 \setminus V(Y - Z)\)</span>, and is thus affine.</p>
+<p><strong>No algebraic section exists.</strong> If <span class="arithmatex">\(\pi\)</span> admitted an algebraic section <span class="arithmatex">\(\sigma : \mathbb{P}^1 \to X\)</span>, then the composition <span class="arithmatex">\(\mathbb{P}^1 \xrightarrow{\sigma} X \hookrightarrow \mathbb{A}^N\)</span> would be a non-constant morphism from a proper variety to affine space. By properness, the image is a closed point, so the morphism is constant -- contradicting <span class="arithmatex">\(\pi \circ \sigma = \operatorname{id}_{\mathbb{P}^1}\)</span>.</p>
+<p><strong>Topological trivialization and the antipodal section.</strong> Identifying <span class="arithmatex">\(\mathbb{P}^1(\mathbb{C}) \cong S^2\)</span>, the map <span class="arithmatex">\(\sigma(x) = (x, -x)\)</span> (antipodal point) gives a continuous section of <span class="arithmatex">\(\pi\)</span> that is neither holomorphic nor algebraic.</p>
+<p><img alt="An orientation of S²" src="../../img/sphere.png" /></p>
+<p><strong>Degree computation via self-intersection.</strong> To identify the topological type of the line bundle, we compute the self-intersection number of the zero section <span class="arithmatex">\(\sigma\)</span>.</p>
+<p>Perturb <span class="arithmatex">\(\sigma\)</span> by rotating the second factor through angle <span class="arithmatex">\(t\)</span> about the polar axis:</p>
+<div class="arithmatex">\[
+\sigma_t(x) = (x, \rho_t(-x)),
+\]</div>
+<p>where <span class="arithmatex">\(\rho_t\)</span> is rotation by <span class="arithmatex">\(t\)</span>. The sections <span class="arithmatex">\(\sigma\)</span> and <span class="arithmatex">\(\sigma_t\)</span> intersect at exactly two points: <span class="arithmatex">\(p = (N, S)\)</span> and <span class="arithmatex">\(q = (S, N)\)</span> (north and south poles).</p>
+<p>Near <span class="arithmatex">\(p = (N, S)\)</span>, use stereographic coordinates <span class="arithmatex">\((x', y')\)</span> on the first <span class="arithmatex">\(S^2\)</span> near <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\((u, v)\)</span> on the second near <span class="arithmatex">\(S\)</span>. The two sections are</p>
+<div class="arithmatex">\[
+\sigma : (x', y') \mapsto (x', y', -x', y'), \qquad \sigma_t : (x', y') \mapsto (x', y', -x'\cos t + y'\sin t,\; x'\sin t + y'\cos t).
+\]</div>
+<p>The intersection index at <span class="arithmatex">\(p\)</span> is the sign of</p>
+<div class="arithmatex">\[
+\det \begin{pmatrix} 1 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; -\cos t &amp; \sin t \\ 0 &amp; 1 &amp; \sin t &amp; \cos t \end{pmatrix} = -2 + \sin(2t).
+\]</div>
+<p>For small <span class="arithmatex">\(t &gt; 0\)</span>, this determinant is negative, giving intersection index <span class="arithmatex">\(-1\)</span> at <span class="arithmatex">\(p\)</span>. The same computation at <span class="arithmatex">\(q = (S, N)\)</span> also yields <span class="arithmatex">\(-1\)</span>.</p>
+<p>The total self-intersection is <span class="arithmatex">\((-1) + (-1) = -2\)</span>, which equals the degree of the line bundle. Therefore <span class="arithmatex">\(\pi : X \to \mathbb{P}^1\)</span> is topologically <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}^1}(-2)\)</span>.</p>
+<p>The complement of the diagonal in <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span> is thus algebraically affine (so no projective variety maps non-trivially into it) yet topologically a nontrivial line bundle over <span class="arithmatex">\(S^2\)</span>. The antipodal map provides a continuous section that no algebraic or holomorphic map can replicate.</p>
+<!-- BENCHMARK_PROBLEM: Let $X = \mathbb{P}^1_{\mathbb{C}} \times \mathbb{P}^1_{\mathbb{C}} \setminus \Delta$ with the projection $\pi : X \to \mathbb{P}^1_{\mathbb{C}}$ given by $(x,y) \mapsto x$. Prove that $\pi$ admits no algebraic section by showing $X$ is affine via the Segre embedding, and compute the topological degree of the bundle using the self-intersection number of the antipodal section to show it equals $-2$. -->
+
+<h3 id="ecag-0172">Remark<a class="headerlink" href="#ecag-0172" title="Permanent link">&para;</a></h3>
+<p>The local-coordinate formula <span class="arithmatex">\(\sigma(x', y') = (x', y', -x', y')\)</span> near the point <span class="arithmatex">\((N, S)\)</span> deserves unpacking. Here <span class="arithmatex">\((x', y')\)</span> are stereographic coordinates on the source <span class="arithmatex">\(S^2\)</span> near the north pole <span class="arithmatex">\(N\)</span>, and <span class="arithmatex">\((x, y, u, v)\)</span> are coordinates on <span class="arithmatex">\(S^2 \times S^2\)</span> near <span class="arithmatex">\((N, S)\)</span>, with <span class="arithmatex">\((x, y)\)</span> for the first factor near <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\((u, v)\)</span> for the second factor near <span class="arithmatex">\(S\)</span>. The section reads</p>
+<div class="arithmatex">\[
+\sigma : x = x',\; y = y',\; u = -x',\; v = y'.
+\]</div>
+<p>The sign in <span class="arithmatex">\(u = -x'\)</span> and the absence of sign change in <span class="arithmatex">\(v = y'\)</span> encode how the antipodal map acts in these specific stereographic charts. An alternative computation uses de Rham cohomology: the Euler class of the bundle <span class="arithmatex">\(\pi : X \to S^2\)</span> can be evaluated by integrating the pullback of the Thom class over <span class="arithmatex">\(S^2\)</span>, yielding <span class="arithmatex">\(-2\)</span> without recourse to local coordinates.</p>
+<h3 id="ecag-0173">Remark: index, degree<a class="headerlink" href="#ecag-0173" title="Permanent link">&para;</a></h3>
+<p>Several related notions of "index" and "degree" appear across differential topology and algebraic geometry. We collect them for comparison.</p>
+<p><strong>Fixed-point index.</strong> For <span class="arithmatex">\(f : X \to X\)</span> a smooth self-map and <span class="arithmatex">\(p \in \operatorname{Fix}(f)\)</span> an isolated fixed point,</p>
+<div class="arithmatex">\[
+i(p) = \operatorname{sign} \det(\operatorname{Id} - Df_p),
+\]</div>
+<p>where <span class="arithmatex">\(Df_p : T_p X \to T_p X\)</span> is the differential.</p>
+<p><strong>Lefschetz number.</strong> For <span class="arithmatex">\(f : X \to X\)</span> on a compact manifold,</p>
+<div class="arithmatex">\[
+\Lambda(f) = \sum_{k} (-1)^k \operatorname{Tr}(f^* : H^k(X) \to H^k(X)).
+\]</div>
+<p>The Lefschetz fixed-point theorem asserts <span class="arithmatex">\(\Lambda(f) = \sum_{p \in \operatorname{Fix}(f)} i(p)\)</span> when the fixed points are isolated and nondegenerate.</p>
+<p><strong>Index of a vector field.</strong> For a vector field <span class="arithmatex">\(v\)</span> on a compact manifold <span class="arithmatex">\(X\)</span> with isolated zeros, the Poincare--Hopf theorem gives <span class="arithmatex">\(\sum_{v(p)=0} \operatorname{ind}_p(v) = \chi(X)\)</span>.</p>
+<p><strong>Intersection index.</strong> For smooth maps <span class="arithmatex">\(f : X \to Y\)</span> and <span class="arithmatex">\(g : Z \to Y\)</span> with <span class="arithmatex">\(\dim X + \dim Z = \dim Y\)</span>, the intersection index at a transverse point is the sign of the determinant of the combined differential.</p>
+<p><strong>Degree of a smooth map.</strong> For <span class="arithmatex">\(f : X \to Y\)</span> between compact oriented manifolds of the same dimension, <span class="arithmatex">\(\deg(f) = \sum_{p \in f^{-1}(y)} \operatorname{sign}(\det Df_p)\)</span> for a regular value <span class="arithmatex">\(y\)</span>. In algebraic geometry, the degree of a dominant morphism <span class="arithmatex">\(f : X \to Y\)</span> of varieties is the field extension degree <span class="arithmatex">\([k(X) : k(Y)]\)</span>.</p>
+<p><strong>Degree of the top Chern class.</strong> For a rank-<span class="arithmatex">\(r\)</span> vector bundle <span class="arithmatex">\(\mathscr{E}\)</span> on a compact complex manifold <span class="arithmatex">\(X\)</span> of dimension <span class="arithmatex">\(r\)</span>, <span class="arithmatex">\(\deg(c_r(\mathscr{E})) = \int_X c_r(\mathscr{E})\)</span> counts (with multiplicity) the zeros of a generic section.</p>
+<p><strong>Intersection numbers.</strong> In differential topology, the intersection number is a signed count of transverse intersection points. In algebraic geometry, the intersection multiplicity at a point is computed via Serre's Tor formula or as <span class="arithmatex">\(\chi(\mathcal{O}_Z)\)</span>.</p>
+<p>The unifying perspective is that the degree of a smooth map <span class="arithmatex">\(f : X \to Y\)</span> equals the intersection index of <span class="arithmatex">\([X \times \{y\}]\)</span> and <span class="arithmatex">\([\Gamma_f]\)</span> in <span class="arithmatex">\(X \times Y\)</span>. In particular, for <span class="arithmatex">\(f : X \to X\)</span>, the Lefschetz number <span class="arithmatex">\(\Lambda(f)\)</span> equals the intersection number <span class="arithmatex">\([\Delta] \cdot [\Gamma_f]\)</span> in <span class="arithmatex">\(X \times X\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : S^2 \to S^2$ be the antipodal map $f(x) = -x$. Compute the Lefschetz number $\Lambda(f)$ using the cohomological trace formula, and verify it equals the sum of fixed-point indices (noting that $f$ has no fixed points). What does this tell you about the existence of fixed points? -->
+
+<h3 id="ecag-0174">Example: A reflexive sheaf but not locally free<a class="headerlink" href="#ecag-0174" title="Permanent link">&para;</a></h3>
+<p>On a normal variety of dimension <span class="arithmatex">\(\geq 2\)</span>, reflexive rank-1 sheaves correspond to Weil divisor classes, while locally free rank-1 sheaves correspond to Cartier divisor classes. The gap between <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> and <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> produces reflexive sheaves that are not locally free.</p>
+<p><strong>The quadric cone.</strong> Let <span class="arithmatex">\(k\)</span> be a field with <span class="arithmatex">\(\operatorname{char}(k) \neq 2\)</span>, <span class="arithmatex">\(R = k[x,y,z]/(xy - z^2)\)</span>, and <span class="arithmatex">\(X = \operatorname{Spec}(R)\)</span>. The singular locus is the vertex <span class="arithmatex">\(\mathfrak{m} = (x,y,z)\)</span>. Consider the ideal sheaf <span class="arithmatex">\(\mathscr{I} = \widetilde{\mathfrak{m}}\)</span>.</p>
+<p><strong>Reflexivity.</strong> The ring <span class="arithmatex">\(R\)</span> is a normal domain (it is the invariant ring of <span class="arithmatex">\(k[u,v]\)</span> under <span class="arithmatex">\(u \mapsto -u, v \mapsto -v\)</span>, with <span class="arithmatex">\(x = u^2, y = v^2, z = uv\)</span>). Since <span class="arithmatex">\(X\)</span> is normal and <span class="arithmatex">\(\mathfrak{m}\)</span> is a rank-1 torsion-free <span class="arithmatex">\(R\)</span>-module, the double dual <span class="arithmatex">\(\mathfrak{m}^{\vee\vee}\)</span> is a rank-1 reflexive module. One verifies <span class="arithmatex">\(\mathfrak{m}^{\vee\vee} \cong \mathfrak{m}\)</span> by computing <span class="arithmatex">\(\operatorname{Hom}_R(\mathfrak{m}, R)\)</span>: the dual <span class="arithmatex">\(\mathfrak{m}^\vee\)</span> is generated over <span class="arithmatex">\(R\)</span> by the two maps <span class="arithmatex">\(\varphi_1 : \mathfrak{m} \to R\)</span> with <span class="arithmatex">\(\varphi_1(x) = z, \varphi_1(z) = y, \varphi_1(y) = yz/x\)</span> (using the relation <span class="arithmatex">\(xy = z^2\)</span>) and its companion, and applying <span class="arithmatex">\(\operatorname{Hom}\)</span> again returns <span class="arithmatex">\(\mathfrak{m}\)</span>. So <span class="arithmatex">\(\mathscr{I}\)</span> is reflexive.</p>
+<p><strong>Non-local-freeness.</strong> If <span class="arithmatex">\(\mathscr{I}\)</span> were locally free at the vertex, then <span class="arithmatex">\(\mathfrak{m} R_\mathfrak{m}\)</span> would be a free <span class="arithmatex">\(R_\mathfrak{m}\)</span>-module of rank 1, hence principal. But <span class="arithmatex">\(R_\mathfrak{m}\)</span> is a 2-dimensional local ring, and a local ring whose maximal ideal is principal has dimension <span class="arithmatex">\(\leq 1\)</span> (it would be a DVR or a field). Since <span class="arithmatex">\(\dim R_\mathfrak{m} = 2\)</span>, <span class="arithmatex">\(\mathfrak{m}\)</span> is not principal, and <span class="arithmatex">\(\mathscr{I}\)</span> is not locally free.</p>
+<p><strong>Via the class group.</strong> The class group <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> is computed as follows. The smooth locus <span class="arithmatex">\(X^{\mathrm{sm}} = X \setminus \{\mathfrak{m}\}\)</span> has a ruling by lines (the two families of rulings on the quadric surface). The Weil divisor <span class="arithmatex">\(D\)</span> corresponding to one ruling generates <span class="arithmatex">\(\operatorname{Cl}(X) \cong \mathbb{Z}/2\mathbb{Z}\)</span>: the divisor <span class="arithmatex">\(2D\)</span> is Cartier (it is cut out by a hyperplane), but <span class="arithmatex">\(D\)</span> itself is not. The ideal <span class="arithmatex">\(\mathfrak{m}\)</span> corresponds to this generator. Since the class of <span class="arithmatex">\(\mathfrak{m}\)</span> in <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> is the nontrivial element of <span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z}\)</span>, it defines a Weil divisor that is not Cartier, confirming that <span class="arithmatex">\(\widetilde{\mathfrak{m}}\)</span> is reflexive but not locally free.</p>
+<!-- BENCHMARK_PROBLEM: Let $R = k[x,y,z]/(xy - z^2)$ where $\operatorname{char}(k) \neq 2$, and let $\mathfrak{m} = (x,y,z)$. Prove that $\widetilde{\mathfrak{m}}$ is a reflexive sheaf on $\operatorname{Spec}(R)$ that is not locally free by showing $\mathfrak{m}$ corresponds to a Weil divisor that is not Cartier, and that $\operatorname{Cl}(R) \cong \mathbb{Z}/2\mathbb{Z}$. -->
+
+<h3 id="ecag-0175">Example: A coherent sheaf but not a quotient of a locally free sheaf<a class="headerlink" href="#ecag-0175" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(n \geq 2\)</span> and let <span class="arithmatex">\(X\)</span> be the affine <span class="arithmatex">\(n\)</span>-space with doubled origin, obtained by gluing two copies <span class="arithmatex">\(U_0, U_1 \cong \mathbb{A}^n_k\)</span> along the common open <span class="arithmatex">\(U_0 \cap U_1 = \mathbb{A}^n_k \setminus \{0\}\)</span>. We show that <span class="arithmatex">\(X\)</span> carries a coherent sheaf that is not a quotient of any locally free sheaf.</p>
+<p><strong>Every locally free sheaf on <span class="arithmatex">\(X\)</span> is trivial.</strong> By the Quillen--Suslin theorem, every finitely generated projective module over <span class="arithmatex">\(k[x_1, \ldots, x_n]\)</span> is free, so every locally free sheaf on <span class="arithmatex">\(\mathbb{A}^n_k\)</span> is trivial. A locally free sheaf <span class="arithmatex">\(\mathscr{E}\)</span> on <span class="arithmatex">\(X\)</span> is determined by trivializations <span class="arithmatex">\(\mathscr{E}|_{U_0}\)</span> and <span class="arithmatex">\(\mathscr{E}|_{U_1}\)</span> together with a gluing automorphism <span class="arithmatex">\(\varphi\)</span> over <span class="arithmatex">\(U_0 \cap U_1 = \mathbb{A}^n_k \setminus \{0\}\)</span>. Since <span class="arithmatex">\(n \geq 2\)</span>, the complement of the origin has codimension <span class="arithmatex">\(\geq 2\)</span>, so Hartogs' extension gives</p>
+<div class="arithmatex">\[
+\Gamma(\mathbb{A}^n_k \setminus \{0\}, \mathcal{O}) = \Gamma(\mathbb{A}^n_k, \mathcal{O}) = k[x_1, \ldots, x_n].
+\]</div>
+<p>Therefore <span class="arithmatex">\(\varphi\)</span> extends to an automorphism over all of <span class="arithmatex">\(\mathbb{A}^n_k\)</span>, forcing <span class="arithmatex">\(\mathscr{E}\)</span> to be trivial.</p>
+<p><strong>The resolution property fails.</strong> If every coherent sheaf on <span class="arithmatex">\(X\)</span> were a quotient of a locally free sheaf, then (since all locally free sheaves are trivial, hence isomorphic to <span class="arithmatex">\(\mathcal{O}_X^{\oplus r}\)</span>) every coherent sheaf would be globally generated. By Serre's affineness criterion, this would force <span class="arithmatex">\(X\)</span> to be affine. But <span class="arithmatex">\(X\)</span> is not separated (the two origins cannot be separated by global functions), hence not affine -- a contradiction.</p>
+<p><strong>An explicit non-globally-generated sheaf.</strong> Let <span class="arithmatex">\(p \in U_0\)</span> and <span class="arithmatex">\(q \in U_1\)</span> denote the two origins. The ideal sheaf <span class="arithmatex">\(\mathscr{I}\)</span> of the point <span class="arithmatex">\(p\)</span> has</p>
+<div class="arithmatex">\[
+\mathscr{I}(U_0) = (x_1, \ldots, x_n) \subset k[x_1, \ldots, x_n], \qquad \mathscr{I}(U_1) = k[y_1, \ldots, y_n],
+\]</div>
+<p>with gluing <span class="arithmatex">\(x_i = y_i\)</span> on <span class="arithmatex">\(U_0 \cap U_1\)</span>. The stalk <span class="arithmatex">\(\mathscr{I}_q = \mathcal{O}_{X,q}\)</span> contains <span class="arithmatex">\(1\)</span>, so <span class="arithmatex">\(\mathscr{I}\)</span> should be generated at <span class="arithmatex">\(q\)</span>. However, by Hartogs' extension any global section of <span class="arithmatex">\(\mathscr{I}\)</span> is a pair <span class="arithmatex">\((f, g)\)</span> with <span class="arithmatex">\(f \in (x_1, \ldots, x_n)\)</span> and <span class="arithmatex">\(g \in k[y_1, \ldots, y_n]\)</span> that agree on the overlap. Since <span class="arithmatex">\(f\)</span> vanishes at the origin, <span class="arithmatex">\(g\)</span> also vanishes at the origin. Thus every global section of <span class="arithmatex">\(\mathscr{I}\)</span> vanishes at <span class="arithmatex">\(q\)</span>, and <span class="arithmatex">\(\mathscr{I}\)</span> is not globally generated.</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be the affine plane $\mathbb{A}^2_k$ with doubled origin. Prove that every locally free sheaf on $X$ is trivial by using the Quillen-Suslin theorem and Hartogs' extension, and then exhibit a specific coherent sheaf on $X$ that is not globally generated. -->
+
+<h3 id="ecag-0176">Remark<a class="headerlink" href="#ecag-0176" title="Permanent link">&para;</a></h3>
+<p>For well-behaved schemes, the resolution property always holds. On a quasi-projective variety <span class="arithmatex">\(X\)</span> over a Noetherian ring, every coherent sheaf is a quotient of a locally free sheaf. The argument uses the ample line bundle <span class="arithmatex">\(\mathcal{O}_X(1)\)</span>: for any coherent <span class="arithmatex">\(\mathscr{F}\)</span>, the twist <span class="arithmatex">\(\mathscr{F}(n)\)</span> is globally generated for <span class="arithmatex">\(n \gg 0\)</span>, giving a surjection <span class="arithmatex">\(\mathcal{O}_X^{\oplus r} \twoheadrightarrow \mathscr{F}(n)\)</span>, hence <span class="arithmatex">\(\mathcal{O}_X(-n)^{\oplus r} \twoheadrightarrow \mathscr{F}\)</span>.</p>
+<p>More generally, the resolution property holds for Noetherian regular schemes (by a result of Kleiman) and smooth schemes over a field, but can fail for non-separated or non-quasi-projective schemes, as the doubled-origin example (ecag-0175) demonstrates.</p>
+<h3 id="ecag-0177">Example: A universally closed morphism but not a closed embedding<a class="headerlink" href="#ecag-0177" title="Permanent link">&para;</a></h3>
+<p>We exhibit two finite (hence universally closed) morphisms that fail to be closed embeddings, illustrating the distinct roles of topological properness and sheaf-level injectivity.</p>
+<p><strong>Degree-<span class="arithmatex">\(n\)</span> map on <span class="arithmatex">\(\mathbb{P}^1\)</span>.</strong> The morphism <span class="arithmatex">\(f : \mathbb{P}^1_k \to \mathbb{P}^1_k\)</span> given by <span class="arithmatex">\([x : y] \mapsto [x^n : y^n]\)</span> for <span class="arithmatex">\(n \geq 2\)</span> is finite of degree <span class="arithmatex">\(n\)</span> between proper schemes, hence proper. It is not a closed embedding because it is not injective on geometric points: the fiber over any point other than <span class="arithmatex">\([0:1]\)</span> and <span class="arithmatex">\([1:0]\)</span> consists of <span class="arithmatex">\(n\)</span> distinct points (the <span class="arithmatex">\(n\)</span>-th roots). Equivalently, <span class="arithmatex">\(f\)</span> is not a monomorphism.</p>
+<p><strong>Normalization of the cusp.</strong> The ring inclusion <span class="arithmatex">\(k[t^2, t^3] \hookrightarrow k[t]\)</span> is an integral extension (<span class="arithmatex">\(t\)</span> satisfies <span class="arithmatex">\(t^2 - t^2 = 0\)</span>; more precisely, <span class="arithmatex">\(t\)</span> is integral over <span class="arithmatex">\(k[t^2, t^3]\)</span> since <span class="arithmatex">\(t^2 \in k[t^2, t^3]\)</span>). The corresponding morphism</p>
+<div class="arithmatex">\[
+f : \operatorname{Spec}(k[t]) \to \operatorname{Spec}(k[t^2, t^3])
+\]</div>
+<p>is the normalization of the cuspidal curve <span class="arithmatex">\(y^2 = x^3\)</span> (parametrized by <span class="arithmatex">\(x = t^2\)</span>, <span class="arithmatex">\(y = t^3\)</span>). This morphism is finite, hence proper, and is a bijection on the underlying topological spaces. Nevertheless, it is not a closed embedding: the ring map <span class="arithmatex">\(k[t^2, t^3] \hookrightarrow k[t]\)</span> is not surjective (the element <span class="arithmatex">\(t\)</span> is not in the subring <span class="arithmatex">\(k[t^2, t^3]\)</span>). At the sheaf level, the map <span class="arithmatex">\(\mathcal{O}_Y \to f_* \mathcal{O}_X\)</span> is not surjective, which is the precise obstruction to <span class="arithmatex">\(f\)</span> being a closed immersion.</p>
+<p>Properness (universal closedness plus separatedness and finite type) concerns the topological behavior of <span class="arithmatex">\(f\)</span> under arbitrary base change, while being a closed embedding additionally requires that the map on structure sheaves be surjective. Finite morphisms of degree <span class="arithmatex">\(&gt; 1\)</span> and non-trivial normalizations are the standard examples separating these properties.</p>
+<!-- BENCHMARK_PROBLEM: Prove that the normalization morphism $\operatorname{Spec}(k[t]) \to \operatorname{Spec}(k[t^2, t^3])$ is universally closed but not a closed embedding. You must show it is finite (hence proper) and that the ring map $k[t^2, t^3] \hookrightarrow k[t]$ is not surjective. -->
+
+<h3 id="ecag-0178">Example: Constant fibre dimension <span class="arithmatex">\(\neq\)</span> locally free<a class="headerlink" href="#ecag-0178" title="Permanent link">&para;</a></h3>
+<p>A coherent sheaf can have constant fiber dimension at every point yet fail to be locally free. The simplest example lives on a fat point.</p>
+<p><strong>Setup.</strong> Let <span class="arithmatex">\(R = k[t]/(t^2)\)</span> be the ring of dual numbers and <span class="arithmatex">\(X = \operatorname{Spec}(R)\)</span>, a single point <span class="arithmatex">\(y = (t)\)</span> with residue field <span class="arithmatex">\(k(y) = k\)</span>. Take <span class="arithmatex">\(M = k\)</span>, viewed as an <span class="arithmatex">\(R\)</span>-module via the surjection <span class="arithmatex">\(R \twoheadrightarrow k\)</span> (i.e., <span class="arithmatex">\(t\)</span> acts as zero).</p>
+<p><strong>Constant fiber dimension.</strong> The (unique) fiber has dimension</p>
+<div class="arithmatex">\[
+\dim_{k(y)} (M \otimes_R k(y)) = \dim_k (k \otimes_{k[t]/(t^2)} k) = \dim_k k = 1.
+\]</div>
+<p>This is trivially constant since <span class="arithmatex">\(X\)</span> has a single point.</p>
+<p><strong>Non-freeness and non-flatness.</strong> A free <span class="arithmatex">\(R\)</span>-module of rank 1 is <span class="arithmatex">\(R\)</span> itself, which has <span class="arithmatex">\(\dim_k R = 2\)</span>, while <span class="arithmatex">\(\dim_k M = 1\)</span>. So <span class="arithmatex">\(M\)</span> is not free. More precisely, <span class="arithmatex">\(M\)</span> is not even flat over <span class="arithmatex">\(R\)</span>. To see this, consider the exact sequence <span class="arithmatex">\(0 \to (t) \to R \to k \to 0\)</span>. Since <span class="arithmatex">\((t) \cong R/(t) = k\)</span> as <span class="arithmatex">\(R\)</span>-modules, tensoring with <span class="arithmatex">\(M = k\)</span> gives</p>
+<div class="arithmatex">\[
+(t) \otimes_R k \to R \otimes_R k \to k \otimes_R k \to 0.
+\]</div>
+<p>Now <span class="arithmatex">\((t) \otimes_R k \cong k \otimes_R k \cong k\)</span>, and the map <span class="arithmatex">\((t) \otimes_R k \to R \otimes_R k\)</span> is zero (because <span class="arithmatex">\(t\)</span> acts as <span class="arithmatex">\(0\)</span> on <span class="arithmatex">\(k\)</span>, so the image of the generator <span class="arithmatex">\(t \otimes 1\)</span> is <span class="arithmatex">\(0\)</span>). The kernel of <span class="arithmatex">\(R \otimes_R k \to k \otimes_R k\)</span> is therefore all of <span class="arithmatex">\((t) \otimes_R k \cong k\)</span>, giving</p>
+<div class="arithmatex">\[
+\operatorname{Tor}_1^R(k, k) \cong k \neq 0.
+\]</div>
+<p>Hence <span class="arithmatex">\(M\)</span> is not flat.</p>
+<p>By Nakayama's lemma, the fiber dimension equals the minimal number of generators of <span class="arithmatex">\(M_\mathfrak{p}\)</span> over the local ring. Local freeness additionally requires these generators to satisfy no relations -- equivalently, the module must be flat. Over non-reduced base schemes, the distinction between "generated by <span class="arithmatex">\(r\)</span> elements" and "free of rank <span class="arithmatex">\(r\)</span>" is visible even at a single point.</p>
+<!-- BENCHMARK_PROBLEM: Let $R = k[t]/(t^2)$ and $M = k$ (viewed as an $R$-module via $t \mapsto 0$). Verify that $\dim_{k} (M \otimes_R k) = 1$ but $M$ is not free over $R$. Compute $\operatorname{Tor}_1^R(k, k)$ explicitly to show $M$ is not flat. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/basic_concepts/base_change/">
+      
+      
+        <link rel="prev" href="../topology/">
+      
+      
+        <link rel="next" href="../local_global/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Base Change - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#base-change" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Base Change
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computations/picard/" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#base-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base-change
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base-change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0005" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Reduced scheme but not geometrically reduced
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-forward-and-pull-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push-forward and pull-back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-forward and pull-back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0006" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne \(\operatorname{III}.12.4\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0007" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(f_*\mathcal{O}_{X}\cong \mathcal{O}_{Y}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0008" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Fibres being integral is necessary; flatness matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0009" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a coherent sheaf might not be coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a quasi-coherent sheaf might not be quasi-coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0011" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward might have different cohomology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Push-forward from a Noetherian scheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0013" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Proper push-forward vs. finite flat push-forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0014" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a trivial bundle might not be trivial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0015" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Good things happen sometimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(f^{*}f_{*}\mathscr{F}\) and \(f_{*}f^{*}\mathscr{G}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0017" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Decomposition of \(f^{*}f_{*}\mathscr{F}\) and \(f_{*}f^{*}\mathscr{G}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward behavior by class of morphism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: What prevents \(f_{*}\mathcal{O}_{X}\) from being \(\mathcal{O}_{Y}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pullback of a locally free sheaf need not reflect local freeness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a vector bundle along a projective morphism need not be locally free, even with constant \(h^0\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\operatorname{Ext}^{1}\) and connecting maps in extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pulling back a line bundle along a translation on an elliptic curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/picard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computations/weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#base-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base-change
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Base-change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0005" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Reduced scheme but not geometrically reduced
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-forward-and-pull-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push-forward and pull-back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-forward and pull-back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0006" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne \(\operatorname{III}.12.4\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0007" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(f_*\mathcal{O}_{X}\cong \mathcal{O}_{Y}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0008" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Fibres being integral is necessary; flatness matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0009" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a coherent sheaf might not be coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a quasi-coherent sheaf might not be quasi-coherent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0011" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward might have different cohomology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Push-forward from a Noetherian scheme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0013" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Proper push-forward vs. finite flat push-forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0014" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a trivial bundle might not be trivial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0015" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Good things happen sometimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(f^{*}f_{*}\mathscr{F}\) and \(f_{*}f^{*}\mathscr{G}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0017" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Decomposition of \(f^{*}f_{*}\mathscr{F}\) and \(f_{*}f^{*}\mathscr{G}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward behavior by class of morphism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: What prevents \(f_{*}\mathcal{O}_{X}\) from being \(\mathcal{O}_{Y}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pullback of a locally free sheaf need not reflect local freeness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Push-forward of a vector bundle along a projective morphism need not be locally free, even with constant \(h^0\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\operatorname{Ext}^{1}\) and connecting maps in extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Pulling back a line bundle along a translation on an elliptic curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Base Change</h1>
+
+<h2 id="base-change">Base-change<a class="headerlink" href="#base-change" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0005">Example: Reduced scheme but not geometrically reduced<a class="headerlink" href="#ecag-0005" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k = \mathbf{F}_p(T)\)</span> and <span class="arithmatex">\(K = \mathbf{F}_p(T^{1/p})\)</span>. The scheme <span class="arithmatex">\(\operatorname{Spec}(K)\)</span> is reduced (it is a single point with no nilpotents), but it is not geometrically reduced: the base change <span class="arithmatex">\(\operatorname{Spec}(K \otimes_k K)\)</span> carries a nonzero nilpotent.</p>
+<p>The extension <span class="arithmatex">\(K/k\)</span> is purely inseparable of degree <span class="arithmatex">\(p\)</span>: the element <span class="arithmatex">\(T^{1/p}\)</span> satisfies the minimal polynomial <span class="arithmatex">\(X^p - T \in k[X]\)</span>, which is irreducible over <span class="arithmatex">\(k\)</span> by Eisenstein's criterion at the prime <span class="arithmatex">\(T\)</span> in <span class="arithmatex">\(\mathbf{F}_p[T]\)</span> (then passing to the fraction field).</p>
+<p>The tensor product decomposes as</p>
+<div class="arithmatex">\[
+K \otimes_k K \cong K[X]/(X^p - T) \cong K[X]/((X - T^{1/p})^p)
+\]</div>
+<p>since <span class="arithmatex">\(X^p - T = (X - T^{1/p})^p\)</span> in characteristic <span class="arithmatex">\(p\)</span>. The element</p>
+<div class="arithmatex">\[
+\alpha = 1 \otimes T^{1/p} - T^{1/p} \otimes 1
+\]</div>
+<p>corresponds to the residue class of <span class="arithmatex">\(X - T^{1/p}\)</span> in the quotient. This element is nonzero (since <span class="arithmatex">\(X - T^{1/p}\)</span> is not divisible by <span class="arithmatex">\((X - T^{1/p})^p\)</span>), but</p>
+<div class="arithmatex">\[
+\alpha^p = (1 \otimes T^{1/p} - T^{1/p} \otimes 1)^p = 1 \otimes T - T \otimes 1 = 0
+\]</div>
+<p>because <span class="arithmatex">\(T \in k\)</span> and <span class="arithmatex">\(1 \otimes t = t \otimes 1\)</span> for all <span class="arithmatex">\(t \in k\)</span>. So <span class="arithmatex">\(\alpha\)</span> is a nonzero nilpotent, and <span class="arithmatex">\(\operatorname{Spec}(K \otimes_k K)\)</span> is not reduced.</p>
+<p>The obstruction to geometric reducedness is precisely that <span class="arithmatex">\(k^{1/p} \not\subseteq k\)</span>: purely inseparable extensions, invisible over the ground field, create nilpotents upon self-tensor.</p>
+<!-- BENCHMARK_PROBLEM: Let $k = \mathbf{F}_p(T)$ and $K = \mathbf{F}_p(T^{1/p})$. Explicitly exhibit a nonzero nilpotent element in $K \otimes_k K$ and prove that its $p$-th power is zero. What is the nilpotency index of this element? -->
+
+<h2 id="push-forward-and-pull-back">Push-forward and pull-back<a class="headerlink" href="#push-forward-and-pull-back" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0006">Example: Hartshorne <span class="arithmatex">\(\operatorname{III}.12.4\)</span><a class="headerlink" href="#ecag-0006" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(Y\)</span> be an integral scheme of finite type over an algebraically closed field <span class="arithmatex">\(k\)</span>, and let <span class="arithmatex">\(f : X \to Y\)</span> be a flat projective morphism whose fibres are integral schemes. If <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(M\)</span> are line bundles on <span class="arithmatex">\(X\)</span> with <span class="arithmatex">\(L_y \cong M_y\)</span> for every <span class="arithmatex">\(y \in Y\)</span>, then there exists a line bundle <span class="arithmatex">\(N\)</span> on <span class="arithmatex">\(Y\)</span> such that</p>
+<div class="arithmatex">\[
+L \cong M \otimes f^* N.
+\]</div>
+<p>Set <span class="arithmatex">\(\mathscr{F} = L \otimes M^{-1}\)</span>. By hypothesis, <span class="arithmatex">\(\mathscr{F}_y \cong \mathcal{O}_{X_y}\)</span> for every <span class="arithmatex">\(y \in Y\)</span>, so <span class="arithmatex">\(h^0(X_y, \mathscr{F}_y) = 1\)</span> for all <span class="arithmatex">\(y\)</span>.</p>
+<p><strong>The direct image is a line bundle.</strong> By Grauert's theorem (Hartshorne III.12.9), since <span class="arithmatex">\(f\)</span> is a flat projective morphism between Noetherian schemes, <span class="arithmatex">\(\mathscr{F}\)</span> is coherent and flat over <span class="arithmatex">\(Y\)</span>, and <span class="arithmatex">\(y \mapsto h^0(X_y, \mathscr{F}_y) = 1\)</span> is constant, the direct image <span class="arithmatex">\(f_* \mathscr{F}\)</span> is locally free of rank <span class="arithmatex">\(1\)</span>. Integrality of the fibres is essential here: since each <span class="arithmatex">\(X_y\)</span> is connected and reduced, <span class="arithmatex">\(H^0(X_y, \mathcal{O}_{X_y}) = k(y)\)</span>, ensuring the rank is exactly <span class="arithmatex">\(1\)</span> rather than higher. Set <span class="arithmatex">\(N = f_* \mathscr{F}\)</span>.</p>
+<p><strong>The evaluation map is an isomorphism.</strong> By cohomology and base change (applicable since <span class="arithmatex">\(h^0\)</span> is constant and <span class="arithmatex">\(Y\)</span> is integral), the natural map <span class="arithmatex">\(f_* \mathscr{F} \otimes k(y) \to H^0(X_y, \mathscr{F}_y)\)</span> is an isomorphism for each <span class="arithmatex">\(y\)</span>. Since <span class="arithmatex">\(\mathscr{F}_y \cong \mathcal{O}_{X_y}\)</span> is globally generated, the evaluation map</p>
+<div class="arithmatex">\[
+f^* f_* \mathscr{F} \to \mathscr{F}
+\]</div>
+<p>is surjective on each fibre. Both sides are line bundles on <span class="arithmatex">\(X\)</span> (the left side because <span class="arithmatex">\(f^* N\)</span> is a line bundle when <span class="arithmatex">\(N\)</span> is), and a surjection between line bundles is necessarily an isomorphism. Therefore <span class="arithmatex">\(\mathscr{F} \cong f^* N\)</span>, giving <span class="arithmatex">\(L \cong M \otimes f^* N\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a flat projective morphism with integral fibres over an integral scheme $Y$ of finite type over an algebraically closed field. If $L$ and $M$ are line bundles on $X$ with $L_y \cong M_y$ for all $y \in Y$, prove that $L \cong M \otimes f^* N$ for some line bundle $N$ on $Y$. Where exactly does the integrality of the fibres enter the proof? -->
+
+<h3 id="ecag-0007">Remark: <span class="arithmatex">\(f_*\mathcal{O}_{X}\cong \mathcal{O}_{Y}\)</span><a class="headerlink" href="#ecag-0007" title="Permanent link">&para;</a></h3>
+<p>Under the same hypotheses -- <span class="arithmatex">\(f : X \to Y\)</span> flat projective with integral fibres, <span class="arithmatex">\(Y\)</span> integral of finite type over an algebraically closed field -- we have <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span>.</p>
+<p>Apply the preceding argument with <span class="arithmatex">\(\mathscr{F} = \mathcal{O}_X\)</span>. Each fibre <span class="arithmatex">\(X_y\)</span> is integral, so <span class="arithmatex">\(H^0(X_y, \mathcal{O}_{X_y}) \cong k(y)\)</span>, giving <span class="arithmatex">\(h^0(X_y, \mathcal{O}_{X_y}) = 1\)</span>. By Grauert's theorem, <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is locally free of rank 1. The structure map <span class="arithmatex">\(f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X\)</span> is a morphism of <span class="arithmatex">\(\mathcal{O}_Y\)</span>-modules sending <span class="arithmatex">\(1 \mapsto 1\)</span>. At each stalk, this is an injection of free rank-1 modules <span class="arithmatex">\(\mathcal{O}_{Y,y} \hookrightarrow (f_* \mathcal{O}_X)_y\)</span>. An injection between free modules of the same rank over a local ring is an isomorphism (the cokernel is finitely generated with zero localization, hence zero by Nakayama). Therefore <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a flat projective morphism with integral fibres, $Y$ an integral scheme of finite type over an algebraically closed field. Prove that $f_* \mathcal{O}_X \cong \mathcal{O}_Y$. Which specific property of the fibres guarantees the rank is exactly 1? -->
+
+<h3 id="ecag-0008">Example: Fibres being integral is necessary; flatness matters<a class="headerlink" href="#ecag-0008" title="Permanent link">&para;</a></h3>
+<p>The conclusion <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span> can fail without flatness, even when fibres are connected. Consider the morphism</p>
+<div class="arithmatex">\[
+f : X = \operatorname{Spec}(k[x,y]/(x^2, xy)) \to Y = \operatorname{Spec}(k[y])
+\]</div>
+<p>induced by <span class="arithmatex">\(k[y] \hookrightarrow k[x,y]/(x^2, xy)\)</span>, <span class="arithmatex">\(y \mapsto y\)</span>.</p>
+<p><strong>Structure of <span class="arithmatex">\(A = k[x,y]/(x^2, xy)\)</span>.</strong> As a <span class="arithmatex">\(k[y]\)</span>-module, <span class="arithmatex">\(A \cong k[y] \oplus k \cdot x\)</span>, where <span class="arithmatex">\(y\)</span> acts on the second summand by <span class="arithmatex">\(y \cdot x = 0\)</span> (from the relation <span class="arithmatex">\(xy = 0\)</span>). The morphism <span class="arithmatex">\(f\)</span> is finite (hence projective) with target a regular Noetherian scheme.</p>
+<p><strong>Non-flatness.</strong> The element <span class="arithmatex">\(x \in A\)</span> is annihilated by <span class="arithmatex">\(y \in k[y]\)</span>, so <span class="arithmatex">\(A\)</span> has <span class="arithmatex">\(k[y]\)</span>-torsion. Over the PID <span class="arithmatex">\(k[y]\)</span>, torsion-free is equivalent to flat, so <span class="arithmatex">\(f\)</span> is not flat.</p>
+<p><strong>The push-forward.</strong> We have <span class="arithmatex">\(f_* \mathcal{O}_X = \widetilde{A}\)</span> on <span class="arithmatex">\(Y = \operatorname{Spec}(k[y])\)</span>. Since <span class="arithmatex">\(A = k[y] \oplus k \cdot x\)</span> as a <span class="arithmatex">\(k[y]\)</span>-module, the push-forward has rank 2 at the generic point and is not even locally free (it has torsion at <span class="arithmatex">\(y = 0\)</span>). In particular, <span class="arithmatex">\(f_* \mathcal{O}_X \not\cong \mathcal{O}_Y\)</span>.</p>
+<p>Flatness is essential for Grauert's theorem and cohomology-and-base-change to apply. A non-flat morphism can have connected fibres yet fail <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span> because the push-forward carries torsion.</p>
+<!-- BENCHMARK_PROBLEM: Show that the morphism $\operatorname{Spec}(k[x,y]/(x^2, xy)) \to \operatorname{Spec}(k[y])$ given by $y \mapsto y$ is not flat, and compute $f_* \mathcal{O}_X$ explicitly as a $k[y]$-module. Is it locally free? -->
+
+<h3 id="ecag-0009">Example: Push-forward of a coherent sheaf might not be coherent<a class="headerlink" href="#ecag-0009" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f : X = \operatorname{Spec}(k(x)) \to Y = \operatorname{Spec}(k)\)</span> be the morphism induced by <span class="arithmatex">\(k \hookrightarrow k(x)\)</span>. Then <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is the quasi-coherent sheaf on <span class="arithmatex">\(\operatorname{Spec}(k)\)</span> associated to the <span class="arithmatex">\(k\)</span>-vector space <span class="arithmatex">\(k(x)\)</span>. A coherent sheaf on <span class="arithmatex">\(\operatorname{Spec}(k)\)</span> corresponds to a finite-dimensional <span class="arithmatex">\(k\)</span>-vector space, but <span class="arithmatex">\(k(x)\)</span> is infinite-dimensional over <span class="arithmatex">\(k\)</span> (the elements <span class="arithmatex">\(1, x, x^2, \ldots\)</span> are linearly independent). Therefore <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is not coherent.</p>
+<p>The morphism <span class="arithmatex">\(f\)</span> is not proper: <span class="arithmatex">\(\operatorname{Spec}(k(x))\)</span> is not even of finite type over <span class="arithmatex">\(k\)</span> (the ring <span class="arithmatex">\(k(x)\)</span> is not a finitely generated <span class="arithmatex">\(k\)</span>-algebra). By the proper direct image theorem (EGA III), if <span class="arithmatex">\(f : X \to Y\)</span> is proper and <span class="arithmatex">\(\mathscr{F}\)</span> is coherent on <span class="arithmatex">\(X\)</span>, then <span class="arithmatex">\(R^i f_* \mathscr{F}\)</span> is coherent on <span class="arithmatex">\(Y\)</span> for all <span class="arithmatex">\(i\)</span>. This example shows the properness hypothesis is necessary: even <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> can fail coherence when <span class="arithmatex">\(f\)</span> is not proper.</p>
+<!-- BENCHMARK_PROBLEM: Let $k$ be a field and $f : \operatorname{Spec}(k(x)) \to \operatorname{Spec}(k)$ the natural morphism. Prove that $f_* \mathcal{O}_X$ is not coherent on $\operatorname{Spec}(k)$, and identify which hypothesis of the proper direct image theorem fails. -->
+
+<h3 id="ecag-0010">Example: Push-forward of a quasi-coherent sheaf might not be quasi-coherent<a class="headerlink" href="#ecag-0010" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f : X = \coprod_{i=1}^{\infty} \operatorname{Spec}(\mathbb{Z}) \to S = \operatorname{Spec}(\mathbb{Z})\)</span> be the fold map (identity on each component). We show that <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is not quasi-coherent on <span class="arithmatex">\(S\)</span>.</p>
+<p>For any open <span class="arithmatex">\(U \subseteq S\)</span>, we have <span class="arithmatex">\(f_* \mathcal{O}_X(U) = \prod_{i=1}^{\infty} \mathcal{O}_S(U)\)</span>. Quasi-coherence on <span class="arithmatex">\(S = \operatorname{Spec}(\mathbb{Z})\)</span> requires <span class="arithmatex">\(\mathscr{F}(D(a)) \cong \mathscr{F}(S) \otimes_\mathbb{Z} \mathbb{Z}[1/a]\)</span> for every <span class="arithmatex">\(a\)</span>. Testing at <span class="arithmatex">\(a = 2\)</span>: the global sections are <span class="arithmatex">\(f_* \mathcal{O}_X(S) = \prod_{i=1}^{\infty} \mathbb{Z}\)</span> and the sections over <span class="arithmatex">\(D(2)\)</span> are <span class="arithmatex">\(f_* \mathcal{O}_X(D(2)) = \prod_{i=1}^{\infty} \mathbb{Z}[1/2]\)</span>. If <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> were quasi-coherent, the natural map</p>
+<div class="arithmatex">\[
+\left(\prod_{i=1}^{\infty} \mathbb{Z}\right) \otimes_{\mathbb{Z}} \mathbb{Z}[1/2] \to \prod_{i=1}^{\infty} \mathbb{Z}[1/2]
+\]</div>
+<p>would be an isomorphism. Every element of the left-hand side can be written as <span class="arithmatex">\((a_i)_i \otimes 2^{-M}\)</span> for some fixed <span class="arithmatex">\(M\)</span>, giving entries <span class="arithmatex">\(a_i / 2^M\)</span> with a uniform bound on the power of <span class="arithmatex">\(2\)</span> in the denominator. But the right-hand side contains sequences like <span class="arithmatex">\((1/2, 1/4, 1/8, \ldots, 1/2^n, \ldots)\)</span> where the denominators grow without bound. Such a sequence is not in the image, so the map is not surjective.</p>
+<p><strong>A second example.</strong> On <span class="arithmatex">\(\mathbb{A}^1_k = \operatorname{Spec}(k[t])\)</span>, define a sheaf by</p>
+<div class="arithmatex">\[
+\mathscr{F}(U) = \begin{cases} \mathcal{O}_X(U) &amp; \text{if } 0 \notin U, \\ 0 &amp; \text{if } 0 \in U. \end{cases}
+\]</div>
+<p>This is a sheaf (restriction maps and gluing are easily verified). The global sections vanish since <span class="arithmatex">\(0 \in \mathbb{A}^1_k\)</span>, yet <span class="arithmatex">\(\mathscr{F}\)</span> is not the zero sheaf (it has nonzero sections on opens avoiding the origin). A quasi-coherent sheaf with zero global sections on an affine scheme must be zero, so <span class="arithmatex">\(\mathscr{F}\)</span> is not quasi-coherent.</p>
+<p>Quasi-coherence of <span class="arithmatex">\(f_* \mathscr{F}\)</span> requires conditions on <span class="arithmatex">\(f\)</span>: the standard sufficient condition is that <span class="arithmatex">\(f\)</span> be quasi-compact and quasi-separated. The infinite coproduct morphism fails quasi-compactness, and the resulting infinite product of rings does not commute with localization.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : \coprod_{i=1}^{\infty} \operatorname{Spec}(\mathbb{Z}) \to \operatorname{Spec}(\mathbb{Z})$ be the fold map. Exhibit an explicit element of $\prod_{i=1}^{\infty} \mathbb{Z}[1/2]$ that is not in the image of $\left(\prod_{i=1}^{\infty} \mathbb{Z}\right) \otimes_{\mathbb{Z}} \mathbb{Z}[1/2]$, and explain why this shows $f_* \mathcal{O}_X$ is not quasi-coherent. -->
+
+<h3 id="ecag-0011">Example: Push-forward might have different cohomology<a class="headerlink" href="#ecag-0011" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f : \mathbb{P}^1_k \to \operatorname{Spec}(k)\)</span> be the structure morphism and <span class="arithmatex">\(\mathscr{F} = \mathcal{O}_{\mathbb{P}^1_k}(-2)\)</span>. We compute <span class="arithmatex">\(H^1\)</span> via two different routes and find they disagree.</p>
+<p><strong>Via <span class="arithmatex">\(f_*\)</span>.</strong> Since <span class="arithmatex">\(H^0(\mathbb{P}^1_k, \mathcal{O}(-2)) = 0\)</span> (a line bundle of negative degree on <span class="arithmatex">\(\mathbb{P}^1\)</span> has no nonzero global sections), the push-forward is <span class="arithmatex">\(f_* \mathcal{O}(-2) = 0\)</span> as a sheaf on <span class="arithmatex">\(\operatorname{Spec}(k)\)</span>. Therefore</p>
+<div class="arithmatex">\[
+H^1(\operatorname{Spec}(k),\, f_* \mathcal{O}_{\mathbb{P}^1_k}(-2)) = 0.
+\]</div>
+<p><strong>Directly on <span class="arithmatex">\(\mathbb{P}^1_k\)</span>.</strong> The canonical bundle is <span class="arithmatex">\(\omega_{\mathbb{P}^1} \cong \mathcal{O}(-2)\)</span>. By Serre duality,</p>
+<div class="arithmatex">\[
+H^1(\mathbb{P}^1_k, \mathcal{O}(-2)) \cong H^0(\mathbb{P}^1_k, \mathcal{O})^\vee \cong k^\vee \cong k \neq 0.
+\]</div>
+<p>Alternatively, from the Cech computation with the standard cover <span class="arithmatex">\(U_0 = D_+(x)\)</span>, <span class="arithmatex">\(U_1 = D_+(y)\)</span>: the group <span class="arithmatex">\(H^1(\mathbb{P}^1_k, \mathcal{O}(-2))\)</span> is the <span class="arithmatex">\(k\)</span>-vector space spanned by the class of <span class="arithmatex">\(x^{-1}y^{-1}\)</span>, which is <span class="arithmatex">\(1\)</span>-dimensional.</p>
+<p><strong>Why the discrepancy.</strong> For an affine morphism <span class="arithmatex">\(f\)</span>, the Leray spectral sequence degenerates and gives <span class="arithmatex">\(H^i(X, \mathscr{F}) \cong H^i(Y, f_* \mathscr{F})\)</span> for all <span class="arithmatex">\(i\)</span>. The structure morphism <span class="arithmatex">\(\mathbb{P}^1_k \to \operatorname{Spec}(k)\)</span> is projective but not affine, so the spectral sequence does not degenerate. The higher direct image <span class="arithmatex">\(R^1 f_* \mathcal{O}(-2) \cong k\)</span> accounts for the discrepancy.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : \mathbb{P}_k^1 \to \operatorname{Spec}(k)$ be the structure morphism. Compute $H^1(\operatorname{Spec}(k), f_* \mathcal{O}_{\mathbb{P}_k^1}(-2))$ and $H^1(\mathbb{P}_k^1, \mathcal{O}_{\mathbb{P}_k^1}(-2))$ separately, and explain why they differ. What property of $f$ would guarantee they are equal? -->
+
+<h3 id="ecag-0012">Remark: Push-forward from a Noetherian scheme<a class="headerlink" href="#ecag-0012" title="Permanent link">&para;</a></h3>
+<p>Two standard preservation results for quasi-coherent sheaves under push-forward:</p>
+<p>If <span class="arithmatex">\(f : X \to Y\)</span> is a morphism with <span class="arithmatex">\(X\)</span> Noetherian (or more generally, <span class="arithmatex">\(f\)</span> quasi-compact and quasi-separated), then <span class="arithmatex">\(f_* \mathscr{F}\)</span> is quasi-coherent on <span class="arithmatex">\(Y\)</span> for any quasi-coherent <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span>.</p>
+<p>If moreover <span class="arithmatex">\(X\)</span> is separated and Noetherian, then Cech cohomology agrees with derived functor cohomology: for any quasi-coherent sheaf <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span> and any open affine cover <span class="arithmatex">\(\mathfrak{U}\)</span> of <span class="arithmatex">\(X\)</span>,</p>
+<div class="arithmatex">\[
+\check{H}^p(\mathfrak{U}, \mathscr{F}) = H^p(X, \mathscr{F})
+\]</div>
+<p>for all <span class="arithmatex">\(p \geq 0\)</span>. The key input is Leray's theorem: on a separated Noetherian scheme, intersections of affine opens are affine (by separatedness), so affine opens form a Leray cover for quasi-coherent sheaves (since quasi-coherent sheaves are acyclic on affine schemes by Serre's theorem).</p>
+<!-- BENCHMARK_PROBLEM: Let $X$ be a separated Noetherian scheme and $\mathscr{F}$ a quasi-coherent sheaf on $X$. Why does Cech cohomology with respect to an affine cover compute the derived functor cohomology? State the precise hypotheses needed. -->
+
+<h3 id="ecag-0013">Example: Proper push-forward vs. finite flat push-forward<a class="headerlink" href="#ecag-0013" title="Permanent link">&para;</a></h3>
+<p>Several fundamental results govern when direct images preserve finiteness. We state the key facts and the role of each hypothesis.</p>
+<p><strong>(a) Proper direct image theorem</strong> (EGA III). If <span class="arithmatex">\(f : X \to Y\)</span> is a proper morphism of Noetherian schemes and <span class="arithmatex">\(\mathscr{F}\)</span> is coherent on <span class="arithmatex">\(X\)</span>, then <span class="arithmatex">\(R^i f_* \mathscr{F}\)</span> is coherent on <span class="arithmatex">\(Y\)</span> for all <span class="arithmatex">\(i \geq 0\)</span>. The proof reduces to the projective case via Chow's lemma, then uses the explicit computation of cohomology of coherent sheaves on projective space.</p>
+<p><strong>(b) Properness is essential.</strong> The morphism <span class="arithmatex">\(\operatorname{Spec}(k(x)) \to \operatorname{Spec}(k)\)</span> is not proper (<span class="arithmatex">\(k(x)\)</span> is not a finitely generated <span class="arithmatex">\(k\)</span>-algebra), and <span class="arithmatex">\(f_* \mathcal{O}_X = k(x)\)</span> is infinite-dimensional over <span class="arithmatex">\(k\)</span>, hence not coherent.</p>
+<p><strong>(c) Finite <span class="arithmatex">\(\Rightarrow\)</span> locally free iff flat.</strong> For a finite morphism <span class="arithmatex">\(f : X \to Y\)</span> of Noetherian schemes, <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is locally free if and only if <span class="arithmatex">\(f\)</span> is flat. Forward: finiteness implies <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is coherent, and a coherent flat module over a Noetherian local ring is free (by the local criterion plus Nakayama). Converse: for an affine morphism, flatness of <span class="arithmatex">\(f\)</span> is equivalent to flatness of <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> as an <span class="arithmatex">\(\mathcal{O}_Y\)</span>-module.</p>
+<p><strong>(d) Automatic flatness over regular curves.</strong> Any surjective morphism <span class="arithmatex">\(f : X \to Y\)</span> with <span class="arithmatex">\(Y\)</span> a regular one-dimensional scheme is automatically flat. Over a DVR, every torsion-free module is flat, and surjectivity ensures the push-forward has nonzero generic fibre (hence is torsion-free).</p>
+<p><strong>(e) Miracle flatness theorem.</strong> If <span class="arithmatex">\(f : X \to Y\)</span> is a morphism of finite type between Noetherian local rings with <span class="arithmatex">\(Y\)</span> regular, <span class="arithmatex">\(X\)</span> Cohen--Macaulay, and <span class="arithmatex">\(\dim X = \dim Y + \dim(\text{fibre})\)</span>, then <span class="arithmatex">\(f\)</span> is flat. This provides a powerful geometric criterion: correct fiber dimension plus Cohen--Macaulayness forces flatness over a regular base.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a finite morphism of Noetherian schemes. Prove that $f_* \mathcal{O}_X$ is locally free if and only if $f$ is flat. Where does the finiteness of $f$ enter each direction of the proof? -->
+
+<h3 id="ecag-0014">Example: Push-forward of a trivial bundle might not be trivial<a class="headerlink" href="#ecag-0014" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(f : \mathbb{P}^1 \to \mathbb{P}^1\)</span> be the degree-2 map <span class="arithmatex">\([x : y] \mapsto [x^2 : y^2]\)</span>. Since <span class="arithmatex">\(f\)</span> is finite and flat of degree 2, the push-forward <span class="arithmatex">\(f_* \mathcal{O}_{\mathbb{P}^1}\)</span> is locally free of rank 2. By Grothendieck's splitting theorem, every vector bundle on <span class="arithmatex">\(\mathbb{P}^1\)</span> decomposes as a direct sum of line bundles:</p>
+<div class="arithmatex">\[
+f_* \mathcal{O}_{\mathbb{P}^1} \cong \mathcal{O}(a) \oplus \mathcal{O}(b)
+\]</div>
+<p>for some <span class="arithmatex">\(a, b \in \mathbb{Z}\)</span>. We determine <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> using the projection formula: for any <span class="arithmatex">\(n \in \mathbb{Z}\)</span>,</p>
+<div class="arithmatex">\[
+H^0(\mathbb{P}^1, \mathcal{O}(n) \otimes f_* \mathcal{O}) \cong H^0(\mathbb{P}^1, f^* \mathcal{O}(n)) = H^0(\mathbb{P}^1, \mathcal{O}(2n))
+\]</div>
+<p>since <span class="arithmatex">\(f^* \mathcal{O}(1) \cong \mathcal{O}(2)\)</span> (pulling back along a degree-2 map doubles the degree). The left side gives <span class="arithmatex">\(h^0(\mathcal{O}(n+a)) + h^0(\mathcal{O}(n+b))\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(n\)</span></th>
+<th>RHS: <span class="arithmatex">\(h^0(\mathcal{O}(2n))\)</span></th>
+<th>LHS: <span class="arithmatex">\(h^0(\mathcal{O}(n+a)) + h^0(\mathcal{O}(n+b))\)</span></th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(-1\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(-2)) = 0\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(a-1)) + h^0(\mathcal{O}(b-1)) = 0\)</span></td>
+<td><span class="arithmatex">\(a \leq 0\)</span> and <span class="arithmatex">\(b \leq 0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(0)) = 1\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(a)) + h^0(\mathcal{O}(b)) = 1\)</span></td>
+<td>Exactly one of <span class="arithmatex">\(a, b\)</span> is <span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(2)) = 3\)</span></td>
+<td><span class="arithmatex">\(h^0(\mathcal{O}(1+a)) + h^0(\mathcal{O}(1+b)) = 3\)</span></td>
+<td>Determines the other</td>
+</tr>
+</tbody>
+</table>
+<p>From <span class="arithmatex">\(n = -1\)</span>: both <span class="arithmatex">\(a, b \leq 0\)</span>. From <span class="arithmatex">\(n = 0\)</span>: exactly one equals <span class="arithmatex">\(0\)</span>; say <span class="arithmatex">\(a = 0\)</span>, then <span class="arithmatex">\(h^0(\mathcal{O}(b)) = 0\)</span> forces <span class="arithmatex">\(b &lt; 0\)</span>. From <span class="arithmatex">\(n = 1\)</span>: <span class="arithmatex">\(2 + h^0(\mathcal{O}(1 + b)) = 3\)</span>, so <span class="arithmatex">\(h^0(\mathcal{O}(1 + b)) = 1\)</span>, giving <span class="arithmatex">\(b = -1\)</span>. Therefore</p>
+<div class="arithmatex">\[
+f_* \mathcal{O}_{\mathbb{P}^1} \cong \mathcal{O}_{\mathbb{P}^1} \oplus \mathcal{O}_{\mathbb{P}^1}(-1).
+\]</div>
+<p>The trivial bundle <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}^1}\)</span> acquires a nontrivial summand under push-forward. Grothendieck's splitting theorem reduces the identification to a finite computation of global sections, which the projection formula translates to cohomology on the source.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : \mathbb{P}^1 \to \mathbb{P}^1$ be the map $[x,y] \mapsto [x^2, y^2]$. Using the projection formula and Grothendieck's splitting theorem, determine $f_* \mathcal{O}_{\mathbb{P}^1}$ as a direct sum of line bundles. -->
+
+<h3 id="ecag-0015">Remark: Good things happen sometimes<a class="headerlink" href="#ecag-0015" title="Permanent link">&para;</a></h3>
+<p>In favorable situations, push-forwards of structure sheaves of divisors decompose simply. Let <span class="arithmatex">\(k\)</span> be algebraically closed, <span class="arithmatex">\(f : X \to Y\)</span> a finite morphism between smooth projective curves, and <span class="arithmatex">\(D = \sum n_i p_i\)</span> an effective divisor on <span class="arithmatex">\(X\)</span>. Define <span class="arithmatex">\(f_* D = \sum n_i f(p_i)\)</span> as a divisor on <span class="arithmatex">\(Y\)</span>. Then</p>
+<div class="arithmatex">\[
+f_* \mathcal{O}_D \cong \mathcal{O}_{f_* D}.
+\]</div>
+<p>Here <span class="arithmatex">\(\mathcal{O}_D = \mathcal{O}_X / \mathcal{O}_X(-D)\)</span> is the structure sheaf of the subscheme defined by <span class="arithmatex">\(D\)</span>, a skyscraper sheaf supported at the points <span class="arithmatex">\(p_i\)</span>. Since <span class="arithmatex">\(f\)</span> is finite, <span class="arithmatex">\(f_*\)</span> on skyscraper sheaves simply relocates stalks: the stalk of <span class="arithmatex">\(f_* \mathcal{O}_D\)</span> at <span class="arithmatex">\(q \in Y\)</span> is <span class="arithmatex">\(\bigoplus_{f(p_i) = q} \mathcal{O}_{X, p_i} / \mathfrak{m}_{p_i}^{n_i} \cong \bigoplus_{f(p_i) = q} k[t]/(t^{n_i})\)</span>. Over an algebraically closed field with distinct image points, this coincides with <span class="arithmatex">\(\mathcal{O}_{f_* D}\)</span> at <span class="arithmatex">\(q\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a finite morphism of smooth projective curves over an algebraically closed field, and let $D = p_1 + p_2$ be a reduced divisor on $X$ with $f(p_1) \neq f(p_2)$. Verify explicitly that $f_* \mathcal{O}_D \cong \mathcal{O}_{f(p_1)} \oplus \mathcal{O}_{f(p_2)}$. -->
+
+<h3 id="ecag-0016">Example: <span class="arithmatex">\(f^{*}f_{*}\mathscr{F}\)</span> and <span class="arithmatex">\(f_{*}f^{*}\mathscr{G}\)</span><a class="headerlink" href="#ecag-0016" title="Permanent link">&para;</a></h3>
+<p>For a morphism <span class="arithmatex">\(f : X \to Y\)</span>, the functors <span class="arithmatex">\((f^*, f_*)\)</span> form an adjoint pair, with natural transformations</p>
+<div class="arithmatex">\[
+\varepsilon : f^* f_* \mathscr{F} \to \mathscr{F} \quad \text{(counit)}, \qquad \eta : \mathscr{G} \to f_* f^* \mathscr{G} \quad \text{(unit)}.
+\]</div>
+<p>We make these explicit in two settings.</p>
+<p><strong>Affine case.</strong> Let <span class="arithmatex">\(f : \operatorname{Spec}(A) \to \operatorname{Spec}(B)\)</span> correspond to a ring map <span class="arithmatex">\(\varphi : B \to A\)</span>, <span class="arithmatex">\(M\)</span> an <span class="arithmatex">\(A\)</span>-module, and <span class="arithmatex">\(N\)</span> a <span class="arithmatex">\(B\)</span>-module. Write <span class="arithmatex">\(M_B\)</span> for <span class="arithmatex">\(M\)</span> viewed as a <span class="arithmatex">\(B\)</span>-module via <span class="arithmatex">\(\varphi\)</span>.</p>
+<p>The counit is induced by the multiplication map</p>
+<div class="arithmatex">\[
+A \otimes_B M_B \to M, \qquad a \otimes m \mapsto am.
+\]</div>
+<p>This is surjective (every <span class="arithmatex">\(m \in M\)</span> equals <span class="arithmatex">\(1 \otimes m\)</span>), but typically not injective: the tensor product is over <span class="arithmatex">\(B\)</span>, not <span class="arithmatex">\(A\)</span>, so distinct simple tensors can collapse. For example, if <span class="arithmatex">\(A = k[x]\)</span>, <span class="arithmatex">\(B = k\)</span>, and <span class="arithmatex">\(M = k[x]\)</span>, then <span class="arithmatex">\(A \otimes_B M_B = k[x] \otimes_k k[x]\)</span>, which has dimension <span class="arithmatex">\(&gt; \dim_k k[x]\)</span> in each graded piece.</p>
+<p>The unit is</p>
+<div class="arithmatex">\[
+N \to (A \otimes_B N)_B, \qquad n \mapsto 1 \otimes n.
+\]</div>
+<p>This is injective when <span class="arithmatex">\(\varphi : B \to A\)</span> is faithfully flat.</p>
+<p><strong>Case <span class="arithmatex">\(Y = \operatorname{Spec}(k)\)</span>.</strong> For a coherent sheaf <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span>, the push-forward <span class="arithmatex">\(f_* \mathscr{F} = H^0(X, \mathscr{F})\)</span> is a <span class="arithmatex">\(k\)</span>-vector space, and</p>
+<div class="arithmatex">\[
+f^* f_* \mathscr{F} = \mathcal{O}_X \otimes_k H^0(X, \mathscr{F}) \cong \mathcal{O}_X^{\oplus h^0(X, \mathscr{F})}.
+\]</div>
+<p>The counit <span class="arithmatex">\(\mathcal{O}_X \otimes_k H^0(X, \mathscr{F}) \to \mathscr{F}\)</span> is the evaluation map <span class="arithmatex">\(g \otimes s \mapsto g \cdot s\)</span>. This is surjective precisely when <span class="arithmatex">\(\mathscr{F}\)</span> is globally generated.</p>
+<p>For a finite-dimensional <span class="arithmatex">\(k\)</span>-vector space <span class="arithmatex">\(V\)</span>, the unit <span class="arithmatex">\(V \to V \otimes_k H^0(X, \mathcal{O}_X)\)</span> sends <span class="arithmatex">\(v \mapsto v \otimes 1\)</span>, embedding <span class="arithmatex">\(V\)</span> as the "constant" elements.</p>
+<p>The counit measures how far <span class="arithmatex">\(\mathscr{F}\)</span> is from being generated by its global sections (pushed forward to the base), while the unit measures how far <span class="arithmatex">\(\mathscr{G}\)</span> is from being determined by its pullback data.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : \operatorname{Spec}(A) \to \operatorname{Spec}(B)$ be induced by $\varphi : B \to A$, and let $M$ be an $A$-module. Write down the counit map $A \otimes_B M_B \to M$ explicitly. Give an example where it is not injective. -->
+
+<h3 id="ecag-0017">Remark: Decomposition of <span class="arithmatex">\(f^{*}f_{*}\mathscr{F}\)</span> and <span class="arithmatex">\(f_{*}f^{*}\mathscr{G}\)</span><a class="headerlink" href="#ecag-0017" title="Permanent link">&para;</a></h3>
+<p>When <span class="arithmatex">\(f : X \to Y\)</span> is a finite etale Galois cover with Galois group <span class="arithmatex">\(G\)</span> (so <span class="arithmatex">\(G\)</span> acts on <span class="arithmatex">\(X\)</span> over <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(Y \cong X/G\)</span>), the adjunction maps yield explicit decompositions.</p>
+<p><strong>Pull-back of push-forward.</strong> For a coherent sheaf <span class="arithmatex">\(\mathscr{F}\)</span> on <span class="arithmatex">\(X\)</span>:</p>
+<div class="arithmatex">\[
+f^* f_* \mathscr{F} \cong \bigoplus_{g \in G} g^* \mathscr{F}.
+\]</div>
+<p>This follows from the fibre product decomposition <span class="arithmatex">\(X \times_Y X \cong \coprod_{g \in G} X\)</span> (a defining property of Galois covers) and flat base change:</p>
+<div class="arithmatex">\[
+f^* f_* \mathscr{F} \cong \operatorname{pr}_{1*}(\operatorname{pr}_2^* \mathscr{F}) \cong \bigoplus_{g \in G} g^* \mathscr{F}.
+\]</div>
+<p><strong>Push-forward of pull-back.</strong> For a coherent sheaf <span class="arithmatex">\(\mathscr{G}\)</span> on <span class="arithmatex">\(Y\)</span>:</p>
+<div class="arithmatex">\[
+f_* f^* \mathscr{G} \cong \mathscr{G}^{\oplus |G|}.
+\]</div>
+<p>By the projection formula, <span class="arithmatex">\(f_* f^* \mathscr{G} \cong \mathscr{G} \otimes f_* \mathcal{O}_X\)</span>. For an etale Galois cover, <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is a locally free <span class="arithmatex">\(\mathcal{O}_Y\)</span>-module of rank <span class="arithmatex">\(|G|\)</span>, decomposing (after passage to representations) according to the regular representation of <span class="arithmatex">\(G\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a finite etale Galois cover with group $G$. Using the isomorphism $X \times_Y X \cong \coprod_{g \in G} X$, derive the formula $f^* f_* \mathscr{F} \cong \bigoplus_{g \in G} g^* \mathscr{F}$ for a coherent sheaf $\mathscr{F}$ on $X$. -->
+
+<h3 id="ecag-0018">Example: Push-forward behavior by class of morphism<a class="headerlink" href="#ecag-0018" title="Permanent link">&para;</a></h3>
+<p>Push-forward sheaves behave very differently depending on the class of the morphism. The following hierarchy summarizes the situation, with progressively weaker hypotheses yielding weaker conclusions.</p>
+<p><strong>(1) Finite flat.</strong> The push-forward <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is locally free of rank <span class="arithmatex">\(\deg(f)\)</span>. All higher direct images vanish: <span class="arithmatex">\(R^i f_* \mathscr{F} = 0\)</span> for <span class="arithmatex">\(i &gt; 0\)</span> and any quasi-coherent <span class="arithmatex">\(\mathscr{F}\)</span>, since finite morphisms are affine and affine morphisms have trivial higher direct images. The projection formula <span class="arithmatex">\(f_*(\mathscr{F} \otimes f^* \mathscr{G}) \cong f_* \mathscr{F} \otimes \mathscr{G}\)</span> holds.</p>
+<p><strong>(2) Finite (not necessarily flat).</strong> The functor <span class="arithmatex">\(f_*\)</span> is exact (<span class="arithmatex">\(R^i f_* = 0\)</span> for <span class="arithmatex">\(i &gt; 0\)</span>) since <span class="arithmatex">\(f\)</span> is affine. However, <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> need not be locally free; it is locally free if and only if <span class="arithmatex">\(f\)</span> is flat.</p>
+<p><strong>(3) Flat projective.</strong> Grauert's theorem and cohomology-and-base-change apply. The sheaves <span class="arithmatex">\(R^i f_* \mathscr{F}\)</span> are coherent for coherent <span class="arithmatex">\(\mathscr{F}\)</span>. When <span class="arithmatex">\(h^i(X_y, \mathscr{F}_y)\)</span> is constant in <span class="arithmatex">\(y\)</span>, the sheaf <span class="arithmatex">\(R^i f_* \mathscr{F}\)</span> is locally free and its formation commutes with base change.</p>
+<p><strong>(4) Proper birational.</strong> If <span class="arithmatex">\(Y\)</span> is normal, Zariski's main theorem gives <span class="arithmatex">\(f_* \mathcal{O}_X = \mathcal{O}_Y\)</span>. Higher direct images <span class="arithmatex">\(R^i f_*\)</span> encode information about the exceptional locus and are central to the study of resolutions of singularities.</p>
+<p>The hierarchy finite flat <span class="arithmatex">\(\subset\)</span> finite <span class="arithmatex">\(\subset\)</span> proper reflects decreasing control: flatness ensures local freeness, finiteness ensures exactness, and properness ensures only coherence. Serre's criterion characterizes the affine case precisely: <span class="arithmatex">\(f\)</span> is affine if and only if <span class="arithmatex">\(R^i f_* \mathscr{F} = 0\)</span> for all quasi-coherent <span class="arithmatex">\(\mathscr{F}\)</span> and all <span class="arithmatex">\(i &gt; 0\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: For each of the four classes of morphisms (finite flat, finite, flat projective, proper birational), state whether $R^i f_* \mathscr{F} = 0$ for $i > 0$ and whether $f_* \mathcal{O}_X$ is necessarily locally free. Justify each answer. -->
+
+<h3 id="ecag-0019">Example: What prevents <span class="arithmatex">\(f_{*}\mathcal{O}_{X}\)</span> from being <span class="arithmatex">\(\mathcal{O}_{Y}\)</span><a class="headerlink" href="#ecag-0019" title="Permanent link">&para;</a></h3>
+<p>Two important situations guarantee <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span>.</p>
+<p><strong>(a) When <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is invertible.</strong> The structure map <span class="arithmatex">\(f^\# : \mathcal{O}_Y \to f_* \mathcal{O}_X\)</span> is a morphism of <span class="arithmatex">\(\mathcal{O}_Y\)</span>-modules with <span class="arithmatex">\(f^\#(1) = 1\)</span>. If <span class="arithmatex">\(f_* \mathcal{O}_X\)</span> is invertible, then locally <span class="arithmatex">\(f^\#\)</span> is a map <span class="arithmatex">\(\mathcal{O}_{Y,y} \to \mathcal{O}_{Y,y}\)</span> (after trivialization) sending <span class="arithmatex">\(1\)</span> to <span class="arithmatex">\(1\)</span>, hence <span class="arithmatex">\(f^\#\)</span> maps the generator to the generator. An injection between free rank-1 modules whose image contains a generator is an isomorphism. Therefore <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span>.</p>
+<p>The rigidity here is purely ring-theoretic: the condition <span class="arithmatex">\(1 \mapsto 1\)</span> pins down the map once the target is known to be rank 1.</p>
+<p><strong>(b) Proper birational morphism to a normal target.</strong> Let <span class="arithmatex">\(U \subseteq Y\)</span> be the dense open over which <span class="arithmatex">\(f\)</span> is an isomorphism (existing by birationality). For any open <span class="arithmatex">\(V \subseteq Y\)</span>, the map <span class="arithmatex">\(\mathcal{O}_Y(V) \to \mathcal{O}_X(f^{-1}(V))\)</span> is injective (it restricts to an isomorphism over the dense open <span class="arithmatex">\(V \cap U\)</span>). For surjectivity: a section <span class="arithmatex">\(s \in \mathcal{O}_X(f^{-1}(V))\)</span> restricts to a regular function on <span class="arithmatex">\(f^{-1}(V \cap U) \cong V \cap U\)</span>, defining a rational function on <span class="arithmatex">\(V\)</span> that is regular on the dense open <span class="arithmatex">\(V \cap U\)</span>. Normality of <span class="arithmatex">\(Y\)</span> provides the S2 condition (algebraic Hartogs' lemma): a rational function on a normal scheme that is regular in codimension 1 extends to a regular function everywhere. Therefore <span class="arithmatex">\(s\)</span> extends to <span class="arithmatex">\(\mathcal{O}_Y(V)\)</span>, giving <span class="arithmatex">\(f_* \mathcal{O}_X \cong \mathcal{O}_Y\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : X \to Y$ be a proper birational morphism with $Y$ normal. Prove that $f_* \mathcal{O}_X \cong \mathcal{O}_Y$. Which property of normal schemes is used to extend sections? -->
+
+<h3 id="ecag-0020">Example: Pullback of a locally free sheaf need not reflect local freeness<a class="headerlink" href="#ecag-0020" title="Permanent link">&para;</a></h3>
+<p>Consider <span class="arithmatex">\(f : X = \operatorname{Spec}(\mathbb{Q}) \to Y = \operatorname{Spec}(\mathbb{Z})\)</span> and the <span class="arithmatex">\(\mathbb{Z}\)</span>-module <span class="arithmatex">\(M = \mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}\)</span>, defining a coherent sheaf <span class="arithmatex">\(\mathscr{F} = \widetilde{M}\)</span> on <span class="arithmatex">\(Y\)</span>.</p>
+<p><strong>The pullback is free.</strong> We compute</p>
+<div class="arithmatex">\[
+f^* \mathscr{F} = \widetilde{M \otimes_\mathbb{Z} \mathbb{Q}} = \widetilde{(\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}) \otimes_\mathbb{Z} \mathbb{Q}}.
+\]</div>
+<p>Since <span class="arithmatex">\(\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Q} \cong \mathbb{Q}\)</span> and <span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Q} = 0\)</span> (torsion modules tensor to zero with <span class="arithmatex">\(\mathbb{Q}\)</span>: for any <span class="arithmatex">\(\bar{a} \otimes q\)</span>, we have <span class="arithmatex">\(\bar{a} \otimes q = \bar{a} \otimes 2 \cdot (q/2) = 2\bar{a} \otimes (q/2) = 0\)</span>), we get <span class="arithmatex">\(f^* \mathscr{F} \cong \widetilde{\mathbb{Q}}\)</span>, free of rank 1.</p>
+<p><strong>The original sheaf is not locally free.</strong> At the prime <span class="arithmatex">\((2)\)</span>, the stalk <span class="arithmatex">\(M_{(2)} = \mathbb{Z}_{(2)} \oplus \mathbb{Z}/2\mathbb{Z}\)</span> has torsion, so it is not free over <span class="arithmatex">\(\mathbb{Z}_{(2)}\)</span>. A locally free sheaf on <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Z})\)</span> has torsion-free stalks at every prime, so <span class="arithmatex">\(\mathscr{F}\)</span> is not locally free.</p>
+<p><strong>The role of faithful flatness.</strong> The morphism <span class="arithmatex">\(\operatorname{Spec}(\mathbb{Q}) \to \operatorname{Spec}(\mathbb{Z})\)</span> is flat (localization is flat) but not faithfully flat: it is not surjective, since the closed points <span class="arithmatex">\((p)\)</span> are not in the image. Faithful flatness is needed to descend properties like local freeness: if <span class="arithmatex">\(f\)</span> is faithfully flat and <span class="arithmatex">\(f^* \mathscr{F}\)</span> is locally free, then <span class="arithmatex">\(\mathscr{F}\)</span> is locally free. Without faithful flatness, the pullback can kill torsion and make a non-free module appear free.</p>
+<!-- BENCHMARK_PROBLEM: Let $f : \operatorname{Spec}(\mathbb{Q}) \to \operatorname{Spec}(\mathbb{Z})$ and $M = \mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$. Compute $f^* \widetilde{M}$ and show it is locally free, while $\widetilde{M}$ is not locally free on $\operatorname{Spec}(\mathbb{Z})$. Why does faithful flatness of $f$ matter for descending local freeness? -->
+
+<h3 id="ecag-0021">Example: Push-forward of a vector bundle along a projective morphism need not be locally free, even with constant <span class="arithmatex">\(h^0\)</span><a class="headerlink" href="#ecag-0021" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(Y = \operatorname{Spec}(k[x]/(x^2))\)</span> be the spectrum of the dual numbers and <span class="arithmatex">\(f : X = \mathbb{P}^1_Y \to Y\)</span> the projection. We construct a vector bundle <span class="arithmatex">\(E\)</span> on <span class="arithmatex">\(X\)</span>, flat over <span class="arithmatex">\(Y\)</span>, such that <span class="arithmatex">\(f_* E\)</span> is not locally free -- even though <span class="arithmatex">\(h^0(X_y, E_y)\)</span> is constant. This shows the hypothesis that <span class="arithmatex">\(Y\)</span> be integral (or at least reduced) in the cohomology-and-base-change theorem is essential.</p>
+<p><strong>Construction via extensions.</strong> The Euler exact sequence on <span class="arithmatex">\(\mathbb{P}^1_Y\)</span> and Serre duality give</p>
+<div class="arithmatex">\[
+\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1_Y}, \mathcal{O}_{\mathbb{P}^1_Y}(-2)) = H^1(\mathbb{P}^1_Y, \mathcal{O}_{\mathbb{P}^1_Y}(-2)) \cong k[x]/(x^2).
+\]</div>
+<p>Choose the extension class <span class="arithmatex">\(x \in k[x]/(x^2)\)</span> (nonzero but nilpotent) to get</p>
+<div class="arithmatex">\[
+0 \to \mathcal{O}_{\mathbb{P}^1_Y}(-2) \to E \to \mathcal{O}_{\mathbb{P}^1_Y} \to 0.
+\]</div>
+<p>The middle term <span class="arithmatex">\(E\)</span> is locally free of rank 2 on <span class="arithmatex">\(\mathbb{P}^1_Y\)</span> (an extension of locally free sheaves on a smooth scheme is locally free) and flat over <span class="arithmatex">\(Y\)</span>.</p>
+<p><strong>Computing <span class="arithmatex">\(f_* E\)</span>.</strong> Apply <span class="arithmatex">\(f_*\)</span> to the short exact sequence. The relevant portion of the long exact cohomology sequence is</p>
+<div class="arithmatex">\[
+H^0(\mathbb{P}^1_Y, \mathcal{O}) \xrightarrow{\delta} H^1(\mathbb{P}^1_Y, \mathcal{O}(-2)),
+\]</div>
+<p>where <span class="arithmatex">\(\delta\)</span> is multiplication by the extension class <span class="arithmatex">\(x\)</span>. Both <span class="arithmatex">\(H^0\)</span> and <span class="arithmatex">\(H^1\)</span> are isomorphic to <span class="arithmatex">\(k[x]/(x^2)\)</span>, and the connecting map is</p>
+<div class="arithmatex">\[
+\delta : k[x]/(x^2) \xrightarrow{\cdot\, x} k[x]/(x^2).
+\]</div>
+<p>Therefore <span class="arithmatex">\(H^0(\mathbb{P}^1_Y, E) = \ker(\delta) = (x) \subset k[x]/(x^2)\)</span>. As a <span class="arithmatex">\(k[x]/(x^2)\)</span>-module, <span class="arithmatex">\((x) \cong k\)</span> (since <span class="arithmatex">\(x \cdot x = 0\)</span>). This has length 1, while a free module of rank 1 has length 2. So <span class="arithmatex">\(f_* E \cong \widetilde{k}\)</span> is not locally free on <span class="arithmatex">\(Y\)</span>.</p>
+<p><strong>Fiber analysis.</strong> The unique point <span class="arithmatex">\(y\)</span> of <span class="arithmatex">\(Y\)</span> has fiber <span class="arithmatex">\(X_y = \mathbb{P}^1_k\)</span>, and <span class="arithmatex">\(E_y\)</span> fits into <span class="arithmatex">\(0 \to \mathcal{O}(-2) \to E_y \to \mathcal{O} \to 0\)</span> with extension class <span class="arithmatex">\(x|_{y} = 0 \in k\)</span>, so <span class="arithmatex">\(E_y \cong \mathcal{O} \oplus \mathcal{O}(-2)\)</span> and <span class="arithmatex">\(h^0(X_y, E_y) = 1\)</span>. The function <span class="arithmatex">\(h^0\)</span> is constant (trivially, as there is one point), yet <span class="arithmatex">\(f_* E\)</span> is not free.</p>
+<p>Over a non-reduced base, the extension class can be nilpotent but nonzero, creating a non-split extension whose fiber over the closed point looks split. The cohomology-and-base-change theorem in its strong form (constancy of <span class="arithmatex">\(h^i\)</span> implies local freeness) requires integrality or at least reducedness of the base.</p>
+<!-- BENCHMARK_PROBLEM: Let $Y = \operatorname{Spec}(k[x]/(x^2))$ and $f : \mathbb{P}^1_Y \to Y$. Construct a vector bundle $E$ on $\mathbb{P}^1_Y$ such that $f_* E$ is not locally free, by choosing an appropriate extension class in $\operatorname{Ext}^1(\mathcal{O}_{\mathbb{P}^1_Y}, \mathcal{O}_{\mathbb{P}^1_Y}(-2))$. Compute $H^0(\mathbb{P}^1_Y, E)$ as a $k[x]/(x^2)$-module. -->
+
+<h3 id="ecag-0022">Remark: <span class="arithmatex">\(\operatorname{Ext}^{1}\)</span> and connecting maps in extensions<a class="headerlink" href="#ecag-0022" title="Permanent link">&para;</a></h3>
+<p>Given an exact sequence of coherent sheaves on a scheme <span class="arithmatex">\(X\)</span>,</p>
+<div class="arithmatex">\[
+0 \to \mathscr{F} \to \mathscr{E} \to \mathscr{G} \to 0,
+\]</div>
+<p>with extension class <span class="arithmatex">\(e \in \operatorname{Ext}^1(\mathscr{G}, \mathscr{F})\)</span>, the connecting homomorphisms in the long exact cohomology sequence are governed by <span class="arithmatex">\(e\)</span> via the Yoneda product.</p>
+<p><strong>Connecting map as cup product.</strong> For <span class="arithmatex">\(\alpha \in H^i(X, \mathscr{G})\)</span>, the connecting homomorphism <span class="arithmatex">\(\delta^i : H^i(X, \mathscr{G}) \to H^{i+1}(X, \mathscr{F})\)</span> is</p>
+<div class="arithmatex">\[
+\delta^i(\alpha) = e \cup \alpha \in H^{i+1}(X, \mathscr{F}).
+\]</div>
+<p>When <span class="arithmatex">\(i = 0\)</span>, the map <span class="arithmatex">\(\delta^0 : H^0(X, \mathscr{G}) \to H^1(X, \mathscr{F})\)</span> sends a global section <span class="arithmatex">\(s\)</span> of <span class="arithmatex">\(\mathscr{G}\)</span> to the obstruction class for lifting <span class="arithmatex">\(s\)</span> to a global section of <span class="arithmatex">\(\mathscr{E}\)</span>.</p>
+<p><strong>Functoriality.</strong> The association of extension classes to short exact sequences is functorial in both arguments: a morphism <span class="arithmatex">\(\varphi : \mathscr{F} \to \mathscr{F}'\)</span> sends <span class="arithmatex">\(e\)</span> to the pushout class <span class="arithmatex">\(\varphi_*(e) \in \operatorname{Ext}^1(\mathscr{G}, \mathscr{F}')\)</span>, and a morphism <span class="arithmatex">\(\psi : \mathscr{G}' \to \mathscr{G}\)</span> sends <span class="arithmatex">\(e\)</span> to the pullback class <span class="arithmatex">\(\psi^*(e) \in \operatorname{Ext}^1(\mathscr{G}', \mathscr{F})\)</span>.</p>
+<p><strong>Splitting criterion.</strong> The extension splits (<span class="arithmatex">\(\mathscr{E} \cong \mathscr{F} \oplus \mathscr{G}\)</span>) if and only if <span class="arithmatex">\(e = 0\)</span>.</p>
+<p>In ecag-0021, the connecting map <span class="arithmatex">\(\delta^0\)</span> was multiplication by the extension class <span class="arithmatex">\(x \in \operatorname{Ext}^1(\mathcal{O}, \mathcal{O}(-2)) \cong k[x]/(x^2)\)</span>, and <span class="arithmatex">\(\ker(\delta^0)\)</span> determined <span class="arithmatex">\(H^0(X, E)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $0 \to \mathscr{F} \to \mathscr{E} \to \mathscr{G} \to 0$ be an exact sequence of coherent sheaves on a projective scheme $X$ with extension class $e \in \operatorname{Ext}^1(\mathscr{G}, \mathscr{F})$. Show that the connecting homomorphism $\delta^0 : H^0(X, \mathscr{G}) \to H^1(X, \mathscr{F})$ is given by cup product with $e$. When is $\delta^0 = 0$? -->
+
+<h3 id="ecag-0023">Example: Pulling back a line bundle along a translation on an elliptic curve<a class="headerlink" href="#ecag-0023" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(E\)</span> be an elliptic curve over an algebraically closed field <span class="arithmatex">\(k\)</span> with origin <span class="arithmatex">\(O\)</span>, and let <span class="arithmatex">\(\tau_a : E \to E\)</span> denote translation by <span class="arithmatex">\(a \in E\)</span>. For any point <span class="arithmatex">\(p \in E\)</span>,</p>
+<div class="arithmatex">\[
+\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p - a),
+\]</div>
+<p>and <span class="arithmatex">\(\mathcal{O}_E(p) \cong \mathcal{O}_E(q)\)</span> if and only if <span class="arithmatex">\(p = q\)</span>. In particular, <span class="arithmatex">\(\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p)\)</span> for all <span class="arithmatex">\(p\)</span> if and only if <span class="arithmatex">\(a = O\)</span>.</p>
+<p><strong>Pullback shifts the divisor.</strong> The divisor of <span class="arithmatex">\(\mathcal{O}_E(p)\)</span> is the point <span class="arithmatex">\(p\)</span>. Pulling back along <span class="arithmatex">\(\tau_a\)</span> replaces <span class="arithmatex">\(p\)</span> by <span class="arithmatex">\(\tau_a^{-1}(p) = p - a\)</span> (in the group law of <span class="arithmatex">\(E\)</span>), giving <span class="arithmatex">\(\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p - a)\)</span>.</p>
+<p><strong>Degree-1 line bundles classify points.</strong> On an elliptic curve, two degree-1 line bundles <span class="arithmatex">\(\mathcal{O}_E(p)\)</span> and <span class="arithmatex">\(\mathcal{O}_E(q)\)</span> are isomorphic if and only if <span class="arithmatex">\(p \sim q\)</span> (linear equivalence). By Riemann--Roch, <span class="arithmatex">\(h^0(\mathcal{O}_E(p)) = \deg(p) = 1\)</span> for any point <span class="arithmatex">\(p\)</span>, so the linear system <span class="arithmatex">\(|p|\)</span> consists of the single effective divisor <span class="arithmatex">\(p\)</span>. Therefore <span class="arithmatex">\(p \sim q\)</span> implies <span class="arithmatex">\(p = q\)</span>: the Abel--Jacobi map <span class="arithmatex">\(E \to \operatorname{Pic}^1(E)\)</span>, <span class="arithmatex">\(p \mapsto \mathcal{O}_E(p)\)</span>, is injective (and in fact an isomorphism).</p>
+<p>It follows that <span class="arithmatex">\(\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p)\)</span> requires <span class="arithmatex">\(p - a = p\)</span>, i.e., <span class="arithmatex">\(a = O\)</span>.</p>
+<p><strong>Equivariant Picard group.</strong> For a smooth variety <span class="arithmatex">\(X\)</span> with a finite automorphism group <span class="arithmatex">\(G\)</span>, the group <span class="arithmatex">\(\operatorname{Pic}^G(X)\)</span> of <span class="arithmatex">\(G\)</span>-linearized line bundles embeds into <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> via the forgetful map. By Hilbert's Theorem 90, <span class="arithmatex">\(H^1(G, \mathcal{O}(X)^*) = 0\)</span>, which guarantees this forgetful map is injective: a <span class="arithmatex">\(G\)</span>-equivariant structure on a line bundle, if it exists, is unique up to isomorphism. One can also construct an averaging map <span class="arithmatex">\(\operatorname{Pic}(X) \to \operatorname{Pic}^G(X)\)</span> sending <span class="arithmatex">\(\mathcal{L}\)</span> to <span class="arithmatex">\(\bigotimes_{g \in G} g^* \mathcal{L}\)</span>, which provides a partial inverse (up to torsion issues depending on <span class="arithmatex">\(|G|\)</span> and the characteristic).</p>
+<p>Unlike topological bundles, algebraic line bundles are sensitive to the precise algebraic structure of automorphisms. On an elliptic curve, the Abel--Jacobi map identifies degree-1 line bundles with points of the curve, so translation acts nontrivially on <span class="arithmatex">\(\operatorname{Pic}^1(E)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let $E$ be an elliptic curve with origin $O$ and $\tau_a$ translation by $a \in E$. Prove that $\tau_a^* \mathcal{O}_E(p) \cong \mathcal{O}_E(p)$ for all $p$ if and only if $a = O$. Use the fact that on an elliptic curve, $\mathcal{O}(p) \cong \mathcal{O}(q)$ iff $p = q$. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

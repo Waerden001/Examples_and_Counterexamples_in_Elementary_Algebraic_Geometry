@@ -1,0 +1,2515 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waerden001.github.io/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry/computations/picard/">
+      
+      
+        <link rel="prev" href="../../cohomology/homological/">
+      
+      
+        <link rel="next" href="../characteristics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Picard Groups - Examples and Counterexamples in Elementary Algebraic Geometry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#picard-groups" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-header__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Examples and Counterexamples in Elementary Algebraic Geometry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Picard Groups
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../basic_concepts/commutative_algebra/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cohomology/cohomology/" class="md-tabs__link">
+          
+  
+  
+  Cohomology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Computations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../moduli/deformation_theory/" class="md-tabs__link">
+          
+  
+  
+  Moduli & Deformation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Examples and Counterexamples in Elementary Algebraic Geometry" class="md-nav__button md-logo" aria-label="Examples and Counterexamples in Elementary Algebraic Geometry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Examples and Counterexamples in Elementary Algebraic Geometry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Waerden001/ECAG
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/commutative_algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commutative Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/morphisms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morphisms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/base_change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/local_global/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local-Global
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/sheaves_and_bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sheaves & Bundles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/curves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic_concepts/algebraic_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algebraic Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cohomology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/cohomology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cohomology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/etale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Étale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/derived/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Derived Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cohomology/homological/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homological Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Picard Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#picard-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picard groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Picard groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Why do we need the separateness condition? Picard group of an affine line with double origins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Relations between \(\operatorname{Cl}, \operatorname{CaCl}, \operatorname{Pic}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Another way to compute the Picard group of an affine line with double origins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0253" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0254" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne, Example \(\mathrm{II}.6.11.4\), \(\operatorname{CaCl}^{0}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0255" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne, \(\mathrm{II}.6.9\), Picard groups of singular curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0256" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne \(\mathrm{II}.7.13\), a complete nonprojective surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0257" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Why does \(\operatorname{Pic}(X) \cong \mathbb{G}_{a}\) imply \(X\) is not projective?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0258" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0259" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hironaka varieties, smooth complete nonprojective \(3\)-folds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0260" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\) is not necessarily ample
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0261" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Degree of \(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of quadric hypersurfaces, Hartshorne \(\mathrm{II}.6.5\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0263" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Hartshorne \(\mathrm{II}.6.3\), relations between \(\operatorname{Cl}(V)\) and \(\operatorname{Cl}(C(V))\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Lefschetz hyperplane theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0265" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Smooth cubic surface \(X \subset \mathbb{P}^3\), \(\operatorname{Cl}(X) \cong \mathbb{Z}^7\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of flag varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0267" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\operatorname{Pic}(G/B)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0268" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Computing \(\operatorname{Cl}(X)\) of quadrics from a different point of view
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0269" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Picard groups of higher-dimensional quadrics via spin groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0270" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: When do we have \(\operatorname{X}(G) = 0\)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0271" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of Grassmannian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0272" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Chow ring of Grassmannian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0273" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Relations between \(\operatorname{K}(X)\) and \(\operatorname{Cl}(X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0274" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of connected algebraic groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0275" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of determinantal varieties \(R_{m \times n, s}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0276" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0277" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of the variety \(S_{n,m}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../characteristics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Characteristic Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hodge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hodge Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intersection_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intersection Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morse Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weight Filtrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli & Deformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Moduli & Deformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/deformation_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deformation Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moduli/moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduli Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#picard-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picard groups
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Picard groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Why do we need the separateness condition? Picard group of an affine line with double origins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Relations between \(\operatorname{Cl}, \operatorname{CaCl}, \operatorname{Pic}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Another way to compute the Picard group of an affine line with double origins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0253" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0254" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne, Example \(\mathrm{II}.6.11.4\), \(\operatorname{CaCl}^{0}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0255" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne, \(\mathrm{II}.6.9\), Picard groups of singular curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0256" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hartshorne \(\mathrm{II}.7.13\), a complete nonprojective surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0257" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Why does \(\operatorname{Pic}(X) \cong \mathbb{G}_{a}\) imply \(X\) is not projective?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0258" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0259" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Hironaka varieties, smooth complete nonprojective \(3\)-folds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0260" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\) is not necessarily ample
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0261" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Degree of \(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0262" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of quadric hypersurfaces, Hartshorne \(\mathrm{II}.6.5\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0263" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Hartshorne \(\mathrm{II}.6.3\), relations between \(\operatorname{Cl}(V)\) and \(\operatorname{Cl}(C(V))\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0264" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Lefschetz hyperplane theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0265" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Smooth cubic surface \(X \subset \mathbb{P}^3\), \(\operatorname{Cl}(X) \cong \mathbb{Z}^7\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of flag varieties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0267" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: \(\operatorname{Pic}(G/B)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0268" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Computing \(\operatorname{Cl}(X)\) of quadrics from a different point of view
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0269" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Picard groups of higher-dimensional quadrics via spin groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0270" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: When do we have \(\operatorname{X}(G) = 0\)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0271" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of Grassmannian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0272" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark: Chow ring of Grassmannian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0273" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Relations between \(\operatorname{K}(X)\) and \(\operatorname{Cl}(X)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0274" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Cl}(X)\) of connected algebraic groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0275" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of determinantal varieties \(R_{m \times n, s}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0276" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecag-0277" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: \(\operatorname{Pic}(X)\) of the variety \(S_{n,m}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Picard Groups</h1>
+
+<h2 id="picard-groups">Picard groups<a class="headerlink" href="#picard-groups" title="Permanent link">&para;</a></h2>
+<h3 id="ecag-0250">Example: Why do we need the separateness condition? Picard group of an affine line with double origins<a class="headerlink" href="#ecag-0250" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k\)</span> be a field and let <span class="arithmatex">\(X\)</span> be the affine line with double origins over <span class="arithmatex">\(k\)</span>, constructed by gluing two copies <span class="arithmatex">\(U_1 = \operatorname{Spec}(k[t])\)</span> and <span class="arithmatex">\(U_2 = \operatorname{Spec}(k[t])\)</span> along <span class="arithmatex">\(U_1 \setminus \{0\} \cong U_2 \setminus \{0\} = \operatorname{Spec}(k[t, t^{-1}])\)</span> via the identity map. We compute</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(X) \cong \operatorname{CaCl}(X) \cong \operatorname{Cl}(X) \cong \mathbb{Z},
+\]</div>
+<p>showing that the separatedness hypothesis is not needed for these identifications in this particular case.</p>
+<p><strong>Structural properties of <span class="arithmatex">\(X\)</span>.</strong> The scheme <span class="arithmatex">\(X\)</span> is Noetherian, integral, and locally factorial: each local ring is either a field (at the generic point) or a DVR (at each closed point, including both origins). In particular, <span class="arithmatex">\(X\)</span> is normal and regular in codimension 1. Since <span class="arithmatex">\(X\)</span> is locally factorial, every Weil divisor is locally principal, so <span class="arithmatex">\(\operatorname{CaCl}(X) \cong \operatorname{Cl}(X)\)</span>. Since <span class="arithmatex">\(X\)</span> is integral, the natural map <span class="arithmatex">\(\operatorname{CaCl}(X) \to \operatorname{Pic}(X)\)</span> is an isomorphism: every line bundle embeds into the constant sheaf of rational functions, hence arises from a Cartier divisor.</p>
+<p><strong>Computation via Cech cohomology.</strong> The open cover <span class="arithmatex">\(\{U_1, U_2\}\)</span> is acyclic for <span class="arithmatex">\(\mathcal{O}_X^*\)</span> (both <span class="arithmatex">\(U_i\)</span> are affine with <span class="arithmatex">\(\operatorname{Pic}(\mathbb{A}^1_k) = 0\)</span> since <span class="arithmatex">\(k[t]\)</span> is a PID). The Cech complex gives</p>
+<div class="arithmatex">\[
+H^1(X, \mathcal{O}_X^*) \cong \mathcal{O}_X^*(U_1 \cap U_2) \big/ \operatorname{im}\bigl(\mathcal{O}_X^*(U_1) \times \mathcal{O}_X^*(U_2) \xrightarrow{(a,b) \mapsto ab^{-1}} \mathcal{O}_X^*(U_1 \cap U_2)\bigr).
+\]</div>
+<p>Now <span class="arithmatex">\(\mathcal{O}_X^*(U_i) = k[t]^* = k^*\)</span> and <span class="arithmatex">\(\mathcal{O}_X^*(U_1 \cap U_2) = k[t, t^{-1}]^* = \{ c \cdot t^n : c \in k^*,\, n \in \mathbb{Z}\} \cong k^* \times \mathbb{Z}\)</span>, where the isomorphism records the unit part and the power of <span class="arithmatex">\(t\)</span>. The image of the difference map is <span class="arithmatex">\(k^*\)</span> (ratios of constants), so the quotient is <span class="arithmatex">\(\mathbb{Z}\)</span>, generated by the class of <span class="arithmatex">\(t\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let X be the affine line with double origins over a field k. Compute Pic(X) using Cech cohomology on the standard open cover {U_1, U_2}, and determine whether the natural maps CaCl(X) -> Cl(X) and CaCl(X) -> Pic(X) are isomorphisms. Justify each step. -->
+
+<h3 id="ecag-0251">Remark: Relations between <span class="arithmatex">\(\operatorname{Cl}, \operatorname{CaCl}, \operatorname{Pic}\)</span><a class="headerlink" href="#ecag-0251" title="Permanent link">&para;</a></h3>
+<p>For a Noetherian integral scheme <span class="arithmatex">\(X\)</span> that is regular in codimension 1, all three divisor class groups <span class="arithmatex">\(\operatorname{Cl}(X)\)</span>, <span class="arithmatex">\(\operatorname{CaCl}(X)\)</span>, and <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> are defined. The maps between them are as follows.</p>
+<p><strong><span class="arithmatex">\(\operatorname{CaCl}(X) \to \operatorname{Cl}(X)\)</span>.</strong> This sends a Cartier divisor to its associated Weil divisor. It is always injective: if a Cartier divisor has trivial Weil divisor, then locally its defining equation has no zeros or poles, hence is a unit. This map is an isomorphism when <span class="arithmatex">\(X\)</span> is factorial (every local ring is a UFD), because in a UFD every height-1 prime is principal, making every Weil divisor locally principal, hence Cartier.</p>
+<p><strong><span class="arithmatex">\(\operatorname{CaCl}(X) \to \operatorname{Pic}(X)\)</span>.</strong> This sends the class of a Cartier divisor <span class="arithmatex">\(D\)</span> to the line bundle <span class="arithmatex">\(\mathcal{O}_X(D)\)</span>. Injectivity holds without the Noetherian hypothesis. For surjectivity, one needs every line bundle <span class="arithmatex">\(\mathcal{L}\)</span> to embed into the sheaf <span class="arithmatex">\(\mathcal{M}\)</span> of total quotient rings. This holds whenever <span class="arithmatex">\(X\)</span> is integral, since then every nonzero section is a non-zero-divisor in the function field, so the natural map <span class="arithmatex">\(\mathcal{L} \hookrightarrow \mathcal{L} \otimes_{\mathcal{O}_X} \mathcal{M} \cong \mathcal{M}\)</span> is injective on each stalk.</p>
+<p>In summary: for <span class="arithmatex">\(X\)</span> Noetherian, integral, and locally factorial, all three groups coincide. Dropping the locally factorial hypothesis, <span class="arithmatex">\(\operatorname{CaCl}(X)\)</span> and <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> still agree (provided <span class="arithmatex">\(X\)</span> is integral), but <span class="arithmatex">\(\operatorname{CaCl}(X) \to \operatorname{Cl}(X)\)</span> may be a proper injection.</p>
+<!-- BENCHMARK_PROBLEM: Let X be a Noetherian integral scheme that is regular in codimension 1. State precise sufficient conditions on X for each of the following: (a) CaCl(X) -> Cl(X) is an isomorphism, (b) CaCl(X) -> Pic(X) is an isomorphism. Give a brief justification for each. -->
+
+<h3 id="ecag-0252">Example: Another way to compute the Picard group of an affine line with double origins<a class="headerlink" href="#ecag-0252" title="Permanent link">&para;</a></h3>
+<p>We compute <span class="arithmatex">\(\operatorname{Pic}(X) \cong \mathbb{Z}\)</span> for the affine line with double origins <span class="arithmatex">\(X\)</span> using the Mayer--Vietoris sequence, and exhibit a generator as an explicit line bundle.</p>
+<p><strong>The Mayer--Vietoris sequence.</strong> Write <span class="arithmatex">\(X = U_1 \cup U_2\)</span> with <span class="arithmatex">\(U_i \cong \mathbb{A}^1_k\)</span> and <span class="arithmatex">\(U_1 \cap U_2 \cong \mathbb{A}^1_k \setminus \{0\} = \operatorname{Spec}(k[t, t^{-1}])\)</span>. Since <span class="arithmatex">\(\operatorname{Pic}(\mathbb{A}^1_k) = 0\)</span> (the polynomial ring is a PID), the exact sequence for <span class="arithmatex">\(\mathcal{O}_X^*\)</span> on this cover gives</p>
+<div class="arithmatex">\[
+\mathcal{O}_X^*(U_1) \times \mathcal{O}_X^*(U_2) \xrightarrow{\delta} \mathcal{O}_X^*(U_1 \cap U_2) \to H^1(X, \mathcal{O}_X^*) \to 0.
+\]</div>
+<p>The map <span class="arithmatex">\(\delta\)</span> sends <span class="arithmatex">\((a, b)\)</span> to <span class="arithmatex">\(a \cdot b^{-1}\)</span>. We have <span class="arithmatex">\(\mathcal{O}_X^*(U_i) = k^*\)</span> and <span class="arithmatex">\(\mathcal{O}_X^*(U_1 \cap U_2) = k[t, t^{-1}]^* = k^* \times t^{\mathbb{Z}}\)</span>, so <span class="arithmatex">\(\operatorname{im}(\delta) = k^*\)</span> and</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(X) \cong k[t, t^{-1}]^* / k^* \cong \mathbb{Z}.
+\]</div>
+<p><strong>The generator.</strong> The class of <span class="arithmatex">\(t \in k[t, t^{-1}]^*\)</span> corresponds to a line bundle <span class="arithmatex">\(\mathcal{L}\)</span> that is trivial on each <span class="arithmatex">\(U_i\)</span> with transition function <span class="arithmatex">\(t\)</span> on <span class="arithmatex">\(U_1 \cap U_2\)</span>: sections <span class="arithmatex">\(s\)</span> on <span class="arithmatex">\(U_1\)</span> glue to <span class="arithmatex">\(t \cdot s\)</span> on <span class="arithmatex">\(U_2\)</span>. This bundle is nontrivial because <span class="arithmatex">\(t\)</span> is not a unit in either copy of <span class="arithmatex">\(k[t]\)</span>, so <span class="arithmatex">\(\mathcal{L}\)</span> is not isomorphic to <span class="arithmatex">\(\mathcal{O}_X\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Using the Mayer-Vietoris exact sequence for the open cover {U_1, U_2} of the affine line with double origins X, compute Pic(X) and explicitly describe a generator as a line bundle given by transition functions. -->
+
+<h3 id="ecag-0253">Remark<a class="headerlink" href="#ecag-0253" title="Permanent link">&para;</a></h3>
+<p>The groups <span class="arithmatex">\(\operatorname{CaCl}(X)\)</span> and <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> can be defined for any scheme <span class="arithmatex">\(X\)</span> without Noetherian hypotheses: <span class="arithmatex">\(\operatorname{Pic}(X) = H^1(X, \mathcal{O}_X^*)\)</span> is a sheaf cohomology group, and <span class="arithmatex">\(\operatorname{CaCl}(X) = H^0(X, \mathcal{M}^*/\mathcal{O}_X^*) / H^0(X, \mathcal{M}^*)\)</span> uses only the sheaf of total quotient rings. In contrast, the Weil divisor class group <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> requires <span class="arithmatex">\(X\)</span> to be at least locally Noetherian, integral, and regular in codimension 1, since its definition involves codimension-1 points whose local rings must be DVRs. This makes <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> the most restrictive of the three notions.</p>
+<h3 id="ecag-0254">Example: Hartshorne, Example <span class="arithmatex">\(\mathrm{II}.6.11.4\)</span>, <span class="arithmatex">\(\operatorname{CaCl}^{0}\)</span><a class="headerlink" href="#ecag-0254" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(C\)</span> be a nonsingular projective curve of genus <span class="arithmatex">\(g\)</span> over an algebraically closed field <span class="arithmatex">\(k\)</span>. Since <span class="arithmatex">\(C\)</span> is smooth, it is locally factorial, so <span class="arithmatex">\(\operatorname{CaCl}(C) \cong \operatorname{Cl}(C) \cong \operatorname{Pic}(C)\)</span>. The degree map <span class="arithmatex">\(\deg : \operatorname{Pic}(C) \to \mathbb{Z}\)</span> is a surjective homomorphism (choosing any closed point <span class="arithmatex">\(p\)</span>, the divisor <span class="arithmatex">\([p]\)</span> has degree 1), giving the exact sequence</p>
+<div class="arithmatex">\[
+0 \to \operatorname{Pic}^0(C) \to \operatorname{Pic}(C) \xrightarrow{\deg} \mathbb{Z} \to 0.
+\]</div>
+<p>The kernel <span class="arithmatex">\(\operatorname{Pic}^0(C)\)</span> is the group of <span class="arithmatex">\(k\)</span>-rational points of the Jacobian variety <span class="arithmatex">\(J(C)\)</span>, an abelian variety of dimension <span class="arithmatex">\(g\)</span>.</p>
+<p><strong>Genus 0.</strong> When <span class="arithmatex">\(C \cong \mathbb{P}^1_k\)</span>, we have <span class="arithmatex">\(\operatorname{Pic}(\mathbb{P}^1) \cong \mathbb{Z}\)</span> generated by <span class="arithmatex">\(\mathcal{O}(1)\)</span>, so <span class="arithmatex">\(\operatorname{Pic}^0(\mathbb{P}^1) = 0\)</span>. The Jacobian is trivial.</p>
+<p><strong>Genus 1.</strong> When <span class="arithmatex">\(C\)</span> is an elliptic curve with a chosen base point <span class="arithmatex">\(O\)</span>, the Abel--Jacobi map <span class="arithmatex">\(P \mapsto [P] - [O]\)</span> gives an isomorphism <span class="arithmatex">\(C(k) \xrightarrow{\sim} \operatorname{Pic}^0(C)\)</span>, identifying <span class="arithmatex">\(\operatorname{Pic}^0(C)\)</span> with <span class="arithmatex">\(C\)</span> itself (as a group under its elliptic curve law).</p>
+<p><strong>General genus.</strong> For <span class="arithmatex">\(g \geq 1\)</span>, the Abel--Jacobi theorem gives <span class="arithmatex">\(\operatorname{Pic}^0(C) \cong J(C)(k)\)</span>, where <span class="arithmatex">\(J(C)\)</span> is an abelian variety of dimension <span class="arithmatex">\(g\)</span>. Over <span class="arithmatex">\(\mathbb{C}\)</span>, analytically <span class="arithmatex">\(J(C) \cong \mathbb{C}^g / \Lambda\)</span> for a lattice <span class="arithmatex">\(\Lambda \cong \mathbb{Z}^{2g}\)</span> determined by the period matrix of <span class="arithmatex">\(C\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let C be a nonsingular projective curve of genus g over an algebraically closed field. Describe the exact sequence relating Pic^0(C), Pic(C), and Z. For g = 0 and g = 1, explicitly identify Pic^0(C). -->
+
+<h3 id="ecag-0255">Example: Hartshorne, <span class="arithmatex">\(\mathrm{II}.6.9\)</span>, Picard groups of singular curves<a class="headerlink" href="#ecag-0255" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(C\)</span> be a reduced irreducible curve over an algebraically closed field <span class="arithmatex">\(k\)</span>, with normalization <span class="arithmatex">\(f : \widetilde{C} \to C\)</span>. There is an exact sequence</p>
+<div class="arithmatex">\[
+0 \to \bigoplus_{p \in C^{\mathrm{sing}}} \widetilde{\mathcal{O}}_{C,p}^* / \mathcal{O}_{C,p}^* \to \operatorname{Pic}(C) \to \operatorname{Pic}(\widetilde{C}) \to 0
+\]</div>
+<p>where <span class="arithmatex">\(\widetilde{\mathcal{O}}_{C,p}\)</span> is the integral closure of <span class="arithmatex">\(\mathcal{O}_{C,p}\)</span> in its fraction field.</p>
+<p><strong>Derivation.</strong> The normalization <span class="arithmatex">\(f\)</span> is a finite birational morphism, inducing a short exact sequence of sheaves <span class="arithmatex">\(0 \to \mathcal{O}_C^* \to f_* \mathcal{O}_{\widetilde{C}}^* \to f_* \mathcal{O}_{\widetilde{C}}^* / \mathcal{O}_C^* \to 0\)</span>. The quotient sheaf is supported on <span class="arithmatex">\(C^{\mathrm{sing}}\)</span> (since <span class="arithmatex">\(f\)</span> is an isomorphism over the smooth locus). The associated long exact sequence in cohomology gives the result, using <span class="arithmatex">\(H^1(C, f_* \mathcal{O}_{\widetilde{C}}^*) \cong H^1(\widetilde{C}, \mathcal{O}_{\widetilde{C}}^*) = \operatorname{Pic}(\widetilde{C})\)</span> by the Leray spectral sequence (which degenerates because <span class="arithmatex">\(f\)</span> is affine, so <span class="arithmatex">\(R^i f_* = 0\)</span> for <span class="arithmatex">\(i \geq 1\)</span>).</p>
+<p><strong>Cuspidal cubic.</strong> Let <span class="arithmatex">\(C : y^2 = x^3\)</span> in <span class="arithmatex">\(\mathbb{A}^2_k\)</span>. The normalization is <span class="arithmatex">\(\widetilde{C} \cong \mathbb{A}^1_k\)</span> via <span class="arithmatex">\(t \mapsto (t^2, t^3)\)</span>. The unique singular point is the origin <span class="arithmatex">\(p\)</span>, with <span class="arithmatex">\(\mathcal{O}_{C,p} = k[t^2, t^3]_{(t^2, t^3)}\)</span> and <span class="arithmatex">\(\widetilde{\mathcal{O}}_{C,p} = k[t]_{(t)}\)</span>. An element of <span class="arithmatex">\(\widetilde{\mathcal{O}}_{C,p}^*\)</span> has the form <span class="arithmatex">\(u = a_0 + a_1 t + a_2 t^2 + \cdots\)</span> with <span class="arithmatex">\(a_0 \neq 0\)</span>; modulo <span class="arithmatex">\(\mathcal{O}_{C,p}^*\)</span> (units involving only <span class="arithmatex">\(t^2, t^3, \ldots\)</span>), the quotient is parameterized by <span class="arithmatex">\(a_1 / a_0 \in k\)</span>. Thus <span class="arithmatex">\(\widetilde{\mathcal{O}}_{C,p}^* / \mathcal{O}_{C,p}^* \cong \mathbb{G}_a = (k, +)\)</span>, and since <span class="arithmatex">\(\operatorname{Pic}(\mathbb{A}^1_k) = 0\)</span> we get <span class="arithmatex">\(\operatorname{Pic}(C) \cong \mathbb{G}_a\)</span>.</p>
+<p><strong>Nodal cubic.</strong> Let <span class="arithmatex">\(C : y^2 = x^2(x+1)\)</span> in <span class="arithmatex">\(\mathbb{A}^2_k\)</span>. Again <span class="arithmatex">\(\widetilde{C} \cong \mathbb{A}^1_k\)</span>. At the node <span class="arithmatex">\(p = (0,0)\)</span>, the integral closure has two maximal ideals (corresponding to the two branches), and <span class="arithmatex">\(\widetilde{\mathcal{O}}_{C,p}^* / \mathcal{O}_{C,p}^* \cong \mathbb{G}_m = (k^*, \cdot)\)</span>: the quotient detects the ratio of the leading coefficients along the two branches. Hence <span class="arithmatex">\(\operatorname{Pic}(C) \cong \mathbb{G}_m\)</span>.</p>
+<p>The dichotomy is instructive: cusps contribute additive local terms <span class="arithmatex">\(\mathbb{G}_a\)</span>, while nodes contribute multiplicative local terms <span class="arithmatex">\(\mathbb{G}_m\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let C be the cuspidal cubic y^2 = x^3 over an algebraically closed field k. Using the normalization exact sequence (Hartshorne II.6.9), compute Pic(C). What changes if C is instead the nodal cubic y^2 = x^2(x+1)? -->
+
+<h3 id="ecag-0256">Example: Hartshorne <span class="arithmatex">\(\mathrm{II}.7.13\)</span>, a complete nonprojective surface<a class="headerlink" href="#ecag-0256" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k\)</span> be an algebraically closed field with <span class="arithmatex">\(\operatorname{char}(k) \neq 2\)</span> and let <span class="arithmatex">\(C : y^2z = x^3 \subset \mathbb{P}^2_k\)</span> be the projective cuspidal cubic. We construct a complete surface <span class="arithmatex">\(X\)</span> fibered over <span class="arithmatex">\(\mathbb{P}^1_k\)</span> with <span class="arithmatex">\(\operatorname{Pic}(X) \cong \mathbb{G}_a\)</span>, and conclude that <span class="arithmatex">\(X\)</span> is not projective.</p>
+<p><strong>Construction.</strong> Take two copies <span class="arithmatex">\(V_1 = C \times \mathbb{A}^1_k\)</span> and <span class="arithmatex">\(V_2 = C \times \mathbb{A}^1_k\)</span>, and glue them along <span class="arithmatex">\(C \times (\mathbb{A}^1_k \setminus \{0\})\)</span> via a morphism <span class="arithmatex">\((x, t) \sim (\phi_t(x), t^{-1})\)</span> where <span class="arithmatex">\(\phi_t\)</span> is an automorphism of <span class="arithmatex">\(C\)</span> parameterized by <span class="arithmatex">\(t\)</span>. This yields a surface <span class="arithmatex">\(X\)</span> with a proper morphism <span class="arithmatex">\(\pi : X \to \mathbb{P}^1_k\)</span>.</p>
+<p><strong>Completeness.</strong> Over each standard affine <span class="arithmatex">\(\mathbb{A}^1 \subset \mathbb{P}^1\)</span>, the map <span class="arithmatex">\(\pi\)</span> is isomorphic to <span class="arithmatex">\(C \times \mathbb{A}^1 \to \mathbb{A}^1\)</span>, a base change of the proper morphism <span class="arithmatex">\(C \to \operatorname{Spec}(k)\)</span>. Since properness is local on the base and <span class="arithmatex">\(\mathbb{P}^1_k\)</span> is proper over <span class="arithmatex">\(k\)</span>, the composition <span class="arithmatex">\(X \to \operatorname{Spec}(k)\)</span> is proper.</p>
+<p><strong>Picard group of <span class="arithmatex">\(C \times \mathbb{A}^1_k\)</span>.</strong> Apply the normalization exact sequence: the normalization of <span class="arithmatex">\(C \times \mathbb{A}^1_k\)</span> is <span class="arithmatex">\(\mathbb{P}^1_k \times \mathbb{A}^1_k\)</span>, with singular locus <span class="arithmatex">\(\{0\} \times \mathbb{A}^1_k\)</span>. The local contribution at the cusp gives <span class="arithmatex">\(\widetilde{\mathcal{O}}_p^* / \mathcal{O}_p^* \cong \mathbb{G}_a\)</span> (exactly as for the cuspidal cubic alone, since the extra parameter <span class="arithmatex">\(z\)</span> is a unit near the singular locus). Since <span class="arithmatex">\(\operatorname{Pic}(\mathbb{P}^1_k \times \mathbb{A}^1_k) \cong \mathbb{Z}\)</span> (generated by the pullback of <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}^1}(1)\)</span>), the normalization sequence splits to give</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(C \times \mathbb{A}^1_k) \cong \mathbb{G}_a \times \mathbb{Z}.
+\]</div>
+<p><strong>Picard group of <span class="arithmatex">\(C \times (\mathbb{A}^1_k \setminus \{0\})\)</span>.</strong> Replacing <span class="arithmatex">\(\mathbb{A}^1_k\)</span> by <span class="arithmatex">\(\mathbb{A}^1_k \setminus \{0\}\)</span> introduces an additional <span class="arithmatex">\(\mathbb{Z}\)</span>-factor from the Laurent units <span class="arithmatex">\(k[z, z^{-1}]^* \cong k^* \times \mathbb{Z}\)</span>:</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(C \times (\mathbb{A}^1_k \setminus \{0\})) \cong \mathbb{G}_a \times \mathbb{Z} \times \mathbb{Z}.
+\]</div>
+<p><strong>Restriction map.</strong> The restriction <span class="arithmatex">\(r : \operatorname{Pic}(C \times \mathbb{A}^1_k) \to \operatorname{Pic}(C \times (\mathbb{A}^1_k \setminus \{0\}))\)</span> is the identity on the <span class="arithmatex">\(\mathbb{G}_a\)</span>-factor and injects <span class="arithmatex">\(\mathbb{Z}\)</span> into the first <span class="arithmatex">\(\mathbb{Z}\)</span>-factor:</p>
+<div class="arithmatex">\[
+r : \mathbb{G}_a \times \mathbb{Z} \to \mathbb{G}_a \times \mathbb{Z} \times \mathbb{Z}, \quad (c, n) \mapsto (c, 0, n).
+\]</div>
+<p><strong>Mayer--Vietoris computation.</strong> Writing <span class="arithmatex">\(X = V_1 \cup V_2\)</span> with <span class="arithmatex">\(V_1 \cap V_2 \cong C \times (\mathbb{A}^1_k \setminus \{0\})\)</span>, the Mayer--Vietoris sequence for <span class="arithmatex">\(\mathcal{O}_X^*\)</span> gives</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(V_1) \times \operatorname{Pic}(V_2) \xrightarrow{r_1 - r_2} \operatorname{Pic}(V_1 \cap V_2) \to H^2(X, \mathcal{O}_X^*).
+\]</div>
+<p>Computing the cokernel of <span class="arithmatex">\(r_1 - r_2\)</span> yields <span class="arithmatex">\(\operatorname{Pic}(X) \cong \mathbb{G}_a\)</span>.</p>
+<p><strong>Nonprojectivity.</strong> Since <span class="arithmatex">\(\mathbb{G}_a \cong (k, +)\)</span> admits no nontrivial homomorphism to <span class="arithmatex">\(\mathbb{Z}\)</span>, there is no ample line bundle on <span class="arithmatex">\(X\)</span>: any such bundle would generate a copy of <span class="arithmatex">\(\mathbb{Z}\)</span> inside <span class="arithmatex">\(\operatorname{Pic}(X)\)</span>, but <span class="arithmatex">\(\mathbb{G}_a\)</span> is torsion in positive characteristic and divisible in characteristic zero, and in neither case contains <span class="arithmatex">\(\mathbb{Z}\)</span>. Therefore <span class="arithmatex">\(X\)</span> is complete but not projective.</p>
+<!-- BENCHMARK_PROBLEM: Let k be an algebraically closed field with char(k) != 2. Construct the Hartshorne II.7.13 surface X as a twisted family of cuspidal cubics over P^1_k. Compute Pic(C x A^1_k) and the restriction map to Pic(C x (A^1_k \ {0})), and explain why Pic(X) ≅ G_a implies X is not projective. -->
+
+<h3 id="ecag-0257">Remark: Why does <span class="arithmatex">\(\operatorname{Pic}(X) \cong \mathbb{G}_{a}\)</span> imply <span class="arithmatex">\(X\)</span> is not projective?<a class="headerlink" href="#ecag-0257" title="Permanent link">&para;</a></h3>
+<p>If <span class="arithmatex">\(X\)</span> were projective over <span class="arithmatex">\(k\)</span>, the Neron--Severi theorem would give an exact sequence</p>
+<div class="arithmatex">\[
+0 \to \operatorname{Pic}^0(X) \to \operatorname{Pic}(X) \to \operatorname{NS}(X) \to 0
+\]</div>
+<p>where <span class="arithmatex">\(\operatorname{NS}(X)\)</span> is a finitely generated abelian group and <span class="arithmatex">\(\operatorname{Pic}^0(X)\)</span> is an abelian variety (the Picard variety). However, <span class="arithmatex">\(\mathbb{G}_a\)</span> is a unipotent algebraic group: it is affine, connected, of dimension 1, and admits no nontrivial algebraic quotient that is an abelian variety. (An abelian variety is projective and has no unipotent subgroups, while <span class="arithmatex">\(\mathbb{G}_a\)</span> is itself unipotent.) So <span class="arithmatex">\(\mathbb{G}_a\)</span> cannot appear as <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> for a projective <span class="arithmatex">\(X\)</span>.</p>
+<p>More concretely, a projective variety carries an ample line bundle <span class="arithmatex">\(\mathcal{L}\)</span>, and the powers <span class="arithmatex">\(\mathcal{L}^{\otimes n}\)</span> for <span class="arithmatex">\(n \geq 1\)</span> generate a free subgroup <span class="arithmatex">\(\mathbb{Z} \hookrightarrow \operatorname{Pic}(X)\)</span>. But <span class="arithmatex">\(\mathbb{G}_a \cong (k, +)\)</span> has no element of infinite order when <span class="arithmatex">\(\operatorname{char}(k) &gt; 0\)</span> (every element is killed by <span class="arithmatex">\(p\)</span>), and even in characteristic zero, the abstract group <span class="arithmatex">\((k, +)\)</span> contains copies of <span class="arithmatex">\(\mathbb{Z}\)</span> as subgroups, but these cannot arise as the image of the powers of a single ample class in a way compatible with the algebraic group structure: the subgroup <span class="arithmatex">\(\mathbb{Z} \subset \mathbb{G}_a\)</span> is not Zariski closed, contradicting the requirement that the Neron--Severi group be a finitely generated discrete quotient.</p>
+<!-- BENCHMARK_PROBLEM: Let X be a complete variety over an algebraically closed field k with Pic(X) ≅ G_a (the additive group). Prove that X is not projective by explaining why the Picard group of a projective variety cannot be isomorphic to G_a. -->
+
+<h3 id="ecag-0258">Remark<a class="headerlink" href="#ecag-0258" title="Permanent link">&para;</a></h3>
+<p>Since the cuspidal cubic <span class="arithmatex">\(C\)</span> is singular at the cusp, the scheme <span class="arithmatex">\(C \times \mathbb{A}^1_k\)</span> is not regular in codimension 1 along <span class="arithmatex">\(\{0\} \times \mathbb{A}^1_k\)</span>, and the excision exact sequence for Weil divisors</p>
+<div class="arithmatex">\[
+\operatorname{Cl}(Y) \to \operatorname{Cl}(X) \to \operatorname{Cl}(X \setminus Y) \to 0
+\]</div>
+<p>does not apply. This sequence requires <span class="arithmatex">\(X\)</span> to be normal, and <span class="arithmatex">\(C\)</span> (hence <span class="arithmatex">\(C \times \mathbb{A}^1_k\)</span>) has a non-normal singular point. One must therefore work directly with <span class="arithmatex">\(\operatorname{Pic}\)</span> (i.e., with line bundles or Cartier divisors) and use the normalization exact sequence instead of Weil divisor arguments.</p>
+<h3 id="ecag-0259">Example: Hironaka varieties, smooth complete nonprojective <span class="arithmatex">\(3\)</span>-folds<a class="headerlink" href="#ecag-0259" title="Permanent link">&para;</a></h3>
+<p>Hironaka constructed smooth complete (proper over <span class="arithmatex">\(\mathbb{C}\)</span>) threefolds that are not projective. The idea is to perform birational modifications on a smooth projective threefold, choosing different orders of blow-up at two points to create exceptional curves that obstruct the existence of an ample divisor.</p>
+<p><strong>Setup.</strong> Start with a smooth projective threefold <span class="arithmatex">\(Y\)</span> over <span class="arithmatex">\(\mathbb{C}\)</span> containing two smooth curves <span class="arithmatex">\(C_1, C_2 \subset Y\)</span> that meet transversally at exactly two points <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span>, with <span class="arithmatex">\(C_1\)</span> and <span class="arithmatex">\(C_2\)</span> disjoint away from <span class="arithmatex">\(\{p, q\}\)</span>.</p>
+<p><strong>Local modification.</strong> In a neighborhood of <span class="arithmatex">\(p\)</span>, first blow up along <span class="arithmatex">\(C_1\)</span>, then blow up the strict transform of <span class="arithmatex">\(C_2\)</span>. In a neighborhood of <span class="arithmatex">\(q\)</span>, reverse the order: first blow up along <span class="arithmatex">\(C_2\)</span>, then blow up the strict transform of <span class="arithmatex">\(C_1\)</span>. Away from <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> (where the curves are disjoint), perform ordinary blow-ups along each curve. These local constructions glue to give a smooth complete threefold <span class="arithmatex">\(X\)</span>.</p>
+<p><strong>Exceptional curves.</strong> The fibers over <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> each contain a copy of <span class="arithmatex">\(\mathbb{P}^1\)</span>, call them <span class="arithmatex">\(\ell_p\)</span> and <span class="arithmatex">\(\ell_q\)</span>. The curve <span class="arithmatex">\(\ell_p\)</span> arises as the exceptional fiber of the blow-up of <span class="arithmatex">\(C_1\)</span> at <span class="arithmatex">\(p\)</span> (where <span class="arithmatex">\(C_1\)</span> is blown up first), and <span class="arithmatex">\(\ell_q\)</span> arises from the blow-up of <span class="arithmatex">\(C_1\)</span> at <span class="arithmatex">\(q\)</span> (where <span class="arithmatex">\(C_2\)</span> is blown up first, so <span class="arithmatex">\(C_1\)</span> is blown up second). The reversed blow-up order at <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span> is the essential asymmetry.</p>
+<p><strong>Nonprojectivity.</strong> The curves <span class="arithmatex">\(\ell_p\)</span> and <span class="arithmatex">\(\ell_q\)</span> satisfy <span class="arithmatex">\(\ell_p + \ell_q \sim 0\)</span> as a 1-cycle (they bound a 2-chain coming from the strict transform of <span class="arithmatex">\(C_1\)</span>). Any ample divisor <span class="arithmatex">\(H\)</span> would require <span class="arithmatex">\(H \cdot \ell_p &gt; 0\)</span> and <span class="arithmatex">\(H \cdot \ell_q &gt; 0\)</span> (since <span class="arithmatex">\(\ell_p\)</span> and <span class="arithmatex">\(\ell_q\)</span> are complete curves), but then <span class="arithmatex">\(H \cdot (\ell_p + \ell_q) &gt; 0\)</span>, contradicting <span class="arithmatex">\(\ell_p + \ell_q \sim 0\)</span>. More precisely, one shows that <span class="arithmatex">\(\ell_p\)</span> and <span class="arithmatex">\(\ell_q\)</span> are algebraically equivalent to zero, and the Nakai--Moishezon criterion (a divisor <span class="arithmatex">\(D\)</span> is ample if and only if <span class="arithmatex">\(D^{\dim V} \cdot V &gt; 0\)</span> for every positive-dimensional subvariety <span class="arithmatex">\(V\)</span>) then implies no divisor can be ample.</p>
+<!-- BENCHMARK_PROBLEM: Describe Hironaka's construction of a smooth complete nonprojective threefold. Starting from a smooth projective threefold Y with two curves C_1, C_2 meeting at two points p and q, explain how reversing the order of blow-ups at p and q produces curves that obstruct the existence of an ample divisor. -->
+
+<h3 id="ecag-0260">Example: <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> is not necessarily ample<a class="headerlink" href="#ecag-0260" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(S\)</span> be a scheme and <span class="arithmatex">\(\mathscr{E}\)</span> a locally free sheaf on <span class="arithmatex">\(S\)</span>. The tautological line bundle <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> on the projective bundle <span class="arithmatex">\(\pi : \mathbb{P}\mathscr{E} \to S\)</span> is always <span class="arithmatex">\(\pi\)</span>-ample (ample relative to <span class="arithmatex">\(\pi\)</span>), since by construction <span class="arithmatex">\(\mathbb{P}\mathscr{E} = \operatorname{Proj}(\operatorname{Sym}(\mathscr{E}))\)</span> and <span class="arithmatex">\(\mathcal{O}(1)\)</span> corresponds to the Serre twist on fibers. However, <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> need not be ample in the absolute sense.</p>
+<p><strong>Counterexample on <span class="arithmatex">\(\mathbb{F}_2\)</span>.</strong> Let <span class="arithmatex">\(S = \mathbb{P}^1_k\)</span> and <span class="arithmatex">\(\mathscr{E} = \mathcal{O}(1) \oplus \mathcal{O}(-1)\)</span>. Then <span class="arithmatex">\(\mathbb{P}\mathscr{E}\)</span> is the Hirzebruch surface <span class="arithmatex">\(\mathbb{F}_2\)</span>. The surjection <span class="arithmatex">\(\mathscr{E} \twoheadrightarrow \mathcal{O}(-1)\)</span> (projection onto the second factor) determines a section <span class="arithmatex">\(\sigma_0 : \mathbb{P}^1 \hookrightarrow \mathbb{F}_2\)</span>. One computes <span class="arithmatex">\(\sigma_0^2 = -2\)</span> from the general formula: for a section of <span class="arithmatex">\(\mathbb{P}(\mathcal{O}(a) \oplus \mathcal{O}(b))\)</span> corresponding to the quotient <span class="arithmatex">\(\mathcal{O}(b)\)</span>, the self-intersection is <span class="arithmatex">\(b - a\)</span>, which gives <span class="arithmatex">\(-1 - 1 = -2\)</span>.</p>
+<p>The intersection of <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> with <span class="arithmatex">\(\sigma_0\)</span> is the degree of <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)|_{\sigma_0}\)</span>. Since <span class="arithmatex">\(\sigma_0\)</span> corresponds to the quotient <span class="arithmatex">\(\mathscr{E} \twoheadrightarrow \mathcal{O}(-1)\)</span>, the pullback <span class="arithmatex">\(\sigma_0^* \mathcal{O}_{\mathbb{P}\mathscr{E}}(1) \cong \mathcal{O}_{\mathbb{P}^1}(-1)\)</span>, so</p>
+<div class="arithmatex">\[
+\mathcal{O}_{\mathbb{P}\mathscr{E}}(1) \cdot \sigma_0 = \deg(\mathcal{O}_{\mathbb{P}^1}(-1)) = -1 &lt; 0.
+\]</div>
+<p>By the Nakai--Moishezon criterion, <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> is not ample.</p>
+<p><strong>General criterion.</strong> The bundle <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> is ample (absolutely) if and only if <span class="arithmatex">\(\mathscr{E}\)</span> is an ample vector bundle on <span class="arithmatex">\(S\)</span>. For a curve <span class="arithmatex">\(S\)</span>, this means every quotient line bundle of <span class="arithmatex">\(\mathscr{E}\)</span> has positive degree. In the example above, <span class="arithmatex">\(\mathcal{O}(-1)\)</span> is a quotient of <span class="arithmatex">\(\mathscr{E}\)</span> with negative degree, so ampleness fails.</p>
+<!-- BENCHMARK_PROBLEM: Let E = O(1) + O(-1) on P^1. Show that O_{PE}(1) on the Hirzebruch surface F_2 = P(E) is not ample by exhibiting a curve with non-positive intersection number. When is O_{PE}(1) ample in general? -->
+
+<h3 id="ecag-0261">Remark: Degree of <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span><a class="headerlink" href="#ecag-0261" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(\mathscr{E}\)</span> be a locally free sheaf of rank <span class="arithmatex">\(r\)</span> on a smooth projective curve <span class="arithmatex">\(C\)</span>. The projective bundle <span class="arithmatex">\(\pi : \mathbb{P}\mathscr{E} \to C\)</span> is a smooth projective variety of dimension <span class="arithmatex">\(r\)</span>, and the top self-intersection of <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1)\)</span> is</p>
+<div class="arithmatex">\[
+c_1(\mathcal{O}_{\mathbb{P}\mathscr{E}}(1))^r = \deg(\mathscr{E}).
+\]</div>
+<p>This follows from the tautological relation in <span class="arithmatex">\(A^*(\mathbb{P}\mathscr{E})\)</span>: writing <span class="arithmatex">\(\xi = c_1(\mathcal{O}(1))\)</span>, the identity <span class="arithmatex">\(\xi^r - \pi^* c_1(\mathscr{E}) \cdot \xi^{r-1} + \pi^* c_2(\mathscr{E}) \cdot \xi^{r-2} - \cdots = 0\)</span> together with the push-forward formula <span class="arithmatex">\(\pi_*(\xi^{r-1}) = 1\)</span> yields <span class="arithmatex">\(\pi_*(\xi^r) = c_1(\mathscr{E}) = \deg(\mathscr{E})\)</span> on a curve.</p>
+<p>For rank 2 on a curve, this gives <span class="arithmatex">\(c_1(\mathcal{O}(1))^2 = \deg(\mathscr{E})\)</span>. When <span class="arithmatex">\(\mathscr{E} = \mathcal{L}\)</span> is a line bundle, <span class="arithmatex">\(\mathbb{P}\mathcal{L} = C\)</span> and <span class="arithmatex">\(\mathcal{O}_{\mathbb{P}\mathcal{L}}(1) = \mathcal{L}\)</span>, so the formula recovers <span class="arithmatex">\(\deg(\mathcal{L})\)</span>. Thus <span class="arithmatex">\(c_1(\mathcal{O}(1))^r = \deg(\mathscr{E})\)</span> is the natural generalization of the degree of a line bundle to higher-rank bundles on curves.</p>
+<!-- BENCHMARK_PROBLEM: Let E be a locally free sheaf of rank 2 on a smooth projective curve C. Compute c_1(O_{PE}(1))^2 in terms of deg(E), and explain how this generalizes the degree of a line bundle on C. -->
+
+<h3 id="ecag-0262">Example: <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> of quadric hypersurfaces, Hartshorne <span class="arithmatex">\(\mathrm{II}.6.5\)</span><a class="headerlink" href="#ecag-0262" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(k\)</span> be a field with <span class="arithmatex">\(\operatorname{char}(k) \neq 2\)</span>. We compute the divisor class group of both affine and projective quadrics.</p>
+<p><strong>Affine quadric cones.</strong> Let <span class="arithmatex">\(X = \operatorname{Spec}(k[x_0, \ldots, x_n] / (x_0^2 + \cdots + x_r^2))\)</span>, which is normal for <span class="arithmatex">\(r \geq 2\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(r\)</span></th>
+<th><span class="arithmatex">\(\operatorname{Cl}(X)\)</span></th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z}\)</span></td>
+<td>Excision + non-principality</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+<td>Cone over <span class="arithmatex">\(\mathbb{P}^1 \times \mathbb{P}^1\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\geq 4\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td>Grothendieck--Lefschetz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Projective quadrics.</strong> Let <span class="arithmatex">\(Q = \operatorname{Proj}(k[x_0, \ldots, x_n]/(x_0^2 + \cdots + x_r^2))\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(r\)</span></th>
+<th><span class="arithmatex">\(Q\)</span></th>
+<th><span class="arithmatex">\(\operatorname{Cl}(Q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(2\)</span></td>
+<td><span class="arithmatex">\(\cong \mathbb{P}^1\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(\cong \mathbb{P}^1 \times \mathbb{P}^1\)</span> (Segre)</td>
+<td><span class="arithmatex">\(\mathbb{Z}^2\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\geq 4\)</span></td>
+<td>smooth quadric, <span class="arithmatex">\(\dim \geq 3\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}\)</span> (Lefschetz)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Case <span class="arithmatex">\(r = 2\)</span> in detail.</strong> Take the isomorphic form <span class="arithmatex">\(X = \operatorname{Spec}(k[x,y,z]/(xy - z^2))\)</span>. Let <span class="arithmatex">\(Y\)</span> be the prime divisor defined by the ideal <span class="arithmatex">\((y, z)\)</span>. At the generic point of <span class="arithmatex">\(Y\)</span>, the local ring is a DVR with uniformizer <span class="arithmatex">\(z\)</span>; since <span class="arithmatex">\(y = z^2/x\)</span> and <span class="arithmatex">\(x\)</span> is a unit at this point, we get <span class="arithmatex">\(\operatorname{div}(y) = 2Y\)</span>, so <span class="arithmatex">\(2[Y] = 0\)</span> in <span class="arithmatex">\(\operatorname{Cl}(X)\)</span>.</p>
+<p>The excision sequence for the closed subset <span class="arithmatex">\(Y\)</span> gives <span class="arithmatex">\(\mathbb{Z} \to \operatorname{Cl}(X) \to \operatorname{Cl}(X \setminus Y) \to 0\)</span>. The complement <span class="arithmatex">\(X \setminus Y = \operatorname{Spec}(k[x, y, z, y^{-1}]/(xy - z^2)) \cong \operatorname{Spec}(k[y, y^{-1}, z])\)</span> is the spectrum of a Laurent polynomial ring, hence a UFD with trivial class group. So <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> is generated by <span class="arithmatex">\([Y]\)</span>.</p>
+<p>It remains to show <span class="arithmatex">\([Y] \neq 0\)</span>, i.e., the ideal <span class="arithmatex">\((y, z)\)</span> is not principal. At the closed point <span class="arithmatex">\(\mathfrak{m} = (x, y, z)\)</span>, the cotangent space <span class="arithmatex">\(\mathfrak{m}/\mathfrak{m}^2\)</span> is spanned by <span class="arithmatex">\(\bar{x}, \bar{y}, \bar{z}\)</span> (the relation <span class="arithmatex">\(xy = z^2\)</span> vanishes in <span class="arithmatex">\(\mathfrak{m}^2\)</span>), so <span class="arithmatex">\(\dim_k \mathfrak{m}/\mathfrak{m}^2 = 3\)</span> while <span class="arithmatex">\(\dim X = 2\)</span>, confirming the vertex is singular. The ideal <span class="arithmatex">\((y, z)\)</span> requires two generators at this point, so it cannot be principal. Hence <span class="arithmatex">\(\operatorname{Cl}(X) \cong \mathbb{Z}/2\mathbb{Z}\)</span>.</p>
+<p><strong>Case <span class="arithmatex">\(r = 3\)</span>.</strong> The affine quadric <span class="arithmatex">\(X\)</span> is the cone over <span class="arithmatex">\(V = \operatorname{Proj}(k[x,y,z,w]/(xy - z^2 - w^2)) \cong \mathbb{P}^1 \times \mathbb{P}^1\)</span> (Segre embedding). By Hartshorne II.6.3, the exact sequence <span class="arithmatex">\(\mathbb{Z} \xrightarrow{\alpha} \operatorname{Cl}(V) \to \operatorname{Cl}(X) \to 0\)</span> sends <span class="arithmatex">\(1 \mapsto (1,1) \in \mathbb{Z}^2 = \operatorname{Cl}(\mathbb{P}^1 \times \mathbb{P}^1)\)</span> (the hyperplane class under Segre), so</p>
+<div class="arithmatex">\[
+\operatorname{Cl}(X) \cong \mathbb{Z}^2 / \mathbb{Z}(1,1) \cong \mathbb{Z}.
+\]</div>
+<p><strong>Case <span class="arithmatex">\(r \geq 4\)</span>.</strong> The Grothendieck--Lefschetz hyperplane theorem gives <span class="arithmatex">\(\operatorname{Cl}(Q) \cong \operatorname{Cl}(\mathbb{P}^n) \cong \mathbb{Z}\)</span> for smooth complete intersections of dimension <span class="arithmatex">\(\geq 3\)</span>. Then <span class="arithmatex">\(\operatorname{Cl}(X) \cong \mathbb{Z} / \mathbb{Z} = 0\)</span>, and by Hartshorne II.6.2, the coordinate ring is a UFD.</p>
+<!-- BENCHMARK_PROBLEM: Let X = Spec(k[x,y,z]/(xy - z^2)) where char(k) != 2. Compute Cl(X) by finding a prime divisor Y such that 2[Y] = 0 in Cl(X), and prove [Y] != 0 by showing the ideal (y,z) is not principal. -->
+
+<h3 id="ecag-0263">Remark: Hartshorne <span class="arithmatex">\(\mathrm{II}.6.3\)</span>, relations between <span class="arithmatex">\(\operatorname{Cl}(V)\)</span> and <span class="arithmatex">\(\operatorname{Cl}(C(V))\)</span><a class="headerlink" href="#ecag-0263" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(V \subset \mathbb{P}^n_k\)</span> be a normal projective variety with homogeneous coordinate ring <span class="arithmatex">\(S(V)\)</span> and affine cone <span class="arithmatex">\(C(V) = \operatorname{Spec}(S(V))\)</span>. There is an exact sequence</p>
+<div class="arithmatex">\[
+\mathbb{Z} \xrightarrow{\alpha} \operatorname{Cl}(V) \xrightarrow{\beta} \operatorname{Cl}(C(V)) \to 0
+\]</div>
+<p>where <span class="arithmatex">\(\alpha(1) = [H \cap V]\)</span>, the class of a hyperplane section.</p>
+<p>The surjectivity of <span class="arithmatex">\(\beta\)</span> comes from excision: the punctured cone <span class="arithmatex">\(C(V) \setminus \{\text{vertex}\}\)</span> is an <span class="arithmatex">\(\mathbb{A}^1 \setminus \{0\}\)</span>-bundle over <span class="arithmatex">\(V\)</span>, so <span class="arithmatex">\(\operatorname{Cl}(C(V) \setminus \{\text{vertex}\}) \cong \operatorname{Cl}(V)\)</span>, and removing a point of codimension <span class="arithmatex">\(\geq 2\)</span> does not change the class group. The kernel of <span class="arithmatex">\(\beta\)</span> is the subgroup generated by the hyperplane class, because two Weil divisors on <span class="arithmatex">\(V\)</span> that differ by a hyperplane section become linearly equivalent on <span class="arithmatex">\(C(V)\)</span> (the hyperplane corresponds to a principal divisor of a degree-1 element of <span class="arithmatex">\(S(V)\)</span>).</p>
+<p>In particular, <span class="arithmatex">\(\operatorname{Cl}(C(V)) = 0\)</span> if and only if <span class="arithmatex">\(\operatorname{Cl}(V)\)</span> is generated by the hyperplane class. When <span class="arithmatex">\(\operatorname{Cl}(C(V)) = 0\)</span>, the ring <span class="arithmatex">\(S(V)\)</span> is a UFD by Hartshorne II.6.2.</p>
+<p><strong>Example.</strong> For <span class="arithmatex">\(V = \mathbb{P}^1 \times \mathbb{P}^1\)</span> under the Segre embedding, <span class="arithmatex">\(\operatorname{Cl}(V) \cong \mathbb{Z}^2\)</span> and the hyperplane class is <span class="arithmatex">\((1,1)\)</span>. Then <span class="arithmatex">\(\operatorname{Cl}(C(V)) \cong \mathbb{Z}^2 / \mathbb{Z}(1,1) \cong \mathbb{Z}\)</span>, generated by the class <span class="arithmatex">\((1,0) - (0,1)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let V be a normal projective variety in P^n with affine cone C(V). State the exact sequence relating Cl(V) and Cl(C(V)) from Hartshorne II.6.3, and determine Cl(C(V)) when V = P^1 x P^1 embedded by the Segre embedding (so the hyperplane class is (1,1)). -->
+
+<h3 id="ecag-0264">Remark: Lefschetz hyperplane theorem<a class="headerlink" href="#ecag-0264" title="Permanent link">&para;</a></h3>
+<p>The Grothendieck--Lefschetz theorem (SGA 2, Expose XII) states that for a smooth complete intersection <span class="arithmatex">\(V \subset \mathbb{P}^n_k\)</span> of dimension <span class="arithmatex">\(\geq 3\)</span>, the restriction <span class="arithmatex">\(\operatorname{Cl}(\mathbb{P}^n) \to \operatorname{Cl}(V)\)</span> is an isomorphism. In particular, <span class="arithmatex">\(\operatorname{Cl}(V) \cong \mathbb{Z}\)</span>, generated by the hyperplane class.</p>
+<p><strong>Application to quadrics.</strong> For a smooth quadric <span class="arithmatex">\(Q \subset \mathbb{P}^n_k\)</span> with <span class="arithmatex">\(\dim Q \geq 3\)</span> (i.e., <span class="arithmatex">\(n \geq 4\)</span>), we get <span class="arithmatex">\(\operatorname{Cl}(Q) \cong \mathbb{Z}\)</span>. The exact sequence of Hartshorne II.6.3 then gives <span class="arithmatex">\(\operatorname{Cl}(C(Q)) = 0\)</span> for the affine cone.</p>
+<p><strong>Klein's theorem.</strong> As a corollary, every irreducible codimension-1 subvariety <span class="arithmatex">\(Y\)</span> of a smooth quadric <span class="arithmatex">\(Q\)</span> of dimension <span class="arithmatex">\(\geq 3\)</span> is a complete intersection <span class="arithmatex">\(Y = Q \cap H\)</span> for some hypersurface <span class="arithmatex">\(H \subset \mathbb{P}^n\)</span>. Indeed, <span class="arithmatex">\([Y] = d \cdot [H \cap Q]\)</span> in <span class="arithmatex">\(\operatorname{Cl}(Q) \cong \mathbb{Z}\)</span> for some <span class="arithmatex">\(d \geq 1\)</span>. The restriction map <span class="arithmatex">\(H^0(\mathcal{O}_{\mathbb{P}^n}(d)) \to H^0(\mathcal{O}_Q(d))\)</span> is surjective: from the exact sequence</p>
+<div class="arithmatex">\[
+0 \to \mathcal{O}_{\mathbb{P}^n}(d-2) \to \mathcal{O}_{\mathbb{P}^n}(d) \to \mathcal{O}_Q(d) \to 0
+\]</div>
+<p>the cokernel vanishes because <span class="arithmatex">\(H^1(\mathcal{O}_{\mathbb{P}^n}(d-2)) = 0\)</span> for <span class="arithmatex">\(n \geq 3\)</span>. Hence <span class="arithmatex">\(Y\)</span> is cut out by a degree-<span class="arithmatex">\(d\)</span> hypersurface.</p>
+<p>Since <span class="arithmatex">\(\operatorname{Cl}(C(Q)) = 0\)</span> for <span class="arithmatex">\(n \geq 4\)</span>, Hartshorne II.6.2 gives that <span class="arithmatex">\(k[x_0, \ldots, x_n]/(x_0^2 + \cdots + x_n^2)\)</span> is a UFD.</p>
+<!-- BENCHMARK_PROBLEM: Using the Grothendieck-Lefschetz theorem, prove that every irreducible codimension-1 subvariety of a smooth quadric Q in P^n (n >= 4) is a complete intersection of Q with a hypersurface. Deduce that the coordinate ring k[x_0,...,x_n]/(x_0^2+...+x_n^2) is a UFD for n >= 4. -->
+
+<h3 id="ecag-0265">Example: Smooth cubic surface <span class="arithmatex">\(X \subset \mathbb{P}^3\)</span>, <span class="arithmatex">\(\operatorname{Cl}(X) \cong \mathbb{Z}^7\)</span><a class="headerlink" href="#ecag-0265" title="Permanent link">&para;</a></h3>
+<p>Every smooth cubic surface <span class="arithmatex">\(X \subset \mathbb{P}^3_k\)</span> over an algebraically closed field <span class="arithmatex">\(k\)</span> is isomorphic to <span class="arithmatex">\(\operatorname{Bl}_{p_1, \ldots, p_6} \mathbb{P}^2\)</span>, the blow-up of <span class="arithmatex">\(\mathbb{P}^2\)</span> at 6 points in general position (no 3 collinear, no 6 on a conic). This classical fact immediately gives the Picard group.</p>
+<p><strong>Picard group.</strong> Let <span class="arithmatex">\(\sigma : X \to \mathbb{P}^2\)</span> denote the blow-up with exceptional divisors <span class="arithmatex">\(E_i = \sigma^{-1}(p_i)\)</span>. Since each blow-up adds one <span class="arithmatex">\(\mathbb{Z}\)</span>-summand,</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(X) \cong \operatorname{Pic}(\mathbb{P}^2) \oplus \bigoplus_{i=1}^{6} \mathbb{Z} \cdot [E_i] \cong \mathbb{Z}^7
+\]</div>
+<p>with basis <span class="arithmatex">\(\{H, E_1, \ldots, E_6\}\)</span>, where <span class="arithmatex">\(H = \sigma^* \mathcal{O}_{\mathbb{P}^2}(1)\)</span>. Since <span class="arithmatex">\(X\)</span> is smooth and projective, <span class="arithmatex">\(\operatorname{Cl}(X) \cong \operatorname{Pic}(X) \cong \mathbb{Z}^7\)</span>.</p>
+<p><strong>Intersection form.</strong> The intersection pairing is determined by <span class="arithmatex">\(H^2 = 1\)</span>, <span class="arithmatex">\(E_i^2 = -1\)</span>, <span class="arithmatex">\(H \cdot E_i = 0\)</span>, <span class="arithmatex">\(E_i \cdot E_j = 0\)</span> for <span class="arithmatex">\(i \neq j\)</span>. The resulting lattice is <span class="arithmatex">\(I_{1,6} = \langle 1 \rangle \oplus \langle -1 \rangle^6\)</span>.</p>
+<p><strong>Anticanonical class.</strong> The canonical class of <span class="arithmatex">\(\mathbb{P}^2\)</span> is <span class="arithmatex">\(K_{\mathbb{P}^2} = -3H\)</span>. The blow-up formula gives <span class="arithmatex">\(K_X = \sigma^* K_{\mathbb{P}^2} + \sum E_i = -3H + E_1 + \cdots + E_6\)</span>, so</p>
+<div class="arithmatex">\[
+-K_X = 3H - E_1 - \cdots - E_6.
+\]</div>
+<p>This is the hyperplane class of the cubic embedding <span class="arithmatex">\(X \hookrightarrow \mathbb{P}^3\)</span>, confirming <span class="arithmatex">\((-K_X)^2 = 9 - 6 = 3 = \deg(X)\)</span>.</p>
+<p><strong>The 27 lines.</strong> The Cayley--Salmon theorem states that <span class="arithmatex">\(X\)</span> contains exactly 27 lines. In terms of the basis <span class="arithmatex">\(\{H, E_i\}\)</span>, they decompose as:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Class</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exceptional curves</td>
+<td><span class="arithmatex">\(E_i\)</span></td>
+<td>6</td>
+</tr>
+<tr>
+<td>Strict transforms of lines <span class="arithmatex">\(\overline{p_i p_j}\)</span></td>
+<td><span class="arithmatex">\(H - E_i - E_j\)</span></td>
+<td><span class="arithmatex">\(\binom{6}{2} = 15\)</span></td>
+</tr>
+<tr>
+<td>Strict transforms of conics through 5 points</td>
+<td><span class="arithmatex">\(2H - \sum_{j \neq i} E_j\)</span></td>
+<td>6</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>27</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Each of these 27 classes <span class="arithmatex">\(\ell\)</span> satisfies <span class="arithmatex">\(\ell^2 = -1\)</span> and <span class="arithmatex">\(\ell \cdot (-K_X) = 1\)</span>, i.e., every line is a <span class="arithmatex">\((-1)\)</span>-curve of degree 1 in <span class="arithmatex">\(\mathbb{P}^3\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let X be a smooth cubic surface over an algebraically closed field, realized as the blow-up of P^2 at 6 points in general position. Compute Pic(X), give an explicit basis, determine the anticanonical class in terms of this basis, and verify that -K_X has self-intersection 3. -->
+
+<p>The following examples use a result of V. L. Popov ("Picard groups of homogeneous spaces of linear algebraic groups and one-dimensional homogeneous vector bundles"): if <span class="arithmatex">\(G\)</span> is a connected linear algebraic group with <span class="arithmatex">\(\operatorname{Pic}(G) = 0\)</span> (e.g., <span class="arithmatex">\(G\)</span> simply connected semisimple) and <span class="arithmatex">\(H \subset G\)</span> is a closed subgroup, there is an exact sequence</p>
+<div class="arithmatex">\[
+0 \to \operatorname{X}_G(H) \to \operatorname{X}(H) \to \operatorname{Pic}(G/H) \to 0
+\]</div>
+<p>where <span class="arithmatex">\(\operatorname{X}(H) = \operatorname{Hom}(H, \mathbb{G}_m)\)</span> is the character group of <span class="arithmatex">\(H\)</span> and <span class="arithmatex">\(\operatorname{X}_G(H)\)</span> consists of those characters of <span class="arithmatex">\(H\)</span> that extend to <span class="arithmatex">\(G\)</span>. We work over <span class="arithmatex">\(k = \mathbb{C}\)</span> in what follows.</p>
+<h3 id="ecag-0266">Example: <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> of flag varieties<a class="headerlink" href="#ecag-0266" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(F_n = SL_n / B_+\)</span> be the complete flag variety, where <span class="arithmatex">\(B_+ \subset SL_n\)</span> is the Borel subgroup of upper triangular matrices. We compute <span class="arithmatex">\(\operatorname{Pic}(F_n) \cong \mathbb{Z}^{n-1}\)</span>.</p>
+<p><strong>Character group of <span class="arithmatex">\(B_+\)</span>.</strong> Every character of <span class="arithmatex">\(B_+\)</span> factors through <span class="arithmatex">\(B_+ / [B_+, B_+] \cong T\)</span>, the maximal torus of diagonal matrices. Since <span class="arithmatex">\(T = \{(t_1, \ldots, t_n) : \prod t_i = 1\} \cong \mathbb{G}_m^{n-1}\)</span>, we have <span class="arithmatex">\(\operatorname{X}(B_+) \cong \operatorname{X}(T) \cong \mathbb{Z}^{n-1}\)</span>.</p>
+<p><strong>Extendable characters.</strong> Since <span class="arithmatex">\(SL_n\)</span> is semisimple, <span class="arithmatex">\(\operatorname{X}(SL_n) = 0\)</span>. A character of <span class="arithmatex">\(B_+\)</span> extends to <span class="arithmatex">\(SL_n\)</span> only if it is trivial, so <span class="arithmatex">\(\operatorname{X}_{SL_n}(B_+) = 0\)</span>.</p>
+<p><strong>Popov's sequence.</strong> Since <span class="arithmatex">\(\operatorname{Pic}(SL_n) = 0\)</span> (<span class="arithmatex">\(SL_n\)</span> is simply connected semisimple), we obtain</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(F_n) \cong \operatorname{X}(B_+) / \operatorname{X}_{SL_n}(B_+) \cong \mathbb{Z}^{n-1}.
+\]</div>
+<p>The generators are the line bundles <span class="arithmatex">\(\mathcal{L}(\omega_i)\)</span> associated to the fundamental weights <span class="arithmatex">\(\omega_1, \ldots, \omega_{n-1}\)</span>. Concretely, <span class="arithmatex">\(\mathcal{L}(\omega_i) = SL_n \times^{B_+} k_{\omega_i}\)</span> is the line bundle whose global sections give the <span class="arithmatex">\(i\)</span>-th exterior power representation, and these line bundles pull back to <span class="arithmatex">\(\mathcal{O}(1)\)</span> under the Plucker embeddings.</p>
+<!-- BENCHMARK_PROBLEM: Using Popov's exact sequence 0 -> X_G(H) -> X(H) -> Pic(G/H) -> 0 for G = SL_n and H = B_+ (the Borel subgroup), compute Pic(SL_n / B_+). Identify the character group X(B_+) and explain why X_{SL_n}(B_+) = 0. -->
+
+<h3 id="ecag-0267">Remark: <span class="arithmatex">\(\operatorname{Pic}(G/B)\)</span><a class="headerlink" href="#ecag-0267" title="Permanent link">&para;</a></h3>
+<p>For a connected reductive group <span class="arithmatex">\(G\)</span> with Borel subgroup <span class="arithmatex">\(B\)</span> and simple roots <span class="arithmatex">\(\Delta\)</span>, the Bruhat decomposition gives a cell decomposition of <span class="arithmatex">\(G/B\)</span> indexed by the Weyl group <span class="arithmatex">\(W\)</span>. Each Schubert cell <span class="arithmatex">\(C_w = BwB/B\)</span> has codimension <span class="arithmatex">\(\ell(w)\)</span> in <span class="arithmatex">\(G/B\)</span>. The codimension-1 Schubert varieties (Schubert divisors) correspond to simple reflections <span class="arithmatex">\(s_\alpha\)</span> for <span class="arithmatex">\(\alpha \in \Delta\)</span>, giving</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(G/B) \cong \mathbb{Z}^{|\Delta|}
+\]</div>
+<p>where <span class="arithmatex">\(|\Delta|\)</span> is the number of simple roots, equivalently the semisimple rank of <span class="arithmatex">\(G\)</span>. Note that <span class="arithmatex">\(|\Delta|\)</span> is the number of simple roots, not the number of positive roots <span class="arithmatex">\(|\Phi_+|\)</span>.</p>
+<p>The generators are line bundles <span class="arithmatex">\(\mathcal{L}(\omega_\alpha)\)</span> associated to the fundamental weights. The corresponding Schubert divisors are <span class="arithmatex">\(\overline{Bw_0 s_\alpha B / B}\)</span>, where <span class="arithmatex">\(w_0 \in W\)</span> is the longest element. The Chow group <span class="arithmatex">\(A^1(G/B)\)</span> is freely generated by these Schubert divisor classes.</p>
+<!-- BENCHMARK_PROBLEM: Let G be a connected simply connected semisimple algebraic group with Borel subgroup B and Weyl group W. Using the Bruhat decomposition, identify the rank of Pic(G/B) in terms of the root data of G. For G = SL_3, explicitly list the Schubert divisors in G/B. -->
+
+<h3 id="ecag-0268">Example: Computing <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> of quadrics from a different point of view<a class="headerlink" href="#ecag-0268" title="Permanent link">&para;</a></h3>
+<p>The Picard groups of smooth projective quadrics can also be computed using sporadic isogenies between spin groups and products of <span class="arithmatex">\(SL_2\)</span>, combined with Popov's exact sequence.</p>
+<p><strong>Case <span class="arithmatex">\(Q_2\)</span> (smooth conic).</strong> The group <span class="arithmatex">\(SO(3, \mathbb{C})\)</span> acts transitively on <span class="arithmatex">\(Q_2\)</span>. We lift to the simply connected cover <span class="arithmatex">\(\operatorname{Spin}(3, \mathbb{C}) \cong SL(2, \mathbb{C})\)</span>, which acts on <span class="arithmatex">\(\mathfrak{sl}(2, \mathbb{C}) \cong \mathbb{C}^3\)</span> via the adjoint representation, preserving the Killing form. This realizes the double cover <span class="arithmatex">\(SL_2 \to SO_3\)</span>. The stabilizer of a point on <span class="arithmatex">\(Q_2\)</span> in <span class="arithmatex">\(SO_3\)</span> is <span class="arithmatex">\(SO_2 \cong \mathbb{G}_m\)</span>; its preimage in <span class="arithmatex">\(SL_2\)</span> is the maximal torus <span class="arithmatex">\(T \cong \mathbb{G}_m\)</span> (equivalently, the Borel subgroup <span class="arithmatex">\(B_+\)</span>, since the stabilizer of a highest weight line in the adjoint representation is <span class="arithmatex">\(B_+\)</span>). By Popov's exact sequence with <span class="arithmatex">\(\operatorname{Pic}(SL_2) = 0\)</span> and <span class="arithmatex">\(\operatorname{X}_{SL_2}(B_+) = 0\)</span>:</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(Q_2) \cong \operatorname{X}(B_+) \cong \mathbb{Z}.
+\]</div>
+<p><strong>Case <span class="arithmatex">\(Q_3\)</span> (smooth quadric surface).</strong> Here <span class="arithmatex">\(\operatorname{Spin}(4, \mathbb{C}) \cong SL_2 \times SL_2\)</span>, acting on <span class="arithmatex">\(M_2(\mathbb{C}) \cong \mathbb{C}^4\)</span> by <span class="arithmatex">\((g, h) \cdot A = gAh^{-1}\)</span>, with the quadratic form <span class="arithmatex">\(\det : M_2 \to \mathbb{C}\)</span> giving <span class="arithmatex">\(Q_3 = \{A : \det(A) = 0\} \setminus \{0\}\)</span>. The stabilizer of a rank-1 matrix is <span class="arithmatex">\(B_+ \times B_-\)</span> (a product of opposite Borel subgroups). Since <span class="arithmatex">\(\operatorname{Pic}(SL_2 \times SL_2) = 0\)</span>:</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(Q_3) \cong \operatorname{X}(B_+ \times B_-) \cong \mathbb{Z} \oplus \mathbb{Z}.
+\]</div>
+<p>This recovers the well-known fact <span class="arithmatex">\(Q_3 \cong \mathbb{P}^1 \times \mathbb{P}^1\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Using the isomorphism Spin(3,C) ≅ SL(2,C) and the adjoint representation, identify the stabilizer of a point on the smooth conic Q_2 in SL(2,C), and use Popov's exact sequence to compute Pic(Q_2). -->
+
+<h3 id="ecag-0269">Remark: Picard groups of higher-dimensional quadrics via spin groups<a class="headerlink" href="#ecag-0269" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(r \geq 4\)</span>, the stabilizer in <span class="arithmatex">\(\operatorname{Spin}(r+1, \mathbb{C})\)</span> of a point on <span class="arithmatex">\(Q_r\)</span> is <span class="arithmatex">\(\operatorname{Spin}(r, \mathbb{C})\)</span>. Since <span class="arithmatex">\(\operatorname{Spin}(r, \mathbb{C})\)</span> is simply connected for all <span class="arithmatex">\(r \geq 3\)</span>, its character group <span class="arithmatex">\(\operatorname{X}(\operatorname{Spin}(r, \mathbb{C})) = 0\)</span>, and Popov's exact sequence gives <span class="arithmatex">\(\operatorname{Pic}(Q_r) \cong \mathbb{Z}\)</span> for <span class="arithmatex">\(r \geq 3\)</span>, using <span class="arithmatex">\(\operatorname{Pic}(\operatorname{Spin}(r+1)) = 0\)</span> and <span class="arithmatex">\(\operatorname{X}_{\operatorname{Spin}(r+1)}(\operatorname{Spin}(r)) = 0\)</span>.</p>
+<p>For <span class="arithmatex">\(r = 4\)</span>, one can alternatively use the sporadic isogeny <span class="arithmatex">\(\operatorname{Spin}(5, \mathbb{C}) \cong Sp(4, \mathbb{C})\)</span> to identify the stabilizer explicitly. A uniform treatment via the Dynkin diagram inclusions <span class="arithmatex">\(B_{\lfloor r/2 \rfloor} \subset B_{\lfloor (r+1)/2 \rfloor}\)</span> (or <span class="arithmatex">\(D_{r/2} \subset B_{(r+1)/2}\)</span> for even <span class="arithmatex">\(r\)</span>) recovers <span class="arithmatex">\(\operatorname{Pic}(Q_r) \cong \mathbb{Z}\)</span> for all <span class="arithmatex">\(r \geq 3\)</span>.</p>
+<h3 id="ecag-0270">Remark: When do we have <span class="arithmatex">\(\operatorname{X}(G) = 0\)</span>?<a class="headerlink" href="#ecag-0270" title="Permanent link">&para;</a></h3>
+<p>For a connected linear algebraic group <span class="arithmatex">\(G\)</span>, the character group <span class="arithmatex">\(\operatorname{X}(G) = \operatorname{Hom}(G, \mathbb{G}_m)\)</span> vanishes if and only if <span class="arithmatex">\(G = [G, G]\)</span> (the derived subgroup equals <span class="arithmatex">\(G\)</span>).</p>
+<p>For a connected reductive group <span class="arithmatex">\(G\)</span> with maximal torus <span class="arithmatex">\(T\)</span>, the restriction <span class="arithmatex">\(\operatorname{X}(G) \hookrightarrow \operatorname{X}(T)\)</span> identifies <span class="arithmatex">\(\operatorname{X}(G)\)</span> with the sublattice of characters trivial on <span class="arithmatex">\([G, G] \cap T\)</span>. Thus <span class="arithmatex">\(\operatorname{X}(G) = 0\)</span> if and only if <span class="arithmatex">\(\operatorname{X}(T)\)</span> equals the root lattice (equivalently, <span class="arithmatex">\(G\)</span> is semisimple). Concretely:</p>
+<ul>
+<li><span class="arithmatex">\(G = SL_n\)</span>: semisimple and simply connected, so <span class="arithmatex">\(\operatorname{X}(SL_n) = 0\)</span>.</li>
+<li><span class="arithmatex">\(G = Sp_{2n}\)</span>, <span class="arithmatex">\(\operatorname{Spin}(n)\)</span>: also simply connected semisimple, so <span class="arithmatex">\(\operatorname{X}(G) = 0\)</span>.</li>
+<li><span class="arithmatex">\(G = GL_n\)</span>: the commutator subgroup is <span class="arithmatex">\([GL_n, GL_n] = SL_n\)</span>, so <span class="arithmatex">\(\operatorname{X}(GL_n) \cong \operatorname{X}(GL_n / SL_n) = \operatorname{X}(\mathbb{G}_m) \cong \mathbb{Z}\)</span>, generated by the determinant.</li>
+<li>In general, <span class="arithmatex">\(\operatorname{X}(G) \cong \operatorname{X}(G/[G,G])\)</span>, where <span class="arithmatex">\(G/[G,G]\)</span> is a torus of rank equal to the dimension of the center modulo the semisimple part.</li>
+</ul>
+<!-- BENCHMARK_PROBLEM: Let G be a connected reductive algebraic group with maximal torus T. State the precise condition on the root datum for X(G) = 0. Verify this for G = SL_n and G = GL_n. -->
+
+<h3 id="ecag-0271">Example: <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> of Grassmannian<a class="headerlink" href="#ecag-0271" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(V\)</span> be an <span class="arithmatex">\(n\)</span>-dimensional vector space over <span class="arithmatex">\(\mathbb{C}\)</span> and <span class="arithmatex">\(1 \leq m \leq n-1\)</span>. We show <span class="arithmatex">\(\operatorname{Pic}(\operatorname{Gr}(V, m)) \cong \mathbb{Z}\)</span>.</p>
+<p><strong>Homogeneous space description.</strong> The group <span class="arithmatex">\(SL_n\)</span> acts transitively on <span class="arithmatex">\(\operatorname{Gr}(V, m)\)</span>. The stabilizer of the coordinate <span class="arithmatex">\(m\)</span>-plane <span class="arithmatex">\(\langle e_1, \ldots, e_m \rangle\)</span> is the maximal parabolic subgroup</p>
+<div class="arithmatex">\[
+P = \left\{ \begin{pmatrix} A &amp; B \\ 0 &amp; D \end{pmatrix} \in SL_n : A \in GL_m,\, D \in GL_{n-m} \right\},
+\]</div>
+<p>so <span class="arithmatex">\(\operatorname{Gr}(V, m) \cong SL_n / P\)</span>.</p>
+<p><strong>Popov's sequence.</strong> Since <span class="arithmatex">\(\operatorname{Pic}(SL_n) = 0\)</span> and <span class="arithmatex">\(\operatorname{X}_{SL_n}(P) = 0\)</span> (no nontrivial character of <span class="arithmatex">\(P\)</span> extends to <span class="arithmatex">\(SL_n\)</span>), we get <span class="arithmatex">\(\operatorname{Pic}(\operatorname{Gr}(V, m)) \cong \operatorname{X}(P)\)</span>.</p>
+<p><strong>Character group of <span class="arithmatex">\(P\)</span>.</strong> The derived subgroup <span class="arithmatex">\([P, P]\)</span> consists of block upper triangular matrices with <span class="arithmatex">\(\det(A) = 1\)</span> and <span class="arithmatex">\(\det(D) = 1\)</span> (subject to the constraint <span class="arithmatex">\(\det(A)\det(D) = 1\)</span> already in <span class="arithmatex">\(P\)</span>). The abelianization is <span class="arithmatex">\(P / [P, P] \cong \mathbb{G}_m\)</span> via <span class="arithmatex">\(h \mapsto \det(A)\)</span>. Hence <span class="arithmatex">\(\operatorname{X}(P) \cong \mathbb{Z}\)</span>, and</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(\operatorname{Gr}(V, m)) \cong \mathbb{Z}.
+\]</div>
+<p>The generator corresponds to the character <span class="arithmatex">\(\det(A)\)</span>, which gives the line bundle <span class="arithmatex">\(\det(\mathcal{S}^*)\)</span> on the Grassmannian, where <span class="arithmatex">\(\mathcal{S}\)</span> is the tautological rank-<span class="arithmatex">\(m\)</span> subbundle. Under the Plucker embedding <span class="arithmatex">\(\operatorname{Gr}(V, m) \hookrightarrow \mathbb{P}(\bigwedge^m V)\)</span>, this generator pulls back to <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Let Gr(n, m) = SL_n / P where P is the stabilizer of a coordinate m-plane. Compute X(P) by identifying P/[P,P], and use Popov's exact sequence to show Pic(Gr(n,m)) ≅ Z. Identify the generator geometrically. -->
+
+<h3 id="ecag-0272">Remark: Chow ring of Grassmannian<a class="headerlink" href="#ecag-0272" title="Permanent link">&para;</a></h3>
+<p>The codimension-1 part of <span class="arithmatex">\(A^*(\operatorname{Gr}(V, m))\)</span> can be computed from the Schubert cell decomposition. The cells are indexed by Young diagrams <span class="arithmatex">\(\lambda\)</span> fitting inside an <span class="arithmatex">\(m \times (n-m)\)</span> rectangle, with <span class="arithmatex">\(\operatorname{codim}(\Omega_\lambda) = |\lambda|\)</span>. There is a unique partition of size 1, namely <span class="arithmatex">\(\lambda = (1)\)</span> (a single box), so <span class="arithmatex">\(A^1(\operatorname{Gr}(V, m)) \cong \mathbb{Z}\)</span>, generated by the special Schubert variety <span class="arithmatex">\(\Omega_{(1)} = \{W \in \operatorname{Gr}(V, m) : W \cap H \neq 0\}\)</span> for a fixed hyperplane <span class="arithmatex">\(H \subset V\)</span>. This class corresponds to <span class="arithmatex">\(\det(\mathcal{S}^*)\)</span> under the identification <span class="arithmatex">\(\operatorname{Pic} \cong A^1\)</span>, confirming the group-theoretic computation.</p>
+<!-- BENCHMARK_PROBLEM: Using the Schubert cell decomposition of Gr(n, m), determine how many Schubert cells have codimension 1, and identify the corresponding Young diagram. Conclude that Pic(Gr(n,m)) ≅ Z. -->
+
+<h3 id="ecag-0273">Example: Relations between <span class="arithmatex">\(\operatorname{K}(X)\)</span> and <span class="arithmatex">\(\operatorname{Cl}(X)\)</span><a class="headerlink" href="#ecag-0273" title="Permanent link">&para;</a></h3>
+<p>For a Noetherian scheme <span class="arithmatex">\(X\)</span>, there are natural maps connecting the Grothendieck group <span class="arithmatex">\(K_0(X)\)</span>, the Picard group <span class="arithmatex">\(\operatorname{Pic}(X)\)</span>, and the Chow groups <span class="arithmatex">\(A^*(X)\)</span>.</p>
+<p><strong>The inclusion <span class="arithmatex">\(\operatorname{Pic}(X) \hookrightarrow K_0(X)\)</span>.</strong> The Grothendieck group <span class="arithmatex">\(K_0(X)\)</span> is the free abelian group on isomorphism classes of locally free sheaves modulo the relation <span class="arithmatex">\([\mathscr{E}] = [\mathscr{E}'] + [\mathscr{E}'']\)</span> for each short exact sequence <span class="arithmatex">\(0 \to \mathscr{E}' \to \mathscr{E} \to \mathscr{E}'' \to 0\)</span>. The map <span class="arithmatex">\(\mathcal{L} \mapsto [\mathcal{L}] - [\mathcal{O}_X]\)</span> is a group homomorphism <span class="arithmatex">\(\operatorname{Pic}(X) \to K_0(X)\)</span>.</p>
+<p><strong>The determinant map.</strong> The map <span class="arithmatex">\(\det : K_0(X) \to \operatorname{Pic}(X)\)</span> sends <span class="arithmatex">\([\mathscr{E}] \mapsto [\det(\mathscr{E})] = [\bigwedge^{\operatorname{rk}\mathscr{E}} \mathscr{E}]\)</span>. Composing with the inclusion, <span class="arithmatex">\(\det([\mathcal{L}] - [\mathcal{O}_X]) = \mathcal{L} \otimes \mathcal{O}_X^{-1} = \mathcal{L}\)</span>, so <span class="arithmatex">\(\det\)</span> is a left inverse. In particular, <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> is a direct summand of <span class="arithmatex">\(K_0(X)\)</span>.</p>
+<p><strong>Chern character for smooth varieties.</strong> When <span class="arithmatex">\(X\)</span> is smooth over a field, the Chern character gives an isomorphism <span class="arithmatex">\(\operatorname{ch} : K_0(X) \otimes \mathbb{Q} \xrightarrow{\sim} \bigoplus_p A^p(X) \otimes \mathbb{Q}\)</span>, and the first Chern class provides an isomorphism <span class="arithmatex">\(c_1 : \operatorname{Pic}(X) \xrightarrow{\sim} A^1(X) = \operatorname{Cl}(X)\)</span>.</p>
+<p><strong>Example: <span class="arithmatex">\(\mathbb{P}^n\)</span>.</strong> The ring <span class="arithmatex">\(K_0(\mathbb{P}^n) \cong \mathbb{Z}[h]/(h^{n+1})\)</span> where <span class="arithmatex">\(h = [\mathcal{O}(1)] - 1\)</span>, and <span class="arithmatex">\(\operatorname{Cl}(\mathbb{P}^n) \cong \mathbb{Z}\)</span> with generator <span class="arithmatex">\([H]\)</span>. The first Chern class sends <span class="arithmatex">\(c_1([\mathcal{O}(d)]) = d \cdot [H]\)</span>, recovering the degree.</p>
+<!-- BENCHMARK_PROBLEM: For X = P^n, describe the ring structure of K_0(P^n) and the first Chern class map c_1 : Pic(P^n) -> A^1(P^n). Show that the determinant map det : K_0(X) -> Pic(X) is a left inverse to the natural inclusion. -->
+
+<h3 id="ecag-0274">Example: <span class="arithmatex">\(\operatorname{Cl}(X)\)</span> of connected algebraic groups<a class="headerlink" href="#ecag-0274" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(G\)</span> be a connected linear algebraic group over an algebraically closed field <span class="arithmatex">\(k\)</span>, with maximal torus <span class="arithmatex">\(T\)</span> and Borel subgroup <span class="arithmatex">\(B\)</span>. The fibration <span class="arithmatex">\(G \to G/B\)</span> with solvable fiber <span class="arithmatex">\(B\)</span> (so <span class="arithmatex">\(\operatorname{Pic}(B) = 0\)</span>) yields, via the Leray spectral sequence, the exact sequence</p>
+<div class="arithmatex">\[
+0 \to \operatorname{X}(G) \to \operatorname{X}(T) \to \operatorname{Pic}(G/B) \to \operatorname{Pic}(G) \to 0.
+\]</div>
+<p>The map <span class="arithmatex">\(\operatorname{X}(T) \to \operatorname{Pic}(G/B)\)</span> sends a character <span class="arithmatex">\(\chi\)</span> to the line bundle <span class="arithmatex">\(\mathcal{L}(\chi) = G \times^B k_\chi\)</span>.</p>
+<p><strong>Simply connected semisimple groups.</strong> If <span class="arithmatex">\(G\)</span> is simply connected semisimple, then <span class="arithmatex">\(\operatorname{X}(G) = 0\)</span> and <span class="arithmatex">\(\operatorname{X}(T) \cong \Lambda_W\)</span> (the weight lattice) maps isomorphically onto <span class="arithmatex">\(\operatorname{Pic}(G/B) \cong \Lambda_W\)</span>, so <span class="arithmatex">\(\operatorname{Pic}(G) = 0\)</span>.</p>
+<p><strong>Adjoint groups.</strong> If <span class="arithmatex">\(G\)</span> is of adjoint type, then <span class="arithmatex">\(\operatorname{X}(T) = \Lambda_R\)</span> (the root lattice) and <span class="arithmatex">\(\operatorname{Pic}(G/B) \cong \Lambda_W\)</span>. The map <span class="arithmatex">\(\Lambda_R \to \Lambda_W\)</span> expresses simple roots in terms of fundamental weights, which is the Cartan matrix <span class="arithmatex">\(C\)</span>. The cokernel gives <span class="arithmatex">\(\operatorname{Pic}(G) \cong \Lambda_W / C \cdot \Lambda_R\)</span>.</p>
+<p><strong>Examples.</strong></p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(G\)</span></th>
+<th>Type</th>
+<th><span class="arithmatex">\(\operatorname{Pic}(G)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(SL_n\)</span></td>
+<td><span class="arithmatex">\(A_{n-1}\)</span>, simply connected</td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(PGL_n\)</span></td>
+<td><span class="arithmatex">\(A_{n-1}\)</span>, adjoint</td>
+<td><span class="arithmatex">\(\mathbb{Z}/n\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(SO_{2n+1}\)</span></td>
+<td><span class="arithmatex">\(B_n\)</span>, adjoint</td>
+<td><span class="arithmatex">\(\mathbb{Z}/2\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(Sp_{2n}\)</span></td>
+<td><span class="arithmatex">\(C_n\)</span>, simply connected</td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For <span class="arithmatex">\(PGL_n\)</span>: the Cartan matrix of type <span class="arithmatex">\(A_{n-1}\)</span> has determinant <span class="arithmatex">\(n\)</span>, and its Smith normal form reveals a single invariant factor <span class="arithmatex">\(n\)</span>, so <span class="arithmatex">\(\operatorname{coker}(C) \cong \mathbb{Z}/n\mathbb{Z}\)</span>.</p>
+<!-- BENCHMARK_PROBLEM: Using the exact sequence 0 -> X(G) -> X(T) -> Pic(G/B) -> Pic(G) -> 0, compute Pic(PGL_n). Identify X(T) as the root lattice and Pic(G/B) as the weight lattice, and show the cokernel of the Cartan matrix of type A_{n-1} is Z/nZ. -->
+
+<h3 id="ecag-0275">Example: <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> of determinantal varieties <span class="arithmatex">\(R_{m \times n, s}\)</span><a class="headerlink" href="#ecag-0275" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(R_{m \times n, s}\)</span> denote the variety of <span class="arithmatex">\(m \times n\)</span> matrices over <span class="arithmatex">\(\mathbb{C}\)</span> with rank <span class="arithmatex">\(\leq s\)</span>, where <span class="arithmatex">\(s \leq m \leq n\)</span>. If <span class="arithmatex">\(s = m\)</span>, then <span class="arithmatex">\(R_{m \times n, m} = \mathbb{A}^{mn}\)</span> and <span class="arithmatex">\(\operatorname{Pic} = 0\)</span>. For <span class="arithmatex">\(s &lt; m\)</span>, we show <span class="arithmatex">\(\operatorname{Pic}(R_{m \times n, s}) \cong \mathbb{Z}\)</span>.</p>
+<p><strong>The open stratum.</strong> Let <span class="arithmatex">\(U_s = R_{m \times n, s} \setminus R_{m \times n, s-1}\)</span> be the locus of matrices with rank exactly <span class="arithmatex">\(s\)</span>. The group <span class="arithmatex">\(G = SL_m \times SL_n\)</span> acts transitively on <span class="arithmatex">\(U_s\)</span> by <span class="arithmatex">\((g, h) \cdot M = gMh^{-1}\)</span>, with every rank-<span class="arithmatex">\(s\)</span> matrix conjugate to the standard form</p>
+<div class="arithmatex">\[
+E_s = \begin{pmatrix} I_s &amp; 0 \\ 0 &amp; 0 \end{pmatrix}.
+\]</div>
+<p><strong>Stabilizer computation.</strong> The stabilizer <span class="arithmatex">\(H \subset G\)</span> of <span class="arithmatex">\(E_s\)</span> consists of pairs of block matrices</p>
+<div class="arithmatex">\[
+H = \left\{ \left( \begin{pmatrix} A &amp; C \\ 0 &amp; D \end{pmatrix},\; \begin{pmatrix} A &amp; 0 \\ F &amp; K \end{pmatrix} \right) \in SL_m \times SL_n \right\}
+\]</div>
+<p>where <span class="arithmatex">\(A \in GL_s\)</span>, <span class="arithmatex">\(D \in GL_{m-s}\)</span>, <span class="arithmatex">\(K \in GL_{n-s}\)</span>, with <span class="arithmatex">\(\det(A)\det(D) = 1\)</span> and <span class="arithmatex">\(\det(A)\det(K) = 1\)</span>. The constraint <span class="arithmatex">\(gE_s h^{-1} = E_s\)</span> forces the upper-left <span class="arithmatex">\(s \times s\)</span> blocks to match and the lower-left block of <span class="arithmatex">\(g\)</span> to vanish.</p>
+<p><strong>Dimension.</strong> From <span class="arithmatex">\(\dim(U_s) = \dim(G) - \dim(H)\)</span>, a direct count gives <span class="arithmatex">\(\dim(R_{m \times n, s}) = (m + n - s)s\)</span>.</p>
+<p><strong>Codimension of the singular locus.</strong> The codimension of <span class="arithmatex">\(R_{m \times n, s-1}\)</span> in <span class="arithmatex">\(R_{m \times n, s}\)</span> is</p>
+<div class="arithmatex">\[
+(m+n-s)s - (m+n-s+1)(s-1) = m + n - 2s + 1.
+\]</div>
+<p>Since <span class="arithmatex">\(s &lt; m \leq n\)</span>, we have <span class="arithmatex">\(m + n - 2s + 1 \geq 3\)</span>. Therefore <span class="arithmatex">\(R_{m \times n, s-1}\)</span> has codimension <span class="arithmatex">\(\geq 3\)</span>, and excision gives <span class="arithmatex">\(\operatorname{Pic}(R_{m \times n, s}) \cong \operatorname{Pic}(U_s)\)</span> (removing a closed subset of codimension <span class="arithmatex">\(\geq 2\)</span> does not change the Picard group).</p>
+<p><strong>Character group.</strong> By Popov's theorem, <span class="arithmatex">\(\operatorname{Pic}(U_s) \cong \operatorname{X}(H)\)</span>. The abelianization <span class="arithmatex">\(H / [H, H] \cong \mathbb{G}_m\)</span> is generated by the character</p>
+<div class="arithmatex">\[
+\det_A : (g, h) \mapsto \det(A)
+\]</div>
+<p>(the determinant of the common upper-left <span class="arithmatex">\(s \times s\)</span> block). Hence <span class="arithmatex">\(\operatorname{X}(H) \cong \mathbb{Z}\)</span> and</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(R_{m \times n, s}) \cong \mathbb{Z}.
+\]</div>
+<!-- BENCHMARK_PROBLEM: Let R_{m x n, s} be the variety of m x n matrices of rank <= s with s < m <= n. Compute dim(R_{m x n, s}) using the transitive action of SL_m x SL_n on the rank-s locus, show dim(R_{m x n,s}) - dim(R_{m x n,s-1}) >= 3, and deduce Pic(R_{m x n, s}) ≅ Z by computing the character group of the stabilizer. -->
+
+<h3 id="ecag-0276">Remark<a class="headerlink" href="#ecag-0276" title="Permanent link">&para;</a></h3>
+<p>The rank stratification <span class="arithmatex">\(\{0\} = R_{m \times n, 0} \subset R_{m \times n, 1} \subset \cdots \subset R_{m \times n, s}\)</span> cannot be used with Kleiman's theorem (which computes Chow groups via cellular decompositions) because the strata <span class="arithmatex">\(U_j\)</span> are homogeneous spaces for <span class="arithmatex">\(SL_m \times SL_n\)</span>, not affine spaces <span class="arithmatex">\(\mathbb{A}^N\)</span>. The strata are rationally isomorphic to affine spaces but lack the cellular structure required by Kleiman's theorem. Nevertheless, the codimension/excision approach combined with Popov's sequence yields <span class="arithmatex">\(\operatorname{Pic}(R_{m \times n, s}) \cong \mathbb{Z}\)</span> by a rigorous method.</p>
+<h3 id="ecag-0277">Example: <span class="arithmatex">\(\operatorname{Pic}(X)\)</span> of the variety <span class="arithmatex">\(S_{n,m}\)</span><a class="headerlink" href="#ecag-0277" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\(S_{n,m}\)</span> denote the variety of unordered <span class="arithmatex">\(m\)</span>-frames in <span class="arithmatex">\(\mathbb{C}^n\)</span>, i.e., unordered <span class="arithmatex">\(m\)</span>-tuples of linearly independent vectors (formally, the quotient of the Stiefel variety by the symmetric group <span class="arithmatex">\(S_m\)</span> acting on the ordering). The group <span class="arithmatex">\(GL_n\)</span> acts transitively on <span class="arithmatex">\(S_{n,m}\)</span>.</p>
+<p><strong>General framework.</strong> Since <span class="arithmatex">\(\operatorname{Pic}(GL_n) = 0\)</span> (the only character is <span class="arithmatex">\(\det\)</span>, and <span class="arithmatex">\([GL_n, GL_n] = SL_n\)</span> gives <span class="arithmatex">\(\operatorname{X}(GL_n) \cong \mathbb{Z}\)</span>, but <span class="arithmatex">\(\operatorname{Pic}(GL_n) = 0\)</span> because <span class="arithmatex">\(GL_n\)</span> is a special group), Popov's exact sequence gives</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(S_{n,m}) \cong \operatorname{X}(SL_n \cap H)
+\]</div>
+<p>where <span class="arithmatex">\(H\)</span> is the stabilizer of the standard frame <span class="arithmatex">\(\{e_1, \ldots, e_m\}\)</span>.</p>
+<p><strong>Case <span class="arithmatex">\(m = 1\)</span>.</strong> The stabilizer is <span class="arithmatex">\(H \cong GL_{n-1}\)</span> (matrices fixing <span class="arithmatex">\(e_1\)</span>, acting freely on the complement), so <span class="arithmatex">\(H' = SL_n \cap H \cong SL_{n-1}\)</span> and <span class="arithmatex">\(\operatorname{X}(SL_{n-1}) = 0\)</span>. Hence <span class="arithmatex">\(\operatorname{Pic}(S_{n,1}) = 0\)</span>.</p>
+<p><strong>Case <span class="arithmatex">\(n = m\)</span>.</strong> The stabilizer is <span class="arithmatex">\(H = S_n\)</span> (permutation matrices), so <span class="arithmatex">\(H' = H \cap SL_n = A_n\)</span> (even permutations). The Picard group depends on the abelianization of <span class="arithmatex">\(A_n\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(n\)</span></th>
+<th><span class="arithmatex">\(A_n\)</span></th>
+<th><span class="arithmatex">\(A_n^{\mathrm{ab}} = A_n/[A_n, A_n]\)</span></th>
+<th><span class="arithmatex">\(\operatorname{Pic}(S_{n,n})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1, 2\)</span></td>
+<td>trivial</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(3\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span> (cyclic)</td>
+<td><span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(4\)</span></td>
+<td>order 12; <span class="arithmatex">\([A_4, A_4] = V_4\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{Z}/3\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\geq 5\)</span></td>
+<td>simple</td>
+<td><span class="arithmatex">\(0\)</span></td>
+<td><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For <span class="arithmatex">\(n = 4\)</span>: the commutator subgroup <span class="arithmatex">\([A_4, A_4]\)</span> is the Klein four-group <span class="arithmatex">\(V_4 \cong (\mathbb{Z}/2\mathbb{Z})^2\)</span>, so <span class="arithmatex">\(A_4^{\mathrm{ab}} \cong A_4/V_4 \cong \mathbb{Z}/3\mathbb{Z}\)</span>. For <span class="arithmatex">\(n \geq 5\)</span>: <span class="arithmatex">\(A_n\)</span> is simple, so <span class="arithmatex">\([A_n, A_n] = A_n\)</span> and <span class="arithmatex">\(\operatorname{X}(A_n) = 0\)</span>.</p>
+<p><strong>Case <span class="arithmatex">\(n &gt; m &gt; 1\)</span>.</strong> The stabilizer <span class="arithmatex">\(H\)</span> consists of block matrices that permute the first <span class="arithmatex">\(m\)</span> basis vectors and act invertibly on the remaining <span class="arithmatex">\(n - m\)</span> coordinates. Setting <span class="arithmatex">\(H' = H \cap SL_n\)</span>, one shows <span class="arithmatex">\(H'/[H', H'] \cong \mathbb{Z}/2\mathbb{Z}\)</span>: the only nontrivial character detects the sign of the permutation part (modulo the determinant-1 constraint). Hence</p>
+<div class="arithmatex">\[
+\operatorname{Pic}(S_{n,m}) \cong \mathbb{Z}/2\mathbb{Z}.
+\]</div>
+<!-- BENCHMARK_PROBLEM: Let S_{n,m} be the variety of unordered m-frames in C^n. Using the transitive GL_n-action and Popov's exact sequence, compute Pic(S_{n,n}) for n = 3, 4, and n >= 5 by determining the abelianization of the alternating group A_n. -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 &copy; 2018-2026 Waerden
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Waerden001/Examples_and_Counterexamples_in_Elementary_Algebraic_Geometry" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
